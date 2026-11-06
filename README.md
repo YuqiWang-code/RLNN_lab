@@ -14,7 +14,7 @@
 | `tools/` | 运行记录、同步、结果整理与快照工具 |
 | `tmp/` | 可清理的本地临时材料，不提交 |
 
-源码迁移与独立服务器部署已完成，GPU 1 的训练、解码与 fp16 冒烟均已通过。RB train/val/test 1000/100/500 图已准备。13 图合批的完整 50 epoch 单卡训练与独立测试正在运行。正式结果尚未完成。
+源码迁移与独立服务器部署已完成，GPU 1 的训练、解码与 fp16 冒烟均已通过。RB train/val/test 1000/100/500 图已准备。张量缓存与 8 worker 的续训正在运行，目标为总第 50 epoch；独立测试尚未完成。
 
 服务器 Linux（独立部署目录 `/home/hzeng/project/ZH/RLNN_lab`，从项目根目录执行）：
 
@@ -24,6 +24,7 @@ source "$HOME/envs/rlnn/bin/activate"
 bash train_scripts/v000_rlnn_baseline/setup_env.sh
 RUN_NAME=smoke_001 bash train_scripts/v000_rlnn_baseline/smoke.sh
 bash train_scripts/v000_rlnn_baseline/prepare_data.sh
+bash train_scripts/v000_rlnn_baseline/prepare_cache.sh
 RUN_NAME=rb_train_seed0 bash train_scripts/v000_rlnn_baseline/train.sh --seed 0
 CHECKPOINT_DIR="$PWD/outputs/v000_rlnn_baseline/rb_train_seed0/checkpoints" RUN_NAME=rb_test_seed0 bash train_scripts/v000_rlnn_baseline/eval.sh --seed 0
 ```

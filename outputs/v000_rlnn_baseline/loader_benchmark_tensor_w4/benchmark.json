@@ -1,0 +1,142 @@
+{
+  "format": "tensor",
+  "workers": 4,
+  "config": {
+    "resume": null,
+    "seed": 0,
+    "epochs": 2,
+    "batch_size": 1024,
+    "graph_batch_size": 13,
+    "lr": 0.0001,
+    "train_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train",
+    "train_samples": 104,
+    "valid_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "valid_samples": 2,
+    "test_path": "./",
+    "test_samples": -1,
+    "problem": "mis",
+    "num_workers": 4,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "./",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 50,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": true,
+    "skip_decode": false
+  },
+  "epochs": [
+    {
+      "train_wall_s": 6.581060999073088,
+      "graphs": 104,
+      "input_wait_s": 0.5316036934964359,
+      "compute_s": 6.049236512277275,
+      "gpu_util_mean": 44.39393939393939,
+      "gpu_util_max": 100.0,
+      "gpu_memory_max_mib": 22152.0,
+      "batches": [
+        {
+          "graphs": 13,
+          "input_wait_s": 0.500310174189508,
+          "compute_s": 2.303108532913029
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.007689062040299177,
+          "compute_s": 0.46697086934000254
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.01214633323252201,
+          "compute_s": 0.6074597560800612
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.0024604029022157192,
+          "compute_s": 0.5565295480191708
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.002201240975409746,
+          "compute_s": 0.5736157121136785
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.0022086920216679573,
+          "compute_s": 0.5985143720172346
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.0024132924154400826,
+          "compute_s": 0.46680501475930214
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.002174495719373226,
+          "compute_s": 0.4762327070347965
+        }
+      ]
+    },
+    {
+      "train_wall_s": 4.563874977175146,
+      "graphs": 104,
+      "input_wait_s": 0.353097400162369,
+      "compute_s": 4.21067916508764,
+      "gpu_util_mean": 64.95652173913044,
+      "gpu_util_max": 98.0,
+      "gpu_memory_max_mib": 22152.0,
+      "batches": [
+        {
+          "graphs": 13,
+          "input_wait_s": 0.3239258201792836,
+          "compute_s": 0.5119264521636069
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.0052440958097577095,
+          "compute_s": 0.5459146481007338
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.002867444884032011,
+          "compute_s": 0.5241906601004303
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.007525648921728134,
+          "compute_s": 0.5705746640451252
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.0024358900263905525,
+          "compute_s": 0.4835669621825218
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.0029692030511796474,
+          "compute_s": 0.517177258618176
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.005922341253608465,
+          "compute_s": 0.6135122189298272
+        },
+        {
+          "graphs": 13,
+          "input_wait_s": 0.002206956036388874,
+          "compute_s": 0.44381630094721913
+        }
+      ]
+    }
+  ],
+  "steady_seconds_per_graph": 0.043883413242068715
+}

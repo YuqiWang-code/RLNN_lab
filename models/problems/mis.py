@@ -3,6 +3,8 @@ import numpy as np
 import torch
 import pickle
 import glob
+import json
+from pathlib import Path
 import networkx as nx
 from torch_geometric.utils.convert import from_networkx
 from torch.utils.data import Dataset
@@ -14,7 +16,13 @@ class Dataset(Dataset):
     def __init__(self, data_dir, dtype=torch.float16, num_samples=-1):
         super(Dataset, self).__init__()
         self.dtype = dtype
-        self.files = glob.glob(os.path.join(data_dir,'*gpickle'))
+        manifest = Path(data_dir) / 'tensor_manifest.json'
+        self.tensor_cache = manifest.exists()
+        if self.tensor_cache:
+            entries = json.loads(manifest.read_text())['graphs']
+            self.files = [str(Path(data_dir) / entry['tensor']) for entry in entries]
+        else:
+            self.files = glob.glob(os.path.join(data_dir,'*gpickle'))
 
         if num_samples>0:
             self.files = self.files[:num_samples]
@@ -23,11 +31,15 @@ class Dataset(Dataset):
         return len(self.files)
     
     def __getitem__(self, idx):
-        G = nx.read_gpickle(self.files[idx])
-        data = from_networkx(G)
-        if not is_undirected(data.edge_index):
-            data.edge_index = to_undirected(data.edge_index)
-        data.edge_index = remove_self_loops(data.edge_index)[0]
+        if self.tensor_cache:
+            saved = torch.load(self.files[idx], map_location='cpu', weights_only=True)
+            data = Data(edge_index=saved['edge_index'], num_nodes=saved['num_nodes'])
+        else:
+            G = nx.read_gpickle(self.files[idx])
+            data = from_networkx(G)
+            if not is_undirected(data.edge_index):
+                data.edge_index = to_undirected(data.edge_index)
+            data.edge_index = remove_self_loops(data.edge_index)[0]
         data.edge_weight = torch.ones_like(data.edge_index[0], dtype=self.dtype)/2
         data.x = torch.ones(data.num_nodes,1, dtype=self.dtype)
         data.b = -torch.ones_like(data.x)

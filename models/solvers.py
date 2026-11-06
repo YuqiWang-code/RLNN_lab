@@ -1,4 +1,5 @@
 import os
+import random
 import time
 import numpy as np
 from tqdm import tqdm
@@ -49,16 +50,17 @@ class MetaSolver(object):
         else: 
             raise NotImplementedError
         
+        loader_options = dict(num_workers=args.num_workers, pin_memory=True, persistent_workers=args.num_workers > 0)
         if args.do_train:
             self.epochs = args.epochs
             train_dataset = dataset(args.train_path, self.dtype, args.train_samples)
             valid_dataset = dataset(args.valid_path, self.dtype, args.valid_samples)
-            self.train_loader = DataLoader(train_dataset, batch_size=args.graph_batch_size, num_workers=args.num_workers, shuffle=True, collate_fn=collate_fn) 
-            self.valid_loader = DataLoader(valid_dataset, batch_size=1, num_workers=args.num_workers, shuffle=False, collate_fn=collate_fn)
+            self.train_loader = DataLoader(train_dataset, batch_size=args.graph_batch_size, **loader_options, shuffle=True, collate_fn=collate_fn) 
+            self.valid_loader = DataLoader(valid_dataset, batch_size=1, **loader_options, shuffle=False, collate_fn=collate_fn)
             self.test_loader = None
         else:
             test_dataset = dataset(args.test_path, self.dtype, args.test_samples)
-            self.test_loader = DataLoader(test_dataset, batch_size=1, num_workers=args.num_workers, shuffle=False, collate_fn=collate_fn)
+            self.test_loader = DataLoader(test_dataset, batch_size=1, **loader_options, shuffle=False, collate_fn=collate_fn)
             self.train_loader = None
             self.valid_loader = None
             
@@ -234,10 +236,40 @@ class RLNN(MetaSolver):
         self.num_tp = args.num_tp
         self.num_kp = args.num_kp
         self.batch_size = args.batch_size
+        self.training_config = vars(args).copy()
+        self.resume_path = args.resume
+        self.resume_state = None
         self.graph_batch_size = args.graph_batch_size
         self.loss = args.loss
+        if self.resume_path and self.graph_batch_size < 2:
+            raise ValueError("Epoch resume requires graph_batch_size > 1")
         if self.graph_batch_size > 1 and self.loss != "erdoes":
             raise ValueError("Multiple-graph training requires erdoes loss")
+
+    def prepare(self):
+        super().prepare()
+        if self.resume_path:
+            self.resume_state = torch.load(self.resume_path, map_location='cpu', weights_only=False)
+            self.load_ckpt(self.resume_state['model'])
+            if self.resume_state['optimizer'] is not None:
+                self.optimizer.load_state_dict(self.resume_state['optimizer'])
+            rng = self.resume_state['rng']
+            if rng is not None:
+                random.setstate(rng['python'])
+                np.random.set_state(rng['numpy'])
+                torch.set_rng_state(rng['torch'])
+                if torch.cuda.is_available():
+                    torch.cuda.set_rng_state_all(rng['cuda'])
+
+    def save_training_state(self, save_dir, epoch, best_eval, logger, history):
+        state = {'model': self.accelerator.get_state_dict(self.model), 'config': self.training_config, 'source_run': os.path.dirname(save_dir) if os.path.basename(save_dir)=='checkpoints' else save_dir,
+            'optimizer': self.optimizer.state_dict(), 'best_model': torch.load(os.path.join(save_dir, 'best.pt'), map_location='cpu', weights_only=True), 'epoch': epoch,
+            'best_eval': best_eval, 'logger': dict(logger), 'history': list(history),
+            'resume_mode': 'training_state',
+            'rng': {'python': random.getstate(), 'numpy': np.random.get_state(),
+                'torch': torch.get_rng_state(),
+                'cuda': torch.cuda.get_rng_state_all() if torch.cuda.is_available() else []}}
+        torch.save(state, os.path.join(save_dir, 'latest_training.pt'))
 
     def train(self, save_dir):
         if self.graph_batch_size > 1:
@@ -304,9 +336,17 @@ class RLNN(MetaSolver):
     def train_graph_batches(self, save_dir):
         best_eval = np.inf
         logger = {'Epoch': 0, 'Iteration': 0, 'loss': None, 'valid_obj': None, 'valid_time': None}
+        start_epoch = 0
+        history = []
+        if self.resume_state is not None:
+            start_epoch = self.resume_state['epoch']
+            best_eval = self.resume_state['best_eval']
+            logger = dict(self.resume_state['logger'])
+            history = list(self.resume_state['history'])
+            torch.save(self.resume_state['best_model'], os.path.join(save_dir, 'best.pt'))
         self.accelerator.wait_for_everyone()
         self.print_log(logger)
-        for epoch in range(self.epochs):
+        for epoch in range(start_epoch, self.epochs):
             logger['Epoch'] = epoch+1
             self.model.train()
             for graphs in tqdm(self.train_loader, disable=not self.accelerator.is_local_main_process):
@@ -332,6 +372,8 @@ class RLNN(MetaSolver):
             if obj_result < best_eval:
                 best_eval = obj_result
                 self.save_ckpt(os.path.join(save_dir, 'best.pt'))
+            history.append(dict(logger))
+            self.save_training_state(save_dir, epoch+1, best_eval, logger, history)
 
     def generate_data(self, graph):
         x = torch.randint(0,2, (graph.num_nodes, self.num_k), device=self.accelerator.device, dtype=self.dtype)

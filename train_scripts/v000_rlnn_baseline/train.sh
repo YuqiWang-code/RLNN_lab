@@ -8,7 +8,7 @@ export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-backend:cudaMallocAsy
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-1}"
 cd "$ROOT/models"
 exec "${PYTHON:-python}" "$ROOT/tools/run_rlnn.py" train --run "${RUN_NAME:-train_$(date +%Y%m%d_%H%M%S)}" \
-  --train_path "${TRAIN_PATH:-$ROOT/models/data/MIS/RB_small_train}" \
-  --valid_path "${VALID_PATH:-$ROOT/models/data/MIS/RB_small_val}" \
-  --test_path "${TEST_PATH:-$ROOT/models/data/MIS/RB_small_test}" \
-  --method RLNN --loss erdoes --num_l 5 --num_h 128 --batch_size "${BATCH_SIZE:-1024}" --graph_batch_size "${GRAPH_BATCH_SIZE:-13}" "$@"
+  --train_path "${TRAIN_PATH:-$ROOT/models/data/MIS_tensors/RB_small_train}" \
+  --valid_path "${VALID_PATH:-$ROOT/models/data/MIS_tensors/RB_small_val}" \
+  --test_path "${TEST_PATH:-$ROOT/models/data/MIS_tensors/RB_small_test}" \
+  --num_workers "${NUM_WORKERS:-8}" --method RLNN --loss erdoes --num_l 5 --num_h 128 --batch_size "${BATCH_SIZE:-1024}" --graph_batch_size "${GRAPH_BATCH_SIZE:-13}" "$@"

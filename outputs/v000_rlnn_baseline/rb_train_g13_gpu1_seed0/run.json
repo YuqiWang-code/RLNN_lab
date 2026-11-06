@@ -57,7 +57,7 @@
     "test_path": 500
   },
   "reference": null,
-  "status": "running",
+  "status": "stopped",
   "commands": [
     [
       "/home/hzeng/envs/rlnn/bin/python",
@@ -121,5 +121,9 @@
       "no",
       "--do_train"
     ]
-  ]
+  ],
+  "stopped_at": "2026-11-06T14:12:39.642276+00:00",
+  "stop_reason": "Data loading optimization",
+  "completed_epochs": 24,
+  "best_epoch": 22
 }

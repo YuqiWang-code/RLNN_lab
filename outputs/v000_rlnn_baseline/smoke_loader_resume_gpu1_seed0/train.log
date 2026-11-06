@@ -1,0 +1,21 @@
+Epoch: 2 Iteration: 16 loss: 3373.573613800993 valid_obj: -17.5 valid_time: 0.4399775266647339
+
+  0%|          | 0/8 [00:00<?, ?it/s]/home/hzeng/project/ZH/RLNN_lab/models/solvers.py:381: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+
+ 12%|█▎        | 1/8 [00:02<00:18,  2.70s/it]
+ 25%|██▌       | 2/8 [00:03<00:08,  1.43s/it]
+ 38%|███▊      | 3/8 [00:03<00:05,  1.03s/it]
+ 50%|█████     | 4/8 [00:04<00:03,  1.20it/s]
+ 62%|██████▎   | 5/8 [00:04<00:02,  1.45it/s]
+ 75%|███████▌  | 6/8 [00:05<00:01,  1.63it/s]
+ 88%|████████▊ | 7/8 [00:05<00:00,  1.81it/s]
+100%|██████████| 8/8 [00:06<00:00,  1.95it/s]
+100%|██████████| 8/8 [00:06<00:00,  1.32it/s]
+
+  0%|          | 0/2 [00:00<?, ?it/s]
+ 50%|█████     | 1/2 [00:01<00:01,  1.14s/it]
+100%|██████████| 2/2 [00:01<00:00,  1.39it/s]
+100%|██████████| 2/2 [00:01<00:00,  1.28it/s]
+Epoch: 3 Iteration: 24 loss: 2576.7455102877193 valid_obj: -17.0 valid_time: 0.5423247814178467
+[W1106 22:26:33.247015560 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

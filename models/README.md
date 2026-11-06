@@ -18,3 +18,5 @@
 从本目录运行 `python main.py --help`；正式项目入口在 `../train_scripts/v000_rlnn_baseline/`。启动器进入本目录，`from models import GCN` 加载本目录的 `models.py`。不使用 `python -m models.main`。
 
 工程适配包括参数解析器、可配置多图合批和外围结果工具。多图路径对每图损失取平均，并并行生成独立轨迹；单图训练、网络、能量函数及解码保持上游行为。RTX 5090 的待验证环境方案见[服务器说明](../docs/服务器.md)，不直接安装原始 CUDA 12.4 环境。
+
+MIS 缓存由 data/prepare_mis_tensors.py 创建，保留原始图顺序。--resume 接收 epoch 边界训练状态；当前多图训练每轮保存 latest_training.pt，包含 Adam 和主进程随机状态。

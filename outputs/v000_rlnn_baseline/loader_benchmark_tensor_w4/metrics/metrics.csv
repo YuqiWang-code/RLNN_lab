@@ -1,0 +1,2 @@
+benchmark/train_time_s,benchmark/graph_time_s,benchmark/input_wait_s,benchmark/compute_time_s,benchmark/gpu_util_percent,benchmark/device_memory_mib
+4.563874977175146,0.043883413242068715,0.353097400162369,4.21067916508764,64.95652173913044,22152.0

@@ -1,0 +1,8 @@
+{
+  "source_run": "/home/hzeng/project/ZH/RLNN_lab/outputs/v000_rlnn_baseline/rb_train_g13_gpu1_seed0",
+  "source_completed_epochs": 24,
+  "resume_epoch": 22,
+  "best_valid_obj": -17.53999900817871,
+  "optimizer_reset": true,
+  "random_state_reset": true
+}

@@ -96,10 +96,14 @@ for (const filename of await findMetrics(outputs)) {
       if (value === null) continue;
       const split = metric.includes('/') ? metric.split('/')[0] : '';
       const datasetKey = { train: 'training_split', val: 'validation_split', test: 'test_split' }[split];
-      incoming.push([version, run, metadata.task, metadata[datasetKey] ?? metadata.dataset ?? '', split,
+      const inherited = metadata.resume?.inherited_config && row.epoch != null && row.epoch !== '' && Number(row.epoch) <= metadata.resume.epoch;
+      const config = inherited ? metadata.resume.inherited_config : metadata.config;
+      const splitPath = config?.[{train:'train_path',val:'valid_path',test:'test_path'}[split]];
+      incoming.push([version, run, metadata.task, splitPath ?? metadata[datasetKey] ?? metadata.dataset ?? '', split,
         numeric(row.epoch, source), numeric(row.step, source), metric, value,
-        unit(metric), source, recordedAt, JSON.stringify({kind:metadata.kind, mode:metadata.mode, measurement:metadata.measurement, seed:metadata.seed,
-          config:metadata.config, device:metadata.device, raw_logs:`outputs/${version}/${run}/`,
+        unit(metric), source, recordedAt, JSON.stringify({kind:metadata.kind, mode:metadata.mode, measurement:metadata.measurement, resume:metadata.resume, seed:metadata.seed,
+          config, device:inherited ? metadata.resume.inherited_device : metadata.device,
+          raw_logs:inherited ? metadata.resume.source_run : `outputs/${version}/${run}/`,
           reference:metadata.reference})]);
     }
   }

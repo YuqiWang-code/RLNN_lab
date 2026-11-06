@@ -30,6 +30,12 @@ def parse_training(text):
     return records
 
 
+def graph_count(path):
+    folder = Path(path)
+    manifest = folder / 'tensor_manifest.json'
+    return len(json.loads(manifest.read_text())['graphs']) if manifest.exists() else len(list(folder.glob('*gpickle')))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode', choices=['train', 'eval', 'smoke'])
@@ -47,10 +53,10 @@ def main():
     upstream_parser.set_defaults(method='RLNN', loss='erdoes', num_l=5, num_h=128,
         problem='mis', epochs=50, batch_size=1024, graph_batch_size=13, lr=0.0001, num_t=100, num_k=20,
         num_tp=50, num_kp=10, num_d=5, beta=1.02, lambd=0.5,
-        mixed_precision='no', num_workers=0,
-        train_path=str(ROOT / 'models/data/MIS/RB_small_train'),
-        valid_path=str(ROOT / 'models/data/MIS/RB_small_val'),
-        test_path=str(ROOT / 'models/data/MIS/RB_small_test'),
+        mixed_precision='no', num_workers=8,
+        train_path=str(ROOT / 'models/data/MIS_tensors/RB_small_train'),
+        valid_path=str(ROOT / 'models/data/MIS_tensors/RB_small_val'),
+        test_path=str(ROOT / 'models/data/MIS_tensors/RB_small_test'),
         train_samples=1000, valid_samples=100, test_samples=-1)
     args = upstream_parser.parse_args(forwarded)
     if args.method != 'RLNN' or args.problem != 'mis' or args.skip_decode:
@@ -72,6 +78,7 @@ def main():
         args.epochs, args.batch_size, args.num_k, args.num_tp, args.num_t = 1, 2, 2, 2, 2
         args.train_samples, args.valid_samples, args.test_samples = 2, 1, 1
         args.graph_batch_size = min(args.graph_batch_size, 2)
+        args.num_workers = 0
     for name in ['train_path', 'valid_path', 'test_path']:
         path = Path(getattr(args, name))
         path = path if path.is_absolute() else ROOT / path
@@ -87,13 +94,23 @@ def main():
         config=vars(args).copy(), seed=args.seed, started_at=datetime.now(timezone.utc).isoformat(),
         device={'CUDA_VISIBLE_DEVICES': os.environ['CUDA_VISIBLE_DEVICES'], 'torch': torch.__version__,
                 'cuda': torch.version.cuda, 'cpu_threads': torch.get_num_threads(), 'allocator_config': os.environ.get('PYTORCH_CUDA_ALLOC_CONF', ''), 'allocator_backend': torch.cuda.memory.get_allocator_backend() if torch.cuda.is_available() else 'cpu', 'name': torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'},
-        dataset_counts={name:len(list(Path(getattr(args,name)).glob('*gpickle'))) for name in ['train_path','valid_path','test_path']},
+        dataset_counts={name:graph_count(getattr(args,name)) for name in ['train_path','valid_path','test_path']},
         reference=None, status='running')
     metadata_path = run / 'run.json'
     def save_metadata():
         metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     save_metadata()
     records = []
+    resume_epoch = 0
+    if args.resume:
+        resume_state = torch.load(args.resume, map_location='cpu', weights_only=False)
+        resume_epoch = resume_state['epoch']
+        lines = [' '.join(f'{key}: {value}' for key,value in row.items()) for row in resume_state['history']]
+        records = parse_training('\n'.join(lines))
+        source_meta_path = Path(resume_state.get('source_run', '')) / 'run.json'
+        source_meta = json.loads(source_meta_path.read_text()) if source_meta_path.is_file() else {}
+        metadata['resume'] = {'source': args.resume, 'epoch': resume_epoch, 'mode': resume_state['resume_mode'], 'optimizer_reset': resume_state['optimizer'] is None, 'random_state_reset': resume_state['rng'] is None, 'inherited_config': resume_state.get('config'), 'inherited_device': resume_state.get('device') or source_meta.get('device'), 'source_run': resume_state.get('source_run')}
+        save_metadata()
     started = time.perf_counter()
     try:
         modes = ['train', 'eval'] if control.mode == 'smoke' else [control.mode]
@@ -101,8 +118,8 @@ def main():
             args.do_train = mode == 'train'
             required = ['train_path', 'valid_path'] if args.do_train else ['test_path']
             for name in required:
-                if not list(Path(getattr(args,name)).glob('*gpickle')):
-                    raise ValueError(f'{name}: no .gpickle graphs in {getattr(args,name)}')
+                if not graph_count(getattr(args,name)):
+                    raise ValueError(f'{name}: no graphs in {getattr(args,name)}')
             if not args.do_train and not (Path(args.save_dir) / 'best.pt').is_file():
                 raise FileNotFoundError(Path(args.save_dir) / 'best.pt')
             command = [sys.executable, '-u', 'main.py']
@@ -125,7 +142,7 @@ def main():
             if mode == 'train':
                 parsed = parse_training(''.join(lines))
                 if not parsed: raise ValueError('training log contains no completed validation')
-                records.extend(parsed)
+                records.extend(row for row in parsed if row['epoch'] > resume_epoch)
             else:
                 text = Path(args.log_file).read_text()
                 obj = float(re.search(r'Avg\. obj:\s*(\S+)', text)[1])

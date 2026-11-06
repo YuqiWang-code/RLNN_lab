@@ -14,6 +14,7 @@ def set_seed(seed):
 
 def build_parser():
     parser = argparse.ArgumentParser(description="RLD")
+    parser.add_argument("--resume", type=str, help="multi-graph epoch-boundary training state")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--batch_size", type=int, default=1)

@@ -1,0 +1,20 @@
+{
+  "train": {
+    "source": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS/RB_small_train",
+    "cache_directory": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train",
+    "count": 1000,
+    "original_order_preserved": true
+  },
+  "val": {
+    "source": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS/RB_small_val",
+    "cache_directory": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "count": 100,
+    "original_order_preserved": true
+  },
+  "test": {
+    "source": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS/RB_small_test",
+    "cache_directory": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_test",
+    "count": 500,
+    "original_order_preserved": true
+  }
+}
