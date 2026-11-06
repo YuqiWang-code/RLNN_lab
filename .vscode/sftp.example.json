@@ -1,0 +1,25 @@
+{
+  "name": "nexco-lab Server",
+  "protocol": "sftp",
+  "host": "SERVER_IP",
+  "port": 22,
+  "username": "USERNAME",
+  "password": "PASSWORD",
+  "remotePath": "/home/USERNAME/project/ZH/nexco-lab/",
+  "uploadOnSave": false,
+  "ignore": [
+    "**/.git/**",
+    "**/.vscode/**",
+    "**/tmp/**",
+    "**/node_modules/**",
+    "**/__pycache__/**",
+    "**/build/**",
+    "**/*.o",
+    "**/*.so",
+    "**/*.pth",
+    "**/*.pt",
+    "**/*.ckpt",
+    "**/*.safetensors",
+    "**/outputs/**"
+  ]
+}
