@@ -1,0 +1,16 @@
+{
+  "python": "3.10.19 (main, Oct 21 2025, 16:43:05) [GCC 11.2.0]",
+  "executable": "/home/hzeng/envs/rlnn/bin/python",
+  "torch": "2.9.1+cu130",
+  "cuda": "13.0",
+  "torch_geometric": "2.7.0",
+  "torch_scatter": "2.1.2+pt29cu130",
+  "networkx": "2.8.8",
+  "accelerate": "1.0.1",
+  "CUDA_VISIBLE_DEVICES": "1",
+  "gpu_name": "NVIDIA GeForce RTX 5090",
+  "compute_capability": [
+    12,
+    0
+  ]
+}

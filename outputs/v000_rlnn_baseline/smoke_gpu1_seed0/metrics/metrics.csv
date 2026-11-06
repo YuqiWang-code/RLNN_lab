@@ -1,0 +1,4 @@
+epoch,run/wall_time,test/independent_set_size,test/raw_obj,test/time,train/loss,val/independent_set_size,val/raw_obj,val/time
+1,,,,,-0.1744482530653477,4.0,-4.0,0.11801695823669434
+,,3.0,-3.0,1.368903,,,,
+,21.346754195168614,,,,,,,

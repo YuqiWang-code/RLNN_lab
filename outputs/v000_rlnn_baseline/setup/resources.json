@@ -1,0 +1,99 @@
+{
+  "timestamp": "2026-11-06T18:42:37.198771",
+  "os": {
+    "system": "Linux",
+    "release": "6.17.0-41-generic",
+    "version": "#41-Ubuntu SMP PREEMPT_DYNAMIC Sat Jun 20 18:01:40 UTC 2026",
+    "machine": "x86_64",
+    "python_version": "3.10.19"
+  },
+  "cpu": {
+    "physical_cores": 48,
+    "logical_cores": 96,
+    "max_frequency_mhz": 3800.0,
+    "architecture": "x86_64",
+    "processor": "",
+    "current_frequency_mhz": 797.7645937500001
+  },
+  "memory": {
+    "total_gb": 247.09,
+    "available_gb": 203.36,
+    "used_gb": 43.73,
+    "percent_used": 17.7,
+    "swap_total_gb": 8.0,
+    "swap_available_gb": 0.0
+  },
+  "disk": {
+    "path": "/home/hzeng/project/ZH/RLNN_lab",
+    "total_gb": 1740.66,
+    "available_gb": 47.59,
+    "used_gb": 1604.58,
+    "percent_used": 97.1
+  },
+  "gpu": {
+    "nvidia_gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 5090",
+        "memory_total_mb": 32607.0,
+        "memory_free_mb": 31074.0,
+        "driver_version": "590.48.01",
+        "compute_capability": "12.0",
+        "type": "NVIDIA",
+        "backend": "CUDA"
+      },
+      {
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 5090",
+        "memory_total_mb": 32607.0,
+        "memory_free_mb": 32092.0,
+        "driver_version": "590.48.01",
+        "compute_capability": "12.0",
+        "type": "NVIDIA",
+        "backend": "CUDA"
+      }
+    ],
+    "amd_gpus": [],
+    "apple_silicon": null,
+    "total_gpus": 2,
+    "available_backends": [
+      "CUDA"
+    ]
+  },
+  "recommendations": {
+    "parallel_processing": {
+      "strategy": "high_parallelism",
+      "suggested_workers": 94,
+      "libraries": [
+        "joblib",
+        "multiprocessing",
+        "dask"
+      ]
+    },
+    "memory_strategy": {
+      "strategy": "memory_abundant",
+      "note": "Can load most datasets into memory"
+    },
+    "gpu_acceleration": {
+      "available": true,
+      "backends": [
+        "CUDA"
+      ],
+      "suggested_libraries": [
+        "pytorch",
+        "tensorflow",
+        "jax",
+        "cupy",
+        "rapids"
+      ]
+    },
+    "large_data_handling": {
+      "strategy": "moderate_disk",
+      "libraries": [
+        "zarr",
+        "h5py",
+        "parquet"
+      ]
+    }
+  }
+}

@@ -14,12 +14,12 @@
 | `tools/` | 运行记录、同步、结果整理与快照工具 |
 | `tmp/` | 可清理的本地临时材料，不提交 |
 
-源码、文档和管理工具已迁移。当前没有正式 RLNN 训练或评价成绩，`docs/实验结果.xlsx` 仅保留表头。Windows 缺少 PyG、torch-scatter、Accelerate、tqdm；完整 RLNN 冒烟测试尚未执行成功。服务器部署目录和新环境待准备，自动同步已关闭。
+源码迁移与独立服务器部署已完成，GPU 1 的训练、解码与 fp16 冒烟均已通过。RB train/val/test 1000/100/500 图已准备。完整 50 epoch 单卡训练与独立测试正在运行。正式结果尚未完成。
 
-服务器 Linux（部署路径确认、源码同步完成后，从项目根目录执行）：
+服务器 Linux（独立部署目录 `/home/hzeng/project/ZH/RLNN_lab`，从项目根目录执行）：
 
 ```bash
-python3.11 -m venv "$HOME/envs/rlnn"
+python3.10 -m venv "$HOME/envs/rlnn"
 source "$HOME/envs/rlnn/bin/activate"
 bash train_scripts/v000_rlnn_baseline/setup_env.sh
 RUN_NAME=smoke_001 bash train_scripts/v000_rlnn_baseline/smoke.sh
@@ -28,7 +28,7 @@ RUN_NAME=rb_train_seed0 bash train_scripts/v000_rlnn_baseline/train.sh --seed 0
 CHECKPOINT_DIR="$PWD/outputs/v000_rlnn_baseline/rb_train_seed0/checkpoints" RUN_NAME=rb_test_seed0 bash train_scripts/v000_rlnn_baseline/eval.sh --seed 0
 ```
 
-默认 `CUDA_VISIBLE_DEVICES=1`，使用前确认该设备当前可用；可显式覆盖。训练入口固定 `--method RLNN --loss erdoes --num_l 5 --num_h 128`，以单个 Python 进程运行。数据集与 checkpoint 配置见[数据集](docs/数据集.md)和[基线](docs/RLNN基线.md)。环境安装方案尚未在服务器执行。
+默认 `CUDA_VISIBLE_DEVICES=1`，使用前确认该设备当前可用；可显式覆盖。训练入口固定 `--method RLNN --loss erdoes --num_l 5 --num_h 128`，以单个 Python 进程运行。数据集与 checkpoint 配置见[数据集](docs/数据集.md)和[基线](docs/RLNN基线.md)。服务器环境已安装并通过 GPU 冒烟。
 
 Windows 本地整理（拉回真实运行产物后；使用提供 `@oai/artifact-tool` 的 Node 运行时）：
 
@@ -38,6 +38,6 @@ node tools/collect_results.mjs
 python tools/snapshot.py --version v000_rlnn_baseline
 ```
 
-同步目前会拒绝执行，直至本地 `.vscode/sftp.json` 中的新部署目录获确认，填写 `remotePath` 并设 `deploymentConfirmed=true`。凭据不入库。工具依赖及冒烟结果的单独整理方式见 [tools/README.md](tools/README.md)。
+本地 `.vscode/sftp.json` 已确认独立 RLNN 部署路径，`deploymentConfirmed=true`；自动保存上传关闭，按需同步。凭据不入库。工具依赖及冒烟结果的单独整理方式见 [tools/README.md](tools/README.md)。
 
 基线论文：Shengyu Feng and Yiming Yang. *Regularized Langevin Dynamics for Combinatorial Optimization*. ICML 2025, PMLR 267:16977–16992. [正式论文页](https://proceedings.mlr.press/v267/feng25r.html)。[本地 PDF](docs/参考文献/神经组合优化/RLNN%28ICML2025%29.pdf)及[源码来源](docs/源码来源.md)保留原始归属。

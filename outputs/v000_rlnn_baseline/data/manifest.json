@@ -1,0 +1,46 @@
+{
+  "dataset": "RB200-300",
+  "source": "models/data/rb_generator.py + xu_util.py",
+  "created_at": "2026-11-06T10:44:24.151959+00:00",
+  "networkx": "2.8.8",
+  "numpy": "1.26.4",
+  "requested_node_range": [
+    200,
+    300
+  ],
+  "splits": {
+    "train": {
+      "path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS/RB_small_train",
+      "count": 1000,
+      "seed": 0,
+      "per_graph_seed": "seed + idx",
+      "min_nodes": 200,
+      "max_nodes": 264,
+      "mean_nodes": 228.23,
+      "min_edges": 1440,
+      "max_edges": 6780
+    },
+    "val": {
+      "path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS/RB_small_val",
+      "count": 100,
+      "seed": 100000,
+      "per_graph_seed": "seed + idx",
+      "min_nodes": 200,
+      "max_nodes": 264,
+      "mean_nodes": 228.83,
+      "min_edges": 1539,
+      "max_edges": 6581
+    },
+    "test": {
+      "path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS/RB_small_test",
+      "count": 500,
+      "seed": 200000,
+      "per_graph_seed": "seed + idx",
+      "min_nodes": 200,
+      "max_nodes": 264,
+      "mean_nodes": 229.052,
+      "min_edges": 1395,
+      "max_edges": 6720
+    }
+  }
+}

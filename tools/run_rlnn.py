@@ -34,6 +34,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode', choices=['train', 'eval', 'smoke'])
     parser.add_argument('--run', required=True)
+    parser.add_argument('--kind', choices=['single_gpu','smoke'], help='result classification; inferred from mode by default')
     parser.add_argument('--checkpoint', type=Path, help='directory containing best.pt (evaluation)')
     control, forwarded = parser.parse_known_args()
     if Path(control.run).name != control.run or control.run in ('.', '..'):
@@ -77,12 +78,13 @@ def main():
     args.log_file = str(run / 'evaluation.txt')
     args.do_train = control.mode != 'eval'
     import torch
-    metadata = dict(version=VERSION, run=control.run, task='MIS', dataset='RB200-300' if control.mode != 'smoke' else 'tiny-ER8',
-        kind='smoke' if control.mode == 'smoke' else 'single_gpu', mode=control.mode,
+    kind = control.kind or ('smoke' if control.mode == 'smoke' else 'single_gpu')
+    metadata = dict(version=VERSION, run=control.run, task='MIS', dataset='tiny-ER8' if kind == 'smoke' else 'RB200-300',
+        kind=kind, mode=control.mode,
         training_split=args.train_path, validation_split=args.valid_path, test_split=args.test_path,
         config=vars(args).copy(), seed=args.seed, started_at=datetime.now(timezone.utc).isoformat(),
         device={'CUDA_VISIBLE_DEVICES': os.environ['CUDA_VISIBLE_DEVICES'], 'torch': torch.__version__,
-                'cuda': torch.version.cuda, 'name': torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'},
+                'cuda': torch.version.cuda, 'cpu_threads': torch.get_num_threads(), 'name': torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'},
         dataset_counts={name:len(list(Path(getattr(args,name)).glob('*gpickle'))) for name in ['train_path','valid_path','test_path']},
         reference=None, status='running')
     metadata_path = run / 'run.json'
