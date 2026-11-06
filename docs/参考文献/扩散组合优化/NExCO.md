@@ -6,6 +6,7 @@ NExCO: Native solution expansion for diffusion-based combinatorial optimization.
 
 - [论文页面](https://openreview.net/forum?id=084SvT55yk)
 - [论文 PDF](https://openreview.net/pdf?id=084SvT55yk)
+- [本地论文 PDF](<nexco(2026).pdf>)
 - 本地实现说明：[models/README.md](../../../models/README.md)
 - [预训练检查点来源](https://drive.google.com/drive/folders/1rJseX3_htz0MFmM0R0E9NWVCz0ePflIs?usp=drive_link)
 
