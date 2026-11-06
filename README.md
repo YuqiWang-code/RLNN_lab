@@ -1,66 +1,43 @@
-# NExCO Lab
+# RLNN Lab
 
-基于 NExCO 的扩散组合优化实验，覆盖 TSP、CVRP 和 MIS。模型说明见 [models/README.md](models/README.md)。
+基于 Shengyu Feng、Yiming Yang 的 [RLD4CO 官方实现](https://github.com/Shengyu-Feng/RLD4CO)，研究 RLNN 神经组合优化方法。当前起点为 **MIS、RB200–300、单张 RTX 5090**，版本为 `v000_rlnn_baseline`。
 
-## 项目目录
+[项目仓库](https://github.com/YuqiWang-code/RLNN_lab) · [基线配置与差异](docs/RLNN基线.md) · [项目现状](docs/项目现状.md) · [文献索引](docs/参考文献/文献索引.md)
 
-| 目录 | 内容 |
+| 目录 | 用途 |
 | --- | --- |
-| `models/` | 模型、训练入口、数据加载器、解码与本地搜索代码；所有模型迭代在此进行 |
-| `train_scripts/<版本>/` | 对应版本的服务器训练和测试启动脚本 |
-| `outputs/<版本>/<运行名>/` | 控制台日志、CSV 指标、运行参数；目录与启动脚本版本对应 |
-| `docs/参考文献/` | 按研究类型分目录保存参考材料；统一入口为 [文献索引](docs/参考文献/文献索引.md) |
-| `docs/` | [服务器信息](docs/服务器.md)、[数据集信息](docs/数据集.md)、[项目现状](docs/项目现状.md)和 [实验结果工作簿](docs/实验结果.xlsx) |
-| `docs/已归档文件/` | 已结束或搁置的想法及结论 |
-| `docs/temporary/` | [当前想法](docs/temporary/当前想法.md)、各版本代码和数值结果的 TXT 快照 |
-| `tools/` | 服务器同步、结果整理和快照工具，见 [工具说明](tools/README.md) |
-| `tmp/` | 可清理的临时文件，不提交 Git |
-| `.vscode/` | 本机 SFTP 配置；账号密码只保存在本机配置中 |
+| `models/` | 上游源码及后续模型迭代；保留原始布局 |
+| `train_scripts/v000_rlnn_baseline/` | 环境、数据、训练、评估与冒烟入口 |
+| `outputs/v000_rlnn_baseline/<run>/` | 实际日志、配置和指标；权重留在服务器 |
+| `docs/` | 服务器、数据、基线说明、参考文献和实验结果工作簿 |
+| `docs/temporary/` | 当前想法、代码与工作簿数值快照 |
+| `tools/` | 运行记录、同步、结果整理与快照工具 |
+| `tmp/` | 可清理的本地临时材料，不提交 |
 
-## 运行实验
+源码、文档和管理工具已迁移。当前没有正式 RLNN 训练或评价成绩，`docs/实验结果.xlsx` 仅保留表头。Windows 缺少 PyG、torch-scatter、Accelerate、tqdm；完整 RLNN 冒烟测试尚未执行成功。服务器部署目录和新环境待准备，自动同步已关闭。
 
-TSP100 当前版本为 `v001_tsp100`，初始代码归档为 `v000_baseline`。在服务器项目根目录运行：
+服务器 Linux（部署路径确认、源码同步完成后，从项目根目录执行）：
 
 ```bash
-CUDA_VISIBLE_DEVICES=1 bash train_scripts/v001_tsp100/train_tsp100.sh
-CKPT_PATH=/absolute/path/to/trained/checkpoint.ckpt bash train_scripts/v001_tsp100/test_tsp100.sh
+python3.11 -m venv "$HOME/envs/rlnn"
+source "$HOME/envs/rlnn/bin/activate"
+bash train_scripts/v000_rlnn_baseline/setup_env.sh
+RUN_NAME=smoke_001 bash train_scripts/v000_rlnn_baseline/smoke.sh
+bash train_scripts/v000_rlnn_baseline/prepare_data.sh
+RUN_NAME=rb_train_seed0 bash train_scripts/v000_rlnn_baseline/train.sh --seed 0
+CHECKPOINT_DIR="$PWD/outputs/v000_rlnn_baseline/rb_train_seed0/checkpoints" RUN_NAME=rb_test_seed0 bash train_scripts/v000_rlnn_baseline/eval.sh --seed 0
 ```
 
-本版脚本默认使用 GPU 1。可用 `RUN_NAME` 指定运行名，每次独立实验使用不同名称。额外训练参数可追加在脚本命令后。原始版本的其他任务脚本位于 `train_scripts/v000_baseline/`。
+默认 `CUDA_VISIBLE_DEVICES=1`，使用前确认该设备当前可用；可显式覆盖。训练入口固定 `--method RLNN --loss erdoes --num_l 5 --num_h 128`，以单个 Python 进程运行。数据集与 checkpoint 配置见[数据集](docs/数据集.md)和[基线](docs/RLNN基线.md)。环境安装方案尚未在服务器执行。
 
-运行产物位于 `outputs/v001_tsp100/<运行名>/`：`console.log`、`run.json`、`metrics/metrics.csv`，以及服务器上的检查点和 W&B 离线记录。检查点和大型中间文件留在服务器。一轮训练后，完整 TSP100 测试集的扩展后平均 gap 为 **1.0085%**；配置与结果见 [TSP100 基线](docs/TSP100基线.md)。
-
-## 训练结束后
-
-本机项目根目录执行：
+Windows 本地整理（拉回真实运行产物后；使用提供 `@oai/artifact-tool` 的 Node 运行时）：
 
 ```powershell
 python tools/server.py pull
 node tools/collect_results.mjs
-python tools/snapshot.py --version v001_tsp100
-git add .
-git commit -m "Record TSP100 baseline experiment results"
-git push origin main
-python tools/server.py push
+python tools/snapshot.py --version v000_rlnn_baseline
 ```
 
-整理工具读取 CSV 中的全部非空数值，保留 epoch、step、数据划分、单位和来源。重复执行会刷新相同日志的记录。`docs/实验结果.xlsx` 是结果总表；没有实测结果时保留空表。TXT 快照包含当前 `models/` 源码、启动脚本以及工作簿全部工作表的单元格内容。
+同步目前会拒绝执行，直至本地 `.vscode/sftp.json` 中的新部署目录获确认，填写 `remotePath` 并设 `deploymentConfirmed=true`。凭据不入库。工具依赖及冒烟结果的单独整理方式见 [tools/README.md](tools/README.md)。
 
-## 本地与服务器同步
-
-连接配置为 `.vscode/sftp.json`，模板见 [.vscode/sftp.example.json](.vscode/sftp.example.json)。
-
-```powershell
-python -m pip install -r tools/requirements.txt
-python tools/server.py status
-git add .
-python tools/server.py push
-```
-
-`push` 上传 Git 已登记的工作区文件，不删除服务器文件；修改后尚未提交的已登记文件也会上传。`pull` 下载 `outputs/` 下的日志、指标和参数文本，跳过检查点、W&B 二进制目录及超过 50 MiB 的单个文件。新建源码先 `git add` 再同步。
-
-GitHub：[YuqiWang-code/nexco-lab](https://github.com/YuqiWang-code/nexco-lab)。
-
-## 已知问题
-
-TSP100 专用环境及训练、验证数据已准备，模型训练所得检查点保存在服务器。其他规模和任务的数据准备状态及代码限制见 [项目现状](docs/项目现状.md)。
+基线论文：Shengyu Feng and Yiming Yang. *Regularized Langevin Dynamics for Combinatorial Optimization*. ICML 2025, PMLR 267:16977–16992. [正式论文页](https://proceedings.mlr.press/v267/feng25r.html)。[本地 PDF](docs/参考文献/神经组合优化/RLNN%28ICML2025%29.pdf)及[源码来源](docs/源码来源.md)保留原始归属。

@@ -14,11 +14,13 @@ const option = (name, fallback) => {
   return i < 0 ? fallback : args[i + 1];
 };
 if (args.includes('--help')) {
-  console.log('node tools/collect_results.mjs [--outputs outputs] [--workbook docs/实验结果.xlsx] [--preview tmp/results.png]');
+  console.log('node tools/collect_results.mjs [--kind single_gpu|smoke] [--outputs outputs] [--workbook docs/实验结果.xlsx] [--preview tmp/results.png]');
   process.exit(0);
 }
 const outputs = path.resolve(root, option('--outputs', 'outputs'));
-const destination = path.resolve(root, option('--workbook', 'docs/实验结果.xlsx'));
+const kind = option('--kind', 'single_gpu');
+if (!['single_gpu', 'smoke'].includes(kind)) throw new Error('kind must be single_gpu or smoke');
+const destination = path.resolve(root, option('--workbook', kind === 'smoke' ? 'docs/冒烟结果.xlsx' : 'docs/实验结果.xlsx'));
 const headers = ['version', 'run', 'task', 'dataset', 'split', 'epoch', 'step', 'metric', 'value', 'unit', 'source', 'recorded_at', 'notes'];
 
 async function findMetrics(dir) {
@@ -41,9 +43,8 @@ function numeric(value, context) {
 }
 
 function unit(metric) {
-  if (metric.endsWith('/gap') || metric.endsWith('/rewrite_gap')) return '%';
-  if (metric.endsWith('/time')) return 's';
-  if (metric.endsWith('_MB')) return 'MiB';
+  if (metric.endsWith('/time') || metric.endsWith('/wall_time')) return 's';
+  if (metric.endsWith('/independent_set_size')) return 'nodes';
   return '';
 }
 
@@ -68,8 +69,13 @@ for (const filename of await findMetrics(outputs)) {
   const relative = path.relative(outputs, filename).split(path.sep);
   if (relative.length < 4) throw new Error(`${filename}: expected outputs/<version>/<run>/metrics/metrics.csv`);
   const [version, run] = relative;
+  if (version !== 'v000_rlnn_baseline') continue;
   const metadataPath = path.join(outputs, version, run, 'run.json');
   const metadata = JSON.parse(await fs.readFile(metadataPath, 'utf8'));
+  if (metadata.kind !== kind) continue;
+  if (metadata.status !== 'completed' || metadata.version !== version || metadata.run !== run) {
+    throw new Error(`${metadataPath}: completed run provenance required`);
+  }
   const source = path.relative(root, filename).split(path.sep).join('/');
   replacedSources.add(source);
   const csv = await Workbook.fromCSV(await fs.readFile(filename, 'utf8'), { sheetName: 'CSV' });
@@ -86,7 +92,9 @@ for (const filename of await findMetrics(outputs)) {
       const datasetKey = { train: 'training_split', val: 'validation_split', test: 'test_split' }[split];
       incoming.push([version, run, metadata.task, metadata[datasetKey] ?? '', split,
         numeric(row.epoch, source), numeric(row.step, source), metric, value,
-        unit(metric), source, recordedAt, '']);
+        unit(metric), source, recordedAt, JSON.stringify({kind:metadata.kind, seed:metadata.seed,
+          config:metadata.config, device:metadata.device, raw_logs:`outputs/${version}/${run}/`,
+          reference:metadata.reference})]);
     }
   }
 }

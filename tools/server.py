@@ -5,7 +5,6 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import posixpath
-import shlex
 import stat
 import subprocess
 
@@ -36,9 +35,9 @@ def mkdir(sftp, remote):
 
 
 def push(sftp, remote):
-    names = subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode('utf-8').split('\0')
+    names = subprocess.check_output(['git', 'ls-files', '--cached', '--others', '--exclude-standard', '-z'], cwd=ROOT).decode('utf-8').split('\0')
     count = 0
-    for name in names:
+    for name in sorted(set(names)):
         if not name or PurePosixPath(name).parts[0] in {'.vscode', 'outputs', 'tmp'}:
             continue
         source = ROOT / name
@@ -58,7 +57,7 @@ def push(sftp, remote):
         if source.suffix == '.sh':
             sftp.chmod(target, 0o755)
         count += 1
-    for folder in ('outputs', 'tmp', 'docs/temporary', 'models/ckpts'):
+    for folder in ('outputs/v000_rlnn_baseline', 'tmp', 'docs/temporary'):
         mkdir(sftp, posixpath.join(remote, folder))
     print(f'Uploaded {count} files to {remote}')
 
@@ -88,13 +87,15 @@ def main():
     args = parser.parse_args()
     config = json.loads((ROOT / '.vscode/sftp.json').read_text(encoding='utf-8-sig'))
     remote = config['remotePath'].rstrip('/')
+    if args.action != 'status' and (not remote or not config.get('deploymentConfirmed', False)):
+        parser.error('Deployment pending: confirm the new RLNN server directory and set remotePath and deploymentConfirmed before synchronization.')
     with paramiko.SSHClient() as client:
         client.load_system_host_keys()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         client.connect(config['host'], port=config.get('port', 22), username=config['username'],
                        password=config.get('password'), timeout=20, look_for_keys=False, allow_agent=False)
         if args.action == 'status':
-            _, stdout, stderr = client.exec_command(STATUS + '\nls -la ' + shlex.quote(remote), timeout=40)
+            _, stdout, stderr = client.exec_command(STATUS, timeout=40)
             report = stdout.read().decode('utf-8') + stderr.read().decode('utf-8')
             if args.save:
                 args.save.parent.mkdir(parents=True, exist_ok=True)
@@ -105,7 +106,8 @@ def main():
                 if args.action == 'push':
                     push(sftp, remote)
                 else:
-                    print(f'Downloaded {pull(sftp, remote + "/outputs", ROOT / "outputs")} output files')
+                    relative = 'outputs/v000_rlnn_baseline'
+                    print(f'Downloaded {pull(sftp, remote + "/" + relative, ROOT / relative)} output files')
 
 
 if __name__ == '__main__':

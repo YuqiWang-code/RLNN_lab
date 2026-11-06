@@ -62,13 +62,13 @@ def main():
     target.parent.mkdir(parents=True, exist_ok=True)
     commit = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True)
     with target.open('x', encoding='utf-8', newline='\n') as output:
-        output.write(f'NExCO Lab | {args.version}\nTime: {now.isoformat()}\n')
+        output.write(f'RLNN Lab | {args.version}\nTime: {now.isoformat()}\n')
         if commit.returncode == 0:
             dirty = subprocess.check_output(['git', 'status', '--porcelain', '--', 'models', 'train_scripts', str(workbook)], cwd=ROOT, text=True)
             output.write(f'Git base: {commit.stdout.strip()}\nWorking tree: {"modified" if dirty.strip() else "clean"}\n')
         for folder in ('models', 'train_scripts'):
             for source in sorted((ROOT / folder).rglob('*')):
-                if not source.is_file() or any(part in {'data', 'assets', 'build', '__pycache__'} for part in source.relative_to(ROOT / folder).parts):
+                if not source.is_file() or any(part in {'logs_train', 'assets', 'build', '__pycache__'} for part in source.relative_to(ROOT / folder).parts):
                     continue
                 if source.suffix.lower() not in SOURCE_SUFFIXES and source.name not in {'Makefile', 'requirements.txt'}:
                     continue

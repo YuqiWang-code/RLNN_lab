@@ -1,12 +1,13 @@
 {
-  "name": "nexco-lab Server",
-  "protocol": "sftp",
+  "name": "RLNN Lab Server (pending deployment)",
   "host": "SERVER_IP",
+  "protocol": "sftp",
   "port": 22,
   "username": "USERNAME",
   "password": "PASSWORD",
-  "remotePath": "/home/USERNAME/project/ZH/nexco-lab/",
+  "remotePath": "",
   "uploadOnSave": false,
+  "syncMode": "update",
   "ignore": [
     "**/.git/**",
     "**/.vscode/**",
@@ -21,5 +22,11 @@
     "**/*.ckpt",
     "**/*.safetensors",
     "**/outputs/**"
-  ]
+  ],
+  "watcher": {
+    "files": "**/*",
+    "autoUpload": false,
+    "autoDelete": false
+  },
+  "deploymentConfirmed": false
 }

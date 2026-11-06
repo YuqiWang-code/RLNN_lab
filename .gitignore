@@ -6,6 +6,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
+.venv/
 node_modules/
 *.so
 *.o
@@ -15,15 +16,11 @@ build/
 *.pt
 *.ckpt
 *.safetensors
-
-ckpts/
-Mask-T2T-main/
+*.gpickle
+*.npy
+*.npz
+RLD4CO-main.zip
 wandb/
-results/
-trace_dir/
 *.log
 !outputs/**/*.log
-
-Paper_TPAMI/
 tmp/
-tmp/.DS_Store
