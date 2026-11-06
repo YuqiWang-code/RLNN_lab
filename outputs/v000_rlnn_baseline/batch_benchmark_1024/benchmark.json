@@ -1,0 +1,131 @@
+{
+  "started_at": "2026-11-06T11:02:12.260273+00:00",
+  "config": {
+    "seed": 0,
+    "epochs": 1,
+    "batch_size": 1024,
+    "lr": 0.0001,
+    "train_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS/RB_small_train",
+    "train_samples": 8,
+    "valid_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS/RB_small_val",
+    "valid_samples": 1,
+    "test_path": "./",
+    "test_samples": -1,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "./",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 50,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": true,
+    "skip_decode": false
+  },
+  "GPU": "1",
+  "torch": "2.9.1+cu130",
+  "summary": {
+    "total_s": 0.3045025463216007,
+    "generation_s": 0.16523497066061413,
+    "update_s": 0.13926757566098655,
+    "updates": 1.0,
+    "peak_allocated_mib": 1828.49560546875,
+    "peak_reserved_mib": 5188.0,
+    "batch_size": 1024,
+    "effective_batch": 1000,
+    "measured_graphs": 7,
+    "warmup_graphs": 1
+  },
+  "graphs": [
+    {
+      "nodes": 210,
+      "states": 1000,
+      "generation_s": 1.0811797138303518,
+      "total_s": 1.8447156329639256,
+      "updates": 1,
+      "peak_allocated_mib": 1446.42919921875,
+      "peak_reserved_mib": 1676.0,
+      "update_s": 0.7635359191335738
+    },
+    {
+      "nodes": 242,
+      "states": 1000,
+      "generation_s": 0.17858608113601804,
+      "total_s": 0.3700533681549132,
+      "updates": 1,
+      "peak_allocated_mib": 1677.2734375,
+      "peak_reserved_mib": 3368.0,
+      "update_s": 0.19146728701889515
+    },
+    {
+      "nodes": 200,
+      "states": 1000,
+      "generation_s": 0.16329321637749672,
+      "total_s": 0.3283557309769094,
+      "updates": 1,
+      "peak_allocated_mib": 1389.8544921875,
+      "peak_reserved_mib": 3368.0,
+      "update_s": 0.16506251459941268
+    },
+    {
+      "nodes": 220,
+      "states": 1000,
+      "generation_s": 0.184255993925035,
+      "total_s": 0.3441143757663667,
+      "updates": 1,
+      "peak_allocated_mib": 1526.55029296875,
+      "peak_reserved_mib": 3368.0,
+      "update_s": 0.15985838184133172
+    },
+    {
+      "nodes": 210,
+      "states": 1000,
+      "generation_s": 0.10074759740382433,
+      "total_s": 0.32879946706816554,
+      "updates": 1,
+      "peak_allocated_mib": 1458.28857421875,
+      "peak_reserved_mib": 3368.0,
+      "update_s": 0.2280518696643412
+    },
+    {
+      "nodes": 207,
+      "states": 1000,
+      "generation_s": 0.23282383289188147,
+      "total_s": 0.4040612387470901,
+      "updates": 1,
+      "peak_allocated_mib": 1437.67236328125,
+      "peak_reserved_mib": 3368.0,
+      "update_s": 0.17123740585520864
+    },
+    {
+      "nodes": 220,
+      "states": 1000,
+      "generation_s": 0.1106124366633594,
+      "total_s": 0.13741104258224368,
+      "updates": 1,
+      "peak_allocated_mib": 1526.611328125,
+      "peak_reserved_mib": 3368.0,
+      "update_s": 0.026798605918884277
+    },
+    {
+      "nodes": 264,
+      "states": 1000,
+      "generation_s": 0.18632563622668386,
+      "total_s": 0.2187226009555161,
+      "updates": 1,
+      "peak_allocated_mib": 1828.49560546875,
+      "peak_reserved_mib": 5188.0,
+      "update_s": 0.032396964728832245
+    }
+  ],
+  "wall_time_s": 5.025690220762044
+}

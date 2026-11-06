@@ -17,6 +17,7 @@ def build_parser():
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--batch_size", type=int, default=1)
+    parser.add_argument("--graph_batch_size", type=int, default=1, help="graphs per RLNN erdoes training update")
     parser.add_argument("--lr", type=float, default=0.01)
     parser.add_argument("--train_path", type=str)
     parser.add_argument("--train_samples", type=int, default=-1)

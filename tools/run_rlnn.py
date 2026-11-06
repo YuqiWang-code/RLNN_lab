@@ -24,7 +24,7 @@ def parse_training(text):
         if pairs.get('valid_obj') in (None, 'None'):
             continue
         obj = float(pairs['valid_obj'])
-        records.append({'epoch': int(pairs['Epoch']), 'train/loss': float(pairs['loss']),
+        records.append({'epoch': int(pairs['Epoch']), 'step': int(pairs['Iteration']) if int(pairs.get('Iteration',0)) > 0 else None, 'train/loss': float(pairs['loss']),
                         'val/raw_obj': obj, 'val/independent_set_size': -obj,
                         'val/time': float(pairs['valid_time'])})
     return records
@@ -34,6 +34,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode', choices=['train', 'eval', 'smoke'])
     parser.add_argument('--run', required=True)
+    parser.add_argument('--dataset', help='dataset label for run provenance')
     parser.add_argument('--kind', choices=['single_gpu','smoke'], help='result classification; inferred from mode by default')
     parser.add_argument('--checkpoint', type=Path, help='directory containing best.pt (evaluation)')
     control, forwarded = parser.parse_known_args()
@@ -44,7 +45,7 @@ def main():
     upstream = importlib.import_module('main')
     upstream_parser = upstream.build_parser()
     upstream_parser.set_defaults(method='RLNN', loss='erdoes', num_l=5, num_h=128,
-        problem='mis', epochs=50, batch_size=32, lr=0.0001, num_t=100, num_k=20,
+        problem='mis', epochs=50, batch_size=1024, graph_batch_size=13, lr=0.0001, num_t=100, num_k=20,
         num_tp=50, num_kp=10, num_d=5, beta=1.02, lambd=0.5,
         mixed_precision='no', num_workers=0,
         train_path=str(ROOT / 'models/data/MIS/RB_small_train'),
@@ -70,6 +71,7 @@ def main():
             setattr(args, {'train':'train_path','val':'valid_path','test':'test_path'}[split], str(folder))
         args.epochs, args.batch_size, args.num_k, args.num_tp, args.num_t = 1, 2, 2, 2, 2
         args.train_samples, args.valid_samples, args.test_samples = 2, 1, 1
+        args.graph_batch_size = min(args.graph_batch_size, 2)
     for name in ['train_path', 'valid_path', 'test_path']:
         path = Path(getattr(args, name))
         path = path if path.is_absolute() else ROOT / path
@@ -79,12 +81,12 @@ def main():
     args.do_train = control.mode != 'eval'
     import torch
     kind = control.kind or ('smoke' if control.mode == 'smoke' else 'single_gpu')
-    metadata = dict(version=VERSION, run=control.run, task='MIS', dataset='tiny-ER8' if kind == 'smoke' else 'RB200-300',
+    metadata = dict(version=VERSION, run=control.run, task='MIS', dataset=control.dataset or ('tiny-ER8' if control.mode == 'smoke' else 'RB200-300'),
         kind=kind, mode=control.mode,
         training_split=args.train_path, validation_split=args.valid_path, test_split=args.test_path,
         config=vars(args).copy(), seed=args.seed, started_at=datetime.now(timezone.utc).isoformat(),
         device={'CUDA_VISIBLE_DEVICES': os.environ['CUDA_VISIBLE_DEVICES'], 'torch': torch.__version__,
-                'cuda': torch.version.cuda, 'cpu_threads': torch.get_num_threads(), 'name': torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'},
+                'cuda': torch.version.cuda, 'cpu_threads': torch.get_num_threads(), 'allocator_config': os.environ.get('PYTORCH_CUDA_ALLOC_CONF', ''), 'allocator_backend': torch.cuda.memory.get_allocator_backend() if torch.cuda.is_available() else 'cpu', 'name': torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'},
         dataset_counts={name:len(list(Path(getattr(args,name)).glob('*gpickle'))) for name in ['train_path','valid_path','test_path']},
         reference=None, status='running')
     metadata_path = run / 'run.json'

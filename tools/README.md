@@ -25,3 +25,5 @@ snapshot 将 models（含数据生成源码，排除图数据与作者日志）�
 ## 完成后归档
 
 `python tools/finish_baseline.py --watch` 等待本版本服务器流程结束，确认 50 epoch 与 1000/100/500 数据完整后，拉取结果、整理两个工作簿、生成正式报告与快照，再同步服务器并提交推送。服务器流程失败时记录状态并停止发布；本地状态位于 `tmp/baseline_completion.json`。
+
+当前训练默认 GRAPH_BATCH_SIZE=13、BATCH_SIZE=1024，分配器 cudaMallocAsync。多图集成检查可用 --kind smoke --dataset RB200-300 显式记录真实数据类别。check_graph_batch.py 验证按图平均的损失及梯度，probe_graph_batch.py 记录显存与 GPU 阶段吞吐。

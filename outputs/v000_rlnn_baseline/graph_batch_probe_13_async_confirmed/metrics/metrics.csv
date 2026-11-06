@@ -1,0 +1,2 @@
+benchmark/graph_time_s,benchmark/largest_graph_time_s,benchmark/peak_allocated_mib,benchmark/peak_reserved_mib,benchmark/peak_device_used_mib,benchmark/peak_device_percent,benchmark/graph_batch_size,benchmark/effective_batch
+0.03340929947220362,0.04765116362474286,23506.99749660492,23680.0,24392,74.80602324654215,13,13000

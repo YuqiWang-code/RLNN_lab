@@ -1,0 +1,2 @@
+benchmark/graph_time_s,benchmark/generation_time_s,benchmark/update_time_s,benchmark/peak_allocated_mib,benchmark/peak_reserved_mib,benchmark/updates_per_graph,benchmark/configured_batch,benchmark/effective_batch
+0.3045025463216007,0.16523497066061413,0.13926757566098655,1828.49560546875,5188.0,1.0,1024,1000

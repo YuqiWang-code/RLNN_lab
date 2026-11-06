@@ -54,7 +54,7 @@
     "test_path": 500
   },
   "reference": null,
-  "status": "running",
+  "status": "stopped",
   "commands": [
     [
       "/home/hzeng/envs/rlnn/bin/python",
@@ -116,5 +116,7 @@
       "no",
       "--do_train"
     ]
-  ]
+  ],
+  "stopped_at": "2026-11-06T10:59:56.572237+00:00",
+  "stop_reason": "User requested restart with larger state batch"
 }

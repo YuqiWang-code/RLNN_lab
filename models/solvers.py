@@ -16,6 +16,13 @@ import importlib
 import scipy.sparse as sp
 from scipy.optimize import minimize
 
+def erdoes_graph_batch_loss(problem, A, b, x, prob, graph_index, num_graphs, num_d, lambd):
+    flipped = (1-prob)*x + prob*(1-x)
+    energy, _ = problem.energy_func(A, b, flipped, False)
+    expected_flips = scatter_add(prob, graph_index, dim=0, dim_size=num_graphs)
+    return energy.mean()/num_graphs + lambd*((expected_flips-num_d)**2).mean()
+
+
 class MetaSolver(object):
     def __init__(self, args):
         self.num_t = args.num_t
@@ -46,7 +53,7 @@ class MetaSolver(object):
             self.epochs = args.epochs
             train_dataset = dataset(args.train_path, self.dtype, args.train_samples)
             valid_dataset = dataset(args.valid_path, self.dtype, args.valid_samples)
-            self.train_loader = DataLoader(train_dataset, batch_size=1, num_workers=args.num_workers, shuffle=True, collate_fn=collate_fn) 
+            self.train_loader = DataLoader(train_dataset, batch_size=args.graph_batch_size, num_workers=args.num_workers, shuffle=True, collate_fn=collate_fn) 
             self.valid_loader = DataLoader(valid_dataset, batch_size=1, num_workers=args.num_workers, shuffle=False, collate_fn=collate_fn)
             self.test_loader = None
         else:
@@ -227,9 +234,14 @@ class RLNN(MetaSolver):
         self.num_tp = args.num_tp
         self.num_kp = args.num_kp
         self.batch_size = args.batch_size
+        self.graph_batch_size = args.graph_batch_size
         self.loss = args.loss
+        if self.graph_batch_size > 1 and self.loss != "erdoes":
+            raise ValueError("Multiple-graph training requires erdoes loss")
 
     def train(self, save_dir):
+        if self.graph_batch_size > 1:
+            return self.train_graph_batches(save_dir)
         best_eval = 0
         num_iter = 0
         logger = {'Epoch': 0, 'Iteration': 0, 'loss': None, 'valid_obj': None, 'valid_time': None}    
@@ -289,6 +301,38 @@ class RLNN(MetaSolver):
                 best_eval = obj_result
                 self.save_ckpt(os.path.join(save_dir, 'best.pt'))
     
+    def train_graph_batches(self, save_dir):
+        best_eval = np.inf
+        logger = {'Epoch': 0, 'Iteration': 0, 'loss': None, 'valid_obj': None, 'valid_time': None}
+        self.accelerator.wait_for_everyone()
+        self.print_log(logger)
+        for epoch in range(self.epochs):
+            logger['Epoch'] = epoch+1
+            self.model.train()
+            for graphs in tqdm(self.train_loader, disable=not self.accelerator.is_local_main_process):
+                graph = build_batch(graphs)
+                inputs = self.generate_data(graph)
+                A = torch.sparse_coo_tensor(graph.edge_index, graph.edge_weight,
+                    torch.Size((graph.num_nodes, graph.num_nodes))).to_sparse_csr()
+                for start in range(0, inputs.shape[1], self.batch_size):
+                    x = inputs[:, start:start+self.batch_size]
+                    prob = torch.sigmoid(self.model(x.unsqueeze(-1), graph.edge_index).squeeze(-1))
+                    loss = erdoes_graph_batch_loss(self.problem, A, graph.b, x, prob,
+                        graph.batch, len(graphs), self.num_d, self.lambd)
+                    self.optimizer.zero_grad()
+                    self.accelerator.backward(loss)
+                    self.optimizer.step()
+                    logger['Iteration'] += 1
+                    logger['loss'] = loss.item() if logger['loss'] is None else 0.95*logger['loss']+0.05*loss.item()
+            self.accelerator.wait_for_everyone()
+            with torch.no_grad():
+                obj_result, time_result = self.evaluate('valid')
+            logger['valid_obj'], logger['valid_time'] = obj_result, time_result
+            self.print_log(logger)
+            if obj_result < best_eval:
+                best_eval = obj_result
+                self.save_ckpt(os.path.join(save_dir, 'best.pt'))
+
     def generate_data(self, graph):
         x = torch.randint(0,2, (graph.num_nodes, self.num_k), device=self.accelerator.device, dtype=self.dtype)
         A = torch.sparse_coo_tensor(

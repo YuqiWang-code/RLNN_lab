@@ -43,6 +43,12 @@ function numeric(value, context) {
 }
 
 function unit(metric) {
+  if (metric.endsWith('_percent')) return '%';
+  if (metric.endsWith('/graph_batch_size')) return 'graphs';
+  if (metric.endsWith('_s')) return 's';
+  if (metric.endsWith('_mib')) return 'MiB';
+  if (metric.endsWith('/updates_per_graph')) return 'updates';
+  if (metric.endsWith('_batch')) return 'states';
   if (metric.endsWith('/time') || metric.endsWith('/wall_time')) return 's';
   if (metric.endsWith('/independent_set_size')) return 'nodes';
   return '';
@@ -90,9 +96,9 @@ for (const filename of await findMetrics(outputs)) {
       if (value === null) continue;
       const split = metric.includes('/') ? metric.split('/')[0] : '';
       const datasetKey = { train: 'training_split', val: 'validation_split', test: 'test_split' }[split];
-      incoming.push([version, run, metadata.task, metadata[datasetKey] ?? '', split,
+      incoming.push([version, run, metadata.task, metadata[datasetKey] ?? metadata.dataset ?? '', split,
         numeric(row.epoch, source), numeric(row.step, source), metric, value,
-        unit(metric), source, recordedAt, JSON.stringify({kind:metadata.kind, seed:metadata.seed,
+        unit(metric), source, recordedAt, JSON.stringify({kind:metadata.kind, mode:metadata.mode, measurement:metadata.measurement, seed:metadata.seed,
           config:metadata.config, device:metadata.device, raw_logs:`outputs/${version}/${run}/`,
           reference:metadata.reference})]);
     }

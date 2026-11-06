@@ -1,0 +1,3 @@
+epoch,run/wall_time,step,train/loss,val/independent_set_size,val/raw_obj,val/time
+1,,2,4838.378515625001,17.5,-17.5,0.4461301565170288
+,15.77588745392859,,,,,

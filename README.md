@@ -1,6 +1,6 @@
 # RLNN Lab
 
-基于 Shengyu Feng、Yiming Yang 的 [RLD4CO 官方实现](https://github.com/Shengyu-Feng/RLD4CO)，研究 RLNN 神经组合优化方法。当前起点为 **MIS、RB200–300、单张 RTX 5090**，版本为 `v000_rlnn_baseline`。
+基于 Shengyu Feng、Yiming Yang 的 [RLD4CO 官方实现](https://github.com/Shengyu-Feng/RLD4CO)，研究 RLNN 神经组合优化方法。当前起点为 **MIS、RB200–300、单张 RTX 5090**（13 图合批，每图 1000 状态），版本为 `v000_rlnn_baseline`。
 
 [项目仓库](https://github.com/YuqiWang-code/RLNN_lab) · [基线配置与差异](docs/RLNN基线.md) · [项目现状](docs/项目现状.md) · [文献索引](docs/参考文献/文献索引.md)
 
@@ -14,7 +14,7 @@
 | `tools/` | 运行记录、同步、结果整理与快照工具 |
 | `tmp/` | 可清理的本地临时材料，不提交 |
 
-源码迁移与独立服务器部署已完成，GPU 1 的训练、解码与 fp16 冒烟均已通过。RB train/val/test 1000/100/500 图已准备。完整 50 epoch 单卡训练与独立测试正在运行。正式结果尚未完成。
+源码迁移与独立服务器部署已完成，GPU 1 的训练、解码与 fp16 冒烟均已通过。RB train/val/test 1000/100/500 图已准备。13 图合批的完整 50 epoch 单卡训练与独立测试正在运行。正式结果尚未完成。
 
 服务器 Linux（独立部署目录 `/home/hzeng/project/ZH/RLNN_lab`，从项目根目录执行）：
 
