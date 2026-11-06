@@ -58,7 +58,7 @@
     "test_path": 500
   },
   "reference": null,
-  "status": "running",
+  "status": "completed",
   "resume": {
     "source": "/home/hzeng/project/ZH/RLNN_lab/outputs/v000_rlnn_baseline/resume_g13_epoch22/state.pt",
     "epoch": 22,
@@ -173,5 +173,7 @@
       "no",
       "--do_train"
     ]
-  ]
+  ],
+  "finished_at": "2026-11-06T15:15:27.597059+00:00",
+  "wall_time_s": 2773.447835584171
 }

@@ -44,4 +44,4 @@ val/test time 是上游每图采样与解码平均墙钟秒数，未显式 CUDA 
 
 上游 prepare 的 optimzier 拼写与 RLPGSA 未定义分支保留原状；本项目使用单进程、float32 训练和 RLNN / erdoes。
 
-GPU 环境、RB 数据、图缓存与续训检查已完成；缓存和 8 worker 续训运行中，独立测试尚未完成。
+GPU 环境、RB 数据、端到端冒烟、50 epoch 正式训练与 500 图测试均已完成，结果见[实验报告](实验报告.md)。
