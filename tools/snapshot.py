@@ -57,6 +57,10 @@ def main():
     if not args.version or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-' for c in args.version):
         parser.error('version must contain only letters, numbers, underscores and hyphens')
     workbook = args.workbook.resolve(strict=True)
+    workbooks = [workbook]
+    smoke = ROOT / 'docs/冒烟结果.xlsx'
+    if smoke.exists() and smoke.resolve() != workbook:
+        workbooks.append(smoke.resolve())
     now = datetime.now().astimezone()
     target = ROOT / 'docs/temporary' / f'{args.version}_{now:%Y%m%d_%H%M%S}.txt'
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -75,8 +79,9 @@ def main():
                 output.write(f'\n{"=" * 72}\nFILE: {source.relative_to(ROOT).as_posix()}\n{"=" * 72}\n')
                 output.write(source.read_text(encoding='utf-8-sig'))
                 output.write('\n')
-        output.write(f'\n{"=" * 72}\nWORKBOOK: {workbook.name}\n{"=" * 72}\n')
-        output.writelines(workbook_text(workbook))
+        for book in workbooks:
+            output.write(f'\n{"=" * 72}\nWORKBOOK: {book.name}\n{"=" * 72}\n')
+            output.writelines(workbook_text(book))
     print(target.relative_to(ROOT))
 
 

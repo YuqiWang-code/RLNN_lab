@@ -20,7 +20,7 @@ python tools/snapshot.py --version v000_rlnn_baseline
 
 Results 长表字段：version、run、task、dataset（实际划分路径）、split、epoch、step、metric、value、unit、source、recorded_at、notes。step 空缺：原日志没有可靠更新计数。notes 保存 kind、seed、模型/训练/搜索配置、设备、原日志目录、参考值来源。raw_obj 保留负目标，independent_set_size 为其相反数；未引入 gap。val/test time 为每图平均秒数，run/wall_time 为外围总秒数。具体统计范围见[基线](../docs/RLNN基线.md)。
 
-snapshot 将 models（含数据生成源码，排除图数据与作者日志）、项目训练脚本及工作簿单元格值写入 `docs/temporary/<version>_<time>.txt`，记录 Git 基点与工作区状态。原始 ZIP 和大文件不写入快照。tmp 中不再需要的中间文件应及时清理。
+snapshot 将 models（含数据生成源码，排除图数据与作者日志）、项目训练脚本及正式/冒烟工作簿单元格值写入 `docs/temporary/<version>_<time>.txt`，记录 Git 基点与工作区状态。原始 ZIP 和大文件不写入快照。tmp 中不再需要的中间文件应及时清理。
 
 ## 完成后归档
 
