@@ -48,7 +48,7 @@ class TSPModel(COMetaModel):
 
     def training_step(self, batch, batch_idx):
         loss = self.consistency_trainer.consistency_losses(self, batch)
-        self.log("train/loss", loss)
+        self.log("train/loss", loss, on_step=True, on_epoch=True)
         return loss
 
     def test_step(self, batch, batch_idx, split="test"):

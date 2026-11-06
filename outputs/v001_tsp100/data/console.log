@@ -1,0 +1,24 @@
+500/10000 instances, 15.2s
+1000/10000 instances, 29.7s
+1500/10000 instances, 45.6s
+2000/10000 instances, 59.4s
+2500/10000 instances, 73.3s
+3000/10000 instances, 88.3s
+3500/10000 instances, 104.6s
+4000/10000 instances, 118.7s
+4500/10000 instances, 134.5s
+5000/10000 instances, 150.5s
+5500/10000 instances, 163.9s
+6000/10000 instances, 177.2s
+6500/10000 instances, 191.2s
+7000/10000 instances, 204.5s
+7500/10000 instances, 218.1s
+8000/10000 instances, 231.9s
+8500/10000 instances, 246.4s
+9000/10000 instances, 259.8s
+9500/10000 instances, 273.8s
+10000/10000 instances, 288.8s
+{"output": "data/tsp_train/tsp100_train_lkh100_10000.txt", "samples": 10000, "seed": 20261106, "nodes": 100, "trials": 100, "workers": 8, "lkh": "/usr/local/bin/LKH", "scratch": "../tmp", "distribution": "independent U([0,1]^2)", "coordinate_scale": 1000000, "solver_runs": 1, "mean_reference_cost": 7.765640398073105, "generation_seconds": 288.8557999134064, "numpy_version": "2.2.6"}
+128/128 instances, 8.3s
+{"output": "data/tsp/tsp100_val_lkh100_128.txt", "samples": 128, "seed": 20261107, "nodes": 100, "trials": 100, "workers": 4, "lkh": "/usr/local/bin/LKH", "scratch": "../tmp", "distribution": "independent U([0,1]^2)", "coordinate_scale": 1000000, "solver_runs": 1, "mean_reference_cost": 7.78179260521585, "generation_seconds": 8.365196466445923, "numpy_version": "2.2.6"}
+DATA_COMPLETE

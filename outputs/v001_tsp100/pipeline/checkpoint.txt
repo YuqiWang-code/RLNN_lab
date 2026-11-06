@@ -1,0 +1,1 @@
+/home/hzeng/project/ZH/nexco-lab/outputs/v001_tsp100/tsp100_train_seed1234/tsp100_train_seed1234/41r9im52/checkpoints/epoch=0-step=833.ckpt

@@ -1,0 +1,2 @@
+test/rewrite_ratio,test/rewrite_iterations,test/gap,test/rewrite_gap,test/gt_cost,test/rewrite_solved_cost,test/time,test/gpu_memory_MB,test/gpu_max_memory_MB,test/solved_cost,epoch,step
+0.09999892115592957,5.0,2.062053923119299,1.0085342690909063,7.755851086483983,7.834234661414989,1.6730880737304688,27.935012817382812,78.71133422851562,7.915880376037693,0,0

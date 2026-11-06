@@ -14,6 +14,8 @@ from diffusion.utils.cython_merge.cython_merge_threshold import merge_cython_thr
 def batched_two_opt_torch(points, tour, max_iterations=1000, device="cpu"):
     iterator = 0
     tour = tour.copy()
+    if max_iterations <= 0:
+        return tour, iterator
     with torch.inference_mode():
         cuda_points = torch.from_numpy(points).to(device)
         cuda_tour = torch.from_numpy(tour).to(device)

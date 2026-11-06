@@ -19,16 +19,16 @@
 
 ## 运行实验
 
-当前版本为 `v000_baseline`。在服务器项目根目录运行，例如：
+TSP100 当前版本为 `v001_tsp100`，初始代码归档为 `v000_baseline`。在服务器项目根目录运行：
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 bash train_scripts/v000_baseline/train_tsp100.sh
-CUDA_VISIBLE_DEVICES=1 bash train_scripts/v000_baseline/test_cvrp100.sh
+CUDA_VISIBLE_DEVICES=1 bash train_scripts/v001_tsp100/train_tsp100.sh
+CKPT_PATH=/absolute/path/to/trained/checkpoint.ckpt bash train_scripts/v001_tsp100/test_tsp100.sh
 ```
 
-脚本默认使用 GPU 0，可设置 `CUDA_VISIBLE_DEVICES=0,1` 使用两张卡。可用 `RUN_NAME` 指定运行名，每次独立实验使用不同名称。额外训练参数可追加在脚本命令后。
+本版脚本默认使用 GPU 1。可用 `RUN_NAME` 指定运行名，每次独立实验使用不同名称。额外训练参数可追加在脚本命令后。原始版本的其他任务脚本位于 `train_scripts/v000_baseline/`。
 
-运行产物位于 `outputs/v000_baseline/<运行名>/`：`console.log`、`run.json`、`metrics/metrics.csv`，以及服务器上的检查点和 W&B 离线记录。检查点和大型中间文件留在服务器。
+运行产物位于 `outputs/v001_tsp100/<运行名>/`：`console.log`、`run.json`、`metrics/metrics.csv`，以及服务器上的检查点和 W&B 离线记录。检查点和大型中间文件留在服务器。一轮训练后，完整 TSP100 测试集的扩展后平均 gap 为 **1.0085%**；配置与结果见 [TSP100 基线](docs/TSP100基线.md)。
 
 ## 训练结束后
 
@@ -37,9 +37,9 @@ CUDA_VISIBLE_DEVICES=1 bash train_scripts/v000_baseline/test_cvrp100.sh
 ```powershell
 python tools/server.py pull
 node tools/collect_results.mjs
-python tools/snapshot.py --version v000_baseline
+python tools/snapshot.py --version v001_tsp100
 git add .
-git commit -m "Record v000 baseline experiment results"
+git commit -m "Record TSP100 baseline experiment results"
 git push origin main
 python tools/server.py push
 ```
@@ -63,4 +63,4 @@ GitHub：[YuqiWang-code/nexco-lab](https://github.com/YuqiWang-code/nexco-lab)�
 
 ## 已知问题
 
-训练数据、预训练检查点和适配 RTX 5090 的训练环境仍需准备，详见 [项目现状](docs/项目现状.md)。当前工作簿尚无训练结果。
+TSP100 专用环境及训练、验证数据已准备，模型训练所得检查点保存在服务器。其他规模和任务的数据准备状态及代码限制见 [项目现状](docs/项目现状.md)。

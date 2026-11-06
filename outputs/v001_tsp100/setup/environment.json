@@ -1,0 +1,13 @@
+{
+  "torch": "2.9.1+cu130",
+  "numpy": "1.26.4",
+  "scipy": "1.15.3",
+  "scikit-learn": "1.7.2",
+  "torch-geometric": "2.7.0",
+  "torch-scatter": "2.1.2+pt29cu130",
+  "torch-sparse": "0.6.18+pt29cu130",
+  "pytorch-lightning": "1.9.5",
+  "torchmetrics": "0.11.4",
+  "Cython": "3.0.12",
+  "wandb": "0.23.1"
+}

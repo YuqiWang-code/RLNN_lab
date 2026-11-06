@@ -6,7 +6,7 @@ from argparse import ArgumentParser, SUPPRESS
 import torch
 import wandb
 
-from pytorch_lightning import Trainer
+from pytorch_lightning import Trainer, seed_everything
 from pytorch_lightning.callbacks import LearningRateMonitor, ModelCheckpoint
 from pytorch_lightning.callbacks.progress import TQDMProgressBar
 from pytorch_lightning.loggers import CSVLogger, WandbLogger
@@ -38,6 +38,7 @@ def arg_parser():
     parser.add_argument("--task", choices=MODEL_REGISTRY.keys(), required=True)
     parser.add_argument("--model_type", choices=["gcn", "transformer"], default="gcn")
     parser.add_argument("--storage_path", required=True)
+    parser.add_argument("--seed", type=int, default=1234)
 
     parser.add_argument("--training_split")
     parser.add_argument("--training_split_label_dir")
@@ -105,6 +106,7 @@ def arg_parser():
 
 
 def main(args):
+    seed_everything(args.seed, workers=True)
     if args.offline or ("WANDB_MODE" in os.environ and os.environ["WANDB_MODE"] == "offline"):
         os.environ["WANDB_MODE"] = "offline"
         wandb.init()
