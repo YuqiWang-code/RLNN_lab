@@ -1,0 +1,135 @@
+{
+  "version": "v1",
+  "mode": "value_train",
+  "status": "completed",
+  "run": "value_rlnn_seed0",
+  "config": {
+    "resume": null,
+    "seed": 0,
+    "epochs": 20,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.001,
+    "train_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train",
+    "train_samples": 500,
+    "valid_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "valid_samples": 100,
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/author_rld4co/MIS/RB_small_test",
+    "test_samples": -1,
+    "problem": "mis",
+    "num_workers": 4,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "outputs/v000_rlnn_baseline/rb_train_author_b64_g8_gpu1_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "num_d": 30,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "fp16",
+    "do_train": false,
+    "skip_decode": false,
+    "horizon": 4,
+    "pairs": 16,
+    "result_dir": "outputs/v1/value_rlnn_seed0"
+  },
+  "started_at": "2026-11-07T11:46:51.560039+00:00",
+  "finished_at": "2026-11-07T11:56:03.435895+00:00",
+  "wall_time_s": 551.8759387535974,
+  "generation_time_s": 546.0721993427724,
+  "train_pairs": 32000,
+  "val_pairs": 6400,
+  "val_mae": 0.06199418380856514,
+  "val_zero_mae": 0.058906249701976776,
+  "val_delta": -0.0054687499068677425,
+  "val_positive_rate": 0.025312500074505806,
+  "history": [
+    {
+      "epoch": 1,
+      "val_mae": 0.06841002404689789
+    },
+    {
+      "epoch": 2,
+      "val_mae": 0.07628647983074188
+    },
+    {
+      "epoch": 3,
+      "val_mae": 0.06930553913116455
+    },
+    {
+      "epoch": 4,
+      "val_mae": 0.09916980564594269
+    },
+    {
+      "epoch": 5,
+      "val_mae": 0.07453568279743195
+    },
+    {
+      "epoch": 6,
+      "val_mae": 0.0678984671831131
+    },
+    {
+      "epoch": 7,
+      "val_mae": 0.06885004043579102
+    },
+    {
+      "epoch": 8,
+      "val_mae": 0.07080527395009995
+    },
+    {
+      "epoch": 9,
+      "val_mae": 0.06850110739469528
+    },
+    {
+      "epoch": 10,
+      "val_mae": 0.06257760524749756
+    },
+    {
+      "epoch": 11,
+      "val_mae": 0.07620123773813248
+    },
+    {
+      "epoch": 12,
+      "val_mae": 0.07770618796348572
+    },
+    {
+      "epoch": 13,
+      "val_mae": 0.07360939681529999
+    },
+    {
+      "epoch": 14,
+      "val_mae": 0.06265108287334442
+    },
+    {
+      "epoch": 15,
+      "val_mae": 0.07914581894874573
+    },
+    {
+      "epoch": 16,
+      "val_mae": 0.08476744592189789
+    },
+    {
+      "epoch": 17,
+      "val_mae": 0.08630359172821045
+    },
+    {
+      "epoch": 18,
+      "val_mae": 0.06199418380856514
+    },
+    {
+      "epoch": 19,
+      "val_mae": 0.08089093863964081
+    },
+    {
+      "epoch": 20,
+      "val_mae": 0.06228980794548988
+    }
+  ]
+}
