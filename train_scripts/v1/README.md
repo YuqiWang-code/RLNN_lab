@@ -41,6 +41,8 @@ PYTHON=/home/hzeng/envs/rlnn/bin/python CUDA_VISIBLE_DEVICES=0 bash train_script
 PYTHON=/home/hzeng/envs/rlnn/bin/python CUDA_VISIBLE_DEVICES=1 bash train_scripts/v1/queue.sh comparison
 ~~~
 
+两张卡有余量时，可先执行 `PYTHON=/home/hzeng/envs/rlnn/bin/python bash train_scripts/v1/parallel.sh`。这个入口提前启动独立分频训练、CAM 和 DiffUCO，每个收益头在对应权重训练完成后启动。新增 RLNN 训练每个加载器用 2 个 worker，图批和状态批沿用统一配置。两条正式评估队列会等待本卡上提前启动的训练结束。
+
 独立训练用 train.sh，设置 SEED、RUN_NAME，并用 --frequency 选择 none、stats、low、high、fixed、local 或 dynamic。独立推理用 eval.sh，传入 --save_dir、--label、--result_dir，以及对应的 --frequency、--archive 或 --value_checkpoint。每个训练进程绑定一张卡，独立求解评估由各卡的队列顺序执行。
 
 记录在 outputs/v1/<run>/。per_graph.csv 含图编号、集合大小、求解时间、冲突边数和选中点。运行参数、耗时和显存见 run.json。数据和 checkpoints 留在服务器。工作簿使用 V1汇总、V1逐种子、V1训练和 RLNN论文表1 四个页签。Windows 端可用 python tools/publish_v1.py --watch 按完成的运行同步与发布。

@@ -14,6 +14,7 @@ completed() {
 task() {
   local name=$1 status
   shift
+  wait_existing "$name"
   completed "$name" && return
   printf '%s\t%s\tstart\n' "$(date -Is)" "$name"
   "$@" > "$out/queue/$name.log" 2>&1
@@ -29,10 +30,17 @@ wait_existing() {
     while status=$(ps -p "$pid" -o stat=) && [[ -n "$status" && "$status" != Z* ]]; do sleep 45; done
   fi
 }
+wait_parallel_training() {
+  local record name
+  for record in "$out"/queue/*.gpu.txt; do
+    [[ -f "$record" && $(<"$record") == "$CUDA_VISIBLE_DEVICES" ]] || continue
+    name=${record##*/}
+    wait_existing "${name%.gpu.txt}"
+  done
+}
 train_frequency() {
   local arm=$1 seed=$2 name
   name="freq_${arm}_seed${seed}"
-  wait_existing "$name"
   RUN_NAME="$name" SEED="$seed" task "$name" bash train_scripts/v1/train.sh --frequency "$arm"
 }
 base_checkpoint() {
@@ -112,6 +120,7 @@ case "$1" in
     train_frequency dynamic 0 & a=$!
     train_frequency stats 0 & b=$!
     wait "$a"; wait "$b"
+    wait_parallel_training
     baseline_arms 0
     frequency_arms 0
     base=$(base_checkpoint 0)
@@ -150,6 +159,7 @@ case "$1" in
         SEED="$seed" task "rlnn_seed$seed" bash train_scripts/v1/train.sh
       fi
     done
+    wait_parallel_training
     for seed in 1 2; do baseline_arms "$seed"; done
     classical_gpu
     gcon=train_scripts/v1/reference_gcon.py
