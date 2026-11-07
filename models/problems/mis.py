@@ -64,8 +64,8 @@ class Problem(object):
 
         return loss, grad
 
-    def decode_gradient_flip(self, solutions, adjacency, bias):
-        """Apply Appendix A.3 to the lowest-energy state of each trajectory."""
+    def decode_gradient_flip(self, solutions, adjacency, bias, *, return_solutions=False):
+        """Run Appendix A.3 independently on each candidate column."""
         solutions = solutions.clone()
         particles = torch.arange(solutions.size(1), device=solutions.device)
         while True:
@@ -74,7 +74,7 @@ class Problem(object):
             gain, node = delta.max(dim=0)
             improves = gain > 0
             if not improves.any():
-                return -solutions.sum(dim=0)
+                return solutions if return_solutions else -solutions.sum(dim=0)
             selected = solutions[node, particles]
             solutions[node, particles] = torch.where(improves, 1 - selected, selected)
 

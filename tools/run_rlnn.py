@@ -40,12 +40,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode', choices=['train', 'eval', 'smoke'])
     parser.add_argument('--run', required=True)
+    parser.add_argument('--version', default=VERSION)
     parser.add_argument('--dataset', help='dataset label for run provenance')
     parser.add_argument('--kind', choices=['single_gpu','smoke'], help='result classification; inferred from mode by default')
     parser.add_argument('--checkpoint', type=Path, help='directory containing best.pt (evaluation)')
     control, forwarded = parser.parse_known_args()
-    if Path(control.run).name != control.run or control.run in ('.', '..'):
-        parser.error('--run must be a single directory name')
+    for name in ('run', 'version'):
+        value = getattr(control, name)
+        if Path(value).name != value or value in ('', '.', '..'):
+            parser.error(f'--{name} must be a single directory name')
     os.environ.setdefault('CUDA_VISIBLE_DEVICES', '1')
     sys.path.insert(0, str(ROOT / 'models'))
     upstream = importlib.import_module('main')
@@ -63,7 +66,7 @@ def main():
         parser.error('project baseline requires RLNN, MIS and enabled feasibility decoding')
     if control.mode == 'eval' and control.checkpoint is None:
         parser.error('evaluation requires --checkpoint DIR containing best.pt')
-    run = ROOT / 'outputs' / VERSION / control.run
+    run = ROOT / 'outputs' / control.version / control.run
     run.mkdir(parents=True, exist_ok=False)
     if control.mode == 'smoke':
         import networkx as nx
@@ -88,7 +91,7 @@ def main():
     args.do_train = control.mode != 'eval'
     import torch
     kind = control.kind or ('smoke' if control.mode == 'smoke' else 'single_gpu')
-    metadata = dict(version=VERSION, run=control.run, task='MIS', dataset=control.dataset or ('tiny-ER8' if control.mode == 'smoke' else 'RB200-300'),
+    metadata = dict(version=control.version, run=control.run, task='MIS', dataset=control.dataset or ('tiny-ER8' if control.mode == 'smoke' else 'RB200-300'),
         kind=kind, mode=control.mode,
         training_split=args.train_path, validation_split=args.valid_path, test_split=args.test_path,
         config=vars(args).copy(), seed=args.seed, started_at=datetime.now(timezone.utc).isoformat(),

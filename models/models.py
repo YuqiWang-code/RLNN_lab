@@ -110,8 +110,9 @@ class GCN(nn.Module):
             
     def forward(self, x, edge_index): 
         adj = edge2adj(edge_index, x.shape[0])
-        
-        x = self.initial_project(x)
+        return self.project_hidden(self.initial_project(x), adj)
+
+    def project_hidden(self, x, adj):
         for conv, linear in zip(self.convs,self.linears):
             nei = conv(x, adj)
             x_ = linear(x)

@@ -1,0 +1,45 @@
+method	category	repository	pdf	use
+RLNN(ICML2025)	神经组合优化	Shengyu-Feng/RLD4CO	https://proceedings.mlr.press/v267/feng25r/feng25r.pdf	原基线、RLSA
+iSCO	求解器与启发式	google-research/discs	https://proceedings.mlr.press/v202/sun23c/sun23c.pdf	同测试集
+KaMIS	求解器与启发式	KarlsruheMIS/KaMIS	https://arxiv.org/pdf/2208.13645	同测试集，ReduMIS
+Gurobi	求解器与启发式	Gurobi/gurobi-optimods	https://docs.gurobi.com/_/downloads/optimizer/en/current/pdf/	同测试集，需许可证
+PPO-LwD	神经组合优化	sungsoo-ahn/learning_what_to_defer	https://proceedings.mlr.press/v119/ahn20a/ahn20a.pdf	论文对照
+INTEL	神经组合优化	isl-org/NPHard	https://arxiv.org/pdf/1810.10659	论文对照，监督标签
+DGL	神经组合优化	MaxiBoether/mis-benchmark-framework	https://arxiv.org/pdf/2201.10494	论文对照，监督标签
+DIMES	神经组合优化	DIMESTeam/DIMES	https://arxiv.org/pdf/2210.04123	论文对照，RB 小图无报告值
+DIFUSCO	神经组合优化	Edward-Sun/DIFUSCO	https://arxiv.org/pdf/2302.08224	监督对照，需训练标签
+LTFT	神经组合优化	zdhNarsil/GFlowNet-CombOpt	https://arxiv.org/pdf/2305.17010	同测试集
+DiffUCO	神经组合优化	ml-jku/DIffUCO	https://arxiv.org/pdf/2406.01661|https://raw.githubusercontent.com/mlresearch/v235/main/assets/sanokowski24a/sanokowski24a.pdf	同测试集
+SDP	求解器与启发式			MCl/MCut 参考，原文仅列求解器类别
+Greedy	求解器与启发式			论文 MCl/MCut 的贪心对照；MIS 设为最小度贪心
+MFA	求解器与启发式		https://proceedings.neurips.cc/paper_files/paper/1988/file/ec5decca5ed3d6b8079e2e7e7bacc9f2-Paper.pdf	MCl/MCut 参考
+EGN	神经组合优化	Stalence/erdos_neu	https://arxiv.org/pdf/2006.10643	MCl/MCut 参考
+GRACE	图频率	KEAML-JLU/GRACE	https://arxiv.org/pdf/2510.12140	低高频动态专家参考
+COPT-MT	神经组合优化	semihcanturk/COPT-MT	https://arxiv.org/pdf/2603.02462|https://raw.githubusercontent.com/mlresearch/v306/main/assets/canturk26a/canturk26a.pdf	GCON 任务迁移
+GCON	神经组合优化	WenkelF/copt	https://arxiv.org/pdf/2405.20543	同测试集，多滤波器基线
+WaveGC	图频率	liun-online/WaveGC	https://raw.githubusercontent.com/mlresearch/v267/main/assets/liu25y/liu25y.pdf	多尺度谱小波参考
+PolyGCL	图频率	ChenJY-Count/PolyGCL	https://proceedings.iclr.cc/paper_files/paper/2024/file/6faf3b8ed0df532c14d0fc009e451b6d-Paper-Conference.pdf|https://openreview.net/pdf?id=y21ZO6M86t	低通高通对照参考
+LOHA	图频率		https://arxiv.org/pdf/2501.02969	图谱对比
+HeroFilter	图频率	zshuai8/HeroFilter	https://proceedings.neurips.cc/paper_files/paper/2025/file/5d570ed1708bbe19cb60f7a7aff60575-Paper-Conference.pdf	异配图自适应谱滤波
+WaveNet	图频率	Bufordyang/WaveNet	https://ojs.aaai.org/index.php/AAAI/article/download/28781/29496	非平稳图信号谱小波
+KWGNN	图频率		https://ojs.aaai.org/index.php/AAAI/article/download/27875/27775	异配场景图生成
+FreqFusion	视觉频率	Linwei-Chen/FreqFusion	https://arxiv.org/pdf/2408.12879	自适应分频参考
+FADC	视觉频率	Linwei-Chen/FADC	https://arxiv.org/pdf/2403.05369	频率自适应卷积
+Wave-Mamba	视觉频率	AlexZou14/Wave-Mamba	https://arxiv.org/pdf/2408.01276	小波状态空间建模
+FDConv	视觉频率	Linwei-Chen/FDConv	https://arxiv.org/pdf/2503.18783	频率动态卷积
+F2Net	视觉频率	easm002/F2Net	https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_F2Net_A_Frequency-Fused_Network_for_Ultra-High_Resolution_Remote_Sensing_Segmentation_CVPR_2026_paper.pdf	双分支视觉分割
+HDW-SR	视觉频率	Baty2023/HDW-SR	https://arxiv.org/pdf/2511.13175	小波超分辨率，部分代码
+CaUCD	因果与图表征	zhangshao249/CaUCD	https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11556470	变化检测
+DADR-HCD	因果与图表征		https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10535904	异质变化检测
+CausalCD	因果与图表征	yikuaixigua/CausalCD	https://doi.org/10.1109/TGRS.2024.3427848	变化检测，部分代码
+GCIL	因果与图表征	BUPT-GAMMA/GCIL	https://arxiv.org/pdf/2401.12564|https://ojs.aaai.org/index.php/AAAI/article/download/28738/29423	频谱增强参考
+ICL	因果与图表征	DataLab-atom/ICL	https://ojs.aaai.org/index.php/AAAI/article/download/29648/31102	图分类
+CIA-LRA	因果与图表征	NOVAglow646/NeurIPS24-Invariant-Learning-on-Graphs	https://proceedings.neurips.cc/paper_files/paper/2024/file/932147114c48f8b04d41aebc0c631158-Paper-Conference.pdf	不变图学习
+CIA-GCL	因果与图表征	qinsheng1900/CIA-GCL	https://arxiv.org/pdf/2506.07847|https://raw.githubusercontent.com/mlresearch/v267/main/assets/yu25o/yu25o.pdf	脑图对比
+CGR	因果与图表征	causal-graph/CGR	https://arxiv.org/pdf/2507.00440|https://raw.githubusercontent.com/mlresearch/v267/main/assets/yin25d/yin25d.pdf	图回归
+IDG	因果与图表征	anders1123/IDG	https://papers.nips.cc/paper_files/paper/2025/file/69e9bb0cb58d65f26d58c4c620ba22a1-Paper-Conference.pdf	域泛化，检查作者源码状态
+CDDGNet	因果与图表征	M2WindRunner/CDDGNet	https://ojs.aaai.org/index.php/AAAI/article/download/38314/42276	变化检测
+Pearl-2010	因果与图表征		https://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf	调研术语参考
+CAM	神经组合优化	Shengyu-Feng/CAM	https://arxiv.org/pdf/2605.30920	同测试集，近期同作者基线
+Bertsekas-Rollout	采样与退火		https://arxiv.org/pdf/1910.00120	成对动作 rollout 参考
+COMA	因果与图表征	oxwhirl/pymarl	https://arxiv.org/pdf/1705.08926	固定其他动作的反事实优势参考

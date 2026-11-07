@@ -83,8 +83,11 @@ def pull(sftp, remote, destination):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['status', 'push', 'pull'])
+    parser.add_argument('--version', default='v000_rlnn_baseline', help='version to pull from outputs/')
     parser.add_argument('--save', type=Path, help='save status output as UTF-8 text')
     args = parser.parse_args()
+    if Path(args.version).name != args.version or args.version in ('', '.', '..'):
+        parser.error('--version must be a single directory name')
     config = json.loads((ROOT / '.vscode/sftp.json').read_text(encoding='utf-8-sig'))
     remote = config['remotePath'].rstrip('/')
     if args.action != 'status' and (not remote or not config.get('deploymentConfirmed', False)):
@@ -106,7 +109,7 @@ def main():
                 if args.action == 'push':
                     push(sftp, remote)
                 else:
-                    relative = 'outputs/v000_rlnn_baseline'
+                    relative = f'outputs/{args.version}'
                     print(f'Downloaded {pull(sftp, remote + "/" + relative, ROOT / relative)} output files')
 
 

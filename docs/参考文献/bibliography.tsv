@@ -1,0 +1,47 @@
+method	category	pdf	title
+Barabasi-Albert-1999	基础与综述	https://www.science.org/doi/pdf/10.1126/science.286.5439.509|https://barabasi.com/f/67.pdf	Emergence of Scaling in Random Networks
+Bengio-2020-MLCO	基础与综述	https://arxiv.org/pdf/1811.06128	Machine Learning for Combinatorial Optimization: a Methodological Tour d'Horizon
+Berthold-2014-MINLP	求解器与启发式	https://www.zib.de/userpage//berthold/Berthold2014.pdf	Heuristic Algorithms in Global MINLP Solvers
+Bhattacharya-2014-VLSI	应用	https://mjis.chitkara.edu.in/index.php/mjis/article/download/125/79/261	Simulated Annealing Approach onto VLSI Circuit Partitioning
+Cappart-2023-GNNCO	基础与综述	https://arxiv.org/pdf/2102.09544	Combinatorial Optimization and Reasoning with Graph Neural Networks
+Chen-Ke-2004-Power	应用	https://api.semanticscholar.org/CorpusID:119669727	A Multi-Layer Simulated Annealing Approach for Large-Scale Power Systems，Semantic Scholar CorpusID 119669727
+Chopra-Meindl-2001	应用		Supply Chain Management: Strategy, Planning, and Operation，Prentice Hall，ISBN 0-13-026465-2
+Cortes-2006-Gradient	采样与退火	https://terrano.ucsd.edu/jorge/publications/data/2005_Co-auto.pdf	Finite-Time Convergent Gradient Flows with Applications to Network Consensus
+Ernst-2004-Rostering	应用	https://doi.org/10.1016/S0377-2217(03)00095-X	Staff Scheduling and Rostering: A Review of Applications, Methods and Models
+Feng-2025-SORREL	神经组合优化	https://ojs.aaai.org/index.php/AAAI/article/download/33219/35374|https://arxiv.org/pdf/2412.15534	SORREL: Suboptimal-Demonstration-Guided Reinforcement Learning for Learning to Branch
+Feng-2025-JointScheduling	应用	https://arxiv.org/pdf/2502.00261	Alternative Mixed Integer Linear Programming Optimization for Joint Job Scheduling and Data Allocation in Grid Computing
+Feng-2025-SolverEvaluation	神经组合优化	https://arxiv.org/pdf/2505.16952	A Comprehensive Evaluation of Contemporary ML-Based Solvers for Combinatorial Optimization
+Fey-Lenssen-2019-PyG	环境与框架	https://arxiv.org/pdf/1903.02428	Fast Graph Representation Learning with PyTorch Geometric
+Gasse-2019-LearningToBranch	神经组合优化	https://arxiv.org/pdf/1906.01629	Exact Combinatorial Optimization with Graph Convolutional Neural Networks
+Grathwohl-2021-GWG	采样与退火	https://arxiv.org/pdf/2102.04509	Oops I Took A Gradient: Scalable Sampling for Discrete Distributions
+Bradbury-2018-JAX	环境与框架		JAX 软件引用，https://github.com/jax-ml/jax
+Gugger-2022-Accelerate	环境与框架		Accelerate 软件引用，https://github.com/huggingface/accelerate
+Gusfield-1997-Strings	基础与综述	https://doi.org/10.1017/CBO9780511574931	Algorithms on Strings, Trees, and Sequences
+Haarnoja-2017-EnergyPolicies	采样与退火	https://arxiv.org/pdf/1702.08165	Reinforcement Learning with Deep Energy-Based Policies
+Haarnoja-2018-SAC	采样与退火	https://arxiv.org/pdf/1801.01290	Soft Actor-Critic
+Ho-2020-DDPM	采样与退火	https://arxiv.org/pdf/2006.11239	Denoising Diffusion Probabilistic Models
+Iba-2001-Ensemble	采样与退火	https://arxiv.org/pdf/cond-mat/0012323|https://doi.org/10.1142/S0129183101001912	Extended Ensemble Monte Carlo
+Johnson-1991-SA	采样与退火	https://faculty.washington.edu/aragon/pubs/annealing-pt2.pdf	Optimization by Simulated Annealing Part II
+Khalil-2017-S2V-DQN	神经组合优化	https://arxiv.org/pdf/1704.01665	Learning Combinatorial Optimization Algorithms over Graphs
+Kipf-Welling-2017-GCN	图频率	https://arxiv.org/pdf/1609.02907	Semi-Supervised Classification with Graph Convolutional Networks
+Kirkpatrick-1983-SA	采样与退火	https://www.science.org/doi/pdf/10.1126/science.220.4598.671|https://www.cs.virginia.edu/~rmw7my/papers/Kirkpatrick-1983.pdf	Optimization by Simulated Annealing
+Kool-2019-AttentionRouting	神经组合优化	https://arxiv.org/pdf/1803.08475	Attention, Learn to Solve Routing Problems!
+Hastings-1970-MCMC	采样与退火	https://academic.oup.com/biomet/article-pdf/57/1/97/23940249/57-1-97.pdf|https://doi.org/10.1093/biomet/57.1.97	Monte Carlo Sampling Methods Using Markov Chains and Their Applications
+Li-2023-T2T	神经组合优化	https://openreview.net/pdf?id=JtF0ugNMv2	From Distribution Learning in Training to Gradient Search in Testing for Combinatorial Optimization
+Li-2024-FastT2T	神经组合优化	https://openreview.net/pdf?id=xDrKZOZEOc	Fast T2T: Optimization Consistency Speeds Up Diffusion-Based Training-to-Testing Solving
+Lobo-1998-SOCP	求解器与启发式	https://web.stanford.edu/~boyd/papers/pdf/socp.pdf	Applications of Second-Order Cone Programming
+Lucas-2014-Ising	基础与综述	https://arxiv.org/pdf/1302.5843	Ising Formulations of Many NP Problems
+Metropolis-1953	采样与退火	https://www.osti.gov/servlets/purl/4390578|https://doi.org/10.1063/1.1699114	Equation of State Calculations by Fast Computing Machines
+Neal-2001-AnnealedIS	采样与退火	https://arxiv.org/pdf/physics/9803008	Annealed Importance Sampling
+Rubinstein-2002-Markowitz	应用	https://doi.org/10.1111/1540-6261.00438	Markowitz's Portfolio Selection: A Fifty-Year Retrospective
+Seckiner-Kurt-2007	应用	https://doi.org/10.1016/j.simpat.2006.11.003	A Simulated Annealing Approach to Solve Job Shop Scheduling Problems
+SohlDickstein-2015-Diffusion	采样与退火	https://arxiv.org/pdf/1503.03585	Deep Unsupervised Learning Using Nonequilibrium Thermodynamics
+Tavakkoli-2007-Facility	应用	https://doi.org/10.1016/j.apm.2006.06.001	A Simulated Annealing Method for Solving a Stochastic Facility Layout Problem
+Wang-2015-ParallelTempering	采样与退火	https://arxiv.org/pdf/1311.5582	Parallel Tempering Simulation of the Three-Dimensional Edwards–Anderson Model
+Xu-Li-2000-RB	基础与综述	https://arxiv.org/pdf/cs/0004005	Exact Phase Transitions in Random Constraint Satisfaction Problems
+Yau-2024-GNNApproximation	神经组合优化	https://proceedings.neurips.cc/paper_files/paper/2024/file/85db52cc08c5e00cfb1d216b1c85ba35-Paper-Conference.pdf	Are Graph Neural Networks Optimal Approximation Algorithms?
+Zanella-2020-LocalMCMC	采样与退火	https://arxiv.org/pdf/1711.07424	Informed Proposals for Local MCMC in Discrete Spaces
+Zhang-2022-DiscreteLangevin	采样与退火	https://arxiv.org/pdf/2206.09914	A Langevin-like Sampler for Discrete Distributions
+Zheng-2022-Alpa	环境与框架	https://arxiv.org/pdf/2201.12023	Alpa: Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning
+Rendl-2010-SDP	求解器与启发式	https://optimization-online.org/wp-content/uploads/2007/05/1659.pdf	Solving Max-Cut to Optimality by Intersecting Semidefinite and Polyhedral Relaxations，补充背景
+SDDS	神经组合优化	https://arxiv.org/pdf/2410.03915	Scalable Discrete Diffusion Samplers，补充对照

@@ -38,6 +38,8 @@ def build_parser():
     parser.add_argument("--num_kp", type=int, default=10, help='number of particles')
     parser.add_argument("--num_l", type=int, default=1000, help='number of layers')
     parser.add_argument("--num_h", type=int, default=100, help='hidden dimension')
+    parser.add_argument("--frequency", choices=["none", "stats", "low", "high", "fixed", "local", "dynamic"],
+                        default="none", help="MIS state encoder and frequency fusion")
     parser.add_argument("--num_d", type=int, default=30, help='step size')
     parser.add_argument("--beta", type=float, default=1.02, help='penalty coefficient')
     parser.add_argument("--tau0", type=float, default=0.01, help='initial temperature')
