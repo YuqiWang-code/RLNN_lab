@@ -9,11 +9,7 @@ from time import perf_counter
 
 import torch
 
-from main import build_parser, set_seed
-from mis_baselines import gurobi, isco, kamis, minimum_degree
-from mis_v1 import FlipValue, search
-from problems.mis import Dataset, Problem
-from solvers import RLNN, RLSA
+from problems.mis import Dataset
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,7 +30,8 @@ def evaluate(args, solve, device, params, *, dtype=torch.float32):
     result = Path(args.result_dir)
     result.mkdir(parents=True, exist_ok=True)
     fields = ["graph_id", "group", "independent_set_size", "solve_time_s", "conflicts",
-              "extra_candidates", "archive_seconds", "archive_gain", "archive_gap", "baseline_archive_gap"]
+              "extra_candidates", "archive_seconds", "archive_gain", "archive_gap", "baseline_archive_gap",
+              "selected_nodes"]
     rows = []
     started = perf_counter()
     started_at = datetime.now(timezone.utc).isoformat()
@@ -57,7 +54,8 @@ def evaluate(args, solve, device, params, *, dtype=torch.float32):
             mask = solution.bool()
             row = dict(graph_id=f"idx_{index}", group=index // 500 + 1,
                        independent_set_size=int(mask.sum()), solve_time_s=seconds,
-                       conflicts=int((mask[u] & mask[v]).sum()) // 2, **details)
+                       conflicts=int((mask[u] & mask[v]).sum()) // 2,
+                       selected_nodes=" ".join(map(str, mask.nonzero().flatten().tolist())), **details)
             writer.writerow(row)
             rows.append(row)
             if (index + 1) % 100 == 0:
@@ -88,6 +86,12 @@ def add_evaluation_arguments(parser):
 
 
 def main():
+    from main import build_parser, set_seed
+    from mis_baselines import gurobi, isco, kamis, minimum_degree
+    from mis_v1 import FlipValue, search
+    from problems.mis import Problem
+    from solvers import RLNN, RLSA
+
     parser = add_evaluation_arguments(build_parser())
     parser.set_defaults(method="RLNN", test_path=str(TEST), mixed_precision="fp16",
                         num_k=20, num_t=100, num_l=5, num_h=128, num_d=5, num_workers=0)

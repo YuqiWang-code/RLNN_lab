@@ -25,14 +25,16 @@ def minimum_degree(graph):
 def kamis(graph, executable, seed, seconds):
     neighbors = [[] for _ in range(graph.num_nodes)]
     for source, target in graph.edge_index.T.tolist():
-        neighbors[source].append(str(target + 1))
+        neighbors[source].append(target + 1)
     with TemporaryDirectory() as folder:
         path = Path(folder) / "input.graph"
         out = Path(folder) / "solution"
         lines = [f"{graph.num_nodes} {graph.edge_index.size(1) // 2}"]
-        path.write_text("\n".join(lines + [" ".join(row) for row in neighbors]) + "\n", encoding="ascii")
-        subprocess.run([str(executable), str(path), f"--output={out}", f"--seed={seed}",
-                        f"--time_limit={seconds}", "--console_log"], check=True, stdout=subprocess.DEVNULL)
+        path.write_text("\n".join(lines + [" ".join(map(str, sorted(row))) for row in neighbors]) + "\n", encoding="ascii")
+        process = subprocess.run([str(executable), str(path), f"--output={out}", f"--seed={seed}",
+                                  f"--time_limit={seconds}", "--console_log"], check=True, capture_output=True, text=True)
+        if not out.is_file():
+            raise RuntimeError(process.stdout + process.stderr)
         values = [int(value) for value in out.read_text().split()]
     if len(values) != graph.num_nodes or any(value not in (0, 1) for value in values):
         raise ValueError("unexpected ReduMIS solution format")

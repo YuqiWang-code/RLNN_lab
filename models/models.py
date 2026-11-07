@@ -108,8 +108,9 @@ class GCN(nn.Module):
         self.initial_project.reset_parameters()
         self.final_project.reset_parameters()
             
-    def forward(self, x, edge_index): 
-        adj = edge2adj(edge_index, x.shape[0])
+    def forward(self, x, edge_index, adj=None):
+        if adj is None:
+            adj = edge2adj(edge_index, x.shape[0])
         return self.project_hidden(self.initial_project(x), adj)
 
     def project_hidden(self, x, adj):

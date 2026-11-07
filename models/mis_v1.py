@@ -36,7 +36,7 @@ class MISStateGCN(GCN):
         if mode in {"local", "dynamic"}:
             self.gate = nn.Sequential(nn.Linear(2 if mode == "local" else 4, 16), nn.SiLU(), nn.Linear(16, 1))
 
-    def forward(self, x, edge_index, adj):
+    def forward(self, x, edge_index, adj, normalized=None):
         features, neighbor_mean = state_features(x, adj, self.beta)
         hidden = self.initial_project(features)
         if self.mode != "stats":
@@ -53,7 +53,9 @@ class MISStateGCN(GCN):
                 elif self.mode == "dynamic":
                     weight = self.gate(features).sigmoid()
                 hidden = hidden + weight * F.silu(self.low(low)) + (1 - weight) * F.silu(self.high(high))
-        return self.project_hidden(hidden, edge2adj(edge_index, x.size(0))).squeeze(-1)
+        if normalized is None:
+            normalized = edge2adj(edge_index, x.size(0))
+        return self.project_hidden(hidden, normalized).squeeze(-1)
 
 
 class FlipValue(nn.Sequential):

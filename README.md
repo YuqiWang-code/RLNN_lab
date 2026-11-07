@@ -1,5 +1,7 @@
 # RLNN Lab
 
+v1 在 RB200–300 MIS 上独立比较解码质量感知的候选保存、动态高低频协同、成对动作收益及其组合。[v1 实验协议](train_scripts/v1/README.md) · [参考实现](reference_methods/README.md) · [实验结果](docs/实验结果.xlsx)
+
 基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究最大独立集（MIS）的神经组合优化方法。当前基线为 `v000_rlnn_baseline`，任务为 RB200–300，训练和评估使用单张 RTX 5090（GPU 1）。[RLD4CO 官方仓库](https://github.com/Shengyu-Feng/RLD4CO)
 
 ## 当前基线

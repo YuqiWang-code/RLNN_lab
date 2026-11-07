@@ -5,8 +5,8 @@ import numpy as np
 from tqdm import tqdm
 import torch
 from torch.optim import AdamW, Adam
-from models import GCN, MLP
-from mis_v1 import MISStateGCN
+from models import GCN, MLP, edge2adj
+from mis_v1 import MISStateGCN, adjacency
 from torch_scatter import scatter_min, scatter_max, scatter_add
 from torch_geometric.utils import add_remaining_self_loops
 from accelerate import Accelerator
@@ -299,14 +299,15 @@ class RLNN(MetaSolver):
             for index, graphs in tqdm(enumerate(self.train_loader), total=len(self.train_loader), disable=not self.accelerator.is_local_main_process): 
 
                 for graph in graphs:
-                    inputs = self.generate_data(graph)
-                    A = torch.sparse_coo_tensor(graph.edge_index, graph.edge_weight, torch.Size((graph.num_nodes, graph.num_nodes))).to_sparse_csr()
+                    A = adjacency(graph)
+                    normalized = edge2adj(graph.edge_index, graph.num_nodes)
+                    inputs = self.generate_data(graph, A, normalized)
                     num_samples = inputs.shape[1]
 
                     num_batch = int(np.ceil(num_samples/self.batch_size))
                     for i in range(num_batch):
                         x = inputs[:,i*self.batch_size:(i+1)*self.batch_size]
-                        logits = self.flip_logits(x, graph, A)
+                        logits = self.flip_logits(x, graph, A, normalized)
                         prob = torch.sigmoid(logits)
                         if self.loss == 'erdoes':
                             x = (1-prob)*x + prob*(1-x)
@@ -362,12 +363,12 @@ class RLNN(MetaSolver):
             self.model.train()
             for graphs in tqdm(self.train_loader, disable=not self.accelerator.is_local_main_process):
                 graph = build_batch(graphs)
-                inputs = self.generate_data(graph)
-                A = torch.sparse_coo_tensor(graph.edge_index, graph.edge_weight,
-                    torch.Size((graph.num_nodes, graph.num_nodes))).to_sparse_csr()
+                A = adjacency(graph)
+                normalized = edge2adj(graph.edge_index, graph.num_nodes)
+                inputs = self.generate_data(graph, A, normalized)
                 for start in range(0, inputs.shape[1], self.batch_size):
                     x = inputs[:, start:start+self.batch_size]
-                    prob = torch.sigmoid(self.flip_logits(x, graph, A))
+                    prob = torch.sigmoid(self.flip_logits(x, graph, A, normalized))
                     loss = erdoes_graph_batch_loss(self.problem, A, graph.b, x, prob,
                         graph.batch, len(graphs), self.num_d, self.lambd)
                     self.optimizer.zero_grad()
@@ -386,25 +387,24 @@ class RLNN(MetaSolver):
             history.append(dict(logger))
             self.save_training_state(save_dir, epoch+1, best_eval, logger, history)
 
-    def flip_logits(self, x, graph, adjacency):
+    def flip_logits(self, x, graph, adjacency, normalized=None):
         if self.frequency == 'none':
-            return self.model(x.unsqueeze(-1), graph.edge_index).squeeze(-1)
-        return self.model(x, graph.edge_index, adjacency)
+            return self.model(x.unsqueeze(-1), graph.edge_index, normalized).squeeze(-1)
+        return self.model(x, graph.edge_index, adjacency, normalized)
 
     @torch.no_grad()
-    def generate_data(self, graph):
+    def generate_data(self, graph, A=None, normalized=None):
         x = torch.randint(0,2, (graph.num_nodes, self.num_k), device=self.accelerator.device, dtype=self.dtype)
-        A = torch.sparse_coo_tensor(
-            graph.edge_index, 
-            graph.edge_weight, 
-            torch.Size((graph.num_nodes, graph.num_nodes))
-        ).to_sparse_csr()
+        if A is None:
+            A = adjacency(graph)
+        if normalized is None:
+            normalized = edge2adj(graph.edge_index, graph.num_nodes)
         data = []
 
         for epoch in range(self.num_tp):
             data.append(x.clone())
             
-            delta = self.flip_logits(x, graph, A)
+            delta = self.flip_logits(x, graph, A, normalized)
             flip_prob = torch.sigmoid(delta)
 
             rr = torch.rand_like(x)
@@ -412,12 +412,14 @@ class RLNN(MetaSolver):
             
         return torch.cat(data, dim=-1)
           
-    def sample_states(self, graph, adjacency, *, generator=None, adjust=None):
+    def sample_states(self, graph, adjacency, *, generator=None, adjust=None, normalized=None):
         x = torch.randint(0, 2, (graph.num_nodes, self.num_k), device=self.accelerator.device,
                           dtype=self.dtype, generator=generator)
+        if normalized is None:
+            normalized = edge2adj(graph.edge_index, graph.num_nodes)
         yield x
         for _ in range(self.num_t):
-            logits = self.flip_logits(x, graph, adjacency)
+            logits = self.flip_logits(x, graph, adjacency, normalized)
             if adjust is not None:
                 logits = adjust(x, logits)
             rr = torch.rand_like(x) if generator is None else torch.rand(x.shape, device=x.device, dtype=x.dtype, generator=generator)

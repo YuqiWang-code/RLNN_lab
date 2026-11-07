@@ -1,0 +1,92 @@
+条目	分类	本地PDF	论文入口	上游源码	用途或题名
+RLNN(ICML2025)	神经组合优化	神经组合优化/RLNN(ICML2025).pdf	https://proceedings.mlr.press/v267/feng25r/feng25r.pdf	https://github.com/Shengyu-Feng/RLD4CO	原基线、RLSA
+RLSA	求解器与启发式			https://github.com/Shengyu-Feng/RLD4CO	同测试集，论文见 RLNN
+iSCO	求解器与启发式	求解器与启发式/iSCO.pdf	https://proceedings.mlr.press/v202/sun23c/sun23c.pdf	https://github.com/google-research/discs	同测试集
+KaMIS	求解器与启发式	求解器与启发式/KaMIS.pdf	https://arxiv.org/pdf/2208.13645	https://github.com/KarlsruheMIS/KaMIS	同测试集，ReduMIS
+Gurobi	求解器与启发式	求解器与启发式/Gurobi.pdf	https://docs.gurobi.com/_/downloads/optimizer/en/current/pdf/	https://github.com/Gurobi/gurobi-optimods	同测试集，需许可证
+PPO-LwD	神经组合优化	神经组合优化/PPO-LwD.pdf	https://proceedings.mlr.press/v119/ahn20a/ahn20a.pdf	https://github.com/sungsoo-ahn/learning_what_to_defer	论文对照
+INTEL	神经组合优化	神经组合优化/INTEL.pdf	https://arxiv.org/pdf/1810.10659	https://github.com/isl-org/NPHard	论文对照，监督标签
+DGL	神经组合优化	神经组合优化/DGL.pdf	https://arxiv.org/pdf/2201.10494	https://github.com/MaxiBoether/mis-benchmark-framework	论文对照，监督标签
+DIMES	神经组合优化	神经组合优化/DIMES.pdf	https://arxiv.org/pdf/2210.04123	https://github.com/DIMESTeam/DIMES	论文对照，RB 小图无报告值
+DIFUSCO	神经组合优化	神经组合优化/DIFUSCO.pdf	https://arxiv.org/pdf/2302.08224	https://github.com/Edward-Sun/DIFUSCO	监督对照，需训练标签
+LTFT	神经组合优化	神经组合优化/LTFT.pdf	https://arxiv.org/pdf/2305.17010	https://github.com/zdhNarsil/GFlowNet-CombOpt	同测试集
+DiffUCO	神经组合优化	神经组合优化/DiffUCO.pdf	https://arxiv.org/pdf/2406.01661|https://raw.githubusercontent.com/mlresearch/v235/main/assets/sanokowski24a/sanokowski24a.pdf	https://github.com/ml-jku/DIffUCO	同测试集，复跑使用 CAM 仓库内 PyTorch 实现
+SDP	求解器与启发式				MCl/MCut 参考，原文仅列求解器类别
+Greedy	求解器与启发式				论文 MCl/MCut 的贪心对照；MIS 设为最小度贪心
+MFA	求解器与启发式	求解器与启发式/MFA.pdf	https://proceedings.neurips.cc/paper_files/paper/1988/file/ec5decca5ed3d6b8079e2e7e7bacc9f2-Paper.pdf		MCl/MCut 参考
+EGN	神经组合优化	神经组合优化/EGN.pdf	https://arxiv.org/pdf/2006.10643	https://github.com/Stalence/erdos_neu	MCl/MCut 参考
+GRACE	图频率	图频率/GRACE.pdf	https://arxiv.org/pdf/2510.12140	https://github.com/KEAML-JLU/GRACE	低高频动态专家参考
+COPT-MT	神经组合优化	神经组合优化/COPT-MT.pdf	https://arxiv.org/pdf/2603.02462|https://raw.githubusercontent.com/mlresearch/v306/main/assets/canturk26a/canturk26a.pdf	https://github.com/semihcanturk/COPT-MT	GCON 任务迁移
+GCON	神经组合优化	神经组合优化/GCON.pdf	https://arxiv.org/pdf/2405.20543	https://github.com/WenkelF/copt	同测试集，多滤波器基线
+WaveGC	图频率	图频率/WaveGC.pdf	https://raw.githubusercontent.com/mlresearch/v267/main/assets/liu25y/liu25y.pdf	https://github.com/liun-online/WaveGC	多尺度谱小波参考
+PolyGCL	图频率	图频率/PolyGCL.pdf	https://proceedings.iclr.cc/paper_files/paper/2024/file/6faf3b8ed0df532c14d0fc009e451b6d-Paper-Conference.pdf|https://openreview.net/pdf?id=y21ZO6M86t	https://github.com/ChenJY-Count/PolyGCL	低通高通对照参考
+LOHA	图频率	图频率/LOHA.pdf	https://arxiv.org/pdf/2501.02969		图谱对比
+HeroFilter	图频率	图频率/HeroFilter.pdf	https://proceedings.neurips.cc/paper_files/paper/2025/file/5d570ed1708bbe19cb60f7a7aff60575-Paper-Conference.pdf	https://github.com/zshuai8/HeroFilter	异配图自适应谱滤波
+WaveNet	图频率	图频率/WaveNet.pdf	https://ojs.aaai.org/index.php/AAAI/article/download/28781/29496	https://github.com/Bufordyang/WaveNet	非平稳图信号谱小波
+KWGNN	图频率	图频率/KWGNN.pdf	https://ojs.aaai.org/index.php/AAAI/article/download/27875/27775		异配场景图生成
+FreqFusion	视觉频率	视觉频率/FreqFusion.pdf	https://arxiv.org/pdf/2408.12879	https://github.com/Linwei-Chen/FreqFusion	自适应分频参考
+FADC	视觉频率	视觉频率/FADC.pdf	https://arxiv.org/pdf/2403.05369	https://github.com/Linwei-Chen/FADC	频率自适应卷积
+Wave-Mamba	视觉频率	视觉频率/Wave-Mamba.pdf	https://arxiv.org/pdf/2408.01276	https://github.com/AlexZou14/Wave-Mamba	小波状态空间建模
+FDConv	视觉频率	视觉频率/FDConv.pdf	https://arxiv.org/pdf/2503.18783	https://github.com/Linwei-Chen/FDConv	频率动态卷积
+F2Net	视觉频率	视觉频率/F2Net.pdf	https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_F2Net_A_Frequency-Fused_Network_for_Ultra-High_Resolution_Remote_Sensing_Segmentation_CVPR_2026_paper.pdf	https://github.com/easm002/F2Net	双分支视觉分割
+HDW-SR	视觉频率	视觉频率/HDW-SR.pdf	https://arxiv.org/pdf/2511.13175	https://github.com/Baty2023/HDW-SR	小波超分辨率，部分代码
+CaUCD	因果与图表征		https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11556470	https://github.com/zhangshao249/CaUCD	变化检测
+DADR-HCD	因果与图表征		https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10535904		异质变化检测
+CausalCD	因果与图表征		https://doi.org/10.1109/TGRS.2024.3427848	https://github.com/yikuaixigua/CausalCD	变化检测，部分代码
+GCIL	因果与图表征	因果与图表征/GCIL.pdf	https://arxiv.org/pdf/2401.12564|https://ojs.aaai.org/index.php/AAAI/article/download/28738/29423	https://github.com/BUPT-GAMMA/GCIL	频谱增强参考
+ICL	因果与图表征	因果与图表征/ICL.pdf	https://ojs.aaai.org/index.php/AAAI/article/download/29648/31102	https://github.com/DataLab-atom/ICL	图分类
+CIA-LRA	因果与图表征	因果与图表征/CIA-LRA.pdf	https://proceedings.neurips.cc/paper_files/paper/2024/file/932147114c48f8b04d41aebc0c631158-Paper-Conference.pdf	https://github.com/NOVAglow646/NeurIPS24-Invariant-Learning-on-Graphs	不变图学习
+CIA-GCL	因果与图表征	因果与图表征/CIA-GCL.pdf	https://raw.githubusercontent.com/mlresearch/v267/main/assets/yu25o/yu25o.pdf	https://github.com/qinsheng1900/CIA-GCL	脑图对比
+CGR	因果与图表征	因果与图表征/CGR.pdf	https://arxiv.org/pdf/2507.00440|https://raw.githubusercontent.com/mlresearch/v267/main/assets/yin25d/yin25d.pdf	https://github.com/causal-graph/CGR	图回归
+IDG	因果与图表征	因果与图表征/IDG.pdf	https://papers.nips.cc/paper_files/paper/2025/file/69e9bb0cb58d65f26d58c4c620ba22a1-Paper-Conference.pdf	https://github.com/anders1123/IDG	域泛化，检查作者源码状态
+CDDGNet	因果与图表征	因果与图表征/CDDGNet.pdf	https://ojs.aaai.org/index.php/AAAI/article/download/38314/42276	https://github.com/M2WindRunner/CDDGNet	变化检测
+Pearl-2010	因果与图表征	因果与图表征/Pearl-2010.pdf	https://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf		调研术语参考
+CAM	神经组合优化	神经组合优化/CAM.pdf	https://arxiv.org/pdf/2605.30920	https://github.com/Shengyu-Feng/CAM	同测试集，近期同作者基线
+Bertsekas-Rollout	采样与退火	采样与退火/Bertsekas-Rollout.pdf	https://arxiv.org/pdf/1910.00120		成对动作 rollout 参考
+COMA	因果与图表征	因果与图表征/COMA.pdf	https://arxiv.org/pdf/1705.08926	https://github.com/oxwhirl/pymarl	固定其他动作的反事实优势参考
+T2TCO	神经组合优化	神经组合优化/T2TCO.pdf	https://papers.neurips.cc/paper_files/paper/2023/file/9c93b3cd3bc60c0fe7b0c2d74a2da966-Paper-Conference.pdf	https://github.com/Thinklab-SJTU/T2TCO	论文引用，扩散推理参考
+Barabasi-Albert-1999	基础与综述	基础与综述/Barabasi-Albert-1999.pdf	https://barabasi.com/media/Emergence-Barabasi-1999_gN74Tws.pdf|https://arxiv.org/pdf/cond-mat/9910332		Emergence of Scaling in Random Networks
+Bengio-2020-MLCO	基础与综述	基础与综述/Bengio-2020-MLCO.pdf	https://arxiv.org/pdf/1811.06128		Machine Learning for Combinatorial Optimization: a Methodological Tour d'Horizon
+Berthold-2014-MINLP	求解器与启发式		https://www.zib.de/userpage//berthold/Berthold2014.pdf		Heuristic Algorithms in Global MINLP Solvers
+Bhattacharya-2014-VLSI	应用		https://mjis.chitkara.edu.in/index.php/mjis/article/download/125/79/261		Simulated Annealing Approach onto VLSI Circuit Partitioning
+Cappart-2023-GNNCO	基础与综述	基础与综述/Cappart-2023-GNNCO.pdf	https://arxiv.org/pdf/2102.09544		Combinatorial Optimization and Reasoning with Graph Neural Networks
+Chen-Ke-2004-Power	应用		https://api.semanticscholar.org/CorpusID:119669727		A Multi-Layer Simulated Annealing Approach for Large-Scale Power Systems，Semantic Scholar CorpusID 119669727
+Chopra-Meindl-2001	应用				Supply Chain Management: Strategy, Planning, and Operation，Prentice Hall，ISBN 0-13-026465-2
+Cortes-2006-Gradient	采样与退火		https://terrano.ucsd.edu/jorge/publications/data/2005_Co-auto.pdf		Finite-Time Convergent Gradient Flows with Applications to Network Consensus
+Ernst-2004-Rostering	应用		https://doi.org/10.1016/S0377-2217(03)00095-X		Staff Scheduling and Rostering: A Review of Applications, Methods and Models
+Feng-2025-SORREL	神经组合优化	神经组合优化/Feng-2025-SORREL.pdf	https://ojs.aaai.org/index.php/AAAI/article/download/33219/35374|https://arxiv.org/pdf/2412.15534		SORREL: Suboptimal-Demonstration-Guided Reinforcement Learning for Learning to Branch
+Feng-2025-JointScheduling	应用	应用/Feng-2025-JointScheduling.pdf	https://arxiv.org/pdf/2502.00261		Alternative Mixed Integer Linear Programming Optimization for Joint Job Scheduling and Data Allocation in Grid Computing
+Feng-2025-SolverEvaluation	神经组合优化	神经组合优化/Feng-2025-SolverEvaluation.pdf	https://arxiv.org/pdf/2505.16952		A Comprehensive Evaluation of Contemporary ML-Based Solvers for Combinatorial Optimization
+Fey-Lenssen-2019-PyG	环境与框架	环境与框架/Fey-Lenssen-2019-PyG.pdf	https://arxiv.org/pdf/1903.02428		Fast Graph Representation Learning with PyTorch Geometric
+Gasse-2019-LearningToBranch	神经组合优化	神经组合优化/Gasse-2019-LearningToBranch.pdf	https://arxiv.org/pdf/1906.01629		Exact Combinatorial Optimization with Graph Convolutional Neural Networks
+Grathwohl-2021-GWG	采样与退火	采样与退火/Grathwohl-2021-GWG.pdf	https://arxiv.org/pdf/2102.04509		Oops I Took A Gradient: Scalable Sampling for Discrete Distributions
+Bradbury-2018-JAX	环境与框架				JAX 软件引用，https://github.com/jax-ml/jax
+Gugger-2022-Accelerate	环境与框架				Accelerate 软件引用，https://github.com/huggingface/accelerate
+Gusfield-1997-Strings	基础与综述		https://doi.org/10.1017/CBO9780511574931		Algorithms on Strings, Trees, and Sequences
+Haarnoja-2017-EnergyPolicies	采样与退火	采样与退火/Haarnoja-2017-EnergyPolicies.pdf	https://arxiv.org/pdf/1702.08165		Reinforcement Learning with Deep Energy-Based Policies
+Haarnoja-2018-SAC	采样与退火	采样与退火/Haarnoja-2018-SAC.pdf	https://arxiv.org/pdf/1801.01290		Soft Actor-Critic
+Ho-2020-DDPM	采样与退火	采样与退火/Ho-2020-DDPM.pdf	https://arxiv.org/pdf/2006.11239		Denoising Diffusion Probabilistic Models
+Iba-2001-Ensemble	采样与退火	采样与退火/Iba-2001-Ensemble.pdf	https://arxiv.org/pdf/cond-mat/0012323|https://doi.org/10.1142/S0129183101001912		Extended Ensemble Monte Carlo
+Johnson-1991-SA	采样与退火	采样与退火/Johnson-1991-SA.pdf	https://faculty.washington.edu/aragon/pubs/annealing-pt2.pdf		Optimization by Simulated Annealing Part II
+Khalil-2017-S2V-DQN	神经组合优化	神经组合优化/Khalil-2017-S2V-DQN.pdf	https://arxiv.org/pdf/1704.01665		Learning Combinatorial Optimization Algorithms over Graphs
+Kipf-Welling-2017-GCN	图频率	图频率/Kipf-Welling-2017-GCN.pdf	https://arxiv.org/pdf/1609.02907		Semi-Supervised Classification with Graph Convolutional Networks
+Kirkpatrick-1983-SA	采样与退火	采样与退火/Kirkpatrick-1983-SA.pdf	https://mk.bcgsc.ca/papers/kirkpatrick-simulatedannealing.pdf|https://pantheon.ufrj.br/bitstream/11422/11636/1/886768.pdf		Optimization by Simulated Annealing
+Kool-2019-AttentionRouting	神经组合优化	神经组合优化/Kool-2019-AttentionRouting.pdf	https://arxiv.org/pdf/1803.08475		Attention, Learn to Solve Routing Problems!
+Hastings-1970-MCMC	采样与退火	采样与退火/Hastings-1970-MCMC.pdf	https://probability.ca/hastings/hastings.pdf|https://doi.org/10.1093/biomet/57.1.97		Monte Carlo Sampling Methods Using Markov Chains and Their Applications
+Li-2024-FastT2T	神经组合优化	神经组合优化/Li-2024-FastT2T.pdf	https://arxiv.org/pdf/2502.02941		Fast T2T: Optimization Consistency Speeds Up Diffusion-Based Training-to-Testing Solving
+Lobo-1998-SOCP	求解器与启发式	求解器与启发式/Lobo-1998-SOCP.pdf	https://www.seas.ucla.edu/~vandenbe/publications/socp.pdf|https://www.stat.uchicago.edu/~lekheng/courses/310w11/boyd-socp.pdf		Applications of Second-Order Cone Programming
+Lucas-2014-Ising	基础与综述	基础与综述/Lucas-2014-Ising.pdf	https://arxiv.org/pdf/1302.5843		Ising Formulations of Many NP Problems
+Metropolis-1953	采样与退火	采样与退火/Metropolis-1953.pdf	https://www.osti.gov/servlets/purl/4390578|https://doi.org/10.1063/1.1699114		Equation of State Calculations by Fast Computing Machines
+Neal-2001-AnnealedIS	采样与退火	采样与退火/Neal-2001-AnnealedIS.pdf	https://arxiv.org/pdf/physics/9803008		Annealed Importance Sampling
+Rubinstein-2002-Markowitz	应用		https://onlinelibrary.wiley.com/doi/pdf/10.1111/1540-6261.00453		Markowitz's Portfolio Selection: A Fifty-Year Retrospective
+Seckiner-Kurt-2007	应用		https://doi.org/10.1016/j.simpat.2006.11.003		A Simulated Annealing Approach to Solve Job Shop Scheduling Problems
+SohlDickstein-2015-Diffusion	采样与退火	采样与退火/SohlDickstein-2015-Diffusion.pdf	https://arxiv.org/pdf/1503.03585		Deep Unsupervised Learning Using Nonequilibrium Thermodynamics
+Tavakkoli-2007-Facility	应用		https://doi.org/10.1016/j.apm.2006.06.001		A Simulated Annealing Method for Solving a Stochastic Facility Layout Problem
+Wang-2015-ParallelTempering	采样与退火	采样与退火/Wang-2015-ParallelTempering.pdf	https://arxiv.org/pdf/1311.5582		Parallel Tempering Simulation of the Three-Dimensional Edwards–Anderson Model
+Xu-Li-2000-RB	基础与综述	基础与综述/Xu-Li-2000-RB.pdf	https://arxiv.org/pdf/cs/0004005		Exact Phase Transitions in Random Constraint Satisfaction Problems
+Yau-2024-GNNApproximation	神经组合优化	神经组合优化/Yau-2024-GNNApproximation.pdf	https://proceedings.neurips.cc/paper_files/paper/2024/file/85db52cc08c5e00cfb1d216b1c85ba35-Paper-Conference.pdf		Are Graph Neural Networks Optimal Approximation Algorithms?
+Zanella-2020-LocalMCMC	采样与退火	采样与退火/Zanella-2020-LocalMCMC.pdf	https://arxiv.org/pdf/1711.07424		Informed Proposals for Local MCMC in Discrete Spaces
+Zhang-2022-DiscreteLangevin	采样与退火	采样与退火/Zhang-2022-DiscreteLangevin.pdf	https://arxiv.org/pdf/2206.09914		A Langevin-like Sampler for Discrete Distributions
+Zheng-2022-Alpa	环境与框架	环境与框架/Zheng-2022-Alpa.pdf	https://arxiv.org/pdf/2201.12023		Alpa: Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning
+Rendl-2010-SDP	求解器与启发式	求解器与启发式/Rendl-2010-SDP.pdf	https://optimization-online.org/wp-content/uploads/2007/05/1659.pdf		Solving Max-Cut to Optimality by Intersecting Semidefinite and Polyhedral Relaxations，补充背景
+SDDS	神经组合优化	神经组合优化/SDDS.pdf	https://arxiv.org/pdf/2502.08696		Scalable Discrete Diffusion Samplers，补充对照

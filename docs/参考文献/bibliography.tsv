@@ -1,5 +1,5 @@
 method	category	pdf	title
-Barabasi-Albert-1999	基础与综述	https://www.science.org/doi/pdf/10.1126/science.286.5439.509|https://barabasi.com/f/67.pdf	Emergence of Scaling in Random Networks
+Barabasi-Albert-1999	基础与综述	https://barabasi.com/media/Emergence-Barabasi-1999_gN74Tws.pdf|https://arxiv.org/pdf/cond-mat/9910332	Emergence of Scaling in Random Networks
 Bengio-2020-MLCO	基础与综述	https://arxiv.org/pdf/1811.06128	Machine Learning for Combinatorial Optimization: a Methodological Tour d'Horizon
 Berthold-2014-MINLP	求解器与启发式	https://www.zib.de/userpage//berthold/Berthold2014.pdf	Heuristic Algorithms in Global MINLP Solvers
 Bhattacharya-2014-VLSI	应用	https://mjis.chitkara.edu.in/index.php/mjis/article/download/125/79/261	Simulated Annealing Approach onto VLSI Circuit Partitioning
@@ -24,16 +24,15 @@ Iba-2001-Ensemble	采样与退火	https://arxiv.org/pdf/cond-mat/0012323|https:/
 Johnson-1991-SA	采样与退火	https://faculty.washington.edu/aragon/pubs/annealing-pt2.pdf	Optimization by Simulated Annealing Part II
 Khalil-2017-S2V-DQN	神经组合优化	https://arxiv.org/pdf/1704.01665	Learning Combinatorial Optimization Algorithms over Graphs
 Kipf-Welling-2017-GCN	图频率	https://arxiv.org/pdf/1609.02907	Semi-Supervised Classification with Graph Convolutional Networks
-Kirkpatrick-1983-SA	采样与退火	https://www.science.org/doi/pdf/10.1126/science.220.4598.671|https://www.cs.virginia.edu/~rmw7my/papers/Kirkpatrick-1983.pdf	Optimization by Simulated Annealing
+Kirkpatrick-1983-SA	采样与退火	https://mk.bcgsc.ca/papers/kirkpatrick-simulatedannealing.pdf|https://pantheon.ufrj.br/bitstream/11422/11636/1/886768.pdf	Optimization by Simulated Annealing
 Kool-2019-AttentionRouting	神经组合优化	https://arxiv.org/pdf/1803.08475	Attention, Learn to Solve Routing Problems!
-Hastings-1970-MCMC	采样与退火	https://academic.oup.com/biomet/article-pdf/57/1/97/23940249/57-1-97.pdf|https://doi.org/10.1093/biomet/57.1.97	Monte Carlo Sampling Methods Using Markov Chains and Their Applications
-Li-2023-T2T	神经组合优化	https://openreview.net/pdf?id=JtF0ugNMv2	From Distribution Learning in Training to Gradient Search in Testing for Combinatorial Optimization
-Li-2024-FastT2T	神经组合优化	https://openreview.net/pdf?id=xDrKZOZEOc	Fast T2T: Optimization Consistency Speeds Up Diffusion-Based Training-to-Testing Solving
-Lobo-1998-SOCP	求解器与启发式	https://web.stanford.edu/~boyd/papers/pdf/socp.pdf	Applications of Second-Order Cone Programming
+Hastings-1970-MCMC	采样与退火	https://probability.ca/hastings/hastings.pdf|https://doi.org/10.1093/biomet/57.1.97	Monte Carlo Sampling Methods Using Markov Chains and Their Applications
+Li-2024-FastT2T	神经组合优化	https://arxiv.org/pdf/2502.02941	Fast T2T: Optimization Consistency Speeds Up Diffusion-Based Training-to-Testing Solving
+Lobo-1998-SOCP	求解器与启发式	https://www.seas.ucla.edu/~vandenbe/publications/socp.pdf|https://www.stat.uchicago.edu/~lekheng/courses/310w11/boyd-socp.pdf	Applications of Second-Order Cone Programming
 Lucas-2014-Ising	基础与综述	https://arxiv.org/pdf/1302.5843	Ising Formulations of Many NP Problems
 Metropolis-1953	采样与退火	https://www.osti.gov/servlets/purl/4390578|https://doi.org/10.1063/1.1699114	Equation of State Calculations by Fast Computing Machines
 Neal-2001-AnnealedIS	采样与退火	https://arxiv.org/pdf/physics/9803008	Annealed Importance Sampling
-Rubinstein-2002-Markowitz	应用	https://doi.org/10.1111/1540-6261.00438	Markowitz's Portfolio Selection: A Fifty-Year Retrospective
+Rubinstein-2002-Markowitz	应用	https://onlinelibrary.wiley.com/doi/pdf/10.1111/1540-6261.00453	Markowitz's Portfolio Selection: A Fifty-Year Retrospective
 Seckiner-Kurt-2007	应用	https://doi.org/10.1016/j.simpat.2006.11.003	A Simulated Annealing Approach to Solve Job Shop Scheduling Problems
 SohlDickstein-2015-Diffusion	采样与退火	https://arxiv.org/pdf/1503.03585	Deep Unsupervised Learning Using Nonequilibrium Thermodynamics
 Tavakkoli-2007-Facility	应用	https://doi.org/10.1016/j.apm.2006.06.001	A Simulated Annealing Method for Solving a Stochastic Facility Layout Problem
@@ -44,4 +43,4 @@ Zanella-2020-LocalMCMC	采样与退火	https://arxiv.org/pdf/1711.07424	Informed
 Zhang-2022-DiscreteLangevin	采样与退火	https://arxiv.org/pdf/2206.09914	A Langevin-like Sampler for Discrete Distributions
 Zheng-2022-Alpa	环境与框架	https://arxiv.org/pdf/2201.12023	Alpa: Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning
 Rendl-2010-SDP	求解器与启发式	https://optimization-online.org/wp-content/uploads/2007/05/1659.pdf	Solving Max-Cut to Optimality by Intersecting Semidefinite and Polyhedral Relaxations，补充背景
-SDDS	神经组合优化	https://arxiv.org/pdf/2410.03915	Scalable Discrete Diffusion Samplers，补充对照
+SDDS	神经组合优化	https://arxiv.org/pdf/2502.08696	Scalable Discrete Diffusion Samplers，补充对照

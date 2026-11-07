@@ -11,6 +11,7 @@ from torch.utils.data import DataLoader
 from eval_v1 import ROOT
 from main import build_parser, set_seed
 from mis_v1 import FlipValue, adjacency
+from models import edge2adj
 from problems.mis import Dataset
 from solvers import RLNN
 
@@ -22,14 +23,15 @@ def uniforms_like(tensor, generator):
 @torch.no_grad()
 def paired_examples(solver, graph, horizon, pairs, generator):
     adj = adjacency(graph)
+    normalized = edge2adj(graph.edge_index, graph.num_nodes)
     features = []
     targets = []
     probes = {solver.num_t * i // 5 for i in range(1, 5)}
-    for step, x in enumerate(solver.sample_states(graph, adj, generator=generator)):
+    for step, x in enumerate(solver.sample_states(graph, adj, generator=generator, normalized=normalized)):
         if step not in probes:
             continue
         states = x[:, :pairs]
-        logits = solver.flip_logits(states, graph, adj)
+        logits = solver.flip_logits(states, graph, adj, normalized)
         columns = torch.arange(pairs, device=x.device)
         nodes = torch.randint(graph.num_nodes, (pairs,), device=x.device, generator=generator)
         features.append(FlipValue.features(states, logits, adj, solver.problem.beta)[nodes, columns])
@@ -40,11 +42,13 @@ def paired_examples(solver, graph, horizon, pairs, generator):
         off[nodes, columns] = states[nodes, columns]
         branch = torch.cat((on, off), dim=1)
         for _ in range(horizon):
-            prob = solver.flip_logits(branch, graph, adj).sigmoid()
+            prob = solver.flip_logits(branch, graph, adj, normalized).sigmoid()
             shared = uniforms_like(states, generator).repeat(1, 2)
             branch = torch.where(shared < prob, 1 - branch, branch)
         size = -solver.problem.decode_gradient_flip(branch, adj, graph.b).float()
         targets.append(size[:pairs] - size[pairs:])
+        if step == max(probes):
+            break
     return torch.cat(features), torch.cat(targets)
 
 
