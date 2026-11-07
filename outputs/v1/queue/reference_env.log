@@ -1,0 +1,13 @@
+Looking in links: https://data.pyg.org/whl/torch-2.9.0+cu130.html
+Collecting torch_sparse
+  Using cached torch_sparse-0.6.18%2Bpt29cu130-cp310-cp310-linux_x86_64.whl (5.2 MB)
+Requirement already satisfied: scipy in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from torch_sparse) (1.13.1)
+Requirement already satisfied: numpy<2.3,>=1.22.4 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from scipy->torch_sparse) (1.26.4)
+Installing collected packages: torch_sparse
+Successfully installed torch_sparse-0.6.18+pt29cu130
+Collecting yacs
+  Using cached yacs-0.1.8-py3-none-any.whl.metadata (639 bytes)
+Requirement already satisfied: PyYAML in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from yacs) (6.0.3)
+Using cached yacs-0.1.8-py3-none-any.whl (14 kB)
+Installing collected packages: yacs
+Successfully installed yacs-0.1.8

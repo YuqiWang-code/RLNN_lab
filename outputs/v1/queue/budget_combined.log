@@ -1,0 +1,14 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+100/1000 graphs, mean size 19.110
+200/1000 graphs, mean size 19.265
+300/1000 graphs, mean size 19.307
+400/1000 graphs, mean size 19.343
+500/1000 graphs, mean size 19.334
+600/1000 graphs, mean size 19.373
+700/1000 graphs, mean size 19.361
+800/1000 graphs, mean size 19.340
+900/1000 graphs, mean size 19.357
+1000/1000 graphs, mean size 19.345
+{"mean_size": 19.345, "mean_solve_time_s": 0.5041244413591921, "feasible_rate": 1, "params": 167779, "peak_memory_mib": 24.44775390625}
+[W1108 05:48:32.099243357 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
