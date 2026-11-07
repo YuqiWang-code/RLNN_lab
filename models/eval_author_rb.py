@@ -1,7 +1,8 @@
-"""Measure the released RLNN inference on the two published RB200-300 MIS groups."""
+"""Measure RLNN inference on the two published RB200-300 MIS groups."""
 
 import csv
 from datetime import datetime, timezone
+from functools import partial
 import json
 import os
 from pathlib import Path
@@ -17,8 +18,11 @@ GROUP_SIZE = 500
 
 
 @torch.no_grad()
-def evaluate(solver, result_dir):
+def evaluate(solver, result_dir, decoder):
     solver.model.eval()
+    evaluate_graph = solver.evaluate_single
+    if decoder == "gradient_flip":
+        evaluate_graph = partial(evaluate_graph, decode=solver.problem.decode_gradient_flip)
     device = solver.accelerator.device
     groups = []
     with (result_dir / "per_graph.csv").open("w", newline="") as stream:
@@ -29,7 +33,7 @@ def evaluate(solver, result_dir):
         for index, (graph,) in enumerate(solver.test_loader):
             torch.cuda.synchronize(device)
             start = perf_counter()
-            raw_size = solver.evaluate_single(graph)
+            raw_size = evaluate_graph(graph)
             torch.cuda.synchronize(device)
             elapsed = perf_counter() - start
             size = -int(raw_size.item())
@@ -54,7 +58,10 @@ def main():
     parser.set_defaults(method="RLNN", problem="mis", loss="erdoes", num_t=100,
                         num_k=20, num_l=5, num_h=128, mixed_precision="fp16")
     parser.add_argument("--result_dir", required=True, type=Path)
+    parser.add_argument("--decoder", choices=["greedy", "gradient_flip"], default="greedy")
     args = parser.parse_args()
+    if args.decoder == "gradient_flip" and (args.problem != "mis" or args.skip_decode):
+        parser.error("gradient_flip requires MIS with decoding enabled")
     set_seed(args.seed)
     solver = RLNN(args)
     dataset = solver.test_loader.dataset
@@ -70,7 +77,7 @@ def main():
     result_dir = args.result_dir
     result_dir.mkdir(parents=True, exist_ok=True)
     start_time = datetime.now(timezone.utc).isoformat()
-    groups = evaluate(solver, result_dir)
+    groups = evaluate(solver, result_dir, args.decoder)
     (group1_size, group1_time), (group2_size, group2_time) = groups
     (result_dir / "metrics").mkdir(exist_ok=True)
     with (result_dir / "metrics/metrics.csv").open("w", newline="") as stream:
@@ -108,7 +115,7 @@ def main():
             "cpu_threads": torch.get_num_threads(),
         },
         "measurement": (
-            "One graph at a time. Wall clock around sampling and released greedy decode, "
+            f"One graph at a time. Wall clock around sampling and {args.decoder} decoding, "
             "with CUDA synchronization on both sides. Includes the first graph; excludes "
             "data loading, host-to-device transfer and model startup. SIZE is the mean "
             "cardinality per graph. TIME is the mean of the two 500-graph solver totals."

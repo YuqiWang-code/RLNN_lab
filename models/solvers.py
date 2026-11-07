@@ -395,7 +395,7 @@ class RLNN(MetaSolver):
             
         return torch.cat(data, dim=-1)
           
-    def evaluate_single(self, graph):
+    def evaluate_single(self, graph, *, decode=None):
         x = torch.randint(0,2, (graph.num_nodes, self.num_k), device=self.accelerator.device, dtype=self.dtype)
         A = torch.sparse_coo_tensor(
             graph.edge_index, 
@@ -420,6 +420,6 @@ class RLNN(MetaSolver):
 
         if self.skip_decode:
             return best_energy.min()
-        else:
-            best_energy = self.problem.decode_func(best_sol, graph)
-            return best_energy.min()
+        if decode is not None:
+            return decode(best_sol, A, graph.b).min()
+        return self.problem.decode_func(best_sol, graph).min()
