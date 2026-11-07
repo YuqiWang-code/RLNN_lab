@@ -1,0 +1,135 @@
+{
+  "version": "v1",
+  "mode": "value_train",
+  "status": "completed",
+  "run": "value_rlnn_seed2",
+  "config": {
+    "resume": null,
+    "seed": 2,
+    "epochs": 20,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.001,
+    "train_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train",
+    "train_samples": 500,
+    "valid_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "valid_samples": 100,
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/author_rld4co/MIS/RB_small_test",
+    "test_samples": -1,
+    "problem": "mis",
+    "num_workers": 4,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "outputs/v1/rlnn_seed2/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "num_d": 30,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "fp16",
+    "do_train": false,
+    "skip_decode": false,
+    "horizon": 4,
+    "pairs": 16,
+    "result_dir": "outputs/v1/value_rlnn_seed2"
+  },
+  "started_at": "2026-11-07T15:25:11.321839+00:00",
+  "finished_at": "2026-11-07T15:32:22.253546+00:00",
+  "wall_time_s": 430.93177487235516,
+  "generation_time_s": 427.2229707450606,
+  "train_pairs": 32000,
+  "val_pairs": 6400,
+  "val_mae": 0.07279092073440552,
+  "val_zero_mae": 0.06578125059604645,
+  "val_delta": -0.004843750037252903,
+  "val_positive_rate": 0.028749998658895493,
+  "history": [
+    {
+      "epoch": 1,
+      "val_mae": 0.189503476023674
+    },
+    {
+      "epoch": 2,
+      "val_mae": 0.0920862928032875
+    },
+    {
+      "epoch": 3,
+      "val_mae": 0.08191612362861633
+    },
+    {
+      "epoch": 4,
+      "val_mae": 0.07865498214960098
+    },
+    {
+      "epoch": 5,
+      "val_mae": 0.078656405210495
+    },
+    {
+      "epoch": 6,
+      "val_mae": 0.0770404189825058
+    },
+    {
+      "epoch": 7,
+      "val_mae": 0.0813995897769928
+    },
+    {
+      "epoch": 8,
+      "val_mae": 0.07725109159946442
+    },
+    {
+      "epoch": 9,
+      "val_mae": 0.08038429170846939
+    },
+    {
+      "epoch": 10,
+      "val_mae": 0.07617522776126862
+    },
+    {
+      "epoch": 11,
+      "val_mae": 0.08164901286363602
+    },
+    {
+      "epoch": 12,
+      "val_mae": 0.07508576661348343
+    },
+    {
+      "epoch": 13,
+      "val_mae": 0.08039781451225281
+    },
+    {
+      "epoch": 14,
+      "val_mae": 0.07563198357820511
+    },
+    {
+      "epoch": 15,
+      "val_mae": 0.07390177249908447
+    },
+    {
+      "epoch": 16,
+      "val_mae": 0.07580049335956573
+    },
+    {
+      "epoch": 17,
+      "val_mae": 0.07279092073440552
+    },
+    {
+      "epoch": 18,
+      "val_mae": 0.07725677639245987
+    },
+    {
+      "epoch": 19,
+      "val_mae": 0.07487979531288147
+    },
+    {
+      "epoch": 20,
+      "val_mae": 0.08681083470582962
+    }
+  ]
+}
