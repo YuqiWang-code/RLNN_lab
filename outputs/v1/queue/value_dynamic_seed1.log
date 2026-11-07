@@ -1,0 +1,28 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train: 100/500 graphs
+/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train: 200/500 graphs
+/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train: 300/500 graphs
+/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train: 400/500 graphs
+/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train: 500/500 graphs
+/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val: 100/100 graphs
+Epoch 1: validation MAE 0.0837
+Epoch 2: validation MAE 0.0715
+Epoch 3: validation MAE 0.0847
+Epoch 4: validation MAE 0.0690
+Epoch 5: validation MAE 0.0686
+Epoch 6: validation MAE 0.0748
+Epoch 7: validation MAE 0.0740
+Epoch 8: validation MAE 0.0741
+Epoch 9: validation MAE 0.0760
+Epoch 10: validation MAE 0.0718
+Epoch 11: validation MAE 0.0682
+Epoch 12: validation MAE 0.0934
+Epoch 13: validation MAE 0.0764
+Epoch 14: validation MAE 0.0647
+Epoch 15: validation MAE 0.0643
+Epoch 16: validation MAE 0.0827
+Epoch 17: validation MAE 0.0711
+Epoch 18: validation MAE 0.0650
+Epoch 19: validation MAE 0.0679
+Epoch 20: validation MAE 0.0781
