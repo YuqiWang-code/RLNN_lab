@@ -47,8 +47,8 @@ COMA	因果与图表征	因果与图表征/COMA.pdf	https://arxiv.org/pdf/1705.0
 T2TCO	神经组合优化	神经组合优化/T2TCO.pdf	https://papers.neurips.cc/paper_files/paper/2023/file/9c93b3cd3bc60c0fe7b0c2d74a2da966-Paper-Conference.pdf	https://github.com/Thinklab-SJTU/T2TCO	论文引用，扩散推理参考
 Barabasi-Albert-1999	基础与综述	基础与综述/Barabasi-Albert-1999.pdf	https://barabasi.com/media/Emergence-Barabasi-1999_gN74Tws.pdf|https://arxiv.org/pdf/cond-mat/9910332		Emergence of Scaling in Random Networks
 Bengio-2020-MLCO	基础与综述	基础与综述/Bengio-2020-MLCO.pdf	https://arxiv.org/pdf/1811.06128		Machine Learning for Combinatorial Optimization: a Methodological Tour d'Horizon
-Berthold-2014-MINLP	求解器与启发式		https://www.zib.de/userpage//berthold/Berthold2014.pdf		Heuristic Algorithms in Global MINLP Solvers
-Bhattacharya-2014-VLSI	应用		https://mjis.chitkara.edu.in/index.php/mjis/article/download/125/79/261		Simulated Annealing Approach onto VLSI Circuit Partitioning
+Berthold-2014-MINLP	求解器与启发式	求解器与启发式/Berthold-2014-MINLP.pdf	https://www.zib.de/userpage//berthold/Berthold2014.pdf		Heuristic Algorithms in Global MINLP Solvers
+Bhattacharya-2014-VLSI	应用	应用/Bhattacharya-2014-VLSI.pdf	https://mjis.chitkara.edu.in/index.php/mjis/article/download/125/79/261		Simulated Annealing Approach onto VLSI Circuit Partitioning
 Cappart-2023-GNNCO	基础与综述	基础与综述/Cappart-2023-GNNCO.pdf	https://arxiv.org/pdf/2102.09544		Combinatorial Optimization and Reasoning with Graph Neural Networks
 Chen-Ke-2004-Power	应用		https://api.semanticscholar.org/CorpusID:119669727		A Multi-Layer Simulated Annealing Approach for Large-Scale Power Systems，Semantic Scholar CorpusID 119669727
 Chopra-Meindl-2001	应用				Supply Chain Management: Strategy, Planning, and Operation，Prentice Hall，ISBN 0-13-026465-2
