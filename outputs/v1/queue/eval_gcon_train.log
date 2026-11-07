@@ -1,0 +1,13 @@
+/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch_geometric/graphgym/model_builder.py:7: UserWarning: To use GraphGym, install 'pytorch_lightning' or 'lightning' via 'pip install pytorch_lightning' or 'pip install lightning'
+  from torch_geometric.graphgym.imports import LightningModule
+100/1000 graphs, mean size 17.460
+200/1000 graphs, mean size 17.430
+300/1000 graphs, mean size 17.453
+400/1000 graphs, mean size 17.420
+500/1000 graphs, mean size 17.442
+600/1000 graphs, mean size 17.482
+700/1000 graphs, mean size 17.493
+800/1000 graphs, mean size 17.460
+900/1000 graphs, mean size 17.457
+1000/1000 graphs, mean size 17.422
+{"mean_size": 17.422, "mean_solve_time_s": 0.03793472835374996, "feasible_rate": 1, "params": 134465, "peak_memory_mib": 17.43115234375}
