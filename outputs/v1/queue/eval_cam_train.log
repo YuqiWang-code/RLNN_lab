@@ -1,0 +1,15 @@
+/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/accelerator.py:443: UserWarning: `log_with=wandb` was passed but no supported trackers are currently installed.
+  warnings.warn(f"`log_with={log_with}` was passed but no supported trackers are currently installed.")
+/home/hzeng/project/ZH/RLNN_lab/reference_methods/CAM/source/solvers/meta_solver.py:367: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+100/1000 graphs, mean size 18.770
+200/1000 graphs, mean size 18.765
+300/1000 graphs, mean size 18.790
+400/1000 graphs, mean size 18.782
+500/1000 graphs, mean size 18.758
+600/1000 graphs, mean size 18.785
+700/1000 graphs, mean size 18.776
+800/1000 graphs, mean size 18.760
+900/1000 graphs, mean size 18.769
+1000/1000 graphs, mean size 18.755
+{"mean_size": 18.755, "mean_solve_time_s": 0.9814198332121595, "feasible_rate": 1, "params": 182657, "peak_memory_mib": 21.654296875}
