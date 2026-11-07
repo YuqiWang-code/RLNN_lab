@@ -1,0 +1,12 @@
+/home/hzeng/project/ZH/RLNN_lab/models/solvers.py:404: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+group 1: 100/500, SIZE 19.500, TIME 12.74s
+group 1: 200/500, SIZE 19.500, TIME 25.06s
+group 1: 300/500, SIZE 19.530, TIME 37.48s
+group 1: 400/500, SIZE 19.555, TIME 50.33s
+group 1: 500/500, SIZE 19.534, TIME 64.34s
+group 2: 100/500, SIZE 19.730, TIME 15.75s
+group 2: 200/500, SIZE 19.570, TIME 35.34s
+group 2: 300/500, SIZE 19.507, TIME 66.05s
+group 2: 400/500, SIZE 19.552, TIME 104.83s
+group 2: 500/500, SIZE 19.506, TIME 143.73s

@@ -59,6 +59,8 @@ def main():
                         num_k=20, num_l=5, num_h=128, mixed_precision="fp16")
     parser.add_argument("--result_dir", required=True, type=Path)
     parser.add_argument("--decoder", choices=["greedy", "gradient_flip"], default="greedy")
+    parser.add_argument("--checkpoint_epoch", type=int)
+    parser.add_argument("--checkpoint_source")
     args = parser.parse_args()
     if args.decoder == "gradient_flip" and (args.problem != "mis" or args.skip_decode):
         parser.error("gradient_flip requires MIS with decoding enabled")
@@ -85,7 +87,7 @@ def main():
         writer.writerow(["epoch", "group1/independent_set_size", "group1/total_time_s",
                          "group2/independent_set_size", "group2/total_time_s",
                          "test/independent_set_size", "test/total_time_s"])
-        writer.writerow([48, group1_size, group1_time, group2_size, group2_time,
+        writer.writerow([args.checkpoint_epoch, group1_size, group1_time, group2_size, group2_time,
                          (group1_size + group2_size) / 2, (group1_time + group2_time) / 2])
 
     metadata = {
@@ -102,7 +104,6 @@ def main():
         "config": {
             **vars(args),
             "result_dir": str(result_dir),
-            "checkpoint_epoch": 48,
             "test_samples": 1000,
             "groups": ["idx_0–499", "idx_500–999"],
         },
