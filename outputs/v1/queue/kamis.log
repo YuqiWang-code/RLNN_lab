@@ -1,0 +1,11 @@
+100/1000 graphs, mean size 20.050
+200/1000 graphs, mean size 20.060
+300/1000 graphs, mean size 20.107
+400/1000 graphs, mean size 20.155
+500/1000 graphs, mean size 20.118
+600/1000 graphs, mean size 20.150
+700/1000 graphs, mean size 20.130
+800/1000 graphs, mean size 20.100
+900/1000 graphs, mean size 20.121
+1000/1000 graphs, mean size 20.105
+{"mean_size": 20.105, "mean_solve_time_s": 4.660819697730709, "feasible_rate": 1, "params": 0, "peak_memory_mib": 0}
