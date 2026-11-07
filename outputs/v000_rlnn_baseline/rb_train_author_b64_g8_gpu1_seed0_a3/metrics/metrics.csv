@@ -1,0 +1,2 @@
+epoch,group1/independent_set_size,group1/total_time_s,group2/independent_set_size,group2/total_time_s,test/independent_set_size,test/total_time_s
+43,19.556,289.02636223006994,19.542,297.5861400947906,19.549,293.30625116243027
