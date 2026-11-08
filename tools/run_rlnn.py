@@ -20,13 +20,16 @@ VERSION = 'v000_rlnn_baseline'
 def parse_training(text):
     records = []
     for line in text.splitlines():
-        pairs = dict(re.findall(r'(Epoch|Iteration|loss|valid_obj|valid_time):\s*(\S+)', line))
+        pairs = dict(re.findall(r'(Epoch|Iteration|loss|valid_obj|valid_time|train_energy|train_distance|train_flips|train_peak_mib):\s*(\S+)', line))
         if pairs.get('valid_obj') in (None, 'None'):
             continue
         obj = float(pairs['valid_obj'])
         records.append({'epoch': int(pairs['Epoch']), 'step': int(pairs['Iteration']) if int(pairs.get('Iteration',0)) > 0 else None, 'train/loss': float(pairs['loss']),
                         'val/raw_obj': obj, 'val/independent_set_size': -obj,
                         'val/time': float(pairs['valid_time'])})
+        for key in ('energy', 'distance', 'flips', 'peak_mib'):
+            if f'train_{key}' in pairs:
+                records[-1][f'train/{key}'] = float(pairs[f'train_{key}'])
     return records
 
 

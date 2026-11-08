@@ -6,7 +6,8 @@ from tqdm import tqdm
 import torch
 from torch.optim import AdamW, Adam
 from models import GCN, MLP, edge2adj
-from mis_v1 import MISStateGCN, adjacency
+from mis_v1 import MISStateGCN, adjacency, search
+from mis_v2_frequency import SEGF, SEGF_MODES, frequency_topology
 from torch_scatter import scatter_min, scatter_max, scatter_add
 from torch_geometric.utils import add_remaining_self_loops
 from accelerate import Accelerator
@@ -18,11 +19,16 @@ import importlib
 import scipy.sparse as sp
 from scipy.optimize import minimize
 
-def erdoes_graph_batch_loss(problem, A, b, x, prob, graph_index, num_graphs, num_d, lambd):
+def erdoes_graph_batch_loss(problem, A, b, x, prob, graph_index, num_graphs, num_d, lambd, *, terms=False):
     flipped = (1-prob)*x + prob*(1-x)
     energy, _ = problem.energy_func(A, b, flipped, False)
     expected_flips = scatter_add(prob, graph_index, dim=0, dim_size=num_graphs)
-    return energy.mean()/num_graphs + lambd*((expected_flips-num_d)**2).mean()
+    expected_energy = energy.mean()/num_graphs
+    distance = ((expected_flips-num_d)**2).mean()
+    loss = expected_energy + lambd*distance
+    if terms:
+        return loss, torch.stack((expected_energy.detach(), distance.detach(), expected_flips.detach().mean()))
+    return loss
 
 
 class MetaSolver(object):
@@ -224,15 +230,26 @@ class RLNN(MetaSolver):
         super(RLNN, self).__init__(args)
         
         self.frequency = getattr(args, 'frequency', 'none')
+        self.segf = self.frequency in SEGF_MODES
         if self.frequency != 'none':
             if args.problem != 'mis':
                 raise ValueError('State frequency encoders require MIS')
-            self.model = MISStateGCN(args.num_h, args.num_l, args.beta, self.frequency)
+            model_type = SEGF if self.segf else MISStateGCN
+            self.model = model_type(args.num_h, args.num_l, args.beta, self.frequency)
         else:
             self.model = GCN(1, args.num_h, args.num_l, 1)
         self.model.reset_parameters()
         
+        self.validation_seed = getattr(args, 'validation_seed', None)
+        self.freeze_backbone_epochs = getattr(args, 'freeze_backbone_epochs', 0)
+        self.finetune_lr = getattr(args, 'finetune_lr', None)
+        warm_start = getattr(args, 'warm_start', None)
         if args.do_train:
+            if warm_start and not args.resume:
+                weights = torch.load(warm_start, map_location='cpu', weights_only=True)
+                missing, extra = self.model.load_state_dict(weights, strict=not self.segf)
+                if extra or any(not key.startswith('adapter.') for key in missing):
+                    raise ValueError('Warm start must contain the original RLNN backbone')
             self.optimizer = Adam(self.model.parameters(), lr=args.lr)
         else:
             state_dict = torch.load(
@@ -256,6 +273,9 @@ class RLNN(MetaSolver):
             raise ValueError("Epoch resume requires graph_batch_size > 1")
         if self.graph_batch_size > 1 and self.loss != "erdoes":
             raise ValueError("Multiple-graph training requires erdoes loss")
+        if args.do_train and (self.freeze_backbone_epochs or self.finetune_lr or self.validation_seed is not None):
+            if self.graph_batch_size < 2 or args.problem != 'mis':
+                raise ValueError("V2 training requires multiple-graph MIS erdoes updates")
 
     def prepare(self):
         super().prepare()
@@ -361,21 +381,40 @@ class RLNN(MetaSolver):
         for epoch in range(start_epoch, self.epochs):
             logger['Epoch'] = epoch+1
             self.model.train()
+            if self.freeze_backbone_epochs:
+                for name, parameter in self.model.named_parameters():
+                    parameter.requires_grad_(name.startswith('adapter.') or epoch >= self.freeze_backbone_epochs)
+            if self.finetune_lr is not None:
+                rate = self.finetune_lr if epoch >= max(1, self.freeze_backbone_epochs) else self.training_config['lr']
+                for group in self.optimizer.param_groups:
+                    group['lr'] = rate
+            track_terms = self.validation_seed is not None
+            if track_terms:
+                epoch_terms = torch.zeros(3, device=self.accelerator.device)
+                updates = 0
             for graphs in tqdm(self.train_loader, disable=not self.accelerator.is_local_main_process):
                 graph = build_batch(graphs)
                 A = adjacency(graph)
-                normalized = edge2adj(graph.edge_index, graph.num_nodes)
+                normalized = self.policy_topology(graph, A)
                 inputs = self.generate_data(graph, A, normalized)
                 for start in range(0, inputs.shape[1], self.batch_size):
                     x = inputs[:, start:start+self.batch_size]
                     prob = torch.sigmoid(self.flip_logits(x, graph, A, normalized))
                     loss = erdoes_graph_batch_loss(self.problem, A, graph.b, x, prob,
-                        graph.batch, len(graphs), self.num_d, self.lambd)
+                        graph.batch, len(graphs), self.num_d, self.lambd, terms=track_terms)
+                    if track_terms:
+                        loss, values = loss
+                        epoch_terms += values
+                        updates += 1
                     self.optimizer.zero_grad()
                     self.accelerator.backward(loss)
                     self.optimizer.step()
                     logger['Iteration'] += 1
                     logger['loss'] = loss.item() if logger['loss'] is None else 0.95*logger['loss']+0.05*loss.item()
+            if track_terms:
+                logger.update(zip(('train_energy', 'train_distance', 'train_flips'), (epoch_terms / updates).tolist()))
+                if self.accelerator.device.type == 'cuda':
+                    logger['train_peak_mib'] = torch.cuda.max_memory_allocated() / 2**20
             self.accelerator.wait_for_everyone()
             with torch.no_grad():
                 obj_result, time_result = self.evaluate('valid')
@@ -386,6 +425,11 @@ class RLNN(MetaSolver):
                 self.save_ckpt(os.path.join(save_dir, 'best.pt'))
             history.append(dict(logger))
             self.save_training_state(save_dir, epoch+1, best_eval, logger, history)
+
+    def policy_topology(self, graph, adj):
+        if self.segf:
+            return frequency_topology(graph.edge_index, adj, graph.num_nodes)
+        return edge2adj(graph.edge_index, graph.num_nodes)
 
     def flip_logits(self, x, graph, adjacency, normalized=None):
         if self.frequency == 'none':
@@ -398,7 +442,7 @@ class RLNN(MetaSolver):
         if A is None:
             A = adjacency(graph)
         if normalized is None:
-            normalized = edge2adj(graph.edge_index, graph.num_nodes)
+            normalized = self.policy_topology(graph, A)
         data = []
 
         for epoch in range(self.num_tp):
@@ -416,7 +460,7 @@ class RLNN(MetaSolver):
         x = torch.randint(0, 2, (graph.num_nodes, self.num_k), device=self.accelerator.device,
                           dtype=self.dtype, generator=generator)
         if normalized is None:
-            normalized = edge2adj(graph.edge_index, graph.num_nodes)
+            normalized = self.policy_topology(graph, adjacency)
         yield x
         for _ in range(self.num_t):
             logits = self.flip_logits(x, graph, adjacency, normalized)
@@ -427,6 +471,10 @@ class RLNN(MetaSolver):
             yield x
 
     def evaluate_single(self, graph, *, decode=None):
+        if self.validation_seed is not None:
+            generator = torch.Generator(device=self.accelerator.device).manual_seed(self.validation_seed + graph.idx)
+            solution, _ = search(self, graph, generator)
+            return -solution.sum()
         x = torch.randint(0,2, (graph.num_nodes, self.num_k), device=self.accelerator.device, dtype=self.dtype)
         A = torch.sparse_coo_tensor(
             graph.edge_index, 
