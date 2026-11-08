@@ -1,7 +1,7 @@
 """Finite plateau search and paired continuation values on legal MIS solutions."""
 from dataclasses import dataclass, field
 from itertools import chain, islice
-from math import inf, log1p
+from math import inf, isfinite, log1p
 import random
 from time import perf_counter
 
@@ -139,22 +139,40 @@ class SearchGraph(ExchangeGraph):
     def stats_features(self, selected, actions, remaining=1.0):
         tight, masks, r1, r2, pairs = self.state_structure(selected)
         outside = self.all_nodes ^ selected
+        levels = [0] * (3 + max((len(action.removed) for action in actions), default=0))
+        for node, count in enumerate(tight):
+            if count < len(levels):
+                levels[count] |= 1 << node
+        log_pairs_before = log1p(sum(pairs))
+        selected_fraction = selected.bit_count() / self.num_nodes
         rows = []
         for action in actions:
             successor = self.apply_move(selected, action)
-            _, after_masks, _, _, after_pairs = self.state_structure(successor)
             removed = node_mask(action.removed)
-            released = 0
-            removed_cover = 0
-            added_cover = 0
-            for node in nodes(outside):
-                blockers = self.neighbors[node] & selected
-                if blockers and not blockers & ~removed:
-                    released |= 1 << node
+            removed_neighbors = 0
+            after_levels = levels
             for node in action.removed:
-                removed_cover |= self.neighbors[node] & outside
+                adjacent = self.neighbors[node]
+                removed_neighbors |= adjacent
+                after_levels = [(same & ~adjacent) | (higher & adjacent)
+                                for same, higher in zip(after_levels, after_levels[1:])]
+            after_levels = after_levels[:3]
+            added_neighbors = 0
             for node in action.added:
-                added_cover |= self.neighbors[node] & outside & ~node_mask(action.added)
+                adjacent = self.neighbors[node]
+                added_neighbors |= adjacent
+                zero, one, two = after_levels
+                after_levels = [zero & ~adjacent,
+                                (one & ~adjacent) | (zero & adjacent),
+                                (two & ~adjacent) | (one & adjacent)]
+            after_masks = [mask & ~successor for mask in after_levels]
+            after_pairs = sum(self.compatible_pairs(self.neighbors[node] & after_masks[1])
+                              for node in nodes(successor))
+            released = removed_neighbors & outside
+            for node in nodes(selected & ~removed):
+                released &= ~self.neighbors[node]
+            removed_cover = removed_neighbors & outside
+            added_cover = added_neighbors & outside & ~node_mask(action.added)
             row = [sum(self.log_degree[i] for i in action.removed),
                    sum(self.log_degree[i] for i in action.added), len(action.removed),
                    sum(tight[i] for i in action.added),
@@ -166,10 +184,10 @@ class SearchGraph(ExchangeGraph):
                    log1p(added_cover.bit_count()), log1p((removed_cover & added_cover).bit_count()),
                    sum(log1p((self.neighbors[i] & outside).bit_count()) for i in action.added),
                    sum(log1p((self.neighbors[i] & outside).bit_count()) for i in action.removed),
-                   log1p(sum(pairs)), log1p(sum(after_pairs))]
+                   log_pairs_before, log1p(after_pairs)]
             for before, after in zip(masks, after_masks):
                 row.extend(((after & ~before).bit_count(), (before & ~after).bit_count()))
-            row.extend((selected.bit_count() / self.num_nodes, float(remaining)))
+            row.extend((selected_fraction, float(remaining)))
             rows.append(row)
         return rows
 
@@ -328,41 +346,73 @@ def platform_search(graph, selected, *, choose="coverage", outer_rounds=8, initi
     on_state(graph, selected, pool, history, outer_index, remaining_fraction)
     observes decision states before selection without changing search state.
     """
+    limited = isfinite(deadline)
+    work_deadline = deadline - 0.002 if limited else deadline
+    initial_start = perf_counter() if limited else 0.0
     initial = repair(graph, selected, rounds=initial_rounds, cap=improving_cap,
-                     deadline=deadline, extend_first=False) if initial_rounds else RepairResult(selected)
+                     deadline=work_deadline, extend_first=False) if initial_rounds else RepairResult(selected)
+    initial_seconds = perf_counter() - initial_start if limited else 0.0
+    round_seconds, score_units = [], []
+    macro_seconds = [max(0.002, initial_seconds * horizon)]
     result = SearchResult(initial.work, initial.work, tuple(history)[-2:], selected.bit_count(),
                           initial.work.bit_count(), exchanges=initial.exchanges,
                           deadline_hit=initial.deadline_hit)
     for step in range(outer_rounds):
-        if result.deadline_hit or perf_counter() >= deadline:
+        if result.deadline_hit or perf_counter() >= work_deadline:
             result.deadline_hit = True
             break
-        strict = improving_actions(graph, result.work, cap=1, deadline=deadline)
-        if perf_counter() >= deadline:
+        round_start = perf_counter() if limited else 0.0
+        strict = improving_actions(graph, result.work, cap=1, deadline=work_deadline)
+        if perf_counter() >= work_deadline:
             result.deadline_hit = True
             break
         before = result.work
         remaining = (outer_rounds - step) / outer_rounds
         if strict:
-            segment = repair(graph, before, rounds=repair_rounds, cap=improving_cap, deadline=deadline)
+            segment = repair(graph, before, rounds=repair_rounds, cap=improving_cap, deadline=work_deadline)
             result.work = segment.work
             result.exchanges += segment.exchanges
             result.deadline_hit = segment.deadline_hit
             row = dict(kind="repair", exchanges=segment.exchanges, capped=segment.capped)
         else:
+            if limited:
+                predicted_round = 1.25 * max(round_seconds[-2:]) if round_seconds else 0.003
+                if perf_counter() + predicted_round >= work_deadline:
+                    result.deadline_hit = True
+                    break
             pool = candidate_actions(graph, before, cap=candidate_cap, anchored=anchored,
-                                     tabu=result.history, deadline=deadline)
-            if not pool.completed or perf_counter() >= deadline:
+                                     tabu=result.history, deadline=work_deadline)
+            if not pool.completed or perf_counter() >= work_deadline:
                 result.deadline_hit = True
                 break
             if on_state is not None:
                 on_state(graph, before, pool, result.history, step, remaining)
             if not pool.actions:
                 break
+            if limited:
+                count = len(pool.actions)
+                if callable(choose) and count > 1:
+                    unit = max(score_units[-2:]) if score_units else 0.0006 * graph.num_nodes / 250
+                    predicted_score = unit * count
+                else:
+                    predicted_score = 0.0005 if callable(choose) else 0.0001
+                predicted_macro = max(macro_seconds[-2:])
+                if perf_counter() + 1.25 * (predicted_score + predicted_macro) >= work_deadline:
+                    result.deadline_hit = True
+                    break
+                score_start = perf_counter()
             action = (choose(graph, before, pool.actions, remaining) if callable(choose)
                       else choose_action(graph, before, pool.actions, choose))
+            if limited:
+                actual_score = perf_counter() - score_start
+                if callable(choose) and count > 1:
+                    score_units.append(actual_score / count)
+                if perf_counter() + 1.25 * predicted_macro >= work_deadline:
+                    result.deadline_hit = True
+                    break
+                macro_start = perf_counter()
             macro = rollout(graph, before, action, horizon=horizon, repair_rounds=repair_rounds,
-                            improving_cap=improving_cap, candidate_cap=candidate_cap, deadline=deadline)
+                            improving_cap=improving_cap, candidate_cap=candidate_cap, deadline=work_deadline)
             result.work = macro.work
             result.history = (result.history + macro.neutral_actions)[-2:]
             result.exchanges += macro.exchanges
@@ -372,6 +422,13 @@ def platform_search(graph, selected, *, choose="coverage", outer_rounds=8, initi
                        exchanges=macro.exchanges, neutral_steps=len(macro.attempted_actions),
                        returned_to_start=macro.returned_to_start, rolled_back=macro.rolled_back,
                        ended_below_start=macro.ended_below_start, gain=macro.gain, capped=macro.capped)
+            if limited:
+                actual_macro = perf_counter() - macro_start
+                actual_round = perf_counter() - round_start
+                macro_seconds.append(actual_macro)
+                round_seconds.append(actual_round)
+                row.update(round_time_s=actual_round, score_time_s=actual_score,
+                           predicted_score_time_s=predicted_score, rollout_time_s=actual_macro)
             if macro.best.bit_count() > result.best.bit_count():
                 result.best = macro.best
         if result.work.bit_count() > result.best.bit_count():

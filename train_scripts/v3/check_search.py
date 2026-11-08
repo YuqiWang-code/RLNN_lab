@@ -4,6 +4,7 @@ from pathlib import Path
 import random
 import sys
 from time import perf_counter
+from unittest.mock import patch
 
 import torch
 
@@ -11,6 +12,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "models"))
 from mis_v3_search import (STATS_DIM, SearchGraph, action_values, candidate_actions,
                            improving_actions, node_mask, nodes, platform_search,
                            repair, rollout)
+import mis_v2_exchange
+import mis_v3_search
 
 
 def graph_from(size, pairs, seed=17):
@@ -120,10 +123,60 @@ def budget_and_features_check():
     assert torch.allclose(node_features[:6, 7], torch.full((6,), torch.log(torch.tensor(2.)).item()))
 
 
+def deadline_prediction_check():
+    graph = graph_from(250, [edge for start in range(0, 250, 10)
+                            for edge in combinations(range(start, start + 10), 2)])
+    selected = node_mask(range(0, 250, 10))
+
+    class Clock:
+        now = 0.0
+
+        def __call__(self):
+            return self.now
+
+    clock = Clock()
+    scores = []
+
+    def candidates(*args, **kwargs):
+        clock.now += 0.001
+        return candidate_actions(*args, **kwargs)
+
+    def repairing(*args, **kwargs):
+        clock.now += 0.001
+        return repair(*args, **kwargs)
+
+    def continuing(*args, **kwargs):
+        clock.now += 0.002
+        return rollout(*args, **kwargs)
+
+    def score(graph, selected, actions, remaining):
+        scores.append(clock.now)
+        clock.now += 0.030
+        return actions[0]
+
+    with patch.object(mis_v3_search, "perf_counter", clock), \
+            patch.object(mis_v2_exchange, "perf_counter", clock), \
+            patch.object(mis_v3_search, "candidate_actions", candidates), \
+            patch.object(mis_v3_search, "repair", repairing), \
+            patch.object(mis_v3_search, "rollout", continuing):
+        too_short = platform_search(graph, selected, choose=score, horizon=1, deadline=0.020)
+        assert not scores and too_short.best == selected and too_short.deadline_hit
+        clock.now = 0.0
+        timed = platform_search(graph, selected, choose=score, horizon=1, deadline=0.130)
+        assert len(scores) == 3 and timed.outer_steps == 3 and timed.deadline_hit
+        assert clock.now < 0.128 and graph.feasible(timed.best)
+        assert all(row["score_time_s"] >= 0.029 for row in timed.trace)
+        clock.now = 0.0
+        scores.clear()
+        unlimited = platform_search(graph, selected, choose=score, horizon=1)
+        assert len(scores) == 8 and unlimited.outer_steps == 8 and not unlimited.deadline_hit
+
+
 if __name__ == "__main__":
     torch.set_num_threads(1)
     counts = enumerate_check()
     anchor_and_history_check()
     budget_and_features_check()
+    deadline_prediction_check()
     print(f"v3 checks passed: {counts[0]} plateau actions, {counts[1]} improving actions, "
-          f"{counts[2]} paired label/deployment states; anchors, history, caps and features")
+          f"{counts[2]} paired label/deployment states; anchors, history, caps, features and deadline prediction")
