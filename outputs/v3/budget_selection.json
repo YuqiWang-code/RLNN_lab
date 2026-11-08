@@ -3,25 +3,25 @@
   "split": "validation",
   "graphs": 100,
   "backbone_seed": 0,
-  "reserve_s": 0.1,
+  "reserve_s": 0.05,
   "candidates": [
     {
       "reserve_s": 0.02,
-      "mean_size": 19.450000000000003,
-      "deadline_overruns": 148,
-      "mean_time_s": 0.4891797122196294
+      "mean_size": 19.525,
+      "deadline_overruns": 0,
+      "mean_time_s": 0.12497315426589921
     },
     {
       "reserve_s": 0.05,
-      "mean_size": 19.465,
-      "deadline_overruns": 124,
-      "mean_time_s": 0.4819866263354197
+      "mean_size": 19.53,
+      "deadline_overruns": 0,
+      "mean_time_s": 0.13694187816930936
     },
     {
       "reserve_s": 0.1,
-      "mean_size": 19.5,
-      "deadline_overruns": 56,
-      "mean_time_s": 0.42287215326447036
+      "mean_size": 19.53,
+      "deadline_overruns": 0,
+      "mean_time_s": 0.14636602342594415
     }
   ],
   "criterion": "No deadline overruns, then mean quality; prefer 50 ms on ties"

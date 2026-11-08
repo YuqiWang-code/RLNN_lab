@@ -1,5 +1,5 @@
 RLNN v3 实验汇总
-时间：2026-11-08T07:42:04.778803+00:00
+时间：2026-11-08T21:01:13.246154+00:00
 标准差为同配置种子均值的样本标准差；Δ以明确指定的逐图参照计算。
 
 RLNN-original-h1 + coverage | test | fixed_work | n=3 | Size=19.58533 ± 0.00737 | ΔRLNN=0.067 | Δ规则=-0.017333333333333333 | 秒/图=0.3380908467058713
@@ -24,12 +24,12 @@ RLNN-tuned-h2 | test | fixed_work | n=3 | Size=19.53900 ± 0.00693 | ΔRLNN=0.02
 RLNN-tuned-h2 + pave | test | fixed_work | n=3 | Size=19.66067 ± 0.01012 | ΔRLNN=0.14233333333333334 | Δ规则=0.042333333333333334 | 秒/图=0.44839162395522
 RLNN-tuned-h2 + random | test | fixed_work | n=3 | Size=19.61833 ± 0.00462 | ΔRLNN=0.1 | Δ规则=0 | 秒/图=0.3841525953256836
 RLNN-tuned-h2 + rule23 | test | fixed_work | n=3 | Size=19.59533 ± 0.00493 | ΔRLNN=0.077 | Δ规则=-0.023 | 秒/图=0.27396285845463475
-RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.42000 | ΔRLNN=None | Δ规则=None | 秒/图=0.5031033470388502
-RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.45000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4985564421536401
-RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.53000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4500539477728307
-RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.48000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4752560774004087
-RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.48000 | ΔRLNN=None | Δ规则=None | 秒/图=0.46541681051719935
-RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.47000 | ΔRLNN=None | Δ规则=None | 秒/图=0.3956903587561101
+RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.55000 | ΔRLNN=None | Δ规则=None | 秒/图=0.12151604174170644
+RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.56000 | ΔRLNN=None | Δ规则=None | 秒/图=0.13344074375461787
+RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.56000 | ΔRLNN=None | Δ规则=None | 秒/图=0.14012427450623363
+RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.50000 | ΔRLNN=None | Δ规则=None | 秒/图=0.12843026679009198
+RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.50000 | ΔRLNN=None | Δ规则=None | 秒/图=0.14044301258400083
+RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.50000 | ΔRLNN=None | Δ规则=None | 秒/图=0.15260777234565467
 
 完整平台验证（缓存起始解，只用于质量选择）
 原RLNN | 覆盖度 H=1 | Mean Size=19.53667 ± 0.01155
