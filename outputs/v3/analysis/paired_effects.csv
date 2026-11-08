@@ -38,13 +38,17 @@ budget_tuned_rule23_ext,budget_tuned_random_h2,rule23,random,0,independent_searc
 budget_tuned_rule23_ext,budget_tuned_random_h2,rule23,random,1,independent_search,1000,0.097,121,848,31,97,746,0,29,0,0.186,0.008,"{""-1"": 31, ""0"": 848, ""1"": 114, ""2"": 7}",0.161,807,-0.064
 budget_tuned_rule23_ext,budget_tuned_random_h2,rule23,random,all,independent_search,2000,0.033,175,1713,112,66,1533,0,57,0,0.112,-0.046,"{""-2"": 4, ""-1"": 108, ""0"": 1713, ""1"": 168, ""2"": 7}",0.0775,1659,-0.0445
 budget_tuned_stats_h1,budget_original_none_ext,pave,none,0,independent_search,1000,0.109,184,733,83,109,47,69,0,0,0.178,0.04,"{""-2"": 1, ""-1"": 82, ""0"": 733, ""1"": 175, ""2"": 9}",-0.008,741,0.117
-budget_tuned_stats_h1,budget_original_none_ext,pave,none,all,independent_search,1000,0.109,184,733,83,109,47,69,0,0,0.178,0.04,"{""-2"": 1, ""-1"": 82, ""0"": 733, ""1"": 175, ""2"": 9}",-0.008,741,0.117
+budget_tuned_stats_h1,budget_original_none_ext,pave,none,1,independent_search,1000,-0.018,108,764,128,-18,47,48,0,0,-0.05,0.014,"{""-2"": 2, ""-1"": 126, ""0"": 764, ""1"": 104, ""2"": 4}",-0.133,726,0.115
+budget_tuned_stats_h1,budget_original_none_ext,pave,none,all,independent_search,2000,0.0455,292,1497,211,91,94,117,0,0,0.064,0.027,"{""-2"": 3, ""-1"": 208, ""0"": 1497, ""1"": 279, ""2"": 13}",-0.0705,1467,0.116
 budget_tuned_stats_h1,budget_tuned_none_ext,pave,none,0,independent_search,1000,0.074,121,829,50,74,751,69,0,0,0.004,0.144,"{""-2"": 1, ""-1"": 49, ""0"": 829, ""1"": 117, ""2"": 4}",-0.043,877,0.117
-budget_tuned_stats_h1,budget_tuned_none_ext,pave,none,all,independent_search,1000,0.074,121,829,50,74,751,69,0,0,0.004,0.144,"{""-2"": 1, ""-1"": 49, ""0"": 829, ""1"": 117, ""2"": 4}",-0.043,877,0.117
+budget_tuned_stats_h1,budget_tuned_none_ext,pave,none,1,independent_search,1000,0.002,76,848,76,2,739,48,0,0,0.046,-0.042,"{""-2"": 1, ""-1"": 75, ""0"": 848, ""1"": 73, ""2"": 3}",-0.113,857,0.115
+budget_tuned_stats_h1,budget_tuned_none_ext,pave,none,all,independent_search,2000,0.038,197,1677,126,76,1490,117,0,0,0.025,0.051,"{""-2"": 2, ""-1"": 124, ""0"": 1677, ""1"": 190, ""2"": 7}",-0.078,1734,0.116
 budget_tuned_stats_h1,budget_tuned_random_h2,pave,random,0,independent_search,1000,0.065,80,903,17,65,834,56,15,13,0.084,0.046,"{""-1"": 17, ""0"": 903, ""1"": 78, ""2"": 2}",0.027,953,0.038
-budget_tuned_stats_h1,budget_tuned_random_h2,pave,random,all,independent_search,1000,0.065,80,903,17,65,834,56,15,13,0.084,0.046,"{""-1"": 17, ""0"": 903, ""1"": 78, ""2"": 2}",0.027,953,0.038
+budget_tuned_stats_h1,budget_tuned_random_h2,pave,random,1,independent_search,1000,0.074,98,873,29,74,793,40,21,8,0.124,0.024,"{""-1"": 29, ""0"": 873, ""1"": 93, ""2"": 5}",0.069,898,0.005
+budget_tuned_stats_h1,budget_tuned_random_h2,pave,random,all,independent_search,2000,0.0695,178,1776,46,139,1627,96,36,21,0.104,0.035,"{""-1"": 46, ""0"": 1776, ""1"": 171, ""2"": 7}",0.048,1851,0.0215
 budget_tuned_stats_h1,budget_tuned_rule23_ext,pave,rule23,0,independent_search,1000,0.096,124,844,32,96,777,69,0,0,0.046,0.146,"{""-1"": 32, ""0"": 844, ""1"": 120, ""2"": 4}",0.033,876,0.063
-budget_tuned_stats_h1,budget_tuned_rule23_ext,pave,rule23,all,independent_search,1000,0.096,124,844,32,96,777,69,0,0,0.046,0.146,"{""-1"": 32, ""0"": 844, ""1"": 120, ""2"": 4}",0.033,876,0.063
+budget_tuned_stats_h1,budget_tuned_rule23_ext,pave,rule23,1,independent_search,1000,-0.023,48,883,69,-23,778,48,0,0,-0.062,0.016,"{""-2"": 2, ""-1"": 67, ""0"": 883, ""1"": 48}",-0.092,866,0.069
+budget_tuned_stats_h1,budget_tuned_rule23_ext,pave,rule23,all,independent_search,2000,0.0365,172,1727,101,73,1555,117,0,0,-0.008,0.081,"{""-2"": 2, ""-1"": 99, ""0"": 1727, ""1"": 168, ""2"": 4}",-0.0295,1742,0.066
 test_original_h1,test_original_h1,coverage,none,0,shared_initial,1000,0.065,63,937,0,65,937,6,0,0,0.062,0.068,"{""0"": 937, ""1"": 61, ""2"": 2}",0,1000,0.065
 test_original_h1,test_original_h1,coverage,none,1,shared_initial,1000,0.071,70,930,0,71,930,10,0,0,0.064,0.078,"{""0"": 930, ""1"": 69, ""2"": 1}",0,1000,0.071
 test_original_h1,test_original_h1,coverage,none,2,shared_initial,1000,0.07,67,933,0,70,933,7,0,0,0.088,0.052,"{""0"": 933, ""1"": 64, ""2"": 3}",0,1000,0.07

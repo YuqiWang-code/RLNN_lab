@@ -1,6 +1,6 @@
 {
   "version": "v3",
-  "updated_at": "2026-11-08T22:09:21.991500+00:00",
+  "updated_at": "2026-11-08T22:13:08.750442+00:00",
   "cohorts": [
     {
       "method": "RLNN-original-h1",
@@ -229,20 +229,21 @@
       "trainable_params": 3713,
       "cohort_id": "budget_tuned_stats_h1/pave",
       "run_indices": [
-        11
+        11,
+        12
       ],
-      "seeds": 1,
-      "mean_size": 19.647,
-      "std_size": null,
-      "delta_base": 0.109,
-      "delta_rule": 0.065,
-      "mean_solve_time_s": 0.3629865983049385,
+      "seeds": 2,
+      "mean_size": 19.6425,
+      "std_size": 0.006363961030676657,
+      "delta_base": 0.0455,
+      "delta_rule": 0.0695,
+      "mean_solve_time_s": 0.3765474711912684,
       "feasible_rate": 1.0,
-      "base_gain": 0.117,
-      "rule_gain": 0.071,
-      "wins": 184,
-      "ties": 733,
-      "losses": 83,
+      "base_gain": 0.116,
+      "rule_gain": 0.0595,
+      "wins": 292,
+      "ties": 1497,
+      "losses": 211,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -259,9 +260,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/coverage",
       "run_indices": [
-        12,
         13,
-        14
+        14,
+        15
       ],
       "seeds": 3,
       "mean_size": 19.585333333333335,
@@ -291,9 +292,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/degree",
       "run_indices": [
-        15,
         16,
-        17
+        17,
+        18
       ],
       "seeds": 3,
       "mean_size": 19.585333333333335,
@@ -323,9 +324,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/none",
       "run_indices": [
-        18,
         19,
-        20
+        20,
+        21
       ],
       "seeds": 3,
       "mean_size": 19.516666666666666,
@@ -355,9 +356,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_original_h1/pave",
       "run_indices": [
-        21,
         22,
-        23
+        23,
+        24
       ],
       "seeds": 3,
       "mean_size": 19.645333333333333,
@@ -387,9 +388,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/random",
       "run_indices": [
-        24,
         25,
-        26
+        26,
+        27
       ],
       "seeds": 3,
       "mean_size": 19.601000000000003,
@@ -419,9 +420,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/rule23",
       "run_indices": [
-        27,
         28,
-        29
+        29,
+        30
       ],
       "seeds": 3,
       "mean_size": 19.577666666666666,
@@ -451,9 +452,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/coverage",
       "run_indices": [
-        30,
         31,
-        32
+        32,
+        33
       ],
       "seeds": 3,
       "mean_size": 19.608333333333334,
@@ -483,9 +484,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/degree",
       "run_indices": [
-        33,
         34,
-        35
+        35,
+        36
       ],
       "seeds": 3,
       "mean_size": 19.609,
@@ -515,9 +516,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/none",
       "run_indices": [
-        36,
         37,
-        38
+        38,
+        39
       ],
       "seeds": 3,
       "mean_size": 19.546666666666667,
@@ -547,9 +548,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_tuned_h1/pave",
       "run_indices": [
-        39,
         40,
-        41
+        41,
+        42
       ],
       "seeds": 3,
       "mean_size": 19.663333333333334,
@@ -579,9 +580,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_tuned_h1/pave_adapted",
       "run_indices": [
-        42,
         43,
-        44
+        44,
+        45
       ],
       "seeds": 3,
       "mean_size": 19.651,
@@ -611,9 +612,9 @@
       "trainable_params": 20737,
       "cohort_id": "fixed_tuned_h1/pave_frequency",
       "run_indices": [
-        45,
         46,
-        47
+        47,
+        48
       ],
       "seeds": 3,
       "mean_size": 19.652333333333335,
@@ -643,9 +644,9 @@
       "trainable_params": 20737,
       "cohort_id": "fixed_tuned_h1/pave_message",
       "run_indices": [
-        48,
         49,
-        50
+        50,
+        51
       ],
       "seeds": 3,
       "mean_size": 19.656333333333333,
@@ -675,9 +676,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_tuned_h1/pave_untrained",
       "run_indices": [
-        51,
         52,
-        53
+        53,
+        54
       ],
       "seeds": 3,
       "mean_size": 19.638666666666666,
@@ -707,9 +708,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/random",
       "run_indices": [
-        54,
         55,
-        56
+        56,
+        57
       ],
       "seeds": 3,
       "mean_size": 19.624333333333333,
@@ -739,9 +740,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/rule23",
       "run_indices": [
-        57,
         58,
-        59
+        59,
+        60
       ],
       "seeds": 3,
       "mean_size": 19.602999999999998,
@@ -771,9 +772,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/coverage",
       "run_indices": [
-        60,
         61,
-        62
+        62,
+        63
       ],
       "seeds": 3,
       "mean_size": 19.60066666666667,
@@ -803,9 +804,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/degree",
       "run_indices": [
-        63,
         64,
-        65
+        65,
+        66
       ],
       "seeds": 3,
       "mean_size": 19.601000000000003,
@@ -835,9 +836,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/none",
       "run_indices": [
-        66,
         67,
-        68
+        68,
+        69
       ],
       "seeds": 3,
       "mean_size": 19.539,
@@ -867,9 +868,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_tuned_h2/pave",
       "run_indices": [
-        69,
         70,
-        71
+        71,
+        72
       ],
       "seeds": 3,
       "mean_size": 19.660666666666668,
@@ -899,9 +900,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/random",
       "run_indices": [
-        72,
         73,
-        74
+        74,
+        75
       ],
       "seeds": 3,
       "mean_size": 19.61733333333333,
@@ -931,9 +932,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/rule23",
       "run_indices": [
-        75,
         76,
-        77
+        77,
+        78
       ],
       "seeds": 3,
       "mean_size": 19.595333333333333,
@@ -963,7 +964,7 @@
       "trainable_params": 3713,
       "cohort_id": "reserve_pave_0.02/pave",
       "run_indices": [
-        78
+        79
       ],
       "seeds": 1,
       "mean_size": 19.55,
@@ -993,7 +994,7 @@
       "trainable_params": 3713,
       "cohort_id": "reserve_pave_0.05/pave",
       "run_indices": [
-        79
+        80
       ],
       "seeds": 1,
       "mean_size": 19.56,
@@ -1023,7 +1024,7 @@
       "trainable_params": 3713,
       "cohort_id": "reserve_pave_0.10/pave",
       "run_indices": [
-        80
+        81
       ],
       "seeds": 1,
       "mean_size": 19.56,
@@ -1053,7 +1054,7 @@
       "trainable_params": 0,
       "cohort_id": "reserve_random_0.02/random",
       "run_indices": [
-        81
+        82
       ],
       "seeds": 1,
       "mean_size": 19.5,
@@ -1083,7 +1084,7 @@
       "trainable_params": 0,
       "cohort_id": "reserve_random_0.05/random",
       "run_indices": [
-        82
+        83
       ],
       "seeds": 1,
       "mean_size": 19.5,
@@ -1113,7 +1114,7 @@
       "trainable_params": 0,
       "cohort_id": "reserve_random_0.10/random",
       "run_indices": [
-        83
+        84
       ],
       "seeds": 1,
       "mean_size": 19.5,
@@ -1561,6 +1562,42 @@
       "score_time_s": 0.021178917119279505,
       "post_time_s": 0.06540037379600108,
       "improving_exchanges": 0.117,
+      "deadline_overruns": 0,
+      "cohort_id": "budget_tuned_stats_h1/pave"
+    },
+    {
+      "source": "outputs/v3/budget_tuned_stats_h1_seed1/pave",
+      "method": "RLNN-tuned-h1 + pave",
+      "split": "test",
+      "protocol": "fixed_time",
+      "backbone_seed": 1,
+      "head_seed": 1,
+      "search_seed": 1017,
+      "samples": 1000,
+      "mean_size": 19.638,
+      "mean_solve_time_s": 0.3901083440775983,
+      "feasible_rate": 1.0,
+      "params": 169218,
+      "trainable_params": 3713,
+      "peak_memory_mib": 23.9052734375,
+      "time_budget_s": 0.5,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "baseline_run": "outputs/v3/budget_original_none_ext_seed1/none",
+      "rule_reference_run": "outputs/v3/budget_tuned_random_h2_seed1/random",
+      "delta_base": -0.018,
+      "delta_rule": 0.074,
+      "wins": 108,
+      "ties": 764,
+      "losses": 128,
+      "base_gain": 0.115,
+      "rule_gain": 0.048,
+      "search_steps": 96.288,
+      "neutral_decisions": 7.184,
+      "score_time_s": 0.021573708653450013,
+      "post_time_s": 0.06655470868060365,
+      "improving_exchanges": 0.115,
       "deadline_overruns": 0,
       "cohort_id": "budget_tuned_stats_h1/pave"
     },
@@ -4723,7 +4760,7 @@
       "outputs/v3/analysis",
       "任务",
       "updated_at",
-      "2026-11-08T22:09:20.281619+00:00"
+      "2026-11-08T22:13:06.932414+00:00"
     ],
     [
       "配对分析",
@@ -9698,6 +9735,76 @@
     [
       "配对分析",
       "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "平均Size差",
+      -0.018
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "胜",
+      108
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "平",
+      764
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "负",
+      128
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "累计节点差",
+      -18
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "前500图平均差",
+      -0.05
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "后500图平均差",
+      0.014
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/种子1",
+      "初始Size差",
+      -0.133
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "配对口径",
       "各策略独立搜索，按图与种子配对"
@@ -9707,483 +9814,693 @@
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "图—种子记录数",
-      1000
+      2000
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "平均Size差",
-      0.109
+      0.0455
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "胜",
-      184
+      292
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "平",
-      733
+      1497
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "负",
-      83
+      211
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "累计节点差",
-      109
+      91
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "前500图平均差",
-      0.178
+      0.064
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "后500图平均差",
-      0.04
+      0.027
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_original_none_ext/none/已完成种子合并",
       "初始Size差",
+      -0.0705
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "平均Size差",
+      0.074
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "胜",
+      121
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "平",
+      829
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "负",
+      50
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "累计节点差",
+      74
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "前500图平均差",
+      0.004
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "后500图平均差",
+      0.144
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
+      "初始Size差",
+      -0.043
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "平均Size差",
+      0.002
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "胜",
+      76
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "平",
+      848
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "负",
+      76
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "累计节点差",
+      2
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "前500图平均差",
+      0.046
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "后500图平均差",
+      -0.042
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子1",
+      "初始Size差",
+      -0.113
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "图—种子记录数",
+      2000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "平均Size差",
+      0.038
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "胜",
+      197
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "平",
+      1677
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "负",
+      126
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "累计节点差",
+      76
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "前500图平均差",
+      0.025
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "后500图平均差",
+      0.051
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
+      "初始Size差",
+      -0.078
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "平均Size差",
+      0.065
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "胜",
+      80
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "平",
+      903
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "负",
+      17
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "累计节点差",
+      65
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "前500图平均差",
+      0.084
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "后500图平均差",
+      0.046
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
+      "初始Size差",
+      0.027
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "平均Size差",
+      0.074
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "胜",
+      98
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "平",
+      873
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "负",
+      29
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "累计节点差",
+      74
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "前500图平均差",
+      0.124
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "后500图平均差",
+      0.024
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子1",
+      "初始Size差",
+      0.069
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "图—种子记录数",
+      2000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "平均Size差",
+      0.0695
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "胜",
+      178
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "平",
+      1776
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "负",
+      46
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "累计节点差",
+      139
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "前500图平均差",
+      0.104
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "后500图平均差",
+      0.035
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
+      "初始Size差",
+      0.048
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "平均Size差",
+      0.096
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "胜",
+      124
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "平",
+      844
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "负",
+      32
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "累计节点差",
+      96
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "前500图平均差",
+      0.046
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "后500图平均差",
+      0.146
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
+      "初始Size差",
+      0.033
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "平均Size差",
+      -0.023
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "胜",
+      48
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "平",
+      883
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "负",
+      69
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "累计节点差",
+      -23
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "前500图平均差",
+      -0.062
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "后500图平均差",
+      0.016
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子1",
+      "初始Size差",
+      -0.092
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
+      "图—种子记录数",
+      2000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
+      "平均Size差",
+      0.0365
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
+      "胜",
+      172
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
+      "平",
+      1727
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
+      "负",
+      101
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
+      "累计节点差",
+      73
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
+      "前500图平均差",
       -0.008
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "配对口径",
-      "各策略独立搜索，按图与种子配对"
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "图—种子记录数",
-      1000
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "平均Size差",
-      0.074
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "胜",
-      121
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "平",
-      829
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "负",
-      50
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "累计节点差",
-      74
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "前500图平均差",
-      0.004
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "后500图平均差",
-      0.144
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/种子0",
-      "初始Size差",
-      -0.043
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "配对口径",
-      "各策略独立搜索，按图与种子配对"
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "图—种子记录数",
-      1000
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "平均Size差",
-      0.074
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "胜",
-      121
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "平",
-      829
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "负",
-      50
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "累计节点差",
-      74
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "前500图平均差",
-      0.004
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "后500图平均差",
-      0.144
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_none_ext/none/已完成种子合并",
-      "初始Size差",
-      -0.043
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "配对口径",
-      "各策略独立搜索，按图与种子配对"
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "图—种子记录数",
-      1000
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "平均Size差",
-      0.065
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "胜",
-      80
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "平",
-      903
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "负",
-      17
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "累计节点差",
-      65
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "前500图平均差",
-      0.084
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "后500图平均差",
-      0.046
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/种子0",
-      "初始Size差",
-      0.027
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "配对口径",
-      "各策略独立搜索，按图与种子配对"
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "图—种子记录数",
-      1000
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "平均Size差",
-      0.065
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "胜",
-      80
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "平",
-      903
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "负",
-      17
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "累计节点差",
-      65
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "前500图平均差",
-      0.084
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "后500图平均差",
-      0.046
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_random_h2/random/已完成种子合并",
-      "初始Size差",
-      0.027
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "配对口径",
-      "各策略独立搜索，按图与种子配对"
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "图—种子记录数",
-      1000
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "平均Size差",
-      0.096
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "胜",
-      124
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "平",
-      844
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "负",
-      32
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "累计节点差",
-      96
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "前500图平均差",
-      0.046
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "后500图平均差",
-      0.146
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/种子0",
-      "初始Size差",
-      0.033
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
-      "配对口径",
-      "各策略独立搜索，按图与种子配对"
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
-      "图—种子记录数",
-      1000
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
-      "平均Size差",
-      0.096
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
-      "胜",
-      124
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
-      "平",
-      844
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
-      "负",
-      32
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
-      "累计节点差",
-      96
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
-      "前500图平均差",
-      0.046
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
       "后500图平均差",
-      0.146
+      0.081
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_stats_h1/pave − budget_tuned_rule23_ext/rule23/已完成种子合并",
       "初始Size差",
-      0.033
+      -0.0295
     ],
     [
       "配对分析",
