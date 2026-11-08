@@ -6,7 +6,7 @@ import re
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
-from statistics import mean, stdev
+from statistics import mean, median, stdev
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "outputs/v3"
@@ -66,6 +66,11 @@ def collect_summary(runs):
         metas = [run["meta"] for _, run in entries]
         rows = [row for _, run in entries for row in run["rows"]]
         sizes = [mean(int(row["final_size"]) for row in run["rows"]) for _, run in entries]
+        search_steps = [int(row["search_steps"]) for row in rows]
+        solve_times = [float(row["solve_time_s"]) for row in rows]
+        budget_slacks = [float(run["meta"]["config"]["time_budget_s"]) - float(row["solve_time_s"])
+                         for _, run in entries if run["meta"]["config"].get("time_budget_s") is not None
+                         for row in run["rows"]]
         gain = [int(row["final_size"]) - int(row["base_size"]) for row in rows]
         platform = []
         for seed, run in entries:
@@ -88,10 +93,17 @@ def collect_summary(runs):
             feasible_rate=mean(int(row["conflicts"]) == 0 for row in rows),
             gain_vs_shared_initial=mean(gain), gain_vs_shared_rule=mean(platform),
             improved_vs_initial=sum(value>0 for value in gain), improved_vs_rule=sum(value>0 for value in platform),
-            mean_search_steps=mean(int(row["search_steps"]) for row in rows),
+            mean_search_steps=mean(search_steps),
             mean_neutral_decisions=mean(int(row["neutral_decisions"]) for row in rows),
             mean_retained_candidates=mean(int(row["candidate_count"]) for row in rows),
-            deadline_overruns=sum(int(row["deadline_overrun"]) for row in rows)))
+            deadline_overruns=sum(int(row["deadline_overrun"]) for row in rows),
+            mean_initial_size=mean(int(row["base_size"]) for row in rows),
+            mean_rule_size=mean(int(row["rule_size"]) for row in rows),
+            min_search_steps=min(search_steps), median_search_steps=median(search_steps),
+            max_search_steps=max(search_steps), search_steps_below_100_count=sum(step < 100 for step in search_steps),
+            max_solve_time_s=max(solve_times), mean_budget_slack_s=mean(budget_slacks) if budget_slacks else None,
+            incumbent_fallbacks=sum(int(row["incumbent_fallback"]) for row in rows),
+            post_deadline_hits=sum(int(row["post_deadline_hit"]) for row in rows)))
     return result
 
 
