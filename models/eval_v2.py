@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 VALID = ROOT / "models/data/MIS_tensors/RB_small_val"
 TRAIN = ROOT / "models/data/MIS_tensors/RB_small_train"
 TEST = ROOT / "models/data/author_rld4co/MIS/RB_small_test"
+TEST_CACHE = ROOT / "models/data/MIS_tensors/RB_small_author_test"
 POLICIES = ("none", "rule", "heuristic", "random", "pave", "rule23")
 
 
@@ -41,7 +42,11 @@ def policy_parser():
 def dataset_at(path, dtype, count=-1, *, official=False):
     dataset = Dataset(path, dtype)
     if official:
-        by_id = {Path(file).stem: file for file in dataset.files}
+        if dataset.tensor_cache:
+            entries = json.loads((Path(path) / "tensor_manifest.json").read_text())["graphs"]
+            by_id = {Path(entry["source"]).stem: str(Path(path) / entry["tensor"]) for entry in entries}
+        else:
+            by_id = {Path(file).stem: file for file in dataset.files}
         dataset.files = [by_id[f"idx_{index}"] for index in range(len(dataset) if count < 0 else count)]
     elif count > 0:
         dataset.files = dataset.files[:count]
@@ -50,7 +55,10 @@ def dataset_at(path, dtype, count=-1, *, official=False):
 
 def load_policy(args):
     if args.test_path is None:
-        args.test_path = str(VALID if args.split == "validation" else TEST)
+        if args.split == "validation":
+            args.test_path = str(VALID)
+        else:
+            args.test_path = str(TEST_CACHE if (TEST_CACHE / "tensor_manifest.json").is_file() else TEST)
     set_seed(args.seed)
     solver = RLNN(args)
     solver.prepare()
@@ -166,6 +174,7 @@ def evaluate(args):
     records = {name: [] for name in policy_names}
     opportunities = []
     for index, graph in enumerate(dataset):
+        graph_id = f"idx_{index}" if args.split == "test" else Path(dataset.files[index]).stem
         edges = graph.edge_index
         graph = graph.to(device)
         sync(device)
@@ -198,13 +207,13 @@ def evaluate(args):
             extra_time = perf_counter() - post_start if name != "none" else 0.0
             size = final.bit_count()
             seconds = (perf_counter() - tick) if deadline is not None else search_time + extra_time
-            records[name].append(dict(graph_id=Path(dataset.files[index]).stem, group=index // 500 + 1,
+            records[name].append(dict(graph_id=graph_id, group=index // 500 + 1,
                                       independent_set_size=size, solve_time_s=seconds,
                                       conflicts=0, search_steps=steps, base_size=selected.bit_count(),
                                       exchanges=exchanges, exchange_candidates=candidate_count,
                                       exchange_time_s=extra_time, selected_nodes=" ".join(map(str, nodes(final)))))
         if args.opportunities:
-            opportunities.append(dict(graph_id=Path(dataset.files[index]).stem, base_size=selected.bit_count(),
+            opportunities.append(dict(graph_id=graph_id, base_size=selected.bit_count(),
                                       **diagnose_actions(cpu_graph, selected, args.candidate_cap, args.exchange_rounds)))
         if (index + 1) % 25 == 0 or index + 1 == len(dataset):
             scores = ", ".join(f"{name}={mean(row['independent_set_size'] for row in rows):.3f}"
