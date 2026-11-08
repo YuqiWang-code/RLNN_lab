@@ -164,10 +164,14 @@ def read_eval(path, metadata):
     method = first(metadata, "label", "method", default=path.parent.name)
     post = metadata.get("post", "none")
     display = metadata.get("display_name", method if post in ("none", None) else f"{method} + {post}")
+    protocol_display = f"{float(budget):g}s｜" if budget is not None else "固定量｜"
+    method_display = protocol_display + display
+    if first(metadata, "extended_search", default=config.get("extended_search")):
+        method_display += "｜持续搜索"
     sizes = {row["graph_id"]: int(first(row, "final_size", "independent_set_size")) for row in rows}
     run = {
         "source": path.parent.relative_to(ROOT).as_posix(),
-        "method": display, "split": metadata.get("split", config.get("split")),
+        "method": method_display, "split": metadata.get("split", config.get("split")),
         "protocol": protocol, "backbone_seed": first(metadata, "backbone_seed", "train_seed"),
         "head_seed": metadata.get("head_seed"), "search_seed": metadata.get("search_seed"),
         "samples": len(rows), "mean_size": average(sizes.values()),

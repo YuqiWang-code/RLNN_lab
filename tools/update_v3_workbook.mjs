@@ -67,7 +67,7 @@ report.runs.map(run => [run.method, run.split, run.protocol, run.backbone_seed, 
   run.feasible_rate, run.params, run.trainable_params, run.peak_memory_mib, run.time_budget_s, run.horizon,
   run.candidate_cap, run.outer_rounds, run.wins, run.ties, run.losses, run.base_gain, run.rule_gain,
   run.search_steps, run.neutral_decisions, run.score_time_s, run.post_time_s, run.deadline_overruns, run.source]),
-[36, 13, 18, 11, 11, 11, 10, 14, 13, 13, 16, 12, 14, 14, 18, 11, 8, 11, 11, 10, 10, 10, 22, 22, 17, 17, 17, 17, 13, 65],
+[44, 13, 18, 11, 11, 11, 10, 14, 13, 13, 16, 12, 14, 14, 18, 11, 8, 11, 11, 10, 10, 10, 22, 22, 17, 17, 17, 17, 13, 65],
 { H: '0.00000', I: '+0.00000;-0.00000;0.00000', J: '+0.00000;-0.00000;0.00000', K: '0.00000',
   L: '0.00%', M: '#,##0', N: '#,##0', O: '0.00', P: '0.00', W: '0.00000', X: '0.00000',
   Y: '0.000', Z: '0.000', AA: '0.000000', AB: '0.000000' });
@@ -80,7 +80,7 @@ report.cohorts.map(cohort => [cohort.method, null, cohort.delta_base, cohort.del
   cohort.peak_memory_mib, cohort.protocol, cohort.time_budget_s, cohort.seeds, cohort.samples,
   cohort.wins, cohort.ties, cohort.losses, cohort.base_gain, cohort.rule_gain, cohort.deadline_overruns,
   cohort.horizon, cohort.candidate_cap, cohort.outer_rounds, cohort.split]),
-[36, 30, 15, 15, 19, 13, 14, 14, 18, 18, 11, 10, 13, 11, 11, 11, 22, 22, 13, 8, 11, 11, 13],
+[44, 30, 15, 15, 19, 13, 14, 14, 18, 18, 11, 10, 13, 11, 11, 11, 22, 22, 13, 8, 11, 11, 13],
 { C: '+0.00000;-0.00000;0.00000', D: '+0.00000;-0.00000;0.00000', E: '0.00000', F: '0.00%',
   G: '#,##0', H: '#,##0', I: '0.00', K: '0.00', Q: '0.00000', R: '0.00000' });
 
