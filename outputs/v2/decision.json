@@ -1,0 +1,28 @@
+{
+  "segf_from_scratch": {
+    "train": false,
+    "validation_precision": "FP32",
+    "validation_graphs": 100,
+    "best_segf_by_seed": [
+      19.5,
+      19.52,
+      19.52
+    ],
+    "best_matched_rlnn_by_seed": [
+      19.53,
+      19.55,
+      19.53
+    ],
+    "mean_delta_vs_matched_rlnn": -0.023333
+  },
+  "pave": {
+    "train": false,
+    "validation_graphs": 100,
+    "decoded_solutions": 300,
+    "one_to_two_available": 9,
+    "one_to_two_or_larger_available": 18,
+    "fallback_pairs": 64,
+    "fallback_ties": 64,
+    "informative_decoded_solutions": 0
+  }
+}
