@@ -34,6 +34,7 @@ def publish():
         paths += [file.relative_to(ROOT).as_posix() for file in (OUT/'queue').glob('*.done.txt')]
     changed=bool(paths and command('git','status','--porcelain','--',*paths,capture=True))
     if changed:
+        command(sys.executable,'tools/analyze_v3.py')
         command(sys.executable,'tools/summarize_v3.py')
         command(NODE,'tools/update_v3_workbook.mjs')
         paths += ['outputs/v3/summary.json','outputs/v3/summary.txt','docs/实验结果.xlsx']
