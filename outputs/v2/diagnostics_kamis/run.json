@@ -1,0 +1,10 @@
+{
+  "version": "v2",
+  "mode": "kamis_validation",
+  "status": "completed",
+  "samples": 100,
+  "mean_size": 20.06,
+  "mean_delta": 0.55,
+  "mean_solve_time_s": 4.114107836340554,
+  "configured_time_s": 1
+}
