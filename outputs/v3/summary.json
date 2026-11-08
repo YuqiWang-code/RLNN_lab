@@ -1,6 +1,6 @@
 {
   "version": "v3",
-  "updated_at": "2026-11-08T06:39:23.817611+00:00",
+  "updated_at": "2026-11-08T06:42:57.029568+00:00",
   "cohorts": [
     {
       "method": "RLNN-tuned + pave",
@@ -63,6 +63,36 @@
       "peak_memory_mib": 23.96533203125
     },
     {
+      "method": "RLNN-tuned + pave",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "time_budget_s": 0.5,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "samples": 100,
+      "params": 169218,
+      "trainable_params": 3713,
+      "cohort_id": "reserve_pave_0.10/pave",
+      "run_indices": [
+        2
+      ],
+      "seeds": 1,
+      "mean_size": 19.53,
+      "std_size": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "mean_solve_time_s": 0.4500539477728307,
+      "feasible_rate": 1.0,
+      "base_gain": 0.11,
+      "rule_gain": 0.09,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "deadline_overruns": 43,
+      "peak_memory_mib": 23.96533203125
+    },
+    {
       "method": "RLNN-tuned + random",
       "split": "validation",
       "protocol": "fixed_time",
@@ -75,7 +105,7 @@
       "trainable_params": 0,
       "cohort_id": "reserve_random_0.02/random",
       "run_indices": [
-        2
+        3
       ],
       "seeds": 1,
       "mean_size": 19.48,
@@ -105,7 +135,7 @@
       "trainable_params": 0,
       "cohort_id": "reserve_random_0.05/random",
       "run_indices": [
-        3
+        4
       ],
       "seeds": 1,
       "mean_size": 19.48,
@@ -120,6 +150,36 @@
       "ties": null,
       "losses": null,
       "deadline_overruns": 43,
+      "peak_memory_mib": 23.96533203125
+    },
+    {
+      "method": "RLNN-tuned + random",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "time_budget_s": 0.5,
+      "horizon": 2,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "samples": 100,
+      "params": 165505,
+      "trainable_params": 0,
+      "cohort_id": "reserve_random_0.10/random",
+      "run_indices": [
+        5
+      ],
+      "seeds": 1,
+      "mean_size": 19.47,
+      "std_size": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "mean_solve_time_s": 0.3956903587561101,
+      "feasible_rate": 1.0,
+      "base_gain": 0.09,
+      "rule_gain": 0.06,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "deadline_overruns": 13,
       "peak_memory_mib": 23.96533203125
     }
   ],
@@ -197,6 +257,42 @@
       "cohort_id": "reserve_pave_0.05/pave"
     },
     {
+      "source": "outputs/v3/reserve_pave_0.10/pave",
+      "method": "RLNN-tuned + pave",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "backbone_seed": 0,
+      "head_seed": 0,
+      "search_seed": 1017,
+      "samples": 100,
+      "mean_size": 19.53,
+      "mean_solve_time_s": 0.4500539477728307,
+      "feasible_rate": 1.0,
+      "params": 169218,
+      "trainable_params": 3713,
+      "peak_memory_mib": 23.96533203125,
+      "time_budget_s": 0.5,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "baseline_run": null,
+      "rule_reference_run": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "base_gain": 0.11,
+      "rule_gain": 0.09,
+      "search_steps": 95.29,
+      "neutral_decisions": 6.52,
+      "score_time_s": 0.08810400144197046,
+      "post_time_s": 0.1322860598238185,
+      "improving_exchanges": 0.11,
+      "deadline_overruns": 43,
+      "cohort_id": "reserve_pave_0.10/pave"
+    },
+    {
       "source": "outputs/v3/reserve_random_0.02/random",
       "method": "RLNN-tuned + random",
       "split": "validation",
@@ -267,6 +363,42 @@
       "improving_exchanges": 0.08,
       "deadline_overruns": 43,
       "cohort_id": "reserve_random_0.05/random"
+    },
+    {
+      "source": "outputs/v3/reserve_random_0.10/random",
+      "method": "RLNN-tuned + random",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "backbone_seed": 0,
+      "head_seed": null,
+      "search_seed": 1017,
+      "samples": 100,
+      "mean_size": 19.47,
+      "mean_solve_time_s": 0.3956903587561101,
+      "feasible_rate": 1.0,
+      "params": 165505,
+      "trainable_params": 0,
+      "peak_memory_mib": 23.96533203125,
+      "time_budget_s": 0.5,
+      "horizon": 2,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "baseline_run": null,
+      "rule_reference_run": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "base_gain": 0.09,
+      "rule_gain": 0.06,
+      "search_steps": 96.37,
+      "neutral_decisions": 15.0,
+      "score_time_s": 0.0,
+      "post_time_s": 0.07771535025443882,
+      "improving_exchanges": 0.09,
+      "deadline_overruns": 13,
+      "cohort_id": "reserve_random_0.10/random"
     }
   ],
   "diagnostics": [

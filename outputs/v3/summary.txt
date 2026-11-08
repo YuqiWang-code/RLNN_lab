@@ -1,11 +1,13 @@
 RLNN v3 实验汇总
-时间：2026-11-08T06:39:23.817611+00:00
+时间：2026-11-08T06:42:57.029568+00:00
 标准差为同配置种子均值的样本标准差；Δ以明确指定的逐图参照计算。
 
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.42000 | ΔRLNN=None | Δ规则=None | 秒/图=0.5031033470388502
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.45000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4985564421536401
+RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.53000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4500539477728307
 RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.48000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4752560774004087
 RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.48000 | ΔRLNN=None | Δ规则=None | 秒/图=0.46541681051719935
+RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.47000 | ΔRLNN=None | Δ规则=None | 秒/图=0.3956903587561101
 
 完整平台验证（缓存起始解，只用于质量选择）
 原RLNN | 覆盖度 H=1 | Mean Size=19.53667 ± 0.01155
@@ -157,5 +159,5 @@ RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.48000 | ΔRLNN=Non
   "reasons": []
 }
 
-已收录求解任务：4
+已收录求解任务：6
 诊断指标：1036
