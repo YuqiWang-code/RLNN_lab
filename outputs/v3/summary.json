@@ -1,6 +1,6 @@
 {
   "version": "v3",
-  "updated_at": "2026-11-08T21:01:13.246154+00:00",
+  "updated_at": "2026-11-08T21:11:28.139362+00:00",
   "cohorts": [
     {
       "method": "RLNN-original-h1 + coverage",
@@ -20,16 +20,16 @@
         2
       ],
       "seeds": 3,
-      "mean_size": 19.585333333333335,
-      "std_size": 0.0073711147958316035,
-      "delta_base": 0.067,
-      "delta_rule": -0.017333333333333333,
-      "mean_solve_time_s": 0.3380908467058713,
+      "mean_size": 19.586000000000002,
+      "std_size": 0.007810249675905965,
+      "delta_base": 0.06766666666666667,
+      "delta_rule": -0.016,
+      "mean_solve_time_s": 0.3013665909736107,
       "feasible_rate": 1.0,
-      "base_gain": 0.067,
-      "rule_gain": 0.008,
-      "wins": 195,
-      "ties": 2805,
+      "base_gain": 0.06766666666666667,
+      "rule_gain": 0.007666666666666667,
+      "wins": 198,
+      "ties": 2802,
       "losses": 0,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
@@ -52,16 +52,16 @@
         5
       ],
       "seeds": 3,
-      "mean_size": 19.585333333333335,
-      "std_size": 0.008326663997863899,
-      "delta_base": 0.067,
-      "delta_rule": -0.017333333333333333,
-      "mean_solve_time_s": 0.3372985213850625,
+      "mean_size": 19.586,
+      "std_size": 0.00871779788708059,
+      "delta_base": 0.06766666666666667,
+      "delta_rule": -0.016,
+      "mean_solve_time_s": 0.30092583913883814,
       "feasible_rate": 1.0,
-      "base_gain": 0.067,
-      "rule_gain": 0.008,
-      "wins": 195,
-      "ties": 2805,
+      "base_gain": 0.06766666666666667,
+      "rule_gain": 0.007666666666666666,
+      "wins": 198,
+      "ties": 2802,
       "losses": 0,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
@@ -85,10 +85,10 @@
       ],
       "seeds": 3,
       "mean_size": 19.518333333333334,
-      "std_size": 0.0073711147958316035,
+      "std_size": 0.007637626158258214,
       "delta_base": 0,
-      "delta_rule": -0.08433333333333334,
-      "mean_solve_time_s": 0.2772323356328222,
+      "delta_rule": -0.08366666666666667,
+      "mean_solve_time_s": 0.24910612414171918,
       "feasible_rate": 1.0,
       "base_gain": 0.0,
       "rule_gain": 0.0,
@@ -116,16 +116,16 @@
         11
       ],
       "seeds": 3,
-      "mean_size": 19.644666666666666,
-      "std_size": 0.009073771725877854,
-      "delta_base": 0.12633333333333335,
-      "delta_rule": 0.042,
-      "mean_solve_time_s": 0.45124112713290376,
+      "mean_size": 19.646,
+      "std_size": 0.007810249675908012,
+      "delta_base": 0.12766666666666668,
+      "delta_rule": 0.044,
+      "mean_solve_time_s": 0.35280146888876335,
       "feasible_rate": 1.0,
-      "base_gain": 0.12633333333333335,
-      "rule_gain": 0.06733333333333333,
-      "wins": 370,
-      "ties": 2630,
+      "base_gain": 0.12766666666666668,
+      "rule_gain": 0.06766666666666667,
+      "wins": 373,
+      "ties": 2627,
       "losses": 0,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
@@ -148,16 +148,16 @@
         14
       ],
       "seeds": 3,
-      "mean_size": 19.602666666666668,
-      "std_size": 0.007571877794400234,
-      "delta_base": 0.08433333333333334,
+      "mean_size": 19.602,
+      "std_size": 0.0069282032302757715,
+      "delta_base": 0.08366666666666667,
       "delta_rule": 0,
-      "mean_solve_time_s": 0.3346555078128974,
+      "mean_solve_time_s": 0.30000513086173064,
       "feasible_rate": 1.0,
-      "base_gain": 0.08433333333333334,
-      "rule_gain": 0.025333333333333333,
-      "wins": 247,
-      "ties": 2753,
+      "base_gain": 0.08366666666666667,
+      "rule_gain": 0.023666666666666666,
+      "wins": 246,
+      "ties": 2754,
       "losses": 0,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
@@ -180,16 +180,16 @@
         17
       ],
       "seeds": 3,
-      "mean_size": 19.577333333333332,
-      "std_size": 0.0064291005073283895,
-      "delta_base": 0.059,
-      "delta_rule": -0.025333333333333333,
-      "mean_solve_time_s": 0.27961234096391124,
+      "mean_size": 19.578333333333333,
+      "std_size": 0.0073711147958316035,
+      "delta_base": 0.06,
+      "delta_rule": -0.023666666666666666,
+      "mean_solve_time_s": 0.25124434137670326,
       "feasible_rate": 1.0,
-      "base_gain": 0.059,
+      "base_gain": 0.06,
       "rule_gain": 0.0,
-      "wins": 171,
-      "ties": 2829,
+      "wins": 175,
+      "ties": 2825,
       "losses": 0,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
@@ -220,9 +220,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.06166666666666667,
       "rule_gain": 0.005333333333333333,
-      "wins": 539,
-      "ties": 2177,
-      "losses": 284,
+      "wins": 546,
+      "ties": 2165,
+      "losses": 289,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -252,9 +252,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.06233333333333333,
       "rule_gain": 0.006,
-      "wins": 540,
-      "ties": 2177,
-      "losses": 283,
+      "wins": 547,
+      "ties": 2165,
+      "losses": 288,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -284,9 +284,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.0,
       "rule_gain": 0.0,
-      "wins": 429,
-      "ties": 2225,
-      "losses": 346,
+      "wins": 435,
+      "ties": 2214,
+      "losses": 351,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -316,9 +316,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.11666666666666667,
       "rule_gain": 0.060333333333333336,
-      "wins": 634,
-      "ties": 2142,
-      "losses": 224,
+      "wins": 640,
+      "ties": 2132,
+      "losses": 228,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -348,9 +348,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.10433333333333333,
       "rule_gain": 0.048,
-      "wins": 615,
-      "ties": 2148,
-      "losses": 237,
+      "wins": 623,
+      "ties": 2134,
+      "losses": 243,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -380,9 +380,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.10566666666666667,
       "rule_gain": 0.04933333333333333,
-      "wins": 614,
-      "ties": 2150,
-      "losses": 236,
+      "wins": 623,
+      "ties": 2134,
+      "losses": 243,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -412,9 +412,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.10966666666666666,
       "rule_gain": 0.05333333333333334,
-      "wins": 622,
-      "ties": 2147,
-      "losses": 231,
+      "wins": 631,
+      "ties": 2131,
+      "losses": 238,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -444,9 +444,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.092,
       "rule_gain": 0.035666666666666666,
-      "wins": 589,
-      "ties": 2165,
-      "losses": 246,
+      "wins": 597,
+      "ties": 2151,
+      "losses": 252,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -476,9 +476,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.07766666666666666,
       "rule_gain": 0.021333333333333333,
-      "wins": 567,
-      "ties": 2165,
-      "losses": 268,
+      "wins": 574,
+      "ties": 2153,
+      "losses": 273,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -508,9 +508,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.05633333333333333,
       "rule_gain": 0.0,
-      "wins": 532,
-      "ties": 2176,
-      "losses": 292,
+      "wins": 540,
+      "ties": 2162,
+      "losses": 298,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -540,9 +540,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.06233333333333334,
       "rule_gain": 0.006,
-      "wins": 526,
-      "ties": 2182,
-      "losses": 292,
+      "wins": 530,
+      "ties": 2176,
+      "losses": 294,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -572,9 +572,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.06266666666666666,
       "rule_gain": 0.006333333333333333,
-      "wins": 526,
-      "ties": 2183,
-      "losses": 291,
+      "wins": 530,
+      "ties": 2177,
+      "losses": 293,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -604,9 +604,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.0,
       "rule_gain": 0.0,
-      "wins": 419,
-      "ties": 2222,
-      "losses": 359,
+      "wins": 423,
+      "ties": 2215,
+      "losses": 362,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -636,9 +636,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.12166666666666667,
       "rule_gain": 0.06533333333333333,
-      "wins": 630,
-      "ties": 2140,
-      "losses": 230,
+      "wins": 636,
+      "ties": 2130,
+      "losses": 234,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -668,9 +668,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.07933333333333333,
       "rule_gain": 0.023,
-      "wins": 553,
-      "ties": 2177,
-      "losses": 270,
+      "wins": 556,
+      "ties": 2172,
+      "losses": 272,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -700,9 +700,9 @@
       "feasible_rate": 1.0,
       "base_gain": 0.05633333333333333,
       "rule_gain": 0.0,
-      "wins": 518,
-      "ties": 2181,
-      "losses": 301,
+      "wins": 523,
+      "ties": 2173,
+      "losses": 304,
       "deadline_overruns": 0,
       "peak_memory_mib": 23.9052734375
     },
@@ -897,8 +897,8 @@
       "head_seed": null,
       "search_seed": 1017,
       "samples": 1000,
-      "mean_size": 19.588,
-      "mean_solve_time_s": 0.3362640537172556,
+      "mean_size": 19.59,
+      "mean_solve_time_s": 0.28422119751852004,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -909,18 +909,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed0/random",
-      "delta_base": 0.064,
-      "delta_rule": -0.02,
-      "wins": 62,
-      "ties": 938,
+      "delta_base": 0.065,
+      "delta_rule": -0.016,
+      "wins": 63,
+      "ties": 937,
       "losses": 0,
-      "base_gain": 0.064,
+      "base_gain": 0.065,
       "rule_gain": 0.006,
       "search_steps": 100.0,
-      "neutral_decisions": 7.94,
+      "neutral_decisions": 7.953,
       "score_time_s": 0.0,
-      "post_time_s": 0.05811745783686638,
-      "improving_exchanges": 0.064,
+      "post_time_s": 0.04889521725708619,
+      "improving_exchanges": 0.065,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/coverage"
     },
@@ -934,7 +934,7 @@
       "search_seed": 1017,
       "samples": 1000,
       "mean_size": 19.591,
-      "mean_solve_time_s": 0.35423637090437116,
+      "mean_solve_time_s": 0.2961064599063247,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -945,18 +945,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed1/random",
-      "delta_base": 0.07,
+      "delta_base": 0.071,
       "delta_rule": -0.015,
-      "wins": 68,
-      "ties": 932,
+      "wins": 70,
+      "ties": 930,
       "losses": 0,
-      "base_gain": 0.07,
-      "rule_gain": 0.011,
+      "base_gain": 0.071,
+      "rule_gain": 0.01,
       "search_steps": 100.0,
-      "neutral_decisions": 7.938,
+      "neutral_decisions": 7.929,
       "score_time_s": 0.0,
-      "post_time_s": 0.06890279561653734,
-      "improving_exchanges": 0.07,
+      "post_time_s": 0.052317739644087854,
+      "improving_exchanges": 0.071,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/coverage"
     },
@@ -1005,8 +1005,8 @@
       "head_seed": null,
       "search_seed": 1017,
       "samples": 1000,
-      "mean_size": 19.588,
-      "mean_solve_time_s": 0.33549429187271745,
+      "mean_size": 19.59,
+      "mean_solve_time_s": 0.284497091982048,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -1017,18 +1017,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed0/random",
-      "delta_base": 0.064,
-      "delta_rule": -0.02,
-      "wins": 62,
-      "ties": 938,
+      "delta_base": 0.065,
+      "delta_rule": -0.016,
+      "wins": 63,
+      "ties": 937,
       "losses": 0,
-      "base_gain": 0.064,
+      "base_gain": 0.065,
       "rule_gain": 0.006,
       "search_steps": 100.0,
-      "neutral_decisions": 7.94,
+      "neutral_decisions": 7.953,
       "score_time_s": 0.0,
-      "post_time_s": 0.057347695992328224,
-      "improving_exchanges": 0.064,
+      "post_time_s": 0.049171111720614134,
+      "improving_exchanges": 0.065,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/degree"
     },
@@ -1042,7 +1042,7 @@
       "search_seed": 1017,
       "samples": 1000,
       "mean_size": 19.592,
-      "mean_solve_time_s": 0.3533383508832194,
+      "mean_solve_time_s": 0.29521750403521585,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -1053,18 +1053,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed1/random",
-      "delta_base": 0.071,
+      "delta_base": 0.072,
       "delta_rule": -0.014,
-      "wins": 69,
-      "ties": 931,
+      "wins": 71,
+      "ties": 929,
       "losses": 0,
-      "base_gain": 0.071,
-      "rule_gain": 0.012,
+      "base_gain": 0.072,
+      "rule_gain": 0.011,
       "search_steps": 100.0,
-      "neutral_decisions": 7.938,
+      "neutral_decisions": 7.929,
       "score_time_s": 0.0,
-      "post_time_s": 0.06800477559538558,
-      "improving_exchanges": 0.071,
+      "post_time_s": 0.05142878377297893,
+      "improving_exchanges": 0.072,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/degree"
     },
@@ -1113,8 +1113,8 @@
       "head_seed": null,
       "search_seed": 1017,
       "samples": 1000,
-      "mean_size": 19.524,
-      "mean_solve_time_s": 0.27819246785761786,
+      "mean_size": 19.525,
+      "mean_solve_time_s": 0.23536436114879325,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -1126,7 +1126,7 @@
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed0/random",
       "delta_base": 0,
-      "delta_rule": -0.084,
+      "delta_rule": -0.081,
       "wins": 0,
       "ties": 1000,
       "losses": 0,
@@ -1135,7 +1135,7 @@
       "search_steps": 100.0,
       "neutral_decisions": 0.0,
       "score_time_s": 0.0,
-      "post_time_s": 4.587197722867131e-05,
+      "post_time_s": 3.838088735938072e-05,
       "improving_exchanges": 0.0,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/none"
@@ -1149,8 +1149,8 @@
       "head_seed": null,
       "search_seed": 1017,
       "samples": 1000,
-      "mean_size": 19.521,
-      "mean_solve_time_s": 0.2853788661132567,
+      "mean_size": 19.52,
+      "mean_solve_time_s": 0.24382833834877238,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -1162,7 +1162,7 @@
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed1/random",
       "delta_base": 0,
-      "delta_rule": -0.085,
+      "delta_rule": -0.086,
       "wins": 0,
       "ties": 1000,
       "losses": 0,
@@ -1171,7 +1171,7 @@
       "search_steps": 100.0,
       "neutral_decisions": 0.0,
       "score_time_s": 0.0,
-      "post_time_s": 4.529082542285323e-05,
+      "post_time_s": 3.96180865354836e-05,
       "improving_exchanges": 0.0,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/none"
@@ -1222,7 +1222,7 @@
       "search_seed": 1017,
       "samples": 1000,
       "mean_size": 19.655,
-      "mean_solve_time_s": 0.4454689534706995,
+      "mean_solve_time_s": 0.30978530025901274,
       "feasible_rate": 1.0,
       "params": 169218,
       "trainable_params": 3713,
@@ -1233,18 +1233,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed0/random",
-      "delta_base": 0.131,
-      "delta_rule": 0.047,
-      "wins": 128,
-      "ties": 872,
+      "delta_base": 0.13,
+      "delta_rule": 0.049,
+      "wins": 126,
+      "ties": 874,
       "losses": 0,
-      "base_gain": 0.131,
-      "rule_gain": 0.073,
+      "base_gain": 0.13,
+      "rule_gain": 0.071,
       "search_steps": 100.0,
-      "neutral_decisions": 7.927,
-      "score_time_s": 0.10983519590226934,
-      "post_time_s": 0.16732235759031028,
-      "improving_exchanges": 0.131,
+      "neutral_decisions": 7.941,
+      "score_time_s": 0.023839993669185787,
+      "post_time_s": 0.07445931999757886,
+      "improving_exchanges": 0.13,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/pave"
     },
@@ -1257,8 +1257,8 @@
       "head_seed": 1,
       "search_seed": 1017,
       "samples": 1000,
-      "mean_size": 19.638,
-      "mean_solve_time_s": 0.48104812355013565,
+      "mean_size": 19.642,
+      "mean_solve_time_s": 0.3214128020294011,
       "feasible_rate": 1.0,
       "params": 169218,
       "trainable_params": 3713,
@@ -1269,18 +1269,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed1/random",
-      "delta_base": 0.117,
-      "delta_rule": 0.032,
-      "wins": 115,
-      "ties": 885,
+      "delta_base": 0.122,
+      "delta_rule": 0.036,
+      "wins": 120,
+      "ties": 880,
       "losses": 0,
-      "base_gain": 0.117,
-      "rule_gain": 0.058,
+      "base_gain": 0.122,
+      "rule_gain": 0.061,
       "search_steps": 100.0,
-      "neutral_decisions": 7.918,
-      "score_time_s": 0.12793683541333303,
-      "post_time_s": 0.19571454826230184,
-      "improving_exchanges": 0.117,
+      "neutral_decisions": 7.912,
+      "score_time_s": 0.02465858029341325,
+      "post_time_s": 0.07762408176716418,
+      "improving_exchanges": 0.122,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/pave"
     },
@@ -1329,8 +1329,8 @@
       "head_seed": null,
       "search_seed": 1017,
       "samples": 1000,
-      "mean_size": 19.608,
-      "mean_solve_time_s": 0.3336824881145731,
+      "mean_size": 19.606,
+      "mean_solve_time_s": 0.2825273882895708,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -1341,18 +1341,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed0/random",
-      "delta_base": 0.084,
+      "delta_base": 0.081,
       "delta_rule": 0,
-      "wins": 82,
-      "ties": 918,
+      "wins": 79,
+      "ties": 921,
       "losses": 0,
-      "base_gain": 0.084,
-      "rule_gain": 0.026,
+      "base_gain": 0.081,
+      "rule_gain": 0.022,
       "search_steps": 100.0,
-      "neutral_decisions": 7.92,
+      "neutral_decisions": 7.931,
       "score_time_s": 0.0,
-      "post_time_s": 0.05553589223418385,
-      "improving_exchanges": 0.084,
+      "post_time_s": 0.04720140802813694,
+      "improving_exchanges": 0.081,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/random"
     },
@@ -1366,7 +1366,7 @@
       "search_seed": 1017,
       "samples": 1000,
       "mean_size": 19.606,
-      "mean_solve_time_s": 0.34696094326628374,
+      "mean_solve_time_s": 0.29416491223778574,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -1377,18 +1377,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed1/random",
-      "delta_base": 0.085,
+      "delta_base": 0.086,
       "delta_rule": 0,
-      "wins": 83,
-      "ties": 917,
+      "wins": 85,
+      "ties": 915,
       "losses": 0,
-      "base_gain": 0.085,
-      "rule_gain": 0.026,
+      "base_gain": 0.086,
+      "rule_gain": 0.025,
       "search_steps": 100.0,
-      "neutral_decisions": 7.925,
+      "neutral_decisions": 7.915,
       "score_time_s": 0.0,
-      "post_time_s": 0.061627367978449914,
-      "improving_exchanges": 0.085,
+      "post_time_s": 0.050376191975548865,
+      "improving_exchanges": 0.086,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/random"
     },
@@ -1437,8 +1437,8 @@
       "head_seed": null,
       "search_seed": 1017,
       "samples": 1000,
-      "mean_size": 19.582,
-      "mean_solve_time_s": 0.28058492328366264,
+      "mean_size": 19.584,
+      "mean_solve_time_s": 0.23739083105791361,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -1449,18 +1449,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed0/random",
-      "delta_base": 0.058,
-      "delta_rule": -0.026,
-      "wins": 56,
-      "ties": 944,
+      "delta_base": 0.059,
+      "delta_rule": -0.022,
+      "wins": 57,
+      "ties": 943,
       "losses": 0,
-      "base_gain": 0.058,
+      "base_gain": 0.059,
       "rule_gain": 0.0,
       "search_steps": 100.0,
       "neutral_decisions": 0.0,
       "score_time_s": 0.0,
-      "post_time_s": 0.0024383274032734334,
-      "improving_exchanges": 0.058,
+      "post_time_s": 0.002064850796479732,
+      "improving_exchanges": 0.059,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/rule23"
     },
@@ -1473,8 +1473,8 @@
       "head_seed": null,
       "search_seed": 1017,
       "samples": 1000,
-      "mean_size": 19.58,
-      "mean_solve_time_s": 0.28777268168283626,
+      "mean_size": 19.581,
+      "mean_solve_time_s": 0.2458627751469612,
       "feasible_rate": 1.0,
       "params": 165505,
       "trainable_params": 0,
@@ -1485,18 +1485,18 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_original_h1_seed1/random",
-      "delta_base": 0.059,
-      "delta_rule": -0.026,
-      "wins": 57,
-      "ties": 943,
+      "delta_base": 0.061,
+      "delta_rule": -0.025,
+      "wins": 60,
+      "ties": 940,
       "losses": 0,
-      "base_gain": 0.059,
+      "base_gain": 0.061,
       "rule_gain": 0.0,
       "search_steps": 100.0,
       "neutral_decisions": 0.0,
       "score_time_s": 0.0,
-      "post_time_s": 0.0024391063950024547,
-      "improving_exchanges": 0.059,
+      "post_time_s": 0.002074054884724319,
+      "improving_exchanges": 0.061,
       "deadline_overruns": 0,
       "cohort_id": "fixed_original_h1/rule23"
     },
@@ -1557,11 +1557,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.073,
+      "delta_base": 0.072,
       "delta_rule": -0.016,
-      "wins": 164,
-      "ties": 745,
-      "losses": 91,
+      "wins": 167,
+      "ties": 739,
+      "losses": 94,
       "base_gain": 0.064,
       "rule_gain": 0.005,
       "search_steps": 100.0,
@@ -1593,11 +1593,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.091,
+      "delta_base": 0.092,
       "delta_rule": -0.009,
-      "wins": 185,
-      "ties": 716,
-      "losses": 99,
+      "wins": 189,
+      "ties": 710,
+      "losses": 101,
       "base_gain": 0.061,
       "rule_gain": 0.005,
       "search_steps": 100.0,
@@ -1665,11 +1665,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.073,
+      "delta_base": 0.072,
       "delta_rule": -0.016,
-      "wins": 164,
-      "ties": 745,
-      "losses": 91,
+      "wins": 167,
+      "ties": 739,
+      "losses": 94,
       "base_gain": 0.064,
       "rule_gain": 0.005,
       "search_steps": 100.0,
@@ -1701,11 +1701,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.092,
+      "delta_base": 0.093,
       "delta_rule": -0.008,
-      "wins": 186,
-      "ties": 715,
-      "losses": 99,
+      "wins": 190,
+      "ties": 709,
+      "losses": 101,
       "base_gain": 0.062,
       "rule_gain": 0.006,
       "search_steps": 100.0,
@@ -1773,11 +1773,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.009,
+      "delta_base": 0.008,
       "delta_rule": -0.08,
-      "wins": 127,
-      "ties": 758,
-      "losses": 115,
+      "wins": 131,
+      "ties": 750,
+      "losses": 119,
       "base_gain": 0.0,
       "rule_gain": 0.0,
       "search_steps": 100.0,
@@ -1809,11 +1809,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.03,
+      "delta_base": 0.031,
       "delta_rule": -0.07,
-      "wins": 147,
-      "ties": 735,
-      "losses": 118,
+      "wins": 149,
+      "ties": 732,
+      "losses": 119,
       "base_gain": 0.0,
       "rule_gain": 0.0,
       "search_steps": 100.0,
@@ -1881,11 +1881,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.133,
+      "delta_base": 0.132,
       "delta_rule": 0.044,
-      "wins": 196,
-      "ties": 737,
-      "losses": 67,
+      "wins": 199,
+      "ties": 731,
+      "losses": 70,
       "base_gain": 0.124,
       "rule_gain": 0.065,
       "search_steps": 100.0,
@@ -1917,11 +1917,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.135,
+      "delta_base": 0.136,
       "delta_rule": 0.035,
-      "wins": 212,
-      "ties": 705,
-      "losses": 83,
+      "wins": 215,
+      "ties": 701,
+      "losses": 84,
       "base_gain": 0.105,
       "rule_gain": 0.049,
       "search_steps": 100.0,
@@ -1989,11 +1989,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.116,
+      "delta_base": 0.115,
       "delta_rule": 0.027,
-      "wins": 190,
-      "ties": 733,
-      "losses": 77,
+      "wins": 194,
+      "ties": 725,
+      "losses": 81,
       "base_gain": 0.107,
       "rule_gain": 0.048,
       "search_steps": 100.0,
@@ -2025,11 +2025,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.138,
+      "delta_base": 0.139,
       "delta_rule": 0.038,
-      "wins": 216,
-      "ties": 700,
-      "losses": 84,
+      "wins": 220,
+      "ties": 694,
+      "losses": 86,
       "base_gain": 0.108,
       "rule_gain": 0.052,
       "search_steps": 100.0,
@@ -2097,11 +2097,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.122,
+      "delta_base": 0.121,
       "delta_rule": 0.033,
-      "wins": 192,
-      "ties": 733,
-      "losses": 75,
+      "wins": 196,
+      "ties": 725,
+      "losses": 79,
       "base_gain": 0.113,
       "rule_gain": 0.054,
       "search_steps": 100.0,
@@ -2133,11 +2133,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.13,
+      "delta_base": 0.131,
       "delta_rule": 0.03,
-      "wins": 209,
-      "ties": 706,
-      "losses": 85,
+      "wins": 214,
+      "ties": 698,
+      "losses": 88,
       "base_gain": 0.1,
       "rule_gain": 0.044,
       "search_steps": 100.0,
@@ -2205,11 +2205,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.125,
+      "delta_base": 0.124,
       "delta_rule": 0.036,
-      "wins": 194,
-      "ties": 732,
-      "losses": 74,
+      "wins": 198,
+      "ties": 724,
+      "losses": 78,
       "base_gain": 0.116,
       "rule_gain": 0.057,
       "search_steps": 100.0,
@@ -2241,11 +2241,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.132,
+      "delta_base": 0.133,
       "delta_rule": 0.032,
-      "wins": 209,
-      "ties": 708,
-      "losses": 83,
+      "wins": 214,
+      "ties": 700,
+      "losses": 86,
       "base_gain": 0.102,
       "rule_gain": 0.046,
       "search_steps": 100.0,
@@ -2313,11 +2313,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.109,
+      "delta_base": 0.108,
       "delta_rule": 0.02,
-      "wins": 183,
-      "ties": 742,
-      "losses": 75,
+      "wins": 187,
+      "ties": 734,
+      "losses": 79,
       "base_gain": 0.1,
       "rule_gain": 0.041,
       "search_steps": 100.0,
@@ -2349,11 +2349,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.107,
+      "delta_base": 0.108,
       "delta_rule": 0.007,
-      "wins": 196,
-      "ties": 710,
-      "losses": 94,
+      "wins": 200,
+      "ties": 704,
+      "losses": 96,
       "base_gain": 0.077,
       "rule_gain": 0.021,
       "search_steps": 100.0,
@@ -2421,11 +2421,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.084,
+      "delta_base": 0.083,
       "delta_rule": -0.005,
-      "wins": 169,
-      "ties": 745,
-      "losses": 86,
+      "wins": 172,
+      "ties": 739,
+      "losses": 89,
       "base_gain": 0.075,
       "rule_gain": 0.016,
       "search_steps": 100.0,
@@ -2457,11 +2457,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.112,
+      "delta_base": 0.113,
       "delta_rule": 0.012,
-      "wins": 199,
-      "ties": 708,
-      "losses": 93,
+      "wins": 203,
+      "ties": 702,
+      "losses": 95,
       "base_gain": 0.082,
       "rule_gain": 0.026,
       "search_steps": 100.0,
@@ -2529,11 +2529,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.068,
+      "delta_base": 0.067,
       "delta_rule": -0.021,
-      "wins": 162,
-      "ties": 744,
-      "losses": 94,
+      "wins": 166,
+      "ties": 736,
+      "losses": 98,
       "base_gain": 0.059,
       "rule_gain": 0.0,
       "search_steps": 100.0,
@@ -2565,11 +2565,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.086,
+      "delta_base": 0.087,
       "delta_rule": -0.014,
-      "wins": 182,
-      "ties": 717,
-      "losses": 101,
+      "wins": 186,
+      "ties": 711,
+      "losses": 103,
       "base_gain": 0.056,
       "rule_gain": 0.0,
       "search_steps": 100.0,
@@ -2637,7 +2637,7 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.075,
+      "delta_base": 0.074,
       "delta_rule": -0.014,
       "wins": 165,
       "ties": 743,
@@ -2673,11 +2673,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.079,
+      "delta_base": 0.08,
       "delta_rule": -0.021,
-      "wins": 177,
-      "ties": 720,
-      "losses": 103,
+      "wins": 181,
+      "ties": 714,
+      "losses": 105,
       "base_gain": 0.065,
       "rule_gain": 0.007,
       "search_steps": 100.0,
@@ -2745,7 +2745,7 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.075,
+      "delta_base": 0.074,
       "delta_rule": -0.014,
       "wins": 165,
       "ties": 743,
@@ -2781,11 +2781,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.079,
+      "delta_base": 0.08,
       "delta_rule": -0.021,
-      "wins": 177,
-      "ties": 720,
-      "losses": 103,
+      "wins": 181,
+      "ties": 714,
+      "losses": 105,
       "base_gain": 0.065,
       "rule_gain": 0.007,
       "search_steps": 100.0,
@@ -2853,11 +2853,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.011,
+      "delta_base": 0.01,
       "delta_rule": -0.078,
-      "wins": 128,
-      "ties": 756,
-      "losses": 116,
+      "wins": 130,
+      "ties": 752,
+      "losses": 118,
       "base_gain": 0.0,
       "rule_gain": 0.0,
       "search_steps": 100.0,
@@ -2889,11 +2889,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.014,
+      "delta_base": 0.015,
       "delta_rule": -0.086,
-      "wins": 140,
-      "ties": 734,
-      "losses": 126,
+      "wins": 142,
+      "ties": 731,
+      "losses": 127,
       "base_gain": 0.0,
       "rule_gain": 0.0,
       "search_steps": 100.0,
@@ -2961,11 +2961,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.142,
+      "delta_base": 0.141,
       "delta_rule": 0.053,
-      "wins": 204,
-      "ties": 727,
-      "losses": 69,
+      "wins": 205,
+      "ties": 725,
+      "losses": 70,
       "base_gain": 0.131,
       "rule_gain": 0.074,
       "search_steps": 100.0,
@@ -2997,11 +2997,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.128,
+      "delta_base": 0.129,
       "delta_rule": 0.028,
-      "wins": 205,
-      "ties": 710,
-      "losses": 85,
+      "wins": 210,
+      "ties": 702,
+      "losses": 88,
       "base_gain": 0.114,
       "rule_gain": 0.056,
       "search_steps": 100.0,
@@ -3069,7 +3069,7 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.089,
+      "delta_base": 0.088,
       "delta_rule": 0,
       "wins": 172,
       "ties": 743,
@@ -3105,11 +3105,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.1,
+      "delta_base": 0.101,
       "delta_rule": 0,
-      "wins": 189,
-      "ties": 716,
-      "losses": 95,
+      "wins": 192,
+      "ties": 711,
+      "losses": 97,
       "base_gain": 0.086,
       "rule_gain": 0.028,
       "search_steps": 100.0,
@@ -3177,11 +3177,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed0/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed0/random",
-      "delta_base": 0.068,
+      "delta_base": 0.067,
       "delta_rule": -0.021,
-      "wins": 162,
-      "ties": 742,
-      "losses": 96,
+      "wins": 163,
+      "ties": 740,
+      "losses": 97,
       "base_gain": 0.057,
       "rule_gain": 0.0,
       "search_steps": 100.0,
@@ -3213,11 +3213,11 @@
       "outer_rounds": 8,
       "baseline_run": "outputs/v3/test_original_h1_seed1/none",
       "rule_reference_run": "outputs/v3/test_tuned_h2_seed1/random",
-      "delta_base": 0.072,
+      "delta_base": 0.073,
       "delta_rule": -0.028,
-      "wins": 173,
-      "ties": 722,
-      "losses": 105,
+      "wins": 177,
+      "ties": 716,
+      "losses": 107,
       "base_gain": 0.058,
       "rule_gain": 0.0,
       "search_steps": 100.0,
@@ -4027,6 +4027,2939 @@
       "训练集",
       "固定插入点扰动",
       false
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "任务",
+      "scope",
+      "已完成评测的逐图配对与标签来源分层"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "任务",
+      "updated_at",
+      "2026-11-08T21:11:16.070142+00:00"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "平均Size差",
+      0.024
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "胜",
+      32
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "平",
+      960
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "负",
+      8
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "累计节点差",
+      24
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "前500图平均差",
+      0.012
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "后500图平均差",
+      0.036
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "平均Size差",
+      0.028
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "胜",
+      36
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "平",
+      956
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "负",
+      8
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "累计节点差",
+      28
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "前500图平均差",
+      0.03
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "后500图平均差",
+      0.026
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "平均Size差",
+      0.022
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "胜",
+      31
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "平",
+      960
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "负",
+      9
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "累计节点差",
+      22
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "前500图平均差",
+      0.034
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "后500图平均差",
+      0.01
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "图—种子记录数",
+      3000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "平均Size差",
+      0.024666666666666667
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "胜",
+      99
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "平",
+      2876
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "负",
+      25
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "累计节点差",
+      74
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "前500图平均差",
+      0.025333333333333333
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "后500图平均差",
+      0.024
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/训练头减同初始化未训练头/已完成种子合并",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "平均Size差",
+      0.049
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "胜",
+      52
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "平",
+      945
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "负",
+      3
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "累计节点差",
+      49
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "前500图平均差",
+      0.048
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "后500图平均差",
+      0.05
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "平均Size差",
+      0.023
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "胜",
+      31
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "平",
+      961
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "负",
+      8
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "累计节点差",
+      23
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "前500图平均差",
+      0.024
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "后500图平均差",
+      0.022
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "平均Size差",
+      0.045
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "胜",
+      48
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "平",
+      947
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "负",
+      5
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "累计节点差",
+      45
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "前500图平均差",
+      0.056
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "后500图平均差",
+      0.034
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "图—种子记录数",
+      3000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "平均Size差",
+      0.039
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "胜",
+      131
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "平",
+      2853
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "负",
+      16
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "累计节点差",
+      117
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "前500图平均差",
+      0.042666666666666665
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "后500图平均差",
+      0.035333333333333335
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减随机平台/已完成种子合并",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "平均Size差",
+      0.065
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "胜",
+      65
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "平",
+      935
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "负",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "累计节点差",
+      65
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "前500图平均差",
+      0.06
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "后500图平均差",
+      0.07
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "平均Size差",
+      0.049
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "胜",
+      49
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "平",
+      951
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "负",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "累计节点差",
+      49
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "前500图平均差",
+      0.048
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "后500图平均差",
+      0.05
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "平均Size差",
+      0.067
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "胜",
+      63
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "平",
+      937
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "负",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "累计节点差",
+      67
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "前500图平均差",
+      0.082
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "后500图平均差",
+      0.052
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "图—种子记录数",
+      3000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "平均Size差",
+      0.060333333333333336
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "胜",
+      177
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "平",
+      2823
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "负",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "累计节点差",
+      181
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "前500图平均差",
+      0.06333333333333334
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "后500图平均差",
+      0.05733333333333333
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/统计PAVE减严格规则/已完成种子合并",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "平均Size差",
+      -0.017
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "胜",
+      9
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "平",
+      965
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "负",
+      26
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "累计节点差",
+      -17
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "前500图平均差",
+      -0.01
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "后500图平均差",
+      -0.024
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "平均Size差",
+      0.003
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "胜",
+      13
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "平",
+      977
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "负",
+      10
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "累计节点差",
+      3
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "前500图平均差",
+      0.004
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "后500图平均差",
+      0.002
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "平均Size差",
+      -0.023
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "胜",
+      9
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "平",
+      961
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "负",
+      30
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "累计节点差",
+      -23
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "前500图平均差",
+      -0.038
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "后500图平均差",
+      -0.008
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "图—种子记录数",
+      3000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "平均Size差",
+      -0.012333333333333333
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "胜",
+      31
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "平",
+      2903
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "负",
+      66
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "累计节点差",
+      -37
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "前500图平均差",
+      -0.014666666666666666
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "后500图平均差",
+      -0.01
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/适配减原统计头/已完成种子合并",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "平均Size差",
+      -0.011
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "胜",
+      15
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "平",
+      959
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "负",
+      26
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "累计节点差",
+      -11
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "前500图平均差",
+      0.002
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "后500图平均差",
+      -0.024
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "平均Size差",
+      -0.005
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "胜",
+      4
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "平",
+      987
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "负",
+      9
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "累计节点差",
+      -5
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "前500图平均差",
+      -0.004
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "后500图平均差",
+      -0.006
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "平均Size差",
+      -0.017
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "胜",
+      11
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "平",
+      961
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "负",
+      28
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "累计节点差",
+      -17
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "前500图平均差",
+      -0.032
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "后500图平均差",
+      -0.002
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "图—种子记录数",
+      3000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "平均Size差",
+      -0.011
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "胜",
+      30
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "平",
+      2907
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "负",
+      63
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "累计节点差",
+      -33
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "前500图平均差",
+      -0.011333333333333334
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "后500图平均差",
+      -0.010666666666666666
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减统计头/已完成种子合并",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "平均Size差",
+      -0.003
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "胜",
+      1
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "平",
+      995
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "负",
+      4
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "累计节点差",
+      -3
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "前500图平均差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "后500图平均差",
+      -0.006
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "平均Size差",
+      -0.002
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "胜",
+      2
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "平",
+      994
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "负",
+      4
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "累计节点差",
+      -2
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "前500图平均差",
+      -0.004
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "后500图平均差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "平均Size差",
+      -0.007
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "胜",
+      7
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "平",
+      979
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "负",
+      14
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "累计节点差",
+      -7
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "前500图平均差",
+      -0.004
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "后500图平均差",
+      -0.01
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "图—种子记录数",
+      3000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "平均Size差",
+      -0.004
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "胜",
+      10
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "平",
+      2968
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "负",
+      22
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "累计节点差",
+      -12
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "前500图平均差",
+      -0.0026666666666666666
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "后500图平均差",
+      -0.005333333333333333
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/频率减普通消息/已完成种子合并",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "平均Size差",
+      -0.008
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "胜",
+      16
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "平",
+      960
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "负",
+      24
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "累计节点差",
+      -8
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "前500图平均差",
+      0.002
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "后500图平均差",
+      -0.018
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "平均Size差",
+      -0.003
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "胜",
+      4
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "平",
+      989
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "负",
+      7
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "累计节点差",
+      -3
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "前500图平均差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "后500图平均差",
+      -0.006
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "平均Size差",
+      -0.01
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "胜",
+      12
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "平",
+      966
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "负",
+      22
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "累计节点差",
+      -10
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "前500图平均差",
+      -0.028
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "后500图平均差",
+      0.008
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "图—种子记录数",
+      3000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "平均Size差",
+      -0.007
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "胜",
+      32
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "平",
+      2915
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "负",
+      53
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "累计节点差",
+      -21
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "前500图平均差",
+      -0.008666666666666666
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "后500图平均差",
+      -0.005333333333333333
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/普通消息减统计头/已完成种子合并",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "平均Size差",
+      0.016
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "胜",
+      16
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "平",
+      984
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "负",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "累计节点差",
+      16
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "前500图平均差",
+      0.012
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "后500图平均差",
+      0.02
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "平均Size差",
+      0.026
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "胜",
+      26
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "平",
+      974
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "负",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "累计节点差",
+      26
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "前500图平均差",
+      0.024
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "后500图平均差",
+      0.028
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "平均Size差",
+      0.022
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "胜",
+      20
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "平",
+      980
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "负",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "累计节点差",
+      22
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "前500图平均差",
+      0.026
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "后500图平均差",
+      0.018
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "配对口径",
+      "同任务共享初始解"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "图—种子记录数",
+      3000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "平均Size差",
+      0.021333333333333333
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "胜",
+      62
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "平",
+      2938
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "负",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "累计节点差",
+      64
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "前500图平均差",
+      0.020666666666666667
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "后500图平均差",
+      0.022
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定工作量配对/随机平台减严格规则/已完成种子合并",
+      "初始Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/起点",
+      "状态数",
+      2000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/起点",
+      "不同图数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/起点",
+      "非平局状态数",
+      71
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/起点",
+      "非平局图数",
+      66
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/起点",
+      "非平局候选对数",
+      3494
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/起点",
+      "新增非平局图数",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/起点",
+      "非平局状态比例",
+      0.0355
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/起点",
+      "Oracle减最强规则",
+      0.031
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/中间状态",
+      "状态数",
+      5987
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/中间状态",
+      "不同图数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/中间状态",
+      "非平局状态数",
+      215
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/中间状态",
+      "非平局图数",
+      79
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/中间状态",
+      "非平局候选对数",
+      10298
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/中间状态",
+      "新增非平局图数",
+      16
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/中间状态",
+      "非平局状态比例",
+      0.035911140805077665
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/中间状态",
+      "Oracle减最强规则",
+      0.031234341072323365
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/合并",
+      "状态数",
+      7987
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/合并",
+      "不同图数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/合并",
+      "非平局状态数",
+      286
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/合并",
+      "非平局图数",
+      82
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/合并",
+      "非平局候选对数",
+      13792
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/合并",
+      "新增非平局图数",
+      16
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/合并",
+      "非平局状态比例",
+      0.035808188305997246
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H1/合并",
+      "Oracle减最强规则",
+      0.031175660448228372
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/起点",
+      "状态数",
+      2000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/起点",
+      "不同图数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/起点",
+      "非平局状态数",
+      78
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/起点",
+      "非平局图数",
+      73
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/起点",
+      "非平局候选对数",
+      3747
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/起点",
+      "新增非平局图数",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/起点",
+      "非平局状态比例",
+      0.039
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/起点",
+      "Oracle减最强规则",
+      0.0345
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/中间状态",
+      "状态数",
+      5981
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/中间状态",
+      "不同图数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/中间状态",
+      "非平局状态数",
+      220
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/中间状态",
+      "非平局图数",
+      78
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/中间状态",
+      "非平局候选对数",
+      10261
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/中间状态",
+      "新增非平局图数",
+      12
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/中间状态",
+      "非平局状态比例",
+      0.03678314663099816
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/中间状态",
+      "Oracle减最强规则",
+      0.032436047483698376
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/合并",
+      "状态数",
+      7981
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/合并",
+      "不同图数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/合并",
+      "非平局状态数",
+      298
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/合并",
+      "非平局图数",
+      85
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/合并",
+      "非平局候选对数",
+      14008
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/合并",
+      "新增非平局图数",
+      12
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/合并",
+      "非平局状态比例",
+      0.03733867936348829
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/训练 H2/合并",
+      "Oracle减最强规则",
+      0.03295326400200476
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/起点",
+      "状态数",
+      300
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/起点",
+      "不同图数",
+      100
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/起点",
+      "非平局状态数",
+      13
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/起点",
+      "非平局图数",
+      12
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/起点",
+      "非平局候选对数",
+      460
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/起点",
+      "新增非平局图数",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/起点",
+      "非平局状态比例",
+      0.043333333333333335
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/起点",
+      "Oracle减最强规则",
+      0.04
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/中间状态",
+      "状态数",
+      895
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/中间状态",
+      "不同图数",
+      100
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/中间状态",
+      "非平局状态数",
+      41
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/中间状态",
+      "非平局图数",
+      14
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/中间状态",
+      "非平局候选对数",
+      1269
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/中间状态",
+      "新增非平局图数",
+      3
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/中间状态",
+      "非平局状态比例",
+      0.04581005586592179
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/中间状态",
+      "Oracle减最强规则",
+      0.0446927374301676
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/合并",
+      "状态数",
+      1195
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/合并",
+      "不同图数",
+      100
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/合并",
+      "非平局状态数",
+      54
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/合并",
+      "非平局图数",
+      15
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/合并",
+      "非平局候选对数",
+      1729
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/合并",
+      "新增非平局图数",
+      3
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/合并",
+      "非平局状态比例",
+      0.045188284518828455
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H1/合并",
+      "Oracle减最强规则",
+      0.04351464435146444
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/起点",
+      "状态数",
+      300
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/起点",
+      "不同图数",
+      100
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/起点",
+      "非平局状态数",
+      16
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/起点",
+      "非平局图数",
+      14
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/起点",
+      "非平局候选对数",
+      510
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/起点",
+      "新增非平局图数",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/起点",
+      "非平局状态比例",
+      0.05333333333333334
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/起点",
+      "Oracle减最强规则",
+      0.05
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/中间状态",
+      "状态数",
+      894
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/中间状态",
+      "不同图数",
+      100
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/中间状态",
+      "非平局状态数",
+      45
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/中间状态",
+      "非平局图数",
+      14
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/中间状态",
+      "非平局候选对数",
+      1329
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/中间状态",
+      "新增非平局图数",
+      1
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/中间状态",
+      "非平局状态比例",
+      0.050335570469798654
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/中间状态",
+      "Oracle减最强规则",
+      0.04809843400447427
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/合并",
+      "状态数",
+      1194
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/合并",
+      "不同图数",
+      100
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/合并",
+      "非平局状态数",
+      61
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/合并",
+      "非平局图数",
+      15
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/合并",
+      "非平局候选对数",
+      1839
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/合并",
+      "新增非平局图数",
+      1
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/合并",
+      "非平局状态比例",
+      0.05108877721943048
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "标签来源分层/验证 H2/合并",
+      "Oracle减最强规则",
+      0.048576214405360134
     ],
     [
       "动作普查",

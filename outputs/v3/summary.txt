@@ -1,13 +1,13 @@
 RLNN v3 实验汇总
-时间：2026-11-08T21:01:13.246154+00:00
+时间：2026-11-08T21:11:28.139362+00:00
 标准差为同配置种子均值的样本标准差；Δ以明确指定的逐图参照计算。
 
-RLNN-original-h1 + coverage | test | fixed_work | n=3 | Size=19.58533 ± 0.00737 | ΔRLNN=0.067 | Δ规则=-0.017333333333333333 | 秒/图=0.3380908467058713
-RLNN-original-h1 + degree | test | fixed_work | n=3 | Size=19.58533 ± 0.00833 | ΔRLNN=0.067 | Δ规则=-0.017333333333333333 | 秒/图=0.3372985213850625
-RLNN-original-h1 | test | fixed_work | n=3 | Size=19.51833 ± 0.00737 | ΔRLNN=0 | Δ规则=-0.08433333333333334 | 秒/图=0.2772323356328222
-RLNN-original-h1 + pave | test | fixed_work | n=3 | Size=19.64467 ± 0.00907 | ΔRLNN=0.12633333333333335 | Δ规则=0.042 | 秒/图=0.45124112713290376
-RLNN-original-h1 + random | test | fixed_work | n=3 | Size=19.60267 ± 0.00757 | ΔRLNN=0.08433333333333334 | Δ规则=0 | 秒/图=0.3346555078128974
-RLNN-original-h1 + rule23 | test | fixed_work | n=3 | Size=19.57733 ± 0.00643 | ΔRLNN=0.059 | Δ规则=-0.025333333333333333 | 秒/图=0.27961234096391124
+RLNN-original-h1 + coverage | test | fixed_work | n=3 | Size=19.58600 ± 0.00781 | ΔRLNN=0.06766666666666667 | Δ规则=-0.016 | 秒/图=0.3013665909736107
+RLNN-original-h1 + degree | test | fixed_work | n=3 | Size=19.58600 ± 0.00872 | ΔRLNN=0.06766666666666667 | Δ规则=-0.016 | 秒/图=0.30092583913883814
+RLNN-original-h1 | test | fixed_work | n=3 | Size=19.51833 ± 0.00764 | ΔRLNN=0 | Δ规则=-0.08366666666666667 | 秒/图=0.24910612414171918
+RLNN-original-h1 + pave | test | fixed_work | n=3 | Size=19.64600 ± 0.00781 | ΔRLNN=0.12766666666666668 | Δ规则=0.044 | 秒/图=0.35280146888876335
+RLNN-original-h1 + random | test | fixed_work | n=3 | Size=19.60200 ± 0.00693 | ΔRLNN=0.08366666666666667 | Δ规则=0 | 秒/图=0.30000513086173064
+RLNN-original-h1 + rule23 | test | fixed_work | n=3 | Size=19.57833 ± 0.00737 | ΔRLNN=0.06 | Δ规则=-0.023666666666666666 | 秒/图=0.25124434137670326
 RLNN-tuned-h1 + coverage | test | fixed_work | n=3 | Size=19.60833 ± 0.01002 | ΔRLNN=0.09 | Δ规则=-0.01 | 秒/图=0.3112715568668209
 RLNN-tuned-h1 + degree | test | fixed_work | n=3 | Size=19.60900 ± 0.01058 | ΔRLNN=0.09066666666666666 | Δ规则=-0.009333333333333334 | 秒/图=0.31069863182803
 RLNN-tuned-h1 | test | fixed_work | n=3 | Size=19.54667 ± 0.01210 | ΔRLNN=0.028333333333333332 | Δ规则=-0.07166666666666667 | 秒/图=0.25581057415452474
@@ -182,4 +182,4 @@ RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.50000 | ΔRLNN=Non
 }
 
 已收录求解任务：72
-诊断指标：1036
+诊断指标：1455
