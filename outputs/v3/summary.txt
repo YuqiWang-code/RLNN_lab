@@ -1,7 +1,13 @@
 RLNN v3 实验汇总
-时间：2026-11-08T06:42:57.029568+00:00
+时间：2026-11-08T06:52:30.883627+00:00
 标准差为同配置种子均值的样本标准差；Δ以明确指定的逐图参照计算。
 
+RLNN-original-h1 + coverage | test | fixed_work | n=2 | Size=19.58950 ± 0.00212 | ΔRLNN=0.067 | Δ规则=-0.0175 | 秒/图=0.3452502123108134
+RLNN-original-h1 + degree | test | fixed_work | n=2 | Size=19.59000 ± 0.00283 | ΔRLNN=0.0675 | Δ规则=-0.017 | 秒/图=0.3444163213779684
+RLNN-original-h1 | test | fixed_work | n=2 | Size=19.52250 ± 0.00212 | ΔRLNN=0 | Δ规则=-0.0845 | 秒/图=0.2817856669854373
+RLNN-original-h1 + pave | test | fixed_work | n=2 | Size=19.64650 ± 0.01202 | ΔRLNN=0.124 | Δ规则=0.0395 | 秒/图=0.46325853851041754
+RLNN-original-h1 + random | test | fixed_work | n=2 | Size=19.60700 ± 0.00141 | ΔRLNN=0.0845 | Δ规则=0 | 秒/图=0.3403217156904284
+RLNN-original-h1 + rule23 | test | fixed_work | n=2 | Size=19.58100 ± 0.00141 | ΔRLNN=0.058499999999999996 | Δ规则=-0.026 | 秒/图=0.28417880248324945
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.42000 | ΔRLNN=None | Δ规则=None | 秒/图=0.5031033470388502
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.45000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4985564421536401
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.53000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4500539477728307
@@ -159,5 +165,5 @@ RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.47000 | ΔRLNN=Non
   "reasons": []
 }
 
-已收录求解任务：6
+已收录求解任务：18
 诊断指标：1036
