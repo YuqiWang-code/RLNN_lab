@@ -1,29 +1,29 @@
 RLNN v3 实验汇总
-时间：2026-11-08T21:11:28.139362+00:00
+时间：2026-11-08T21:19:18.822972+00:00
 标准差为同配置种子均值的样本标准差；Δ以明确指定的逐图参照计算。
 
-RLNN-original-h1 + coverage | test | fixed_work | n=3 | Size=19.58600 ± 0.00781 | ΔRLNN=0.06766666666666667 | Δ规则=-0.016 | 秒/图=0.3013665909736107
-RLNN-original-h1 + degree | test | fixed_work | n=3 | Size=19.58600 ± 0.00872 | ΔRLNN=0.06766666666666667 | Δ规则=-0.016 | 秒/图=0.30092583913883814
-RLNN-original-h1 | test | fixed_work | n=3 | Size=19.51833 ± 0.00764 | ΔRLNN=0 | Δ规则=-0.08366666666666667 | 秒/图=0.24910612414171918
-RLNN-original-h1 + pave | test | fixed_work | n=3 | Size=19.64600 ± 0.00781 | ΔRLNN=0.12766666666666668 | Δ规则=0.044 | 秒/图=0.35280146888876335
-RLNN-original-h1 + random | test | fixed_work | n=3 | Size=19.60200 ± 0.00693 | ΔRLNN=0.08366666666666667 | Δ规则=0 | 秒/图=0.30000513086173064
-RLNN-original-h1 + rule23 | test | fixed_work | n=3 | Size=19.57833 ± 0.00737 | ΔRLNN=0.06 | Δ规则=-0.023666666666666666 | 秒/图=0.25124434137670326
-RLNN-tuned-h1 + coverage | test | fixed_work | n=3 | Size=19.60833 ± 0.01002 | ΔRLNN=0.09 | Δ规则=-0.01 | 秒/图=0.3112715568668209
-RLNN-tuned-h1 + degree | test | fixed_work | n=3 | Size=19.60900 ± 0.01058 | ΔRLNN=0.09066666666666666 | Δ规则=-0.009333333333333334 | 秒/图=0.31069863182803
-RLNN-tuned-h1 | test | fixed_work | n=3 | Size=19.54667 ± 0.01210 | ΔRLNN=0.028333333333333332 | Δ规则=-0.07166666666666667 | 秒/图=0.25581057415452474
-RLNN-tuned-h1 + pave | test | fixed_work | n=3 | Size=19.66333 ± 0.01185 | ΔRLNN=0.14500000000000002 | Δ规则=0.045 | 秒/图=0.3366302799492454
-RLNN-tuned-h1 + pave_adapted | test | fixed_work | n=3 | Size=19.65100 ± 0.00985 | ΔRLNN=0.13266666666666665 | Δ规则=0.03266666666666666 | 秒/图=0.33629868866798157
-RLNN-tuned-h1 + pave_frequency | test | fixed_work | n=3 | Size=19.65233 ± 0.00709 | ΔRLNN=0.134 | Δ规则=0.034 | 秒/图=0.37060604738397523
-RLNN-tuned-h1 + pave_message | test | fixed_work | n=3 | Size=19.65633 ± 0.00945 | ΔRLNN=0.138 | Δ规则=0.038 | 秒/图=0.36880149422958497
-RLNN-tuned-h1 + pave_untrained | test | fixed_work | n=3 | Size=19.63867 ± 0.01436 | ΔRLNN=0.12033333333333333 | Δ规则=0.020333333333333335 | 秒/图=0.3364189867754467
-RLNN-tuned-h1 + random | test | fixed_work | n=3 | Size=19.62433 ± 0.01415 | ΔRLNN=0.106 | Δ规则=0.006 | 秒/图=0.3076679200814106
-RLNN-tuned-h1 + rule23 | test | fixed_work | n=3 | Size=19.60300 ± 0.00964 | ΔRLNN=0.08466666666666667 | Δ规则=-0.015333333333333334 | 秒/图=0.25798072924076887
-RLNN-tuned-h2 + coverage | test | fixed_work | n=3 | Size=19.60133 ± 0.00321 | ΔRLNN=0.083 | Δ规则=-0.017 | 秒/图=0.390430366623681
-RLNN-tuned-h2 + degree | test | fixed_work | n=3 | Size=19.60167 ± 0.00379 | ΔRLNN=0.08333333333333333 | Δ规则=-0.016666666666666666 | 秒/图=0.3888884016950615
-RLNN-tuned-h2 | test | fixed_work | n=3 | Size=19.53900 ± 0.00693 | ΔRLNN=0.020666666666666667 | Δ规则=-0.07933333333333333 | 秒/图=0.27165376689036685
-RLNN-tuned-h2 + pave | test | fixed_work | n=3 | Size=19.66067 ± 0.01012 | ΔRLNN=0.14233333333333334 | Δ规则=0.042333333333333334 | 秒/图=0.44839162395522
-RLNN-tuned-h2 + random | test | fixed_work | n=3 | Size=19.61833 ± 0.00462 | ΔRLNN=0.1 | Δ规则=0 | 秒/图=0.3841525953256836
-RLNN-tuned-h2 + rule23 | test | fixed_work | n=3 | Size=19.59533 ± 0.00493 | ΔRLNN=0.077 | Δ规则=-0.023 | 秒/图=0.27396285845463475
+RLNN-original-h1 + coverage | test | fixed_work | n=3 | Size=19.58533 ± 0.00896 | ΔRLNN=0.06866666666666667 | Δ规则=-0.015666666666666666 | 秒/图=0.31025451787002384
+RLNN-original-h1 + degree | test | fixed_work | n=3 | Size=19.58533 ± 0.00987 | ΔRLNN=0.06866666666666667 | Δ规则=-0.01566666666666667 | 秒/图=0.30956973938085136
+RLNN-original-h1 | test | fixed_work | n=3 | Size=19.51667 ± 0.01041 | ΔRLNN=0 | Δ规则=-0.08433333333333333 | 秒/图=0.2561100257046831
+RLNN-original-h1 + pave | test | fixed_work | n=3 | Size=19.64533 ± 0.00850 | ΔRLNN=0.12866666666666668 | Δ规则=0.044333333333333336 | 秒/图=0.33578326665920516
+RLNN-original-h1 + random | test | fixed_work | n=3 | Size=19.60100 ± 0.00866 | ΔRLNN=0.08433333333333333 | Δ规则=0 | 秒/图=0.3080027548338597
+RLNN-original-h1 + rule23 | test | fixed_work | n=3 | Size=19.57767 ± 0.00850 | ΔRLNN=0.061 | Δ规则=-0.023333333333333334 | 秒/图=0.25829772172123194
+RLNN-tuned-h1 + coverage | test | fixed_work | n=3 | Size=19.60833 ± 0.01002 | ΔRLNN=0.09166666666666666 | Δ规则=-0.01 | 秒/图=0.3112715568668209
+RLNN-tuned-h1 + degree | test | fixed_work | n=3 | Size=19.60900 ± 0.01058 | ΔRLNN=0.09233333333333334 | Δ规则=-0.009333333333333334 | 秒/图=0.31069863182803
+RLNN-tuned-h1 | test | fixed_work | n=3 | Size=19.54667 ± 0.01210 | ΔRLNN=0.03 | Δ规则=-0.07166666666666667 | 秒/图=0.25581057415452474
+RLNN-tuned-h1 + pave | test | fixed_work | n=3 | Size=19.66333 ± 0.01185 | ΔRLNN=0.14666666666666667 | Δ规则=0.045 | 秒/图=0.3366302799492454
+RLNN-tuned-h1 + pave_adapted | test | fixed_work | n=3 | Size=19.65100 ± 0.00985 | ΔRLNN=0.13433333333333333 | Δ规则=0.03266666666666666 | 秒/图=0.33629868866798157
+RLNN-tuned-h1 + pave_frequency | test | fixed_work | n=3 | Size=19.65233 ± 0.00709 | ΔRLNN=0.13566666666666666 | Δ规则=0.034 | 秒/图=0.37060604738397523
+RLNN-tuned-h1 + pave_message | test | fixed_work | n=3 | Size=19.65633 ± 0.00945 | ΔRLNN=0.13966666666666666 | Δ规则=0.038 | 秒/图=0.36880149422958497
+RLNN-tuned-h1 + pave_untrained | test | fixed_work | n=3 | Size=19.63867 ± 0.01436 | ΔRLNN=0.122 | Δ规则=0.020333333333333335 | 秒/图=0.3364189867754467
+RLNN-tuned-h1 + random | test | fixed_work | n=3 | Size=19.62433 ± 0.01415 | ΔRLNN=0.10766666666666667 | Δ规则=0.006 | 秒/图=0.3076679200814106
+RLNN-tuned-h1 + rule23 | test | fixed_work | n=3 | Size=19.60300 ± 0.00964 | ΔRLNN=0.08633333333333333 | Δ规则=-0.015333333333333334 | 秒/图=0.25798072924076887
+RLNN-tuned-h2 + coverage | test | fixed_work | n=3 | Size=19.60133 ± 0.00321 | ΔRLNN=0.08466666666666667 | Δ规则=-0.017 | 秒/图=0.390430366623681
+RLNN-tuned-h2 + degree | test | fixed_work | n=3 | Size=19.60167 ± 0.00379 | ΔRLNN=0.085 | Δ规则=-0.016666666666666666 | 秒/图=0.3888884016950615
+RLNN-tuned-h2 | test | fixed_work | n=3 | Size=19.53900 ± 0.00693 | ΔRLNN=0.022333333333333334 | Δ规则=-0.07933333333333333 | 秒/图=0.27165376689036685
+RLNN-tuned-h2 + pave | test | fixed_work | n=3 | Size=19.66067 ± 0.01012 | ΔRLNN=0.144 | Δ规则=0.042333333333333334 | 秒/图=0.44839162395522
+RLNN-tuned-h2 + random | test | fixed_work | n=3 | Size=19.61833 ± 0.00462 | ΔRLNN=0.10166666666666667 | Δ规则=0 | 秒/图=0.3841525953256836
+RLNN-tuned-h2 + rule23 | test | fixed_work | n=3 | Size=19.59533 ± 0.00493 | ΔRLNN=0.07866666666666666 | Δ规则=-0.023 | 秒/图=0.27396285845463475
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.55000 | ΔRLNN=None | Δ规则=None | 秒/图=0.12151604174170644
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.56000 | ΔRLNN=None | Δ规则=None | 秒/图=0.13344074375461787
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.56000 | ΔRLNN=None | Δ规则=None | 秒/图=0.14012427450623363
