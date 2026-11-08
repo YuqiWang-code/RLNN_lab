@@ -141,12 +141,14 @@ const scores = [...cohorts.values()].map(group => {
     first.budget || null, n, ...['wins', 'ties', 'losses'].map(outcome => paired ? sum(group.map(run => run[outcome])) : null),
     average(group.map(run => run.group_times_s[0])), average(group.map(run => run.group_times_s[1])),
     average(group.map(run => run.exchange_gain)), average(group.map(run => run.exchangeTime)),
+    first.post === 'none' ? null : sum(group.map(run => run.exchange_gain)) / (1000 * sum(group.map(run => run.exchangeTime))),
     sum(group.map(run => run.deadline_overruns))];
 });
 sheet('V2汇总', ['方法', 'Mean Size ↑（均值±标准差）', 'ΔSize ↑', '平均求解 (s) ↓', '可行率 ↑', 'Params',
-  '峰值显存 (MiB)', '预算 (s)', '种子数', '胜', '平', '负', '前500总秒', '后500总秒', '交换增益/图', '交换秒/图', '超时图数'],
-  scores, [32, 26, 12, 17, 12, 13, 17, 10, 10, 10, 10, 10, 14, 14, 15, 15, 13],
-  { C: '+0.000;-0.000;0.000', D: '0.0000', E: '0.00%', F: '#,##0', G: '0.00', M: '0.00', N: '0.00', O: '0.000', P: '0.000000' });
+  '峰值显存 (MiB)', '预算 (s)', '种子数', '胜', '平', '负', '前500总秒', '后500总秒', '交换增益/图', '交换秒/图', '增益/额外毫秒', '超时图数'],
+  scores, [32, 26, 12, 17, 12, 13, 17, 10, 10, 10, 10, 10, 14, 14, 15, 15, 17, 13],
+  { C: '+0.000;-0.000;0.000', D: '0.0000', E: '0.00%', F: '#,##0', G: '0.00', M: '0.00', N: '0.00',
+    O: '0.000', P: '0.000000', Q: '0.0000' });
 sheet('V2逐种子', ['方法', '划分', '训练种子', '搜索种子', '图数', '预算 (s)', 'Mean Size', 'ΔSize',
   '平均求解 (s)', '可行率', 'Params', '峰值 (MiB)', '胜', '平', '负', '前500总秒', '后500总秒', '交换增益/图',
   '交换秒/图', '交换次数/图', '超时图数', '来源'],
@@ -173,5 +175,7 @@ const preview = await book.render({ sheetName: tab, range: scores.length ? 'A1:I
 await fs.mkdir(path.join(root, 'tmp'), { recursive: true });
 await fs.writeFile(path.join(root, 'tmp', 'v2_workbook_preview.png'), new Uint8Array(await preview.arrayBuffer()));
 const updated = await SpreadsheetFile.exportXlsx(book);
-await updated.save(destination);
+const staged = path.join(root, 'tmp', 'v2_workbook.xlsx');
+await updated.save(staged);
+await fs.rename(staged, destination);
 console.log('V2 test cohorts: ' + scores.length + ', scored runs: ' + runs.length + ', training runs: ' + training.length);
