@@ -49,10 +49,6 @@ elif [[ "$stage" == test ]]; then
     suite "val_tuned_seed$seed" "$seed" "$tuned" none RLNN-tuned --split validation
     suite "val_segf_seed$seed" "$seed" "$segf" segf SEGF --split validation
     suite "test_base_seed$seed" "$seed" "$base" none RLNN --post none rule heuristic random rule23
-    suite "budget_base_seed$seed" "$seed" "$base" none RLNN --time_budget_s 0.5
-    suite "budget_base_rule23_seed$seed" "$seed" "$base" none RLNN --post rule23 --time_budget_s 0.5
-    suite "budget_segf_seed$seed" "$seed" "$segf" segf SEGF --time_budget_s 0.5
-    suite "budget_segf_rule23_seed$seed" "$seed" "$segf" segf SEGF --post rule23 --time_budget_s 0.5
   done
   for experiment in "${arms[@]}"; do
     arm="${experiment%:*}"
@@ -63,6 +59,22 @@ elif [[ "$stage" == test ]]; then
       segf) suite "test_$run" "$seed" "$OUT/$run/checkpoints" "$arm" SEGF --post none rule23 ;;
       *) suite "test_$run" "$seed" "$OUT/$run/checkpoints" "$arm" "$arm" ;;
     esac
+  done
+  segf_seeds=("${seeds[@]}")
+  if [[ "$gpu" == 0 ]]; then
+    segf_seeds=(0)
+  else
+    segf_seeds=(1 2)
+  fi
+  for seed in "${seeds[@]}"; do
+    base="$(base_checkpoint "$seed")"
+    suite "budget_base_seed$seed" "$seed" "$base" none RLNN --time_budget_s 0.5
+    suite "budget_base_rule23_seed$seed" "$seed" "$base" none RLNN --post rule23 --time_budget_s 0.5
+  done
+  for seed in "${segf_seeds[@]}"; do
+    segf="$OUT/segf_seed${seed}/checkpoints"
+    suite "budget_segf_seed$seed" "$seed" "$segf" segf SEGF --time_budget_s 0.5
+    suite "budget_segf_rule23_seed$seed" "$seed" "$segf" segf SEGF --post rule23 --time_budget_s 0.5
   done
 else
   printf 'Unknown stage %s\n' "$stage" >&2
