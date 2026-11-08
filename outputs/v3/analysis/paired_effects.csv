@@ -22,7 +22,8 @@ budget_tuned_message_h1,budget_tuned_random_h2,pave_message,random,all,independe
 budget_tuned_message_h1,budget_tuned_stats_h1,pave_message,pave,0,independent_search,1000,-0.033,18,933,49,-33,855,14,38,31,-0.034,-0.032,"{""-2"": 2, ""-1"": 47, ""0"": 933, ""1"": 18}",-0.01,964,-0.023
 budget_tuned_message_h1,budget_tuned_stats_h1,pave_message,pave,all,independent_search,1000,-0.033,18,933,49,-33,855,14,38,31,-0.034,-0.032,"{""-2"": 2, ""-1"": 47, ""0"": 933, ""1"": 18}",-0.01,964,-0.023
 budget_tuned_none_ext,budget_original_none_ext,none,none,0,independent_search,1000,0.035,159,715,126,35,52,0,0,0,0.174,-0.104,"{""-2"": 4, ""-1"": 122, ""0"": 715, ""1"": 153, ""2"": 6}",0.035,715,0
-budget_tuned_none_ext,budget_original_none_ext,none,none,all,independent_search,1000,0.035,159,715,126,35,52,0,0,0,0.174,-0.104,"{""-2"": 4, ""-1"": 122, ""0"": 715, ""1"": 153, ""2"": 6}",0.035,715,0
+budget_tuned_none_ext,budget_original_none_ext,none,none,1,independent_search,1000,-0.02,119,744,137,-20,46,0,0,0,-0.096,0.056,"{""-2"": 3, ""-1"": 134, ""0"": 744, ""1"": 118, ""2"": 1}",-0.02,744,0
+budget_tuned_none_ext,budget_original_none_ext,none,none,all,independent_search,2000,0.0075,278,1459,263,15,98,0,0,0,0.039,-0.024,"{""-2"": 7, ""-1"": 256, ""0"": 1459, ""1"": 271, ""2"": 7}",0.0075,1459,0
 budget_tuned_none_ext,budget_tuned_random_h2,none,random,0,independent_search,1000,-0.009,84,824,92,-9,750,0,28,0,0.08,-0.098,"{""-2"": 4, ""-1"": 88, ""0"": 824, ""1"": 81, ""2"": 3}",0.07,847,-0.079
 budget_tuned_none_ext,budget_tuned_random_h2,none,random,all,independent_search,1000,-0.009,84,824,92,-9,750,0,28,0,0.08,-0.098,"{""-2"": 4, ""-1"": 88, ""0"": 824, ""1"": 81, ""2"": 3}",0.07,847,-0.079
 budget_tuned_random_h2,budget_original_none_ext,random,none,0,independent_search,1000,0.044,159,723,118,44,50,28,0,0,0.094,-0.006,"{""-2"": 4, ""-1"": 114, ""0"": 723, ""1"": 152, ""2"": 7}",-0.035,729,0.079
