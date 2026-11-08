@@ -1,0 +1,51 @@
+{
+  "version": "v3",
+  "mode": "training_admission",
+  "variant": "D2_neutral_h1",
+  "decided_at": "2026-11-08T06:14:44.420074+00:00",
+  "thresholds": {
+    "validation_states": 300,
+    "validation_graphs": 100,
+    "validation_informative_graphs": 10,
+    "validation_oracle_gap": 0.03,
+    "training_informative_states": 100,
+    "training_informative_graphs": 50
+  },
+  "validation": {
+    "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/census/run.json",
+    "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_validation_h1/states.pt",
+    "states": 300,
+    "graphs": 100,
+    "available": 300,
+    "informative": 13,
+    "informative_graphs": 12,
+    "non_tied_pairs": 460,
+    "positive_states": 13,
+    "positive_coverage": 0.043333333333333335,
+    "mean_candidates": 20.28,
+    "mean_oracle_gain": 0.043333333333333335,
+    "rule_gains": {
+      "coverage": 0.0033333333333333335,
+      "degree": 0.0033333333333333335,
+      "random": 0
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.04,
+    "mean_truncation_loss": 0.0033333333333333335
+  },
+  "training": {
+    "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1/run.json",
+    "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1/states.pt",
+    "states": 7987,
+    "samples": 2000,
+    "informative_states": 286,
+    "informative_graphs": 82,
+    "horizon": 1,
+    "anchored": false
+  },
+  "validation_pass": true,
+  "training_pass": true,
+  "train": true,
+  "pass": true,
+  "reasons": []
+}

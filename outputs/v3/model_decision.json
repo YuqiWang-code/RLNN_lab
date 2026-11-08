@@ -1,0 +1,7 @@
+{
+  "backbone": "tuned",
+  "strongest_rule": "random_h2",
+  "stats": "stats_h1",
+  "delta_vs_strongest_rule": 0.046666666666666856,
+  "train_encoders": true
+}

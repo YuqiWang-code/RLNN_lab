@@ -1,0 +1,4787 @@
+{
+  "version": "v3",
+  "updated_at": "2026-11-08T06:21:56.481611+00:00",
+  "cohorts": [],
+  "runs": [],
+  "diagnostics": [
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "部署骨干",
+      "微调RLNN"
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "最强简单规则",
+      "固定随机 H=2"
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "统计评分方案",
+      "统计PAVE H=1"
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "完整验证减最强规则",
+      0.046666666666666856
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "允许训练编码器",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "总体",
+      "候选方案",
+      "D3 中性动作 H=2"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "总体",
+      "验证侧准入",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "总体",
+      "训练侧准入",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "总体",
+      "允许正式训练",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "总体",
+      "总体准入",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "总体",
+      "判定时间（UTC）",
+      "2026-11-08T06:14:44.607780+00:00"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "准入门槛",
+      "验证状态数",
+      300
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "准入门槛",
+      "验证图数",
+      100
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "准入门槛",
+      "验证非平局图数",
+      10
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "准入门槛",
+      "验证Oracle收益差",
+      0.03
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "准入门槛",
+      "训练非平局状态数",
+      100
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "准入门槛",
+      "训练非平局图数",
+      50
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "状态数",
+      300
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "不同图数",
+      100
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "有候选的状态数",
+      300
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "非平局状态数",
+      16
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "非平局图数",
+      14
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "非平局候选对数",
+      510
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "Oracle正收益状态数",
+      16
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "Oracle正收益覆盖率",
+      0.05333333333333334
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "平均保留候选数",
+      20.28
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "Oracle平均增益",
+      0.05333333333333334
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集/规则收益",
+      "覆盖度规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集/规则收益",
+      "原始度数规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集/规则收益",
+      "固定随机规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "Oracle减最强规则",
+      0.05
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "验证集",
+      "候选截断平均Oracle损失",
+      0.0033333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "训练集",
+      "状态数",
+      7981
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "训练集",
+      "起始解数（图×骨干×随机流）",
+      2000
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "训练集",
+      "非平局状态数",
+      298
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "训练集",
+      "非平局图数",
+      85
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "训练集",
+      "继续深度H",
+      2
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision.json",
+      "训练集",
+      "固定插入点扰动",
+      false
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "总体",
+      "候选方案",
+      "D2 中性动作 H=1"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "总体",
+      "验证侧准入",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "总体",
+      "训练侧准入",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "总体",
+      "允许正式训练",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "总体",
+      "总体准入",
+      "通过"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "总体",
+      "判定时间（UTC）",
+      "2026-11-08T06:14:44.420074+00:00"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "准入门槛",
+      "验证状态数",
+      300
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "准入门槛",
+      "验证图数",
+      100
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "准入门槛",
+      "验证非平局图数",
+      10
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "准入门槛",
+      "验证Oracle收益差",
+      0.03
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "准入门槛",
+      "训练非平局状态数",
+      100
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "准入门槛",
+      "训练非平局图数",
+      50
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "状态数",
+      300
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "不同图数",
+      100
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "有候选的状态数",
+      300
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "非平局状态数",
+      13
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "非平局图数",
+      12
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "非平局候选对数",
+      460
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "Oracle正收益状态数",
+      13
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "Oracle正收益覆盖率",
+      0.043333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "平均保留候选数",
+      20.28
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "Oracle平均增益",
+      0.043333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集/规则收益",
+      "覆盖度规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集/规则收益",
+      "原始度数规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集/规则收益",
+      "固定随机规则平均增益",
+      0
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "Oracle减最强规则",
+      0.04
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "验证集",
+      "候选截断平均Oracle损失",
+      0.0033333333333333335
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "训练集",
+      "状态数",
+      7987
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "训练集",
+      "起始解数（图×骨干×随机流）",
+      2000
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "训练集",
+      "非平局状态数",
+      286
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "训练集",
+      "非平局图数",
+      82
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "训练集",
+      "继续深度H",
+      1
+    ],
+    [
+      "训练准入",
+      "outputs/v3/decision_h1.json",
+      "训练集",
+      "固定插入点扰动",
+      false
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      300
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "任务",
+      "标签状态数",
+      300
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "任务",
+      "墙钟秒数",
+      4.116320519242436
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "任务",
+      "平均CPU任务秒数",
+      0.15955621033751716
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "状态口径",
+      "原始A.3解，图×骨干×随机流"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "状态数",
+      300
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "不同图数",
+      100
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "有候选的状态数",
+      16
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "非平局状态数",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "非平局图数",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "非平局候选对数",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "Oracle正收益状态数",
+      16
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "Oracle正收益覆盖率",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "平均保留候选数",
+      0.10666666666666667
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "Oracle平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "覆盖度规则平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "原始度数规则平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "固定随机规则平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "最强规则平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "Oracle减最强规则",
+      0.0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D0 严格交换后备",
+      "候选截断平均Oracle损失",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "状态口径",
+      "原始A.3解，图×骨干×随机流"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "状态数",
+      300
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "不同图数",
+      100
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "有候选的状态数",
+      16
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "非平局状态数",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "非平局图数",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "非平局候选对数",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "Oracle正收益状态数",
+      16
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "Oracle正收益覆盖率",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "平均保留候选数",
+      1.2766666666666666
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "Oracle平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "覆盖度规则平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "原始度数规则平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "固定随机规则平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "最强规则平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "Oracle减最强规则",
+      0.0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D1 严格交换联合",
+      "候选截断平均Oracle损失",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "状态口径",
+      "规则停止解，图×骨干×随机流"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "状态数",
+      300
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "不同图数",
+      100
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "有候选的状态数",
+      300
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "非平局状态数",
+      13
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "非平局图数",
+      12
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "非平局候选对数",
+      460
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "Oracle正收益状态数",
+      13
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "Oracle正收益覆盖率",
+      0.043333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "平均保留候选数",
+      20.28
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "Oracle平均增益",
+      0.043333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "覆盖度规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "原始度数规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "固定随机规则平均增益",
+      0
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "最强规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "Oracle减最强规则",
+      0.04
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D2 中性动作 H=1",
+      "候选截断平均Oracle损失",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "状态口径",
+      "规则停止解，图×骨干×随机流"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "状态数",
+      300
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "不同图数",
+      100
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "有候选的状态数",
+      300
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "非平局状态数",
+      16
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "非平局图数",
+      14
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "非平局候选对数",
+      510
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "Oracle正收益状态数",
+      16
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "Oracle正收益覆盖率",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "平均保留候选数",
+      20.28
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "Oracle平均增益",
+      0.05333333333333334
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "覆盖度规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "原始度数规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "固定随机规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "最强规则平均增益",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "Oracle减最强规则",
+      0.05
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "D3 中性动作 H=2",
+      "候选截断平均Oracle损失",
+      0.0033333333333333335
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "任务",
+      "非平局状态数",
+      16
+    ],
+    [
+      "动作普查",
+      "outputs/v3/census",
+      "任务",
+      "非平局图数",
+      14
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "任务",
+      "数据划分",
+      "训练集"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      2000
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "任务",
+      "标签状态数",
+      7987
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "任务",
+      "墙钟秒数",
+      183.19115621829405
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "任务",
+      "平均CPU任务秒数",
+      0.29544043181557206
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "状态口径",
+      "部署起点与中间状态，按图去重"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "状态数",
+      7987
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "不同图数",
+      1000
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "有候选的状态数",
+      7979
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "非平局状态数",
+      286
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "非平局图数",
+      82
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "非平局候选对数",
+      13792
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "Oracle正收益状态数",
+      286
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "Oracle正收益覆盖率",
+      0.035808188305997246
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "平均保留候选数",
+      21.05333667209215
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "Oracle平均增益",
+      0.036559409039689496
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "覆盖度规则平均增益",
+      0.0008764241893076249
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "原始度数规则平均增益",
+      0.0008764241893076249
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "固定随机规则平均增益",
+      0.005383748591461125
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "最强规则平均增益",
+      0.005383748591461125
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "最强简单规则",
+      "固定随机"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "Oracle减最强规则",
+      0.031175660448228372
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "部署状态 H=1",
+      "候选截断平均Oracle损失",
+      0
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "任务",
+      "非平局状态数",
+      286
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h1",
+      "任务",
+      "非平局图数",
+      82
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "任务",
+      "数据划分",
+      "训练集"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      2000
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "任务",
+      "标签状态数",
+      7981
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "任务",
+      "墙钟秒数",
+      186.5032585291192
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "任务",
+      "平均CPU任务秒数",
+      1.5557771036147605
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "状态口径",
+      "部署起点与中间状态，按图去重"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "状态数",
+      7981
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "不同图数",
+      1000
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "有候选的状态数",
+      7970
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "非平局状态数",
+      298
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "非平局图数",
+      85
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "非平局候选对数",
+      14008
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "Oracle正收益状态数",
+      300
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "Oracle正收益覆盖率",
+      0.03758927452700163
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "平均保留候选数",
+      21.021676481643905
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "Oracle平均增益",
+      0.03846635759929833
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "覆盖度规则平均增益",
+      0.0010023806540533768
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "原始度数规则平均增益",
+      0.001252975817566721
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "固定随机规则平均增益",
+      0.005513093597293572
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "最强规则平均增益",
+      0.005513093597293572
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "最强简单规则",
+      "固定随机"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "Oracle减最强规则",
+      0.03295326400200476
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "部署状态 H=2",
+      "候选截断平均Oracle损失",
+      0
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "任务",
+      "非平局状态数",
+      298
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_train_h2",
+      "任务",
+      "非平局图数",
+      85
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      300
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "任务",
+      "标签状态数",
+      1195
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "任务",
+      "墙钟秒数",
+      10.208835584111512
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "任务",
+      "平均CPU任务秒数",
+      0.14268460030977925
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "状态口径",
+      "部署起点与中间状态，按图去重"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "状态数",
+      1195
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "不同图数",
+      100
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "有候选的状态数",
+      1192
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "非平局状态数",
+      54
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "非平局图数",
+      15
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "非平局候选对数",
+      1729
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "Oracle正收益状态数",
+      54
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "Oracle正收益覆盖率",
+      0.045188284518828455
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "平均保留候选数",
+      19.699581589958157
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "Oracle平均增益",
+      0.045188284518828455
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "覆盖度规则平均增益",
+      0.0008368200836820083
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "原始度数规则平均增益",
+      0.0016736401673640166
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "固定随机规则平均增益",
+      0
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "最强规则平均增益",
+      0.0016736401673640166
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "最强简单规则",
+      "原始度数"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "Oracle减最强规则",
+      0.04351464435146444
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "部署状态 H=1",
+      "候选截断平均Oracle损失",
+      0
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "任务",
+      "非平局状态数",
+      54
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h1",
+      "任务",
+      "非平局图数",
+      15
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      300
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "任务",
+      "标签状态数",
+      1194
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "任务",
+      "墙钟秒数",
+      16.745764698367566
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "任务",
+      "平均CPU任务秒数",
+      0.4620547037338838
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "状态口径",
+      "部署起点与中间状态，按图去重"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "状态数",
+      1194
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "不同图数",
+      100
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "有候选的状态数",
+      1191
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "非平局状态数",
+      61
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "非平局图数",
+      15
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "非平局候选对数",
+      1839
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "Oracle正收益状态数",
+      61
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "Oracle正收益覆盖率",
+      0.05108877721943048
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "平均保留候选数",
+      19.67001675041876
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "Oracle平均增益",
+      0.05108877721943048
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "覆盖度规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "原始度数规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "固定随机规则平均增益",
+      0.0008375209380234506
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "最强规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "Oracle减最强规则",
+      0.048576214405360134
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "部署状态 H=2",
+      "候选截断平均Oracle损失",
+      0
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "任务",
+      "非平局状态数",
+      61
+    ],
+    [
+      "标签采集",
+      "outputs/v3/labels_validation_h2",
+      "任务",
+      "非平局图数",
+      15
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream0",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream0",
+      "任务",
+      "数据划分",
+      "训练集"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream0",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      1000
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream0",
+      "任务",
+      "墙钟秒数",
+      301.21468928223476
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream0",
+      "任务",
+      "骨干种子",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream0",
+      "任务",
+      "stream",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream0",
+      "任务",
+      "Mean Size",
+      19.606
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream0",
+      "任务",
+      "gpu",
+      "0"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream1",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream1",
+      "任务",
+      "数据划分",
+      "训练集"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream1",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      1000
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream1",
+      "任务",
+      "墙钟秒数",
+      292.01480234600604
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream1",
+      "任务",
+      "骨干种子",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream1",
+      "任务",
+      "stream",
+      1
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream1",
+      "任务",
+      "Mean Size",
+      19.598
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_train_seed0_stream1",
+      "任务",
+      "gpu",
+      "1"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed0",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed0",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed0",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      100
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed0",
+      "任务",
+      "墙钟秒数",
+      39.83056390006095
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed0",
+      "任务",
+      "骨干种子",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed0",
+      "任务",
+      "stream",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed0",
+      "任务",
+      "Mean Size",
+      19.42
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed0",
+      "任务",
+      "gpu",
+      "1"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed1",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed1",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed1",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      100
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed1",
+      "任务",
+      "墙钟秒数",
+      39.68669959018007
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed1",
+      "任务",
+      "骨干种子",
+      1
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed1",
+      "任务",
+      "stream",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed1",
+      "任务",
+      "Mean Size",
+      19.58
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed1",
+      "任务",
+      "gpu",
+      "0"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed2",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed2",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed2",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      100
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed2",
+      "任务",
+      "墙钟秒数",
+      43.023629386909306
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed2",
+      "任务",
+      "骨干种子",
+      2
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed2",
+      "任务",
+      "stream",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed2",
+      "任务",
+      "Mean Size",
+      19.58
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_tuned_seed2",
+      "任务",
+      "gpu",
+      "1"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed0_stream0",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed0_stream0",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed0_stream0",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      100
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed0_stream0",
+      "任务",
+      "墙钟秒数",
+      40.23373415088281
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed0_stream0",
+      "任务",
+      "骨干种子",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed0_stream0",
+      "任务",
+      "stream",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed0_stream0",
+      "任务",
+      "Mean Size",
+      19.51
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed0_stream0",
+      "任务",
+      "gpu",
+      "0"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed1_stream0",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed1_stream0",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed1_stream0",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      100
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed1_stream0",
+      "任务",
+      "墙钟秒数",
+      40.75257437163964
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed1_stream0",
+      "任务",
+      "骨干种子",
+      1
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed1_stream0",
+      "任务",
+      "stream",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed1_stream0",
+      "任务",
+      "Mean Size",
+      19.46
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed1_stream0",
+      "任务",
+      "gpu",
+      "1"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed2_stream0",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed2_stream0",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed2_stream0",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      100
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed2_stream0",
+      "任务",
+      "墙钟秒数",
+      39.50624775607139
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed2_stream0",
+      "任务",
+      "骨干种子",
+      2
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed2_stream0",
+      "任务",
+      "stream",
+      0
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed2_stream0",
+      "任务",
+      "Mean Size",
+      19.45
+    ],
+    [
+      "起始解生成",
+      "outputs/v3/starts_validation_seed2_stream0",
+      "任务",
+      "gpu",
+      "0"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "墙钟秒数",
+      88.4043216011487
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "训练种子",
+      0
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "训练状态数",
+      7987
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "验证状态数",
+      1195
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "训练非平局状态数",
+      286
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "训练非平局图数",
+      82
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "验证非平局状态数",
+      54
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "最强简单规则",
+      "原始度数"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "验证规则收益",
+      "覆盖度规则平均增益",
+      0.0008368200836820083
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "验证规则收益",
+      "原始度数规则平均增益",
+      0.0016736401673640166
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "验证规则收益",
+      "固定随机规则平均增益",
+      0.0
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "轮数",
+      20
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "排序损失",
+      0.28180405625689225
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "累计秒数",
+      84.10605730907992
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "状态数",
+      1195
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "有候选的状态数",
+      1192
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "非平局状态数",
+      54
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "非平局图数",
+      15
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "模型所选动作平均增益",
+      0.03347280334728033
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "最强规则平均增益",
+      0.0016736401673640166
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "Oracle平均增益",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "模型减最强规则",
+      0.031799163179916316
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "Oracle减模型",
+      0.011715481171548118
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "非平局状态覆盖率",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "Oracle正收益覆盖率",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "正收益状态命中率",
+      0.7407407407407407
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "非平局对准确率",
+      0.8701684761930395
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "非平局状态Top-1",
+      0.7407407407407407
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "最佳验证",
+      "非平局状态Spearman",
+      0.38202580202508857
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed0",
+      "任务",
+      "学习率",
+      0.001
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "墙钟秒数",
+      91.77482243068516
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "训练种子",
+      1
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "训练状态数",
+      7987
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "验证状态数",
+      1195
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "训练非平局状态数",
+      286
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "训练非平局图数",
+      82
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "验证非平局状态数",
+      54
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "最强简单规则",
+      "原始度数"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "验证规则收益",
+      "覆盖度规则平均增益",
+      0.0008368200836820083
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "验证规则收益",
+      "原始度数规则平均增益",
+      0.0016736401673640166
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "验证规则收益",
+      "固定随机规则平均增益",
+      0.0
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "轮数",
+      6
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "排序损失",
+      0.4210348226279802
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "累计秒数",
+      82.1767031098716
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "状态数",
+      1195
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "有候选的状态数",
+      1192
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "非平局状态数",
+      54
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "非平局图数",
+      15
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "模型所选动作平均增益",
+      0.028451882845188285
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "最强规则平均增益",
+      0.0016736401673640166
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "Oracle平均增益",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "模型减最强规则",
+      0.026778242677824266
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "Oracle减模型",
+      0.016736401673640166
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "非平局状态覆盖率",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "Oracle正收益覆盖率",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "正收益状态命中率",
+      0.6296296296296297
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "非平局对准确率",
+      0.8469826441120218
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "非平局状态Top-1",
+      0.6296296296296297
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "最佳验证",
+      "非平局状态Spearman",
+      0.35670228081720845
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed1",
+      "任务",
+      "学习率",
+      0.001
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "墙钟秒数",
+      88.9945995141752
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "训练种子",
+      2
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "训练状态数",
+      7987
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "验证状态数",
+      1195
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "训练非平局状态数",
+      286
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "训练非平局图数",
+      82
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "验证非平局状态数",
+      54
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "最强简单规则",
+      "原始度数"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "验证规则收益",
+      "覆盖度规则平均增益",
+      0.0008368200836820083
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "验证规则收益",
+      "原始度数规则平均增益",
+      0.0016736401673640166
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "验证规则收益",
+      "固定随机规则平均增益",
+      0.0
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "轮数",
+      16
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "排序损失",
+      0.29764928533597945
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "累计秒数",
+      83.35400830488652
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "状态数",
+      1195
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "有候选的状态数",
+      1192
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "非平局状态数",
+      54
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "非平局图数",
+      15
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "模型所选动作平均增益",
+      0.0301255230125523
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "最强规则平均增益",
+      0.0016736401673640166
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "Oracle平均增益",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "模型减最强规则",
+      0.028451882845188285
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "Oracle减模型",
+      0.01506276150627615
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "非平局状态覆盖率",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "Oracle正收益覆盖率",
+      0.045188284518828455
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "正收益状态命中率",
+      0.6666666666666666
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "非平局对准确率",
+      0.8676749136712816
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "非平局状态Top-1",
+      0.6666666666666666
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "最佳验证",
+      "非平局状态Spearman",
+      0.376969246952622
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h1_seed2",
+      "任务",
+      "学习率",
+      0.001
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "墙钟秒数",
+      88.06511588627473
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "训练种子",
+      0
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "训练状态数",
+      7981
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "验证状态数",
+      1194
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "训练非平局状态数",
+      298
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "训练非平局图数",
+      85
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "验证非平局状态数",
+      61
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "验证规则收益",
+      "覆盖度规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "验证规则收益",
+      "原始度数规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "验证规则收益",
+      "固定随机规则平均增益",
+      0.0008375209380234506
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "轮数",
+      21
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "排序损失",
+      0.28263178614636997
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "累计秒数",
+      84.24881171993911
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "状态数",
+      1194
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "有候选的状态数",
+      1191
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "非平局状态数",
+      61
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "非平局图数",
+      15
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "模型所选动作平均增益",
+      0.035175879396984924
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "最强规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "Oracle平均增益",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "模型减最强规则",
+      0.032663316582914576
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "Oracle减模型",
+      0.015912897822445562
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "非平局状态覆盖率",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "Oracle正收益覆盖率",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "正收益状态命中率",
+      0.6885245901639344
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "非平局对准确率",
+      0.8377448835822402
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "非平局状态Top-1",
+      0.6885245901639344
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "最佳验证",
+      "非平局状态Spearman",
+      0.3508348157171343
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed0",
+      "任务",
+      "学习率",
+      0.001
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "墙钟秒数",
+      89.93017377890646
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "训练种子",
+      1
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "训练状态数",
+      7981
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "验证状态数",
+      1194
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "训练非平局状态数",
+      298
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "训练非平局图数",
+      85
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "验证非平局状态数",
+      61
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "验证规则收益",
+      "覆盖度规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "验证规则收益",
+      "原始度数规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "验证规则收益",
+      "固定随机规则平均增益",
+      0.0008375209380234506
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "轮数",
+      2
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "排序损失",
+      0.5652167778149647
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "累计秒数",
+      78.38113894779235
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "状态数",
+      1194
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "有候选的状态数",
+      1191
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "非平局状态数",
+      61
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "非平局图数",
+      15
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "模型所选动作平均增益",
+      0.031825795644891124
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "最强规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "Oracle平均增益",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "模型减最强规则",
+      0.02931323283082077
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "Oracle减模型",
+      0.019262981574539362
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "非平局状态覆盖率",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "Oracle正收益覆盖率",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "正收益状态命中率",
+      0.6229508196721312
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "非平局对准确率",
+      0.7767080168743603
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "非平局状态Top-1",
+      0.6229508196721312
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "最佳验证",
+      "非平局状态Spearman",
+      0.27226321448068147
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed1",
+      "任务",
+      "学习率",
+      0.001
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "墙钟秒数",
+      98.05955899972469
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "训练种子",
+      2
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "训练状态数",
+      7981
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "验证状态数",
+      1194
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "训练非平局状态数",
+      298
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "训练非平局图数",
+      85
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "验证非平局状态数",
+      61
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "最强简单规则",
+      "覆盖度"
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "验证规则收益",
+      "覆盖度规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "验证规则收益",
+      "原始度数规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "验证规则收益",
+      "固定随机规则平均增益",
+      0.0008375209380234506
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "轮数",
+      23
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "排序损失",
+      0.2743649277890776
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "累计秒数",
+      95.2441545180045
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "状态数",
+      1194
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "有候选的状态数",
+      1191
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "非平局状态数",
+      61
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "非平局图数",
+      15
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "模型所选动作平均增益",
+      0.03350083752093802
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "最强规则平均增益",
+      0.002512562814070352
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "Oracle平均增益",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "模型减最强规则",
+      0.03098827470686767
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "Oracle减模型",
+      0.017587939698492462
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "非平局状态覆盖率",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "Oracle正收益覆盖率",
+      0.05108877721943048
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "正收益状态命中率",
+      0.6557377049180327
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "非平局对准确率",
+      0.8348940388589609
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "非平局状态Top-1",
+      0.6557377049180327
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "最佳验证",
+      "非平局状态Spearman",
+      0.3460354662088097
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
+      "排序训练",
+      "outputs/v3/stats_h2_seed2",
+      "任务",
+      "学习率",
+      0.001
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "任务",
+      "数据划分",
+      "验证集"
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "任务",
+      "起始解数（图×骨干×随机流）",
+      600
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "任务",
+      "墙钟秒数",
+      40.36256721802056
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "任务",
+      "评价口径",
+      "三种子完整平台搜索，缓存起始解"
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=1",
+      "Mean Size（三种子均值）",
+      19.536666666666665
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=1",
+      "种子均值的样本标准差",
+      0.01154700538379227
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=1",
+      "Seed 0 Mean Size",
+      19.55
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=1",
+      "Seed 1 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=1",
+      "Seed 2 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=2",
+      "Mean Size（三种子均值）",
+      19.536666666666665
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=2",
+      "种子均值的样本标准差",
+      0.01154700538379227
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=2",
+      "Seed 0 Mean Size",
+      19.55
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=2",
+      "Seed 1 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 覆盖度 H=2",
+      "Seed 2 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=1",
+      "Mean Size（三种子均值）",
+      19.536666666666665
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=1",
+      "种子均值的样本标准差",
+      0.01154700538379227
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=1",
+      "Seed 0 Mean Size",
+      19.55
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=1",
+      "Seed 1 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=1",
+      "Seed 2 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=2",
+      "Mean Size（三种子均值）",
+      19.536666666666665
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=2",
+      "种子均值的样本标准差",
+      0.01154700538379227
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=2",
+      "Seed 0 Mean Size",
+      19.55
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=2",
+      "Seed 1 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 原始度数 H=2",
+      "Seed 2 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 仅RLNN H=2",
+      "Mean Size（三种子均值）",
+      19.473333333333333
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 仅RLNN H=2",
+      "种子均值的样本标准差",
+      0.03214550253664416
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 仅RLNN H=2",
+      "Seed 0 Mean Size",
+      19.51
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 仅RLNN H=2",
+      "Seed 1 Mean Size",
+      19.46
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 仅RLNN H=2",
+      "Seed 2 Mean Size",
+      19.45
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=1",
+      "Mean Size（三种子均值）",
+      19.553333333333335
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=1",
+      "种子均值的样本标准差",
+      0.01154700538379227
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=1",
+      "Seed 0 Mean Size",
+      19.56
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=1",
+      "Seed 1 Mean Size",
+      19.56
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=1",
+      "Seed 2 Mean Size",
+      19.54
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=2",
+      "Mean Size（三种子均值）",
+      19.56
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=2",
+      "种子均值的样本标准差",
+      0.009999999999999787
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=2",
+      "Seed 0 Mean Size",
+      19.57
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=2",
+      "Seed 1 Mean Size",
+      19.56
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 固定随机 H=2",
+      "Seed 2 Mean Size",
+      19.55
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 严格规则交换 H=2",
+      "Mean Size（三种子均值）",
+      19.526666666666667
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 严格规则交换 H=2",
+      "种子均值的样本标准差",
+      0.020816659994661167
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 严格规则交换 H=2",
+      "Seed 0 Mean Size",
+      19.55
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 严格规则交换 H=2",
+      "Seed 1 Mean Size",
+      19.52
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 严格规则交换 H=2",
+      "Seed 2 Mean Size",
+      19.51
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=1",
+      "Mean Size（三种子均值）",
+      19.616666666666667
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=1",
+      "种子均值的样本标准差",
+      0.03511884584284273
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=1",
+      "Seed 0 Mean Size",
+      19.65
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=1",
+      "Seed 1 Mean Size",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=1",
+      "Seed 2 Mean Size",
+      19.62
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=2",
+      "Mean Size（三种子均值）",
+      19.606666666666666
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=2",
+      "种子均值的样本标准差",
+      0.02516611478423624
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=2",
+      "Seed 0 Mean Size",
+      19.63
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=2",
+      "Seed 1 Mean Size",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 统计PAVE H=2",
+      "Seed 2 Mean Size",
+      19.61
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=1",
+      "Mean Size（三种子均值）",
+      19.586666666666666
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=1",
+      "种子均值的样本标准差",
+      0.10115993936995715
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=1",
+      "Seed 0 Mean Size",
+      19.47
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=1",
+      "Seed 1 Mean Size",
+      19.65
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=1",
+      "Seed 2 Mean Size",
+      19.64
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=2",
+      "Mean Size（三种子均值）",
+      19.586666666666666
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=2",
+      "种子均值的样本标准差",
+      0.10115993936995715
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=2",
+      "Seed 0 Mean Size",
+      19.47
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=2",
+      "Seed 1 Mean Size",
+      19.65
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 覆盖度 H=2",
+      "Seed 2 Mean Size",
+      19.64
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=1",
+      "Mean Size（三种子均值）",
+      19.586666666666666
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=1",
+      "种子均值的样本标准差",
+      0.10115993936995715
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=1",
+      "Seed 0 Mean Size",
+      19.47
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=1",
+      "Seed 1 Mean Size",
+      19.65
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=1",
+      "Seed 2 Mean Size",
+      19.64
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=2",
+      "Mean Size（三种子均值）",
+      19.586666666666666
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=2",
+      "种子均值的样本标准差",
+      0.10115993936995715
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=2",
+      "Seed 0 Mean Size",
+      19.47
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=2",
+      "Seed 1 Mean Size",
+      19.65
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 原始度数 H=2",
+      "Seed 2 Mean Size",
+      19.64
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 仅RLNN H=2",
+      "Mean Size（三种子均值）",
+      19.526666666666667
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 仅RLNN H=2",
+      "种子均值的样本标准差",
+      0.09237604307033816
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 仅RLNN H=2",
+      "Seed 0 Mean Size",
+      19.42
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 仅RLNN H=2",
+      "Seed 1 Mean Size",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 仅RLNN H=2",
+      "Seed 2 Mean Size",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=1",
+      "Mean Size（三种子均值）",
+      19.606666666666666
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=1",
+      "种子均值的样本标准差",
+      0.10115993936995826
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=1",
+      "Seed 0 Mean Size",
+      19.49
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=1",
+      "Seed 1 Mean Size",
+      19.67
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=1",
+      "Seed 2 Mean Size",
+      19.66
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=2",
+      "Mean Size（三种子均值）",
+      19.613333333333333
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=2",
+      "种子均值的样本标准差",
+      0.09814954576223736
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=2",
+      "Seed 0 Mean Size",
+      19.5
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=2",
+      "Seed 1 Mean Size",
+      19.67
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 固定随机 H=2",
+      "Seed 2 Mean Size",
+      19.67
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 严格规则交换 H=2",
+      "Mean Size（三种子均值）",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 严格规则交换 H=2",
+      "种子均值的样本标准差",
+      0.10392304845413247
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 严格规则交换 H=2",
+      "Seed 0 Mean Size",
+      19.46
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 严格规则交换 H=2",
+      "Seed 1 Mean Size",
+      19.64
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 严格规则交换 H=2",
+      "Seed 2 Mean Size",
+      19.64
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=1",
+      "Mean Size（三种子均值）",
+      19.66
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=1",
+      "种子均值的样本标准差",
+      0.088881944173157
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=1",
+      "Seed 0 Mean Size",
+      19.56
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=1",
+      "Seed 1 Mean Size",
+      19.73
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=1",
+      "Seed 2 Mean Size",
+      19.69
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=2",
+      "Mean Size（三种子均值）",
+      19.653333333333332
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=2",
+      "种子均值的样本标准差",
+      0.09291573243177544
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=2",
+      "Seed 0 Mean Size",
+      19.55
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=2",
+      "Seed 1 Mean Size",
+      19.73
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 统计PAVE H=2",
+      "Seed 2 Mean Size",
+      19.68
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "任务",
+      "计时口径",
+      "缓存起始解并行验证，耗时仅作诊断"
+    ]
+  ],
+  "decision": {
+    "version": "v3",
+    "mode": "training_admission",
+    "variant": "D3_neutral_h2",
+    "decided_at": "2026-11-08T06:14:44.607780+00:00",
+    "thresholds": {
+      "validation_states": 300,
+      "validation_graphs": 100,
+      "validation_informative_graphs": 10,
+      "validation_oracle_gap": 0.03,
+      "training_informative_states": 100,
+      "training_informative_graphs": 50
+    },
+    "validation": {
+      "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/census/run.json",
+      "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_validation_h2/states.pt",
+      "states": 300,
+      "graphs": 100,
+      "available": 300,
+      "informative": 16,
+      "informative_graphs": 14,
+      "non_tied_pairs": 510,
+      "positive_states": 16,
+      "positive_coverage": 0.05333333333333334,
+      "mean_candidates": 20.28,
+      "mean_oracle_gain": 0.05333333333333334,
+      "rule_gains": {
+        "coverage": 0.0033333333333333335,
+        "degree": 0.0033333333333333335,
+        "random": 0.0033333333333333335
+      },
+      "strongest_rule": "coverage",
+      "oracle_gap": 0.05,
+      "mean_truncation_loss": 0.0033333333333333335
+    },
+    "training": {
+      "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h2/run.json",
+      "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h2/states.pt",
+      "states": 7981,
+      "samples": 2000,
+      "informative_states": 298,
+      "informative_graphs": 85,
+      "horizon": 2,
+      "anchored": false
+    },
+    "validation_pass": true,
+    "training_pass": true,
+    "train": true,
+    "pass": true,
+    "reasons": []
+  },
+  "decisions": {
+    "decision.json": {
+      "version": "v3",
+      "mode": "training_admission",
+      "variant": "D3_neutral_h2",
+      "decided_at": "2026-11-08T06:14:44.607780+00:00",
+      "thresholds": {
+        "validation_states": 300,
+        "validation_graphs": 100,
+        "validation_informative_graphs": 10,
+        "validation_oracle_gap": 0.03,
+        "training_informative_states": 100,
+        "training_informative_graphs": 50
+      },
+      "validation": {
+        "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/census/run.json",
+        "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_validation_h2/states.pt",
+        "states": 300,
+        "graphs": 100,
+        "available": 300,
+        "informative": 16,
+        "informative_graphs": 14,
+        "non_tied_pairs": 510,
+        "positive_states": 16,
+        "positive_coverage": 0.05333333333333334,
+        "mean_candidates": 20.28,
+        "mean_oracle_gain": 0.05333333333333334,
+        "rule_gains": {
+          "coverage": 0.0033333333333333335,
+          "degree": 0.0033333333333333335,
+          "random": 0.0033333333333333335
+        },
+        "strongest_rule": "coverage",
+        "oracle_gap": 0.05,
+        "mean_truncation_loss": 0.0033333333333333335
+      },
+      "training": {
+        "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h2/run.json",
+        "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h2/states.pt",
+        "states": 7981,
+        "samples": 2000,
+        "informative_states": 298,
+        "informative_graphs": 85,
+        "horizon": 2,
+        "anchored": false
+      },
+      "validation_pass": true,
+      "training_pass": true,
+      "train": true,
+      "pass": true,
+      "reasons": []
+    },
+    "decision_h1.json": {
+      "version": "v3",
+      "mode": "training_admission",
+      "variant": "D2_neutral_h1",
+      "decided_at": "2026-11-08T06:14:44.420074+00:00",
+      "thresholds": {
+        "validation_states": 300,
+        "validation_graphs": 100,
+        "validation_informative_graphs": 10,
+        "validation_oracle_gap": 0.03,
+        "training_informative_states": 100,
+        "training_informative_graphs": 50
+      },
+      "validation": {
+        "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/census/run.json",
+        "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_validation_h1/states.pt",
+        "states": 300,
+        "graphs": 100,
+        "available": 300,
+        "informative": 13,
+        "informative_graphs": 12,
+        "non_tied_pairs": 460,
+        "positive_states": 13,
+        "positive_coverage": 0.043333333333333335,
+        "mean_candidates": 20.28,
+        "mean_oracle_gain": 0.043333333333333335,
+        "rule_gains": {
+          "coverage": 0.0033333333333333335,
+          "degree": 0.0033333333333333335,
+          "random": 0
+        },
+        "strongest_rule": "coverage",
+        "oracle_gap": 0.04,
+        "mean_truncation_loss": 0.0033333333333333335
+      },
+      "training": {
+        "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1/run.json",
+        "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1/states.pt",
+        "states": 7987,
+        "samples": 2000,
+        "informative_states": 286,
+        "informative_graphs": 82,
+        "horizon": 1,
+        "anchored": false
+      },
+      "validation_pass": true,
+      "training_pass": true,
+      "train": true,
+      "pass": true,
+      "reasons": []
+    }
+  },
+  "model_decision": {
+    "backbone": "tuned",
+    "strongest_rule": "random_h2",
+    "stats": "stats_h1",
+    "delta_vs_strongest_rule": 0.046666666666666856,
+    "train_encoders": true
+  },
+  "platform_validation": [
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "coverage_h1",
+      "mean_size": 19.536666666666665,
+      "by_seed": {
+        "0": 19.55,
+        "1": 19.53,
+        "2": 19.53
+      },
+      "std_size": 0.01154700538379227
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "coverage_h2",
+      "mean_size": 19.536666666666665,
+      "by_seed": {
+        "0": 19.55,
+        "1": 19.53,
+        "2": 19.53
+      },
+      "std_size": 0.01154700538379227
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "degree_h1",
+      "mean_size": 19.536666666666665,
+      "by_seed": {
+        "0": 19.55,
+        "1": 19.53,
+        "2": 19.53
+      },
+      "std_size": 0.01154700538379227
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "degree_h2",
+      "mean_size": 19.536666666666665,
+      "by_seed": {
+        "0": 19.55,
+        "1": 19.53,
+        "2": 19.53
+      },
+      "std_size": 0.01154700538379227
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "none_h2",
+      "mean_size": 19.473333333333333,
+      "by_seed": {
+        "0": 19.51,
+        "1": 19.46,
+        "2": 19.45
+      },
+      "std_size": 0.03214550253664416
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "random_h1",
+      "mean_size": 19.553333333333335,
+      "by_seed": {
+        "0": 19.56,
+        "1": 19.56,
+        "2": 19.54
+      },
+      "std_size": 0.01154700538379227
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "random_h2",
+      "mean_size": 19.56,
+      "by_seed": {
+        "0": 19.57,
+        "1": 19.56,
+        "2": 19.55
+      },
+      "std_size": 0.009999999999999787
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "rule23_h2",
+      "mean_size": 19.526666666666667,
+      "by_seed": {
+        "0": 19.55,
+        "1": 19.52,
+        "2": 19.51
+      },
+      "std_size": 0.020816659994661167
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "stats_h1",
+      "mean_size": 19.616666666666667,
+      "by_seed": {
+        "0": 19.65,
+        "1": 19.58,
+        "2": 19.62
+      },
+      "std_size": 0.03511884584284273
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "stats_h2",
+      "mean_size": 19.606666666666666,
+      "by_seed": {
+        "0": 19.63,
+        "1": 19.58,
+        "2": 19.61
+      },
+      "std_size": 0.02516611478423624
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "coverage_h1",
+      "mean_size": 19.586666666666666,
+      "by_seed": {
+        "0": 19.47,
+        "1": 19.65,
+        "2": 19.64
+      },
+      "std_size": 0.10115993936995715
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "coverage_h2",
+      "mean_size": 19.586666666666666,
+      "by_seed": {
+        "0": 19.47,
+        "1": 19.65,
+        "2": 19.64
+      },
+      "std_size": 0.10115993936995715
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "degree_h1",
+      "mean_size": 19.586666666666666,
+      "by_seed": {
+        "0": 19.47,
+        "1": 19.65,
+        "2": 19.64
+      },
+      "std_size": 0.10115993936995715
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "degree_h2",
+      "mean_size": 19.586666666666666,
+      "by_seed": {
+        "0": 19.47,
+        "1": 19.65,
+        "2": 19.64
+      },
+      "std_size": 0.10115993936995715
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "none_h2",
+      "mean_size": 19.526666666666667,
+      "by_seed": {
+        "0": 19.42,
+        "1": 19.58,
+        "2": 19.58
+      },
+      "std_size": 0.09237604307033816
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "random_h1",
+      "mean_size": 19.606666666666666,
+      "by_seed": {
+        "0": 19.49,
+        "1": 19.67,
+        "2": 19.66
+      },
+      "std_size": 0.10115993936995826
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "random_h2",
+      "mean_size": 19.613333333333333,
+      "by_seed": {
+        "0": 19.5,
+        "1": 19.67,
+        "2": 19.67
+      },
+      "std_size": 0.09814954576223736
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "rule23_h2",
+      "mean_size": 19.58,
+      "by_seed": {
+        "0": 19.46,
+        "1": 19.64,
+        "2": 19.64
+      },
+      "std_size": 0.10392304845413247
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "stats_h1",
+      "mean_size": 19.66,
+      "by_seed": {
+        "0": 19.56,
+        "1": 19.73,
+        "2": 19.69
+      },
+      "std_size": 0.088881944173157
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "stats_h2",
+      "mean_size": 19.653333333333332,
+      "by_seed": {
+        "0": 19.55,
+        "1": 19.73,
+        "2": 19.68
+      },
+      "std_size": 0.09291573243177544
+    }
+  ]
+}

@@ -20,9 +20,12 @@ POLICIES = ("none", "rule23", "random", "degree", "coverage", "pave")
 def build_parser():
     parser = policy_parser()
     parser.set_defaults(candidate_cap=32)
-    parser.add_argument("--post", choices=POLICIES, nargs="+", default=["none"])
+    parser.add_argument("--post", nargs="+", default=["none"],
+                        help="Rule policies or names registered with --extra-value-checkpoint")
     parser.add_argument("--label", required=True)
     parser.add_argument("--value-checkpoint", "--value_checkpoint", type=Path)
+    parser.add_argument("--extra-value-checkpoint", "--extra_value_checkpoint", nargs=2,
+                        action="append", default=[], metavar=("NAME", "PATH"))
     parser.add_argument("--horizon", type=int, choices=(1, 2), default=2)
     parser.add_argument("--outer-rounds", "--outer_rounds", type=int, default=8)
     parser.add_argument("--repair-rounds", "--repair_rounds", type=int, default=4)
@@ -42,6 +45,16 @@ def build_parser():
 @torch.no_grad()
 def evaluate(args):
     policies = list(dict.fromkeys(args.post))
+    checkpoint_paths = {}
+    for name, path in args.extra_value_checkpoint:
+        if name in POLICIES or name in checkpoint_paths:
+            raise ValueError(f"Duplicate or reserved extra value policy: {name}")
+        checkpoint_paths[name] = Path(path)
+    if args.value_checkpoint is not None:
+        checkpoint_paths["pave"] = args.value_checkpoint
+    unknown = set(policies) - set(POLICIES) - set(checkpoint_paths)
+    if unknown:
+        raise ValueError(f"Unknown post policies: {', '.join(sorted(unknown))}")
     if args.time_budget_s is not None and len(policies) != 1:
         raise ValueError("Deadline evaluation uses exactly one post policy")
     if args.extended_search and args.time_budget_s is None:
@@ -59,17 +72,18 @@ def evaluate(args):
     if len(dataset) == 0:
         raise ValueError("Evaluation requires at least one graph")
     backbone_seed = args.train_seed if args.backbone_seed is None else args.backbone_seed
-    ranker = None
-    head_seed = args.head_seed
-    if "pave" in policies:
-        checkpoint = torch.load(args.value_checkpoint, map_location="cpu", weights_only=False)
+    rankers, head_seeds, head_params = {}, {}, {}
+    for policy in policies:
+        if policy not in checkpoint_paths:
+            continue
+        checkpoint = torch.load(checkpoint_paths[policy], map_location="cpu", weights_only=False)
         ranker = PAVEV3(checkpoint["mode"], checkpoint.get("stats_dim", 24))
         ranker.load_state_dict(checkpoint["model_state"])
-        ranker.eval()
-        if head_seed is None:
-            head_seed = checkpoint.get("seed")
+        rankers[policy] = ranker.cpu().eval()
+        head_seeds[policy] = (args.head_seed if policy == "pave" and args.head_seed is not None
+                              else checkpoint.get("seed"))
+        head_params[policy] = sum(parameter.numel() for parameter in ranker.parameters())
     backbone_params = sum(parameter.numel() for parameter in solver.model.parameters())
-    head_params = sum(parameter.numel() for parameter in ranker.parameters()) if ranker else 0
     args.result_dir.mkdir(parents=True, exist_ok=True)
     started_at = datetime.now(timezone.utc).isoformat()
     started = perf_counter()
@@ -106,6 +120,7 @@ def evaluate(args):
         for policy in policies:
             post_start = perf_counter()
             score_seconds = 0.0
+            ranker = rankers.get(policy)
 
             def score(cpu_graph, current, actions, remaining):
                 nonlocal score_seconds
@@ -118,7 +133,7 @@ def evaluate(args):
             final = selected
             if policy != "none":
                 result = platform_search(
-                    topology, selected, choose=score if policy == "pave" else policy,
+                    topology, selected, choose=score if ranker is not None else policy,
                     outer_rounds=0 if policy == "rule23" else args.outer_rounds,
                     initial_rounds=args.exchange_rounds, horizon=args.horizon,
                     candidate_cap=args.candidate_cap, improving_cap=args.improving_cap,
@@ -136,7 +151,7 @@ def evaluate(args):
             size = final.bit_count()
             records[policy].append(dict(
                 graph_id=graph_id, group=index // 500 + 1, backbone_seed=backbone_seed,
-                head_seed=head_seed if policy == "pave" else None, search_seed=args.seed + index,
+                head_seed=head_seeds.get(policy), search_seed=args.seed + index,
                 independent_set_size=size, final_size=size, base_size=selected.bit_count(),
                 rule_size=result.rule_size if result else selected.bit_count(),
                 solve_time_s=seconds, search_time_s=shared_time, post_time_s=post_seconds,
@@ -163,6 +178,7 @@ def evaluate(args):
     peak_memory = torch.cuda.max_memory_allocated(device) / 2**20 if device.type == "cuda" else 0
     finished_at = datetime.now(timezone.utc).isoformat()
     for policy, rows in records.items():
+        ranker = rankers.get(policy)
         directory = args.result_dir / policy
         directory.mkdir(parents=True, exist_ok=True)
         with (directory / "per_graph.csv").open("w", newline="", encoding="utf-8") as stream:
@@ -171,9 +187,9 @@ def evaluate(args):
             writer.writerows(rows)
         metadata = dict(
             version="v3", status="completed", mode="eval", run=directory.parent.name + "/" + policy,
-            cohort_id=args.cohort_id or args.result_dir.name, method=args.label, post=policy,
+            method=args.label, post=policy,
             train_seed=backbone_seed, backbone_seed=backbone_seed,
-            head_seed=head_seed if policy == "pave" else None, search_seed=args.seed,
+            head_seed=head_seeds.get(policy), search_seed=args.seed,
             split=args.split, samples=len(rows), config=vars(args),
             baseline_run=args.baseline_run, rule_reference_run=args.rule_reference_run,
             protocol="fixed_time" if args.time_budget_s is not None else "fixed_work",
@@ -181,9 +197,10 @@ def evaluate(args):
             started_at=started_at, finished_at=finished_at, wall_time_s=perf_counter() - started,
             device=torch.cuda.get_device_name(device) if device.type == "cuda" else "CPU",
             gpu=os.environ.get("CUDA_VISIBLE_DEVICES"),
-            params=backbone_params + (head_params if policy == "pave" else 0),
-            trainable_params=head_params if policy == "pave" else 0,
-            value_mode=ranker.mode if policy == "pave" else None,
+            params=backbone_params + head_params.get(policy, 0),
+            trainable_params=head_params.get(policy, 0),
+            value_mode=ranker.mode if ranker is not None else None,
+            value_checkpoint=str(checkpoint_paths[policy]) if ranker is not None else None,
             peak_memory_mib=peak_memory,
             mean_size=mean(row["final_size"] for row in rows),
             mean_solve_time_s=mean(row["solve_time_s"] for row in rows),
@@ -199,6 +216,8 @@ def evaluate(args):
             timing="Excludes dataset loading and initial H2D; includes topology, search, decode, post, scoring and feasibility",
             candidate_count_definition="Sum of retained neutral candidates at outer decision states",
         )
+        if args.cohort_id:
+            metadata['cohort_id'] = args.cohort_id + '/' + policy
         write_run(directory, metadata)
     return records
 

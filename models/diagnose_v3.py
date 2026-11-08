@@ -4,6 +4,7 @@ from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 import csv
 from datetime import datetime, timezone
+from functools import lru_cache
 import json
 import pickle
 from pathlib import Path
@@ -15,9 +16,14 @@ import torch
 from mis_v2_exchange import action_values as improving_values
 from mis_v3_search import (SearchGraph, candidate_actions, improving_actions, choose_action,
                            repair, action_values, platform_search)
-from mis_v3_value import build_state
+from mis_v3_value import build_state, load_pave_v3
 
 RULES = ('coverage', 'degree', 'random')
+
+
+@lru_cache(maxsize=1)
+def value_policy(checkpoint):
+    return load_pave_v3(checkpoint, device='cpu')
 
 
 def indices(graph, selected, actions):
@@ -115,7 +121,9 @@ def worker(payload):
             states.append(label)
             rows.append(describe(record, f'labels_h{options["horizon"]}', selected, pool.actions,
                                  values, pool.total_count, results, origin))
-        platform_search(graph, record['selected'], choose=options['policy'], horizon=options['horizon'],
+        policy = (value_policy(options['value_checkpoint']).choose
+                  if options['policy'] == 'pave' else options['policy'])
+        platform_search(graph, record['selected'], choose=policy, horizon=options['horizon'],
                         candidate_cap=options['candidate_cap'], anchored=options['anchored'], on_state=observe)
     return pickle.dumps((rows, states, action_rows, perf_counter()-tick), protocol=5)
 
@@ -162,8 +170,11 @@ def main():
     parser.add_argument('--states-per-start', type=int, default=4)
     parser.add_argument('--limit', type=int)
     parser.add_argument('--anchored', action='store_true')
-    parser.add_argument('--policy', choices=RULES, default='coverage')
+    parser.add_argument('--policy', choices=(*RULES, 'pave'), default='coverage')
+    parser.add_argument('--value-checkpoint', type=Path)
     args = parser.parse_args()
+    if args.policy == 'pave' and args.value_checkpoint is None:
+        parser.error('--policy pave requires --value-checkpoint')
     torch.set_num_threads(1)
     records = [record for path in args.starts for record in torch.load(path, weights_only=False)]
     if args.limit:

@@ -1,0 +1,52 @@
+{
+  "version": "v3",
+  "status": "completed",
+  "mode": "labels",
+  "split": "validation",
+  "samples": 300,
+  "state_count": 1195,
+  "config": {
+    "starts": [
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_validation_seed0_stream0/starts.pt",
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_validation_seed1_stream0/starts.pt",
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_validation_seed2_stream0/starts.pt"
+    ],
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_validation_h1",
+    "mode": "collect",
+    "workers": 12,
+    "horizon": 1,
+    "candidate_cap": 32,
+    "states_per_start": 4,
+    "limit": null,
+    "anchored": false,
+    "policy": "coverage"
+  },
+  "started_at": "2026-11-08T06:11:35.644953+00:00",
+  "finished_at": "2026-11-08T06:11:45.853761+00:00",
+  "wall_time_s": 10.208835584111512,
+  "mean_cpu_task_s": 0.14268460030977925,
+  "summaries": {
+    "labels_h1": {
+      "states": 1195,
+      "graphs": 100,
+      "available": 1192,
+      "informative": 54,
+      "informative_graphs": 15,
+      "non_tied_pairs": 1729,
+      "positive_states": 54,
+      "positive_coverage": 0.045188284518828455,
+      "mean_candidates": 19.699581589958157,
+      "mean_oracle_gain": 0.045188284518828455,
+      "rule_gains": {
+        "coverage": 0.0008368200836820083,
+        "degree": 0.0016736401673640166,
+        "random": 0
+      },
+      "strongest_rule": "degree",
+      "oracle_gap": 0.04351464435146444,
+      "mean_truncation_loss": 0
+    }
+  },
+  "informative_states": 54,
+  "informative_graphs": 15
+}

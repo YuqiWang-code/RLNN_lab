@@ -1,0 +1,112 @@
+{
+  "version": "v3",
+  "status": "completed",
+  "mode": "opportunities",
+  "split": "validation",
+  "samples": 300,
+  "state_count": 300,
+  "config": {
+    "starts": [
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_validation_seed0_stream0/starts.pt",
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_validation_seed1_stream0/starts.pt",
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_validation_seed2_stream0/starts.pt"
+    ],
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/census",
+    "mode": "census",
+    "workers": 24,
+    "horizon": 2,
+    "candidate_cap": 32,
+    "states_per_start": 4,
+    "limit": null,
+    "anchored": false,
+    "policy": "coverage"
+  },
+  "started_at": "2026-11-08T06:08:21.448835+00:00",
+  "finished_at": "2026-11-08T06:08:25.565138+00:00",
+  "wall_time_s": 4.116320519242436,
+  "mean_cpu_task_s": 0.15955621033751716,
+  "summaries": {
+    "D0_fallback": {
+      "states": 300,
+      "graphs": 100,
+      "available": 16,
+      "informative": 0,
+      "informative_graphs": 0,
+      "non_tied_pairs": 0,
+      "positive_states": 16,
+      "positive_coverage": 0.05333333333333334,
+      "mean_candidates": 0.10666666666666667,
+      "mean_oracle_gain": 0.05333333333333334,
+      "rule_gains": {
+        "coverage": 0.05333333333333334,
+        "degree": 0.05333333333333334,
+        "random": 0.05333333333333334
+      },
+      "strongest_rule": "coverage",
+      "oracle_gap": 0.0,
+      "mean_truncation_loss": 0
+    },
+    "D1_union": {
+      "states": 300,
+      "graphs": 100,
+      "available": 16,
+      "informative": 0,
+      "informative_graphs": 0,
+      "non_tied_pairs": 0,
+      "positive_states": 16,
+      "positive_coverage": 0.05333333333333334,
+      "mean_candidates": 1.2766666666666666,
+      "mean_oracle_gain": 0.05333333333333334,
+      "rule_gains": {
+        "coverage": 0.05333333333333334,
+        "degree": 0.05333333333333334,
+        "random": 0.05333333333333334
+      },
+      "strongest_rule": "coverage",
+      "oracle_gap": 0.0,
+      "mean_truncation_loss": 0
+    },
+    "D2_neutral_h1": {
+      "states": 300,
+      "graphs": 100,
+      "available": 300,
+      "informative": 13,
+      "informative_graphs": 12,
+      "non_tied_pairs": 460,
+      "positive_states": 13,
+      "positive_coverage": 0.043333333333333335,
+      "mean_candidates": 20.28,
+      "mean_oracle_gain": 0.043333333333333335,
+      "rule_gains": {
+        "coverage": 0.0033333333333333335,
+        "degree": 0.0033333333333333335,
+        "random": 0
+      },
+      "strongest_rule": "coverage",
+      "oracle_gap": 0.04,
+      "mean_truncation_loss": 0.0033333333333333335
+    },
+    "D3_neutral_h2": {
+      "states": 300,
+      "graphs": 100,
+      "available": 300,
+      "informative": 16,
+      "informative_graphs": 14,
+      "non_tied_pairs": 510,
+      "positive_states": 16,
+      "positive_coverage": 0.05333333333333334,
+      "mean_candidates": 20.28,
+      "mean_oracle_gain": 0.05333333333333334,
+      "rule_gains": {
+        "coverage": 0.0033333333333333335,
+        "degree": 0.0033333333333333335,
+        "random": 0.0033333333333333335
+      },
+      "strongest_rule": "coverage",
+      "oracle_gap": 0.05,
+      "mean_truncation_loss": 0.0033333333333333335
+    }
+  },
+  "informative_states": 16,
+  "informative_graphs": 14
+}

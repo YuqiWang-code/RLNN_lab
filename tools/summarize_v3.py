@@ -10,11 +10,12 @@ from statistics import mean, stdev
 
 ROOT = Path(__file__).resolve().parents[1]
 KINDS = {"opportunities": "动作普查", "labels": "标签采集", "starts": "起始解生成",
-         "value_train": "排序训练", "decision": "训练准入"}
+         "value_train": "排序训练", "decision": "训练准入", "validation_platform": "完整平台验证"}
 VARIANTS = {"D0_fallback": "D0 严格交换后备", "D1_union": "D1 严格交换联合",
             "D2_neutral_h1": "D2 中性动作 H=1", "D3_neutral_h2": "D3 中性动作 H=2",
             "D4_anchored_h2": "D4 固定插入点 H=2", "labels_h1": "部署状态 H=1",
             "labels_h2": "部署状态 H=2", "best": "最佳验证", "validation_rule_gains": "验证规则收益"}
+VARIANTS.update(thresholds="准入门槛", validation="验证集", training="训练集", rule_gains="规则收益")
 RULE_NAMES = {"coverage": "覆盖度", "degree": "原始度数", "random": "固定随机"}
 METRICS = {
     "status": "状态", "split": "数据划分", "samples": "起始解数（图×骨干×随机流）",
@@ -41,12 +42,40 @@ METRICS = {
     "validation_graphs": "验证图数", "validation_states": "验证状态数",
     "min_train_states": "训练非平局状态门槛", "min_train_graphs": "训练非平局图数门槛",
     "min_val_graphs": "验证非平局图数门槛", "min_oracle_gap": "Oracle收益差门槛",
+    "variant": "候选方案", "decided_at": "判定时间（UTC）", "validation_pass": "验证侧准入",
+    "training_pass": "训练侧准入", "pass": "总体准入", "validation_informative_graphs": "验证非平局图数",
+    "validation_oracle_gap": "验证Oracle收益差", "training_informative_states": "训练非平局状态数",
+    "training_informative_graphs": "训练非平局图数",
+    "candidate_states": "有候选的状态数", "informative_coverage": "非平局状态覆盖率",
+    "backbone": "部署骨干", "stats": "统计评分方案", "train_encoders": "允许训练编码器",
+    "delta_vs_strongest_rule": "完整验证减最强规则", "timing": "计时口径",
+    "horizon": "继续深度H", "anchored": "固定插入点扰动", "mean_size": "Mean Size",
 }
 
 
-def readable_value(key, value):
-    if key == "strongest_rule":
+def policy_name(value):
+    if not isinstance(value, str) or "_h" not in value:
         return RULE_NAMES.get(value, value)
+    policy, horizon = value.rsplit("_h", 1)
+    label = {"none": "仅RLNN", "rule23": "严格规则交换", "stats": "统计PAVE",
+             "raw": "普通消息PAVE", "frequency": "频率PAVE", "freq": "频率PAVE", **RULE_NAMES}.get(policy, policy)
+    return f"{label} H={horizon}"
+
+
+def readable_value(key, value):
+    if key in {"train", "validation_pass", "training_pass", "pass", "passed", "train_encoders"}:
+        return "待判定" if value is None else "通过" if value else "未通过"
+    if key == "variant":
+        return VARIANTS.get(value, value)
+    if key.startswith("reasons["):
+        return {"training labels have not been evaluated": "训练标签尚未完成准入评估"}.get(value, value)
+    if key in {"strongest_rule", "stats"}:
+        return policy_name(value)
+    if key == "backbone":
+        return {"original": "原RLNN", "tuned": "微调RLNN"}.get(value, value)
+    if key == "timing":
+        return {"Parallel cached-start quality selection; post timing is diagnostic only":
+                "缓存起始解并行验证，耗时仅作诊断"}.get(value, value)
     if key == "split":
         return {"train": "训练集", "validation": "验证集", "test": "测试集"}.get(value, value)
     if key == "status":
@@ -59,7 +88,19 @@ def diagnostic_rows(metadata, source):
     for key in ("status", "split", "samples", "state_count", "wall_time_s", "mean_cpu_task_s"):
         if key in metadata:
             yield [kind, source, "任务", METRICS.get(key, key), readable_value(key, metadata[key])]
-    for variant, measurements in metadata.get("summaries", {}).items():
+    summaries = metadata.get("summaries", {})
+    if metadata.get("mode") == "validation_platform":
+        yield [kind, source, "任务", "评价口径", "三种子完整平台搜索，缓存起始解"]
+        for backbone, policies in summaries.items():
+            for policy, measurements in policies.items():
+                scope = f"{readable_value('backbone', backbone)} / {policy_name(policy)}"
+                seeds = measurements["by_seed"]
+                yield [kind, source, scope, "Mean Size（三种子均值）", measurements["mean_size"]]
+                yield [kind, source, scope, "种子均值的样本标准差", stdev(seeds.values()) if len(seeds)>1 else None]
+                for seed, score in seeds.items():
+                    yield [kind, source, scope, f"Seed {seed} Mean Size", score]
+        summaries = {}
+    for variant, measurements in summaries.items():
         scope = VARIANTS.get(variant, variant)
         basis = "原始A.3解，图×骨干×随机流" if variant.startswith(("D0", "D1")) else \
             "规则停止解，图×骨干×随机流" if metadata.get("mode") == "opportunities" else "部署起点与中间状态，按图去重"
@@ -71,10 +112,13 @@ def diagnostic_rows(metadata, source):
                 strongest = measurements.get("strongest_rule")
                 if strongest in value:
                     yield [kind, source, scope, "最强规则平均增益", value[strongest]]
+            elif isinstance(value, (dict, list)):
+                for subkey, item in scalar_rows(value, key):
+                    yield [kind, source, scope, subkey, item]
             else:
                 yield [kind, source, scope, METRICS.get(key, key), readable_value(key, value)]
     excluded = {"config", "version", "started_at", "finished_at", "run", "summaries", "mode",
-                "status", "split", "samples", "state_count", "wall_time_s", "mean_cpu_task_s"}
+                "status", "split", "samples", "state_count", "wall_time_s", "mean_cpu_task_s", "choice"}
     for key, value in scalar_rows({key: value for key, value in metadata.items() if key not in excluded}):
         scope, _, metric = key.rpartition(".")
         scope = "/".join(VARIANTS.get(part, part) for part in scope.split("."))
@@ -164,6 +208,7 @@ def paired(run, reference, sizes, reference_sizes):
 
 def summarize(folder):
     runs, diagnostics, sizes_by_run = [], [], {}
+    platform_validation = []
     for path in sorted(folder.rglob("run.json")):
         if any(part.startswith("smoke_") for part in path.relative_to(folder).parts):
             continue
@@ -177,6 +222,13 @@ def summarize(folder):
             sizes_by_run[source] = sizes
         else:
             diagnostics.extend(diagnostic_rows(metadata, source))
+            if metadata.get("mode") == "validation_platform":
+                for backbone, policies in metadata["summaries"].items():
+                    for policy, measurements in policies.items():
+                        platform_validation.append(dict(source=source, backbone=backbone, policy=policy,
+                            mean_size=measurements["mean_size"], by_seed=measurements["by_seed"],
+                            std_size=stdev(measurements["by_seed"].values())
+                            if len(measurements["by_seed"])>1 else None))
 
     lookup = {run["source"]: run for run in runs}
     for run in runs:
@@ -224,18 +276,38 @@ def summarize(folder):
         cohort["peak_memory_mib"] = max(peaks) if all(value is not None for value in peaks) else None
         cohorts.append(cohort)
 
-    decision_path = folder / "decision.json"
-    decision = json.loads(decision_path.read_text(encoding="utf-8")) if decision_path.exists() else None
-    if decision is not None:
-        gate_rows = []
+    decisions, gate_rows = {}, []
+    for name in ("decision.json", "decision_h1.json"):
+        decision_path = folder / name
+        if not decision_path.exists():
+            continue
+        decision = json.loads(decision_path.read_text(encoding="utf-8"))
+        decisions[name] = decision
+        for key in ("variant", "validation_pass", "training_pass", "train", "pass", "decided_at"):
+            if key in decision:
+                gate_rows.append(["训练准入", decision_path.relative_to(ROOT).as_posix(), "总体",
+                                  METRICS[key], readable_value(key, decision[key])])
         for key, value in scalar_rows(decision):
             scope, _, metric = key.rpartition(".")
+            if key in {"version", "mode", "variant", "validation_pass", "training_pass", "train", "pass", "decided_at"} \
+                    or metric in {"run_json", "states_path"}:
+                continue
             scope = "/".join(VARIANTS.get(part, part) for part in scope.split("."))
+            label = f"{RULE_NAMES[metric]}规则平均增益" if metric in RULE_NAMES else \
+                "准入依据" if metric.startswith("reasons[") else METRICS.get(metric, metric)
             gate_rows.append(["训练准入", decision_path.relative_to(ROOT).as_posix(), scope or "总体",
-                              METRICS.get(metric, metric), readable_value(metric, value)])
-        diagnostics = gate_rows + diagnostics
+                              label, readable_value(metric, value)])
+    model_decision_path = folder / "model_decision.json"
+    model_decision = json.loads(model_decision_path.read_text(encoding="utf-8")) if model_decision_path.exists() else None
+    model_rows = []
+    if model_decision is not None:
+        for key, value in scalar_rows(model_decision):
+            model_rows.append(["模型选择", model_decision_path.relative_to(ROOT).as_posix(), "完整平台验证",
+                               METRICS.get(key, key), readable_value(key, value)])
+    diagnostics = model_rows + gate_rows + diagnostics
     return dict(version="v3", updated_at=datetime.now(timezone.utc).isoformat(),
-                cohorts=cohorts, runs=runs, diagnostics=diagnostics, decision=decision)
+                cohorts=cohorts, runs=runs, diagnostics=diagnostics, decision=decisions.get("decision.json"),
+                decisions=decisions, model_decision=model_decision, platform_validation=platform_validation)
 
 
 def main():
@@ -255,8 +327,17 @@ def main():
                      f" | ΔRLNN={row['delta_base']} | Δ规则={row['delta_rule']} | 秒/图={row['mean_solve_time_s']}")
     if not report["cohorts"]:
         lines.append("尚无已完成的求解测试组。")
-    if report["decision"] is not None:
-        lines.extend(["", "训练准入", json.dumps(report["decision"], ensure_ascii=False, indent=2)])
+    if report["platform_validation"]:
+        lines.extend(["", "完整平台验证（缓存起始解，只用于质量选择）"])
+        for row in report["platform_validation"]:
+            score = f"{row['mean_size']:.5f}"
+            if row["std_size"] is not None:
+                score += f" ± {row['std_size']:.5f}"
+            lines.append(f"{readable_value('backbone',row['backbone'])} | {policy_name(row['policy'])} | Mean Size={score}")
+    if report["model_decision"] is not None:
+        lines.extend(["", "模型选择", json.dumps(report["model_decision"], ensure_ascii=False, indent=2)])
+    for name, decision in report["decisions"].items():
+        lines.extend(["", f"训练准入：{name}", json.dumps(decision, ensure_ascii=False, indent=2)])
     lines.extend(["", f"已收录求解任务：{len(report['runs'])}", f"诊断指标：{len(report['diagnostics'])}"])
     (args.output / "summary.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"V3 cohorts: {len(report['cohorts'])}, runs: {len(report['runs'])}, diagnostics: {len(report['diagnostics'])}")

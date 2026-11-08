@@ -102,8 +102,16 @@ for (const [index, cohort] of report.cohorts.entries()) {
   }
 }
 
-writeSheet('V3机制', ['任务类型', '来源', '邻域或阶段', '指标', '数值'], report.diagnostics,
+const mechanisms = writeSheet('V3机制', ['任务类型', '来源', '邻域或阶段', '指标', '数值'], report.diagnostics,
   [22, 64, 35, 42, 60], { E: '0.00000' });
+for (const [index, row] of report.diagnostics.entries()) {
+  if (row[3] === '判定时间（UTC）') {
+    mechanisms.getRange(`E${index + 2}`).setNumberFormat('yyyy-mm-dd hh:mm:ss');
+  } else if (typeof row[4] === 'number' && Number.isInteger(row[4]) &&
+      !/增益|收益差|覆盖率|损失|平均候选|秒|准确率|命中率|Top-1|Spearman|学习率|Mean Size|标准差/.test(row[3])) {
+    mechanisms.getRange(`E${index + 2}`).setNumberFormat('#,##0');
+  }
+}
 book.recalculate();
 
 for (const previous of preserved) {
@@ -124,6 +132,18 @@ for (const sheetName of ['V3汇总', 'V3逐种子', 'V3机制']) {
   const count = sheetName === 'V3机制' ? report.diagnostics.length : sheetName === 'V3汇总' ? report.cohorts.length : report.runs.length;
   const preview = await book.render({ sheetName, range: `A1:${lastColumn}${Math.min(count + 1, 12)}`, scale: 1 });
   await fs.writeFile(path.join(scratch, `${sheetName}.png`), new Uint8Array(await preview.arrayBuffer()));
+}
+const censusIndex = report.diagnostics.findIndex(row => row[0] === '动作普查' && row[2] === 'D3 中性动作 H=2');
+if (censusIndex >= 0) {
+  const preview = await book.render({ sheetName: 'V3机制', range: `A${censusIndex + 2}:E${censusIndex + 22}`, scale: 1 });
+  await fs.writeFile(path.join(scratch, 'V3动作普查.png'), new Uint8Array(await preview.arrayBuffer()));
+}
+const platformIndex = report.diagnostics.findIndex(row => row[0] === '完整平台验证' &&
+  row[2].startsWith('微调RLNN / 统计PAVE') && row[3] === 'Mean Size（三种子均值）');
+if (platformIndex >= 0) {
+  const preview = await book.render({ sheetName: 'V3机制',
+    range: `A${Math.max(platformIndex - 8, 1)}:E${platformIndex + 13}`, scale: 1 });
+  await fs.writeFile(path.join(scratch, 'V3平台验证.png'), new Uint8Array(await preview.arrayBuffer()));
 }
 const updated = await SpreadsheetFile.exportXlsx(book);
 const staged = path.join(scratch, '实验结果.xlsx');

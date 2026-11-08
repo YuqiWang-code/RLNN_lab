@@ -1,0 +1,145 @@
+RLNN v3 实验汇总
+时间：2026-11-08T06:21:56.481611+00:00
+标准差为同配置种子均值的样本标准差；Δ以明确指定的逐图参照计算。
+
+尚无已完成的求解测试组。
+
+完整平台验证（缓存起始解，只用于质量选择）
+原RLNN | 覆盖度 H=1 | Mean Size=19.53667 ± 0.01155
+原RLNN | 覆盖度 H=2 | Mean Size=19.53667 ± 0.01155
+原RLNN | 原始度数 H=1 | Mean Size=19.53667 ± 0.01155
+原RLNN | 原始度数 H=2 | Mean Size=19.53667 ± 0.01155
+原RLNN | 仅RLNN H=2 | Mean Size=19.47333 ± 0.03215
+原RLNN | 固定随机 H=1 | Mean Size=19.55333 ± 0.01155
+原RLNN | 固定随机 H=2 | Mean Size=19.56000 ± 0.01000
+原RLNN | 严格规则交换 H=2 | Mean Size=19.52667 ± 0.02082
+原RLNN | 统计PAVE H=1 | Mean Size=19.61667 ± 0.03512
+原RLNN | 统计PAVE H=2 | Mean Size=19.60667 ± 0.02517
+微调RLNN | 覆盖度 H=1 | Mean Size=19.58667 ± 0.10116
+微调RLNN | 覆盖度 H=2 | Mean Size=19.58667 ± 0.10116
+微调RLNN | 原始度数 H=1 | Mean Size=19.58667 ± 0.10116
+微调RLNN | 原始度数 H=2 | Mean Size=19.58667 ± 0.10116
+微调RLNN | 仅RLNN H=2 | Mean Size=19.52667 ± 0.09238
+微调RLNN | 固定随机 H=1 | Mean Size=19.60667 ± 0.10116
+微调RLNN | 固定随机 H=2 | Mean Size=19.61333 ± 0.09815
+微调RLNN | 严格规则交换 H=2 | Mean Size=19.58000 ± 0.10392
+微调RLNN | 统计PAVE H=1 | Mean Size=19.66000 ± 0.08888
+微调RLNN | 统计PAVE H=2 | Mean Size=19.65333 ± 0.09292
+
+模型选择
+{
+  "backbone": "tuned",
+  "strongest_rule": "random_h2",
+  "stats": "stats_h1",
+  "delta_vs_strongest_rule": 0.046666666666666856,
+  "train_encoders": true
+}
+
+训练准入：decision.json
+{
+  "version": "v3",
+  "mode": "training_admission",
+  "variant": "D3_neutral_h2",
+  "decided_at": "2026-11-08T06:14:44.607780+00:00",
+  "thresholds": {
+    "validation_states": 300,
+    "validation_graphs": 100,
+    "validation_informative_graphs": 10,
+    "validation_oracle_gap": 0.03,
+    "training_informative_states": 100,
+    "training_informative_graphs": 50
+  },
+  "validation": {
+    "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/census/run.json",
+    "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_validation_h2/states.pt",
+    "states": 300,
+    "graphs": 100,
+    "available": 300,
+    "informative": 16,
+    "informative_graphs": 14,
+    "non_tied_pairs": 510,
+    "positive_states": 16,
+    "positive_coverage": 0.05333333333333334,
+    "mean_candidates": 20.28,
+    "mean_oracle_gain": 0.05333333333333334,
+    "rule_gains": {
+      "coverage": 0.0033333333333333335,
+      "degree": 0.0033333333333333335,
+      "random": 0.0033333333333333335
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.05,
+    "mean_truncation_loss": 0.0033333333333333335
+  },
+  "training": {
+    "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h2/run.json",
+    "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h2/states.pt",
+    "states": 7981,
+    "samples": 2000,
+    "informative_states": 298,
+    "informative_graphs": 85,
+    "horizon": 2,
+    "anchored": false
+  },
+  "validation_pass": true,
+  "training_pass": true,
+  "train": true,
+  "pass": true,
+  "reasons": []
+}
+
+训练准入：decision_h1.json
+{
+  "version": "v3",
+  "mode": "training_admission",
+  "variant": "D2_neutral_h1",
+  "decided_at": "2026-11-08T06:14:44.420074+00:00",
+  "thresholds": {
+    "validation_states": 300,
+    "validation_graphs": 100,
+    "validation_informative_graphs": 10,
+    "validation_oracle_gap": 0.03,
+    "training_informative_states": 100,
+    "training_informative_graphs": 50
+  },
+  "validation": {
+    "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/census/run.json",
+    "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_validation_h1/states.pt",
+    "states": 300,
+    "graphs": 100,
+    "available": 300,
+    "informative": 13,
+    "informative_graphs": 12,
+    "non_tied_pairs": 460,
+    "positive_states": 13,
+    "positive_coverage": 0.043333333333333335,
+    "mean_candidates": 20.28,
+    "mean_oracle_gain": 0.043333333333333335,
+    "rule_gains": {
+      "coverage": 0.0033333333333333335,
+      "degree": 0.0033333333333333335,
+      "random": 0
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.04,
+    "mean_truncation_loss": 0.0033333333333333335
+  },
+  "training": {
+    "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1/run.json",
+    "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1/states.pt",
+    "states": 7987,
+    "samples": 2000,
+    "informative_states": 286,
+    "informative_graphs": 82,
+    "horizon": 1,
+    "anchored": false
+  },
+  "validation_pass": true,
+  "training_pass": true,
+  "train": true,
+  "pass": true,
+  "reasons": []
+}
+
+已收录求解任务：0
+诊断指标：625
