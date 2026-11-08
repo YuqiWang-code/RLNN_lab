@@ -1,0 +1,12 @@
+{
+  "version": "v3",
+  "mode": "untrained_control",
+  "status": "completed",
+  "run": "stats_untrained_h1_seed2",
+  "model": "stats",
+  "train_seed": 2,
+  "epoch": 0,
+  "strongest_rule": "degree",
+  "params": 3713,
+  "finished_at": "2026-11-08T06:38:24.758748+00:00"
+}

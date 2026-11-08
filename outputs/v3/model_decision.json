@@ -3,5 +3,12 @@
   "strongest_rule": "random_h2",
   "stats": "stats_h1",
   "delta_vs_strongest_rule": 0.046666666666666856,
-  "train_encoders": true
+  "train_encoders": true,
+  "best_learned": "stats_h1",
+  "frequency_minus_message_by_seed": [
+    0.0,
+    -0.00999999999999801,
+    0.0
+  ],
+  "train_exchange_band": false
 }

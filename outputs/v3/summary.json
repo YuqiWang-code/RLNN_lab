@@ -1,8 +1,274 @@
 {
   "version": "v3",
-  "updated_at": "2026-11-08T06:35:48.442852+00:00",
-  "cohorts": [],
-  "runs": [],
+  "updated_at": "2026-11-08T06:39:23.817611+00:00",
+  "cohorts": [
+    {
+      "method": "RLNN-tuned + pave",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "time_budget_s": 0.5,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "samples": 100,
+      "params": 169218,
+      "trainable_params": 3713,
+      "cohort_id": "reserve_pave_0.02/pave",
+      "run_indices": [
+        0
+      ],
+      "seeds": 1,
+      "mean_size": 19.42,
+      "std_size": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "mean_solve_time_s": 0.5031033470388502,
+      "feasible_rate": 1.0,
+      "base_gain": 0.08,
+      "rule_gain": 0.02,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "deadline_overruns": 91,
+      "peak_memory_mib": 23.96533203125
+    },
+    {
+      "method": "RLNN-tuned + pave",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "time_budget_s": 0.5,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "samples": 100,
+      "params": 169218,
+      "trainable_params": 3713,
+      "cohort_id": "reserve_pave_0.05/pave",
+      "run_indices": [
+        1
+      ],
+      "seeds": 1,
+      "mean_size": 19.45,
+      "std_size": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "mean_solve_time_s": 0.4985564421536401,
+      "feasible_rate": 1.0,
+      "base_gain": 0.09,
+      "rule_gain": 0.05,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "deadline_overruns": 81,
+      "peak_memory_mib": 23.96533203125
+    },
+    {
+      "method": "RLNN-tuned + random",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "time_budget_s": 0.5,
+      "horizon": 2,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "samples": 100,
+      "params": 165505,
+      "trainable_params": 0,
+      "cohort_id": "reserve_random_0.02/random",
+      "run_indices": [
+        2
+      ],
+      "seeds": 1,
+      "mean_size": 19.48,
+      "std_size": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "mean_solve_time_s": 0.4752560774004087,
+      "feasible_rate": 1.0,
+      "base_gain": 0.06,
+      "rule_gain": 0.05,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "deadline_overruns": 57,
+      "peak_memory_mib": 23.96533203125
+    },
+    {
+      "method": "RLNN-tuned + random",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "time_budget_s": 0.5,
+      "horizon": 2,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "samples": 100,
+      "params": 165505,
+      "trainable_params": 0,
+      "cohort_id": "reserve_random_0.05/random",
+      "run_indices": [
+        3
+      ],
+      "seeds": 1,
+      "mean_size": 19.48,
+      "std_size": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "mean_solve_time_s": 0.46541681051719935,
+      "feasible_rate": 1.0,
+      "base_gain": 0.08,
+      "rule_gain": 0.04,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "deadline_overruns": 43,
+      "peak_memory_mib": 23.96533203125
+    }
+  ],
+  "runs": [
+    {
+      "source": "outputs/v3/reserve_pave_0.02/pave",
+      "method": "RLNN-tuned + pave",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "backbone_seed": 0,
+      "head_seed": 0,
+      "search_seed": 1017,
+      "samples": 100,
+      "mean_size": 19.42,
+      "mean_solve_time_s": 0.5031033470388502,
+      "feasible_rate": 1.0,
+      "params": 169218,
+      "trainable_params": 3713,
+      "peak_memory_mib": 23.96533203125,
+      "time_budget_s": 0.5,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "baseline_run": null,
+      "rule_reference_run": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "base_gain": 0.08,
+      "rule_gain": 0.02,
+      "search_steps": 85.68,
+      "neutral_decisions": 2.49,
+      "score_time_s": 0.04961324396077543,
+      "post_time_s": 0.07586483517661691,
+      "improving_exchanges": 0.08,
+      "deadline_overruns": 91,
+      "cohort_id": "reserve_pave_0.02/pave"
+    },
+    {
+      "source": "outputs/v3/reserve_pave_0.05/pave",
+      "method": "RLNN-tuned + pave",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "backbone_seed": 0,
+      "head_seed": 0,
+      "search_seed": 1017,
+      "samples": 100,
+      "mean_size": 19.45,
+      "mean_solve_time_s": 0.4985564421536401,
+      "feasible_rate": 1.0,
+      "params": 169218,
+      "trainable_params": 3713,
+      "peak_memory_mib": 23.96533203125,
+      "time_budget_s": 0.5,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "baseline_run": null,
+      "rule_reference_run": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "base_gain": 0.09,
+      "rule_gain": 0.05,
+      "search_steps": 86.52,
+      "neutral_decisions": 3.83,
+      "score_time_s": 0.06708170730154961,
+      "post_time_s": 0.10228613728657365,
+      "improving_exchanges": 0.09,
+      "deadline_overruns": 81,
+      "cohort_id": "reserve_pave_0.05/pave"
+    },
+    {
+      "source": "outputs/v3/reserve_random_0.02/random",
+      "method": "RLNN-tuned + random",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "backbone_seed": 0,
+      "head_seed": null,
+      "search_seed": 1017,
+      "samples": 100,
+      "mean_size": 19.48,
+      "mean_solve_time_s": 0.4752560774004087,
+      "feasible_rate": 1.0,
+      "params": 165505,
+      "trainable_params": 0,
+      "peak_memory_mib": 23.96533203125,
+      "time_budget_s": 0.5,
+      "horizon": 2,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "baseline_run": null,
+      "rule_reference_run": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "base_gain": 0.06,
+      "rule_gain": 0.05,
+      "search_steps": 93.43,
+      "neutral_decisions": 10.57,
+      "score_time_s": 0.0,
+      "post_time_s": 0.06849431748967617,
+      "improving_exchanges": 0.06,
+      "deadline_overruns": 57,
+      "cohort_id": "reserve_random_0.02/random"
+    },
+    {
+      "source": "outputs/v3/reserve_random_0.05/random",
+      "method": "RLNN-tuned + random",
+      "split": "validation",
+      "protocol": "fixed_time",
+      "backbone_seed": 0,
+      "head_seed": null,
+      "search_seed": 1017,
+      "samples": 100,
+      "mean_size": 19.48,
+      "mean_solve_time_s": 0.46541681051719935,
+      "feasible_rate": 1.0,
+      "params": 165505,
+      "trainable_params": 0,
+      "peak_memory_mib": 23.96533203125,
+      "time_budget_s": 0.5,
+      "horizon": 2,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "baseline_run": null,
+      "rule_reference_run": null,
+      "delta_base": null,
+      "delta_rule": null,
+      "wins": null,
+      "ties": null,
+      "losses": null,
+      "base_gain": 0.08,
+      "rule_gain": 0.04,
+      "search_steps": 93.51,
+      "neutral_decisions": 12.81,
+      "score_time_s": 0.0,
+      "post_time_s": 0.08436003618407995,
+      "improving_exchanges": 0.08,
+      "deadline_overruns": 43,
+      "cohort_id": "reserve_random_0.05/random"
+    }
+  ],
   "diagnostics": [
     [
       "模型选择",
@@ -38,6 +304,41 @@
       "完整平台验证",
       "允许训练编码器",
       "通过"
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "best_learned",
+      "stats_h1"
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "frequency_minus_message_by_seed[0]",
+      0.0
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "frequency_minus_message_by_seed[1]",
+      -0.00999999999999801
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "frequency_minus_message_by_seed[2]",
+      0.0
+    ],
+    [
+      "模型选择",
+      "outputs/v3/model_decision.json",
+      "完整平台验证",
+      "train_exchange_band",
+      false
     ],
     [
       "训练准入",
@@ -6144,6 +6445,132 @@
       0.001
     ],
     [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed0",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed0",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed0",
+      "任务",
+      "训练种子",
+      0
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed0",
+      "任务",
+      "轮数",
+      0
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed0",
+      "任务",
+      "最强简单规则",
+      "原始度数"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed0",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed1",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed1",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed1",
+      "任务",
+      "训练种子",
+      1
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed1",
+      "任务",
+      "轮数",
+      0
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed1",
+      "任务",
+      "最强简单规则",
+      "原始度数"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed1",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed2",
+      "任务",
+      "状态",
+      "已完成"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed2",
+      "任务",
+      "评分模型",
+      "stats"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed2",
+      "任务",
+      "训练种子",
+      2
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed2",
+      "任务",
+      "轮数",
+      0
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed2",
+      "任务",
+      "最强简单规则",
+      "原始度数"
+    ],
+    [
+      "untrained_control",
+      "outputs/v3/stats_untrained_h1_seed2",
+      "任务",
+      "参数量",
+      3713
+    ],
+    [
       "完整平台验证",
       "outputs/v3/validation_platform",
       "任务",
@@ -6169,7 +6596,7 @@
       "outputs/v3/validation_platform",
       "任务",
       "墙钟秒数",
-      40.36256721802056
+      66.35342018306255
     ],
     [
       "完整平台验证",
@@ -6317,6 +6744,76 @@
       "原RLNN / 原始度数 H=2",
       "Seed 2 Mean Size",
       19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 频率PAVE H=1",
+      "Mean Size（三种子均值）",
+      19.593333333333334
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 频率PAVE H=1",
+      "种子均值的样本标准差",
+      0.015275252316519916
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 频率PAVE H=1",
+      "Seed 0 Mean Size",
+      19.61
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 频率PAVE H=1",
+      "Seed 1 Mean Size",
+      19.59
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / 频率PAVE H=1",
+      "Seed 2 Mean Size",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / message H=1",
+      "Mean Size（三种子均值）",
+      19.593333333333334
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / message H=1",
+      "种子均值的样本标准差",
+      0.015275252316519916
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / message H=1",
+      "Seed 0 Mean Size",
+      19.61
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / message H=1",
+      "Seed 1 Mean Size",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / message H=1",
+      "Seed 2 Mean Size",
+      19.59
     ],
     [
       "完整平台验证",
@@ -6531,6 +7028,41 @@
     [
       "完整平台验证",
       "outputs/v3/validation_platform",
+      "原RLNN / stats_adapted H=1",
+      "Mean Size（三种子均值）",
+      19.593333333333334
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / stats_adapted H=1",
+      "种子均值的样本标准差",
+      0.02309401076758659
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / stats_adapted H=1",
+      "Seed 0 Mean Size",
+      19.62
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / stats_adapted H=1",
+      "Seed 1 Mean Size",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "原RLNN / stats_adapted H=1",
+      "Seed 2 Mean Size",
+      19.58
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
       "微调RLNN / 覆盖度 H=1",
       "Mean Size（三种子均值）",
       19.586666666666666
@@ -6667,6 +7199,76 @@
       "微调RLNN / 原始度数 H=2",
       "Seed 2 Mean Size",
       19.64
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 频率PAVE H=1",
+      "Mean Size（三种子均值）",
+      19.64
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 频率PAVE H=1",
+      "种子均值的样本标准差",
+      0.088881944173157
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 频率PAVE H=1",
+      "Seed 0 Mean Size",
+      19.54
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 频率PAVE H=1",
+      "Seed 1 Mean Size",
+      19.71
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / 频率PAVE H=1",
+      "Seed 2 Mean Size",
+      19.67
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / message H=1",
+      "Mean Size（三种子均值）",
+      19.643333333333334
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / message H=1",
+      "种子均值的样本标准差",
+      0.09291573243177595
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / message H=1",
+      "Seed 0 Mean Size",
+      19.54
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / message H=1",
+      "Seed 1 Mean Size",
+      19.72
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / message H=1",
+      "Seed 2 Mean Size",
+      19.67
     ],
     [
       "完整平台验证",
@@ -6881,6 +7483,41 @@
     [
       "完整平台验证",
       "outputs/v3/validation_platform",
+      "微调RLNN / stats_adapted H=1",
+      "Mean Size（三种子均值）",
+      19.643333333333334
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / stats_adapted H=1",
+      "种子均值的样本标准差",
+      0.10263202878893746
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / stats_adapted H=1",
+      "Seed 0 Mean Size",
+      19.53
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / stats_adapted H=1",
+      "Seed 1 Mean Size",
+      19.73
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
+      "微调RLNN / stats_adapted H=1",
+      "Seed 2 Mean Size",
+      19.67
+    ],
+    [
+      "完整平台验证",
+      "outputs/v3/validation_platform",
       "任务",
       "计时口径",
       "缓存起始解并行验证，耗时仅作诊断"
@@ -7046,7 +7683,14 @@
     "strongest_rule": "random_h2",
     "stats": "stats_h1",
     "delta_vs_strongest_rule": 0.046666666666666856,
-    "train_encoders": true
+    "train_encoders": true,
+    "best_learned": "stats_h1",
+    "frequency_minus_message_by_seed": [
+      0.0,
+      -0.00999999999999801,
+      0.0
+    ],
+    "train_exchange_band": false
   },
   "platform_validation": [
     {
@@ -7096,6 +7740,30 @@
         "2": 19.53
       },
       "std_size": 0.01154700538379227
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "frequency_h1",
+      "mean_size": 19.593333333333334,
+      "by_seed": {
+        "0": 19.61,
+        "1": 19.59,
+        "2": 19.58
+      },
+      "std_size": 0.015275252316519916
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "message_h1",
+      "mean_size": 19.593333333333334,
+      "by_seed": {
+        "0": 19.61,
+        "1": 19.58,
+        "2": 19.59
+      },
+      "std_size": 0.015275252316519916
     },
     {
       "source": "outputs/v3/validation_platform",
@@ -7171,6 +7839,18 @@
     },
     {
       "source": "outputs/v3/validation_platform",
+      "backbone": "original",
+      "policy": "stats_adapted_h1",
+      "mean_size": 19.593333333333334,
+      "by_seed": {
+        "0": 19.62,
+        "1": 19.58,
+        "2": 19.58
+      },
+      "std_size": 0.02309401076758659
+    },
+    {
+      "source": "outputs/v3/validation_platform",
       "backbone": "tuned",
       "policy": "coverage_h1",
       "mean_size": 19.586666666666666,
@@ -7216,6 +7896,30 @@
         "2": 19.64
       },
       "std_size": 0.10115993936995715
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "frequency_h1",
+      "mean_size": 19.64,
+      "by_seed": {
+        "0": 19.54,
+        "1": 19.71,
+        "2": 19.67
+      },
+      "std_size": 0.088881944173157
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "message_h1",
+      "mean_size": 19.643333333333334,
+      "by_seed": {
+        "0": 19.54,
+        "1": 19.72,
+        "2": 19.67
+      },
+      "std_size": 0.09291573243177595
     },
     {
       "source": "outputs/v3/validation_platform",
@@ -7288,6 +7992,18 @@
         "2": 19.68
       },
       "std_size": 0.09291573243177544
+    },
+    {
+      "source": "outputs/v3/validation_platform",
+      "backbone": "tuned",
+      "policy": "stats_adapted_h1",
+      "mean_size": 19.643333333333334,
+      "by_seed": {
+        "0": 19.53,
+        "1": 19.73,
+        "2": 19.67
+      },
+      "std_size": 0.10263202878893746
     }
   ]
 }
