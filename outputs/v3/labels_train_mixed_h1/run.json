@@ -1,0 +1,54 @@
+{
+  "version": "v3",
+  "status": "completed",
+  "mode": "labels",
+  "split": "train",
+  "created_at": "2026-11-08T06:28:53.001122+00:00",
+  "config": {
+    "starts": [
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_train_seed0_stream0/starts.pt",
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_train_seed0_stream1/starts.pt"
+    ],
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1",
+    "mode": "collect",
+    "workers": 24,
+    "horizon": 1,
+    "candidate_cap": 32,
+    "states_per_start": 4,
+    "limit": null,
+    "anchored": false,
+    "policy": "mixture",
+    "mix_seed": 0,
+    "original_data": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1/states.pt",
+    "policy_data": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_pave_h1/states.pt",
+    "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt"
+  },
+  "samples": 1993,
+  "state_count": 7987,
+  "graph_count": 1000,
+  "informative_states": 264,
+  "informative_graphs": 107,
+  "origin_counts": {
+    "intermediate": 5987,
+    "initial": 2000
+  },
+  "source_counts": {
+    "original": 3994,
+    "policy": 3993
+  },
+  "source_origin_counts": {
+    "original": {
+      "initial": 1000,
+      "intermediate": 2994
+    },
+    "policy": {
+      "initial": 1000,
+      "intermediate": 2993
+    }
+  },
+  "available_source_states": {
+    "original": 7987,
+    "policy": 7987
+  },
+  "sampling": "origin-stratified without replacement within each source"
+}

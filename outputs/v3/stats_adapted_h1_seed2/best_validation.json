@@ -1,0 +1,55 @@
+{
+  "metrics": {
+    "states": 1195,
+    "candidate_states": 1192,
+    "informative_states": 54,
+    "informative_graphs": 15,
+    "selected_gain": 0.029288702928870293,
+    "rule_gain": 0.0016736401673640166,
+    "oracle_gain": 0.045188284518828455,
+    "delta_vs_rule": 0.027615062761506277,
+    "regret": 0.015899581589958158,
+    "informative_coverage": 0.045188284518828455,
+    "positive_oracle_coverage": 0.045188284518828455,
+    "positive_hit_rate": 0.6481481481481481,
+    "informative_pair_accuracy": 0.8295639024840461,
+    "informative_top1": 0.6481481481481481,
+    "informative_spearman": 0.32732296859224635
+  },
+  "by_origin": {
+    "initial": {
+      "states": 300,
+      "candidate_states": 300,
+      "informative_states": 13,
+      "informative_graphs": 12,
+      "selected_gain": 0.02666666666666667,
+      "rule_gain": 0.0033333333333333335,
+      "oracle_gain": 0.043333333333333335,
+      "delta_vs_rule": 0.023333333333333334,
+      "regret": 0.016666666666666666,
+      "informative_coverage": 0.043333333333333335,
+      "positive_oracle_coverage": 0.043333333333333335,
+      "positive_hit_rate": 0.6153846153846154,
+      "informative_pair_accuracy": 0.8220549913553091,
+      "informative_top1": 0.6153846153846154,
+      "informative_spearman": 0.3256623779351895
+    },
+    "intermediate": {
+      "states": 895,
+      "candidate_states": 892,
+      "informative_states": 41,
+      "informative_graphs": 14,
+      "selected_gain": 0.030167597765363128,
+      "rule_gain": 0.0011173184357541898,
+      "oracle_gain": 0.04581005586592179,
+      "delta_vs_rule": 0.02905027932960894,
+      "regret": 0.01564245810055866,
+      "informative_coverage": 0.04581005586592179,
+      "positive_oracle_coverage": 0.04581005586592179,
+      "positive_hit_rate": 0.6585365853658537,
+      "informative_pair_accuracy": 0.8319447767443773,
+      "informative_top1": 0.6585365853658537,
+      "informative_spearman": 0.32784949733716684
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "version": "v3",
+  "status": "completed",
+  "mode": "labels",
+  "split": "train",
+  "samples": 2000,
+  "state_count": 7987,
+  "config": {
+    "starts": [
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_train_seed0_stream0/starts.pt",
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_train_seed0_stream1/starts.pt"
+    ],
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_pave_h1",
+    "mode": "collect",
+    "workers": 24,
+    "horizon": 1,
+    "candidate_cap": 32,
+    "states_per_start": 4,
+    "limit": null,
+    "anchored": false,
+    "policy": "pave",
+    "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt"
+  },
+  "started_at": "2026-11-08T06:23:37.461304+00:00",
+  "finished_at": "2026-11-08T06:26:48.903718+00:00",
+  "wall_time_s": 191.44245082512498,
+  "mean_cpu_task_s": 0.8712411590013653,
+  "summaries": {
+    "labels_h1": {
+      "states": 7987,
+      "graphs": 1000,
+      "available": 7976,
+      "informative": 232,
+      "informative_graphs": 135,
+      "non_tied_pairs": 10467,
+      "positive_states": 232,
+      "positive_coverage": 0.029047201702766996,
+      "mean_candidates": 21.214097909102293,
+      "mean_oracle_gain": 0.02942281206961312,
+      "rule_gains": {
+        "coverage": 0.001126831100538375,
+        "degree": 0.001001627644923,
+        "random": 0.0033804933016151244
+      },
+      "strongest_rule": "random",
+      "oracle_gap": 0.026042318767997997,
+      "mean_truncation_loss": 0
+    }
+  },
+  "informative_states": 232,
+  "informative_graphs": 135
+}
