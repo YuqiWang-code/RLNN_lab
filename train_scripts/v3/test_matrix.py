@@ -55,6 +55,10 @@ def fixed_jobs(output):
                 if adapted.is_file():
                     posts.append("pave_adapted")
                     heads["pave_adapted"] = adapted
+                untrained = head_checkpoint(output, "stats_untrained", 1, seed)
+                if untrained.is_file():
+                    posts.append("pave_untrained")
+                    heads["pave_untrained"] = untrained
             jobs.append(Job(group * 3 + seed, f"test_{backbone}_h{horizon}_seed{seed}",
                             backbone, horizon, seed, tuple(posts), f"fixed_{backbone}_h{horizon}", heads))
     return jobs
