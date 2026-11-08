@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "mode": "opportunities",
+  "status": "completed",
+  "graphs": 100,
+  "one_to_two": {
+    "available": 4,
+    "informative": 0,
+    "mean_actions": 0.07,
+    "mean_oracle_gain": 0.04,
+    "pairs": 4,
+    "ties": 4
+  },
+  "fallback": {
+    "available": 8,
+    "informative": 0,
+    "mean_actions": 0.11,
+    "mean_oracle_gain": 0.08,
+    "pairs": 4,
+    "ties": 4
+  }
+}

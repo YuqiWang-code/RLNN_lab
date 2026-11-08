@@ -1,0 +1,6 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.800, rule=19.800, heuristic=19.800, random=19.800, rule23=19.800
+50/100 graphs: none=19.460, rule=19.480, heuristic=19.480, random=19.480, rule23=19.480
+75/100 graphs: none=19.520, rule=19.533, heuristic=19.533, random=19.533, rule23=19.547
+100/100 graphs: none=19.510, rule=19.520, heuristic=19.520, random=19.520, rule23=19.550

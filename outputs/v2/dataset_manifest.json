@@ -1,0 +1,6 @@
+{
+  "split": "models/data/author_rld4co/MIS/RB_small_test",
+  "graphs": 1000,
+  "order": "idx_0 to idx_999",
+  "sha256": "9f2987a7532c3a427256f0b29a0dbf4b710626b4bf7e261928ecb0ea50bd2110"
+}
