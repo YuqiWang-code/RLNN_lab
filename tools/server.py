@@ -52,10 +52,13 @@ def push(sftp, remote):
             remote_stat = None
         if remote_stat and remote_stat.st_size == local_stat.st_size and int(remote_stat.st_mtime) == int(local_stat.st_mtime):
             continue
-        sftp.put(str(source), target)
-        sftp.utime(target, (int(local_stat.st_atime), int(local_stat.st_mtime)))
+        # Keep readers of an active script on the existing inode.
+        staged = f'{target}.upload-{os.getpid()}'
+        sftp.put(str(source), staged)
+        sftp.utime(staged, (int(local_stat.st_atime), int(local_stat.st_mtime)))
         if source.suffix == '.sh':
-            sftp.chmod(target, 0o755)
+            sftp.chmod(staged, 0o755)
+        sftp.posix_rename(staged, target)
         count += 1
     for folder in ('outputs/v000_rlnn_baseline', 'tmp', 'docs/temporary'):
         mkdir(sftp, posixpath.join(remote, folder))
