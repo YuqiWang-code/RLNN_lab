@@ -1,5 +1,5 @@
 RLNN v3 实验汇总
-时间：2026-11-08T07:08:52.094262+00:00
+时间：2026-11-08T07:15:25.134244+00:00
 标准差为同配置种子均值的样本标准差；Δ以明确指定的逐图参照计算。
 
 RLNN-original-h1 + coverage | test | fixed_work | n=3 | Size=19.58533 ± 0.00737 | ΔRLNN=0.067 | Δ规则=-0.017333333333333333 | 秒/图=0.3380908467058713
@@ -8,12 +8,12 @@ RLNN-original-h1 | test | fixed_work | n=3 | Size=19.51833 ± 0.00737 | ΔRLNN=0
 RLNN-original-h1 + pave | test | fixed_work | n=3 | Size=19.64467 ± 0.00907 | ΔRLNN=0.12633333333333335 | Δ规则=0.042 | 秒/图=0.45124112713290376
 RLNN-original-h1 + random | test | fixed_work | n=3 | Size=19.60267 ± 0.00757 | ΔRLNN=0.08433333333333334 | Δ规则=0 | 秒/图=0.3346555078128974
 RLNN-original-h1 + rule23 | test | fixed_work | n=3 | Size=19.57733 ± 0.00643 | ΔRLNN=0.059 | Δ规则=-0.025333333333333333 | 秒/图=0.27961234096391124
-RLNN-tuned-h2 + coverage | test | fixed_work | n=1 | Size=19.59900 | ΔRLNN=0.075 | Δ规则=-0.014 | 秒/图=0.39474991749878974
-RLNN-tuned-h2 + degree | test | fixed_work | n=1 | Size=19.59900 | ΔRLNN=0.075 | Δ规则=-0.014 | 秒/图=0.391668794289697
-RLNN-tuned-h2 | test | fixed_work | n=1 | Size=19.53500 | ΔRLNN=0.011 | Δ规则=-0.078 | 秒/图=0.2675106295607984
-RLNN-tuned-h2 + pave | test | fixed_work | n=1 | Size=19.66600 | ΔRLNN=0.142 | Δ规则=0.053 | 秒/图=0.5185080292127096
-RLNN-tuned-h2 + random | test | fixed_work | n=1 | Size=19.61300 | ΔRLNN=0.089 | Δ规则=0 | 秒/图=0.38421845555771145
-RLNN-tuned-h2 + rule23 | test | fixed_work | n=1 | Size=19.59200 | ΔRLNN=0.068 | Δ规则=-0.021 | 秒/图=0.2697459431318566
+RLNN-tuned-h2 + coverage | test | fixed_work | n=2 | Size=19.59950 ± 0.00071 | ΔRLNN=0.077 | Δ规则=-0.0175 | 秒/图=0.3958968738324474
+RLNN-tuned-h2 + degree | test | fixed_work | n=2 | Size=19.59950 ± 0.00071 | ΔRLNN=0.077 | Δ规则=-0.0175 | 秒/图=0.3935976907867007
+RLNN-tuned-h2 | test | fixed_work | n=2 | Size=19.53500 ± 0.00000 | ΔRLNN=0.0125 | Δ规则=-0.08199999999999999 | 秒/图=0.2764026827001944
+RLNN-tuned-h2 + pave | test | fixed_work | n=2 | Size=19.65750 ± 0.01202 | ΔRLNN=0.135 | Δ规则=0.0405 | 秒/图=0.4686395870312117
+RLNN-tuned-h2 + random | test | fixed_work | n=2 | Size=19.61700 ± 0.00566 | ΔRLNN=0.0945 | Δ规则=0 | 秒/图=0.38892669580574146
+RLNN-tuned-h2 + rule23 | test | fixed_work | n=2 | Size=19.59250 ± 0.00071 | ΔRLNN=0.07 | Δ规则=-0.0245 | 秒/图=0.2787246181762312
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.42000 | ΔRLNN=None | Δ规则=None | 秒/图=0.5031033470388502
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.45000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4985564421536401
 RLNN-tuned + pave | validation | fixed_time | n=1 | Size=19.53000 | ΔRLNN=None | Δ规则=None | 秒/图=0.4500539477728307
@@ -171,5 +171,5 @@ RLNN-tuned + random | validation | fixed_time | n=1 | Size=19.47000 | ΔRLNN=Non
   "reasons": []
 }
 
-已收录求解任务：30
+已收录求解任务：36
 诊断指标：1036
