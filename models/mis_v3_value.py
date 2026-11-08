@@ -37,8 +37,48 @@ def move_state(state, device, mode="stats"):
         result["node_features"] = torch.as_tensor(state["node_features"], dtype=torch.float32, device=device)
         result["edge_index"] = torch.as_tensor(state["edge_index"], dtype=torch.long, device=device)
         for name in ("removed", "added", "affected"):
-            result[name] = [torch.as_tensor(nodes, dtype=torch.long, device=device) for nodes in state[name]]
+            result[name] = {key: value.to(device) for key, value in pack_groups(state[name]).items()}
     return result
+
+
+def pack_groups(groups):
+    """Pack candidate node sets into one index array and its pooling assignments."""
+    if isinstance(groups, dict):
+        return groups
+    indices = torch.cat(groups) if groups else torch.empty(0, dtype=torch.long)
+    lengths = torch.tensor([len(nodes) for nodes in groups], dtype=torch.long, device=indices.device)
+    owners = torch.repeat_interleave(torch.arange(len(groups), device=indices.device), lengths,
+                                    output_size=len(indices))
+    return dict(indices=indices, owners=owners, lengths=lengths)
+
+
+def collate_states(states, mode="stats"):
+    """Join independent states with block-diagonal edges and candidate-local pools."""
+    sizes = [len(state["stats"]) for state in states]
+    batch = dict(stats=torch.cat([state["stats"] for state in states]), candidate_sizes=sizes)
+    if mode == "stats" or not sum(sizes):
+        return batch
+    features, edges = [], []
+    pools = {name: {key: [] for key in ("indices", "owners", "lengths")}
+             for name in ("removed", "added", "affected")}
+    node_offset = candidate_offset = 0
+    for state, size in zip(states, sizes):
+        if not size:
+            continue
+        node_features = torch.as_tensor(state["node_features"], dtype=torch.float32)
+        features.append(node_features)
+        edges.append(torch.as_tensor(state["edge_index"], dtype=torch.long) + node_offset)
+        for name in pools:
+            packed = pack_groups(state[name])
+            pools[name]["indices"].append(packed["indices"] + node_offset)
+            pools[name]["owners"].append(packed["owners"] + candidate_offset)
+            pools[name]["lengths"].append(packed["lengths"])
+        node_offset += len(node_features)
+        candidate_offset += size
+    batch.update(node_features=torch.cat(features), edge_index=torch.cat(edges, dim=1))
+    batch.update({name: {key: torch.cat(values) for key, values in packed.items()}
+                  for name, packed in pools.items()})
+    return batch
 
 
 def neighbor_mean(features, edge_index):
@@ -51,12 +91,11 @@ def neighbor_mean(features, edge_index):
 
 def pool_nodes(features, groups, *, maximum=False):
     """Pool variable-size node sets; empty affected regions have zero encoding."""
-    result = features.new_zeros((len(groups), features.shape[1]))
-    if not groups or not any(len(nodes) for nodes in groups):
+    groups = pack_groups(groups)
+    lengths, owners, indices = groups["lengths"], groups["owners"], groups["indices"]
+    result = features.new_zeros((len(lengths), features.shape[1]))
+    if not len(indices):
         return result
-    lengths = torch.tensor([len(nodes) for nodes in groups], device=features.device)
-    owners = torch.repeat_interleave(torch.arange(len(groups), device=features.device), lengths)
-    indices = torch.cat(groups)
     if maximum:
         result.scatter_reduce_(0, owners.unsqueeze(1).expand(-1, features.shape[1]),
                                features[indices], reduce="amax", include_self=False)

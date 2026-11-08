@@ -26,6 +26,10 @@ def worker(payload):
         checkpoint = output/f'stats_h{horizon}_seed{record["backbone_seed"]}/checkpoints/best.pt'
         if checkpoint.is_file():
             choices.append(('stats', horizon, load_pave_v3(checkpoint)))
+    for mode in ('message','frequency','stats_adapted'):
+        checkpoint = output/f'{mode}_h1_seed{record["backbone_seed"]}/checkpoints/best.pt'
+        if checkpoint.is_file() and (checkpoint.parent.parent/'run.json').is_file():
+            choices.append((mode, 1, load_pave_v3(checkpoint)))
     for policy, horizon, model in choices:
         tick = perf_counter()
         selected = record['selected']
@@ -73,11 +77,19 @@ def main():
     backbone=max(summary,key=lambda b:max(v['mean_size'] for k,v in summary[b].items() if k.startswith(('random','degree','coverage'))))
     rules={key:value for key,value in summary[backbone].items() if key.startswith(('random','degree','coverage'))}
     strongest=max(rules,key=lambda key:rules[key]['mean_size'])
-    stats={key:value for key,value in summary[backbone].items() if key.startswith('stats')}
+    stats={key:value for key,value in summary[backbone].items() if key in ('stats_h1','stats_h2')}
     selected_stats=max(stats,key=lambda key:stats[key]['mean_size']) if stats else None
     delta=stats[selected_stats]['mean_size']-rules[strongest]['mean_size'] if selected_stats else None
     choice=dict(backbone=backbone,strongest_rule=strongest,stats=selected_stats,
                 delta_vs_strongest_rule=delta,train_encoders=delta is not None and delta>0)
+    learned={key:value for key,value in summary[backbone].items()
+             if key.startswith(('stats','message','frequency'))}
+    choice['best_learned']=max(learned,key=lambda key:learned[key]['mean_size']) if learned else None
+    if 'message_h1' in learned and 'frequency_h1' in learned:
+        differences=[learned['frequency_h1']['by_seed'][str(seed)]-learned['message_h1']['by_seed'][str(seed)]
+                     for seed in range(3)]
+        choice['frequency_minus_message_by_seed']=differences
+        choice['train_exchange_band']=all(delta>0 for delta in differences)
     metadata=dict(version='v3',status='completed',mode='validation_platform',split='validation',
                   samples=600,wall_time_s=perf_counter()-tick,summaries=summary,choice=choice,
                   timing='Parallel cached-start quality selection; post timing is diagnostic only')

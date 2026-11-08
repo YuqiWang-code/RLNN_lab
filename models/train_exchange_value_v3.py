@@ -10,7 +10,7 @@ from time import perf_counter
 import torch
 from torch.nn import functional as F
 
-from mis_v3_value import MODES, STATS_DIM, PAVEV3, move_state
+from mis_v3_value import MODES, STATS_DIM, PAVEV3, collate_states, move_state, pack_groups
 
 
 def non_tied_pairs(values):
@@ -62,7 +62,7 @@ def state_pair_loss(scores, pairs, max_pairs, generator):
 
 
 @torch.no_grad()
-def validate(model, states, rule):
+def validate(model, states, rule, *, batches=None, batch_size=32):
     model.eval()
     rows = []
     if model.mode == "stats":
@@ -70,7 +70,11 @@ def validate(model, states, rule):
         all_scores = model({"stats": torch.cat([state["stats"] for state in states])}).cpu()
         predictions = all_scores.split(sizes)
     else:
-        predictions = (model(state).cpu() for state in states)
+        if batches is None:
+            batches = (collate_states(states[start:start + batch_size], model.mode)
+                       for start in range(0, len(states), batch_size))
+        predictions = (scores for batch in batches
+                       for scores in model(batch).cpu().split(batch["candidate_sizes"]))
     for state, scores in zip(states, predictions):
         values = state["values"].cpu()
         pairs = state["_pairs"].cpu()
@@ -171,10 +175,18 @@ def main():
     model = PAVEV3(args.mode).to(args.device)
     learning_rate = args.lr if args.lr is not None else (1e-3 if args.mode == "stats" else 3e-4)
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
-    # The small statistics tensors fit on one device; graph encoders transfer one state at a time.
+    # Statistics fit on one device; node encoders transfer one packed graph batch.
+    validation_batches = None
     if args.mode == "stats":
         informative = [move_state(state, args.device) for state in informative]
         valid = [move_state(state, args.device) for state in valid]
+    else:
+        for state in informative + valid:
+            if len(state["stats"]):
+                for name in ("removed", "added", "affected"):
+                    state[name] = pack_groups(state[name])
+        validation_batches = [collate_states(valid[start:start + args.batch_size], args.mode)
+                              for start in range(0, len(valid), args.batch_size)]
     checkpoints = result / "checkpoints"
     checkpoints.mkdir(parents=True, exist_ok=True)
     history, best, best_key = [], None, None
@@ -185,11 +197,9 @@ def main():
         for batch in order.split(args.batch_size):
             losses = []
             batch_states = [informative[index] for index in batch.tolist()]
-            if args.mode == "stats":
-                all_scores = model({"stats": torch.cat([state["stats"] for state in batch_states])})
-                predictions = all_scores.split([len(state["values"]) for state in batch_states])
-            else:
-                predictions = (model(state) for state in batch_states)
+            packed = collate_states(batch_states, args.mode)
+            all_scores = model(packed)
+            predictions = all_scores.split(packed["candidate_sizes"])
             for state, scores in zip(batch_states, predictions):
                 pairs = state["_pairs"].to(scores.device)
                 losses.append(state_pair_loss(scores, pairs, args.max_pairs, generator))
@@ -198,7 +208,8 @@ def main():
             loss.backward()
             optimizer.step()
             epoch_losses.extend(float(value.detach()) for value in losses)
-        metrics, by_origin, rows = validate(model, valid, rule)
+        metrics, by_origin, rows = validate(model, valid, rule, batches=validation_batches,
+                                          batch_size=args.batch_size)
         row = dict(epoch=epoch, loss=mean(epoch_losses), elapsed_s=perf_counter() - started, **metrics)
         history.append(row)
         key = metrics["delta_vs_rule"], -metrics["regret"]
