@@ -1,9 +1,9 @@
 {
   "version": "v3",
-  "updated_at": "2026-11-08T22:16:57.074015+00:00",
+  "updated_at": "2026-11-08T22:20:42.112469+00:00",
   "cohorts": [
     {
-      "method": "RLNN-original-h1",
+      "method": "0.5s｜RLNN-original-h1｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -34,7 +34,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave_adapted",
+      "method": "0.5s｜RLNN-tuned-h1 + pave_adapted",
       "split": "test",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -64,7 +64,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave_frequency",
+      "method": "0.5s｜RLNN-tuned-h1 + pave_frequency",
       "split": "test",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -76,25 +76,26 @@
       "trainable_params": 20737,
       "cohort_id": "budget_tuned_frequency_h1/pave_frequency",
       "run_indices": [
-        3
+        3,
+        4
       ],
-      "seeds": 1,
-      "mean_size": 19.615,
-      "std_size": null,
-      "delta_base": 0.077,
-      "delta_rule": 0.033,
-      "mean_solve_time_s": 0.42308474450046196,
+      "seeds": 2,
+      "mean_size": 19.6265,
+      "std_size": 0.016263455967292884,
+      "delta_base": 0.0295,
+      "delta_rule": 0.0535,
+      "mean_solve_time_s": 0.43281484755198474,
       "feasible_rate": 1.0,
-      "base_gain": 0.097,
-      "rule_gain": 0.047,
-      "wins": 169,
-      "ties": 734,
-      "losses": 97,
-      "deadline_overruns": 1,
+      "base_gain": 0.10450000000000001,
+      "rule_gain": 0.0445,
+      "wins": 276,
+      "ties": 1499,
+      "losses": 225,
+      "deadline_overruns": 4,
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave_message",
+      "method": "0.5s｜RLNN-tuned-h1 + pave_message",
       "split": "test",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -106,8 +107,8 @@
       "trainable_params": 20737,
       "cohort_id": "budget_tuned_message_h1/pave_message",
       "run_indices": [
-        4,
-        5
+        5,
+        6
       ],
       "seeds": 2,
       "mean_size": 19.617,
@@ -125,7 +126,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1",
+      "method": "0.5s｜RLNN-tuned-h1｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -137,8 +138,8 @@
       "trainable_params": 0,
       "cohort_id": "budget_tuned_none_ext/none",
       "run_indices": [
-        6,
-        7
+        7,
+        8
       ],
       "seeds": 2,
       "mean_size": 19.6045,
@@ -156,7 +157,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h2 + random",
+      "method": "0.5s｜RLNN-tuned-h2 + random",
       "split": "test",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -168,8 +169,8 @@
       "trainable_params": 0,
       "cohort_id": "budget_tuned_random_h2/random",
       "run_indices": [
-        8,
-        9
+        9,
+        10
       ],
       "seeds": 2,
       "mean_size": 19.573,
@@ -187,7 +188,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h2 + rule23",
+      "method": "0.5s｜RLNN-tuned-h2 + rule23｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -199,8 +200,8 @@
       "trainable_params": 0,
       "cohort_id": "budget_tuned_rule23_ext/rule23",
       "run_indices": [
-        10,
-        11
+        11,
+        12
       ],
       "seeds": 2,
       "mean_size": 19.606,
@@ -218,7 +219,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave",
+      "method": "0.5s｜RLNN-tuned-h1 + pave",
       "split": "test",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -230,8 +231,8 @@
       "trainable_params": 3713,
       "cohort_id": "budget_tuned_stats_h1/pave",
       "run_indices": [
-        12,
-        13
+        13,
+        14
       ],
       "seeds": 2,
       "mean_size": 19.6425,
@@ -249,7 +250,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-original-h1 + coverage",
+      "method": "固定量｜RLNN-original-h1 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -261,9 +262,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/coverage",
       "run_indices": [
-        14,
         15,
-        16
+        16,
+        17
       ],
       "seeds": 3,
       "mean_size": 19.585333333333335,
@@ -281,7 +282,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-original-h1 + degree",
+      "method": "固定量｜RLNN-original-h1 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -293,9 +294,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/degree",
       "run_indices": [
-        17,
         18,
-        19
+        19,
+        20
       ],
       "seeds": 3,
       "mean_size": 19.585333333333335,
@@ -313,7 +314,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-original-h1",
+      "method": "固定量｜RLNN-original-h1",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -325,9 +326,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/none",
       "run_indices": [
-        20,
         21,
-        22
+        22,
+        23
       ],
       "seeds": 3,
       "mean_size": 19.516666666666666,
@@ -345,7 +346,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-original-h1 + pave",
+      "method": "固定量｜RLNN-original-h1 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -357,9 +358,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_original_h1/pave",
       "run_indices": [
-        23,
         24,
-        25
+        25,
+        26
       ],
       "seeds": 3,
       "mean_size": 19.645333333333333,
@@ -377,7 +378,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-original-h1 + random",
+      "method": "固定量｜RLNN-original-h1 + random",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -389,9 +390,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/random",
       "run_indices": [
-        26,
         27,
-        28
+        28,
+        29
       ],
       "seeds": 3,
       "mean_size": 19.601000000000003,
@@ -409,7 +410,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-original-h1 + rule23",
+      "method": "固定量｜RLNN-original-h1 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -421,9 +422,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_original_h1/rule23",
       "run_indices": [
-        29,
         30,
-        31
+        31,
+        32
       ],
       "seeds": 3,
       "mean_size": 19.577666666666666,
@@ -441,7 +442,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + coverage",
+      "method": "固定量｜RLNN-tuned-h1 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -453,9 +454,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/coverage",
       "run_indices": [
-        32,
         33,
-        34
+        34,
+        35
       ],
       "seeds": 3,
       "mean_size": 19.608333333333334,
@@ -473,7 +474,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + degree",
+      "method": "固定量｜RLNN-tuned-h1 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -485,9 +486,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/degree",
       "run_indices": [
-        35,
         36,
-        37
+        37,
+        38
       ],
       "seeds": 3,
       "mean_size": 19.609,
@@ -505,7 +506,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1",
+      "method": "固定量｜RLNN-tuned-h1",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -517,9 +518,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/none",
       "run_indices": [
-        38,
         39,
-        40
+        40,
+        41
       ],
       "seeds": 3,
       "mean_size": 19.546666666666667,
@@ -537,7 +538,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave",
+      "method": "固定量｜RLNN-tuned-h1 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -549,9 +550,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_tuned_h1/pave",
       "run_indices": [
-        41,
         42,
-        43
+        43,
+        44
       ],
       "seeds": 3,
       "mean_size": 19.663333333333334,
@@ -569,7 +570,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave_adapted",
+      "method": "固定量｜RLNN-tuned-h1 + pave_adapted",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -581,9 +582,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_tuned_h1/pave_adapted",
       "run_indices": [
-        44,
         45,
-        46
+        46,
+        47
       ],
       "seeds": 3,
       "mean_size": 19.651,
@@ -601,7 +602,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave_frequency",
+      "method": "固定量｜RLNN-tuned-h1 + pave_frequency",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -613,9 +614,9 @@
       "trainable_params": 20737,
       "cohort_id": "fixed_tuned_h1/pave_frequency",
       "run_indices": [
-        47,
         48,
-        49
+        49,
+        50
       ],
       "seeds": 3,
       "mean_size": 19.652333333333335,
@@ -633,7 +634,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave_message",
+      "method": "固定量｜RLNN-tuned-h1 + pave_message",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -645,9 +646,9 @@
       "trainable_params": 20737,
       "cohort_id": "fixed_tuned_h1/pave_message",
       "run_indices": [
-        50,
         51,
-        52
+        52,
+        53
       ],
       "seeds": 3,
       "mean_size": 19.656333333333333,
@@ -665,7 +666,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + pave_untrained",
+      "method": "固定量｜RLNN-tuned-h1 + pave_untrained",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -677,9 +678,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_tuned_h1/pave_untrained",
       "run_indices": [
-        53,
         54,
-        55
+        55,
+        56
       ],
       "seeds": 3,
       "mean_size": 19.638666666666666,
@@ -697,7 +698,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + random",
+      "method": "固定量｜RLNN-tuned-h1 + random",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -709,9 +710,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/random",
       "run_indices": [
-        56,
         57,
-        58
+        58,
+        59
       ],
       "seeds": 3,
       "mean_size": 19.624333333333333,
@@ -729,7 +730,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h1 + rule23",
+      "method": "固定量｜RLNN-tuned-h1 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -741,9 +742,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h1/rule23",
       "run_indices": [
-        59,
         60,
-        61
+        61,
+        62
       ],
       "seeds": 3,
       "mean_size": 19.602999999999998,
@@ -761,7 +762,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h2 + coverage",
+      "method": "固定量｜RLNN-tuned-h2 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -773,9 +774,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/coverage",
       "run_indices": [
-        62,
         63,
-        64
+        64,
+        65
       ],
       "seeds": 3,
       "mean_size": 19.60066666666667,
@@ -793,7 +794,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h2 + degree",
+      "method": "固定量｜RLNN-tuned-h2 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -805,9 +806,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/degree",
       "run_indices": [
-        65,
         66,
-        67
+        67,
+        68
       ],
       "seeds": 3,
       "mean_size": 19.601000000000003,
@@ -825,7 +826,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h2",
+      "method": "固定量｜RLNN-tuned-h2",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -837,9 +838,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/none",
       "run_indices": [
-        68,
         69,
-        70
+        70,
+        71
       ],
       "seeds": 3,
       "mean_size": 19.539,
@@ -857,7 +858,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h2 + pave",
+      "method": "固定量｜RLNN-tuned-h2 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -869,9 +870,9 @@
       "trainable_params": 3713,
       "cohort_id": "fixed_tuned_h2/pave",
       "run_indices": [
-        71,
         72,
-        73
+        73,
+        74
       ],
       "seeds": 3,
       "mean_size": 19.660666666666668,
@@ -889,7 +890,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h2 + random",
+      "method": "固定量｜RLNN-tuned-h2 + random",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -901,9 +902,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/random",
       "run_indices": [
-        74,
         75,
-        76
+        76,
+        77
       ],
       "seeds": 3,
       "mean_size": 19.61733333333333,
@@ -921,7 +922,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned-h2 + rule23",
+      "method": "固定量｜RLNN-tuned-h2 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "time_budget_s": null,
@@ -933,9 +934,9 @@
       "trainable_params": 0,
       "cohort_id": "fixed_tuned_h2/rule23",
       "run_indices": [
-        77,
         78,
-        79
+        79,
+        80
       ],
       "seeds": 3,
       "mean_size": 19.595333333333333,
@@ -953,7 +954,7 @@
       "peak_memory_mib": 23.9052734375
     },
     {
-      "method": "RLNN-tuned + pave",
+      "method": "0.5s｜RLNN-tuned + pave",
       "split": "validation",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -965,7 +966,7 @@
       "trainable_params": 3713,
       "cohort_id": "reserve_pave_0.02/pave",
       "run_indices": [
-        80
+        81
       ],
       "seeds": 1,
       "mean_size": 19.55,
@@ -983,7 +984,7 @@
       "peak_memory_mib": 23.96533203125
     },
     {
-      "method": "RLNN-tuned + pave",
+      "method": "0.5s｜RLNN-tuned + pave",
       "split": "validation",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -995,7 +996,7 @@
       "trainable_params": 3713,
       "cohort_id": "reserve_pave_0.05/pave",
       "run_indices": [
-        81
+        82
       ],
       "seeds": 1,
       "mean_size": 19.56,
@@ -1013,7 +1014,7 @@
       "peak_memory_mib": 23.96533203125
     },
     {
-      "method": "RLNN-tuned + pave",
+      "method": "0.5s｜RLNN-tuned + pave",
       "split": "validation",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -1025,7 +1026,7 @@
       "trainable_params": 3713,
       "cohort_id": "reserve_pave_0.10/pave",
       "run_indices": [
-        82
+        83
       ],
       "seeds": 1,
       "mean_size": 19.56,
@@ -1043,7 +1044,7 @@
       "peak_memory_mib": 23.96533203125
     },
     {
-      "method": "RLNN-tuned + random",
+      "method": "0.5s｜RLNN-tuned + random",
       "split": "validation",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -1055,7 +1056,7 @@
       "trainable_params": 0,
       "cohort_id": "reserve_random_0.02/random",
       "run_indices": [
-        83
+        84
       ],
       "seeds": 1,
       "mean_size": 19.5,
@@ -1073,7 +1074,7 @@
       "peak_memory_mib": 23.96533203125
     },
     {
-      "method": "RLNN-tuned + random",
+      "method": "0.5s｜RLNN-tuned + random",
       "split": "validation",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -1085,7 +1086,7 @@
       "trainable_params": 0,
       "cohort_id": "reserve_random_0.05/random",
       "run_indices": [
-        84
+        85
       ],
       "seeds": 1,
       "mean_size": 19.5,
@@ -1103,7 +1104,7 @@
       "peak_memory_mib": 23.96533203125
     },
     {
-      "method": "RLNN-tuned + random",
+      "method": "0.5s｜RLNN-tuned + random",
       "split": "validation",
       "protocol": "fixed_time",
       "time_budget_s": 0.5,
@@ -1115,7 +1116,7 @@
       "trainable_params": 0,
       "cohort_id": "reserve_random_0.10/random",
       "run_indices": [
-        85
+        86
       ],
       "seeds": 1,
       "mean_size": 19.5,
@@ -1136,7 +1137,7 @@
   "runs": [
     {
       "source": "outputs/v3/budget_original_none_ext_seed0/none",
-      "method": "RLNN-original-h1",
+      "method": "0.5s｜RLNN-original-h1｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -1172,7 +1173,7 @@
     },
     {
       "source": "outputs/v3/budget_original_none_ext_seed1/none",
-      "method": "RLNN-original-h1",
+      "method": "0.5s｜RLNN-original-h1｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 1,
@@ -1208,7 +1209,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_adapted_h1_seed0/pave_adapted",
-      "method": "RLNN-tuned-h1 + pave_adapted",
+      "method": "0.5s｜RLNN-tuned-h1 + pave_adapted",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -1244,7 +1245,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_frequency_h1_seed0/pave_frequency",
-      "method": "RLNN-tuned-h1 + pave_frequency",
+      "method": "0.5s｜RLNN-tuned-h1 + pave_frequency",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -1279,8 +1280,44 @@
       "cohort_id": "budget_tuned_frequency_h1/pave_frequency"
     },
     {
+      "source": "outputs/v3/budget_tuned_frequency_h1_seed1/pave_frequency",
+      "method": "0.5s｜RLNN-tuned-h1 + pave_frequency",
+      "split": "test",
+      "protocol": "fixed_time",
+      "backbone_seed": 1,
+      "head_seed": 1,
+      "search_seed": 1017,
+      "samples": 1000,
+      "mean_size": 19.638,
+      "mean_solve_time_s": 0.44254495060350746,
+      "feasible_rate": 1.0,
+      "params": 186242,
+      "trainable_params": 20737,
+      "peak_memory_mib": 23.9052734375,
+      "time_budget_s": 0.5,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "baseline_run": "outputs/v3/budget_original_none_ext_seed1/none",
+      "rule_reference_run": "outputs/v3/budget_tuned_random_h2_seed1/random",
+      "delta_base": -0.018,
+      "delta_rule": 0.074,
+      "wins": 107,
+      "ties": 765,
+      "losses": 128,
+      "base_gain": 0.112,
+      "rule_gain": 0.042,
+      "search_steps": 96.025,
+      "neutral_decisions": 6.176,
+      "score_time_s": 0.0457866758084856,
+      "post_time_s": 0.08620892550610006,
+      "improving_exchanges": 0.112,
+      "deadline_overruns": 3,
+      "cohort_id": "budget_tuned_frequency_h1/pave_frequency"
+    },
+    {
       "source": "outputs/v3/budget_tuned_message_h1_seed0/pave_message",
-      "method": "RLNN-tuned-h1 + pave_message",
+      "method": "0.5s｜RLNN-tuned-h1 + pave_message",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -1316,7 +1353,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_message_h1_seed1/pave_message",
-      "method": "RLNN-tuned-h1 + pave_message",
+      "method": "0.5s｜RLNN-tuned-h1 + pave_message",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 1,
@@ -1352,7 +1389,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_none_ext_seed0/none",
-      "method": "RLNN-tuned-h1",
+      "method": "0.5s｜RLNN-tuned-h1｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -1388,7 +1425,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_none_ext_seed1/none",
-      "method": "RLNN-tuned-h1",
+      "method": "0.5s｜RLNN-tuned-h1｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 1,
@@ -1424,7 +1461,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_random_h2_seed0/random",
-      "method": "RLNN-tuned-h2 + random",
+      "method": "0.5s｜RLNN-tuned-h2 + random",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -1460,7 +1497,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_random_h2_seed1/random",
-      "method": "RLNN-tuned-h2 + random",
+      "method": "0.5s｜RLNN-tuned-h2 + random",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 1,
@@ -1496,7 +1533,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_rule23_ext_seed0/rule23",
-      "method": "RLNN-tuned-h2 + rule23",
+      "method": "0.5s｜RLNN-tuned-h2 + rule23｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -1532,7 +1569,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_rule23_ext_seed1/rule23",
-      "method": "RLNN-tuned-h2 + rule23",
+      "method": "0.5s｜RLNN-tuned-h2 + rule23｜持续搜索",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 1,
@@ -1568,7 +1605,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_stats_h1_seed0/pave",
-      "method": "RLNN-tuned-h1 + pave",
+      "method": "0.5s｜RLNN-tuned-h1 + pave",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -1604,7 +1641,7 @@
     },
     {
       "source": "outputs/v3/budget_tuned_stats_h1_seed1/pave",
-      "method": "RLNN-tuned-h1 + pave",
+      "method": "0.5s｜RLNN-tuned-h1 + pave",
       "split": "test",
       "protocol": "fixed_time",
       "backbone_seed": 1,
@@ -1640,7 +1677,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed0/coverage",
-      "method": "RLNN-original-h1 + coverage",
+      "method": "固定量｜RLNN-original-h1 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -1676,7 +1713,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed1/coverage",
-      "method": "RLNN-original-h1 + coverage",
+      "method": "固定量｜RLNN-original-h1 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -1712,7 +1749,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed2/coverage",
-      "method": "RLNN-original-h1 + coverage",
+      "method": "固定量｜RLNN-original-h1 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -1748,7 +1785,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed0/degree",
-      "method": "RLNN-original-h1 + degree",
+      "method": "固定量｜RLNN-original-h1 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -1784,7 +1821,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed1/degree",
-      "method": "RLNN-original-h1 + degree",
+      "method": "固定量｜RLNN-original-h1 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -1820,7 +1857,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed2/degree",
-      "method": "RLNN-original-h1 + degree",
+      "method": "固定量｜RLNN-original-h1 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -1856,7 +1893,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed0/none",
-      "method": "RLNN-original-h1",
+      "method": "固定量｜RLNN-original-h1",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -1892,7 +1929,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed1/none",
-      "method": "RLNN-original-h1",
+      "method": "固定量｜RLNN-original-h1",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -1928,7 +1965,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed2/none",
-      "method": "RLNN-original-h1",
+      "method": "固定量｜RLNN-original-h1",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -1964,7 +2001,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed0/pave",
-      "method": "RLNN-original-h1 + pave",
+      "method": "固定量｜RLNN-original-h1 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2000,7 +2037,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed1/pave",
-      "method": "RLNN-original-h1 + pave",
+      "method": "固定量｜RLNN-original-h1 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2036,7 +2073,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed2/pave",
-      "method": "RLNN-original-h1 + pave",
+      "method": "固定量｜RLNN-original-h1 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2072,7 +2109,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed0/random",
-      "method": "RLNN-original-h1 + random",
+      "method": "固定量｜RLNN-original-h1 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2108,7 +2145,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed1/random",
-      "method": "RLNN-original-h1 + random",
+      "method": "固定量｜RLNN-original-h1 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2144,7 +2181,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed2/random",
-      "method": "RLNN-original-h1 + random",
+      "method": "固定量｜RLNN-original-h1 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2180,7 +2217,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed0/rule23",
-      "method": "RLNN-original-h1 + rule23",
+      "method": "固定量｜RLNN-original-h1 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2216,7 +2253,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed1/rule23",
-      "method": "RLNN-original-h1 + rule23",
+      "method": "固定量｜RLNN-original-h1 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2252,7 +2289,7 @@
     },
     {
       "source": "outputs/v3/test_original_h1_seed2/rule23",
-      "method": "RLNN-original-h1 + rule23",
+      "method": "固定量｜RLNN-original-h1 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2288,7 +2325,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/coverage",
-      "method": "RLNN-tuned-h1 + coverage",
+      "method": "固定量｜RLNN-tuned-h1 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2324,7 +2361,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/coverage",
-      "method": "RLNN-tuned-h1 + coverage",
+      "method": "固定量｜RLNN-tuned-h1 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2360,7 +2397,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/coverage",
-      "method": "RLNN-tuned-h1 + coverage",
+      "method": "固定量｜RLNN-tuned-h1 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2396,7 +2433,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/degree",
-      "method": "RLNN-tuned-h1 + degree",
+      "method": "固定量｜RLNN-tuned-h1 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2432,7 +2469,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/degree",
-      "method": "RLNN-tuned-h1 + degree",
+      "method": "固定量｜RLNN-tuned-h1 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2468,7 +2505,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/degree",
-      "method": "RLNN-tuned-h1 + degree",
+      "method": "固定量｜RLNN-tuned-h1 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2504,7 +2541,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/none",
-      "method": "RLNN-tuned-h1",
+      "method": "固定量｜RLNN-tuned-h1",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2540,7 +2577,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/none",
-      "method": "RLNN-tuned-h1",
+      "method": "固定量｜RLNN-tuned-h1",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2576,7 +2613,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/none",
-      "method": "RLNN-tuned-h1",
+      "method": "固定量｜RLNN-tuned-h1",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2612,7 +2649,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/pave",
-      "method": "RLNN-tuned-h1 + pave",
+      "method": "固定量｜RLNN-tuned-h1 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2648,7 +2685,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/pave",
-      "method": "RLNN-tuned-h1 + pave",
+      "method": "固定量｜RLNN-tuned-h1 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2684,7 +2721,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/pave",
-      "method": "RLNN-tuned-h1 + pave",
+      "method": "固定量｜RLNN-tuned-h1 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2720,7 +2757,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/pave_adapted",
-      "method": "RLNN-tuned-h1 + pave_adapted",
+      "method": "固定量｜RLNN-tuned-h1 + pave_adapted",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2756,7 +2793,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/pave_adapted",
-      "method": "RLNN-tuned-h1 + pave_adapted",
+      "method": "固定量｜RLNN-tuned-h1 + pave_adapted",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2792,7 +2829,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/pave_adapted",
-      "method": "RLNN-tuned-h1 + pave_adapted",
+      "method": "固定量｜RLNN-tuned-h1 + pave_adapted",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2828,7 +2865,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/pave_frequency",
-      "method": "RLNN-tuned-h1 + pave_frequency",
+      "method": "固定量｜RLNN-tuned-h1 + pave_frequency",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2864,7 +2901,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/pave_frequency",
-      "method": "RLNN-tuned-h1 + pave_frequency",
+      "method": "固定量｜RLNN-tuned-h1 + pave_frequency",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -2900,7 +2937,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/pave_frequency",
-      "method": "RLNN-tuned-h1 + pave_frequency",
+      "method": "固定量｜RLNN-tuned-h1 + pave_frequency",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -2936,7 +2973,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/pave_message",
-      "method": "RLNN-tuned-h1 + pave_message",
+      "method": "固定量｜RLNN-tuned-h1 + pave_message",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -2972,7 +3009,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/pave_message",
-      "method": "RLNN-tuned-h1 + pave_message",
+      "method": "固定量｜RLNN-tuned-h1 + pave_message",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3008,7 +3045,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/pave_message",
-      "method": "RLNN-tuned-h1 + pave_message",
+      "method": "固定量｜RLNN-tuned-h1 + pave_message",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3044,7 +3081,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/pave_untrained",
-      "method": "RLNN-tuned-h1 + pave_untrained",
+      "method": "固定量｜RLNN-tuned-h1 + pave_untrained",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3080,7 +3117,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/pave_untrained",
-      "method": "RLNN-tuned-h1 + pave_untrained",
+      "method": "固定量｜RLNN-tuned-h1 + pave_untrained",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3116,7 +3153,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/pave_untrained",
-      "method": "RLNN-tuned-h1 + pave_untrained",
+      "method": "固定量｜RLNN-tuned-h1 + pave_untrained",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3152,7 +3189,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/random",
-      "method": "RLNN-tuned-h1 + random",
+      "method": "固定量｜RLNN-tuned-h1 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3188,7 +3225,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/random",
-      "method": "RLNN-tuned-h1 + random",
+      "method": "固定量｜RLNN-tuned-h1 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3224,7 +3261,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/random",
-      "method": "RLNN-tuned-h1 + random",
+      "method": "固定量｜RLNN-tuned-h1 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3260,7 +3297,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed0/rule23",
-      "method": "RLNN-tuned-h1 + rule23",
+      "method": "固定量｜RLNN-tuned-h1 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3296,7 +3333,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed1/rule23",
-      "method": "RLNN-tuned-h1 + rule23",
+      "method": "固定量｜RLNN-tuned-h1 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3332,7 +3369,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h1_seed2/rule23",
-      "method": "RLNN-tuned-h1 + rule23",
+      "method": "固定量｜RLNN-tuned-h1 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3368,7 +3405,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed0/coverage",
-      "method": "RLNN-tuned-h2 + coverage",
+      "method": "固定量｜RLNN-tuned-h2 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3404,7 +3441,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed1/coverage",
-      "method": "RLNN-tuned-h2 + coverage",
+      "method": "固定量｜RLNN-tuned-h2 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3440,7 +3477,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed2/coverage",
-      "method": "RLNN-tuned-h2 + coverage",
+      "method": "固定量｜RLNN-tuned-h2 + coverage",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3476,7 +3513,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed0/degree",
-      "method": "RLNN-tuned-h2 + degree",
+      "method": "固定量｜RLNN-tuned-h2 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3512,7 +3549,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed1/degree",
-      "method": "RLNN-tuned-h2 + degree",
+      "method": "固定量｜RLNN-tuned-h2 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3548,7 +3585,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed2/degree",
-      "method": "RLNN-tuned-h2 + degree",
+      "method": "固定量｜RLNN-tuned-h2 + degree",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3584,7 +3621,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed0/none",
-      "method": "RLNN-tuned-h2",
+      "method": "固定量｜RLNN-tuned-h2",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3620,7 +3657,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed1/none",
-      "method": "RLNN-tuned-h2",
+      "method": "固定量｜RLNN-tuned-h2",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3656,7 +3693,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed2/none",
-      "method": "RLNN-tuned-h2",
+      "method": "固定量｜RLNN-tuned-h2",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3692,7 +3729,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed0/pave",
-      "method": "RLNN-tuned-h2 + pave",
+      "method": "固定量｜RLNN-tuned-h2 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3728,7 +3765,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed1/pave",
-      "method": "RLNN-tuned-h2 + pave",
+      "method": "固定量｜RLNN-tuned-h2 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3764,7 +3801,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed2/pave",
-      "method": "RLNN-tuned-h2 + pave",
+      "method": "固定量｜RLNN-tuned-h2 + pave",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3800,7 +3837,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed0/random",
-      "method": "RLNN-tuned-h2 + random",
+      "method": "固定量｜RLNN-tuned-h2 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3836,7 +3873,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed1/random",
-      "method": "RLNN-tuned-h2 + random",
+      "method": "固定量｜RLNN-tuned-h2 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3872,7 +3909,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed2/random",
-      "method": "RLNN-tuned-h2 + random",
+      "method": "固定量｜RLNN-tuned-h2 + random",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -3908,7 +3945,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed0/rule23",
-      "method": "RLNN-tuned-h2 + rule23",
+      "method": "固定量｜RLNN-tuned-h2 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 0,
@@ -3944,7 +3981,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed1/rule23",
-      "method": "RLNN-tuned-h2 + rule23",
+      "method": "固定量｜RLNN-tuned-h2 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 1,
@@ -3980,7 +4017,7 @@
     },
     {
       "source": "outputs/v3/test_tuned_h2_seed2/rule23",
-      "method": "RLNN-tuned-h2 + rule23",
+      "method": "固定量｜RLNN-tuned-h2 + rule23",
       "split": "test",
       "protocol": "fixed_work",
       "backbone_seed": 2,
@@ -4016,7 +4053,7 @@
     },
     {
       "source": "outputs/v3/reserve_pave_0.02/pave",
-      "method": "RLNN-tuned + pave",
+      "method": "0.5s｜RLNN-tuned + pave",
       "split": "validation",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -4052,7 +4089,7 @@
     },
     {
       "source": "outputs/v3/reserve_pave_0.05/pave",
-      "method": "RLNN-tuned + pave",
+      "method": "0.5s｜RLNN-tuned + pave",
       "split": "validation",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -4088,7 +4125,7 @@
     },
     {
       "source": "outputs/v3/reserve_pave_0.10/pave",
-      "method": "RLNN-tuned + pave",
+      "method": "0.5s｜RLNN-tuned + pave",
       "split": "validation",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -4124,7 +4161,7 @@
     },
     {
       "source": "outputs/v3/reserve_random_0.02/random",
-      "method": "RLNN-tuned + random",
+      "method": "0.5s｜RLNN-tuned + random",
       "split": "validation",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -4160,7 +4197,7 @@
     },
     {
       "source": "outputs/v3/reserve_random_0.05/random",
-      "method": "RLNN-tuned + random",
+      "method": "0.5s｜RLNN-tuned + random",
       "split": "validation",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -4196,7 +4233,7 @@
     },
     {
       "source": "outputs/v3/reserve_random_0.10/random",
-      "method": "RLNN-tuned + random",
+      "method": "0.5s｜RLNN-tuned + random",
       "split": "validation",
       "protocol": "fixed_time",
       "backbone_seed": 0,
@@ -4797,7 +4834,7 @@
       "outputs/v3/analysis",
       "任务",
       "updated_at",
-      "2026-11-08T22:16:55.226696+00:00"
+      "2026-11-08T22:20:40.261648+00:00"
     ],
     [
       "配对分析",
@@ -7742,6 +7779,76 @@
     [
       "配对分析",
       "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "平均Size差",
+      -0.018
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "胜",
+      107
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "平",
+      765
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "负",
+      128
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "累计节点差",
+      -18
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "前500图平均差",
+      -0.048
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "后500图平均差",
+      0.012
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/种子1",
+      "初始Size差",
+      -0.13
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "配对口径",
       "各策略独立搜索，按图与种子配对"
@@ -7751,63 +7858,63 @@
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "图—种子记录数",
-      1000
+      2000
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "平均Size差",
-      0.077
+      0.0295
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "胜",
-      169
+      276
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "平",
-      734
+      1499
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "负",
-      97
+      225
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "累计节点差",
-      77
+      59
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "前500图平均差",
-      0.15
+      0.051
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "后500图平均差",
-      0.004
+      0.008
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_original_none_ext/none/已完成种子合并",
       "初始Size差",
-      -0.02
+      -0.075
     ],
     [
       "配对分析",
@@ -7882,6 +7989,76 @@
     [
       "配对分析",
       "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "平均Size差",
+      0.018
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "胜",
+      38
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "平",
+      938
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "负",
+      24
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "累计节点差",
+      18
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "前500图平均差",
+      -0.01
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "后500图平均差",
+      0.046
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/种子1",
+      "初始Size差",
+      0.019
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
       "配对口径",
       "各策略独立搜索，按图与种子配对"
@@ -7891,67 +8068,67 @@
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
       "图—种子记录数",
-      1000
+      2000
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
       "平均Size差",
-      0.001
+      0.0095
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
       "胜",
-      21
+      59
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
       "平",
-      959
+      1897
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
       "负",
-      20
+      44
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
       "累计节点差",
-      1
+      19
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
       "前500图平均差",
-      0.006
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
-      "后500图平均差",
-      -0.004
-    ],
-    [
-      "配对分析",
-      "outputs/v3/analysis",
-      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
-      "初始Size差",
       -0.002
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
+      "后500图平均差",
+      0.021
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_message_h1/pave_message/已完成种子合并",
+      "初始Size差",
+      0.0085
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子0",
       "配对口径",
       "各策略独立搜索，按图与种子配对"
@@ -8022,6 +8199,76 @@
     [
       "配对分析",
       "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "平均Size差",
+      0.074
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "胜",
+      93
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "平",
+      882
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "负",
+      25
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "累计节点差",
+      74
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "前500图平均差",
+      0.126
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "后500图平均差",
+      0.022
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/种子1",
+      "初始Size差",
+      0.072
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "配对口径",
       "各策略独立搜索，按图与种子配对"
@@ -8031,63 +8278,63 @@
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "图—种子记录数",
-      1000
+      2000
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "平均Size差",
-      0.033
+      0.0535
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "胜",
-      58
+      151
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "平",
-      916
+      1798
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "负",
-      26
+      51
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "累计节点差",
-      33
+      107
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "前500图平均差",
-      0.056
+      0.091
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "后500图平均差",
-      0.01
+      0.016
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_random_h2/random/已完成种子合并",
       "初始Size差",
-      0.015
+      0.0435
     ],
     [
       "配对分析",
@@ -8162,6 +8409,76 @@
     [
       "配对分析",
       "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "配对口径",
+      "各策略独立搜索，按图与种子配对"
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "图—种子记录数",
+      1000
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "平均Size差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "胜",
+      27
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "平",
+      947
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "负",
+      26
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "累计节点差",
+      0
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "前500图平均差",
+      0.002
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "后500图平均差",
+      -0.002
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
+      "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/种子1",
+      "初始Size差",
+      0.003
+    ],
+    [
+      "配对分析",
+      "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "配对口径",
       "各策略独立搜索，按图与种子配对"
@@ -8171,35 +8488,35 @@
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "图—种子记录数",
-      1000
+      2000
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "平均Size差",
-      -0.032
+      -0.016
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "胜",
-      15
+      42
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "平",
-      939
+      1886
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "负",
-      46
+      72
     ],
     [
       "配对分析",
@@ -8213,21 +8530,21 @@
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "前500图平均差",
-      -0.028
+      -0.013
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "后500图平均差",
-      -0.036
+      -0.019
     ],
     [
       "配对分析",
       "outputs/v3/analysis",
       "固定时间配对/budget_tuned_frequency_h1/pave_frequency − budget_tuned_stats_h1/pave/已完成种子合并",
       "初始Size差",
-      -0.012
+      -0.0045
     ],
     [
       "配对分析",
