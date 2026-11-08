@@ -1,4 +1,6 @@
 left_group,right_group,left,right,seed,pairing,graph_seed_records,delta_size,wins,ties,losses,total_gain,same_final_nodes,left_only_platform_gain,right_only_platform_gain,both_platform_gain,group1_delta,group2_delta,delta_histogram,initial_size_delta,same_initial_size,post_gain_difference
+budget_tuned_none_ext,budget_original_none_ext,none,none,0,independent_search,1000,0.035,159,715,126,35,52,0,0,0,0.174,-0.104,"{""-2"": 4, ""-1"": 122, ""0"": 715, ""1"": 153, ""2"": 6}",0.035,715,0
+budget_tuned_none_ext,budget_original_none_ext,none,none,all,independent_search,1000,0.035,159,715,126,35,52,0,0,0,0.174,-0.104,"{""-2"": 4, ""-1"": 122, ""0"": 715, ""1"": 153, ""2"": 6}",0.035,715,0
 test_original_h1,test_original_h1,coverage,none,0,shared_initial,1000,0.065,63,937,0,65,937,6,0,0,0.062,0.068,"{""0"": 937, ""1"": 61, ""2"": 2}",0,1000,0.065
 test_original_h1,test_original_h1,coverage,none,1,shared_initial,1000,0.071,70,930,0,71,930,10,0,0,0.064,0.078,"{""0"": 930, ""1"": 69, ""2"": 1}",0,1000,0.071
 test_original_h1,test_original_h1,coverage,none,2,shared_initial,1000,0.07,67,933,0,70,933,7,0,0,0.088,0.052,"{""0"": 933, ""1"": 64, ""2"": 3}",0,1000,0.07
