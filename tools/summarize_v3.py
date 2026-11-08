@@ -10,7 +10,8 @@ from statistics import mean, stdev
 
 ROOT = Path(__file__).resolve().parents[1]
 KINDS = {"opportunities": "动作普查", "labels": "标签采集", "starts": "起始解生成",
-         "value_train": "排序训练", "decision": "训练准入", "validation_platform": "完整平台验证"}
+         "value_train": "排序训练", "decision": "训练准入", "validation_platform": "完整平台验证",
+         "paired_analysis": "配对分析"}
 VARIANTS = {"D0_fallback": "D0 严格交换后备", "D1_union": "D1 严格交换联合",
             "D2_neutral_h1": "D2 中性动作 H=1", "D3_neutral_h2": "D3 中性动作 H=2",
             "D4_anchored_h2": "D4 固定插入点 H=2", "labels_h1": "部署状态 H=1",
