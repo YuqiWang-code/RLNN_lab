@@ -19,6 +19,10 @@ GRACE	图频率	图频率/GRACE.pdf	https://arxiv.org/pdf/2510.12140	https://git
 COPT-MT	神经组合优化	神经组合优化/COPT-MT.pdf	https://arxiv.org/pdf/2603.02462|https://raw.githubusercontent.com/mlresearch/v306/main/assets/canturk26a/canturk26a.pdf	https://github.com/semihcanturk/COPT-MT	GCON 任务迁移
 GCON	神经组合优化	神经组合优化/GCON.pdf	https://arxiv.org/pdf/2405.20543	https://github.com/WenkelF/copt	同测试集，多滤波器基线
 WaveGC	图频率	图频率/WaveGC.pdf	https://raw.githubusercontent.com/mlresearch/v267/main/assets/liu25y/liu25y.pdf	https://github.com/liun-online/WaveGC	多尺度谱小波参考
+SLOG	图频率	图频率/SLOG.pdf	https://raw.githubusercontent.com/mlresearch/v235/main/assets/xu24aa/xu24aa.pdf	https://github.com/Hsu1023/SLOG	ICML 2024；局部谱滤波与归纳泛化参考
+S2GNN	图频率	图频率/S2GNN.pdf	https://arxiv.org/pdf/2405.19121	https://github.com/sigeisler/s2gnn	NeurIPS 2024；作者 arXiv 版；空间与谱域联合传播
+Spectral-benchmark	图频率	图频率/Spectral-benchmark.pdf	https://arxiv.org/pdf/2412.07188	https://github.com/yushundong/Spectral-benchmark	ICLR 2025；本地为 arXiv 预印本；实际频谱行为诊断
+MORGAN	图频率	图频率/MORGAN.pdf	https://ojs.aaai.org/index.php/AAAI/article/download/39553/43514	https://github.com/lihuiliullh/Morgan	AAAI 2026；谱频段专家与局部谱分解参考
 PolyGCL	图频率	图频率/PolyGCL.pdf	https://proceedings.iclr.cc/paper_files/paper/2024/file/6faf3b8ed0df532c14d0fc009e451b6d-Paper-Conference.pdf|https://openreview.net/pdf?id=y21ZO6M86t	https://github.com/ChenJY-Count/PolyGCL	低通高通对照参考
 LOHA	图频率	图频率/LOHA.pdf	https://arxiv.org/pdf/2501.02969		图谱对比
 HeroFilter	图频率	图频率/HeroFilter.pdf	https://proceedings.neurips.cc/paper_files/paper/2025/file/5d570ed1708bbe19cb60f7a7aff60575-Paper-Conference.pdf	https://github.com/zshuai8/HeroFilter	异配图自适应谱滤波

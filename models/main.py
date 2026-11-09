@@ -5,6 +5,7 @@ import os
 import random
 from solvers import *
 from mis_v2_frequency import SEGF_MODES
+from mis_v4_frequency import V4_MODES
 from pathlib import Path
 
 def set_seed(seed):
@@ -39,9 +40,9 @@ def build_parser():
     parser.add_argument("--num_kp", type=int, default=10, help='number of particles')
     parser.add_argument("--num_l", type=int, default=1000, help='number of layers')
     parser.add_argument("--num_h", type=int, default=100, help='hidden dimension')
-    parser.add_argument("--frequency", choices=("none", "stats", "low", "high", "fixed", "local", "dynamic") + SEGF_MODES,
+    parser.add_argument("--frequency", choices=("none", "stats", "low", "high", "fixed", "local", "dynamic") + SEGF_MODES + V4_MODES,
                         default="none", help="MIS state encoder and frequency fusion")
-    parser.add_argument("--warm_start", help="original RLNN best.pt used to initialize a v2 fine-tune")
+    parser.add_argument("--warm_start", help="original RLNN best.pt used to initialize a residual-adapter fine-tune")
     parser.add_argument("--freeze_backbone_epochs", type=int, default=0)
     parser.add_argument("--finetune_lr", type=float)
     parser.add_argument("--validation_seed", type=int, help="use paired seeded A.3 MIS validation")

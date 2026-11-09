@@ -8,6 +8,7 @@ from torch.optim import AdamW, Adam
 from models import GCN, MLP, edge2adj
 from mis_v1 import MISStateGCN, adjacency, search
 from mis_v2_frequency import SEGF, SEGF_MODES, frequency_topology
+from mis_v4_frequency import V4FrequencyGCN, V4_MODES, v4_topology
 from torch_scatter import scatter_min, scatter_max, scatter_add
 from torch_geometric.utils import add_remaining_self_loops
 from accelerate import Accelerator
@@ -231,10 +232,11 @@ class RLNN(MetaSolver):
         
         self.frequency = getattr(args, 'frequency', 'none')
         self.segf = self.frequency in SEGF_MODES
+        self.v4_frequency = self.frequency in V4_MODES
         if self.frequency != 'none':
             if args.problem != 'mis':
                 raise ValueError('State frequency encoders require MIS')
-            model_type = SEGF if self.segf else MISStateGCN
+            model_type = V4FrequencyGCN if self.v4_frequency else (SEGF if self.segf else MISStateGCN)
             self.model = model_type(args.num_h, args.num_l, args.beta, self.frequency)
         else:
             self.model = GCN(1, args.num_h, args.num_l, 1)
@@ -247,7 +249,7 @@ class RLNN(MetaSolver):
         if args.do_train:
             if warm_start and not args.resume:
                 weights = torch.load(warm_start, map_location='cpu', weights_only=True)
-                missing, extra = self.model.load_state_dict(weights, strict=not self.segf)
+                missing, extra = self.model.load_state_dict(weights, strict=not (self.segf or self.v4_frequency))
                 if extra or any(not key.startswith('adapter.') for key in missing):
                     raise ValueError('Warm start must contain the original RLNN backbone')
             self.optimizer = Adam(self.model.parameters(), lr=args.lr)
@@ -320,7 +322,7 @@ class RLNN(MetaSolver):
 
                 for graph in graphs:
                     A = adjacency(graph)
-                    normalized = edge2adj(graph.edge_index, graph.num_nodes)
+                    normalized = self.policy_topology(graph, A)
                     inputs = self.generate_data(graph, A, normalized)
                     num_samples = inputs.shape[1]
 
@@ -427,6 +429,8 @@ class RLNN(MetaSolver):
             self.save_training_state(save_dir, epoch+1, best_eval, logger, history)
 
     def policy_topology(self, graph, adj):
+        if self.v4_frequency:
+            return v4_topology(graph.edge_index, adj, graph.num_nodes)
         if self.segf:
             return frequency_topology(graph.edge_index, adj, graph.num_nodes)
         return edge2adj(graph.edge_index, graph.num_nodes)

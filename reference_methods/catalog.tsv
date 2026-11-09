@@ -19,6 +19,10 @@ GRACE	图频率	KEAML-JLU/GRACE	https://arxiv.org/pdf/2510.12140	低高频动态
 COPT-MT	神经组合优化	semihcanturk/COPT-MT	https://arxiv.org/pdf/2603.02462|https://raw.githubusercontent.com/mlresearch/v306/main/assets/canturk26a/canturk26a.pdf	GCON 任务迁移
 GCON	神经组合优化	WenkelF/copt	https://arxiv.org/pdf/2405.20543	同测试集，多滤波器基线
 WaveGC	图频率	liun-online/WaveGC	https://raw.githubusercontent.com/mlresearch/v267/main/assets/liu25y/liu25y.pdf	多尺度谱小波参考
+SLOG	图频率	Hsu1023/SLOG	https://raw.githubusercontent.com/mlresearch/v235/main/assets/xu24aa/xu24aa.pdf	ICML 2024；局部谱滤波与归纳泛化参考
+S2GNN	图频率	sigeisler/s2gnn	https://proceedings.neurips.cc/paper_files/paper/2024/file/580c4ec4738ff61d5862a122cdf139b6-Paper-Conference.pdf|https://arxiv.org/pdf/2405.19121	NeurIPS 2024；空间与谱域联合传播参考
+Spectral-benchmark	图频率	yushundong/Spectral-benchmark	https://proceedings.iclr.cc/paper_files/paper/2025/file/a36c3dbe676fa8445715a31a90c66ab3-Paper-Conference.pdf|https://arxiv.org/pdf/2412.07188	ICLR 2025；实际频谱行为诊断参考
+MORGAN	图频率	lihuiliullh/Morgan	https://ojs.aaai.org/index.php/AAAI/article/download/39553/43514	AAAI 2026；谱频段专家与局部谱分解参考
 PolyGCL	图频率	ChenJY-Count/PolyGCL	https://proceedings.iclr.cc/paper_files/paper/2024/file/6faf3b8ed0df532c14d0fc009e451b6d-Paper-Conference.pdf|https://openreview.net/pdf?id=y21ZO6M86t	低通高通对照参考
 LOHA	图频率		https://arxiv.org/pdf/2501.02969	图谱对比
 HeroFilter	图频率	zshuai8/HeroFilter	https://proceedings.neurips.cc/paper_files/paper/2025/file/5d570ed1708bbe19cb60f7a7aff60575-Paper-Conference.pdf	异配图自适应谱滤波
