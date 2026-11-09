@@ -33,7 +33,7 @@ def configure(args):
         raise ValueError("v4 uses the original H1 action space")
     if args.time_budget_s is not None and args.time_budget_s != 0.5:
         raise ValueError("The v4 fixed-time budget is 0.5 seconds")
-    if args.post_reserve_s != 0.05:
+    if 'pave' in args.post and args.post_reserve_s != 0.05:
         raise ValueError("The frozen PAVE reserve is 0.05 seconds")
     seed = args.train_seed if args.backbone_seed is None else args.backbone_seed
     checkpoint = ROOT / f"outputs/v3/stats_h1_seed{seed}/checkpoints/best.pt"
