@@ -5,17 +5,19 @@ while [[ ! -f "$OUT/queue/budget.done.txt" ]]; do sleep 10; done
 
 CUDA_VISIBLE_DEVICES=0 bash train_scripts/v5_frequency/profile.sh > "$OUT/queue/profile.log" 2>&1 &
 profile=$!
-(
-  for seed in 0 1 2; do
+diagnostics=()
+for seed in 0 1 2; do
+  (
     CUDA_VISIBLE_DEVICES=1 SEED="$seed" bash train_scripts/v5_frequency/diagnose.sh --utility
     CUDA_VISIBLE_DEVICES=1 SEED="$seed" SPLIT=validation SAMPLES=100 bash train_scripts/v5_frequency/diagnose.sh
-  done
-  CUDA_VISIBLE_DEVICES=1 SPLIT=validation SAMPLES=20 PRECISION=fp16 \
-    bash train_scripts/v5_frequency/diagnose.sh --repeat-graphs 20
-) > "$OUT/queue/diagnose.log" 2>&1 &
-diagnostic=$!
+  ) > "$OUT/queue/diagnose_seed$seed.log" 2>&1 &
+  diagnostics+=("$!")
+done
+CUDA_VISIBLE_DEVICES=1 SPLIT=validation SAMPLES=20 PRECISION=fp16 \
+  bash train_scripts/v5_frequency/diagnose.sh --repeat-graphs 20 > "$OUT/queue/diagnose_fp16.log" 2>&1 &
+diagnostics+=("$!")
 wait "$profile"
-wait "$diagnostic"
+for pid in "${diagnostics[@]}"; do wait "$pid"; done
 
 quality="$("$PYTHON" -c 'import json,sys; print(int(json.load(open(sys.argv[1]))["quality_pass"]))' "$OUT/analysis/decision.json")"
 if [[ "$quality" == 0 ]]; then

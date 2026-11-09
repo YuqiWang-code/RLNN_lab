@@ -52,6 +52,9 @@ def run(args):
     dtype = torch.float16 if args.precision == "fp16" else torch.float32
     arms = ("baseline", "v5a") if args.initial else ARMS
     models = {arm: load(arm, args.seed, device, args.initial) for arm in arms}
+    variants = dict(models)
+    if not args.initial:
+        variants["same_backbone"] = models["v5a"]
     dataset = dataset_at(TRAIN if args.split == "train" else VALID, dtype, args.samples)
     problem = Problem(1.02)
     head_path = ROOT / f"outputs/v3/stats_h1_seed{args.seed}/checkpoints/best.pt"
@@ -69,8 +72,11 @@ def run(args):
         topo = v5_topology(graph.edge_index, adj, graph.num_nodes)
         initial, uniforms, terminal = shared_noise(graph.num_nodes, 20, 100, device, dtype, graph_seed)
         results = {}
-        for arm, model in models.items():
+        for arm, model in variants.items():
             def forward(x):
+                if arm == "same_backbone":
+                    with torch.autocast("cuda", dtype=torch.float16, enabled=args.precision == "fp16"):
+                        return model.backbone_logits(x, graph.edge_index, topo).float()
                 return score(model, x, graph.edge_index, adj, topo, args.precision)
             result = replay(problem, adj, graph.b, initial, uniforms, forward, capture=True)
             results[arm] = result
@@ -94,6 +100,9 @@ def run(args):
             teacher_x = results["baseline"]["states"][step][:, :4]
             scores = {arm: score(model, teacher_x, graph.edge_index, adj, topo, args.precision)
                       for arm, model in models.items()}
+            if not args.initial:
+                with torch.autocast("cuda", dtype=torch.float16, enabled=args.precision == "fp16"):
+                    scores["same_backbone"] = models["v5a"].backbone_logits(teacher_x, graph.edge_index, topo).float()
             scores["full"] = scores.pop("v5a")
             noise = (uniforms[step] if step < 100 else terminal)[:, :4]
             counts = topo.binary @ teacher_x.float()
@@ -144,7 +153,7 @@ def run(args):
     write_run(args.output, dict(status="completed", split=args.split, seed=args.seed, precision=args.precision,
         initial=args.initial, samples=len(dataset), K=20, T=100, search_seed=1017,
         graph_ids=[Path(p).stem for p in dataset.files], params={k: sum(p.numel() for p in m.parameters()) for k,m in models.items()},
-        base_sizes={arm: mean(row["base_size"] for row in rows["replay"] if row["arm"] == arm) for arm in arms},
+        base_sizes={arm: mean(row["base_size"] for row in rows["replay"] if row["arm"] == arm) for arm in variants},
         checkpoints={arm: str(weights(arm, args.seed, args.initial)) for arm in arms},
         pave_checkpoint=str(head_path) if ranker is not None else None))
 

@@ -1,0 +1,10 @@
+{
+  "validation": "100 held-out validation graphs used for checkpoint selection",
+  "training_seeds": [0, 1, 2],
+  "primary": "FP32 K20/T100 A.3, no PAVE",
+  "quality_gate": "Positive mean against B, MLP and MSG with at least two positive seeds and paired 95% interval above zero. Also report B+FT and analytic energy.",
+  "budget_gate": "At 0.5 s, at least B+PAVE and MLP+PAVE. Report extended B+PAVE and rule23 at 0.5/1.0 s.",
+  "fallback": "If the primary gate fails, compare seed0 conflict-mask replacement of occupancy for DAFR, MSG and MLP with identical training.",
+  "analytic_grid": [0, 0.0625, 0.125, 0.25],
+  "analytic_selection": "Best FP32 A.3 mean on first 20 training graphs per seed, smaller coefficient breaks ties"
+}

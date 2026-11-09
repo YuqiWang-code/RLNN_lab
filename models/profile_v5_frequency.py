@@ -39,7 +39,7 @@ def profile(args):
         graph = cpu_graph.to(device)
         adj = adjacency(graph)
         topo = v5_topology(graph.edge_index, adj, graph.num_nodes)
-        x, uniforms, _ = shared_noise(graph.num_nodes, 20, 100, device, graph.b.dtype, seed)
+        x, _, _ = shared_noise(graph.num_nodes, 20, 1, device, graph.b.dtype, seed)
         for repeat in range(args.repeats):
             for arm in ARMS[repeat % len(ARMS):] + ARMS[:repeat % len(ARMS)]:
                 policy = policies[arm]
@@ -62,8 +62,13 @@ def profile(args):
         for arm, policy in policies.items():
             model = policy.accelerator.unwrap_model(policy.model)
             logits = policy.flip_logits(x, graph, adj, policy.policy_topology(graph, adj))
-            state = torch.where(uniforms[0] < logits.sigmoid(), 1-x, x)
+            initial_energy = policy.problem.energy_func(adj, graph.b, x)[0]
             incumbent, _ = search(policy, graph, legal, seed)
+
+            def update_archive():
+                state = torch.where(torch.rand_like(x) < logits.sigmoid(), 1-x, x)
+                energy = policy.problem.energy_func(adj, graph.b, state)[0]
+                return torch.where((energy < initial_energy)[None], state, x)
 
             def base():
                 with torch.autocast("cuda", dtype=torch.float16):
@@ -71,9 +76,7 @@ def profile(args):
 
             jobs = {
                 "gcn_logits": (base, 100),
-                "energy_archive_step": (lambda: torch.where(
-                    (policy.problem.energy_func(adj, graph.b, state)[0] < policy.problem.energy_func(adj, graph.b, x)[0])[None],
-                    state, x), 100),
+                "bernoulli_energy_archive": (update_archive, 100),
                 "a3": (lambda: best_decoded(policy.problem, x, adj, graph.b), 1),
                 "pave": (lambda: platform_search(legal, incumbent, choose=ranker.choose, horizon=1), 1),
                 "policy_topology": (lambda: policy.policy_topology(graph, adj), 1),

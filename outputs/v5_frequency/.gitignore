@@ -1,0 +1,7 @@
+queue/
+diagnosis_p1/*/stage_spectra.csv
+diagnosis_p1/*/node_groups.csv
+diagnosis_p1/*/replay_curves.csv
+diagnostics_*/stage_spectra.csv
+diagnostics_*/node_groups.csv
+diagnostics_*/replay_curves.csv

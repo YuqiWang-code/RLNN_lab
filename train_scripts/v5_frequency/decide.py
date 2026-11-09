@@ -21,7 +21,7 @@ def write(path, records):
 
 
 def load(root):
-    runs, graphs = [], {}
+    runs, graphs, latency = [], {}, {}
     for path in sorted(root.glob("eval_*/*/run.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
         if record["status"] != "completed" or record["split"] != "validation":
@@ -31,10 +31,12 @@ def load(root):
                cfg.get("time_budget_s"), record["method"])
         seed = record["train_seed"]
         with path.with_name("per_graph.csv").open(encoding="utf-8", newline="") as stream:
-            rows = {row["graph_id"]: int(row["final_size"]) for row in csv.DictReader(stream)}
+            measurements = list(csv.DictReader(stream))
+        rows = {row["graph_id"]: int(row["final_size"]) for row in measurements}
         if len(rows) != record["samples"] or (key, seed) in graphs:
             raise ValueError(f"Duplicate or incomplete evaluation: {path}")
         graphs[key, seed] = rows
+        latency.setdefault(key, []).extend(float(row["solve_time_s"]) for row in measurements)
         runs.append(dict(protocol=key[0], precision=key[1], post=key[2], budget_s=key[3],
                          method=key[4], seed=seed, graphs=len(rows), mean_size=record["mean_size"],
                          mean_solve_s=record["mean_solve_time_s"], p95_s=record["p95_time_s"],
@@ -42,7 +44,7 @@ def load(root):
                          peak_memory_mib=record["peak_memory_mib"], mean_steps=record["mean_search_steps"],
                          mean_post_s=record["mean_post_time_s"], deadline_overruns=record["deadline_overruns"],
                          max_overrun_s=record["max_deadline_overrun_s"]))
-    return runs, graphs
+    return runs, graphs, latency
 
 
 def compare(graphs, context, candidate, control):
@@ -72,20 +74,24 @@ def main():
     parser.add_argument("--root", type=Path, default=OUT)
     args = parser.parse_args()
     root = args.root
-    runs, graphs = load(root)
+    runs, graphs, latency = load(root)
     out = root / "analysis"
     out.mkdir(parents=True, exist_ok=True)
     cohorts = {}
     for run in runs:
         key = tuple(run[k] for k in ("protocol", "precision", "post", "budget_s", "method"))
+        reference = graphs.get((key[:4] + ("baseline",), run["seed"]))
+        run["delta_baseline"] = (run["mean_size"] - mean(reference.values())) if reference else None
         cohorts.setdefault(key, []).append(run)
     summary = []
     for key, group in cohorts.items():
         sizes = [row["mean_size"] for row in group]
         summary.append(dict(zip(("protocol", "precision", "post", "budget_s", "method"), key),
                             seed_count=len(group), mean_size=mean(sizes), size_seed_sd=stdev(sizes) if len(sizes) > 1 else None,
+                            delta_baseline=mean(row["delta_baseline"] for row in group) if group[0]["delta_baseline"] is not None else None,
                             **{name: mean(row[name] for row in group) for name in
-                               ("mean_solve_s", "p95_s", "feasible_rate", "params", "mean_steps", "mean_post_s")},
+                               ("mean_solve_s", "feasible_rate", "params", "mean_steps", "mean_post_s")},
+                            p95_s=float(np.quantile(latency[key], .95)),
                             peak_memory_mib=max(row["peak_memory_mib"] for row in group),
                             deadline_overruns=sum(row["deadline_overruns"] for row in group),
                             max_overrun_s=max(row["max_overrun_s"] for row in group)))

@@ -1,0 +1,7 @@
+graph_id,seed,arm,precision,size_delta,changed_phases
+graph_000000,0,baseline,fp32,0,0
+graph_000000,0,v5a,fp32,0,0
+graph_000001,0,baseline,fp32,0,0
+graph_000001,0,v5a,fp32,0,0
+graph_000002,0,baseline,fp32,0,0
+graph_000002,0,v5a,fp32,0,0

@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "device": "cuda",
+  "params": {
+    "v5a": 165617,
+    "v5a_mlp": 165617,
+    "v5a_message": 165617,
+    "v5a_low": 165617,
+    "v5a_high": 165617,
+    "v5a_fixed": 165617,
+    "v5a_noenergy": 165617,
+    "v5a_conflict": 165617,
+    "v5a_mlp_conflict": 165617,
+    "v5a_message_conflict": 165617
+  },
+  "adapter_params": 112,
+  "learned_projection_gradients_after_first_update": true
+}

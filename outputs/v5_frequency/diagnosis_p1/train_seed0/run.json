@@ -1,0 +1,46 @@
+{
+  "status": "completed",
+  "split": "train",
+  "seed": 0,
+  "precision": "fp32",
+  "initial": true,
+  "samples": 20,
+  "K": 20,
+  "T": 100,
+  "search_seed": 1017,
+  "graph_ids": [
+    "graph_000000",
+    "graph_000001",
+    "graph_000002",
+    "graph_000003",
+    "graph_000004",
+    "graph_000005",
+    "graph_000006",
+    "graph_000007",
+    "graph_000008",
+    "graph_000009",
+    "graph_000010",
+    "graph_000011",
+    "graph_000012",
+    "graph_000013",
+    "graph_000014",
+    "graph_000015",
+    "graph_000016",
+    "graph_000017",
+    "graph_000018",
+    "graph_000019"
+  ],
+  "params": {
+    "baseline": 165505,
+    "v5a": 165617
+  },
+  "base_sizes": {
+    "baseline": 19.2,
+    "v5a": 19.2
+  },
+  "checkpoints": {
+    "baseline": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+    "v5a": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt"
+  },
+  "pave_checkpoint": null
+}
