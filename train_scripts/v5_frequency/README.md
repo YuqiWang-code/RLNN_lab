@@ -14,7 +14,7 @@ DAFR-Lite 在 RLNN 的最终翻转 logits 上添加 112 参数的标量适配器
 | `diagnose.sh` | 共享随机数回放，`--initial` 选择零启动，`--utility` 选择训练图 R8 收益探针 |
 | `profile.sh` | 空闲单卡上测 20 图 × 5 次，分别保存真实总时间和组件微基准 |
 | `validate.sh` | 等待训练和预诊断完成，两卡各一条评测序列 |
-| `followup.sh` | 预算评测结束后做诊断、剖析和一次预注册的冲突掩码对照 |
+| `followup.sh` | GPU 1 运行诊断和触发的冲突掩码训练，GPU 0 在预算评测后做剖析和固定步数验收 |
 
 解析对照使用 `eval.sh baseline --calibrate-analytic`。每个种子在首 20 张训练图上比较 0、0.0625、0.125、0.25 四个系数，Size 相同取更小系数。生成的 `calibration_seedN/run.json` 供 `eval.sh analytic` 使用。
 

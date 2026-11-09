@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from summarize_frequency_followup import aggregate
+from summarize_frequency_followup import aggregate, paired
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +39,16 @@ def summarize(name, keys, metrics, *, late=False):
 
 def main():
     summarize("replay", ["arm"], ["base_size", "final_size", "pave_gain", "best_conflicts_mean", "feasible"])
+    replay = tables("replay")
+    effects = []
+    if not replay.empty:
+        for control in ("baseline", "same_backbone", "v5a_message", "v5a_mlp"):
+            for metric in ("base_size", "final_size"):
+                summary, _ = paired(replay, ["initial", "split", "precision"], "arm", control, metric)
+                if not summary.empty:
+                    effects.append(summary[summary.method == "v5a"])
+    if effects:
+        pd.concat(effects, ignore_index=True).to_csv(OUT / "analysis" / "diagnostic_replay_effects.csv", index=False)
     summarize("stage_spectra", ["arm", "trajectory", "signal"],
               ["stationary_fraction", "raw_higher_fraction", "centered_higher_fraction", "total_energy",
                "centered_spectral_centroid"], late=True)

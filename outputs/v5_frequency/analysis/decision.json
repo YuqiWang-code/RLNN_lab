@@ -1,0 +1,68 @@
+{
+  "decision": "fixed_work_complete",
+  "quality_pass": false,
+  "budget_complete": false,
+  "budget_pass": false,
+  "all_feasible": true,
+  "quality": [
+    {
+      "protocol": "fixed_work",
+      "precision": "no",
+      "post": "none",
+      "budget_s": null,
+      "candidate": "v5a",
+      "control": "baseline",
+      "seed_count": 3,
+      "graph_count": 100,
+      "mean_delta": 0.043333333333333335,
+      "ci_low": -0.019999999999999997,
+      "ci_high": 0.10666666666666666,
+      "positive_seeds": 3,
+      "seed_deltas": "{\"0\": 0.05, \"1\": 0.04, \"2\": 0.04}",
+      "wins": 44,
+      "ties": 222,
+      "losses": 34
+    },
+    {
+      "protocol": "fixed_work",
+      "precision": "no",
+      "post": "none",
+      "budget_s": null,
+      "candidate": "v5a",
+      "control": "v5a_mlp",
+      "seed_count": 3,
+      "graph_count": 100,
+      "mean_delta": -0.006666666666666667,
+      "ci_low": -0.026666666666666665,
+      "ci_high": 0.013333333333333332,
+      "positive_seeds": 0,
+      "seed_deltas": "{\"0\": -0.02, \"1\": 0.0, \"2\": 0.0}",
+      "wins": 3,
+      "ties": 292,
+      "losses": 5
+    },
+    {
+      "protocol": "fixed_work",
+      "precision": "no",
+      "post": "none",
+      "budget_s": null,
+      "candidate": "v5a",
+      "control": "v5a_message",
+      "seed_count": 3,
+      "graph_count": 100,
+      "mean_delta": -0.0033333333333333335,
+      "ci_low": -0.04666666666666666,
+      "ci_high": 0.039999999999999994,
+      "positive_seeds": 0,
+      "seed_deltas": "{\"0\": -0.01, \"1\": 0.0, \"2\": 0.0}",
+      "wins": 18,
+      "ties": 261,
+      "losses": 21
+    }
+  ],
+  "budget": [
+    null,
+    null
+  ],
+  "runs": 54
+}
