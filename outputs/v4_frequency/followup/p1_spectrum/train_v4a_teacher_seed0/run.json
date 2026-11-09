@@ -1,0 +1,102 @@
+{
+  "version": "v4_frequency_followup",
+  "task": "p1_spectrum",
+  "status": "completed",
+  "seed": 0,
+  "config": {
+    "split": "train",
+    "graphs": 20,
+    "data_path": null,
+    "seed": 0,
+    "search_seed": 1017,
+    "models": [
+      "v4a"
+    ],
+    "trajectory": "teacher",
+    "particles": 4,
+    "phases": [
+      0,
+      10,
+      25,
+      50,
+      75,
+      100
+    ],
+    "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+    "teacher_checkpoint": null,
+    "device": "cuda",
+    "cpu_threads": 1,
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/train_v4a_teacher_seed0"
+  },
+  "models": [
+    "v4a"
+  ],
+  "graph_ids": [
+    "graph_000000",
+    "graph_000001",
+    "graph_000002",
+    "graph_000003",
+    "graph_000004",
+    "graph_000005",
+    "graph_000006",
+    "graph_000007",
+    "graph_000008",
+    "graph_000009",
+    "graph_000010",
+    "graph_000011",
+    "graph_000012",
+    "graph_000013",
+    "graph_000014",
+    "graph_000015",
+    "graph_000016",
+    "graph_000017",
+    "graph_000018",
+    "graph_000019"
+  ],
+  "split": "train",
+  "role": "exploratory",
+  "dtype": "float32",
+  "spectral_dtype": "float64_cpu",
+  "state_source": "teacher",
+  "actual_K": 20,
+  "actual_T": 100,
+  "diagnostic_particles": 4,
+  "phases": [
+    0,
+    10,
+    25,
+    50,
+    75,
+    100
+  ],
+  "checkpoints": {
+    "v4a": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_seed0/checkpoints/best.pt",
+    "teacher": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt"
+  },
+  "postprocess": "none",
+  "variants": [
+    "full",
+    "high_no_bias0",
+    "high_no_bias2"
+  ],
+  "band_boundaries": [
+    0,
+    0.5,
+    1,
+    1.5,
+    2
+  ],
+  "band_boundary_tolerance": 1e-10,
+  "stationary_eigenvalue_epsilon": 1e-07,
+  "centered_relative_energy_floor": 1e-12,
+  "spectral_definition": "L_sym projection of sqrt(max(degree,1))*signal; remove entire zero eigenspace",
+  "constant_definition": "node_constant: unweighted global node mean; weighted_global_constant: degree-weighted global node mean",
+  "randomness": "Same x0 and 100 pre-generated per-step N×20 FP32 uniforms for teacher and own trajectories; search_seed+graph_index",
+  "timing": "Diagnostic wall time only; not solver latency",
+  "started_at": "2026-11-09T06:26:22.019417+00:00",
+  "graphs": 20,
+  "observations": 120,
+  "spectral_records": 6000,
+  "finished_at": "2026-11-09T06:27:01.476568+00:00",
+  "wall_time_s": 39.45657646981999
+}

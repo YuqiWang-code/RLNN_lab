@@ -1,0 +1,13 @@
+{
+  "updated_at": "2026-11-09T07:18:33.185642+00:00",
+  "runs": 53,
+  "completed_by_phase": {
+    "p1_spectrum": 24,
+    "p2_branch": 7,
+    "p3_utility": 21,
+    "p4_profile": 1
+  },
+  "stage_rows": 576000,
+  "replay_rows": 5590,
+  "same_state_rows": 883369
+}

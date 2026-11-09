@@ -87,7 +87,7 @@ def save(path, frame):
 
 def historical():
     report = json.loads((ROOT / "outputs/v4_frequency/summary.json").read_text(encoding="utf-8"))
-    rows = [row for row in report["cohorts"] if not row["cohort"] and row["label"] in
+    rows = [row for row in report["cohorts"] if not row["cohort"] and not any(row.get("interventions", {}).values()) and row["label"] in
             ("baseline", "tuned", "v4a_mlp", "v4a_message", "v4a")]
     return pd.json_normalize(rows)
 
@@ -99,6 +99,7 @@ def main():
     analysis = OUT / "analysis"
     analysis.mkdir(parents=True, exist_ok=True)
     stage = tables("p1_spectrum", "stage_spectra.csv")
+    stage_rows = len(stage)
     if not stage.empty:
         keys = ["split", "model", "trajectory", "variant", "step", "signal"]
         metrics = [c for c in stage if c.endswith(("_fraction", "_energy", "_centroid")) or
@@ -106,6 +107,7 @@ def main():
         summary, seeds = aggregate(stage, keys, metrics)
         save(analysis / "stage_summary.csv", summary)
         save(analysis / "stage_by_seed.csv", seeds)
+    del stage
     behavior = tables("p1_spectrum", "gates_and_deltas.csv")
     if not behavior.empty:
         behavior.loc[behavior["group"] == "selected_clear", "corr_B0_x_high_logit_change"] = np.nan
@@ -115,11 +117,13 @@ def main():
         summary, seeds = aggregate(behavior, keys, metrics)
         save(analysis / "spectral_behavior_summary.csv", summary)
         save(analysis / "spectral_behavior_by_seed.csv", seeds)
+    del behavior
     replay = tables("p2_branch", "replay_per_graph.csv")
     if not replay.empty:
         repeated = replay[replay.variant.str.contains("_repeat")]
         summary, seeds = aggregate(repeated, ["split", "precision", "variant"], ["base_size", "final_size", "pave_gain"])
         save(analysis / "native_replay_summary.csv", summary)
+        del repeated
         replay = replay[~replay.variant.str.contains("_repeat")]
         keys = ["split", "precision", "variant"]
         summary, seeds = aggregate(replay, keys, ["base_size", "final_size", "pave_gain"])
@@ -132,6 +136,8 @@ def main():
             detail.append(d)
         save(analysis / "replay_paired.csv", pd.concat(pairs, ignore_index=True))
         save(analysis / "paired_graph_results.csv", pd.concat(detail, ignore_index=True))
+    replay_rows = len(replay)
+    del replay
     states = tables("p2_branch", "same_state.csv")
     if not states.empty:
         metrics = ["delta_probability_abs_mean", "delta_probability_mean", "expected_flips", "actual_flips",
@@ -143,10 +149,13 @@ def main():
         repeated = states[states.variant.str.startswith("full_repeat")]
         summary, seeds = aggregate(repeated, ["split", "precision", "variant", "category", "step"], metrics)
         save(analysis / "native_same_state_summary.csv", summary)
+        del repeated
         states = states[~states.variant.str.contains("_repeat")]
         summary, seeds = aggregate(states, ["split", "precision", "variant", "category", "step"], metrics)
         save(analysis / "same_state_summary.csv", summary)
         save(analysis / "same_state_by_seed.csv", seeds)
+    same_state_rows = len(states)
+    del states
     noise = tables("p2_branch", "native_repeat_noise.csv")
     if not noise.empty:
         for field in ("base_size_delta", "final_size_delta"):
@@ -219,11 +228,18 @@ def main():
     runs = []
     for path in sorted(OUT.glob("p*/**/run.json")):
         meta = json.loads(path.read_text(encoding="utf-8"))
+        if "smoke" in path.parent.name:
+            continue
         runs.append(dict(run=path.parent.relative_to(OUT).as_posix(), status=meta.get("status"),
                          wall_time_s=meta.get("wall_time_s"), config=meta.get("config")))
     (analysis / "run_inventory.json").write_text(json.dumps(runs, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"updated_at": datetime.now(timezone.utc).isoformat(), "runs": len(runs),
-                      "stage_rows": len(stage), "replay_rows": len(replay), "same_state_rows": len(states)}))
+    summary = {"updated_at": datetime.now(timezone.utc).isoformat(), "runs": len(runs),
+               "completed_by_phase": {phase: sum(run["status"] == "completed" and run["run"].startswith(phase + "/")
+                                                   for run in runs)
+                                      for phase in ("p1_spectrum", "p2_branch", "p3_utility", "p4_profile")},
+               "stage_rows": stage_rows, "replay_rows": replay_rows, "same_state_rows": same_state_rows}
+    (analysis / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(summary))
     if args.plots:
         from plot_frequency_followup import plot_all
         plot_all(analysis)

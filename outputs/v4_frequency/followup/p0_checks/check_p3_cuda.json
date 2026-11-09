@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "device": "cuda",
+  "checks": [
+    "R2 original paired-label semantics",
+    "chunk sizes 1/7/256",
+    "R2/4/8/16 shared prefixes",
+    "candidate permutation",
+    "unique stratified sampling",
+    "exact single-flip energy",
+    "split-half reliability",
+    "graph-weighted summaries",
+    "CLI CSV prefixes and repeat moments"
+  ]
+}

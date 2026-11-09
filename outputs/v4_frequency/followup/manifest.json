@@ -1,0 +1,1463 @@
+{
+  "created_at": "2026-11-09T06:14:53.025701+00:00",
+  "source_sha": "013cbcbf1a55e77548abf07d4cdf656e99c097a3",
+  "checkpoints": [
+    {
+      "model": "B",
+      "seed": 0,
+      "mode": "none",
+      "path": "outputs/v2/none_seed0/checkpoints/best.pt",
+      "sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+      "bytes": 668801,
+      "params": 165505,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias"
+      ]
+    },
+    {
+      "model": "BFT",
+      "seed": 0,
+      "mode": "none",
+      "path": "outputs/v4_frequency/none_seed0/checkpoints/best.pt",
+      "sha256": "d41a35ef3ef38d9417734d8555600c606d3ac537e043ced321f8cf87a2788f89",
+      "bytes": 668801,
+      "params": 165505,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias"
+      ]
+    },
+    {
+      "model": "MLP",
+      "seed": 0,
+      "mode": "v4a_mlp",
+      "path": "outputs/v4_frequency/v4a_mlp_seed0/checkpoints/best.pt",
+      "sha256": "c318ee0c3455985b668011bff83f330efe4d0c941c9263e102be65b0c9695e0f",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "MSG",
+      "seed": 0,
+      "mode": "v4a_message",
+      "path": "outputs/v4_frequency/v4a_message_seed0/checkpoints/best.pt",
+      "sha256": "794d1fb0960606944aa886b542755cdd305c67d883f0b57889d574186d8fa0b8",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "F4",
+      "seed": 0,
+      "mode": "v4a",
+      "path": "outputs/v4_frequency/v4a_seed0/checkpoints/best.pt",
+      "sha256": "ba37077bdbc8496f7a0e7e4dd4f5689593ea4ccb053e87ca37bf2bd5e6c27198",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "PAVE",
+      "seed": 0,
+      "mode": "stats",
+      "path": "outputs/v3/stats_h1_seed0/checkpoints/best.pt",
+      "sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+      "bytes": 18225,
+      "params": 3713,
+      "keys": [
+        "scorer.0.weight",
+        "scorer.0.bias",
+        "scorer.2.weight",
+        "scorer.2.bias",
+        "scorer.4.weight",
+        "scorer.4.bias"
+      ]
+    },
+    {
+      "model": "B",
+      "seed": 1,
+      "mode": "none",
+      "path": "outputs/v2/none_seed1/checkpoints/best.pt",
+      "sha256": "0dc89ae53f10305873c217b104f93a2c525baf9ffce550a99abf27cac16ef506",
+      "bytes": 668801,
+      "params": 165505,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias"
+      ]
+    },
+    {
+      "model": "BFT",
+      "seed": 1,
+      "mode": "none",
+      "path": "outputs/v4_frequency/none_seed1/checkpoints/best.pt",
+      "sha256": "d44937a110cdea49c5e05540cec095b1102fa19cbf40e116ca79adf2842dd424",
+      "bytes": 668801,
+      "params": 165505,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias"
+      ]
+    },
+    {
+      "model": "MLP",
+      "seed": 1,
+      "mode": "v4a_mlp",
+      "path": "outputs/v4_frequency/v4a_mlp_seed1/checkpoints/best.pt",
+      "sha256": "2a54950ed8af4f78a021fd046f1bb2653f66070ef5bf69f512b3b45d0e5a5eb8",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "MSG",
+      "seed": 1,
+      "mode": "v4a_message",
+      "path": "outputs/v4_frequency/v4a_message_seed1/checkpoints/best.pt",
+      "sha256": "b057a18cb72cdcac7a08c61209d757317cd75a16954ff104780dfadefa2421b6",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "F4",
+      "seed": 1,
+      "mode": "v4a",
+      "path": "outputs/v4_frequency/v4a_seed1/checkpoints/best.pt",
+      "sha256": "96de239930a2fb91cce7832596c9bfb1451146d351e3a0f8e63e61d61b83ec8b",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "PAVE",
+      "seed": 1,
+      "mode": "stats",
+      "path": "outputs/v3/stats_h1_seed1/checkpoints/best.pt",
+      "sha256": "38cd3d3e61b0649e8419579bcea99ef447eebd8b7c2efcb49b6372bd608c561e",
+      "bytes": 18225,
+      "params": 3713,
+      "keys": [
+        "scorer.0.weight",
+        "scorer.0.bias",
+        "scorer.2.weight",
+        "scorer.2.bias",
+        "scorer.4.weight",
+        "scorer.4.bias"
+      ]
+    },
+    {
+      "model": "B",
+      "seed": 2,
+      "mode": "none",
+      "path": "outputs/v2/none_seed2/checkpoints/best.pt",
+      "sha256": "ffd82ad0c538d525c3d277c45dc7ad3ac601cfd6519bf5cc36b840d5d4c20ad1",
+      "bytes": 668801,
+      "params": 165505,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias"
+      ]
+    },
+    {
+      "model": "BFT",
+      "seed": 2,
+      "mode": "none",
+      "path": "outputs/v4_frequency/none_seed2/checkpoints/best.pt",
+      "sha256": "c55388eb4a30f886bae2b1faa73fd10abb65d1b1540bf4403e42ff0c6a9e5f81",
+      "bytes": 668801,
+      "params": 165505,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias"
+      ]
+    },
+    {
+      "model": "MLP",
+      "seed": 2,
+      "mode": "v4a_mlp",
+      "path": "outputs/v4_frequency/v4a_mlp_seed2/checkpoints/best.pt",
+      "sha256": "2045d6f4ff82c690a79734169b20213bd2444b3fc6691f0cf63b50d8ed7caec4",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "MSG",
+      "seed": 2,
+      "mode": "v4a_message",
+      "path": "outputs/v4_frequency/v4a_message_seed2/checkpoints/best.pt",
+      "sha256": "28884169d0eee1beae2dd79bdde0d7dc154c1ee9b5fa61835c2c9a298019f6c3",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "F4",
+      "seed": 2,
+      "mode": "v4a",
+      "path": "outputs/v4_frequency/v4a_seed2/checkpoints/best.pt",
+      "sha256": "7be58d972d4a172da5c2f5c1c0ac64a3993e3df8da2626b980c9564dc7da344a",
+      "bytes": 693281,
+      "params": 170513,
+      "keys": [
+        "initial_project.weight",
+        "initial_project.bias",
+        "convs.0.weight",
+        "convs.0.bias",
+        "convs.1.weight",
+        "convs.1.bias",
+        "convs.2.weight",
+        "convs.2.bias",
+        "convs.3.weight",
+        "convs.3.bias",
+        "convs.4.weight",
+        "convs.4.bias",
+        "linears.0.weight",
+        "linears.0.bias",
+        "linears.1.weight",
+        "linears.1.bias",
+        "linears.2.weight",
+        "linears.2.bias",
+        "linears.3.weight",
+        "linears.3.bias",
+        "linears.4.weight",
+        "linears.4.bias",
+        "final_project.weight",
+        "final_project.bias",
+        "adapter.alpha_low",
+        "adapter.alpha_high",
+        "adapter.low.0.weight",
+        "adapter.low.0.bias",
+        "adapter.low.2.weight",
+        "adapter.low.2.bias",
+        "adapter.low.3.weight",
+        "adapter.low.3.bias",
+        "adapter.high.0.weight",
+        "adapter.high.0.bias",
+        "adapter.high.2.weight",
+        "adapter.high.2.bias",
+        "adapter.high.3.weight",
+        "adapter.high.3.bias",
+        "adapter.gates.weight",
+        "adapter.gates.bias"
+      ]
+    },
+    {
+      "model": "PAVE",
+      "seed": 2,
+      "mode": "stats",
+      "path": "outputs/v3/stats_h1_seed2/checkpoints/best.pt",
+      "sha256": "b794b6dc37d377bb6ae256e4a5afebf37f5872b940639d13abe31309fbd1b605",
+      "bytes": 18225,
+      "params": 3713,
+      "keys": [
+        "scorer.0.weight",
+        "scorer.0.bias",
+        "scorer.2.weight",
+        "scorer.2.bias",
+        "scorer.4.weight",
+        "scorer.4.bias"
+      ]
+    }
+  ],
+  "datasets": {
+    "train": {
+      "path": "models/data/MIS_tensors/RB_small_train",
+      "graphs": [
+        {
+          "source": "RB_200_300_946.gpickle",
+          "tensor": "graph_000000.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_419.gpickle",
+          "tensor": "graph_000001.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_906.gpickle",
+          "tensor": "graph_000002.pt",
+          "num_nodes": 207
+        },
+        {
+          "source": "RB_200_300_691.gpickle",
+          "tensor": "graph_000003.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_948.gpickle",
+          "tensor": "graph_000004.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_733.gpickle",
+          "tensor": "graph_000005.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_765.gpickle",
+          "tensor": "graph_000006.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_212.gpickle",
+          "tensor": "graph_000007.pt",
+          "num_nodes": 200
+        },
+        {
+          "source": "RB_200_300_502.gpickle",
+          "tensor": "graph_000008.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_442.gpickle",
+          "tensor": "graph_000009.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_848.gpickle",
+          "tensor": "graph_000010.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_478.gpickle",
+          "tensor": "graph_000011.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_544.gpickle",
+          "tensor": "graph_000012.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_985.gpickle",
+          "tensor": "graph_000013.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_426.gpickle",
+          "tensor": "graph_000014.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_128.gpickle",
+          "tensor": "graph_000015.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_641.gpickle",
+          "tensor": "graph_000016.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_429.gpickle",
+          "tensor": "graph_000017.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_840.gpickle",
+          "tensor": "graph_000018.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_891.gpickle",
+          "tensor": "graph_000019.pt",
+          "num_nodes": 220
+        }
+      ],
+      "purpose": "mechanism development"
+    },
+    "validation": {
+      "path": "models/data/MIS_tensors/RB_small_val",
+      "graphs": [
+        {
+          "source": "RB_200_300_8.gpickle",
+          "tensor": "graph_000000.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_75.gpickle",
+          "tensor": "graph_000001.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_96.gpickle",
+          "tensor": "graph_000002.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_43.gpickle",
+          "tensor": "graph_000003.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_76.gpickle",
+          "tensor": "graph_000004.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_89.gpickle",
+          "tensor": "graph_000005.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_81.gpickle",
+          "tensor": "graph_000006.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_1.gpickle",
+          "tensor": "graph_000007.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_9.gpickle",
+          "tensor": "graph_000008.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_71.gpickle",
+          "tensor": "graph_000009.pt",
+          "num_nodes": 200
+        },
+        {
+          "source": "RB_200_300_50.gpickle",
+          "tensor": "graph_000010.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_68.gpickle",
+          "tensor": "graph_000011.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_13.gpickle",
+          "tensor": "graph_000012.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_12.gpickle",
+          "tensor": "graph_000013.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_66.gpickle",
+          "tensor": "graph_000014.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_39.gpickle",
+          "tensor": "graph_000015.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_28.gpickle",
+          "tensor": "graph_000016.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_15.gpickle",
+          "tensor": "graph_000017.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_58.gpickle",
+          "tensor": "graph_000018.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_72.gpickle",
+          "tensor": "graph_000019.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_61.gpickle",
+          "tensor": "graph_000020.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_23.gpickle",
+          "tensor": "graph_000021.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_21.gpickle",
+          "tensor": "graph_000022.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_83.gpickle",
+          "tensor": "graph_000023.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_40.gpickle",
+          "tensor": "graph_000024.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_77.gpickle",
+          "tensor": "graph_000025.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_73.gpickle",
+          "tensor": "graph_000026.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_31.gpickle",
+          "tensor": "graph_000027.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_0.gpickle",
+          "tensor": "graph_000028.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_19.gpickle",
+          "tensor": "graph_000029.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_65.gpickle",
+          "tensor": "graph_000030.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_49.gpickle",
+          "tensor": "graph_000031.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_79.gpickle",
+          "tensor": "graph_000032.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_74.gpickle",
+          "tensor": "graph_000033.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_88.gpickle",
+          "tensor": "graph_000034.pt",
+          "num_nodes": 200
+        },
+        {
+          "source": "RB_200_300_16.gpickle",
+          "tensor": "graph_000035.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_91.gpickle",
+          "tensor": "graph_000036.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_64.gpickle",
+          "tensor": "graph_000037.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_44.gpickle",
+          "tensor": "graph_000038.pt",
+          "num_nodes": 200
+        },
+        {
+          "source": "RB_200_300_92.gpickle",
+          "tensor": "graph_000039.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_53.gpickle",
+          "tensor": "graph_000040.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_6.gpickle",
+          "tensor": "graph_000041.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_24.gpickle",
+          "tensor": "graph_000042.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_7.gpickle",
+          "tensor": "graph_000043.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_20.gpickle",
+          "tensor": "graph_000044.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_52.gpickle",
+          "tensor": "graph_000045.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_45.gpickle",
+          "tensor": "graph_000046.pt",
+          "num_nodes": 207
+        },
+        {
+          "source": "RB_200_300_57.gpickle",
+          "tensor": "graph_000047.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_46.gpickle",
+          "tensor": "graph_000048.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_30.gpickle",
+          "tensor": "graph_000049.pt",
+          "num_nodes": 200
+        },
+        {
+          "source": "RB_200_300_56.gpickle",
+          "tensor": "graph_000050.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_47.gpickle",
+          "tensor": "graph_000051.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_54.gpickle",
+          "tensor": "graph_000052.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_63.gpickle",
+          "tensor": "graph_000053.pt",
+          "num_nodes": 200
+        },
+        {
+          "source": "RB_200_300_34.gpickle",
+          "tensor": "graph_000054.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_26.gpickle",
+          "tensor": "graph_000055.pt",
+          "num_nodes": 207
+        },
+        {
+          "source": "RB_200_300_82.gpickle",
+          "tensor": "graph_000056.pt",
+          "num_nodes": 207
+        },
+        {
+          "source": "RB_200_300_59.gpickle",
+          "tensor": "graph_000057.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_98.gpickle",
+          "tensor": "graph_000058.pt",
+          "num_nodes": 200
+        },
+        {
+          "source": "RB_200_300_11.gpickle",
+          "tensor": "graph_000059.pt",
+          "num_nodes": 200
+        },
+        {
+          "source": "RB_200_300_51.gpickle",
+          "tensor": "graph_000060.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_42.gpickle",
+          "tensor": "graph_000061.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_94.gpickle",
+          "tensor": "graph_000062.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_3.gpickle",
+          "tensor": "graph_000063.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_99.gpickle",
+          "tensor": "graph_000064.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_33.gpickle",
+          "tensor": "graph_000065.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_62.gpickle",
+          "tensor": "graph_000066.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_25.gpickle",
+          "tensor": "graph_000067.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_10.gpickle",
+          "tensor": "graph_000068.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_38.gpickle",
+          "tensor": "graph_000069.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_95.gpickle",
+          "tensor": "graph_000070.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_86.gpickle",
+          "tensor": "graph_000071.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_22.gpickle",
+          "tensor": "graph_000072.pt",
+          "num_nodes": 207
+        },
+        {
+          "source": "RB_200_300_69.gpickle",
+          "tensor": "graph_000073.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_4.gpickle",
+          "tensor": "graph_000074.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_90.gpickle",
+          "tensor": "graph_000075.pt",
+          "num_nodes": 230
+        },
+        {
+          "source": "RB_200_300_60.gpickle",
+          "tensor": "graph_000076.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_87.gpickle",
+          "tensor": "graph_000077.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_67.gpickle",
+          "tensor": "graph_000078.pt",
+          "num_nodes": 264
+        },
+        {
+          "source": "RB_200_300_27.gpickle",
+          "tensor": "graph_000079.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_97.gpickle",
+          "tensor": "graph_000080.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_29.gpickle",
+          "tensor": "graph_000081.pt",
+          "num_nodes": 253
+        },
+        {
+          "source": "RB_200_300_48.gpickle",
+          "tensor": "graph_000082.pt",
+          "num_nodes": 216
+        },
+        {
+          "source": "RB_200_300_32.gpickle",
+          "tensor": "graph_000083.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_35.gpickle",
+          "tensor": "graph_000084.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_36.gpickle",
+          "tensor": "graph_000085.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_93.gpickle",
+          "tensor": "graph_000086.pt",
+          "num_nodes": 207
+        },
+        {
+          "source": "RB_200_300_14.gpickle",
+          "tensor": "graph_000087.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_18.gpickle",
+          "tensor": "graph_000088.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_37.gpickle",
+          "tensor": "graph_000089.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_41.gpickle",
+          "tensor": "graph_000090.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_5.gpickle",
+          "tensor": "graph_000091.pt",
+          "num_nodes": 220
+        },
+        {
+          "source": "RB_200_300_80.gpickle",
+          "tensor": "graph_000092.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_85.gpickle",
+          "tensor": "graph_000093.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_78.gpickle",
+          "tensor": "graph_000094.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_70.gpickle",
+          "tensor": "graph_000095.pt",
+          "num_nodes": 242
+        },
+        {
+          "source": "RB_200_300_2.gpickle",
+          "tensor": "graph_000096.pt",
+          "num_nodes": 210
+        },
+        {
+          "source": "RB_200_300_17.gpickle",
+          "tensor": "graph_000097.pt",
+          "num_nodes": 231
+        },
+        {
+          "source": "RB_200_300_55.gpickle",
+          "tensor": "graph_000098.pt",
+          "num_nodes": 240
+        },
+        {
+          "source": "RB_200_300_84.gpickle",
+          "tensor": "graph_000099.pt",
+          "num_nodes": 253
+        }
+      ],
+      "purpose": "reused validation confirmation"
+    }
+  },
+  "resources": {
+    "timestamp": "2026-11-09T14:11:39.733500",
+    "os": {
+      "system": "Linux",
+      "release": "6.17.0-41-generic",
+      "version": "#41-Ubuntu SMP PREEMPT_DYNAMIC Sat Jun 20 18:01:40 UTC 2026",
+      "machine": "x86_64",
+      "python_version": "3.10.19"
+    },
+    "cpu": {
+      "physical_cores": 48,
+      "logical_cores": 96,
+      "max_frequency_mhz": 3800.0,
+      "architecture": "x86_64",
+      "processor": "",
+      "current_frequency_mhz": 840.0716770833333
+    },
+    "memory": {
+      "total_gb": 247.09,
+      "available_gb": 221.69,
+      "used_gb": 25.4,
+      "percent_used": 10.3,
+      "swap_total_gb": 8.0,
+      "swap_available_gb": 0.37
+    },
+    "disk": {
+      "path": "/home/hzeng/project/ZH/RLNN_lab",
+      "total_gb": 1740.66,
+      "available_gb": 41.95,
+      "used_gb": 1610.22,
+      "percent_used": 97.5
+    },
+    "gpu": {
+      "nvidia_gpus": [
+        {
+          "index": 0,
+          "name": "NVIDIA GeForce RTX 5090",
+          "memory_total_mb": 32607.0,
+          "memory_free_mb": 32046.0,
+          "driver_version": "590.48.01",
+          "compute_capability": "12.0",
+          "type": "NVIDIA",
+          "backend": "CUDA"
+        },
+        {
+          "index": 1,
+          "name": "NVIDIA GeForce RTX 5090",
+          "memory_total_mb": 32607.0,
+          "memory_free_mb": 31295.0,
+          "driver_version": "590.48.01",
+          "compute_capability": "12.0",
+          "type": "NVIDIA",
+          "backend": "CUDA"
+        }
+      ],
+      "amd_gpus": [],
+      "apple_silicon": null,
+      "total_gpus": 2,
+      "available_backends": [
+        "CUDA"
+      ]
+    },
+    "recommendations": {
+      "parallel_processing": {
+        "strategy": "high_parallelism",
+        "suggested_workers": 94,
+        "libraries": [
+          "joblib",
+          "multiprocessing",
+          "dask"
+        ]
+      },
+      "memory_strategy": {
+        "strategy": "memory_abundant",
+        "note": "Can load most datasets into memory"
+      },
+      "gpu_acceleration": {
+        "available": true,
+        "backends": [
+          "CUDA"
+        ],
+        "suggested_libraries": [
+          "pytorch",
+          "tensorflow",
+          "jax",
+          "cupy",
+          "rapids"
+        ]
+      },
+      "large_data_handling": {
+        "strategy": "moderate_disk",
+        "libraries": [
+          "zarr",
+          "h5py",
+          "parquet"
+        ]
+      }
+    }
+  },
+  "torch": "2.9.1+cu130",
+  "cuda": "13.0",
+  "fixed": {
+    "beta": 1.02,
+    "K": 20,
+    "T": 100,
+    "d": 5,
+    "layers": 5,
+    "hidden": 128,
+    "search_seed": 1017,
+    "precision_spectrum": "fp32",
+    "precision_deploy": "fp16",
+    "time_budget_s": 0.5,
+    "pave_reserve_s": 0.05
+  },
+  "selection": {
+    "p1_train": 20,
+    "p1_validation": 100,
+    "p2_validation": 100,
+    "p3_reliability_train": 10,
+    "p3_node_groups_train": 20,
+    "p3_validation": "conditional on a useful sampling definition",
+    "official_test_used": false
+  }
+}

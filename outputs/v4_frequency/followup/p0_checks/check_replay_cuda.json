@@ -1,0 +1,23 @@
+{
+  "device": "cuda",
+  "checks": [
+    {
+      "precision": "fp32",
+      "size": 4,
+      "steps": 100,
+      "shared_stream": true,
+      "matches_original_search": true,
+      "interventions_nonmutating": true,
+      "component_decomposition": true
+    },
+    {
+      "precision": "fp16",
+      "size": 4,
+      "steps": 100,
+      "shared_stream": true,
+      "matches_original_search": true,
+      "interventions_nonmutating": true,
+      "component_decomposition": true
+    }
+  ]
+}

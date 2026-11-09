@@ -23,3 +23,7 @@ $PYTHON train_scripts/v4_frequency/followup/manifest.py --verify
 ```
 
 正式1000图测试集不参与本轮诊断。后续是否短训由P1–P4形成的任务收益证据决定。
+
+运行入口依次为 `smoke.sh`、`explore.sh`、`spectrum_confirm.sh`、`utility_controls.sh`、`branch_confirm.sh` 和 `profile.sh`。P2与P1可并行。P4在GPU 0的FP32回放结束后启动。结果用 `python tools/summarize_frequency_followup.py --plots` 聚合，用 `tools/update_frequency_followup_workbook.mjs` 更新追诊页。
+
+完整逐层频谱、逐状态回放、逐动作重复收益保存在服务器的 `outputs/v4_frequency/followup/`。Git保留运行清单、图级求解结果、汇总表和图。

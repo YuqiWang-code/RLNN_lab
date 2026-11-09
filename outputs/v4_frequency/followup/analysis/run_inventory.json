@@ -1,0 +1,1670 @@
+[
+  {
+    "run": "p1_spectrum/train_v4a_message_own_seed0",
+    "status": "completed",
+    "wall_time_s": 45.52299086423591,
+    "config": {
+      "split": "train",
+      "graphs": 20,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a_message"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/train_v4a_message_own_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/train_v4a_message_teacher_seed0",
+    "status": "completed",
+    "wall_time_s": 39.36088154092431,
+    "config": {
+      "split": "train",
+      "graphs": 20,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a_message"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/train_v4a_message_teacher_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/train_v4a_mlp_own_seed0",
+    "status": "completed",
+    "wall_time_s": 45.69630082929507,
+    "config": {
+      "split": "train",
+      "graphs": 20,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a_mlp"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/train_v4a_mlp_own_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/train_v4a_mlp_teacher_seed0",
+    "status": "completed",
+    "wall_time_s": 39.21036543883383,
+    "config": {
+      "split": "train",
+      "graphs": 20,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a_mlp"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/train_v4a_mlp_teacher_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/train_v4a_own_seed0",
+    "status": "completed",
+    "wall_time_s": 52.27997552603483,
+    "config": {
+      "split": "train",
+      "graphs": 20,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/train_v4a_own_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/train_v4a_teacher_seed0",
+    "status": "completed",
+    "wall_time_s": 39.45657646981999,
+    "config": {
+      "split": "train",
+      "graphs": 20,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/train_v4a_teacher_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_message_own_seed0",
+    "status": "completed",
+    "wall_time_s": 234.32417514314875,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a_message"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_message_own_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_message_own_seed1",
+    "status": "completed",
+    "wall_time_s": 229.3868482047692,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 1,
+      "search_seed": 1017,
+      "models": [
+        "v4a_message"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_message_own_seed1"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_message_own_seed2",
+    "status": "completed",
+    "wall_time_s": 268.0067861578427,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 2,
+      "search_seed": 1017,
+      "models": [
+        "v4a_message"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_message_own_seed2"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_message_teacher_seed0",
+    "status": "completed",
+    "wall_time_s": 210.8663620268926,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a_message"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_message_teacher_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_message_teacher_seed1",
+    "status": "completed",
+    "wall_time_s": 203.1863178811036,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 1,
+      "search_seed": 1017,
+      "models": [
+        "v4a_message"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_message_teacher_seed1"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_message_teacher_seed2",
+    "status": "completed",
+    "wall_time_s": 201.86405971134081,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 2,
+      "search_seed": 1017,
+      "models": [
+        "v4a_message"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_message_teacher_seed2"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_mlp_own_seed0",
+    "status": "completed",
+    "wall_time_s": 236.86175935110077,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a_mlp"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_mlp_own_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_mlp_own_seed1",
+    "status": "completed",
+    "wall_time_s": 219.85265250178054,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 1,
+      "search_seed": 1017,
+      "models": [
+        "v4a_mlp"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_mlp_own_seed1"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_mlp_own_seed2",
+    "status": "completed",
+    "wall_time_s": 232.9535053903237,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 2,
+      "search_seed": 1017,
+      "models": [
+        "v4a_mlp"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_mlp_own_seed2"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_mlp_teacher_seed0",
+    "status": "completed",
+    "wall_time_s": 205.43634288804606,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a_mlp"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_mlp_teacher_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_mlp_teacher_seed1",
+    "status": "completed",
+    "wall_time_s": 202.889081729576,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 1,
+      "search_seed": 1017,
+      "models": [
+        "v4a_mlp"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_mlp_teacher_seed1"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_mlp_teacher_seed2",
+    "status": "completed",
+    "wall_time_s": 202.1646986119449,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 2,
+      "search_seed": 1017,
+      "models": [
+        "v4a_mlp"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_mlp_teacher_seed2"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_own_seed0",
+    "status": "completed",
+    "wall_time_s": 264.42271368810907,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_own_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_own_seed1",
+    "status": "completed",
+    "wall_time_s": 219.27311793202534,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 1,
+      "search_seed": 1017,
+      "models": [
+        "v4a"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_own_seed1"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_own_seed2",
+    "status": "completed",
+    "wall_time_s": 232.53403876675293,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 2,
+      "search_seed": 1017,
+      "models": [
+        "v4a"
+      ],
+      "trajectory": "own",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_own_seed2"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_teacher_seed0",
+    "status": "completed",
+    "wall_time_s": 204.22604442108423,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 0,
+      "search_seed": 1017,
+      "models": [
+        "v4a"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_teacher_seed0"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_teacher_seed1",
+    "status": "completed",
+    "wall_time_s": 203.04599161399528,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 1,
+      "search_seed": 1017,
+      "models": [
+        "v4a"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_teacher_seed1"
+    }
+  },
+  {
+    "run": "p1_spectrum/val_v4a_teacher_seed2",
+    "status": "completed",
+    "wall_time_s": 201.68192716594785,
+    "config": {
+      "split": "validation",
+      "graphs": 100,
+      "data_path": null,
+      "seed": 2,
+      "search_seed": 1017,
+      "models": [
+        "v4a"
+      ],
+      "trajectory": "teacher",
+      "particles": 4,
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "checkpoint_root": "/home/hzeng/project/ZH/RLNN_lab",
+      "teacher_checkpoint": null,
+      "device": "cuda",
+      "cpu_threads": 1,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p1_spectrum/val_v4a_teacher_seed2"
+    }
+  },
+  {
+    "run": "p2_branch/train_alpha_seed0",
+    "status": "completed",
+    "wall_time_s": 211.28690728684887,
+    "config": {
+      "seed": 0,
+      "search_seed": 1017,
+      "split": "train",
+      "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train",
+      "precision": "fp32",
+      "num_k": 20,
+      "num_t": 100,
+      "checkpoint_baseline": null,
+      "checkpoint_tuned": null,
+      "checkpoint_mlp": null,
+      "checkpoint_message": null,
+      "checkpoint_f4": null,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/train_alpha_seed0",
+      "graphs": 10,
+      "models": [
+        "baseline",
+        "tuned",
+        "mlp",
+        "message",
+        "f4"
+      ],
+      "interventions": [
+        "full",
+        "no_low",
+        "no_high",
+        "gate_half",
+        "no_adapter",
+        "high_bias1",
+        "high_bias2",
+        "high_identity",
+        "high_no_norm"
+      ],
+      "alpha_scales": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "alpha_pairs": [],
+      "mode": "both",
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "diagnostic_particles": 4,
+      "post": [
+        "none",
+        "pave"
+      ]
+    }
+  },
+  {
+    "run": "p2_branch/val_fp16_seed0",
+    "status": "completed",
+    "wall_time_s": 1203.0919804759324,
+    "config": {
+      "seed": 0,
+      "search_seed": 1017,
+      "split": "validation",
+      "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "precision": "fp16",
+      "num_k": 20,
+      "num_t": 100,
+      "checkpoint_baseline": null,
+      "checkpoint_tuned": null,
+      "checkpoint_mlp": null,
+      "checkpoint_message": null,
+      "checkpoint_f4": null,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/val_fp16_seed0",
+      "graphs": 100,
+      "models": [
+        "baseline",
+        "tuned",
+        "mlp",
+        "message",
+        "f4"
+      ],
+      "interventions": [
+        "full",
+        "no_low",
+        "no_high",
+        "gate_half",
+        "no_adapter"
+      ],
+      "alpha_scales": [],
+      "alpha_pairs": [],
+      "mode": "both",
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "diagnostic_particles": 4,
+      "post": [
+        "none",
+        "pave"
+      ],
+      "native_repeats": 2
+    }
+  },
+  {
+    "run": "p2_branch/val_fp16_seed1",
+    "status": "completed",
+    "wall_time_s": 1131.763455347158,
+    "config": {
+      "seed": 1,
+      "search_seed": 1017,
+      "split": "validation",
+      "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "precision": "fp16",
+      "num_k": 20,
+      "num_t": 100,
+      "checkpoint_baseline": null,
+      "checkpoint_tuned": null,
+      "checkpoint_mlp": null,
+      "checkpoint_message": null,
+      "checkpoint_f4": null,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/val_fp16_seed1",
+      "graphs": 100,
+      "models": [
+        "baseline",
+        "tuned",
+        "mlp",
+        "message",
+        "f4"
+      ],
+      "interventions": [
+        "full",
+        "no_low",
+        "no_high",
+        "gate_half",
+        "no_adapter"
+      ],
+      "alpha_scales": [],
+      "alpha_pairs": [],
+      "mode": "both",
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "diagnostic_particles": 4,
+      "post": [
+        "none",
+        "pave"
+      ],
+      "native_repeats": 2
+    }
+  },
+  {
+    "run": "p2_branch/val_fp16_seed2",
+    "status": "completed",
+    "wall_time_s": 1134.653405547142,
+    "config": {
+      "seed": 2,
+      "search_seed": 1017,
+      "split": "validation",
+      "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "precision": "fp16",
+      "num_k": 20,
+      "num_t": 100,
+      "checkpoint_baseline": null,
+      "checkpoint_tuned": null,
+      "checkpoint_mlp": null,
+      "checkpoint_message": null,
+      "checkpoint_f4": null,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/val_fp16_seed2",
+      "graphs": 100,
+      "models": [
+        "baseline",
+        "tuned",
+        "mlp",
+        "message",
+        "f4"
+      ],
+      "interventions": [
+        "full",
+        "no_low",
+        "no_high",
+        "gate_half",
+        "no_adapter"
+      ],
+      "alpha_scales": [],
+      "alpha_pairs": [],
+      "mode": "both",
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "diagnostic_particles": 4,
+      "post": [
+        "none",
+        "pave"
+      ],
+      "native_repeats": 2
+    }
+  },
+  {
+    "run": "p2_branch/val_fp32_seed0",
+    "status": "completed",
+    "wall_time_s": 936.6398950256407,
+    "config": {
+      "seed": 0,
+      "search_seed": 1017,
+      "split": "validation",
+      "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "precision": "fp32",
+      "num_k": 20,
+      "num_t": 100,
+      "checkpoint_baseline": null,
+      "checkpoint_tuned": null,
+      "checkpoint_mlp": null,
+      "checkpoint_message": null,
+      "checkpoint_f4": null,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/val_fp32_seed0",
+      "graphs": 100,
+      "models": [
+        "baseline",
+        "tuned",
+        "mlp",
+        "message",
+        "f4"
+      ],
+      "interventions": [
+        "full",
+        "no_low",
+        "no_high",
+        "gate_half",
+        "no_adapter"
+      ],
+      "alpha_scales": [],
+      "alpha_pairs": [],
+      "mode": "both",
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "diagnostic_particles": 4,
+      "post": [
+        "none",
+        "pave"
+      ],
+      "native_repeats": 2
+    }
+  },
+  {
+    "run": "p2_branch/val_fp32_seed1",
+    "status": "completed",
+    "wall_time_s": 992.036576687824,
+    "config": {
+      "seed": 1,
+      "search_seed": 1017,
+      "split": "validation",
+      "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "precision": "fp32",
+      "num_k": 20,
+      "num_t": 100,
+      "checkpoint_baseline": null,
+      "checkpoint_tuned": null,
+      "checkpoint_mlp": null,
+      "checkpoint_message": null,
+      "checkpoint_f4": null,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/val_fp32_seed1",
+      "graphs": 100,
+      "models": [
+        "baseline",
+        "tuned",
+        "mlp",
+        "message",
+        "f4"
+      ],
+      "interventions": [
+        "full",
+        "no_low",
+        "no_high",
+        "gate_half",
+        "no_adapter"
+      ],
+      "alpha_scales": [],
+      "alpha_pairs": [],
+      "mode": "both",
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "diagnostic_particles": 4,
+      "post": [
+        "none",
+        "pave"
+      ],
+      "native_repeats": 2
+    }
+  },
+  {
+    "run": "p2_branch/val_fp32_seed2",
+    "status": "completed",
+    "wall_time_s": 921.4206711021252,
+    "config": {
+      "seed": 2,
+      "search_seed": 1017,
+      "split": "validation",
+      "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "precision": "fp32",
+      "num_k": 20,
+      "num_t": 100,
+      "checkpoint_baseline": null,
+      "checkpoint_tuned": null,
+      "checkpoint_mlp": null,
+      "checkpoint_message": null,
+      "checkpoint_f4": null,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/val_fp32_seed2",
+      "graphs": 100,
+      "models": [
+        "baseline",
+        "tuned",
+        "mlp",
+        "message",
+        "f4"
+      ],
+      "interventions": [
+        "full",
+        "no_low",
+        "no_high",
+        "gate_half",
+        "no_adapter"
+      ],
+      "alpha_scales": [],
+      "alpha_pairs": [],
+      "mode": "both",
+      "phases": [
+        0,
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "diagnostic_particles": 4,
+      "post": [
+        "none",
+        "pave"
+      ],
+      "native_repeats": 2
+    }
+  },
+  {
+    "run": "p3_utility/groups_stratified_seed0",
+    "status": "completed",
+    "wall_time_s": 19.946892449632287,
+    "config": {
+      "seed": 0,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/groups_stratified_seed0",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/groups_stratified_seed1",
+    "status": "completed",
+    "wall_time_s": 19.68207791261375,
+    "config": {
+      "seed": 1,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/groups_stratified_seed1",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/groups_stratified_seed2",
+    "status": "completed",
+    "wall_time_s": 22.06060728803277,
+    "config": {
+      "seed": 2,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/groups_stratified_seed2",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/groups_uniform_seed0",
+    "status": "completed",
+    "wall_time_s": 16.325359201990068,
+    "config": {
+      "seed": 0,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 16,
+      "replicates": 8,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/groups_uniform_seed0",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/groups_uniform_seed1",
+    "status": "completed",
+    "wall_time_s": 15.955901350826025,
+    "config": {
+      "seed": 1,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 16,
+      "replicates": 8,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/groups_uniform_seed1",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/groups_uniform_seed2",
+    "status": "completed",
+    "wall_time_s": 16.015524815768003,
+    "config": {
+      "seed": 2,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 16,
+      "replicates": 8,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/groups_uniform_seed2",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/own_F4_seed0",
+    "status": "completed",
+    "wall_time_s": 30.273353969678283,
+    "config": {
+      "seed": 0,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "F4",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/own_F4_seed0",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/own_F4_seed1",
+    "status": "completed",
+    "wall_time_s": 30.19764988590032,
+    "config": {
+      "seed": 1,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "F4",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/own_F4_seed1",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/own_F4_seed2",
+    "status": "completed",
+    "wall_time_s": 33.24135556817055,
+    "config": {
+      "seed": 2,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "F4",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/own_F4_seed2",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/own_MSG_seed0",
+    "status": "completed",
+    "wall_time_s": 29.501425141934305,
+    "config": {
+      "seed": 0,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "MSG",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/own_MSG_seed0",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/own_MSG_seed1",
+    "status": "completed",
+    "wall_time_s": 32.43339717388153,
+    "config": {
+      "seed": 1,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "MSG",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/own_MSG_seed1",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/own_MSG_seed2",
+    "status": "completed",
+    "wall_time_s": 29.495459215715528,
+    "config": {
+      "seed": 2,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 20,
+      "nodes": 24,
+      "replicates": 8,
+      "sampling": "stratified",
+      "phases": [
+        25,
+        50,
+        100
+      ],
+      "horizon": 20,
+      "trajectory_model": "MSG",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/own_MSG_seed2",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_h10_seed0",
+    "status": "completed",
+    "wall_time_s": 8.098171157762408,
+    "config": {
+      "seed": 0,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 10,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_h10_seed0",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_h10_seed1",
+    "status": "completed",
+    "wall_time_s": 8.172542750369757,
+    "config": {
+      "seed": 1,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 10,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_h10_seed1",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_h10_seed2",
+    "status": "completed",
+    "wall_time_s": 7.813940837047994,
+    "config": {
+      "seed": 2,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 10,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_h10_seed2",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_h40_seed0",
+    "status": "completed",
+    "wall_time_s": 12.034778872039169,
+    "config": {
+      "seed": 0,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 40,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_h40_seed0",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_h40_seed1",
+    "status": "completed",
+    "wall_time_s": 12.023475511930883,
+    "config": {
+      "seed": 1,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 40,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_h40_seed1",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_h40_seed2",
+    "status": "completed",
+    "wall_time_s": 13.167900984175503,
+    "config": {
+      "seed": 2,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 40,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_h40_seed2",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_seed0",
+    "status": "completed",
+    "wall_time_s": 9.258685978129506,
+    "config": {
+      "seed": 0,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_seed0",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_seed1",
+    "status": "completed",
+    "wall_time_s": 9.309345327317715,
+    "config": {
+      "seed": 1,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_seed1",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p3_utility/reliability_seed2",
+    "status": "completed",
+    "wall_time_s": 10.56460489332676,
+    "config": {
+      "seed": 2,
+      "split": "train",
+      "data_path": null,
+      "model": [],
+      "graphs": 10,
+      "nodes": 16,
+      "replicates": 16,
+      "sampling": "uniform",
+      "phases": [
+        25,
+        75
+      ],
+      "horizon": 20,
+      "trajectory_model": "B",
+      "search_seed": 1017,
+      "chunk_size": 256,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p3_utility/reliability_seed2",
+      "device": "cuda"
+    }
+  },
+  {
+    "run": "p4_profile/train_fp16_seed0",
+    "status": "completed",
+    "wall_time_s": 626.3897077040747,
+    "config": {
+      "seed": 0,
+      "search_seed": 1017,
+      "split": "train",
+      "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train",
+      "precision": "fp16",
+      "num_k": 20,
+      "num_t": 100,
+      "checkpoint_baseline": null,
+      "checkpoint_tuned": null,
+      "checkpoint_mlp": null,
+      "checkpoint_message": null,
+      "checkpoint_f4": null,
+      "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p4_profile/train_fp16_seed0",
+      "graphs": 20,
+      "warmup": 30,
+      "repeats": 5,
+      "component_iterations": 20,
+      "native_forward_repeats": 3,
+      "models": [
+        "baseline",
+        "tuned",
+        "mlp",
+        "message",
+        "f4"
+      ],
+      "post": [
+        "none",
+        "pave"
+      ],
+      "mode": "both"
+    }
+  }
+]

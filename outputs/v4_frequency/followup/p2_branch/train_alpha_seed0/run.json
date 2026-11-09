@@ -1,0 +1,221 @@
+{
+  "version": "v4_frequency_followup",
+  "mode": "branch_replay",
+  "status": "completed",
+  "config": {
+    "seed": 0,
+    "search_seed": 1017,
+    "split": "train",
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_train",
+    "precision": "fp32",
+    "num_k": 20,
+    "num_t": 100,
+    "checkpoint_baseline": null,
+    "checkpoint_tuned": null,
+    "checkpoint_mlp": null,
+    "checkpoint_message": null,
+    "checkpoint_f4": null,
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/train_alpha_seed0",
+    "graphs": 10,
+    "models": [
+      "baseline",
+      "tuned",
+      "mlp",
+      "message",
+      "f4"
+    ],
+    "interventions": [
+      "full",
+      "no_low",
+      "no_high",
+      "gate_half",
+      "no_adapter",
+      "high_bias1",
+      "high_bias2",
+      "high_identity",
+      "high_no_norm"
+    ],
+    "alpha_scales": [
+      0.0,
+      0.25,
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "alpha_pairs": [],
+    "mode": "both",
+    "phases": [
+      0,
+      10,
+      25,
+      50,
+      75,
+      100
+    ],
+    "diagnostic_particles": 4,
+    "post": [
+      "none",
+      "pave"
+    ]
+  },
+  "seed": 0,
+  "precision": "fp32",
+  "split": "train",
+  "checkpoints": {
+    "baseline": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+    "tuned": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed0/checkpoints/best.pt",
+    "mlp": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed0/checkpoints/best.pt",
+    "message": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_message_seed0/checkpoints/best.pt",
+    "f4": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_seed0/checkpoints/best.pt"
+  },
+  "started_at": "2026-11-09T06:27:27.137076+00:00",
+  "variants": {
+    "baseline": [
+      "baseline",
+      {}
+    ],
+    "tuned": [
+      "tuned",
+      {}
+    ],
+    "mlp": [
+      "mlp",
+      {}
+    ],
+    "message": [
+      "message",
+      {}
+    ],
+    "full": [
+      "f4",
+      {}
+    ],
+    "no_low": [
+      "f4",
+      {
+        "low_scale": 0.0
+      }
+    ],
+    "no_high": [
+      "f4",
+      {
+        "high_scale": 0.0
+      }
+    ],
+    "gate_half": [
+      "f4",
+      {
+        "gate": 0.5
+      }
+    ],
+    "no_adapter": [
+      "f4",
+      {
+        "low_scale": 0.0,
+        "high_scale": 0.0
+      }
+    ],
+    "high_bias1": [
+      "f4",
+      {
+        "zero_bias": {
+          "high": [
+            0
+          ]
+        }
+      }
+    ],
+    "high_bias2": [
+      "f4",
+      {
+        "zero_bias": {
+          "high": [
+            2
+          ]
+        }
+      }
+    ],
+    "high_identity": [
+      "f4",
+      {
+        "activation": {
+          "high": "identity"
+        }
+      }
+    ],
+    "high_no_norm": [
+      "f4",
+      {
+        "skip_norm": [
+          "high"
+        ]
+      }
+    ],
+    "alpha_0": [
+      "f4",
+      {
+        "low_scale": 0.0,
+        "high_scale": 0.0
+      }
+    ],
+    "alpha_0.25": [
+      "f4",
+      {
+        "low_scale": 0.25,
+        "high_scale": 0.25
+      }
+    ],
+    "alpha_0.5": [
+      "f4",
+      {
+        "low_scale": 0.5,
+        "high_scale": 0.5
+      }
+    ],
+    "alpha_1": [
+      "f4",
+      {
+        "low_scale": 1.0,
+        "high_scale": 1.0
+      }
+    ],
+    "alpha_1.5": [
+      "f4",
+      {
+        "low_scale": 1.5,
+        "high_scale": 1.5
+      }
+    ],
+    "alpha_2": [
+      "f4",
+      {
+        "low_scale": 2.0,
+        "high_scale": 2.0
+      }
+    ]
+  },
+  "random_protocol": "One x0 and 100 stacked per-step U tensors shared across variants; extra independent U for phase 100 only",
+  "precision_protocol": "Compare within precision; fp32 and fp16 use their original dtype-specific random streams",
+  "archive": "Per-particle minimum energy followed by one final A.3 decode; best legal set over K",
+  "same_state_source": "Frozen original RLNN baseline",
+  "same_state_reference": "Full F4 at the same teacher state",
+  "immediate_energy": "expected_joint_delta_energy is exact under independent Bernoulli flips; expected_sum_single_flip_delta_energy omits simultaneous-flip interactions",
+  "timing": "Replay and same-state timings are diagnostic costs, not official E2E timing",
+  "pave_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt",
+  "samples": 10,
+  "graph_ids": [
+    "graph_000000",
+    "graph_000001",
+    "graph_000002",
+    "graph_000003",
+    "graph_000004",
+    "graph_000005",
+    "graph_000006",
+    "graph_000007",
+    "graph_000008",
+    "graph_000009"
+  ],
+  "finished_at": "2026-11-09T06:30:58.425601+00:00",
+  "wall_time_s": 211.28690728684887
+}

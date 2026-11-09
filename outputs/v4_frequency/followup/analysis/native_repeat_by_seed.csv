@@ -1,0 +1,13 @@
+split,precision,reference_variant,seed,base_size_delta,final_size_delta,selected_nodes_changed,final_state_changed_entries,best_archive_changed_entries,changed_observation_phases,changed_observed_state_entries,base_size_delta_abs,base_size_delta_changed,final_size_delta_abs,final_size_delta_changed,final_state_changed_entries_rate,best_archive_changed_entries_rate,changed_observation_phases_rate
+validation,fp16,baseline,0,-0.01,-0.02,0.09,39.11,34.66,3.2,104.92,0.01,0.01,0.02,0.02,0.86,0.77,0.87
+validation,fp16,baseline,1,0.0,0.01,0.1,37.85,30.51,3.06,96.89,0.02,0.02,0.03,0.03,0.85,0.77,0.87
+validation,fp16,baseline,2,0.0,0.01,0.1,40.91,34.52,3.36,110.82,0.0,0.0,0.01,0.01,0.87,0.84,0.89
+validation,fp16,full,0,0.0,0.01,0.1,37.46,32.54,3.21,96.58,0.04,0.04,0.03,0.03,0.85,0.8,0.86
+validation,fp16,full,1,0.0,-0.02,0.1,39.98,33.91,3.34,108.19,0.02,0.02,0.04,0.04,0.85,0.82,0.86
+validation,fp16,full,2,0.0,-0.01,0.09,41.16,32.26,3.41,106.14,0.02,0.02,0.01,0.01,0.89,0.82,0.9
+validation,fp32,baseline,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+validation,fp32,baseline,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+validation,fp32,baseline,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+validation,fp32,full,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+validation,fp32,full,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+validation,fp32,full,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

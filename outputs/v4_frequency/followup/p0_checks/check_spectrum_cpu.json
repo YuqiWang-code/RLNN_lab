@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "spectral": {
+    "spectral_parseval": "passed",
+    "entire_zero_space": "passed",
+    "constant_and_empty_energy": "passed",
+    "node_permutation": "passed",
+    "block_diagonal_energy": "passed",
+    "stage_trace_and_no_mutation": "passed"
+  },
+  "device": "cpu",
+  "models": {
+    "v4a": "trace/logits/particles/interventions/state_dict passed",
+    "v4a_message": "trace/logits/particles/interventions/state_dict passed",
+    "v4a_mlp": "trace/logits/particles/interventions/state_dict passed"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "device": "cuda",
+  "params": {
+    "v4a_mlp": 170513,
+    "v4a_message": 170513,
+    "v4a": 170513,
+    "v4a_fixed": 170513,
+    "v4a_low": 170513,
+    "v4a_high": 170513,
+    "v4a_near": 170513,
+    "v4a_norelease": 170513,
+    "v4a_noenergy": 170513,
+    "v4a_complementary": 170513
+  },
+  "adapter_params": 5008,
+  "batch_gradient_max_abs_difference": 9.5367431640625e-07
+}

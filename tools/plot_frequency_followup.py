@@ -119,12 +119,20 @@ def plot_all(analysis):
         fig, axes = plt.subplots(1, 2, figsize=(11, 4))
         masks = [(df.precision == "fp16") & (df.protocol == "fixed_work") & (df.post == "none"),
                  (df.precision == "fp16") & (df.protocol != "fixed_work") & (df.post == "pave")]
+        colors = {"baseline": "#2c7bb6", "tuned": "#e08431", "v4a_mlp": "#39945c",
+                  "v4a_message": "#9b5cad", "v4a": "#ba4842"}
         for ax, mask, title in zip(axes, masks, ("Fixed K20 / T100, no postprocess", "0.5 s budget, frozen PAVE")):
             for _, row in df[mask].iterrows():
                 label = LABELS[row.label] + (" extended" if row.extended_search else "")
-                ax.errorbar(row.mean_solve_time_s * 1000, row.mean_size, yerr=row.std_size, fmt="o", capsize=3)
-                ax.annotate(label + f" ({row.mean_search_steps:.0f} steps)",
-                            (row.mean_solve_time_s * 1000, row.mean_size), xytext=(4, 6), textcoords="offset points", fontsize=8)
+                offset = (6, -14) if row.label == "baseline" and not row.extended_search else (6, 8)
+                color = colors[row.label]
+                if row.post == "pave":
+                    label += f" ({row.mean_search_steps:.0f} steps, PAVE {row.mean_post_time_s * 1000:.0f} ms)"
+                    if row.label == "v4a_mlp":
+                        offset = (6, -18)
+                ax.errorbar(row.mean_solve_time_s * 1000, row.mean_size, yerr=row.std_size, fmt="o", capsize=3, color=color)
+                ax.annotate(label, (row.mean_solve_time_s * 1000, row.mean_size),
+                            xytext=offset, textcoords="offset points", fontsize=8)
             ax.set_title(title)
             ax.set_xlabel("Mean solve time (ms)")
             ax.set_ylabel("Mean independent-set size")

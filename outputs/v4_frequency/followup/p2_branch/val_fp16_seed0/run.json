@@ -1,0 +1,233 @@
+{
+  "version": "v4_frequency_followup",
+  "mode": "branch_replay",
+  "status": "completed",
+  "config": {
+    "seed": 0,
+    "search_seed": 1017,
+    "split": "validation",
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "precision": "fp16",
+    "num_k": 20,
+    "num_t": 100,
+    "checkpoint_baseline": null,
+    "checkpoint_tuned": null,
+    "checkpoint_mlp": null,
+    "checkpoint_message": null,
+    "checkpoint_f4": null,
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/followup/p2_branch/val_fp16_seed0",
+    "graphs": 100,
+    "models": [
+      "baseline",
+      "tuned",
+      "mlp",
+      "message",
+      "f4"
+    ],
+    "interventions": [
+      "full",
+      "no_low",
+      "no_high",
+      "gate_half",
+      "no_adapter"
+    ],
+    "alpha_scales": [],
+    "alpha_pairs": [],
+    "mode": "both",
+    "phases": [
+      0,
+      10,
+      25,
+      50,
+      75,
+      100
+    ],
+    "diagnostic_particles": 4,
+    "post": [
+      "none",
+      "pave"
+    ],
+    "native_repeats": 2
+  },
+  "seed": 0,
+  "precision": "fp16",
+  "split": "validation",
+  "checkpoints": {
+    "baseline": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+    "tuned": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed0/checkpoints/best.pt",
+    "mlp": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed0/checkpoints/best.pt",
+    "message": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_message_seed0/checkpoints/best.pt",
+    "f4": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_seed0/checkpoints/best.pt"
+  },
+  "started_at": "2026-11-09T06:48:34.065283+00:00",
+  "variants": {
+    "baseline": [
+      "baseline",
+      {}
+    ],
+    "tuned": [
+      "tuned",
+      {}
+    ],
+    "mlp": [
+      "mlp",
+      {}
+    ],
+    "message": [
+      "message",
+      {}
+    ],
+    "full": [
+      "f4",
+      {}
+    ],
+    "no_low": [
+      "f4",
+      {
+        "low_scale": 0.0
+      }
+    ],
+    "no_high": [
+      "f4",
+      {
+        "high_scale": 0.0
+      }
+    ],
+    "gate_half": [
+      "f4",
+      {
+        "gate": 0.5
+      }
+    ],
+    "no_adapter": [
+      "f4",
+      {
+        "low_scale": 0.0,
+        "high_scale": 0.0
+      }
+    ],
+    "baseline_repeat1": [
+      "baseline",
+      {}
+    ],
+    "full_repeat1": [
+      "f4",
+      {}
+    ]
+  },
+  "random_protocol": "One x0 and 100 stacked per-step U tensors shared across variants; extra independent U for phase 100 only",
+  "precision_protocol": "Compare within precision; fp32 and fp16 use their original dtype-specific random streams",
+  "native_repeats": 2,
+  "native_numerics": "Shared x0/U does not remove CUDA sparse-reduction nondeterminism; native repeat controls quantify its trajectory and Size effects",
+  "archive": "Per-particle minimum energy followed by one final A.3 decode; best legal set over K",
+  "same_state_source": "Frozen original RLNN baseline",
+  "same_state_reference": "Full F4 at the same teacher state",
+  "immediate_energy": "expected_joint_delta_energy is exact under independent Bernoulli flips; expected_sum_single_flip_delta_energy omits simultaneous-flip interactions",
+  "timing": "Replay and same-state timings are diagnostic costs, not official E2E timing",
+  "pave_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt",
+  "samples": 100,
+  "graph_ids": [
+    "graph_000000",
+    "graph_000001",
+    "graph_000002",
+    "graph_000003",
+    "graph_000004",
+    "graph_000005",
+    "graph_000006",
+    "graph_000007",
+    "graph_000008",
+    "graph_000009",
+    "graph_000010",
+    "graph_000011",
+    "graph_000012",
+    "graph_000013",
+    "graph_000014",
+    "graph_000015",
+    "graph_000016",
+    "graph_000017",
+    "graph_000018",
+    "graph_000019",
+    "graph_000020",
+    "graph_000021",
+    "graph_000022",
+    "graph_000023",
+    "graph_000024",
+    "graph_000025",
+    "graph_000026",
+    "graph_000027",
+    "graph_000028",
+    "graph_000029",
+    "graph_000030",
+    "graph_000031",
+    "graph_000032",
+    "graph_000033",
+    "graph_000034",
+    "graph_000035",
+    "graph_000036",
+    "graph_000037",
+    "graph_000038",
+    "graph_000039",
+    "graph_000040",
+    "graph_000041",
+    "graph_000042",
+    "graph_000043",
+    "graph_000044",
+    "graph_000045",
+    "graph_000046",
+    "graph_000047",
+    "graph_000048",
+    "graph_000049",
+    "graph_000050",
+    "graph_000051",
+    "graph_000052",
+    "graph_000053",
+    "graph_000054",
+    "graph_000055",
+    "graph_000056",
+    "graph_000057",
+    "graph_000058",
+    "graph_000059",
+    "graph_000060",
+    "graph_000061",
+    "graph_000062",
+    "graph_000063",
+    "graph_000064",
+    "graph_000065",
+    "graph_000066",
+    "graph_000067",
+    "graph_000068",
+    "graph_000069",
+    "graph_000070",
+    "graph_000071",
+    "graph_000072",
+    "graph_000073",
+    "graph_000074",
+    "graph_000075",
+    "graph_000076",
+    "graph_000077",
+    "graph_000078",
+    "graph_000079",
+    "graph_000080",
+    "graph_000081",
+    "graph_000082",
+    "graph_000083",
+    "graph_000084",
+    "graph_000085",
+    "graph_000086",
+    "graph_000087",
+    "graph_000088",
+    "graph_000089",
+    "graph_000090",
+    "graph_000091",
+    "graph_000092",
+    "graph_000093",
+    "graph_000094",
+    "graph_000095",
+    "graph_000096",
+    "graph_000097",
+    "graph_000098",
+    "graph_000099"
+  ],
+  "finished_at": "2026-11-09T07:08:37.158073+00:00",
+  "wall_time_s": 1203.0919804759324
+}

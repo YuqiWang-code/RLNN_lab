@@ -1,0 +1,6 @@
+queue/
+p*/smoke*/
+p1_spectrum/*/*.csv
+p2_branch/*/same_state.csv
+p2_branch/*/replay_curves.csv
+p3_utility/*/*.csv

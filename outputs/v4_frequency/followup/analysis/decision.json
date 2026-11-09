@@ -1,0 +1,16 @@
+{
+  "decision": "no_go",
+  "scope": "current_f4_dual_branch",
+  "retained_solver": "original_backbone_plus_frozen_pave",
+  "D1_label_reliability": "inconclusive",
+  "D2_frequency_independent_advantage": "not_supported",
+  "D3_fixed_work_size": "not_supported",
+  "D4_fixed_budget_size": "not_supported",
+  "f4_high_stationary_fraction": 0.97111,
+  "f4_high_centered_higher_fraction": 0.90009,
+  "stratified_regret_improvement_over_msg": 0.00069444,
+  "fp32_replay_size_f4_minus_msg": -0.01666667,
+  "fp16_replay_size_f4_minus_msg": -0.03333333,
+  "validation_budget_size_f4_plus_pave": 19.48,
+  "validation_budget_size_extended_b_plus_pave": 19.65
+}

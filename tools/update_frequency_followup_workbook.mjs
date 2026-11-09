@@ -104,6 +104,8 @@ const plans = [
     first: ['split', 'precision', 'metric', 'method', 'reference', 'mean_delta', 'graph_ci_low', 'graph_ci_high', 'wins', 'ties', 'losses'] },
   { sheet: names[2], title: 'P2 同状态行为变化', file: 'same_state_summary.csv',
     first: ['split', 'precision', 'variant', 'category', 'step', 'delta_probability_abs_mean_mean', 'expected_flips_mean', 'delta_logit_rms_mean'] },
+  { sheet: names[2], title: 'P2 同模型重复回放的轨迹与 Size 波动', file: 'native_repeat_summary.csv',
+    select: ['precision', 'reference_variant', 'graph_count', 'seed_count', 'paired_repeat_count', 'changed_observation_phases_rate_mean', 'selected_nodes_changed_mean', 'base_size_delta_changed_mean', 'final_size_delta_changed_mean', 'base_size_delta_mean', 'base_size_delta_abs_mean', 'final_size_delta_abs_mean'] },
   { sheet: names[3], title: 'P3 成对翻转收益排序：共享标签，按图汇总', file: 'utility_summary.csv',
     first: ['study', 'split', 'model', 'R', 'candidate_group', 'pair_accuracy_mean', 'pair_accuracy_std', 'top1_gain_mean', 'top1_regret_mean', 'pooled_pair_accuracy'] },
   { sheet: names[3], title: 'P3 相对MSG的图级后悔值配对；正改善值表示当前模型更好', file: 'utility_paired.csv',
@@ -114,6 +116,8 @@ const plans = [
     first: ['split', 'precision', 'model', 'post', 'final_size_mean', 'final_size_std', 'solve_time_s_mean', 'median_s', 'p95_s', 'mad_s', 'search_steps_mean'] },
   { sheet: names[4], title: 'P4 组件独立计时；不可直接相加替代端到端时间', file: 'profile_components.csv',
     first: ['split', 'precision', 'model', 'component', 'unit', 'time_s_mean', 'time_s_std'] },
+  { sheet: names[4], title: 'P4 固定输入的融合一致性与原生前向波动', file: 'component_equivalence_summary.csv',
+    select: ['split', 'precision', 'model', 'precision_cached_fusion_max_abs_max', 'fp32_decomposition_vs_native_max_abs_max', 'native_pairwise_max_abs_max', 'native_probability_max_abs_max', 'decomposition_vs_native_max_abs_max'] },
   { sheet: names[4], title: '既有V4验证质量与时间参考', file: 'historical_quality_time.csv',
     select: ['method', 'mean_size', 'std_size', 'mean_solve_time_s', 'feasible_rate', 'params', 'peak_memory_mib', 'mean_search_steps', 'protocol', 'precision', 'split', 'time_budget_s', 'extended_search', 'deadline_overruns'] },
 ];
