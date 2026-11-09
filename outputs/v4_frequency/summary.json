@@ -1,6 +1,6 @@
 {
   "version": "v4_frequency",
-  "updated_at": "2026-11-09T03:26:48.932595+00:00",
+  "updated_at": "2026-11-09T03:29:52.971247+00:00",
   "runs": [
     {
       "label": "baseline",
@@ -473,6 +473,832 @@
       "max_deadline_overrun_s": null,
       "run_index": 7,
       "cohort_index": 3
+    },
+    {
+      "label": "tuned",
+      "arm": "none",
+      "checkpoint_family": "outputs/v4_frequency/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "source": "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "backbone_seed": 1,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.48,
+      "mean_initial_size": 19.48,
+      "mean_rule_size": 19.48,
+      "mean_solve_time_s": 0.2157275029271841,
+      "mean_post_time_s": 5.5007529444992544e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 165505,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed1/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed1/none",
+      "delta_base": -0.07,
+      "wins": 13,
+      "ties": 68,
+      "losses": 19,
+      "max_solve_time_s": 0.34140120865777135,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 8,
+      "cohort_index": 2
+    },
+    {
+      "label": "tuned",
+      "arm": "none",
+      "checkpoint_family": "outputs/v4_frequency/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "backbone_seed": 1,
+      "head_seed": 1,
+      "search_seed": 1017,
+      "mean_size": 19.59,
+      "mean_initial_size": 19.48,
+      "mean_rule_size": 19.51,
+      "mean_solve_time_s": 0.30567519158590584,
+      "mean_post_time_s": 0.09000269618816674,
+      "mean_score_time_s": 0.029805730767548083,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 169218,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed1/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed1/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "delta_base": -0.03,
+      "wins": 12,
+      "ties": 74,
+      "losses": 14,
+      "max_solve_time_s": 0.5586250419728458,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.10999999999999943,
+      "rule_gain": 0.0799999999999983,
+      "max_deadline_overrun_s": null,
+      "run_index": 9,
+      "cohort_index": 3
+    },
+    {
+      "label": "tuned",
+      "arm": "none",
+      "checkpoint_family": "outputs/v4_frequency/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "source": "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "backbone_seed": 2,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.5,
+      "mean_initial_size": 19.5,
+      "mean_rule_size": 19.5,
+      "mean_solve_time_s": 0.17079848835710437,
+      "mean_post_time_s": 3.9198612794280054e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 165505,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed2/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed2/none",
+      "delta_base": -0.03,
+      "wins": 11,
+      "ties": 75,
+      "losses": 14,
+      "max_solve_time_s": 0.35731792682781816,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 10,
+      "cohort_index": 2
+    },
+    {
+      "label": "tuned",
+      "arm": "none",
+      "checkpoint_family": "outputs/v4_frequency/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "backbone_seed": 2,
+      "head_seed": 2,
+      "search_seed": 1017,
+      "mean_size": 19.61,
+      "mean_initial_size": 19.5,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.24881777855567633,
+      "mean_post_time_s": 0.07805848881136626,
+      "mean_score_time_s": 0.02521001857705414,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 169218,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed2/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed2/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "delta_base": -0.02,
+      "wins": 14,
+      "ties": 71,
+      "losses": 15,
+      "max_solve_time_s": 0.7117438991554081,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.10999999999999943,
+      "rule_gain": 0.05999999999999872,
+      "max_deadline_overrun_s": null,
+      "run_index": 11,
+      "cohort_index": 3
+    },
+    {
+      "label": "v4a_message",
+      "arm": "v4a_message",
+      "checkpoint_family": "outputs/v4_frequency/v4a_message_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 普通消息 + 无后处理",
+      "source": "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "backbone_seed": 0,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.55,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.44800118763931096,
+      "mean_post_time_s": 5.744600668549538e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 170513,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_message_seed0/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed0/none",
+      "delta_base": 0.02,
+      "wins": 18,
+      "ties": 65,
+      "losses": 17,
+      "max_solve_time_s": 0.6957037374377251,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 12,
+      "cohort_index": 4
+    },
+    {
+      "label": "v4a_message",
+      "arm": "v4a_message",
+      "checkpoint_family": "outputs/v4_frequency/v4a_message_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "backbone_seed": 0,
+      "head_seed": 0,
+      "search_seed": 1017,
+      "mean_size": 19.65,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.57,
+      "mean_solve_time_s": 0.5489212307706475,
+      "mean_post_time_s": 0.10097748913802207,
+      "mean_score_time_s": 0.032877036784775555,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 174226,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_message_seed0/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "delta_base": 0.03,
+      "wins": 16,
+      "ties": 70,
+      "losses": 14,
+      "max_solve_time_s": 0.9022925538010895,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.09999999999999787,
+      "rule_gain": 0.0799999999999983,
+      "max_deadline_overrun_s": null,
+      "run_index": 13,
+      "cohort_index": 5
+    },
+    {
+      "label": "v4a_message",
+      "arm": "v4a_message",
+      "checkpoint_family": "outputs/v4_frequency/v4a_message_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 普通消息 + 无后处理",
+      "source": "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "backbone_seed": 1,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.55,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.4045124818990007,
+      "mean_post_time_s": 5.2196597680449484e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 170513,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_message_seed1/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed1/none",
+      "delta_base": 0,
+      "wins": 12,
+      "ties": 76,
+      "losses": 12,
+      "max_solve_time_s": 0.6566779348067939,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 14,
+      "cohort_index": 4
+    },
+    {
+      "label": "v4a_message",
+      "arm": "v4a_message",
+      "checkpoint_family": "outputs/v4_frequency/v4a_message_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "backbone_seed": 1,
+      "head_seed": 1,
+      "search_seed": 1017,
+      "mean_size": 19.65,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.58,
+      "mean_solve_time_s": 0.49071306875441223,
+      "mean_post_time_s": 0.08625278345309198,
+      "mean_score_time_s": 0.02763885972555727,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 174226,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_message_seed1/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed1/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "delta_base": 0.03,
+      "wins": 13,
+      "ties": 76,
+      "losses": 11,
+      "max_solve_time_s": 0.757762226741761,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.09999999999999787,
+      "rule_gain": 0.07000000000000028,
+      "max_deadline_overrun_s": null,
+      "run_index": 15,
+      "cohort_index": 5
+    },
+    {
+      "label": "v4a_mlp",
+      "arm": "v4a_mlp",
+      "checkpoint_family": "outputs/v4_frequency/v4a_mlp_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 状态MLP + 无后处理",
+      "source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "backbone_seed": 0,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.58,
+      "mean_initial_size": 19.58,
+      "mean_rule_size": 19.58,
+      "mean_solve_time_s": 0.5084666729997843,
+      "mean_post_time_s": 6.0051130130887035e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 170513,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed0/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed0/none",
+      "delta_base": 0.05,
+      "wins": 23,
+      "ties": 59,
+      "losses": 18,
+      "max_solve_time_s": 0.7262803153134882,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 16,
+      "cohort_index": 6
+    },
+    {
+      "label": "v4a_mlp",
+      "arm": "v4a_mlp",
+      "checkpoint_family": "outputs/v4_frequency/v4a_mlp_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "backbone_seed": 0,
+      "head_seed": 0,
+      "search_seed": 1017,
+      "mean_size": 19.68,
+      "mean_initial_size": 19.58,
+      "mean_rule_size": 19.62,
+      "mean_solve_time_s": 0.6196245084982366,
+      "mean_post_time_s": 0.11121788662858308,
+      "mean_score_time_s": 0.03612812922336161,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 174226,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed0/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "delta_base": 0.06,
+      "wins": 21,
+      "ties": 64,
+      "losses": 15,
+      "max_solve_time_s": 1.1050642533227801,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.10000000000000142,
+      "rule_gain": 0.05999999999999872,
+      "max_deadline_overrun_s": null,
+      "run_index": 17,
+      "cohort_index": 7
+    },
+    {
+      "label": "v4a_mlp",
+      "arm": "v4a_mlp",
+      "checkpoint_family": "outputs/v4_frequency/v4a_mlp_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 状态MLP + 无后处理",
+      "source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "backbone_seed": 1,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.48,
+      "mean_initial_size": 19.48,
+      "mean_rule_size": 19.48,
+      "mean_solve_time_s": 0.522286776592955,
+      "mean_post_time_s": 6.188306491822004e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 170513,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed1/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed1/none",
+      "delta_base": -0.07,
+      "wins": 9,
+      "ties": 76,
+      "losses": 15,
+      "max_solve_time_s": 0.7272657756693661,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 18,
+      "cohort_index": 6
+    },
+    {
+      "label": "v4a_mlp",
+      "arm": "v4a_mlp",
+      "checkpoint_family": "outputs/v4_frequency/v4a_mlp_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "backbone_seed": 1,
+      "head_seed": 1,
+      "search_seed": 1017,
+      "mean_size": 19.59,
+      "mean_initial_size": 19.48,
+      "mean_rule_size": 19.52,
+      "mean_solve_time_s": 0.6426658687274903,
+      "mean_post_time_s": 0.12044097519945353,
+      "mean_score_time_s": 0.03897245656233281,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 174226,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed1/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed1/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "delta_base": -0.03,
+      "wins": 14,
+      "ties": 70,
+      "losses": 16,
+      "max_solve_time_s": 1.0935491221025586,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.10999999999999943,
+      "rule_gain": 0.07000000000000028,
+      "max_deadline_overrun_s": null,
+      "run_index": 19,
+      "cohort_index": 7
+    },
+    {
+      "label": "v4a_mlp",
+      "arm": "v4a_mlp",
+      "checkpoint_family": "outputs/v4_frequency/v4a_mlp_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 状态MLP + 无后处理",
+      "source": "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "backbone_seed": 2,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.55,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.4097757039451972,
+      "mean_post_time_s": 4.520227201282978e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 170513,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed2/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed2/none",
+      "delta_base": 0.02,
+      "wins": 13,
+      "ties": 75,
+      "losses": 12,
+      "max_solve_time_s": 0.6283922218717635,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 20,
+      "cohort_index": 6
+    },
+    {
+      "label": "v4a_mlp",
+      "arm": "v4a_mlp",
+      "checkpoint_family": "outputs/v4_frequency/v4a_mlp_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "backbone_seed": 2,
+      "head_seed": 2,
+      "search_seed": 1017,
+      "mean_size": 19.68,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.59,
+      "mean_solve_time_s": 0.49170364008285106,
+      "mean_post_time_s": 0.08197313840966672,
+      "mean_score_time_s": 0.026655980027280746,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 174226,
+      "peak_memory_mib": 34.0673828125,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed2/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed2/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "delta_base": 0.05,
+      "wins": 17,
+      "ties": 70,
+      "losses": 13,
+      "max_solve_time_s": 0.8080601869150996,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.129999999999999,
+      "rule_gain": 0.08999999999999986,
+      "max_deadline_overrun_s": null,
+      "run_index": 21,
+      "cohort_index": 7
     }
   ],
   "cohorts": [
@@ -638,37 +1464,43 @@
         "constant_half_gates": false
       },
       "method": "验证 FP32 固定量 微调骨干 + 无后处理",
-      "seeds": 1,
+      "seeds": 3,
       "seed_ids": [
-        0
+        0,
+        1,
+        2
       ],
       "run_indices": [
-        6
+        6,
+        8,
+        10
       ],
       "params": 165505,
-      "mean_size": 19.55,
-      "mean_initial_size": 19.55,
-      "mean_rule_size": 19.55,
-      "mean_solve_time_s": 0.25638510286808014,
-      "mean_post_time_s": 7.196296472102404e-05,
+      "mean_size": 19.51,
+      "mean_initial_size": 19.51,
+      "mean_rule_size": 19.51,
+      "mean_solve_time_s": 0.21430369805078953,
+      "mean_post_time_s": 5.538970232009888e-05,
       "mean_score_time_s": 0.0,
       "mean_search_steps": 100.0,
       "feasible_rate": 1,
       "base_gain": 0.0,
       "rule_gain": 0.0,
-      "delta_base": 0.02,
-      "wins": 17,
-      "ties": 67,
-      "losses": 16,
+      "delta_base": -0.02666666666666667,
+      "wins": 41,
+      "ties": 210,
+      "losses": 49,
       "deadline_overruns": 0,
       "post_deadline_hits": 0,
       "incumbent_fallbacks": 0,
       "peak_memory_mib": 28.83544921875,
-      "max_solve_time_s": 0.35590821504592896,
+      "max_solve_time_s": 0.35731792682781816,
       "max_deadline_overrun_s": null,
-      "std_size": null,
+      "std_size": 0.03605551275464011,
       "by_seed": {
-        "0": 19.55
+        "0": 19.55,
+        "1": 19.48,
+        "2": 19.5
       }
     },
     {
@@ -699,37 +1531,305 @@
         "constant_half_gates": false
       },
       "method": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
-      "seeds": 1,
+      "seeds": 3,
       "seed_ids": [
-        0
+        0,
+        1,
+        2
       ],
       "run_indices": [
-        7
+        7,
+        9,
+        11
       ],
       "params": 169218,
-      "mean_size": 19.65,
-      "mean_initial_size": 19.55,
-      "mean_rule_size": 19.58,
-      "mean_solve_time_s": 0.383594687692821,
-      "mean_post_time_s": 0.1272815477894619,
-      "mean_score_time_s": 0.04127037972677499,
+      "mean_size": 19.616666666666667,
+      "mean_initial_size": 19.51,
+      "mean_rule_size": 19.546666666666667,
+      "mean_solve_time_s": 0.3126958859448011,
+      "mean_post_time_s": 0.09844757759633163,
+      "mean_score_time_s": 0.03209537635712574,
       "mean_search_steps": 100.0,
       "feasible_rate": 1,
-      "base_gain": 0.09999999999999787,
-      "rule_gain": 0.07000000000000028,
-      "delta_base": 0.03,
-      "wins": 16,
-      "ties": 70,
-      "losses": 14,
+      "base_gain": 0.10666666666666558,
+      "rule_gain": 0.0699999999999991,
+      "delta_base": -0.006666666666666667,
+      "wins": 42,
+      "ties": 215,
+      "losses": 43,
       "deadline_overruns": 0,
       "post_deadline_hits": 0,
       "incumbent_fallbacks": 0,
       "peak_memory_mib": 28.83544921875,
       "max_solve_time_s": 0.7753852340392768,
       "max_deadline_overrun_s": null,
-      "std_size": null,
+      "std_size": 0.03055050463303828,
       "by_seed": {
-        "0": 19.65
+        "0": 19.65,
+        "1": 19.59,
+        "2": 19.61
+      }
+    },
+    {
+      "label": "v4a_message",
+      "arm": "v4a_message",
+      "checkpoint_family": "outputs/v4_frequency/v4a_message_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 普通消息 + 无后处理",
+      "seeds": 2,
+      "seed_ids": [
+        0,
+        1
+      ],
+      "run_indices": [
+        12,
+        14
+      ],
+      "params": 170513,
+      "mean_size": 19.55,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.4262568347691558,
+      "mean_post_time_s": 5.4821302182972434e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "delta_base": 0.01,
+      "wins": 30,
+      "ties": 141,
+      "losses": 29,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "peak_memory_mib": 34.0673828125,
+      "max_solve_time_s": 0.6957037374377251,
+      "max_deadline_overrun_s": null,
+      "std_size": 0.0,
+      "by_seed": {
+        "0": 19.55,
+        "1": 19.55
+      }
+    },
+    {
+      "label": "v4a_message",
+      "arm": "v4a_message",
+      "checkpoint_family": "outputs/v4_frequency/v4a_message_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "seeds": 2,
+      "seed_ids": [
+        0,
+        1
+      ],
+      "run_indices": [
+        13,
+        15
+      ],
+      "params": 174226,
+      "mean_size": 19.65,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.575,
+      "mean_solve_time_s": 0.5198171497625299,
+      "mean_post_time_s": 0.09361513629555702,
+      "mean_score_time_s": 0.030257948255166412,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "base_gain": 0.09999999999999787,
+      "rule_gain": 0.07499999999999929,
+      "delta_base": 0.03,
+      "wins": 29,
+      "ties": 146,
+      "losses": 25,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "peak_memory_mib": 34.0673828125,
+      "max_solve_time_s": 0.9022925538010895,
+      "max_deadline_overrun_s": null,
+      "std_size": 0.0,
+      "by_seed": {
+        "0": 19.65,
+        "1": 19.65
+      }
+    },
+    {
+      "label": "v4a_mlp",
+      "arm": "v4a_mlp",
+      "checkpoint_family": "outputs/v4_frequency/v4a_mlp_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 状态MLP + 无后处理",
+      "seeds": 3,
+      "seed_ids": [
+        0,
+        1,
+        2
+      ],
+      "run_indices": [
+        16,
+        18,
+        20
+      ],
+      "params": 170513,
+      "mean_size": 19.536666666666665,
+      "mean_initial_size": 19.536666666666665,
+      "mean_rule_size": 19.536666666666665,
+      "mean_solve_time_s": 0.4801763845126455,
+      "mean_post_time_s": 5.571215568731228e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "delta_base": -1.1564823173178713e-18,
+      "wins": 45,
+      "ties": 210,
+      "losses": 45,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "peak_memory_mib": 34.0673828125,
+      "max_solve_time_s": 0.7272657756693661,
+      "max_deadline_overrun_s": null,
+      "std_size": 0.05131601439446798,
+      "by_seed": {
+        "0": 19.58,
+        "1": 19.48,
+        "2": 19.55
+      }
+    },
+    {
+      "label": "v4a_mlp",
+      "arm": "v4a_mlp",
+      "checkpoint_family": "outputs/v4_frequency/v4a_mlp_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "seeds": 3,
+      "seed_ids": [
+        0,
+        1,
+        2
+      ],
+      "run_indices": [
+        17,
+        19,
+        21
+      ],
+      "params": 174226,
+      "mean_size": 19.65,
+      "mean_initial_size": 19.536666666666665,
+      "mean_rule_size": 19.576666666666668,
+      "mean_solve_time_s": 0.5846646724361927,
+      "mean_post_time_s": 0.10454400007923444,
+      "mean_score_time_s": 0.03391885527099172,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "base_gain": 0.11333333333333329,
+      "rule_gain": 0.07333333333333296,
+      "delta_base": 0.02666666666666667,
+      "wins": 52,
+      "ties": 204,
+      "losses": 44,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "peak_memory_mib": 34.0673828125,
+      "max_solve_time_s": 1.1050642533227801,
+      "max_deadline_overrun_s": null,
+      "std_size": 0.051961524227066236,
+      "by_seed": {
+        "0": 19.68,
+        "1": 19.59,
+        "2": 19.68
       }
     }
   ],
@@ -779,6 +1879,50 @@
       "right_source": "outputs/v4_frequency/val_baseline_no_seed0/none"
     },
     {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.02,
+      "wins": 18,
+      "ties": 65,
+      "losses": 17,
+      "total_gain": 2,
+      "initial_size_delta": 0.02,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 6,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.05,
+      "wins": 23,
+      "ties": 59,
+      "losses": 18,
+      "total_gain": 5,
+      "initial_size_delta": 0.05,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed0/none"
+    },
+    {
       "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
       "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
       "left_cohort": 3,
@@ -798,6 +1942,50 @@
       "initial_size_delta": 0.02,
       "post_gain_difference": 0.009999999999999998,
       "left_source": "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed0/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03,
+      "wins": 16,
+      "ties": 70,
+      "losses": 14,
+      "total_gain": 3,
+      "initial_size_delta": 0.02,
+      "post_gain_difference": 0.009999999999999998,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed0/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 7,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.06,
+      "wins": 21,
+      "ties": 64,
+      "losses": 15,
+      "total_gain": 6,
+      "initial_size_delta": 0.05,
+      "post_gain_difference": 0.009999999999999995,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
       "right_source": "outputs/v4_frequency/val_baseline_no_seed0/pave"
     },
     {
@@ -823,6 +2011,138 @@
       "right_source": "outputs/v4_frequency/val_baseline_no_seed1/none"
     },
     {
+      "left": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 2,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -0.07,
+      "wins": 13,
+      "ties": 68,
+      "losses": 19,
+      "total_gain": -7,
+      "initial_size_delta": -0.07,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0,
+      "wins": 12,
+      "ties": 76,
+      "losses": 12,
+      "total_gain": 0,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 6,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -0.07,
+      "wins": 9,
+      "ties": 76,
+      "losses": 15,
+      "total_gain": -7,
+      "initial_size_delta": -0.07,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 3,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -0.03,
+      "wins": 12,
+      "ties": 74,
+      "losses": 14,
+      "total_gain": -3,
+      "initial_size_delta": -0.07,
+      "post_gain_difference": 0.04000000000000001,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed1/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03,
+      "wins": 13,
+      "ties": 76,
+      "losses": 11,
+      "total_gain": 3,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.03,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed1/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 7,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -0.03,
+      "wins": 14,
+      "ties": 70,
+      "losses": 16,
+      "total_gain": -3,
+      "initial_size_delta": -0.07,
+      "post_gain_difference": 0.04000000000000001,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed1/pave"
+    },
+    {
       "left": "验证 FP32 固定量 原骨干 + 冻结PAVE",
       "right": "验证 FP32 固定量 原骨干 + 无后处理",
       "left_cohort": 1,
@@ -845,6 +2165,94 @@
       "right_source": "outputs/v4_frequency/val_baseline_no_seed2/none"
     },
     {
+      "left": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 2,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -0.03,
+      "wins": 11,
+      "ties": 75,
+      "losses": 14,
+      "total_gain": -3,
+      "initial_size_delta": -0.03,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed2/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 6,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.02,
+      "wins": 13,
+      "ties": 75,
+      "losses": 12,
+      "total_gain": 2,
+      "initial_size_delta": 0.02,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed2/none"
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 3,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -0.02,
+      "wins": 14,
+      "ties": 71,
+      "losses": 15,
+      "total_gain": -2,
+      "initial_size_delta": -0.03,
+      "post_gain_difference": 0.009999999999999998,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed2/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 7,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.05,
+      "wins": 17,
+      "ties": 70,
+      "losses": 13,
+      "total_gain": 5,
+      "initial_size_delta": 0.02,
+      "post_gain_difference": 0.030000000000000002,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed2/pave"
+    },
+    {
       "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
       "right": "验证 FP32 固定量 微调骨干 + 无后处理",
       "left_cohort": 3,
@@ -865,6 +2273,468 @@
       "post_gain_difference": 0.1,
       "left_source": "outputs/v4_frequency/val_tuned_no_seed0/pave",
       "right_source": "outputs/v4_frequency/val_tuned_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0,
+      "wins": 13,
+      "ties": 73,
+      "losses": 14,
+      "total_gain": 0,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 无后处理",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 6,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03,
+      "wins": 14,
+      "ties": 74,
+      "losses": 12,
+      "total_gain": 3,
+      "initial_size_delta": 0.03,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 3,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0,
+      "wins": 16,
+      "ties": 68,
+      "losses": 16,
+      "total_gain": 0,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed0/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "left_cohort": 7,
+      "right_cohort": 3,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03,
+      "wins": 14,
+      "ties": 75,
+      "losses": 11,
+      "total_gain": 3,
+      "initial_size_delta": 0.03,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed0/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 3,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.11,
+      "wins": 11,
+      "ties": 89,
+      "losses": 0,
+      "total_gain": 11,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.11,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.07,
+      "wins": 18,
+      "ties": 71,
+      "losses": 11,
+      "total_gain": 7,
+      "initial_size_delta": 0.07,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 无后处理",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 6,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0,
+      "wins": 13,
+      "ties": 74,
+      "losses": 13,
+      "total_gain": 0,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 3,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.06,
+      "wins": 18,
+      "ties": 70,
+      "losses": 12,
+      "total_gain": 6,
+      "initial_size_delta": 0.07,
+      "post_gain_difference": -0.010000000000000009,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed1/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "left_cohort": 7,
+      "right_cohort": 3,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0,
+      "wins": 15,
+      "ties": 70,
+      "losses": 15,
+      "total_gain": 0,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed1/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 3,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.11,
+      "wins": 11,
+      "ties": 89,
+      "losses": 0,
+      "total_gain": 11,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.11,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed2/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 无后处理",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 6,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.05,
+      "wins": 16,
+      "ties": 73,
+      "losses": 11,
+      "total_gain": 5,
+      "initial_size_delta": 0.05,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed2/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "left_cohort": 7,
+      "right_cohort": 3,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.07,
+      "wins": 19,
+      "ties": 67,
+      "losses": 14,
+      "total_gain": 7,
+      "initial_size_delta": 0.05,
+      "post_gain_difference": 0.020000000000000004,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed2/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 普通消息 + 无后处理",
+      "left_cohort": 5,
+      "right_cohort": 4,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.1,
+      "wins": 10,
+      "ties": 90,
+      "losses": 0,
+      "total_gain": 10,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.1,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_v4a_message_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 状态MLP + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 6,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -0.03,
+      "wins": 7,
+      "ties": 82,
+      "losses": 11,
+      "total_gain": -3,
+      "initial_size_delta": -0.03,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "right_source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 7,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -0.03,
+      "wins": 5,
+      "ties": 86,
+      "losses": 9,
+      "total_gain": -3,
+      "initial_size_delta": -0.03,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 普通消息 + 无后处理",
+      "left_cohort": 5,
+      "right_cohort": 4,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.1,
+      "wins": 10,
+      "ties": 90,
+      "losses": 0,
+      "total_gain": 10,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.1,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_v4a_message_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 状态MLP + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 6,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.07,
+      "wins": 17,
+      "ties": 72,
+      "losses": 11,
+      "total_gain": 7,
+      "initial_size_delta": 0.07,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "right_source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 7,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.06,
+      "wins": 15,
+      "ties": 74,
+      "losses": 11,
+      "total_gain": 6,
+      "initial_size_delta": 0.07,
+      "post_gain_difference": -0.010000000000000009,
+      "left_source": "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 状态MLP + 无后处理",
+      "left_cohort": 7,
+      "right_cohort": 6,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.1,
+      "wins": 10,
+      "ties": 90,
+      "losses": 0,
+      "total_gain": 10,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.1,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_v4a_mlp_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 状态MLP + 无后处理",
+      "left_cohort": 7,
+      "right_cohort": 6,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.11,
+      "wins": 11,
+      "ties": 89,
+      "losses": 0,
+      "total_gain": 11,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.11,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_v4a_mlp_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 状态MLP + 无后处理",
+      "left_cohort": 7,
+      "right_cohort": 6,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.13,
+      "wins": 13,
+      "ties": 87,
+      "losses": 0,
+      "total_gain": 13,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.13,
+      "left_source": "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "right_source": "outputs/v4_frequency/val_v4a_mlp_no_seed2/none"
     },
     {
       "left": "验证 FP32 固定量 原骨干 + 冻结PAVE",
@@ -899,18 +2769,64 @@
       "protocol": "fixed_work",
       "seed": "all",
       "search_seed": null,
-      "records": 100,
+      "records": 300,
       "pairing": "独立搜索，同图同种子",
-      "delta_size": 0.02,
-      "wins": 17,
-      "ties": 67,
-      "losses": 16,
-      "total_gain": 2,
-      "initial_size_delta": 0.02,
+      "delta_size": -0.02666666666666667,
+      "wins": 41,
+      "ties": 210,
+      "losses": 49,
+      "total_gain": -8,
+      "initial_size_delta": -0.02666666666666667,
       "post_gain_difference": 0.0,
       "left_source": null,
       "right_source": null,
-      "paired_seeds": 1
+      "paired_seeds": 3
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 200,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.01,
+      "wins": 30,
+      "ties": 141,
+      "losses": 29,
+      "total_gain": 2,
+      "initial_size_delta": 0.01,
+      "post_gain_difference": 0.0,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 2
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 6,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 300,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": -1.1564823173178713e-18,
+      "wins": 45,
+      "ties": 210,
+      "losses": 45,
+      "total_gain": 0,
+      "initial_size_delta": -1.1564823173178713e-18,
+      "post_gain_difference": 0.0,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 3
     },
     {
       "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
@@ -922,18 +2838,64 @@
       "protocol": "fixed_work",
       "seed": "all",
       "search_seed": null,
-      "records": 100,
+      "records": 300,
       "pairing": "独立搜索，同图同种子",
-      "delta_size": 0.03,
-      "wins": 16,
-      "ties": 70,
-      "losses": 14,
-      "total_gain": 3,
-      "initial_size_delta": 0.02,
-      "post_gain_difference": 0.009999999999999998,
+      "delta_size": -0.006666666666666667,
+      "wins": 42,
+      "ties": 215,
+      "losses": 43,
+      "total_gain": -2,
+      "initial_size_delta": -0.02666666666666667,
+      "post_gain_difference": 0.02,
       "left_source": null,
       "right_source": null,
-      "paired_seeds": 1
+      "paired_seeds": 3
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 200,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03,
+      "wins": 29,
+      "ties": 146,
+      "losses": 25,
+      "total_gain": 6,
+      "initial_size_delta": 0.01,
+      "post_gain_difference": 0.019999999999999997,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 2
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 7,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 300,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.02666666666666667,
+      "wins": 52,
+      "ties": 204,
+      "losses": 44,
+      "total_gain": 8,
+      "initial_size_delta": -1.1564823173178713e-18,
+      "post_gain_difference": 0.02666666666666667,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 3
     },
     {
       "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
@@ -945,18 +2907,202 @@
       "protocol": "fixed_work",
       "seed": "all",
       "search_seed": null,
-      "records": 100,
+      "records": 300,
+      "pairing": "共享初始解",
+      "delta_size": 0.10666666666666667,
+      "wins": 32,
+      "ties": 268,
+      "losses": 0,
+      "total_gain": 32,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.10666666666666667,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 3
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 200,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.035,
+      "wins": 31,
+      "ties": 144,
+      "losses": 25,
+      "total_gain": 7,
+      "initial_size_delta": 0.035,
+      "post_gain_difference": 0.0,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 2
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 无后处理",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 6,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 300,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.02666666666666667,
+      "wins": 43,
+      "ties": 221,
+      "losses": 36,
+      "total_gain": 8,
+      "initial_size_delta": 0.02666666666666667,
+      "post_gain_difference": 0.0,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 3
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 3,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 200,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03,
+      "wins": 34,
+      "ties": 138,
+      "losses": 28,
+      "total_gain": 6,
+      "initial_size_delta": 0.035,
+      "post_gain_difference": -0.0050000000000000044,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 2
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "left_cohort": 7,
+      "right_cohort": 3,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 300,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03333333333333333,
+      "wins": 48,
+      "ties": 212,
+      "losses": 40,
+      "total_gain": 10,
+      "initial_size_delta": 0.02666666666666667,
+      "post_gain_difference": 0.006666666666666668,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 3
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 普通消息 + 无后处理",
+      "left_cohort": 5,
+      "right_cohort": 4,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 200,
       "pairing": "共享初始解",
       "delta_size": 0.1,
-      "wins": 10,
-      "ties": 90,
+      "wins": 20,
+      "ties": 180,
       "losses": 0,
-      "total_gain": 10,
+      "total_gain": 20,
       "initial_size_delta": 0,
       "post_gain_difference": 0.1,
       "left_source": null,
       "right_source": null,
-      "paired_seeds": 1
+      "paired_seeds": 2
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 无后处理",
+      "right": "验证 FP32 固定量 状态MLP + 无后处理",
+      "left_cohort": 4,
+      "right_cohort": 6,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 200,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.020000000000000004,
+      "wins": 24,
+      "ties": 154,
+      "losses": 22,
+      "total_gain": 4,
+      "initial_size_delta": 0.020000000000000004,
+      "post_gain_difference": 0.0,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 2
+    },
+    {
+      "left": "验证 FP32 固定量 普通消息 + 冻结PAVE",
+      "right": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "left_cohort": 5,
+      "right_cohort": 7,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 200,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.015,
+      "wins": 20,
+      "ties": 160,
+      "losses": 20,
+      "total_gain": 3,
+      "initial_size_delta": 0.020000000000000004,
+      "post_gain_difference": -0.0050000000000000044,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 2
+    },
+    {
+      "left": "验证 FP32 固定量 状态MLP + 冻结PAVE",
+      "right": "验证 FP32 固定量 状态MLP + 无后处理",
+      "left_cohort": 7,
+      "right_cohort": 6,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 300,
+      "pairing": "共享初始解",
+      "delta_size": 0.11333333333333334,
+      "wins": 34,
+      "ties": 266,
+      "losses": 0,
+      "total_gain": 34,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.11333333333333334,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 3
     }
   ],
   "diagnostics": [
@@ -2334,6 +4480,118 @@
     ],
     [
       "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "平均Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "胜",
+      18
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "平",
+      65
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "负",
+      17
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "初始Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "平均Size差",
+      0.05
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "胜",
+      23
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "平",
+      59
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "负",
+      18
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "初始Size差",
+      0.05
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
       "outputs/v4_frequency/val_tuned_no_seed0/pave",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
       "配对口径",
@@ -2387,6 +4645,118 @@
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
       "后处理增益差",
       0.009999999999999998
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "平均Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "胜",
+      16
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "平",
+      70
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "负",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "初始Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "后处理增益差",
+      0.009999999999999998
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "平均Size差",
+      0.06
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "胜",
+      21
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "平",
+      64
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "负",
+      15
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "初始Size差",
+      0.05
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "后处理增益差",
+      0.009999999999999995
     ],
     [
       "逐图配对",
@@ -2446,6 +4816,342 @@
     ],
     [
       "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "平均Size差",
+      -0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "胜",
+      13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "平",
+      68
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "负",
+      19
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "初始Size差",
+      -0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "平均Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "胜",
+      12
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "平",
+      76
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "负",
+      12
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "后处理增益差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "平均Size差",
+      -0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "胜",
+      9
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "平",
+      76
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "负",
+      15
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "初始Size差",
+      -0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "平均Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "胜",
+      12
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "平",
+      74
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "负",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "初始Size差",
+      -0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "后处理增益差",
+      0.04000000000000001
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "平均Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "胜",
+      13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "平",
+      76
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "负",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "后处理增益差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "平均Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "胜",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "平",
+      70
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "负",
+      16
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "初始Size差",
+      -0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子1",
+      "后处理增益差",
+      0.04000000000000001
+    ],
+    [
+      "逐图配对",
       "outputs/v4_frequency/val_baseline_no_seed2/pave",
       "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
       "配对口径",
@@ -2502,6 +5208,230 @@
     ],
     [
       "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "平均Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "胜",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "平",
+      75
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "负",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "初始Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "平均Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "胜",
+      13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "平",
+      75
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "负",
+      12
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "初始Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "平均Size差",
+      -0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "胜",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "平",
+      71
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "负",
+      15
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "初始Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "后处理增益差",
+      0.009999999999999998
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "平均Size差",
+      0.05
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "胜",
+      17
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "平",
+      70
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "负",
+      13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "初始Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子2",
+      "后处理增益差",
+      0.030000000000000002
+    ],
+    [
+      "逐图配对",
       "outputs/v4_frequency/val_tuned_no_seed0/pave",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
       "配对口径",
@@ -2555,6 +5485,1182 @@
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
       "后处理增益差",
       0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "平均Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "胜",
+      13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "平",
+      73
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "负",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "后处理增益差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "平均Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "胜",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "平",
+      74
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "负",
+      12
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "初始Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "平均Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "胜",
+      16
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "平",
+      68
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "负",
+      16
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "后处理增益差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "平均Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "胜",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "平",
+      75
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "负",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "初始Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子0",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "平均Size差",
+      0.11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "胜",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "平",
+      89
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed1/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "后处理增益差",
+      0.11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "平均Size差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "胜",
+      18
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "平",
+      71
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "负",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "初始Size差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "平均Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "胜",
+      13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "平",
+      74
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "负",
+      13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子1",
+      "后处理增益差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "平均Size差",
+      0.06
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "胜",
+      18
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "平",
+      70
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "负",
+      12
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "初始Size差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "后处理增益差",
+      -0.010000000000000009
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "平均Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "胜",
+      15
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "平",
+      70
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "负",
+      15
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子1",
+      "后处理增益差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "平均Size差",
+      0.11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "胜",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "平",
+      89
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed2/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "后处理增益差",
+      0.11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "平均Size差",
+      0.05
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "胜",
+      16
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "平",
+      73
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "负",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "初始Size差",
+      0.05
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/none",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子2",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子2",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子2",
+      "平均Size差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子2",
+      "胜",
+      19
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子2",
+      "平",
+      67
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子2",
+      "负",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子2",
+      "初始Size差",
+      0.05
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子2",
+      "后处理增益差",
+      0.020000000000000004
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子0",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子0",
+      "平均Size差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子0",
+      "胜",
+      10
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子0",
+      "平",
+      90
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子0",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子0",
+      "后处理增益差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "平均Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "胜",
+      7
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "平",
+      82
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "负",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "初始Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子0",
+      "平均Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子0",
+      "胜",
+      5
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子0",
+      "平",
+      86
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子0",
+      "负",
+      9
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子0",
+      "初始Size差",
+      -0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed0/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子0",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子1",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子1",
+      "平均Size差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子1",
+      "胜",
+      10
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子1",
+      "平",
+      90
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子1",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子1",
+      "后处理增益差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "平均Size差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "胜",
+      17
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "平",
+      72
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "负",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "初始Size差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/none",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子1",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子1",
+      "平均Size差",
+      0.06
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子1",
+      "胜",
+      15
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子1",
+      "平",
+      74
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子1",
+      "负",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子1",
+      "初始Size差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_message_no_seed1/pave",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子1",
+      "后处理增益差",
+      -0.010000000000000009
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "平均Size差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "胜",
+      10
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "平",
+      90
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed0/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子0",
+      "后处理增益差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "平均Size差",
+      0.11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "胜",
+      11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "平",
+      89
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed1/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子1",
+      "后处理增益差",
+      0.11
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子2",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子2",
+      "平均Size差",
+      0.13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子2",
+      "胜",
+      13
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子2",
+      "平",
+      87
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子2",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_v4a_mlp_no_seed2/pave",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子2",
+      "后处理增益差",
+      0.13
     ],
     [
       "逐图配对",
@@ -2624,47 +6730,159 @@
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
       "图—种子记录数",
-      100
+      300
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
       "平均Size差",
-      0.02
+      -0.02666666666666667
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
       "胜",
-      17
+      41
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
       "平",
-      67
+      210
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
       "负",
-      16
+      49
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
       "初始Size差",
-      0.02
+      -0.02666666666666667
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "图—种子记录数",
+      200
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "平均Size差",
+      0.01
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "胜",
+      30
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "平",
+      141
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "负",
+      29
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "初始Size差",
+      0.01
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "图—种子记录数",
+      300
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "平均Size差",
+      -1.1564823173178713e-18
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "胜",
+      45
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "平",
+      210
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "负",
+      45
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "初始Size差",
+      -1.1564823173178713e-18
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
       "后处理增益差",
       0.0
     ],
@@ -2680,49 +6898,161 @@
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
       "图—种子记录数",
-      100
+      300
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
       "平均Size差",
-      0.03
+      -0.006666666666666667
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
       "胜",
-      16
+      42
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
       "平",
-      70
+      215
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
       "负",
-      14
+      43
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
       "初始Size差",
-      0.02
+      -0.02666666666666667
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
       "后处理增益差",
-      0.009999999999999998
+      0.02
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "图—种子记录数",
+      200
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "平均Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "胜",
+      29
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "平",
+      146
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "负",
+      25
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "初始Size差",
+      0.01
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "后处理增益差",
+      0.019999999999999997
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "图—种子记录数",
+      300
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "平均Size差",
+      0.02666666666666667
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "胜",
+      52
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "平",
+      204
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "负",
+      44
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "初始Size差",
+      -1.1564823173178713e-18
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "后处理增益差",
+      0.02666666666666667
     ],
     [
       "逐图配对",
@@ -2736,28 +7066,28 @@
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
       "图—种子记录数",
-      100
+      300
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
       "平均Size差",
-      0.1
+      0.10666666666666667
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
       "胜",
-      10
+      32
     ],
     [
       "逐图配对",
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
       "平",
-      90
+      268
     ],
     [
       "逐图配对",
@@ -2778,7 +7108,455 @@
       "已完成种子合并",
       "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
       "后处理增益差",
+      0.10666666666666667
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "图—种子记录数",
+      200
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "平均Size差",
+      0.035
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "胜",
+      31
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "平",
+      144
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "负",
+      25
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "初始Size差",
+      0.035
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "图—种子记录数",
+      300
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "平均Size差",
+      0.02666666666666667
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "胜",
+      43
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "平",
+      221
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "负",
+      36
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "初始Size差",
+      0.02666666666666667
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 无后处理 − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "图—种子记录数",
+      200
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "平均Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "胜",
+      34
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "平",
+      138
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "负",
+      28
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "初始Size差",
+      0.035
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "后处理增益差",
+      -0.0050000000000000044
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "图—种子记录数",
+      300
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "平均Size差",
+      0.03333333333333333
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "胜",
+      48
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "平",
+      212
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "负",
+      40
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "初始Size差",
+      0.02666666666666667
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 冻结PAVE / 种子all",
+      "后处理增益差",
+      0.006666666666666668
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子all",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子all",
+      "图—种子记录数",
+      200
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子all",
+      "平均Size差",
       0.1
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子all",
+      "胜",
+      20
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子all",
+      "平",
+      180
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子all",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子all",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 普通消息 + 无后处理 / 种子all",
+      "后处理增益差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "图—种子记录数",
+      200
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "平均Size差",
+      0.020000000000000004
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "胜",
+      24
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "平",
+      154
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "负",
+      22
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "初始Size差",
+      0.020000000000000004
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 无后处理 − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子all",
+      "图—种子记录数",
+      200
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子all",
+      "平均Size差",
+      0.015
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子all",
+      "胜",
+      20
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子all",
+      "平",
+      160
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子all",
+      "负",
+      20
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子all",
+      "初始Size差",
+      0.020000000000000004
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 普通消息 + 冻结PAVE − 验证 FP32 固定量 状态MLP + 冻结PAVE / 种子all",
+      "后处理增益差",
+      -0.0050000000000000044
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "图—种子记录数",
+      300
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "平均Size差",
+      0.11333333333333334
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "胜",
+      34
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "平",
+      266
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 状态MLP + 冻结PAVE − 验证 FP32 固定量 状态MLP + 无后处理 / 种子all",
+      "后处理增益差",
+      0.11333333333333334
     ]
   ]
 }

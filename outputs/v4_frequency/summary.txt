@@ -5,5 +5,9 @@ RLNN v4 Frequency
 
 验证 FP32 固定量 原骨干 + 无后处理: 19.53667 ± 0.01155; seeds=[0, 1, 2]; n/seed=100; time=0.26013s; feasible=1.00000
 验证 FP32 固定量 原骨干 + 冻结PAVE: 19.62333 ± 0.00577; seeds=[0, 1, 2]; n/seed=100; time=0.38118s; feasible=1.00000
-验证 FP32 固定量 微调骨干 + 无后处理: 19.55000; seeds=[0]; n/seed=100; time=0.25639s; feasible=1.00000
-验证 FP32 固定量 微调骨干 + 冻结PAVE: 19.65000; seeds=[0]; n/seed=100; time=0.38359s; feasible=1.00000
+验证 FP32 固定量 微调骨干 + 无后处理: 19.51000 ± 0.03606; seeds=[0, 1, 2]; n/seed=100; time=0.21430s; feasible=1.00000
+验证 FP32 固定量 微调骨干 + 冻结PAVE: 19.61667 ± 0.03055; seeds=[0, 1, 2]; n/seed=100; time=0.31270s; feasible=1.00000
+验证 FP32 固定量 普通消息 + 无后处理: 19.55000 ± 0.00000; seeds=[0, 1]; n/seed=100; time=0.42626s; feasible=1.00000
+验证 FP32 固定量 普通消息 + 冻结PAVE: 19.65000 ± 0.00000; seeds=[0, 1]; n/seed=100; time=0.51982s; feasible=1.00000
+验证 FP32 固定量 状态MLP + 无后处理: 19.53667 ± 0.05132; seeds=[0, 1, 2]; n/seed=100; time=0.48018s; feasible=1.00000
+验证 FP32 固定量 状态MLP + 冻结PAVE: 19.65000 ± 0.05196; seeds=[0, 1, 2]; n/seed=100; time=0.58466s; feasible=1.00000
