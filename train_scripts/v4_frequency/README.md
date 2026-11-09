@@ -26,7 +26,7 @@
 
 ## 阶段决策
 
-先运行 4 arm × 3 seed。F4 相对 Message 和 MLP 都需要平均验证 Size 为正，且各至少两个种子严格改善；随后看 0.5 秒验证预算下的组合管线。如果质量优势被额外时间抵消，就停止当前结构。未通过筛选时仍记录低/高/门控置零的机制诊断，但不利用测试集挑选结构。
+先运行 4 arm × 3 seed。主筛选口径为 FP32、固定搜索量、不加 PAVE：F4 相对 Message 和 MLP 都需要平均验证 Size 为正，且各至少两个种子严格改善。效率口径为 FP16、0.5 秒、冻结 PAVE：F4 的平均 Size 需超过固定旧骨干、Message 和 MLP。如果质量优势被额外时间抵消，就停止当前结构。`decide.py` 记录各项逐种子差值与阶段决策。未通过筛选时仍记录低/高/门控置零的机制诊断，但不利用测试集挑选结构。
 
 通过后，F4 与相应 MLP/Message 对照统一进行 50 epoch 三种子训练，再展开 low/high、固定门控、释放统计和能量先验消融。动态任务图 v4-B 仅在静态版本显示独立价值后推进。每个阶段均保留不加 PAVE 与加同一个冻结 PAVE 的两张结果表。
 
@@ -41,3 +41,5 @@ CUDA_VISIBLE_DEVICES=0 SEED=0 bash train_scripts/v4_frequency/train.sh v4a
 `RUN_NAME`、`EPOCHS`、`SEED`、`CHECKPOINT`、`BATCH_SIZE`、`GRAPH_BATCH_SIZE` 可指定实验；改变 batch 后必须在全部主对照统一使用，并报告实际更新数。默认保留 64×8，优先用独立训练进程填充两张 GPU。正式计时阶段每张卡只允许一个评测进程，计时包含构图、滤波、GCN、采样、A.3 与 PAVE。
 
 训练输出为 `outputs/v4_frequency/<arm>_seed<seed>/run.json`、`training.csv` 和服务器上的 `checkpoints/`。逐图评测及诊断也写入 `outputs/v4_frequency/`。汇总使用三个种子均值的样本标准差，逐图配对保留图 ID 与种子，不把同一张图的三次采样当作三张独立图。
+
+`screen.sh` 在两卡各启动六个独立训练；`validate.sh 0/1` 等待训练结束后，各自串行执行固定量和限时验证。强规则基线使用 20 ms 后处理预留，PAVE 使用既定 50 ms。`mechanism.sh` 等两卡计时任务均结束后运行三种子各 20 图频谱/门控诊断、真实翻转收益探针，再用独占卡完成 low/high/gate 的推理干预。分支干预复用已训练权重，不等同于从头训练的结构消融。
