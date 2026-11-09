@@ -10,6 +10,7 @@ from mis_v1 import MISStateGCN, adjacency, search
 from mis_v2_frequency import SEGF, SEGF_MODES, frequency_topology
 from mis_v4_frequency import V4FrequencyGCN, V4_MODES, v4_topology
 from mis_v5_frequency import V5DAFRGCN, V5_MODES, v5_topology
+from mis_v6_frequency import V6SCGCN, V6_MODES, v6_topology, polarization_bonus
 from torch_scatter import scatter_min, scatter_max, scatter_add
 from torch_geometric.utils import add_remaining_self_loops
 from accelerate import Accelerator
@@ -235,10 +236,11 @@ class RLNN(MetaSolver):
         self.segf = self.frequency in SEGF_MODES
         self.v4_frequency = self.frequency in V4_MODES
         self.v5_frequency = self.frequency in V5_MODES
+        self.v6_frequency = self.frequency in V6_MODES
         if self.frequency != 'none':
             if args.problem != 'mis':
                 raise ValueError('State frequency encoders require MIS')
-            model_type = (V5DAFRGCN if self.v5_frequency else V4FrequencyGCN if self.v4_frequency
+            model_type = (V6SCGCN if self.v6_frequency else V5DAFRGCN if self.v5_frequency else V4FrequencyGCN if self.v4_frequency
                           else SEGF if self.segf else MISStateGCN)
             self.model = model_type(args.num_h, args.num_l, args.beta, self.frequency)
         else:
@@ -276,6 +278,10 @@ class RLNN(MetaSolver):
         self.resume_state = None
         self.graph_batch_size = args.graph_batch_size
         self.loss = args.loss
+        self.lambda_dir = getattr(args, 'lambda_dir', 0.03)
+        self.lambda_ortho = getattr(args, 'lambda_ortho', 0.01)
+        if args.do_train and self.v6_frequency and (self.graph_batch_size < 2 or self.loss != 'erdoes'):
+            raise ValueError('v6 training requires multiple-graph MIS erdoes updates')
         if self.resume_path and self.graph_batch_size < 2:
             raise ValueError("Epoch resume requires graph_batch_size > 1")
         if self.graph_batch_size > 1 and self.loss != "erdoes":
@@ -406,13 +412,24 @@ class RLNN(MetaSolver):
                 inputs = self.generate_data(graph, A, normalized)
                 for start in range(0, inputs.shape[1], self.batch_size):
                     x = inputs[:, start:start+self.batch_size]
-                    prob = torch.sigmoid(self.flip_logits(x, graph, A, normalized))
+                    if self.v6_frequency:
+                        logits, counts, orthogonality = self.model(
+                            x, graph.edge_index, A, normalized, regularize=True)
+                    else:
+                        logits = self.flip_logits(x, graph, A, normalized)
+                    prob = logits.sigmoid()
                     loss = erdoes_graph_batch_loss(self.problem, A, graph.b, x, prob,
                         graph.batch, len(graphs), self.num_d, self.lambd, terms=track_terms)
                     if track_terms:
                         loss, values = loss
                         epoch_terms += values
                         updates += 1
+                    if self.v6_frequency:
+                        if self.frequency != 'v6_noanti' and self.lambda_dir:
+                            loss = loss - self.lambda_dir * polarization_bonus(
+                                x, prob, counts, normalized, len(graphs))
+                        if orthogonality is not None and self.lambda_ortho:
+                            loss = loss + self.lambda_ortho * orthogonality.mean()
                     self.optimizer.zero_grad()
                     self.accelerator.backward(loss)
                     self.optimizer.step()
@@ -434,6 +451,8 @@ class RLNN(MetaSolver):
             self.save_training_state(save_dir, epoch+1, best_eval, logger, history)
 
     def policy_topology(self, graph, adj):
+        if self.v6_frequency:
+            return v6_topology(graph.edge_index, adj, graph.num_nodes)
         if self.v5_frequency:
             return v5_topology(graph.edge_index, adj, graph.num_nodes)
         if self.v4_frequency:
@@ -467,19 +486,27 @@ class RLNN(MetaSolver):
             
         return torch.cat(data, dim=-1)
           
-    def sample_states(self, graph, adjacency, *, generator=None, adjust=None, normalized=None):
+    def sample_states(self, graph, adjacency, *, generator=None, adjust=None, normalized=None, with_energy=False):
         x = torch.randint(0, 2, (graph.num_nodes, self.num_k), device=self.accelerator.device,
                           dtype=self.dtype, generator=generator)
         if normalized is None:
             normalized = self.policy_topology(graph, adjacency)
-        yield x
-        for _ in range(self.num_t):
-            logits = self.flip_logits(x, graph, adjacency, normalized)
+        for step in range(self.num_t + 1):
+            if with_energy:
+                product = adjacency @ x
+                yield x, (x * (self.problem.beta * product + graph.b)).sum(dim=0)
+            else:
+                yield x
+            if step == self.num_t:
+                break
+            if with_energy:
+                logits = self.model(x, graph.edge_index, adjacency, normalized, adjacency_product=product)
+            else:
+                logits = self.flip_logits(x, graph, adjacency, normalized)
             if adjust is not None:
                 logits = adjust(x, logits)
             rr = torch.rand_like(x) if generator is None else torch.rand(x.shape, device=x.device, dtype=x.dtype, generator=generator)
             x = torch.where(rr < torch.sigmoid(logits), 1 - x, x)
-            yield x
 
     def evaluate_single(self, graph, *, decode=None):
         if self.validation_seed is not None:

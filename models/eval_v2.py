@@ -77,10 +77,16 @@ def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None):
     generator = torch.Generator(device=device).manual_seed(seed)
     adj = adjacency(graph)
     topology = solver.policy_topology(graph, adj)
-    states = solver.sample_states(graph, adj, generator=generator, normalized=topology)
     problem = solver.problem
-    best_states = next(states)
-    best_energy, _ = problem.energy_func(adj, graph.b, best_states)
+    if getattr(solver, "cuda_graph_search", False):
+        from capture_mis import captured_states
+        states = captured_states(solver, graph, adj, topology, generator)
+    elif getattr(solver, "v6_frequency", False):
+        states = solver.sample_states(graph, adj, generator=generator, normalized=topology, with_energy=True)
+    else:
+        states = ((x, problem.energy_func(adj, graph.b, x)[0])
+                  for x in solver.sample_states(graph, adj, generator=generator, normalized=topology))
+    best_states, best_energy = next(states)
     incumbent = 0
     chunk_time = 0.0
     chunk_start = perf_counter()
@@ -102,8 +108,7 @@ def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None):
     for step in range(1, solver.num_t + 1):
         if deadline is not None and perf_counter() + chunk_time >= deadline:
             break
-        state = next(states)
-        energy, _ = problem.energy_func(adj, graph.b, state)
+        state, energy = next(states)
         improves = energy < best_energy
         best_states = torch.where(improves.unsqueeze(0), state, best_states)
         best_energy = torch.where(improves, energy, best_energy)

@@ -26,10 +26,10 @@ class V4TrainingRLNN(RLNN):
 
 
 class MatchedStateRLNN(V4TrainingRLNN):
-    def __init__(self, args):
+    def __init__(self, args, teacher_checkpoint=None):
         super().__init__(args)
         self.teacher = GCN(1, args.num_h, args.num_l, 1)
-        self.teacher.load_state_dict(torch.load(args.warm_start, map_location='cpu', weights_only=True))
+        self.teacher.load_state_dict(torch.load(teacher_checkpoint or args.warm_start, map_location='cpu', weights_only=True))
         self.teacher.to(device=self.accelerator.device, dtype=torch.float32).eval()
         self.teacher.requires_grad_(False)
 
