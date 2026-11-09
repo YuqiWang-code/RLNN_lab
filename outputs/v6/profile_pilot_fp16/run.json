@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "split": "validation",
+  "samples": 20,
+  "repeats": 3,
+  "checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v6/pilot_full_ref0/checkpoints",
+  "reference_seed": 0,
+  "precision": "fp16",
+  "cuda_graph": true,
+  "fused": false,
+  "device": "NVIDIA GeForce RTX 5090",
+  "mean_search_s": {
+    "B": 0.04538989579305053,
+    "SC-RLNN": 0.06284637506275127
+  },
+  "components": {
+    "B": {
+      "prepare_s": 0.016179376444779337,
+      "rollout_s": 0.025921015014561514,
+      "decode_s": 0.003289504333709677
+    },
+    "SC-RLNN": {
+      "prepare_s": 0.01865884002763778,
+      "rollout_s": 0.03508178992196918,
+      "decode_s": 0.009105745113144319
+    }
+  },
+  "ratio": 1.3845895427760255,
+  "limit": 1.08,
+  "pass_speed": false
+}

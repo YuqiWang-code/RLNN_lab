@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "split": "validation",
+  "samples": 20,
+  "repeats": 3,
+  "checkpoint": null,
+  "reference_seed": 0,
+  "precision": "no",
+  "device": "NVIDIA GeForce RTX 5090",
+  "mean_search_s": {
+    "B": 0.17274664220555375,
+    "SC-RLNN": 0.3791784457784767
+  },
+  "ratio": 2.1949974884448795,
+  "limit": 1.08,
+  "pass_speed": false
+}

@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "split": "validation",
+  "samples": 20,
+  "repeats": 3,
+  "checkpoint": null,
+  "reference_seed": 0,
+  "precision": "no",
+  "cuda_graph": true,
+  "fused": true,
+  "device": "NVIDIA GeForce RTX 5090",
+  "mean_search_s": {
+    "B": 0.040916741057299075,
+    "SC-RLNN": 0.09151498288847507
+  },
+  "ratio": 2.2366146600072354,
+  "limit": 1.08,
+  "pass_speed": false
+}

@@ -11,7 +11,7 @@ RLNN Lab 基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究 RB200–
 | v3 · PAVE-Stats H1 | 同一批合法起点上，固定工作量的 Mean Size 为 19.6633，相比 rule23 提高 0.0603。 | [分析](docs/temporary/RLNN_v3_Results_Analysis.md) · [运行协议](train_scripts/v3/README.md) |
 | v4 · 双尺度频域适配器 | 短筛未显示频域独立收益。机制追诊把高支路的驻留分量与动作收益分开验证。 | [短筛结果](docs/temporary/RLNN_v4_Frequency_Results_Analysis.md) · [机制追诊](docs/temporary/RLNN_v4_Frequency_Mechanism_Followup_Results.md) · [训练与评测](train_scripts/v4_frequency/README.md) · [追诊复算](train_scripts/v4_frequency/followup/README.md) |
 | v5 · DAFR-Lite | 112 参数的输出残差达到高支路零驻留目标。FP32 固定 100 步的 Mean Size 为 19.580，MSG 为 19.583，MLP 为 19.587。两档预算也未通过准入。 | [实验报告](docs/temporary/RLNN_v5_Frequency_Results.md) · [阶段决策](outputs/v5_frequency/analysis/decision.json) · [训练与评测](train_scripts/v5_frequency/README.md) |
-| v6 · SC-RLNN | 在骨干内部做状态门控的和差混合，使用跨层读出与边极化训练。 | [模型与协议](docs/temporary/RLNN_v6_SC_RLNN.md) · [训练与评测](train_scripts/v6/README.md) |
+| v6 · SC-RLNN | 三种子首轮筛选中，固定 100 步＋PAVE 的 Mean Size 为 19.073，配对 B 为 19.657。速度和质量均未通过准入。 | [模型与首轮结果](docs/temporary/RLNN_v6_SC_RLNN.md) · [训练与评测](train_scripts/v6/README.md) |
 
 v5 验证中，原骨干持续搜索＋PAVE 在 0.5 秒和 1.0 秒预算下分别取得 **19.677** 和 **19.830**，DAFR＋PAVE 分别为 19.500 和 19.617。[逐种子与配对汇总](outputs/v5_frequency/analysis/) · [实验结果工作簿](docs/实验结果.xlsx)
 
@@ -76,7 +76,7 @@ PYTHON="$HOME/envs/rlnn/bin/python" bash train_scripts/v000_rlnn_baseline/retrai
 | `train_scripts/v4_frequency/` | 共享教师状态训练、独占计时验证、频谱与收益诊断 |
 | `train_scripts/v5_frequency/` | DAFR-Lite 短训、固定步数与限时评测、机制诊断 |
 | `train_scripts/v6/` | SC-RLNN 训练、速度准入、固定步数评测与逐层诊断 |
-| `outputs/v3/`、`outputs/v4_frequency/`、`outputs/v5_frequency/` | 各版本逐图记录、配对汇总与阶段决策 |
+| `outputs/v3/`、`outputs/v4_frequency/`、`outputs/v5_frequency/`、`outputs/v6/` | 各版本逐图记录、配对汇总与阶段决策 |
 | `reference_methods/` | [参考方法代码与来源](reference_methods/README.md) |
 | `docs/` | 服务器、数据集、参考文献与实验结果 |
 | `docs/temporary/` | 研究方案、实验报告和版本快照 |

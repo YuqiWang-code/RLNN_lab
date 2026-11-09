@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "arm": "baseline",
+  "samples": 20,
+  "checkpoints": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+  "summary": {
+    "layer1_dirichlet_ratio": 0.2656995734199882,
+    "layer2_dirichlet_ratio": 0.3051274374127388,
+    "layer3_dirichlet_ratio": 0.36742628291249274,
+    "layer4_dirichlet_ratio": 0.3420016527175903,
+    "layer5_dirichlet_ratio": 0.19098805114626885
+  }
+}

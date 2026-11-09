@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "arm": "v6_full",
+  "samples": 20,
+  "checkpoints": "outputs/v6/pilot_full_ref0/checkpoints",
+  "summary": {
+    "meso_logit_energy": 0.0912589562125504,
+    "high_logit_energy": 0.001176425534504233,
+    "layer1_dirichlet_ratio": 0.1915550108999014,
+    "layer2_dirichlet_ratio": 0.16591310910880566,
+    "layer3_dirichlet_ratio": 0.14920550873503088,
+    "layer4_dirichlet_ratio": 0.137286735791713,
+    "layer5_dirichlet_ratio": 0.13302011815831066
+  }
+}
