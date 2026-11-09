@@ -1,0 +1,121 @@
+{
+  "version": "v4_frequency",
+  "mode": "utility_probe",
+  "status": "completed",
+  "split": "validation",
+  "seed": 0,
+  "config": {
+    "teacher_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+    "model": [
+      [
+        "mlp",
+        "v4a_mlp",
+        "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed0/checkpoints/best.pt"
+      ],
+      [
+        "message",
+        "v4a_message",
+        "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_message_seed0/checkpoints/best.pt"
+      ],
+      [
+        "frequency",
+        "v4a",
+        "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_seed0/checkpoints/best.pt"
+      ],
+      [
+        "tuned",
+        "none",
+        "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed0/checkpoints/best.pt"
+      ]
+    ],
+    "validation_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/utility_seed0",
+    "seed": 0,
+    "graphs": 20,
+    "nodes": 16,
+    "horizon": 20,
+    "device": "cuda"
+  },
+  "checkpoints": {
+    "baseline": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+    "mlp": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_mlp_seed0/checkpoints/best.pt",
+    "message": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_message_seed0/checkpoints/best.pt",
+    "frequency": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/v4a_seed0/checkpoints/best.pt",
+    "tuned": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed0/checkpoints/best.pt"
+  },
+  "started_at": "2026-11-09T03:50:56.195860+00:00",
+  "protocol": "Current single-trajectory states; paired node flips with common continuation noise; per-column energy archive and A.3",
+  "continuation_policy": "frozen baseline",
+  "continuation_steps": 20,
+  "replicates": 2,
+  "times": [
+    25,
+    50,
+    100
+  ],
+  "precision": "float32",
+  "model_selection": "diagnostic only",
+  "graphs": 20,
+  "states": 60,
+  "actions": 960,
+  "informative_states": 30,
+  "informative_state_fraction": 0.5,
+  "informative_graphs": 16,
+  "total_pairs": 7200,
+  "non_tied_pairs": 1282,
+  "non_tied_pair_fraction": 0.17805555555555555,
+  "model_metrics": {
+    "baseline": {
+      "states": 60,
+      "informative_states": 30,
+      "state_mean_pair_accuracy": 0.43494895262022815,
+      "pooled_pair_accuracy": 0.46138845553822155,
+      "mean_top1_gain": -0.008333333333333333,
+      "mean_uniform_gain": 0.013020833333333334,
+      "mean_oracle_flip_gain": 0.20833333333333334,
+      "mean_top1_regret": 0.21666666666666667
+    },
+    "mlp": {
+      "states": 60,
+      "informative_states": 30,
+      "state_mean_pair_accuracy": 0.43741857099036374,
+      "pooled_pair_accuracy": 0.46528861154446177,
+      "mean_top1_gain": 0.0,
+      "mean_uniform_gain": 0.013020833333333334,
+      "mean_oracle_flip_gain": 0.20833333333333334,
+      "mean_top1_regret": 0.20833333333333334
+    },
+    "message": {
+      "states": 60,
+      "informative_states": 30,
+      "state_mean_pair_accuracy": 0.4351963489005963,
+      "pooled_pair_accuracy": 0.46450858034321374,
+      "mean_top1_gain": -0.008333333333333333,
+      "mean_uniform_gain": 0.013020833333333334,
+      "mean_oracle_flip_gain": 0.20833333333333334,
+      "mean_top1_regret": 0.21666666666666667
+    },
+    "frequency": {
+      "states": 60,
+      "informative_states": 30,
+      "state_mean_pair_accuracy": 0.4348087518165509,
+      "pooled_pair_accuracy": 0.46372854914196565,
+      "mean_top1_gain": -0.008333333333333333,
+      "mean_uniform_gain": 0.013020833333333334,
+      "mean_oracle_flip_gain": 0.20833333333333334,
+      "mean_top1_regret": 0.21666666666666667
+    },
+    "tuned": {
+      "states": 60,
+      "informative_states": 30,
+      "state_mean_pair_accuracy": 0.43068010893960795,
+      "pooled_pair_accuracy": 0.45982839313572543,
+      "mean_top1_gain": -0.008333333333333333,
+      "mean_uniform_gain": 0.013020833333333334,
+      "mean_oracle_flip_gain": 0.20833333333333334,
+      "mean_top1_regret": 0.21666666666666667
+    }
+  },
+  "finished_at": "2026-11-09T03:51:04.992954+00:00",
+  "wall_time_s": 8.796542563010007
+}

@@ -52,7 +52,8 @@ def display_name(meta, identity):
     if identity["extended_search"]:
         label += "持续搜索"
     post = {"none": "无后处理", "rule23": "规则交换", "pave": "冻结PAVE"}[identity["post"]]
-    interventions = [name for name, enabled in identity["interventions"].items() if enabled]
+    intervention_names = {"disable_low": "关低通", "disable_high": "关高通", "constant_half_gates": "门控0.5"}
+    interventions = [intervention_names.get(name, name) for name, enabled in identity["interventions"].items() if enabled]
     suffix = " " + ",".join(interventions) if interventions else ""
     return f"{split} {precision} {protocol} {label} + {post}{suffix}"
 
@@ -160,6 +161,11 @@ def analyze(folder):
         elif meta.get("mode") in ("train", "diagnostic", "utility_probe"):
             source = path.relative_to(ROOT).as_posix() if path.is_relative_to(ROOT) else path.as_posix()
             diagnostics.extend(diagnostic_rows(meta, source))
+    label_order = {"baseline": 0, "tuned": 1, "v4a_mlp": 2, "v4a_message": 3, "v4a": 4}
+    runs.sort(key=lambda run: (any(run["interventions"].values()), run["protocol"] != "fixed_work",
+                              run["precision"] != "no", label_order.get(run["label"], 5),
+                              run["extended_search"], run["post"], json.dumps(run["interventions"], sort_keys=True),
+                              run["backbone_seed"]))
     groups = defaultdict(list)
     for index, run in enumerate(runs):
         run["run_index"] = index
@@ -227,6 +233,23 @@ def analyze(folder):
         for key, title in (("pairing", "配对口径"), ("records", "图—种子记录数"), ("delta_size", "平均Size差"),
                            ("wins", "胜"), ("ties", "平"), ("losses", "负"), ("initial_size_delta", "初始Size差"), ("post_gain_difference", "后处理增益差")):
             diagnostics.append(["逐图配对", row["left_source"] or "已完成种子合并", stage, title, row[key]])
+    mechanism_path = folder / "analysis/mechanism_summary.json"
+    if mechanism_path.is_file():
+        diagnostics = json.loads(mechanism_path.read_text(encoding="utf-8"))["diagnostics"] + diagnostics
+    decision_path = folder / "decision.json"
+    if decision_path.is_file():
+        decision = json.loads(decision_path.read_text(encoding="utf-8"))
+        decision_rows = []
+        for key, title in (("stage", "阶段"), ("status", "阶段决策"), ("primary", "主质量口径"),
+                           ("efficiency", "效率口径"), ("pave_change", "是否修改PAVE")):
+            decision_rows.append(["阶段决策", decision_path.as_posix(), "A1", title, decision.get(key)])
+        for comparison in decision.get("comparisons", []):
+            stage = f'F4 − {comparison["control"]} / {comparison["precision"]} / {comparison["protocol"]}'
+            if comparison.get("control_extended_search"):
+                stage += " / 持续搜索"
+            for key, title in (("mean_delta", "平均Size差"), ("positive_seeds", "严格改善种子数"), ("passed", "是否通过")):
+                decision_rows.append(["阶段决策", decision_path.as_posix(), stage, title, comparison[key]])
+        diagnostics = decision_rows + diagnostics
     clean = [{key: value for key, value in run.items() if not key.startswith("_")} for run in runs]
     return dict(version="v4_frequency", updated_at=datetime.now(timezone.utc).isoformat(), runs=clean,
                 cohorts=cohorts, pairs=pairs, diagnostics=diagnostics)

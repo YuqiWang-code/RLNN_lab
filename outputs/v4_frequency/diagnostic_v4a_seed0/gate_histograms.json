@@ -1,0 +1,3247 @@
+{
+  "bin_edges": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "distributions": [
+    {
+      "step": 0,
+      "group": "all",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        73,
+        2935,
+        15920
+      ]
+    },
+    {
+      "step": 0,
+      "group": "all",
+      "metric": "gate_low",
+      "counts": [
+        7127,
+        9883,
+        1682,
+        236,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        4,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        10,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        62,
+        2931,
+        15920
+      ]
+    },
+    {
+      "step": 0,
+      "group": "blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        7127,
+        9883,
+        1672,
+        231,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "degree_high",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        5993
+      ]
+    },
+    {
+      "step": 0,
+      "group": "degree_high",
+      "metric": "gate_low",
+      "counts": [
+        3005,
+        2991,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "degree_low",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        73,
+        2546,
+        4197
+      ]
+    },
+    {
+      "step": 0,
+      "group": "degree_low",
+      "metric": "gate_low",
+      "counts": [
+        1404,
+        3715,
+        1461,
+        236,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "degree_mid",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        386,
+        5730
+      ]
+    },
+    {
+      "step": 0,
+      "group": "degree_mid",
+      "metric": "gate_low",
+      "counts": [
+        2718,
+        3177,
+        221,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        449,
+        8993
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        7535,
+        1672,
+        236,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected0_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected0_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        62,
+        2486,
+        6927
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        7127,
+        2348,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected1_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected1_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected1_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected1_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        445,
+        8993
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        7535,
+        1672,
+        231,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected_conflicted",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        449,
+        8993
+      ]
+    },
+    {
+      "step": 0,
+      "group": "selected_conflicted",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        7535,
+        1672,
+        235,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 0,
+      "group": "unselected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        72,
+        2486,
+        6927
+      ]
+    },
+    {
+      "step": 0,
+      "group": "unselected",
+      "metric": "gate_low",
+      "counts": [
+        7127,
+        2348,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "all",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        925,
+        17392,
+        611
+      ]
+    },
+    {
+      "step": 10,
+      "group": "all",
+      "metric": "gate_low",
+      "counts": [
+        1414,
+        14590,
+        2554,
+        370,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        235,
+        440,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        1,
+        552,
+        122,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        271,
+        1868,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        590,
+        1494,
+        55,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        419,
+        15084,
+        611
+      ]
+    },
+    {
+      "step": 10,
+      "group": "blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1414,
+        13999,
+        508,
+        193,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "degree_high",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        5491,
+        504
+      ]
+    },
+    {
+      "step": 10,
+      "group": "degree_high",
+      "metric": "gate_low",
+      "counts": [
+        1320,
+        4439,
+        236,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "degree_low",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        872,
+        5918,
+        26
+      ]
+    },
+    {
+      "step": 10,
+      "group": "degree_low",
+      "metric": "gate_low",
+      "counts": [
+        4,
+        4900,
+        1563,
+        349,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "degree_mid",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        52,
+        5983,
+        81
+      ]
+    },
+    {
+      "step": 10,
+      "group": "degree_mid",
+      "metric": "gate_low",
+      "counts": [
+        90,
+        5251,
+        755,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        159,
+        1839,
+        133
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        3,
+        1804,
+        324,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected0_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        76,
+        24,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected0_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        54,
+        46,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected0_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        271,
+        1014,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected0_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        589,
+        696,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        419,
+        14515,
+        478
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1414,
+        13998,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected1_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        159,
+        416,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected1_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        1,
+        498,
+        76,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected1_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        854,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected1_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        1,
+        798,
+        55,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        569,
+        133
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        1,
+        508,
+        193,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected_conflicted",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1423,
+        133
+      ]
+    },
+    {
+      "step": 10,
+      "group": "selected_conflicted",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        2,
+        1306,
+        248,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "group": "unselected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        766,
+        15553,
+        478
+      ]
+    },
+    {
+      "step": 10,
+      "group": "unselected",
+      "metric": "gate_low",
+      "counts": [
+        1414,
+        14587,
+        750,
+        46,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "all",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1543,
+        17135,
+        250
+      ]
+    },
+    {
+      "step": 25,
+      "group": "all",
+      "metric": "gate_low",
+      "counts": [
+        1098,
+        14268,
+        3293,
+        269,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        378,
+        742,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        3,
+        882,
+        235,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1018,
+        2015,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        667,
+        2338,
+        28,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        147,
+        14378,
+        250
+      ]
+    },
+    {
+      "step": 25,
+      "group": "blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1098,
+        13598,
+        73,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "degree_high",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        5748,
+        243
+      ]
+    },
+    {
+      "step": 25,
+      "group": "degree_high",
+      "metric": "gate_low",
+      "counts": [
+        1055,
+        4704,
+        233,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "degree_low",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1487,
+        5327,
+        2
+      ]
+    },
+    {
+      "step": 25,
+      "group": "degree_low",
+      "metric": "gate_low",
+      "counts": [
+        1,
+        4264,
+        2303,
+        248,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "degree_mid",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        51,
+        6060,
+        5
+      ]
+    },
+    {
+      "step": 25,
+      "group": "degree_mid",
+      "metric": "gate_low",
+      "counts": [
+        42,
+        5300,
+        757,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        307,
+        1415,
+        13
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        5,
+        1506,
+        224,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected0_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        71,
+        15,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected0_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        41,
+        45,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected0_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1018,
+        1388,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected0_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        667,
+        1739,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        147,
+        14317,
+        237
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1098,
+        13596,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected1_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        307,
+        727,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected1_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        3,
+        841,
+        190,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected1_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        627,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected1_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        599,
+        28,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        61,
+        13
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        2,
+        66,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected_conflicted",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        688,
+        13
+      ]
+    },
+    {
+      "step": 25,
+      "group": "selected_conflicted",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        2,
+        665,
+        34,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "group": "unselected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1236,
+        15720,
+        237
+      ]
+    },
+    {
+      "step": 25,
+      "group": "unselected",
+      "metric": "gate_low",
+      "counts": [
+        1098,
+        14263,
+        1787,
+        45,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "all",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1618,
+        17068,
+        242
+      ]
+    },
+    {
+      "step": 50,
+      "group": "all",
+      "metric": "gate_low",
+      "counts": [
+        1138,
+        14232,
+        3296,
+        262,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        492,
+        752,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        3,
+        998,
+        243,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1051,
+        1803,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        574,
+        2270,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        75,
+        14513,
+        242
+      ]
+    },
+    {
+      "step": 50,
+      "group": "blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1138,
+        13655,
+        28,
+        9,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "degree_high",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        5758,
+        236
+      ]
+    },
+    {
+      "step": 50,
+      "group": "degree_high",
+      "metric": "gate_low",
+      "counts": [
+        1083,
+        4669,
+        243,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "degree_low",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1528,
+        5287,
+        1
+      ]
+    },
+    {
+      "step": 50,
+      "group": "degree_low",
+      "metric": "gate_low",
+      "counts": [
+        3,
+        4264,
+        2315,
+        234,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "degree_mid",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        88,
+        6023,
+        5
+      ]
+    },
+    {
+      "step": 50,
+      "group": "degree_mid",
+      "metric": "gate_low",
+      "counts": [
+        52,
+        5299,
+        738,
+        27,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        379,
+        1348,
+        5
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        4,
+        1530,
+        198,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected0_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        113,
+        17,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected0_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        66,
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected0_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1051,
+        1223,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected0_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        574,
+        1700,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        75,
+        14480,
+        237
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1138,
+        13654,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected1_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        379,
+        735,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected1_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        3,
+        932,
+        179,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected1_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        580,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected1_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        570,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        33,
+        5
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        1,
+        28,
+        9,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected_conflicted",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        613,
+        5
+      ]
+    },
+    {
+      "step": 50,
+      "group": "selected_conflicted",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        1,
+        598,
+        19,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "group": "unselected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1239,
+        15720,
+        237
+      ]
+    },
+    {
+      "step": 50,
+      "group": "unselected",
+      "metric": "gate_low",
+      "counts": [
+        1138,
+        14228,
+        1766,
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "all",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1574,
+        16997,
+        357
+      ]
+    },
+    {
+      "step": 75,
+      "group": "all",
+      "metric": "gate_low",
+      "counts": [
+        1300,
+        14047,
+        3316,
+        265,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        462,
+        760,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        5,
+        966,
+        251,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1028,
+        1730,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        450,
+        2299,
+        9,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        84,
+        14507,
+        357
+      ]
+    },
+    {
+      "step": 75,
+      "group": "blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1300,
+        13592,
+        51,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "degree_high",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        5645,
+        349
+      ]
+    },
+    {
+      "step": 75,
+      "group": "degree_high",
+      "metric": "gate_low",
+      "counts": [
+        1230,
+        4506,
+        256,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "degree_low",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1496,
+        5319,
+        1
+      ]
+    },
+    {
+      "step": 75,
+      "group": "degree_low",
+      "metric": "gate_low",
+      "counts": [
+        1,
+        4339,
+        2234,
+        242,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "degree_mid",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        76,
+        6033,
+        7
+      ]
+    },
+    {
+      "step": 75,
+      "group": "degree_mid",
+      "metric": "gate_low",
+      "counts": [
+        69,
+        5202,
+        826,
+        19,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        358,
+        1424,
+        9
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        6,
+        1595,
+        190,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected0_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        104,
+        8,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected0_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        37,
+        75,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected0_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1028,
+        1106,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected0_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        450,
+        1684,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        84,
+        14459,
+        348
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1300,
+        13591,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected1_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        358,
+        752,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected1_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        5,
+        929,
+        176,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected1_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        624,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected1_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        615,
+        9,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        48,
+        9
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        1,
+        51,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected_conflicted",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        672,
+        9
+      ]
+    },
+    {
+      "step": 75,
+      "group": "selected_conflicted",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        1,
+        666,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "group": "unselected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1216,
+        15573,
+        348
+      ]
+    },
+    {
+      "step": 75,
+      "group": "unselected",
+      "metric": "gate_low",
+      "counts": [
+        1300,
+        14041,
+        1721,
+        75,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "all",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1614,
+        16987,
+        327
+      ]
+    },
+    {
+      "step": 100,
+      "group": "all",
+      "metric": "gate_low",
+      "counts": [
+        1296,
+        14091,
+        3280,
+        261,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        777,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        7,
+        1030,
+        245,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1013,
+        1614,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        426,
+        2189,
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        96,
+        14596,
+        327
+      ]
+    },
+    {
+      "step": 100,
+      "group": "blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1296,
+        13658,
+        61,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "degree_high",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        5676,
+        314
+      ]
+    },
+    {
+      "step": 100,
+      "group": "degree_high",
+      "metric": "gate_low",
+      "counts": [
+        1224,
+        4508,
+        261,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "degree_low",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1493,
+        5323,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "degree_low",
+      "metric": "gate_low",
+      "counts": [
+        1,
+        4321,
+        2269,
+        225,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "degree_mid",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        115,
+        5988,
+        13
+      ]
+    },
+    {
+      "step": 100,
+      "group": "degree_mid",
+      "metric": "gate_low",
+      "counts": [
+        71,
+        5262,
+        750,
+        33,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        388,
+        1383,
+        13
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        7,
+        1586,
+        191,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected0_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        117,
+        17,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected0_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        64,
+        70,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected0_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1013,
+        1043,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected0_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        426,
+        1630,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        96,
+        14544,
+        314
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected0_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        1296,
+        13658,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected1_blockers0",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        388,
+        760,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected1_blockers0",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        7,
+        966,
+        175,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected1_blockers1",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        571,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected1_blockers1",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        559,
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        52,
+        13
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected1_blockers2plus",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        61,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected_conflicted",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        623,
+        13
+      ]
+    },
+    {
+      "step": 100,
+      "group": "selected_conflicted",
+      "metric": "gate_low",
+      "counts": [
+        0,
+        0,
+        620,
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 100,
+      "group": "unselected",
+      "metric": "gate_high",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1226,
+        15604,
+        314
+      ]
+    },
+    {
+      "step": 100,
+      "group": "unselected",
+      "metric": "gate_low",
+      "counts": [
+        1296,
+        14084,
+        1694,
+        70,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

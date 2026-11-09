@@ -1,0 +1,7 @@
+time_Asia_Shanghai,gpu,utilization_percent,driver_memory_used_mib,driver_memory_total_mib,phase
+2026-11-09T11:11:58+08:00,0,97,24978,32607,training
+2026-11-09T11:11:58+08:00,1,97,25298,32607,training
+2026-11-09T11:15:24+08:00,0,97,26832,32607,training
+2026-11-09T11:15:24+08:00,1,97,27224,32607,training
+2026-11-09T11:18:53+08:00,0,93,27022,32607,training
+2026-11-09T11:18:53+08:00,1,95,27662,32607,training

@@ -45,3 +45,9 @@ CUDA_VISIBLE_DEVICES=0 SEED=0 bash train_scripts/v4_frequency/train.sh v4a
 `screen.sh` 在两卡各启动六个独立训练；`validate.sh 0/1` 等待训练结束后，各自串行执行固定量和限时验证。强规则基线使用 20 ms 后处理预留，PAVE 使用既定 50 ms。`mechanism.sh` 等两卡计时任务均结束后运行三种子各 20 图频谱/门控诊断、真实翻转收益探针，再用独占卡完成 low/high/gate 的推理干预。分支干预复用已训练权重，不等同于从头训练的结构消融。
 
 `strong_pave.sh` 在干预评测结束后，补充三种子原骨干＋冻结 PAVE 的持续搜索预算对照。仅放开骨干的步数上限，仍在0.5秒总预算内为同一个PAVE保留50 ms，其余PAVE配置保持一致。
+
+## 本轮结果
+
+12组训练、102份方法评测、12组频域诊断和3组收益探针已完成。F4在FP32固定量下为19.53000，普通消息为19.54667；0.5秒下F4＋PAVE为19.48000，原骨干持续搜索＋PAVE为19.65000。当前适配器未通过A1，保留v3 PAVE主线。完整均值、标准差、逐图差值和机制解释见[结果分析](../../docs/temporary/RLNN_v4_Frequency_Results_Analysis.md)。
+
+复算顺序为 `python tools/summarize_v4_mechanism.py`、`python train_scripts/v4_frequency/decide.py`、`python tools/analyze_v4_frequency.py`；工作簿使用提供 `@oai/artifact-tool` 的Node运行时执行 `tools/update_v4_workbook.mjs`。

@@ -102,7 +102,10 @@ for (const [index, cohort] of report.cohorts.entries()) {
     ['N', 'Y', 'SUM', cohort.ties], ['O', 'Z', 'SUM', cohort.losses],
     ['P', 'AA', 'SUM', cohort.deadline_overruns], ['Q', 'AB', 'MAX', cohort.max_deadline_overrun_s],
   ]) {
-    if (value !== null) summary.getRange(`${target}${row}`).formulas = [[`=${operation}(${references(input)})`]];
+    if (value !== null) {
+      const formula = `${operation}(${references(input)})`;
+      summary.getRange(`${target}${row}`).formulas = [[`=${target === 'C' ? `ROUND(${formula},5)` : formula}`]];
+    }
   }
 }
 
@@ -110,7 +113,7 @@ const notes = [
   ['统计口径', 'outputs/v4_frequency/summary.json', '样本', '已完成方法run', report.runs.length],
   ['统计口径', 'outputs/v4_frequency/summary.json', '样本', '已完成配置组', report.cohorts.length],
   ['统计口径', '', 'Mean Size', '均值与标准差', '逐骨干种子图均值的均值与样本标准差；单种子不报告标准差'],
-  ['统计口径', '', 'Δ原骨干', '参考', '相同划分、精度、协议、后处理及种子的 baseline；无匹配参考时留空'],
+  ['统计口径', '', 'Δ原骨干', '参考', '相同划分、精度、协议、持续搜索设置、后处理及种子的 baseline；无匹配参考时留空'],
   ['统计口径', '', '配对', '胜平负', '按同图同种子比较；共享初始解与独立搜索分别标注；合并行计图—种子记录'],
   ['统计口径', '', '后处理', '后处理增益', '同运行 final_size − base_size；平台增益为 final_size − rule_size'],
   ['统计口径', '', 'PAVE', '冻结评分器', '使用对应骨干种子的 v3 stats_h1 评分器；与无后处理分行展示'],
@@ -147,6 +150,13 @@ for (const sheetName of names) {
   const count = sheetName === 'V4机制' ? diagnostics.length : sheetName === 'V4汇总' ? report.cohorts.length : report.runs.length;
   const preview = await book.render({ sheetName, range: `A1:${lastColumn}${Math.min(count + 1, 12)}`, scale: 1 });
   await fs.writeFile(path.join(scratch, `${sheetName}.png`), new Uint8Array(await preview.arrayBuffer()));
+}
+for (const kind of ['阶段决策', '残差机制', '谱机制', '收益探针']) {
+  const index = diagnostics.findIndex(row => row[0] === kind);
+  if (index < 0) continue;
+  const preview = await book.render({ sheetName: 'V4机制',
+    range: `A${index + 2}:E${Math.min(index + 13, diagnostics.length + 1)}`, scale: 1 });
+  await fs.writeFile(path.join(scratch, `V4${kind}.png`), new Uint8Array(await preview.arrayBuffer()));
 }
 const updated = await SpreadsheetFile.exportXlsx(book);
 const staged = path.join(scratch, '实验结果.xlsx');

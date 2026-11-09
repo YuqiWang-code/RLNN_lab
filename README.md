@@ -1,10 +1,12 @@
 # RLNN Lab
 
-v1 在 RB200–300 MIS 上独立比较解码质量感知的候选保存、动态高低频协同、成对动作收益及其组合。[v1 实验协议](train_scripts/v1/README.md) · [参考实现](reference_methods/README.md) · [实验结果](docs/实验结果.xlsx)
+当前主线为微调 RLNN 与 PAVE-Stats H1 合法平台搜索。[v3 结果](docs/temporary/RLNN_v3_Results_Analysis.md) · [v3 协议](train_scripts/v3/README.md) · [实验结果](docs/实验结果.xlsx)
 
-基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究最大独立集（MIS）的神经组合优化方法。当前基线为 `v000_rlnn_baseline`，任务为 RB200–300，训练和评估使用单张 RTX 5090（GPU 1）。[RLD4CO 官方仓库](https://github.com/Shengyu-Feng/RLD4CO)
+v4 在冻结 PAVE 的条件下比较双尺度频域适配器、同信息普通消息与状态 MLP。三种子短期筛选未显示频域独立收益；实现、逐图结果、频谱和动作收益诊断均保留。[v4 分析](docs/temporary/RLNN_v4_Frequency_Results_Analysis.md) · [v4 训练与评测](train_scripts/v4_frequency/README.md) · [参考实现](reference_methods/README.md) · [历史方案](docs/已归档的想法和文件/README.md)
 
-## 当前基线
+基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究最大独立集（MIS）的神经组合优化方法。复现起点为 `v000_rlnn_baseline`，任务为 RB200–300。实验使用两张 RTX 5090，各任务独立单卡运行；训练可同卡并行，正式计时每卡运行一个评测进程。[RLD4CO 官方仓库](https://github.com/Shengyu-Feng/RLD4CO)
+
+## RLNN复现基线
 
 从随机初始化训练 50 轮，共 100,000 次 Adam 更新。验证集选出的第 43 轮权重在作者公开测试集上取得 **SIZE 19.549**，比论文表 1 的 19.52 高 0.029。[实验报告](docs/实验报告.md) · [论文表 1](https://arxiv.org/pdf/2502.00277#page=7)
 
@@ -46,8 +48,11 @@ PYTHON="$HOME/envs/rlnn/bin/python" bash train_scripts/v000_rlnn_baseline/retrai
 | `models/` | 上游源码与模型迭代 |
 | `train_scripts/v000_rlnn_baseline/` | 环境、数据、训练、评估和冒烟入口 |
 | `outputs/v000_rlnn_baseline/<run>/` | 日志、配置和数值结果，模型权重保存在服务器 |
+| `train_scripts/v4_frequency/` | 共享教师状态训练、独占计时验证、频谱与收益诊断 |
+| `outputs/v4_frequency/` | v4逐图验证、机制数据、配对汇总与阶段决策 |
 | `docs/` | 服务器、数据集、参考文献与实验结果 |
 | `docs/temporary/` | 当前想法和版本快照 |
+| `docs/已归档的想法和文件/` | v1–v3历史研究方案 |
 | `tools/` | 运行记录、同步、结果整理与快照工具 |
 | `tmp/` | 本地临时材料 |
 

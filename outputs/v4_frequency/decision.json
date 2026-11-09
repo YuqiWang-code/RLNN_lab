@@ -1,156 +1,100 @@
 {
   "stage": "A1",
-  "status": "pending",
+  "status": "stop_current_adapter",
   "primary": "FP32 fixed-work without PAVE",
   "efficiency": "FP16 0.5-second budget with frozen PAVE",
-  "comparisons": [],
-  "missing": [
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "baseline",
-      0
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "baseline",
-      1
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "baseline",
-      2
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a",
-      0
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a",
-      1
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a",
-      2
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a_message",
-      0
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a_message",
-      1
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a_message",
-      2
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a_mlp",
-      0
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a_mlp",
-      1
-    ],
-    [
-      "fp16",
-      "fixed_time",
-      "pave",
-      "v4a_mlp",
-      2
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a",
-      0
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a",
-      1
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a",
-      2
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a_message",
-      0
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a_message",
-      1
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a_message",
-      2
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a_mlp",
-      0
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a_mlp",
-      1
-    ],
-    [
-      "no",
-      "fixed_work",
-      "none",
-      "v4a_mlp",
-      2
-    ]
-  ]
+  "comparisons": [
+    {
+      "precision": "no",
+      "protocol": "fixed_work",
+      "post": "none",
+      "control": "v4a_mlp",
+      "control_extended_search": false,
+      "deltas": [
+        -0.02,
+        0.04,
+        -0.04
+      ],
+      "mean_delta": -0.006666666666666667,
+      "positive_seeds": 1,
+      "passed": false
+    },
+    {
+      "precision": "no",
+      "protocol": "fixed_work",
+      "post": "none",
+      "control": "v4a_message",
+      "control_extended_search": false,
+      "deltas": [
+        0.01,
+        -0.03,
+        -0.03
+      ],
+      "mean_delta": -0.016666666666666666,
+      "positive_seeds": 1,
+      "passed": false
+    },
+    {
+      "precision": "fp16",
+      "protocol": "fixed_time",
+      "post": "pave",
+      "control": "baseline",
+      "control_extended_search": false,
+      "deltas": [
+        0.02,
+        -0.31,
+        -0.14
+      ],
+      "mean_delta": -0.14333333333333334,
+      "positive_seeds": 1,
+      "passed": false
+    },
+    {
+      "precision": "fp16",
+      "protocol": "fixed_time",
+      "post": "pave",
+      "control": "v4a_mlp",
+      "control_extended_search": false,
+      "deltas": [
+        0.04,
+        0.01,
+        -0.01
+      ],
+      "mean_delta": 0.013333333333333334,
+      "positive_seeds": 2,
+      "passed": true
+    },
+    {
+      "precision": "fp16",
+      "protocol": "fixed_time",
+      "post": "pave",
+      "control": "v4a_message",
+      "control_extended_search": false,
+      "deltas": [
+        -0.03,
+        -0.13,
+        0.04
+      ],
+      "mean_delta": -0.04,
+      "positive_seeds": 1,
+      "passed": false
+    },
+    {
+      "precision": "fp16",
+      "protocol": "fixed_time",
+      "post": "pave",
+      "control": "baseline",
+      "control_extended_search": true,
+      "deltas": [
+        -0.03,
+        -0.28,
+        -0.2
+      ],
+      "mean_delta": -0.17,
+      "positive_seeds": 0,
+      "passed": false
+    }
+  ],
+  "next_stage": "retain_v3_pave",
+  "pave_change": false
 }

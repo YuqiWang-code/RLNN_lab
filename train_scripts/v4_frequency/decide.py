@@ -43,7 +43,7 @@ def main():
     else:
         passed = all(item['passed'] for item in result['comparisons'])
         result.update(status='passed' if passed else 'stop_current_adapter',
-                      next_stage='A2_50_epochs' if passed else 'mechanism_analysis',
+                      next_stage='A2_50_epochs' if passed else 'retain_v3_pave',
                       pave_change=False)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / 'decision.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
