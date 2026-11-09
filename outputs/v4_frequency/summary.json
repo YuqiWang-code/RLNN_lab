@@ -1,0 +1,2784 @@
+{
+  "version": "v4_frequency",
+  "updated_at": "2026-11-09T03:26:48.932595+00:00",
+  "runs": [
+    {
+      "label": "baseline",
+      "arm": "none",
+      "checkpoint_family": "outputs/v2/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 原骨干 + 无后处理",
+      "source": "outputs/v4_frequency/val_baseline_no_seed0/none",
+      "backbone_seed": 0,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.53,
+      "mean_initial_size": 19.53,
+      "mean_rule_size": 19.53,
+      "mean_solve_time_s": 0.27388018696103245,
+      "mean_post_time_s": 6.823924370110035e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 165505,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed0/none",
+      "delta_base": 0,
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "max_solve_time_s": 0.3605500031262636,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 0,
+      "cohort_index": 0
+    },
+    {
+      "label": "baseline",
+      "arm": "none",
+      "checkpoint_family": "outputs/v2/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "backbone_seed": 0,
+      "head_seed": 0,
+      "search_seed": 1017,
+      "mean_size": 19.62,
+      "mean_initial_size": 19.53,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.4021271470794454,
+      "mean_post_time_s": 0.12831519936211408,
+      "mean_score_time_s": 0.04130627147387713,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 169218,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "delta_base": 0,
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "max_solve_time_s": 0.7208436601795256,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.08999999999999986,
+      "rule_gain": 0.07000000000000028,
+      "max_deadline_overrun_s": null,
+      "run_index": 1,
+      "cohort_index": 1
+    },
+    {
+      "label": "baseline",
+      "arm": "none",
+      "checkpoint_family": "outputs/v2/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 原骨干 + 无后处理",
+      "source": "outputs/v4_frequency/val_baseline_no_seed1/none",
+      "backbone_seed": 1,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.55,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.295681054610759,
+      "mean_post_time_s": 8.211481384932995e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 165505,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed1/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed1/none",
+      "delta_base": 0,
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "max_solve_time_s": 0.3819688311778009,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 2,
+      "cohort_index": 0
+    },
+    {
+      "label": "baseline",
+      "arm": "none",
+      "checkpoint_family": "outputs/v2/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "backbone_seed": 1,
+      "head_seed": 1,
+      "search_seed": 1017,
+      "mean_size": 19.62,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.58,
+      "mean_solve_time_s": 0.43753964848350735,
+      "mean_post_time_s": 0.14194070868659764,
+      "mean_score_time_s": 0.04591355700045824,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 169218,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed1/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed1/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "delta_base": 0,
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "max_solve_time_s": 0.8722393391653895,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.07000000000000028,
+      "rule_gain": 0.0400000000000027,
+      "max_deadline_overrun_s": null,
+      "run_index": 3,
+      "cohort_index": 1
+    },
+    {
+      "label": "baseline",
+      "arm": "none",
+      "checkpoint_family": "outputs/v2/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 原骨干 + 无后处理",
+      "source": "outputs/v4_frequency/val_baseline_no_seed2/none",
+      "backbone_seed": 2,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.53,
+      "mean_initial_size": 19.53,
+      "mean_rule_size": 19.53,
+      "mean_solve_time_s": 0.2108264728076756,
+      "mean_post_time_s": 5.4867905564606186e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 165505,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed2/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed2/none",
+      "delta_base": 0,
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "max_solve_time_s": 0.342669733799994,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 4,
+      "cohort_index": 0
+    },
+    {
+      "label": "baseline",
+      "arm": "none",
+      "checkpoint_family": "outputs/v2/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "backbone_seed": 2,
+      "head_seed": 2,
+      "search_seed": 1017,
+      "mean_size": 19.63,
+      "mean_initial_size": 19.53,
+      "mean_rule_size": 19.58,
+      "mean_solve_time_s": 0.30386298580560833,
+      "mean_post_time_s": 0.09309138090349733,
+      "mean_score_time_s": 0.0302325690491125,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 169218,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed2/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed2/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "delta_base": 0,
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "max_solve_time_s": 0.6941727283410728,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.09999999999999787,
+      "rule_gain": 0.05000000000000071,
+      "max_deadline_overrun_s": null,
+      "run_index": 5,
+      "cohort_index": 1
+    },
+    {
+      "label": "tuned",
+      "arm": "none",
+      "checkpoint_family": "outputs/v4_frequency/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "source": "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "backbone_seed": 0,
+      "head_seed": null,
+      "search_seed": 1017,
+      "mean_size": 19.55,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.25638510286808014,
+      "mean_post_time_s": 7.196296472102404e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 165505,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed0/checkpoints/best.pt",
+      "value_checkpoint": null,
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed0/none",
+      "delta_base": 0.02,
+      "wins": 17,
+      "ties": 67,
+      "losses": 16,
+      "max_solve_time_s": 0.35590821504592896,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "max_deadline_overrun_s": null,
+      "run_index": 6,
+      "cohort_index": 2
+    },
+    {
+      "label": "tuned",
+      "arm": "none",
+      "checkpoint_family": "outputs/v4_frequency/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "source": "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "backbone_seed": 0,
+      "head_seed": 0,
+      "search_seed": 1017,
+      "mean_size": 19.65,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.58,
+      "mean_solve_time_s": 0.383594687692821,
+      "mean_post_time_s": 0.1272815477894619,
+      "mean_score_time_s": 0.04127037972677499,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "params": 169218,
+      "peak_memory_mib": 28.83544921875,
+      "backbone_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/none_seed0/checkpoints/best.pt",
+      "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt",
+      "baseline_source": "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "delta_base": 0.03,
+      "wins": 16,
+      "ties": 70,
+      "losses": 14,
+      "max_solve_time_s": 0.7753852340392768,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "base_gain": 0.09999999999999787,
+      "rule_gain": 0.07000000000000028,
+      "max_deadline_overrun_s": null,
+      "run_index": 7,
+      "cohort_index": 3
+    }
+  ],
+  "cohorts": [
+    {
+      "label": "baseline",
+      "arm": "none",
+      "checkpoint_family": "outputs/v2/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 原骨干 + 无后处理",
+      "seeds": 3,
+      "seed_ids": [
+        0,
+        1,
+        2
+      ],
+      "run_indices": [
+        0,
+        2,
+        4
+      ],
+      "params": 165505,
+      "mean_size": 19.53666666666667,
+      "mean_initial_size": 19.53666666666667,
+      "mean_rule_size": 19.53666666666667,
+      "mean_solve_time_s": 0.260129238126489,
+      "mean_post_time_s": 6.84073210383455e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "delta_base": 0,
+      "wins": 0,
+      "ties": 300,
+      "losses": 0,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "peak_memory_mib": 28.83544921875,
+      "max_solve_time_s": 0.3819688311778009,
+      "max_deadline_overrun_s": null,
+      "std_size": 0.01154700538379227,
+      "by_seed": {
+        "0": 19.53,
+        "1": 19.55,
+        "2": 19.53
+      }
+    },
+    {
+      "label": "baseline",
+      "arm": "none",
+      "checkpoint_family": "outputs/v2/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "seeds": 3,
+      "seed_ids": [
+        0,
+        1,
+        2
+      ],
+      "run_indices": [
+        1,
+        3,
+        5
+      ],
+      "params": 169218,
+      "mean_size": 19.623333333333335,
+      "mean_initial_size": 19.53666666666667,
+      "mean_rule_size": 19.57,
+      "mean_solve_time_s": 0.38117659378952035,
+      "mean_post_time_s": 0.12111576298406969,
+      "mean_score_time_s": 0.03915079917448262,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "base_gain": 0.086666666666666,
+      "rule_gain": 0.053333333333334565,
+      "delta_base": 0,
+      "wins": 0,
+      "ties": 300,
+      "losses": 0,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "peak_memory_mib": 28.83544921875,
+      "max_solve_time_s": 0.8722393391653895,
+      "max_deadline_overrun_s": null,
+      "std_size": 0.005773502691895109,
+      "by_seed": {
+        "0": 19.62,
+        "1": 19.62,
+        "2": 19.63
+      }
+    },
+    {
+      "label": "tuned",
+      "arm": "none",
+      "checkpoint_family": "outputs/v4_frequency/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "none",
+      "pave_protocol": null,
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "seeds": 1,
+      "seed_ids": [
+        0
+      ],
+      "run_indices": [
+        6
+      ],
+      "params": 165505,
+      "mean_size": 19.55,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.55,
+      "mean_solve_time_s": 0.25638510286808014,
+      "mean_post_time_s": 7.196296472102404e-05,
+      "mean_score_time_s": 0.0,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "base_gain": 0.0,
+      "rule_gain": 0.0,
+      "delta_base": 0.02,
+      "wins": 17,
+      "ties": 67,
+      "losses": 16,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "peak_memory_mib": 28.83544921875,
+      "max_solve_time_s": 0.35590821504592896,
+      "max_deadline_overrun_s": null,
+      "std_size": null,
+      "by_seed": {
+        "0": 19.55
+      }
+    },
+    {
+      "label": "tuned",
+      "arm": "none",
+      "checkpoint_family": "outputs/v4_frequency/none_seed{n}/checkpoints/best.pt",
+      "cohort": "",
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "time_budget_s": null,
+      "extended_search": false,
+      "post": "pave",
+      "pave_protocol": "v3_stats_h1_frozen",
+      "samples": 100,
+      "data_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+      "value_checkpoint_family": "outputs/v3/stats_h1_seed{n}/checkpoints/best.pt",
+      "num_t": 100,
+      "num_k": 20,
+      "horizon": 1,
+      "candidate_cap": 32,
+      "outer_rounds": 8,
+      "repair_rounds": 4,
+      "post_reserve_s": 0.05,
+      "interventions": {
+        "disable_low": false,
+        "disable_high": false,
+        "constant_half_gates": false
+      },
+      "method": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "seeds": 1,
+      "seed_ids": [
+        0
+      ],
+      "run_indices": [
+        7
+      ],
+      "params": 169218,
+      "mean_size": 19.65,
+      "mean_initial_size": 19.55,
+      "mean_rule_size": 19.58,
+      "mean_solve_time_s": 0.383594687692821,
+      "mean_post_time_s": 0.1272815477894619,
+      "mean_score_time_s": 0.04127037972677499,
+      "mean_search_steps": 100.0,
+      "feasible_rate": 1,
+      "base_gain": 0.09999999999999787,
+      "rule_gain": 0.07000000000000028,
+      "delta_base": 0.03,
+      "wins": 16,
+      "ties": 70,
+      "losses": 14,
+      "deadline_overruns": 0,
+      "post_deadline_hits": 0,
+      "incumbent_fallbacks": 0,
+      "peak_memory_mib": 28.83544921875,
+      "max_solve_time_s": 0.7753852340392768,
+      "max_deadline_overrun_s": null,
+      "std_size": null,
+      "by_seed": {
+        "0": 19.65
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "left": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 1,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.09,
+      "wins": 9,
+      "ties": 91,
+      "losses": 0,
+      "total_gain": 9,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.09,
+      "left_source": "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 2,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.02,
+      "wins": 17,
+      "ties": 67,
+      "losses": 16,
+      "total_gain": 2,
+      "initial_size_delta": 0.02,
+      "post_gain_difference": 0.0,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 3,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03,
+      "wins": 16,
+      "ties": 70,
+      "losses": 14,
+      "total_gain": 3,
+      "initial_size_delta": 0.02,
+      "post_gain_difference": 0.009999999999999998,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed0/pave"
+    },
+    {
+      "left": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 1,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 1,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.07,
+      "wins": 7,
+      "ties": 93,
+      "losses": 0,
+      "total_gain": 7,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.07,
+      "left_source": "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed1/none"
+    },
+    {
+      "left": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 1,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 2,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.1,
+      "wins": 10,
+      "ties": 90,
+      "losses": 0,
+      "total_gain": 10,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.1,
+      "left_source": "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "right_source": "outputs/v4_frequency/val_baseline_no_seed2/none"
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 3,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": 0,
+      "search_seed": 1017,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.1,
+      "wins": 10,
+      "ties": 90,
+      "losses": 0,
+      "total_gain": 10,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.1,
+      "left_source": "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "right_source": "outputs/v4_frequency/val_tuned_no_seed0/none"
+    },
+    {
+      "left": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 1,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 300,
+      "pairing": "共享初始解",
+      "delta_size": 0.08666666666666667,
+      "wins": 26,
+      "ties": 274,
+      "losses": 0,
+      "total_gain": 26,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.08666666666666667,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 3
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "right": "验证 FP32 固定量 原骨干 + 无后处理",
+      "left_cohort": 2,
+      "right_cohort": 0,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.02,
+      "wins": 17,
+      "ties": 67,
+      "losses": 16,
+      "total_gain": 2,
+      "initial_size_delta": 0.02,
+      "post_gain_difference": 0.0,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 1
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 原骨干 + 冻结PAVE",
+      "left_cohort": 3,
+      "right_cohort": 1,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 100,
+      "pairing": "独立搜索，同图同种子",
+      "delta_size": 0.03,
+      "wins": 16,
+      "ties": 70,
+      "losses": 14,
+      "total_gain": 3,
+      "initial_size_delta": 0.02,
+      "post_gain_difference": 0.009999999999999998,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 1
+    },
+    {
+      "left": "验证 FP32 固定量 微调骨干 + 冻结PAVE",
+      "right": "验证 FP32 固定量 微调骨干 + 无后处理",
+      "left_cohort": 3,
+      "right_cohort": 2,
+      "split": "validation",
+      "precision": "no",
+      "protocol": "fixed_work",
+      "seed": "all",
+      "search_seed": null,
+      "records": 100,
+      "pairing": "共享初始解",
+      "delta_size": 0.1,
+      "wins": 10,
+      "ties": 90,
+      "losses": 0,
+      "total_gain": 10,
+      "initial_size_delta": 0,
+      "post_gain_difference": 0.1,
+      "left_source": null,
+      "right_source": null,
+      "paired_seeds": 1
+    }
+  ],
+  "diagnostics": [
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "任务墙钟（秒）",
+      570.4322863998823
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "Params",
+      165505
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "适配器参数",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "PyTorch峰值已分配显存（MiB）",
+      903.2080078125
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "最佳验证Size",
+      19.549999237060547
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "seed",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed0/run.json",
+      "none",
+      "freeze_backbone_epochs",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "任务墙钟（秒）",
+      544.4393311170861
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "Params",
+      165505
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "适配器参数",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "PyTorch峰值已分配显存（MiB）",
+      900.82373046875
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "最佳验证Size",
+      19.479999542236328
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "seed",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed1/run.json",
+      "none",
+      "freeze_backbone_epochs",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "任务墙钟（秒）",
+      570.8998954710551
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "Params",
+      165505
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "适配器参数",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "PyTorch峰值已分配显存（MiB）",
+      914.6259765625
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "最佳验证Size",
+      19.5
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "seed",
+      2
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/none_seed2/run.json",
+      "none",
+      "freeze_backbone_epochs",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "任务墙钟（秒）",
+      772.0342187928036
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "PyTorch峰值已分配显存（MiB）",
+      1314.72119140625
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "最佳验证Size",
+      19.549999237060547
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "seed",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed0/run.json",
+      "v4a_message",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "任务墙钟（秒）",
+      808.6919569349848
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "PyTorch峰值已分配显存（MiB）",
+      1312.2939453125
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "最佳验证Size",
+      19.549999237060547
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "seed",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed1/run.json",
+      "v4a_message",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "任务墙钟（秒）",
+      769.9438547180034
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "PyTorch峰值已分配显存（MiB）",
+      1328.17041015625
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "最佳验证Size",
+      19.53999900817871
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "seed",
+      2
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_message_seed2/run.json",
+      "v4a_message",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "任务墙钟（秒）",
+      791.340524555184
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "PyTorch峰值已分配显存（MiB）",
+      1314.72119140625
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "最佳验证Size",
+      19.579999923706055
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "seed",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed0/run.json",
+      "v4a_mlp",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "任务墙钟（秒）",
+      769.0321854953654
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "PyTorch峰值已分配显存（MiB）",
+      1312.2939453125
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "最佳验证Size",
+      19.479999542236328
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "seed",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed1/run.json",
+      "v4a_mlp",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "任务墙钟（秒）",
+      801.0246415697038
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "PyTorch峰值已分配显存（MiB）",
+      1328.17041015625
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "最佳验证Size",
+      19.549999237060547
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "seed",
+      2
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_mlp_seed2/run.json",
+      "v4a_mlp",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "任务墙钟（秒）",
+      800.4867502609268
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "PyTorch峰值已分配显存（MiB）",
+      1314.72119140625
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "最佳验证Size",
+      19.559999465942383
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "seed",
+      0
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed0/run.json",
+      "v4a",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "任务墙钟（秒）",
+      769.1939522400498
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "PyTorch峰值已分配显存（MiB）",
+      1312.62744140625
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "最佳验证Size",
+      19.520000457763672
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "seed",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed1/run.json",
+      "v4a",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "任务墙钟（秒）",
+      797.1065854826011
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "Params",
+      170513
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "适配器参数",
+      5008
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "PyTorch峰值已分配显存（MiB）",
+      1328.17041015625
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "完成轮数",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "更新数",
+      6000
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "最佳验证Size",
+      19.510000228881836
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "seed",
+      2
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "mixed_precision",
+      "no"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "epochs",
+      3
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "batch_size",
+      64
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "graph_batch_size",
+      8
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "lr",
+      0.0001
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "state_source",
+      "teacher"
+    ],
+    [
+      "训练",
+      "outputs/v4_frequency/v4a_seed2/run.json",
+      "v4a",
+      "freeze_backbone_epochs",
+      1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "平均Size差",
+      0.09
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "胜",
+      9
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "平",
+      91
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed0/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "后处理增益差",
+      0.09
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "平均Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "胜",
+      17
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "平",
+      67
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "负",
+      16
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "初始Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/none",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子0",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "平均Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "胜",
+      16
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "平",
+      70
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "负",
+      14
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "初始Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子0",
+      "后处理增益差",
+      0.009999999999999998
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "平均Size差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "胜",
+      7
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "平",
+      93
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed1/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子1",
+      "后处理增益差",
+      0.07
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "平均Size差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "胜",
+      10
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "平",
+      90
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_baseline_no_seed2/pave",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子2",
+      "后处理增益差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "平均Size差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "胜",
+      10
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "平",
+      90
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "outputs/v4_frequency/val_tuned_no_seed0/pave",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子0",
+      "后处理增益差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "图—种子记录数",
+      300
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "平均Size差",
+      0.08666666666666667
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "胜",
+      26
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "平",
+      274
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 原骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "后处理增益差",
+      0.08666666666666667
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "平均Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "胜",
+      17
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "平",
+      67
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "负",
+      16
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "初始Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 无后处理 − 验证 FP32 固定量 原骨干 + 无后处理 / 种子all",
+      "后处理增益差",
+      0.0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "配对口径",
+      "独立搜索，同图同种子"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "平均Size差",
+      0.03
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "胜",
+      16
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "平",
+      70
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "负",
+      14
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "初始Size差",
+      0.02
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 原骨干 + 冻结PAVE / 种子all",
+      "后处理增益差",
+      0.009999999999999998
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "配对口径",
+      "共享初始解"
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "图—种子记录数",
+      100
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "平均Size差",
+      0.1
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "胜",
+      10
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "平",
+      90
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "负",
+      0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "初始Size差",
+      0
+    ],
+    [
+      "逐图配对",
+      "已完成种子合并",
+      "验证 FP32 固定量 微调骨干 + 冻结PAVE − 验证 FP32 固定量 微调骨干 + 无后处理 / 种子all",
+      "后处理增益差",
+      0.1
+    ]
+  ]
+}

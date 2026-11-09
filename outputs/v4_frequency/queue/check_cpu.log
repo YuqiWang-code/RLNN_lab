@@ -1,0 +1,20 @@
+/home/hzeng/project/ZH/RLNN_lab/train_scripts/v4_frequency/check_adapter.py:20: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  (nodes, nodes)).to_sparse_csr()
+{
+  "status": "passed",
+  "device": "cpu",
+  "params": {
+    "v4a_mlp": 170513,
+    "v4a_message": 170513,
+    "v4a": 170513,
+    "v4a_fixed": 170513,
+    "v4a_low": 170513,
+    "v4a_high": 170513,
+    "v4a_near": 170513,
+    "v4a_norelease": 170513,
+    "v4a_noenergy": 170513,
+    "v4a_complementary": 170513
+  },
+  "adapter_params": 5008,
+  "batch_gradient_max_abs_difference": 1.430511474609375e-06
+}

@@ -1,0 +1,11 @@
+left,right,left_cohort,right_cohort,split,precision,protocol,seed,search_seed,records,pairing,delta_size,wins,ties,losses,total_gain,initial_size_delta,post_gain_difference,left_source,right_source,paired_seeds
+验证 FP32 固定量 原骨干 + 冻结PAVE,验证 FP32 固定量 原骨干 + 无后处理,1,0,validation,no,fixed_work,0,1017,100,共享初始解,0.09,9,91,0,9,0,0.09,outputs/v4_frequency/val_baseline_no_seed0/pave,outputs/v4_frequency/val_baseline_no_seed0/none,
+验证 FP32 固定量 微调骨干 + 无后处理,验证 FP32 固定量 原骨干 + 无后处理,2,0,validation,no,fixed_work,0,1017,100,独立搜索，同图同种子,0.02,17,67,16,2,0.02,0.0,outputs/v4_frequency/val_tuned_no_seed0/none,outputs/v4_frequency/val_baseline_no_seed0/none,
+验证 FP32 固定量 微调骨干 + 冻结PAVE,验证 FP32 固定量 原骨干 + 冻结PAVE,3,1,validation,no,fixed_work,0,1017,100,独立搜索，同图同种子,0.03,16,70,14,3,0.02,0.009999999999999998,outputs/v4_frequency/val_tuned_no_seed0/pave,outputs/v4_frequency/val_baseline_no_seed0/pave,
+验证 FP32 固定量 原骨干 + 冻结PAVE,验证 FP32 固定量 原骨干 + 无后处理,1,0,validation,no,fixed_work,1,1017,100,共享初始解,0.07,7,93,0,7,0,0.07,outputs/v4_frequency/val_baseline_no_seed1/pave,outputs/v4_frequency/val_baseline_no_seed1/none,
+验证 FP32 固定量 原骨干 + 冻结PAVE,验证 FP32 固定量 原骨干 + 无后处理,1,0,validation,no,fixed_work,2,1017,100,共享初始解,0.1,10,90,0,10,0,0.1,outputs/v4_frequency/val_baseline_no_seed2/pave,outputs/v4_frequency/val_baseline_no_seed2/none,
+验证 FP32 固定量 微调骨干 + 冻结PAVE,验证 FP32 固定量 微调骨干 + 无后处理,3,2,validation,no,fixed_work,0,1017,100,共享初始解,0.1,10,90,0,10,0,0.1,outputs/v4_frequency/val_tuned_no_seed0/pave,outputs/v4_frequency/val_tuned_no_seed0/none,
+验证 FP32 固定量 原骨干 + 冻结PAVE,验证 FP32 固定量 原骨干 + 无后处理,1,0,validation,no,fixed_work,all,,300,共享初始解,0.08666666666666667,26,274,0,26,0,0.08666666666666667,,,3
+验证 FP32 固定量 微调骨干 + 无后处理,验证 FP32 固定量 原骨干 + 无后处理,2,0,validation,no,fixed_work,all,,100,独立搜索，同图同种子,0.02,17,67,16,2,0.02,0.0,,,1
+验证 FP32 固定量 微调骨干 + 冻结PAVE,验证 FP32 固定量 原骨干 + 冻结PAVE,3,1,validation,no,fixed_work,all,,100,独立搜索，同图同种子,0.03,16,70,14,3,0.02,0.009999999999999998,,,1
+验证 FP32 固定量 微调骨干 + 冻结PAVE,验证 FP32 固定量 微调骨干 + 无后处理,3,2,validation,no,fixed_work,all,,100,共享初始解,0.1,10,90,0,10,0,0.1,,,1
