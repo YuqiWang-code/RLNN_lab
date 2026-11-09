@@ -1,14 +1,20 @@
 # RLNN Lab
 
-当前主线为微调 RLNN 与 PAVE-Stats H1 合法平台搜索。[v3 结果](docs/temporary/RLNN_v3_Results_Analysis.md) · [v3 协议](train_scripts/v3/README.md) · [实验结果](docs/实验结果.xlsx)
+RLNN Lab 基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究 RB200–300 图上的最大独立集（MIS）。RLNN 负责搜索初始解，PAVE-Stats H1 在合法解上做平台搜索。[RLD4CO 官方仓库](https://github.com/Shengyu-Feng/RLD4CO)
 
-v4 在冻结 PAVE 的条件下比较双尺度频域适配器、同信息普通消息与状态 MLP。三种子短期筛选未显示频域独立收益；实现、逐图结果、频谱和动作收益诊断均保留。[v4 分析](docs/temporary/RLNN_v4_Frequency_Results_Analysis.md) · [v4 训练与评测](train_scripts/v4_frequency/README.md) · [参考实现](reference_methods/README.md) · [历史方案](docs/已归档的想法和文件/README.md)
+## 当前方法与实验结论
 
-v4 机制追诊定位了高支路的驻留分量，并分别复核分支回放、成对动作收益和独占计时。[追诊结果](docs/temporary/RLNN_v4_Frequency_Mechanism_Followup_Results.md) · [复算入口](train_scripts/v4_frequency/followup/README.md)
+**限时部署采用原骨干持续搜索＋冻结 PAVE-Stats H1。** PAVE 的后处理收益来自 v3 的 1,000 张作者测试图。骨干部署选择来自 v5 的 100 张验证图、三种子预算对照，两组结果各按原协议报告。[v3 结果与口径](docs/temporary/RLNN_v3_Results_Analysis.md) · [v5 部署对照](docs/temporary/RLNN_v5_Frequency_Results.md)
 
-v5 DAFR-Lite 用 112 参数的输出端残差检验后投影。固定步数和限时筛选均未达到准入门槛。[v5 实验结果](docs/temporary/RLNN_v5_Frequency_Results.md) · [训练与评测](train_scripts/v5_frequency/README.md)
+| 版本 | 结论 | 结果与入口 |
+| --- | --- | --- |
+| v3 · PAVE-Stats H1 | 同一批合法起点上，固定工作量的 Mean Size 为 19.6633，相比 rule23 提高 0.0603。 | [分析](docs/temporary/RLNN_v3_Results_Analysis.md) · [运行协议](train_scripts/v3/README.md) |
+| v4 · 双尺度频域适配器 | 短筛未显示频域独立收益。机制追诊把高支路的驻留分量与动作收益分开验证。 | [短筛结果](docs/temporary/RLNN_v4_Frequency_Results_Analysis.md) · [机制追诊](docs/temporary/RLNN_v4_Frequency_Mechanism_Followup_Results.md) · [训练与评测](train_scripts/v4_frequency/README.md) · [追诊复算](train_scripts/v4_frequency/followup/README.md) |
+| v5 · DAFR-Lite | 112 参数的输出残差达到高支路零驻留目标。FP32 固定 100 步的 Mean Size 为 19.580，MSG 为 19.583，MLP 为 19.587。两档预算也未通过准入。 | [实验报告](docs/temporary/RLNN_v5_Frequency_Results.md) · [阶段决策](outputs/v5_frequency/analysis/decision.json) · [训练与评测](train_scripts/v5_frequency/README.md) |
 
-基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究最大独立集（MIS）的神经组合优化方法。复现起点为 `v000_rlnn_baseline`，任务为 RB200–300。实验使用两张 RTX 5090，各任务独立单卡运行；训练可同卡并行，正式计时每卡运行一个评测进程。[RLD4CO 官方仓库](https://github.com/Shengyu-Feng/RLD4CO)
+v5 验证中，原骨干持续搜索＋PAVE 在 0.5 秒和 1.0 秒预算下分别取得 **19.677** 和 **19.830**，DAFR＋PAVE 分别为 19.500 和 19.617。[逐种子与配对汇总](outputs/v5_frequency/analysis/) · [实验结果工作簿](docs/实验结果.xlsx)
+
+实验使用两张 RTX 5090。各任务独立单卡运行，训练可同卡并行，正式计时每卡运行一个评测进程。
 
 ## RLNN复现基线
 
@@ -23,7 +29,20 @@ v5 DAFR-Lite 用 112 参数的输出端残差检验后投影。固定步数和�
 
 前三行均使用作者公开的两组各 500 张图和附录 A.3 梯度翻转解码。SIZE 为每图平均独立集大小。TIME 为两组逐图采样与解码总耗时的平均值，各次运行独立计时。[实验结果工作簿](docs/实验结果.xlsx) · [逐图测试记录](outputs/v000_rlnn_baseline/rb_train_author_b64_g8_gpu1_seed0_a3/per_graph.csv)
 
-## 在服务器复跑
+## 在服务器复跑限时对照
+
+从项目根目录执行。已有验证张量缓存、种子 0 的 v2 RLNN 骨干和 v3 PAVE-Stats H1 权重时，可复跑 0.5 秒的持续搜索对照。
+
+```bash
+PYTHON="$HOME/envs/rlnn/bin/python" CUDA_VISIBLE_DEVICES=0 SEED=0 \
+  SPLIT=validation SAMPLES=100 BUDGET=0.5 POST=pave \
+  RUN_NAME="readme_budget_seed0_$(date +%Y%m%d_%H%M%S)" \
+  bash train_scripts/v5_frequency/eval_budget.sh baseline --extended-search
+```
+
+结果写入 `outputs/v5_frequency/<RUN_NAME>/pave/`。完整训练、诊断和双档预算矩阵见 [v5 运行说明](train_scripts/v5_frequency/README.md)。
+
+## 从头复跑 RLNN 基线
 
 从项目根目录运行。已有训练缓存和作者测试图的部署可直接运行重训入口。
 
@@ -52,20 +71,23 @@ PYTHON="$HOME/envs/rlnn/bin/python" bash train_scripts/v000_rlnn_baseline/retrai
 | `models/` | 上游源码与模型迭代 |
 | `train_scripts/v000_rlnn_baseline/` | 环境、数据、训练、评估和冒烟入口 |
 | `outputs/v000_rlnn_baseline/<run>/` | 日志、配置和数值结果，模型权重保存在服务器 |
+| `train_scripts/v3/` | PAVE 起点生成、标签、训练和评测 |
 | `train_scripts/v4_frequency/` | 共享教师状态训练、独占计时验证、频谱与收益诊断 |
-| `outputs/v4_frequency/` | v4逐图验证、机制数据、配对汇总与阶段决策 |
+| `train_scripts/v5_frequency/` | DAFR-Lite 短训、固定步数与限时评测、机制诊断 |
+| `outputs/v3/`、`outputs/v4_frequency/`、`outputs/v5_frequency/` | 各版本逐图记录、配对汇总与阶段决策 |
+| `reference_methods/` | [参考方法代码与来源](reference_methods/README.md) |
 | `docs/` | 服务器、数据集、参考文献与实验结果 |
-| `docs/temporary/` | 当前想法和版本快照 |
-| `docs/已归档的想法和文件/` | v1–v3历史研究方案 |
+| `docs/temporary/` | 研究方案、实验报告和版本快照 |
+| `docs/已归档的想法和文件/` | [历史研究方案](docs/已归档的想法和文件/README.md) |
 | `tools/` | 运行记录、同步、结果整理与快照工具 |
 | `tmp/` | 本地临时材料 |
 
-在 Windows 本地拉回运行记录后，使用提供 `@oai/artifact-tool` 的 Node 运行时整理工作簿明细，并生成代码和数值结果的快照。[工具说明](tools/README.md)
+在 Windows 本地拉回 v5 的小型运行记录后，使用提供 `@oai/artifact-tool` 的 Node 运行时更新 v5 工作表，并生成代码和数值结果的快照。训练图和模型权重保存在服务器。[工具说明](tools/README.md) · [v5 TXT 快照](docs/temporary/v5_frequency_20261109_174609.txt)
 
 ```powershell
-python tools/server.py pull
-node tools/collect_results.mjs
-python tools/snapshot.py --version v000_rlnn_baseline
+python tools/server.py pull --version v5_frequency
+node tools/update_v5_workbook.mjs
+python tools/snapshot.py --version v5_frequency
 ```
 
 ## 参考文献
