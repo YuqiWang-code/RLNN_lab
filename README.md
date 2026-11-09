@@ -6,6 +6,8 @@ v4 在冻结 PAVE 的条件下比较双尺度频域适配器、同信息普通�
 
 v4 机制追诊定位了高支路的驻留分量，并分别复核分支回放、成对动作收益和独占计时。[追诊结果](docs/temporary/RLNN_v4_Frequency_Mechanism_Followup_Results.md) · [复算入口](train_scripts/v4_frequency/followup/README.md)
 
+v5 DAFR-Lite 用 112 参数的输出端残差检验后投影。固定步数和限时筛选均未达到准入门槛。[v5 实验结果](docs/temporary/RLNN_v5_Frequency_Results.md) · [训练与评测](train_scripts/v5_frequency/README.md)
+
 基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究最大独立集（MIS）的神经组合优化方法。复现起点为 `v000_rlnn_baseline`，任务为 RB200–300。实验使用两张 RTX 5090，各任务独立单卡运行；训练可同卡并行，正式计时每卡运行一个评测进程。[RLD4CO 官方仓库](https://github.com/Shengyu-Feng/RLD4CO)
 
 ## RLNN复现基线

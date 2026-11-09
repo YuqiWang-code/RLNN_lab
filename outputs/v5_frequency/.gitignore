@@ -1,5 +1,6 @@
 queue/
 shared_timing/
+preflight/profile/
 diagnosis_p1/*/stage_spectra.csv
 diagnosis_p1/*/node_groups.csv
 diagnosis_p1/*/replay_curves.csv

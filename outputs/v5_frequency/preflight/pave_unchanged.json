@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "checkpoints": [
+    {
+      "model": "PAVE",
+      "seed": 0,
+      "mode": "stats",
+      "path": "outputs/v3/stats_h1_seed0/checkpoints/best.pt",
+      "sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+      "bytes": 18225,
+      "params": 3713,
+      "keys": [
+        "scorer.0.weight",
+        "scorer.0.bias",
+        "scorer.2.weight",
+        "scorer.2.bias",
+        "scorer.4.weight",
+        "scorer.4.bias"
+      ]
+    },
+    {
+      "model": "PAVE",
+      "seed": 1,
+      "mode": "stats",
+      "path": "outputs/v3/stats_h1_seed1/checkpoints/best.pt",
+      "sha256": "38cd3d3e61b0649e8419579bcea99ef447eebd8b7c2efcb49b6372bd608c561e",
+      "bytes": 18225,
+      "params": 3713,
+      "keys": [
+        "scorer.0.weight",
+        "scorer.0.bias",
+        "scorer.2.weight",
+        "scorer.2.bias",
+        "scorer.4.weight",
+        "scorer.4.bias"
+      ]
+    },
+    {
+      "model": "PAVE",
+      "seed": 2,
+      "mode": "stats",
+      "path": "outputs/v3/stats_h1_seed2/checkpoints/best.pt",
+      "sha256": "b794b6dc37d377bb6ae256e4a5afebf37f5872b940639d13abe31309fbd1b605",
+      "bytes": 18225,
+      "params": 3713,
+      "keys": [
+        "scorer.0.weight",
+        "scorer.0.bias",
+        "scorer.2.weight",
+        "scorer.2.bias",
+        "scorer.4.weight",
+        "scorer.4.bias"
+      ]
+    }
+  ]
+}

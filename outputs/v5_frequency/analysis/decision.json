@@ -1,7 +1,7 @@
 {
-  "decision": "fixed_work_complete",
+  "decision": "no_go",
   "quality_pass": false,
-  "budget_complete": false,
+  "budget_complete": true,
   "budget_pass": false,
   "all_feasible": true,
   "quality": [
@@ -61,8 +61,80 @@
     }
   ],
   "budget": [
-    null,
-    null
+    {
+      "protocol": "fixed_time",
+      "precision": "fp16",
+      "post": "pave",
+      "budget_s": 0.5,
+      "candidate": "v5a",
+      "control": "baseline",
+      "seed_count": 3,
+      "graph_count": 100,
+      "mean_delta": -0.08666666666666667,
+      "ci_low": -0.15333333333333332,
+      "ci_high": -0.02,
+      "positive_seeds": 0,
+      "seed_deltas": "{\"0\": -0.04, \"1\": -0.11, \"2\": -0.11}",
+      "wins": 24,
+      "ties": 228,
+      "losses": 48
+    },
+    {
+      "protocol": "fixed_time",
+      "precision": "fp16",
+      "post": "pave",
+      "budget_s": 0.5,
+      "candidate": "v5a",
+      "control": "v5a_mlp",
+      "seed_count": 3,
+      "graph_count": 100,
+      "mean_delta": -0.02666666666666667,
+      "ci_low": -0.06999999999999999,
+      "ci_high": 0.013333333333333334,
+      "positive_seeds": 1,
+      "seed_deltas": "{\"0\": 0.06, \"1\": -0.07, \"2\": -0.07}",
+      "wins": 16,
+      "ties": 260,
+      "losses": 24
+    }
   ],
-  "runs": 54
+  "fallback_seed0": [
+    {
+      "protocol": "fixed_work",
+      "precision": "no",
+      "post": "none",
+      "budget_s": null,
+      "candidate": "v5a_conflict",
+      "control": "v5a_mlp_conflict",
+      "seed_count": 1,
+      "graph_count": 100,
+      "mean_delta": 0.01,
+      "ci_low": -0.12,
+      "ci_high": 0.14,
+      "positive_seeds": 1,
+      "seed_deltas": "{\"0\": 0.01}",
+      "wins": 17,
+      "ties": 64,
+      "losses": 19
+    },
+    {
+      "protocol": "fixed_work",
+      "precision": "no",
+      "post": "none",
+      "budget_s": null,
+      "candidate": "v5a_conflict",
+      "control": "v5a_message_conflict",
+      "seed_count": 1,
+      "graph_count": 100,
+      "mean_delta": 0.01,
+      "ci_low": -0.12,
+      "ci_high": 0.14,
+      "positive_seeds": 1,
+      "seed_deltas": "{\"0\": 0.01}",
+      "wins": 17,
+      "ties": 64,
+      "losses": 19
+    }
+  ],
+  "runs": 93
 }

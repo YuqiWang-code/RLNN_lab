@@ -86,9 +86,10 @@ def main():
     summary = []
     for key, group in cohorts.items():
         sizes = [row["mean_size"] for row in group]
+        deltas = [row["delta_baseline"] for row in group if row["delta_baseline"] is not None]
         summary.append(dict(zip(("protocol", "precision", "post", "budget_s", "method"), key),
                             seed_count=len(group), mean_size=mean(sizes), size_seed_sd=stdev(sizes) if len(sizes) > 1 else None,
-                            delta_baseline=mean(row["delta_baseline"] for row in group) if group[0]["delta_baseline"] is not None else None,
+                            delta_baseline=mean(deltas) if deltas else None,
                             **{name: mean(row[name] for row in group) for name in
                                ("mean_solve_s", "feasible_rate", "params", "mean_steps", "mean_post_s")},
                             p95_s=float(np.quantile(latency[key], .95)),
@@ -110,13 +111,20 @@ def main():
     quality_pass = all(e["mean_delta"] > 0 and e["positive_seeds"] >= 2 and e["ci_low"] > 0 for e in quality)
     budget = [compare(graphs, ("fixed_time", "fp16", "pave", .5), "v5a", control)
               for control in ("baseline", "v5a_mlp")]
-    budget_complete = all(e is not None and e["seed_count"] == 3 and e["graph_count"] == 100 for e in budget)
+    expected_budget = {(limit, method, "rule23" if method == "baseline_rule23" else "pave", seed)
+                       for limit in (.5, 1.0) for seed in range(3)
+                       for method in ("baseline", "baseline_extended", "baseline_rule23", "v5a_mlp", "v5a_message", "v5a")}
+    measured_budget = {(r["budget_s"], r["method"], r["post"], r["seed"]) for r in runs
+                       if r["protocol"] == "fixed_time" and r["precision"] == "fp16" and r["graphs"] == 100}
+    budget_complete = expected_budget <= measured_budget
     budget_pass = budget_complete and all(e["mean_delta"] >= 0 for e in budget)
+    fallback = [compare(graphs, ("fixed_work", "no", "none", None), "v5a_conflict", control)
+                for control in ("v5a_mlp_conflict", "v5a_message_conflict")]
     legal = all(row["feasible_rate"] == 1 for row in runs)
     result = dict(decision=("go_to_s2b" if quality_pass and budget_pass and legal else "no_go")
                   if budget_complete else "fixed_work_complete", quality_pass=quality_pass,
                   budget_complete=budget_complete, budget_pass=budget_pass, all_feasible=legal,
-                  quality=quality, budget=budget, runs=len(runs))
+                  quality=quality, budget=budget, fallback_seed0=fallback, runs=len(runs))
     write(out / "per_seed.csv", runs)
     write(out / "summary.csv", summary)
     write(out / "paired_effects.csv", pairs)

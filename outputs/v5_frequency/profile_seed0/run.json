@@ -1,0 +1,37 @@
+{
+  "status": "completed",
+  "split": "train",
+  "seed": 0,
+  "precision": "fp16",
+  "graph_ids": [
+    "graph_000000",
+    "graph_000001",
+    "graph_000002",
+    "graph_000003",
+    "graph_000004",
+    "graph_000005",
+    "graph_000006",
+    "graph_000007",
+    "graph_000008",
+    "graph_000009",
+    "graph_000010",
+    "graph_000011",
+    "graph_000012",
+    "graph_000013",
+    "graph_000014",
+    "graph_000015",
+    "graph_000016",
+    "graph_000017",
+    "graph_000018",
+    "graph_000019"
+  ],
+  "repeats": 5,
+  "K": 20,
+  "T": 100,
+  "mean_search_s": {
+    "baseline": 0.30066968048922715,
+    "v5a_mlp": 0.4345426760148257,
+    "v5a_message": 0.4554385565873236,
+    "v5a": 0.4673523402027786
+  }
+}

@@ -17,18 +17,35 @@ from mis_v5_frequency import v5_topology
 from profile_v4_frequency import benchmark, latency_summary
 
 
+def profile_policies(seed, samples, output):
+    policies = {}
+    for arm in ARMS:
+        options = evaluation_parser().parse_args(["--frequency", "none" if arm == "baseline" else arm,
+            "--save_dir", str(weights(arm, seed).parent), "--label", arm, "--result_dir", str(output),
+            "--test_path", str(TRAIN), "--test_samples", str(samples), "--mixed_precision", "fp16"])
+        policy = load_policy(options)
+        policy.model.requires_grad_(False)
+        policies[arm] = policy
+    return policies
+
+
+def final_archive(policy, graph, legal, seed):
+    archive = None
+
+    def capture(step, state, best, adj, topology):
+        nonlocal archive
+        if step == policy.num_t:
+            archive = best
+
+    selected, _ = search(policy, graph, legal, seed, observe=capture)
+    return selected, archive
+
+
 @torch.no_grad()
 def profile(args):
     device = torch.device("cuda")
     dataset = dataset_at(TRAIN, torch.float16, args.samples)
-    policies = {}
-    for arm in ARMS:
-        options = evaluation_parser().parse_args(["--frequency", "none" if arm == "baseline" else arm,
-            "--save_dir", str(weights(arm, args.seed).parent), "--label", arm, "--result_dir", str(args.output),
-            "--test_path", str(TRAIN), "--test_samples", str(args.samples), "--mixed_precision", "fp16"])
-        policy = load_policy(options)
-        policy.model.requires_grad_(False)
-        policies[arm] = policy
+    policies = profile_policies(args.seed, args.samples, args.output)
     ranker = load_pave_v3(ROOT / f"outputs/v3/stats_h1_seed{args.seed}/checkpoints/best.pt").requires_grad_(False)
     args.output.mkdir(parents=True, exist_ok=False)
     e2e, components = [], []
@@ -63,7 +80,7 @@ def profile(args):
             model = policy.accelerator.unwrap_model(policy.model)
             logits = policy.flip_logits(x, graph, adj, policy.policy_topology(graph, adj))
             initial_energy = policy.problem.energy_func(adj, graph.b, x)[0]
-            incumbent, _ = search(policy, graph, legal, seed)
+            incumbent, archive = final_archive(policy, graph, legal, seed)
 
             def update_archive():
                 state = torch.where(torch.rand_like(x) < logits.sigmoid(), 1-x, x)
@@ -77,7 +94,7 @@ def profile(args):
             jobs = {
                 "gcn_logits": (base, 100),
                 "bernoulli_energy_archive": (update_archive, 100),
-                "a3": (lambda: best_decoded(policy.problem, x, adj, graph.b), 1),
+                "a3": (lambda: best_decoded(policy.problem, archive, adj, graph.b), 1),
                 "pave": (lambda: platform_search(legal, incumbent, choose=ranker.choose, horizon=1), 1),
                 "policy_topology": (lambda: policy.policy_topology(graph, adj), 1),
             }
