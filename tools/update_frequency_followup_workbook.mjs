@@ -46,7 +46,7 @@ async function readCsv(filename) {
 const labels = {
   study: '实验口径', split: '划分', model: '模型', trajectory: '状态轨迹', trajectory_model: '状态轨迹',
   variant: '干预或分支', precision: '精度', step: '时刻', signal: '信号', seed: '训练种子', R: '重复数R',
-  candidate_sampling: '候选采样', candidate_group: '候选类别', category: '节点类别', horizon: '续跑步数H',
+  candidate_sampling: '候选采样', candidate_group: '候选类别', category: '节点类别', group: '节点类别', horizon: '续跑步数H',
   metric: '配对指标', method: '方法', reference: '参考', post: '后处理', component: '组件', unit: '计时单位',
   mean_delta: '平均差值', graph_ci_low: '图级CI下界', graph_ci_high: '图级CI上界', wins: '胜', ties: '平', losses: '负',
   positive_seeds: '正增益种子数', seed_count: '种子数', pairs: '图—种子对数', by_seed: '分种子差值',
@@ -96,6 +96,8 @@ function priority(keys, first) { return [...first.filter(key => keys.includes(ke
 const plans = [
   { sheet: names[1], title: 'P1 编码阶段频谱：图内平均，再按图与种子汇总', file: 'stage_summary.csv',
     first: ['split', 'model', 'trajectory', 'variant', 'step', 'signal', 'stationary_fraction_mean', 'raw_higher_fraction_mean', 'centered_higher_fraction_mean'] },
+  { sheet: names[1], title: 'P1 节点类别内门控、残差与行为变化', file: 'spectral_behavior_summary.csv',
+    first: ['split', 'model', 'trajectory', 'variant', 'group', 'step'] },
   { sheet: names[2], title: 'P2 共享初始状态与随机流的完整replay', file: 'replay_summary.csv',
     first: ['split', 'precision', 'variant', 'base_size_mean', 'base_size_std', 'final_size_mean', 'final_size_std', 'pave_gain_mean'] },
   { sheet: names[2], title: 'P2 相对Full逐图配对；CI以图ID为重采样单位', file: 'replay_paired.csv',
@@ -109,9 +111,9 @@ const plans = [
   { sheet: names[3], title: 'P3 标签重复稳定性：前后半独立续跑', file: 'reliability_summary.csv',
     first: ['study', 'split', 'R', 'candidate_group', 'informative_mean', 'mean_gain_sem_mean', 'half_spearman_mean', 'half_top1_same_mean', 'pooled_half_direction_agreement'] },
   { sheet: names[4], title: 'P4 真实端到端重复测量', file: 'profile_e2e.csv',
-    first: ['precision', 'model', 'post', 'final_size_mean', 'final_size_std', 'solve_time_s_mean', 'median_s', 'p95_s', 'mad_s', 'search_steps_mean'] },
+    first: ['split', 'precision', 'model', 'post', 'final_size_mean', 'final_size_std', 'solve_time_s_mean', 'median_s', 'p95_s', 'mad_s', 'search_steps_mean'] },
   { sheet: names[4], title: 'P4 组件独立计时；不可直接相加替代端到端时间', file: 'profile_components.csv',
-    first: ['precision', 'model', 'component', 'unit', 'time_s_mean', 'time_s_std'] },
+    first: ['split', 'precision', 'model', 'component', 'unit', 'time_s_mean', 'time_s_std'] },
   { sheet: names[4], title: '既有V4验证质量与时间参考', file: 'historical_quality_time.csv',
     select: ['method', 'mean_size', 'std_size', 'mean_solve_time_s', 'feasible_rate', 'params', 'peak_memory_mib', 'mean_search_steps', 'protocol', 'precision', 'split', 'time_budget_s', 'extended_search', 'deadline_overruns'] },
 ];

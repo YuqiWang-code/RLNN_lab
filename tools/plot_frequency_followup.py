@@ -50,18 +50,29 @@ def plot_all(analysis):
     if path.exists():
         df = pd.read_csv(path)
         df = df[(df.split == "validation") & (df.precision == "fp32")]
-        categories = ["selected_conflict", "selected_clear", "addable", "unique_blocker", "multi_blocker", "release_high"]
-        fig, axes = plt.subplots(1, 2, figsize=(11, 4), sharey=True)
+        categories = ["selected_conflict", "selected_clear", "addable", "unique_blocker", "multi_blocker", "release_positive"]
+        fig, axes = plt.subplots(2, 2, figsize=(11, 7), sharey=True)
+        gate_data = pd.read_csv(analysis / "spectral_behavior_summary.csv")
+        gate_data = gate_data[(gate_data.split == "validation") & (gate_data.model == "v4a") &
+                              (gate_data.trajectory == "teacher") & (gate_data.variant == "full")]
+        group_names = ["selected_conflicted", "selected_clear", "unselected_free", "unselected_one", "unselected_many", "release_positive"]
+        for ax, column, title in zip(axes[0], ("gate_low_mean_mean", "gate_high_mean_mean"), ("Low gate", "High gate")):
+            matrix = gate_data.pivot(index="group", columns="step", values=column).reindex(group_names)
+            gates = ax.imshow(matrix.to_numpy(), cmap="viridis", vmin=0, vmax=1, aspect="auto")
+            ax.set_xticks(range(len(matrix.columns)), matrix.columns)
+            ax.set_yticks(range(len(categories)), [x.replace("_", " ") for x in categories])
+            ax.set_title(title)
+        fig.colorbar(gates, ax=list(axes[0]), label="Independent sigmoid gate", shrink=.85)
         bound = df[df.variant.isin(["no_low", "no_high"])].delta_probability_mean_mean.abs().max() * 100
         bound = max(bound, .01)
-        for ax, method, title in zip(axes, ("no_low", "no_high"), ("Disable low", "Disable high")):
+        for ax, method, title in zip(axes[1], ("no_low", "no_high"), ("Disable low", "Disable high")):
             matrix = df[df.variant == method].pivot(index="category", columns="step", values="delta_probability_mean_mean").reindex(categories) * 100
             im = ax.imshow(matrix.to_numpy(), cmap="RdBu_r", vmin=-bound, vmax=bound, aspect="auto")
             ax.set_xticks(range(len(matrix.columns)), matrix.columns)
             ax.set_yticks(range(len(categories)), [x.replace("_", " ") for x in categories])
             ax.set_title(title)
             ax.set_xlabel("Teacher trajectory step")
-        fig.colorbar(im, ax=axes, label="Change in flip probability (percentage points)", shrink=.85)
+        fig.colorbar(im, ax=list(axes[1]), label="Change in flip probability (percentage points)", shrink=.85)
         finish(fig, folder, "02_node_conditioned_probability")
     path = analysis / "reliability_summary.csv"
     if path.exists():

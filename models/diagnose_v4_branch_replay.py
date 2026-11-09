@@ -149,6 +149,10 @@ def variants(args):
             result[f"alpha_{scale:g}"] = ("f4", dict(low_scale=scale, high_scale=scale))
         for low, high in args.alpha_pairs:
             result[f"alpha_L{low:g}_H{high:g}"] = ("f4", dict(low_scale=low, high_scale=high))
+    for repeat in range(1, args.native_repeats):
+        for reference in ("baseline", "full"):
+            if reference in result:
+                result[f"{reference}_repeat{repeat}"] = result[reference]
     return result
 
 
@@ -247,6 +251,8 @@ def build_parser():
     parser.add_argument("--phases", nargs="+", type=int, default=list(PHASES))
     parser.add_argument("--diagnostic-particles", type=int, default=4)
     parser.add_argument("--post", nargs="+", choices=("none", "pave"), default=["none", "pave"])
+    parser.add_argument("--native-repeats", type=int, default=1,
+                        help="Total baseline and Full replays under the same x0/U, including their first run")
     return parser
 
 
@@ -254,7 +260,7 @@ def build_parser():
 def run(args):
     if "f4" not in args.models and args.mode != "replay":
         raise ValueError("Same-state comparisons require the full F4 reference")
-    if not 1 <= args.diagnostic_particles <= 20 or args.graphs <= 0:
+    if not 1 <= args.diagnostic_particles <= 20 or args.graphs <= 0 or args.native_repeats < 1:
         raise ValueError("Choose 1..20 diagnostic particles and a positive graph count")
     if set(args.phases) - set(range(101)):
         raise ValueError("Observation phases must lie in 0..100")
@@ -276,6 +282,8 @@ def run(args):
                     started_at=datetime.now(timezone.utc).isoformat(), variants=choices,
                     random_protocol="One x0 and 100 stacked per-step U tensors shared across variants; extra independent U for phase 100 only",
                     precision_protocol="Compare within precision; fp32 and fp16 use their original dtype-specific random streams",
+                    native_repeats=args.native_repeats,
+                    native_numerics="Shared x0/U does not remove CUDA sparse-reduction nondeterminism; native repeat controls quantify its trajectory and Size effects",
                     archive="Per-particle minimum energy followed by one final A.3 decode; best legal set over K",
                     same_state_source="Frozen original RLNN baseline", same_state_reference="Full F4 at the same teacher state",
                     immediate_energy="expected_joint_delta_energy is exact under independent Bernoulli flips; expected_sum_single_flip_delta_energy omits simultaneous-flip interactions",
@@ -283,7 +291,7 @@ def run(args):
                     pave_checkpoint=str(pave_path) if ranker is not None else None)
     write_run(args.result_dir, metadata)
     started = perf_counter()
-    final_rows, state_rows, curve_rows = [], [], []
+    final_rows, state_rows, curve_rows, repeat_rows = [], [], [], []
     try:
         for index, item in enumerate(dataset):
             graph_id = Path(dataset.files[index]).stem
@@ -303,7 +311,7 @@ def run(args):
                 forward = lambda x, s=solver, t=topologies[name], i=intervention: policy_logits(s, graph, adj, t, x, i)
                 tick = perf_counter()
                 result = replay(solver.problem, adj, graph.b, initial, uniforms, forward,
-                                phases=args.phases, capture=variant == "baseline")
+                                phases=args.phases, capture=variant in ("baseline", "full") or "_repeat" in variant)
                 sync(device)
                 elapsed = perf_counter() - tick
                 selected = result["selected"]
@@ -328,7 +336,27 @@ def run(args):
                                        replay_diagnostic_time_s=elapsed, pave_time_s=post_seconds,
                                        base_nodes=" ".join(map(str, nodes(selected))),
                                        final_nodes=" ".join(map(str, nodes(final)))))
+                result["pave_selected"] = final
                 curve_rows.extend({**common, **row} for row in result["curves"])
+            if args.mode != "same_state":
+                for variant, result in results.items():
+                    if "_repeat" not in variant:
+                        continue
+                    reference_name = variant.split("_repeat", 1)[0]
+                    reference = results[reference_name]
+                    changed = {step: int((result["states"][step] != reference["states"][step]).sum())
+                               for step in result["states"]}
+                    repeat_rows.append(dict(
+                        graph_id=graph_id, graph_index=index, seed=args.seed, precision=args.precision,
+                        variant=variant, reference_variant=reference_name,
+                        base_size_delta=result["selected"].bit_count() - reference["selected"].bit_count(),
+                        final_size_delta=result["pave_selected"].bit_count() - reference["pave_selected"].bit_count(),
+                        selected_nodes_changed=result["selected"] != reference["selected"],
+                        final_state_changed_entries=int((result["final_state"] != reference["final_state"]).sum()),
+                        best_archive_changed_entries=int((result["best_states"] != reference["best_states"]).sum()),
+                        changed_observation_phases=sum(count > 0 for count in changed.values()),
+                        changed_observed_state_entries=sum(changed.values()),
+                        first_changed_observation_phase=next((step for step, count in changed.items() if count), None)))
             if args.mode != "replay":
                 for step, state in results["baseline"]["states"].items():
                     x = state[:, :args.diagnostic_particles]
@@ -355,7 +383,8 @@ def run(args):
                                                                                 binary=ft.binary, representations=representations))
             if (index + 1) % 5 == 0 or index + 1 == len(dataset):
                 print(f"{index + 1}/{len(dataset)} paired graphs completed", flush=True)
-        for name, rows in (("replay_per_graph.csv", final_rows), ("same_state.csv", state_rows), ("replay_curves.csv", curve_rows)):
+        for name, rows in (("replay_per_graph.csv", final_rows), ("same_state.csv", state_rows),
+                           ("replay_curves.csv", curve_rows), ("native_repeat_noise.csv", repeat_rows)):
             csv_file(args.result_dir / name, rows)
         metadata.update(status="completed", samples=len(dataset), graph_ids=[Path(p).stem for p in dataset.files],
                         finished_at=datetime.now(timezone.utc).isoformat(), wall_time_s=perf_counter() - started)

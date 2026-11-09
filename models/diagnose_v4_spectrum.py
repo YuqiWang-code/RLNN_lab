@@ -66,6 +66,8 @@ def rms(values):
 def correlation(first, second):
     first = first.double().flatten()
     second = second.double().flatten()
+    if first.min() == first.max() or second.min() == second.max():
+        return None
     first = first - first.mean()
     second = second - second.mean()
     denominator = first.norm() * second.norm()

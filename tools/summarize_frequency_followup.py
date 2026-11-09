@@ -65,8 +65,10 @@ def paired(frame, keys, arm, reference, value):
         for method in wide.columns:
             matched = wide[[method, reference]].dropna() if method != reference else wide[[reference]].dropna()
             delta = (matched[method] - matched[reference]).rename("delta").reset_index()
+            delta.loc[delta.delta.abs() < 1e-12, "delta"] = 0.0
             lo, hi = graph_interval(delta, "delta")
             seed_means = delta.groupby("seed").delta.mean()
+            seed_means = seed_means.mask(seed_means.abs() < 1e-12, 0.0)
             summaries.append(dict(**common, metric=value, method=method, reference=reference,
                                   mean_delta=delta.delta.mean(), graph_ci_low=lo, graph_ci_high=hi,
                                   wins=int((delta.delta > 0).sum()), ties=int((delta.delta == 0).sum()),
@@ -106,6 +108,7 @@ def main():
         save(analysis / "stage_by_seed.csv", seeds)
     behavior = tables("p1_spectrum", "gates_and_deltas.csv")
     if not behavior.empty:
+        behavior.loc[behavior["group"] == "selected_clear", "corr_B0_x_high_logit_change"] = np.nan
         keys = ["split", "model", "trajectory", "variant", "group", "step"]
         metrics = [c for c in behavior.select_dtypes(include="number").columns
                    if c not in ("seed", "step", "particles", "count")]
@@ -114,6 +117,10 @@ def main():
         save(analysis / "spectral_behavior_by_seed.csv", seeds)
     replay = tables("p2_branch", "replay_per_graph.csv")
     if not replay.empty:
+        repeated = replay[replay.variant.str.contains("_repeat")]
+        summary, seeds = aggregate(repeated, ["split", "precision", "variant"], ["base_size", "final_size", "pave_gain"])
+        save(analysis / "native_replay_summary.csv", summary)
+        replay = replay[~replay.variant.str.contains("_repeat")]
         keys = ["split", "precision", "variant"]
         summary, seeds = aggregate(replay, keys, ["base_size", "final_size", "pave_gain"])
         save(analysis / "replay_summary.csv", summary)
@@ -133,9 +140,28 @@ def main():
                    "favorable_probability_mass", "logit_immediate_gain_correlation"]
         metrics += ["expected_joint_delta_energy", "sampled_joint_delta_energy", "gate_low_mean", "gate_high_mean",
                     "residual_low_relative", "residual_high_relative", "flips_target_squared_error"]
+        repeated = states[states.variant.str.startswith("full_repeat")]
+        summary, seeds = aggregate(repeated, ["split", "precision", "variant", "category", "step"], metrics)
+        save(analysis / "native_same_state_summary.csv", summary)
+        states = states[~states.variant.str.contains("_repeat")]
         summary, seeds = aggregate(states, ["split", "precision", "variant", "category", "step"], metrics)
         save(analysis / "same_state_summary.csv", summary)
         save(analysis / "same_state_by_seed.csv", seeds)
+    noise = tables("p2_branch", "native_repeat_noise.csv")
+    if not noise.empty:
+        for field in ("base_size_delta", "final_size_delta"):
+            noise[f"{field}_abs"] = noise[field].abs()
+            noise[f"{field}_changed"] = (noise[field] != 0).astype(float)
+        for field in ("final_state_changed_entries", "best_archive_changed_entries", "changed_observation_phases"):
+            noise[f"{field}_rate"] = (noise[field] > 0).astype(float)
+        keys = ["split", "precision", "reference_variant"]
+        metrics = [c for c in noise.select_dtypes(include=["number", "bool"]).columns
+                   if c not in ("seed", "graph_index", "first_changed_observation_phase")]
+        summary, seeds = aggregate(noise, keys, metrics)
+        maximum = noise.groupby(keys, dropna=False)[["base_size_delta_abs", "final_size_delta_abs"]].max().add_suffix("_max").reset_index()
+        counts = noise.groupby(keys, dropna=False).agg(graph_count=("graph_id", "nunique"), seed_count=("seed", "nunique"), paired_repeat_count=("variant", "size")).reset_index()
+        save(analysis / "native_repeat_summary.csv", summary.merge(maximum, on=keys).merge(counts, on=keys))
+        save(analysis / "native_repeat_by_seed.csv", seeds)
     save(analysis / "historical_quality_time.csv", historical())
     ranking = tables("p3_utility", "ranking.csv")
     if not ranking.empty:
@@ -170,17 +196,25 @@ def main():
         save(analysis / "reliability_by_seed.csv", seeds)
     components = tables("p4_profile", "components.csv")
     if not components.empty:
-        graph = components.groupby(["seed", "graph_id", "precision", "model", "component", "unit"], dropna=False).time_s.median().reset_index()
-        summary, seeds = aggregate(graph, ["precision", "model", "component", "unit"], ["time_s"])
+        graph = components.groupby(["split", "seed", "graph_id", "precision", "model", "component", "unit"], dropna=False).time_s.median().reset_index()
+        summary, seeds = aggregate(graph, ["split", "precision", "model", "component", "unit"], ["time_s"])
         save(analysis / "profile_components.csv", summary)
         save(analysis / "profile_components_by_seed.csv", seeds)
+    equivalence = tables("p4_profile", "component_equivalence.csv")
+    if not equivalence.empty:
+        keys = ["split", "precision", "model"]
+        metrics = [c for c in equivalence.select_dtypes(include="number").columns
+                   if c not in ("seed", "graph_index", "native_forward_repeats")]
+        summary, seeds = aggregate(equivalence, keys, metrics)
+        maximum = equivalence.groupby(keys, dropna=False)[metrics].max().add_suffix("_max").reset_index()
+        save(analysis / "component_equivalence_summary.csv", summary.merge(maximum, on=keys))
     e2e = tables("p4_profile", "end_to_end.csv")
     if not e2e.empty:
-        summary, seeds = aggregate(e2e, ["precision", "model", "post"],
+        summary, seeds = aggregate(e2e, ["split", "precision", "model", "post"],
                                    ["solve_time_s", "search_time_s", "post_time_s", "final_size", "search_steps"])
-        latency = e2e.groupby(["precision", "model", "post"]).solve_time_s.agg(
+        latency = e2e.groupby(["split", "precision", "model", "post"]).solve_time_s.agg(
             median_s="median", p95_s=lambda x: x.quantile(.95), mad_s=lambda x: (x - x.median()).abs().median()).reset_index()
-        save(analysis / "profile_e2e.csv", summary.merge(latency, on=["precision", "model", "post"]))
+        save(analysis / "profile_e2e.csv", summary.merge(latency, on=["split", "precision", "model", "post"]))
         save(analysis / "profile_e2e_by_seed.csv", seeds)
     runs = []
     for path in sorted(OUT.glob("p*/**/run.json")):

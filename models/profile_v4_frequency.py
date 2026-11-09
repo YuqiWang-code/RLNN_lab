@@ -52,6 +52,38 @@ def gate_fusion(adapter, raw, low, high, gate_input):
     return raw + delta_low.to(raw.dtype) + delta_high.to(raw.dtype)
 
 
+def component_inputs(model, state, adj, topology):
+    """Check dense branch composition against one native set of sparse features."""
+    raw = model.initial_project(state.unsqueeze(-1))
+    values = dict(raw=raw, fused=raw, fused_max_abs=0.0)
+    if not hasattr(model, "adapter"):
+        return values
+    adapter = model.adapter
+    details = adapter.inspect(state, adj, topology)
+    low_input, high_input, gate_input = branch_inputs(adapter, details, topology)
+    for actual, expected in ((low_input, details["low_input"]), (high_input, details["high_input"]),
+                             (gate_input, details["gate_input"])):
+        torch.testing.assert_close(actual, expected, atol=0, rtol=0)
+    low, high = adapter.low(low_input), adapter.high(high_input)
+    torch.testing.assert_close(low, details["u_low"], atol=1e-6, rtol=1e-5)
+    torch.testing.assert_close(high, details["u_high"], atol=1e-6, rtol=1e-5)
+    fused = gate_fusion(adapter, raw, low, high, gate_input)
+    native_fused = raw + details["delta_low"].to(raw.dtype) + details["delta_high"].to(raw.dtype)
+    torch.testing.assert_close(fused, native_fused, atol=1e-6, rtol=1e-5)
+    values.update(fused=fused, details=details, low_input=low_input, high_input=high_input,
+                  gate_input=gate_input, low=low, high=high,
+                  fused_max_abs=(fused.float() - native_fused.float()).abs().max().item())
+    return values
+
+
+def forward_variation(values):
+    pairs = [(values[i], values[j]) for i in range(len(values)) for j in range(i)]
+    return dict(native_forward_repeats=len(values),
+                native_pairwise_max_abs=max((a - b).abs().max().item() for a, b in pairs),
+                native_pairwise_changed_fraction=max((a != b).float().mean().item() for a, b in pairs),
+                native_probability_max_abs=max((a.sigmoid() - b.sigmoid()).abs().max().item() for a, b in pairs))
+
+
 def benchmark(function, device, repeats, iterations):
     for _ in range(3):
         function()
@@ -84,6 +116,7 @@ def build_parser():
     parser.add_argument("--warmup", type=int, default=30, help="Full forwards per model before timing")
     parser.add_argument("--repeats", type=int, default=5)
     parser.add_argument("--component-iterations", type=int, default=20)
+    parser.add_argument("--native-forward-repeats", type=int, default=3)
     parser.add_argument("--models", nargs="+", choices=tuple(MODEL_MODES),
                         default=["baseline", "tuned", "mlp", "message", "f4"])
     parser.add_argument("--post", nargs="+", choices=("none", "pave"), default=["none", "pave"])
@@ -93,7 +126,7 @@ def build_parser():
 
 @torch.no_grad()
 def profile(args):
-    if args.graphs <= 0 or args.repeats <= 0 or args.component_iterations <= 0 or args.warmup < 0:
+    if args.graphs <= 0 or args.repeats <= 0 or args.component_iterations <= 0 or args.warmup < 0 or args.native_forward_repeats < 2:
         raise ValueError("Choose positive graph/repeat/iteration counts and a nonnegative warmup")
     torch.set_num_threads(1)
     names = list(dict.fromkeys(args.models))
@@ -119,11 +152,13 @@ def profile(args):
                     e2e_protocol="Original eval_v2.search plus frozen v3 PAVE; no observer or in-step synchronization",
                     timing="Initial H2D and checkpoint/dataset loading excluded; CPU graph, topology, search, A.3, PAVE and feasibility included",
                     microbenchmark="Synchronized repeated functions on fixed same-state inputs; inclusive components overlap and must not be summed as E2E",
+                    component_validation="Branch inputs, encoders and residual fusion match native inspect on the same cached sparse features, separately in FP32 and requested precision",
+                    native_numerics="Independent CUDA sparse-GCN evaluations can differ; native repeat spread and decomposition-to-native differences are reported, not declared identical",
                     components_state="Common first-listed model trajectory at t=50, K20; A.3 input is its final energy archive",
                     budget_protocol="Run eval_v4_frequency.py separately with --time-budget-s 0.5; profiler does not alter deadline behavior")
     write_run(args.result_dir, metadata)
     started = perf_counter()
-    end_rows, component_rows = [], []
+    end_rows, component_rows, equivalence_rows = [], [], []
     try:
         warm_graph = items[0].to(device)
         warm_adj = adjacency(warm_graph)
@@ -194,19 +229,32 @@ def profile(args):
                     model = solver.accelerator.unwrap_model(solver.model)
                     topology = solver.policy_topology(graph, adj)
                     normalized = topology.normalized if hasattr(topology, "normalized") else topology
+                    with torch.autocast(device_type=device.type, enabled=False):
+                        fp32 = component_inputs(model, state.float(), adj.float(), topology)
+                        fp32_decomposed = model.project_hidden(fp32["fused"], normalized).squeeze(-1).float()
+                        if hasattr(model, "adapter"):
+                            fp32_native = type(model).forward(model, state.float(), graph.edge_index, adj.float(), topology).float()
+                        else:
+                            fp32_native = type(model).forward(model, state.float().unsqueeze(-1), graph.edge_index, normalized).squeeze(-1).float()
                     with solver.accelerator.autocast():
-                        raw = model.initial_project(state.unsqueeze(-1))
-                        fused = raw
+                        prepared = component_inputs(model, state, adj, topology)
+                        raw, fused = prepared["raw"], prepared["fused"]
                         if hasattr(model, "adapter"):
                             adapter = model.adapter
-                            details = state_bands(state, ft, 1.02)
-                            low_input, high_input, gate_input = branch_inputs(adapter, details, ft)
-                            low, high = adapter.low(low_input), adapter.high(high_input)
-                            fused = gate_fusion(adapter, raw, low, high, gate_input)
+                            details = prepared["details"]
+                            low_input, high_input, gate_input = (prepared[key] for key in ("low_input", "high_input", "gate_input"))
+                            low, high = prepared["low"], prepared["high"]
                         expected = model.project_hidden(fused, normalized).squeeze(-1).float()
-                    actual = solver.flip_logits(state, graph, adj, topology)
-                    tolerance = 1e-5 if args.precision == "fp32" else 2e-3
-                    torch.testing.assert_close(expected, actual, atol=tolerance, rtol=tolerance)
+                    native_values = [solver.flip_logits(state, graph, adj, topology).detach().clone()
+                                     for _ in range(args.native_forward_repeats)]
+                    actual = native_values[0]
+                    equivalence_rows.append(dict(
+                        graph_id=graph_ids[index], graph_index=index, seed=args.seed, precision=args.precision, model=name,
+                        fp32_cached_fusion_max_abs=fp32["fused_max_abs"],
+                        precision_cached_fusion_max_abs=prepared["fused_max_abs"],
+                        fp32_decomposition_vs_native_max_abs=(fp32_decomposed - fp32_native).abs().max().item(),
+                        decomposition_vs_native_max_abs=max((expected - value).abs().max().item() for value in native_values),
+                        **forward_variation(native_values)))
 
                     def amp(function):
                         def call():
@@ -266,6 +314,7 @@ def profile(args):
                                                        nodes=graph.num_nodes, directed_edges=graph.edge_index.shape[1], **summary))
                 print(f"Components {index + 1}/{len(items)} graphs completed", flush=True)
             csv_file(args.result_dir / "components.csv", component_rows)
+            csv_file(args.result_dir / "component_equivalence.csv", equivalence_rows)
         summaries = []
         for name in names:
             for post in args.post:
