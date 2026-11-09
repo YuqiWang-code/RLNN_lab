@@ -51,6 +51,7 @@ const labels = {
   mean_delta: '平均差值', graph_ci_low: '图级CI下界', graph_ci_high: '图级CI上界', wins: '胜', ties: '平', losses: '负',
   positive_seeds: '正增益种子数', seed_count: '种子数', pairs: '图—种子对数', by_seed: '分种子差值',
   regret_improvement_over_MSG: 'MSG−当前后悔值', base_size: '初始Size', final_size: '最终Size', pave_gain: 'PAVE增益',
+  improvement_ci_low: '改善值95%CI下界', improvement_ci_high: '改善值95%CI上界',
   mean_size: 'Mean Size', std_size: '种子SD', mean_solve_time_s: '平均求解 (s)', feasible_rate: '可行率',
   params: 'Params', peak_memory_mib: 'PyTorch峰值已分配显存 (MiB)', mean_search_steps: '平均搜索步数',
   protocol: '协议', extended_search: '持续搜索', time_budget_s: '预算 (s)', deadline_overruns: '超时数',
@@ -95,21 +96,27 @@ function priority(keys, first) { return [...first.filter(key => keys.includes(ke
 
 const plans = [
   { sheet: names[1], title: 'P1 编码阶段频谱：图内平均，再按图与种子汇总', file: 'stage_summary.csv',
-    first: ['split', 'model', 'trajectory', 'variant', 'step', 'signal', 'stationary_fraction_mean', 'raw_higher_fraction_mean', 'centered_higher_fraction_mean'] },
+    keep: row => row.split === 'validation' && row.step >= 25 && (row.model === 'v4a' || row.variant === 'full') &&
+      (row.signal.startsWith('high_') || ['delta_high', 'logits', 'logit_delta_high'].includes(row.signal)),
+    select: ['model', 'trajectory', 'variant', 'step', 'signal', 'stationary_fraction_mean', 'raw_low_fraction_mean', 'raw_higher_fraction_mean', 'centered_higher_fraction_mean', 'centered_higher_fraction_std', 'nonstationary_energy_mean'] },
   { sheet: names[1], title: 'P1 节点类别内门控、残差与行为变化', file: 'spectral_behavior_summary.csv',
-    first: ['split', 'model', 'trajectory', 'variant', 'group', 'step'] },
+    keep: row => row.split === 'validation' && row.model === 'v4a' && row.variant === 'full',
+    select: ['trajectory', 'group', 'step', 'gate_low_mean_mean', 'gate_high_mean_mean', 'residual_low_relative_mean', 'residual_high_relative_mean', 'logit_delta_high_rms_mean', 'probability_delta_high_mean_abs_mean'] },
   { sheet: names[2], title: 'P2 共享初始状态与随机流的完整replay', file: 'replay_summary.csv',
     first: ['split', 'precision', 'variant', 'base_size_mean', 'base_size_std', 'final_size_mean', 'final_size_std', 'pave_gain_mean'] },
   { sheet: names[2], title: 'P2 相对Full逐图配对；CI以图ID为重采样单位', file: 'replay_paired.csv',
     first: ['split', 'precision', 'metric', 'method', 'reference', 'mean_delta', 'graph_ci_low', 'graph_ci_high', 'wins', 'ties', 'losses'] },
   { sheet: names[2], title: 'P2 同状态行为变化', file: 'same_state_summary.csv',
-    first: ['split', 'precision', 'variant', 'category', 'step', 'delta_probability_abs_mean_mean', 'expected_flips_mean', 'delta_logit_rms_mean'] },
+    keep: row => row.split === 'validation' && (row.category === 'all' || (row.precision === 'fp32' && ['no_low', 'no_high'].includes(row.variant))),
+    select: ['precision', 'variant', 'category', 'step', 'delta_probability_abs_mean_mean', 'delta_probability_mean_mean', 'expected_flips_mean', 'delta_logit_rms_mean', 'top5_jaccard_mean', 'expected_joint_delta_energy_mean'] },
   { sheet: names[2], title: 'P2 同模型重复回放的轨迹与 Size 波动', file: 'native_repeat_summary.csv',
     select: ['precision', 'reference_variant', 'graph_count', 'seed_count', 'paired_repeat_count', 'changed_observation_phases_rate_mean', 'selected_nodes_changed_mean', 'base_size_delta_changed_mean', 'final_size_delta_changed_mean', 'base_size_delta_mean', 'base_size_delta_abs_mean', 'final_size_delta_abs_mean'] },
   { sheet: names[3], title: 'P3 成对翻转收益排序：共享标签，按图汇总', file: 'utility_summary.csv',
-    first: ['study', 'split', 'model', 'R', 'candidate_group', 'pair_accuracy_mean', 'pair_accuracy_std', 'top1_gain_mean', 'top1_regret_mean', 'pooled_pair_accuracy'] },
+    keep: row => row.R === 8 && (row.candidate_group === 'all' || ['F4', 'MSG'].includes(row.model)),
+    select: ['study', 'model', 'R', 'candidate_group', 'informative_states', 'pair_accuracy_mean', 'pair_accuracy_std', 'top1_gain_mean', 'top1_regret_mean', 'pooled_pair_accuracy'] },
   { sheet: names[3], title: 'P3 相对MSG的图级后悔值配对；正改善值表示当前模型更好', file: 'utility_paired.csv',
-    first: ['study', 'split', 'R', 'candidate_group', 'method', 'reference', 'regret_improvement_over_MSG', 'graph_ci_low', 'graph_ci_high', 'positive_seeds'] },
+    keep: row => row.method === 'F4' && row.R >= 8,
+    select: ['study', 'R', 'candidate_group', 'method', 'reference', 'regret_improvement_over_MSG', 'improvement_ci_low', 'improvement_ci_high', 'pairs'] },
   { sheet: names[3], title: 'P3 标签重复稳定性：前后半独立续跑', file: 'reliability_summary.csv',
     first: ['study', 'split', 'R', 'candidate_group', 'informative_mean', 'mean_gain_sem_mean', 'half_spearman_mean', 'half_top1_same_mean', 'pooled_half_direction_agreement'] },
   { sheet: names[4], title: 'P4 真实端到端重复测量', file: 'profile_e2e.csv',
@@ -122,7 +129,17 @@ const plans = [
     select: ['method', 'mean_size', 'std_size', 'mean_solve_time_s', 'feasible_rate', 'params', 'peak_memory_mib', 'mean_search_steps', 'protocol', 'precision', 'split', 'time_budget_s', 'extended_search', 'deadline_overruns'] },
 ];
 
-const loaded = await Promise.all(plans.map(async plan => ({ ...plan, rows: await readCsv(plan.file) })));
+const loaded = await Promise.all(plans.map(async plan => {
+  const source = await readCsv(plan.file);
+  const rows = plan.keep ? source.filter(plan.keep) : source;
+  if (plan.file === 'utility_paired.csv') {
+    for (const row of rows) {
+      row.improvement_ci_low = row.graph_ci_high == null ? null : -row.graph_ci_high;
+      row.improvement_ci_high = row.graph_ci_low == null ? null : -row.graph_ci_low;
+    }
+  }
+  return { ...plan, rows };
+}));
 const sections = loaded.filter(plan => plan.rows.length);
 if (!sections.some(plan => plan.file !== 'historical_quality_time.csv')) throw new Error('No completed followup result tables; workbook was not edited.');
 
@@ -141,7 +158,7 @@ const overview = [
   { kind: '统计口径', scope: 'P2配对', metric: '置信区间', value: '以图ID为bootstrap单位，同一图的不同种子共同保留；差值为当前方法−Full', source: '' },
   { kind: '统计口径', scope: 'P3收益', metric: '标签', value: '同状态、同候选、冻结B续跑标签；R2/4/8/16是同一最大R的前缀，不是独立实验', source: '' },
   { kind: '统计口径', scope: 'P3采样', metric: '分母', value: 'Uniform与Stratified分开；release_high可与五种状态类别重叠；重复不是独立图', source: '' },
-  { kind: '统计口径', scope: 'P3配对', metric: '后悔值方向', value: 'mean_delta/CI为当前−MSG后悔值；regret_improvement_over_MSG取相反数，正值表示改善', source: '' },
+  { kind: '统计口径', scope: 'P3配对', metric: '后悔值方向', value: '本表改善值及区间均按 MSG−F4 后悔值计算，正值表示 F4 改善', source: '' },
   { kind: '统计口径', scope: 'P4计时', metric: '边界', value: '组件微基准与实际端到端计时分开；诊断墙钟不进入正式求解时间', source: '' },
 ];
 for (const section of sections) overview.push({ kind: '数据来源', scope: section.sheet, metric: section.title, value: section.rows.length, source: `outputs/v4_frequency/followup/analysis/${section.file}` });
@@ -205,7 +222,7 @@ for (const name of names) {
     blocks.push({ title: part.title, file: part.file, headerRow, bottom, columns: keys.length, rows: part.rows.length });
     row = bottom + 3;
   }
-  for (const [index, width] of widths.entries()) sheet.getRange(`${column(index)}1:${column(index)}${row - 1}`).format.columnWidth = width;
+  for (const [index, width] of widths.entries()) sheet.getRange(`${column(index)}1`).format.columnWidth = width;
   written.push({ name, blocks });
 }
 book.recalculate();
