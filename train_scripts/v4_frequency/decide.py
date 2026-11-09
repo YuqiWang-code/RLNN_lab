@@ -15,26 +15,28 @@ def main():
         data = json.loads(path.read_text(encoding='utf-8'))
         if data.get('mode') != 'eval' or data.get('status') != 'completed' or data.get('split') != 'validation':
             continue
-        if any(data.get('interventions', {}).values()) or data.get('extended_search'):
+        if any(data.get('interventions', {}).values()):
             continue
         config = data['config']
-        key = (config['mixed_precision'], data['protocol'], data['post'], data['method'], data['train_seed'])
+        key = (config['mixed_precision'], data['protocol'], data['post'], data['method'], data['train_seed'], data.get('extended_search', False))
         values[key] = data['mean_size']
     result = dict(stage='A1', status='pending', primary='FP32 fixed-work without PAVE',
                   efficiency='FP16 0.5-second budget with frozen PAVE', comparisons=[])
-    tests = [('no', 'fixed_work', 'none', control) for control in ('v4a_mlp', 'v4a_message')]
-    tests += [('fp16', 'fixed_time', 'pave', control) for control in ('baseline', 'v4a_mlp', 'v4a_message')]
+    tests = [('no', 'fixed_work', 'none', control, False) for control in ('v4a_mlp', 'v4a_message')]
+    tests += [('fp16', 'fixed_time', 'pave', control, False) for control in ('baseline', 'v4a_mlp', 'v4a_message')]
+    tests += [('fp16', 'fixed_time', 'pave', 'baseline', True)]
     missing = []
-    for precision, protocol, post, control in tests:
-        keys = [(precision, protocol, post, label, seed) for label in ('v4a', control) for seed in range(3)]
+    for precision, protocol, post, control, extended in tests:
+        keys = [(precision, protocol, post, label, seed, is_extended)
+                for label, is_extended in (('v4a', False), (control, extended)) for seed in range(3)]
         missing.extend(key for key in keys if key not in values)
         if any(key not in values for key in keys):
             continue
-        deltas = [round(values[precision, protocol, post, 'v4a', seed] - values[precision, protocol, post, control, seed], 8) for seed in range(3)]
+        deltas = [round(values[precision, protocol, post, 'v4a', seed, False] - values[precision, protocol, post, control, seed, extended], 8) for seed in range(3)]
         positive = sum(delta > 0 for delta in deltas)
         passed = mean(deltas) > 0 and (positive >= 2 if protocol == 'fixed_work' else True)
         result['comparisons'].append(dict(precision=precision, protocol=protocol, post=post,
-                                          control=control, deltas=deltas, mean_delta=mean(deltas),
+                                          control=control, control_extended_search=extended, deltas=deltas, mean_delta=mean(deltas),
                                           positive_seeds=positive, passed=passed))
     if missing:
         result['missing'] = sorted(set(missing))

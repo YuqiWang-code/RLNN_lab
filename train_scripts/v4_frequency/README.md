@@ -43,3 +43,5 @@ CUDA_VISIBLE_DEVICES=0 SEED=0 bash train_scripts/v4_frequency/train.sh v4a
 训练输出为 `outputs/v4_frequency/<arm>_seed<seed>/run.json`、`training.csv` 和服务器上的 `checkpoints/`。逐图评测及诊断也写入 `outputs/v4_frequency/`。汇总使用三个种子均值的样本标准差，逐图配对保留图 ID 与种子，不把同一张图的三次采样当作三张独立图。
 
 `screen.sh` 在两卡各启动六个独立训练；`validate.sh 0/1` 等待训练结束后，各自串行执行固定量和限时验证。强规则基线使用 20 ms 后处理预留，PAVE 使用既定 50 ms。`mechanism.sh` 等两卡计时任务均结束后运行三种子各 20 图频谱/门控诊断、真实翻转收益探针，再用独占卡完成 low/high/gate 的推理干预。分支干预复用已训练权重，不等同于从头训练的结构消融。
+
+`strong_pave.sh` 在干预评测结束后，补充三种子原骨干＋冻结 PAVE 的持续搜索预算对照。仅放开骨干的步数上限，仍在0.5秒总预算内为同一个PAVE保留50 ms，其余PAVE配置保持一致。

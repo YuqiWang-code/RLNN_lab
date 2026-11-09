@@ -191,7 +191,8 @@ def analyze(folder):
         baseline = lookup.get(reference)
         if baseline is None:
             candidates = [other for other in runs if context(other) == context(run) and other["label"] == "baseline"
-                          and other["post"] == run["post"] and (other["backbone_seed"], other["search_seed"]) == (run["backbone_seed"], run["search_seed"])]
+                          and other["post"] == run["post"] and other["extended_search"] == run["extended_search"]
+                          and (other["backbone_seed"], other["search_seed"]) == (run["backbone_seed"], run["search_seed"])]
             baseline = candidates[0] if len(candidates) == 1 else None
         if baseline is not None and context(baseline) == context(run) and baseline["post"] == run["post"] \
                 and (baseline["backbone_seed"], baseline["search_seed"]) == (run["backbone_seed"], run["search_seed"]):
