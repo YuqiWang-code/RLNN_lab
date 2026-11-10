@@ -13,6 +13,7 @@ RLNN Lab 基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究 RB200–
 | v5 · DAFR-Lite | 112 参数的输出残差达到高支路零驻留目标。FP32 固定 100 步的 Mean Size 为 19.580，MSG 为 19.583，MLP 为 19.587。两档预算也未通过准入。 | [实验报告](docs/已归档的想法和文件/RLNN_v5_Frequency_Results.md) · [阶段决策](outputs/v5_frequency/analysis/decision.json) · [训练与评测](train_scripts/legacy/v5_frequency/README.md) |
 | v6 · SC-RLNN | 三种子首轮筛选中，固定 100 步＋PAVE 的 Mean Size 为 19.073，配对 B 为 19.657。速度和质量均未通过准入。 | [模型与首轮结果](docs/已归档的想法和文件/RLNN_v6_SC_RLNN.md) · [训练与评测](train_scripts/legacy/v6/README.md) |
 | Mamba v0 · PC-OSM-RLNN | 一次性扫描正确。宽度 16 在 FP32/FP16 下仍为 B 的 1.216×/1.249×，同信息代理对照未显示稳定增量，停在 P0。 | [P0 报告](docs/temporary/RLNN_Mamba_v0_P0_Results.md) · [运行入口](train_scripts/mamba/v0/README.md) |
+| 静态先验 v1 | 中心化 MLP 的 T100 耗时为 B 的 1.041×，0.5 秒两轮均为 20.12，B 为 20.14。与同权重去节点项的版本在 T1000 和两档预算的 250 个配对上大小相同。 | [v1 结果](docs/temporary/RLNN_Static_Prior_v1_Results.md) · [运行入口](train_scripts/mamba/v1/README.md) |
 
 v5 验证中，原骨干持续搜索＋PAVE 在 0.5 秒和 1.0 秒预算下分别取得 **19.677** 和 **19.830**，DAFR＋PAVE 分别为 19.500 和 19.617。[逐种子与配对汇总](outputs/v5_frequency/analysis/) · [实验结果工作簿](docs/实验结果.xlsx)
 

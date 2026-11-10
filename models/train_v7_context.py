@@ -25,6 +25,8 @@ class ContextRLNN(RLNN):
     def __init__(self, args):
         super().__init__(args)
         self.validation_offset = args.validation_offset
+        if not 0 <= self.validation_offset < len(self.valid_loader.dataset):
+            raise ValueError("Validation offset must leave at least one graph")
         self.valid_loader.dataset.files = self.valid_loader.dataset.files[self.validation_offset:]
         self.teacher_seed = 20261 + args.seed
         self.shuffle_seed = 30497 + args.seed

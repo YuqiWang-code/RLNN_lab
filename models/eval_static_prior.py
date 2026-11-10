@@ -117,11 +117,13 @@ def evaluate(args):
         write_rows(args.output / f"repeat_{repeat}.csv", current)
         records.extend(current)
     write_rows(args.output / "per_graph.csv", records)
-    write_run(args.output, dict(**provenance(args.ref), version="static_prior_v1", status="completed",
+    source = provenance(args.ref)
+    source["static_feature_schema"] = STATIC_FEATURES
+    write_run(args.output, dict(**source, version="static_prior_v1", status="completed",
                                 protocol=args.protocol, num_t=steps, budget_s=budget, decode_every=interval,
                                 precision="fp32", cuda_graph=True, num_k=20, reserve_s=.05 if budget else None,
                                 repeats=repeats, graph_ids=graph_ids, ref=args.ref, offset=args.offset,
-                                feature_schema=STATIC_FEATURES, gpu=os.environ.get("CUDA_VISIBLE_DEVICES"),
+                                gpu=os.environ.get("CUDA_VISIBLE_DEVICES"),
                                 device=torch.cuda.get_device_name(device), params=params, pave_params=pave_params,
                                 checkpoint_sha256={arm: digest(paths[arm]) for arm in args.arms}, started_at=started,
                                 finished_at=datetime.now(timezone.utc).isoformat()))
@@ -137,4 +139,7 @@ if __name__ == "__main__":
     parser.add_argument("--samples", type=int, default=50)
     parser.add_argument("--repeats", type=int, default=2)
     parser.add_argument("--arms", choices=ARMS, nargs="+", default=list(ARMS))
-    evaluate(parser.parse_args())
+    args = parser.parse_args()
+    if args.offset < 0 or min(args.samples, args.repeats) < 1 or len(args.arms) != len(set(args.arms)):
+        parser.error("Use a nonnegative offset, positive sample/repeat counts and distinct arms")
+    evaluate(args)
