@@ -23,3 +23,5 @@ CUDA_VISIBLE_DEVICES=0 REF_SEED=0 BUDGET=0.5 bash train_scripts/mamba/v0/eval_bu
 ```
 
 核心对照为 `baseline`、`v7_mlp`、`v7_message`、`v7_shuffle_mamba`。线性、度排序、单向和 logit 门控可由 `--context_mode` 切换，`--v7_order_views` 设为 1、2 或 4。固定工作量和两档时间预算的逐图结果均写入 `outputs/v7_context`。
+
+冻结 B 和 PAVE 的静态先验小试使用 `pilot_static.sh`。首轮完成后用 `pilot_static.sh repeat-budgets` 复测两档预算，再运行 `python train_scripts/mamba/v0/analyze_static_pilot.py` 汇总逐图差值。[小试与 v1 方案](../../../docs/temporary/RLNN_Static_Prior_v1_Analysis_and_Plan.md)

@@ -1,0 +1,477 @@
+{
+  "samples": 20,
+  "states": [
+    25,
+    50,
+    75,
+    100
+  ],
+  "summary": {
+    "mlp": {
+      "mean_add_logit": -0.016975177079439165,
+      "mean_drop_logit": 0.0018052393104881048,
+      "node_centered_energy_fraction": 0.24930443992780055,
+      "mean_abs_probability_shift": 0.0010463274964422453,
+      "mean_abs_node_specific_probability_shift": 0.00033451243914441877,
+      "delta_expected_flips": -0.05458023294340819,
+      "top5_overlap": 0.9644999824464321,
+      "top5_overlap_after_mean_control": 0.9692499808967113
+    },
+    "message": {
+      "mean_add_logit": -0.02002738771843724,
+      "mean_drop_logit": -0.010588259738869964,
+      "node_centered_energy_fraction": 0.3116498061201128,
+      "mean_abs_probability_shift": 0.0009963504213374107,
+      "mean_abs_node_specific_probability_shift": 0.0003447807510383427,
+      "delta_expected_flips": -0.09416793272830545,
+      "top5_overlap": 0.9736249789595603,
+      "top5_overlap_after_mean_control": 0.9751249797642231
+    }
+  },
+  "per_graph": {
+    "mlp": [
+      {
+        "graph_id": "graph_000000",
+        "mean_add_logit": -0.09339659661054611,
+        "mean_drop_logit": -0.06217142567038536,
+        "node_centered_energy_fraction": 0.16144274175167084,
+        "mean_abs_probability_shift": 0.0012096097052562982,
+        "mean_abs_node_specific_probability_shift": 0.0003068652222282253,
+        "delta_expected_flips": -0.2791915088891983,
+        "top5_overlap": 0.949999988079071,
+        "top5_overlap_after_mean_control": 0.949999988079071
+      },
+      {
+        "graph_id": "graph_000001",
+        "mean_add_logit": -0.058167215436697006,
+        "mean_drop_logit": 0.054241642355918884,
+        "node_centered_energy_fraction": 0.5164451003074646,
+        "mean_abs_probability_shift": 0.0010531580192036927,
+        "mean_abs_node_specific_probability_shift": 0.0006466333725256845,
+        "delta_expected_flips": -0.036511645186692476,
+        "top5_overlap": 0.9299999922513962,
+        "top5_overlap_after_mean_control": 0.9574999809265137
+      },
+      {
+        "graph_id": "graph_000002",
+        "mean_add_logit": 0.0696120634675026,
+        "mean_drop_logit": -0.037529803812503815,
+        "node_centered_energy_fraction": 0.38580256700515747,
+        "mean_abs_probability_shift": 0.0007876691815908998,
+        "mean_abs_node_specific_probability_shift": 0.0005451532051665708,
+        "delta_expected_flips": 0.07160330563783646,
+        "top5_overlap": 0.939999982714653,
+        "top5_overlap_after_mean_control": 0.9574999809265137
+      },
+      {
+        "graph_id": "graph_000003",
+        "mean_add_logit": -0.10272053629159927,
+        "mean_drop_logit": -0.10122782737016678,
+        "node_centered_energy_fraction": 0.0004440897610038519,
+        "mean_abs_probability_shift": 0.001569959073094651,
+        "mean_abs_node_specific_probability_shift": 2.48925907726516e-05,
+        "delta_expected_flips": -0.3767901659011841,
+        "top5_overlap": 1.0,
+        "top5_overlap_after_mean_control": 1.0
+      },
+      {
+        "graph_id": "graph_000004",
+        "mean_add_logit": -0.10430072247982025,
+        "mean_drop_logit": -0.06873168796300888,
+        "node_centered_energy_fraction": 0.025214066728949547,
+        "mean_abs_probability_shift": 0.001220620033564046,
+        "mean_abs_node_specific_probability_shift": 0.00013862287596566603,
+        "delta_expected_flips": -0.32224369794130325,
+        "top5_overlap": 0.9699999690055847,
+        "top5_overlap_after_mean_control": 0.9724999815225601
+      },
+      {
+        "graph_id": "graph_000005",
+        "mean_add_logit": -0.044297996908426285,
+        "mean_drop_logit": -0.07974109798669815,
+        "node_centered_energy_fraction": 0.31023404002189636,
+        "mean_abs_probability_shift": 0.0009543960622977465,
+        "mean_abs_node_specific_probability_shift": 0.0004878250911133364,
+        "delta_expected_flips": -0.16837739199399948,
+        "top5_overlap": 0.9449999928474426,
+        "top5_overlap_after_mean_control": 0.9424999952316284
+      },
+      {
+        "graph_id": "graph_000006",
+        "mean_add_logit": 0.10364853590726852,
+        "mean_drop_logit": 0.09001219272613525,
+        "node_centered_energy_fraction": 0.0028721929993480444,
+        "mean_abs_probability_shift": 0.0010223121935268864,
+        "mean_abs_node_specific_probability_shift": 2.7652441985992482e-05,
+        "delta_expected_flips": 0.23513180390000343,
+        "top5_overlap": 0.9924999624490738,
+        "top5_overlap_after_mean_control": 0.9924999624490738
+      },
+      {
+        "graph_id": "graph_000007",
+        "mean_add_logit": -0.10205342620611191,
+        "mean_drop_logit": -0.013898169621825218,
+        "node_centered_energy_fraction": 0.3599025309085846,
+        "mean_abs_probability_shift": 0.0012393662764225155,
+        "mean_abs_node_specific_probability_shift": 0.0004884450318058953,
+        "delta_expected_flips": -0.22549092397093773,
+        "top5_overlap": 0.9399999976158142,
+        "top5_overlap_after_mean_control": 0.9449999779462814
+      },
+      {
+        "graph_id": "graph_000008",
+        "mean_add_logit": -0.06935514509677887,
+        "mean_drop_logit": 0.016737157478928566,
+        "node_centered_energy_fraction": 0.6311721801757812,
+        "mean_abs_probability_shift": 0.0008861854148562998,
+        "mean_abs_node_specific_probability_shift": 0.00048611358215566725,
+        "delta_expected_flips": -0.10818634554743767,
+        "top5_overlap": 0.9599999785423279,
+        "top5_overlap_after_mean_control": 0.9699999690055847
+      },
+      {
+        "graph_id": "graph_000009",
+        "mean_add_logit": 0.10445678234100342,
+        "mean_drop_logit": 0.08812309801578522,
+        "node_centered_energy_fraction": 0.0034059081226587296,
+        "mean_abs_probability_shift": 0.001120147411711514,
+        "mean_abs_node_specific_probability_shift": 5.330369640432764e-05,
+        "delta_expected_flips": 0.22402947396039963,
+        "top5_overlap": 0.9949999749660492,
+        "top5_overlap_after_mean_control": 0.9974999874830246
+      },
+      {
+        "graph_id": "graph_000010",
+        "mean_add_logit": -0.09423962235450745,
+        "mean_drop_logit": -0.03643311187624931,
+        "node_centered_energy_fraction": 0.21662253141403198,
+        "mean_abs_probability_shift": 0.0009982984483940527,
+        "mean_abs_node_specific_probability_shift": 0.00036663807986769825,
+        "delta_expected_flips": -0.21161645278334618,
+        "top5_overlap": 0.9474999904632568,
+        "top5_overlap_after_mean_control": 0.9599999785423279
+      },
+      {
+        "graph_id": "graph_000011",
+        "mean_add_logit": -0.10321152210235596,
+        "mean_drop_logit": -0.0911739394068718,
+        "node_centered_energy_fraction": 0.00676726782694459,
+        "mean_abs_probability_shift": 0.0014295022701844573,
+        "mean_abs_node_specific_probability_shift": 7.779260886309203e-05,
+        "delta_expected_flips": -0.3430805429816246,
+        "top5_overlap": 0.9899999648332596,
+        "top5_overlap_after_mean_control": 0.992499977350235
+      },
+      {
+        "graph_id": "graph_000012",
+        "mean_add_logit": -0.09304653108119965,
+        "mean_drop_logit": -0.019037198275327682,
+        "node_centered_energy_fraction": 0.31960681080818176,
+        "mean_abs_probability_shift": 0.0009354426438221708,
+        "mean_abs_node_specific_probability_shift": 0.00043897461728192866,
+        "delta_expected_flips": -0.15040161088109016,
+        "top5_overlap": 0.9449999928474426,
+        "top5_overlap_after_mean_control": 0.9549999833106995
+      },
+      {
+        "graph_id": "graph_000013",
+        "mean_add_logit": 0.0655118003487587,
+        "mean_drop_logit": 0.046643637120723724,
+        "node_centered_energy_fraction": 0.5203145146369934,
+        "mean_abs_probability_shift": 0.0008137604163493961,
+        "mean_abs_node_specific_probability_shift": 0.0005404233452281915,
+        "delta_expected_flips": 0.16086018458008766,
+        "top5_overlap": 0.9674999713897705,
+        "top5_overlap_after_mean_control": 0.9674999713897705
+      },
+      {
+        "graph_id": "graph_000014",
+        "mean_add_logit": 0.10318245738744736,
+        "mean_drop_logit": 0.09987937659025192,
+        "node_centered_energy_fraction": 0.0005375872715376318,
+        "mean_abs_probability_shift": 0.0009514228004263714,
+        "mean_abs_node_specific_probability_shift": 2.11422720894916e-05,
+        "delta_expected_flips": 0.2197786532342434,
+        "top5_overlap": 1.0,
+        "top5_overlap_after_mean_control": 1.0
+      },
+      {
+        "graph_id": "graph_000015",
+        "mean_add_logit": 0.10230301320552826,
+        "mean_drop_logit": 0.10037603229284286,
+        "node_centered_energy_fraction": 0.001102180453017354,
+        "mean_abs_probability_shift": 0.0010145548003492877,
+        "mean_abs_node_specific_probability_shift": 2.6279824851371814e-05,
+        "delta_expected_flips": 0.2343621514737606,
+        "top5_overlap": 1.0,
+        "top5_overlap_after_mean_control": 1.0
+      },
+      {
+        "graph_id": "graph_000016",
+        "mean_add_logit": 0.03724198788404465,
+        "mean_drop_logit": 0.028122929856181145,
+        "node_centered_energy_fraction": 0.7790999412536621,
+        "mean_abs_probability_shift": 0.0008091902564046904,
+        "mean_abs_node_specific_probability_shift": 0.0007706384494667873,
+        "delta_expected_flips": 0.0675991652533412,
+        "top5_overlap": 0.9749999642372131,
+        "top5_overlap_after_mean_control": 0.9724999666213989
+      },
+      {
+        "graph_id": "graph_000017",
+        "mean_add_logit": 0.07962754368782043,
+        "mean_drop_logit": 0.012573507614433765,
+        "node_centered_energy_fraction": 0.4085353910923004,
+        "mean_abs_probability_shift": 0.0011553822259884328,
+        "mean_abs_node_specific_probability_shift": 0.0007257433608174324,
+        "delta_expected_flips": 0.15509818121790886,
+        "top5_overlap": 0.9274999797344208,
+        "top5_overlap_after_mean_control": 0.9224999845027924
+      },
+      {
+        "graph_id": "graph_000018",
+        "mean_add_logit": -0.10295271128416061,
+        "mean_drop_logit": -0.06127859652042389,
+        "node_centered_energy_fraction": 0.049355946481227875,
+        "mean_abs_probability_shift": 0.0010808851511683315,
+        "mean_abs_node_specific_probability_shift": 0.00016746919936849736,
+        "delta_expected_flips": -0.28236060589551926,
+        "top5_overlap": 0.9724999666213989,
+        "top5_overlap_after_mean_control": 0.9774999618530273
+      },
+      {
+        "graph_id": "graph_000019",
+        "mean_add_logit": -0.03734569996595383,
+        "mean_drop_logit": 0.07061807066202164,
+        "node_centered_energy_fraction": 0.28721120953559875,
+        "mean_abs_probability_shift": 0.0006746875442331657,
+        "mean_abs_node_specific_probability_shift": 0.0003496399149298668,
+        "delta_expected_flips": 0.044183313846588135,
+        "top5_overlap": 0.9424999803304672,
+        "top5_overlap_after_mean_control": 0.9524999707937241
+      }
+    ],
+    "message": [
+      {
+        "graph_id": "graph_000000",
+        "mean_add_logit": -0.08212824165821075,
+        "mean_drop_logit": -0.051719389855861664,
+        "node_centered_energy_fraction": 0.20880861580371857,
+        "mean_abs_probability_shift": 0.0010618074738886207,
+        "mean_abs_node_specific_probability_shift": 0.00029252177773742005,
+        "delta_expected_flips": -0.2465653456747532,
+        "top5_overlap": 0.9599999785423279,
+        "top5_overlap_after_mean_control": 0.9599999785423279
+      },
+      {
+        "graph_id": "graph_000001",
+        "mean_add_logit": -0.04897907376289368,
+        "mean_drop_logit": 0.022645611315965652,
+        "node_centered_energy_fraction": 0.7354852557182312,
+        "mean_abs_probability_shift": 0.0009473606187384576,
+        "mean_abs_node_specific_probability_shift": 0.0007693912921240553,
+        "delta_expected_flips": -0.09201326966285706,
+        "top5_overlap": 0.9349999874830246,
+        "top5_overlap_after_mean_control": 0.939999982714653
+      },
+      {
+        "graph_id": "graph_000002",
+        "mean_add_logit": 0.040450647473335266,
+        "mean_drop_logit": -0.0028229220770299435,
+        "node_centered_energy_fraction": 0.8299930691719055,
+        "mean_abs_probability_shift": 0.0008705824002390727,
+        "mean_abs_node_specific_probability_shift": 0.0008218335278797895,
+        "delta_expected_flips": 0.026023482903838158,
+        "top5_overlap": 0.9449999928474426,
+        "top5_overlap_after_mean_control": 0.9474999904632568
+      },
+      {
+        "graph_id": "graph_000003",
+        "mean_add_logit": -0.0911138579249382,
+        "mean_drop_logit": -0.0887700766324997,
+        "node_centered_energy_fraction": 0.00017248188669327646,
+        "mean_abs_probability_shift": 0.0013927486434113234,
+        "mean_abs_node_specific_probability_shift": 1.3043104900134495e-05,
+        "delta_expected_flips": -0.33425965160131454,
+        "top5_overlap": 1.0,
+        "top5_overlap_after_mean_control": 1.0
+      },
+      {
+        "graph_id": "graph_000004",
+        "mean_add_logit": -0.09193237870931625,
+        "mean_drop_logit": -0.07799630612134933,
+        "node_centered_energy_fraction": 0.0037348615005612373,
+        "mean_abs_probability_shift": 0.0012040066067129374,
+        "mean_abs_node_specific_probability_shift": 4.6984297114249784e-05,
+        "delta_expected_flips": -0.3178577572107315,
+        "top5_overlap": 0.9899999499320984,
+        "top5_overlap_after_mean_control": 0.9899999648332596
+      },
+      {
+        "graph_id": "graph_000005",
+        "mean_add_logit": -0.02201279252767563,
+        "mean_drop_logit": -0.039380669593811035,
+        "node_centered_energy_fraction": 0.7671667337417603,
+        "mean_abs_probability_shift": 0.000850357988383621,
+        "mean_abs_node_specific_probability_shift": 0.0006488843500846997,
+        "delta_expected_flips": -0.12144504673779011,
+        "top5_overlap": 0.9474999904632568,
+        "top5_overlap_after_mean_control": 0.9449999928474426
+      },
+      {
+        "graph_id": "graph_000006",
+        "mean_add_logit": 0.09117896109819412,
+        "mean_drop_logit": 0.08277303725481033,
+        "node_centered_energy_fraction": 0.0011230133241042495,
+        "mean_abs_probability_shift": 0.0009088038495974615,
+        "mean_abs_node_specific_probability_shift": 2.0648546524171252e-05,
+        "delta_expected_flips": 0.20902488753199577,
+        "top5_overlap": 0.9974999874830246,
+        "top5_overlap_after_mean_control": 1.0
+      },
+      {
+        "graph_id": "graph_000007",
+        "mean_add_logit": -0.09137740731239319,
+        "mean_drop_logit": -0.04286215826869011,
+        "node_centered_energy_fraction": 0.253047376871109,
+        "mean_abs_probability_shift": 0.0011909556633327156,
+        "mean_abs_node_specific_probability_shift": 0.0003571322376956232,
+        "delta_expected_flips": -0.25167372077703476,
+        "top5_overlap": 0.9524999707937241,
+        "top5_overlap_after_mean_control": 0.9499999731779099
+      },
+      {
+        "graph_id": "graph_000008",
+        "mean_add_logit": -0.059410881251096725,
+        "mean_drop_logit": -0.04614679142832756,
+        "node_centered_energy_fraction": 0.5453226566314697,
+        "mean_abs_probability_shift": 0.0009231313888449222,
+        "mean_abs_node_specific_probability_shift": 0.00044323832844384015,
+        "delta_expected_flips": -0.18896282836794853,
+        "top5_overlap": 0.9749999642372131,
+        "top5_overlap_after_mean_control": 0.9774999618530273
+      },
+      {
+        "graph_id": "graph_000009",
+        "mean_add_logit": 0.09184705466032028,
+        "mean_drop_logit": 0.08209507167339325,
+        "node_centered_energy_fraction": 0.001688106101937592,
+        "mean_abs_probability_shift": 0.0010093265736941248,
+        "mean_abs_node_specific_probability_shift": 3.580887096177321e-05,
+        "delta_expected_flips": 0.2018653005361557,
+        "top5_overlap": 0.9949999749660492,
+        "top5_overlap_after_mean_control": 0.9974999874830246
+      },
+      {
+        "graph_id": "graph_000010",
+        "mean_add_logit": -0.07241729646921158,
+        "mean_drop_logit": -0.07590015232563019,
+        "node_centered_energy_fraction": 0.19555141031742096,
+        "mean_abs_probability_shift": 0.0010853742423933,
+        "mean_abs_node_specific_probability_shift": 0.00021486927289515734,
+        "delta_expected_flips": -0.2698964476585388,
+        "top5_overlap": 0.9899999797344208,
+        "top5_overlap_after_mean_control": 0.9899999797344208
+      },
+      {
+        "graph_id": "graph_000011",
+        "mean_add_logit": -0.09143294394016266,
+        "mean_drop_logit": -0.08087395131587982,
+        "node_centered_energy_fraction": 0.003755474928766489,
+        "mean_abs_probability_shift": 0.0012899213761556894,
+        "mean_abs_node_specific_probability_shift": 5.0896370339614805e-05,
+        "delta_expected_flips": -0.30958112329244614,
+        "top5_overlap": 0.9949999749660492,
+        "top5_overlap_after_mean_control": 0.9924999624490738
+      },
+      {
+        "graph_id": "graph_000012",
+        "mean_add_logit": -0.08209851384162903,
+        "mean_drop_logit": -0.034232985228300095,
+        "node_centered_energy_fraction": 0.28730350732803345,
+        "mean_abs_probability_shift": 0.0008184470934793353,
+        "mean_abs_node_specific_probability_shift": 0.0003216946861357428,
+        "delta_expected_flips": -0.1760704144835472,
+        "top5_overlap": 0.9624999761581421,
+        "top5_overlap_after_mean_control": 0.9724999666213989
+      },
+      {
+        "graph_id": "graph_000013",
+        "mean_add_logit": 0.0011481536785140634,
+        "mean_drop_logit": -0.04736403748393059,
+        "node_centered_energy_fraction": 0.8128422498703003,
+        "mean_abs_probability_shift": 0.0008527671016054228,
+        "mean_abs_node_specific_probability_shift": 0.000692879650159739,
+        "delta_expected_flips": -0.16358646377921104,
+        "top5_overlap": 0.9874999672174454,
+        "top5_overlap_after_mean_control": 0.9874999672174454
+      },
+      {
+        "graph_id": "graph_000014",
+        "mean_add_logit": 0.09039924293756485,
+        "mean_drop_logit": 0.08736173808574677,
+        "node_centered_energy_fraction": 0.0006422423175536096,
+        "mean_abs_probability_shift": 0.0008262392075266689,
+        "mean_abs_node_specific_probability_shift": 2.192939928136184e-05,
+        "delta_expected_flips": 0.19086124375462532,
+        "top5_overlap": 1.0,
+        "top5_overlap_after_mean_control": 1.0
+      },
+      {
+        "graph_id": "graph_000015",
+        "mean_add_logit": 0.08903073519468307,
+        "mean_drop_logit": 0.08666419237852097,
+        "node_centered_energy_fraction": 0.003862408921122551,
+        "mean_abs_probability_shift": 0.0008681290928507224,
+        "mean_abs_node_specific_probability_shift": 3.9029559047776274e-05,
+        "delta_expected_flips": 0.2005378119647503,
+        "top5_overlap": 0.9949999898672104,
+        "top5_overlap_after_mean_control": 0.9949999898672104
+      },
+      {
+        "graph_id": "graph_000016",
+        "mean_add_logit": 0.013753469102084637,
+        "mean_drop_logit": 0.005621149204671383,
+        "node_centered_energy_fraction": 0.97716224193573,
+        "mean_abs_probability_shift": 0.0010094520403072238,
+        "mean_abs_node_specific_probability_shift": 0.0010746241023298353,
+        "delta_expected_flips": -0.07198666594922543,
+        "top5_overlap": 0.9724999666213989,
+        "top5_overlap_after_mean_control": 0.9699999690055847
+      },
+      {
+        "graph_id": "graph_000017",
+        "mean_add_logit": 0.07305487990379333,
+        "mean_drop_logit": 0.048764217644929886,
+        "node_centered_energy_fraction": 0.3461233079433441,
+        "mean_abs_probability_shift": 0.0010981488740071654,
+        "mean_abs_node_specific_probability_shift": 0.0006499423616332933,
+        "delta_expected_flips": 0.16482309997081757,
+        "top5_overlap": 0.939999982714653,
+        "top5_overlap_after_mean_control": 0.9374999850988388
+      },
+      {
+        "graph_id": "graph_000018",
+        "mean_add_logit": -0.08846969902515411,
+        "mean_drop_logit": -0.07764605432748795,
+        "node_centered_energy_fraction": 0.024322509765625,
+        "mean_abs_probability_shift": 0.0010901691566687077,
+        "mean_abs_node_specific_probability_shift": 7.948340498842299e-05,
+        "delta_expected_flips": -0.2877466008067131,
+        "top5_overlap": 0.9849999696016312,
+        "top5_overlap_after_mean_control": 0.9899999648332596
+      },
+      {
+        "graph_id": "graph_000019",
+        "mean_add_logit": -0.07003781199455261,
+        "mean_drop_logit": 0.03802528232336044,
+        "node_centered_energy_fraction": 0.23488859832286835,
+        "mean_abs_probability_shift": 0.0006292790349107236,
+        "mean_abs_node_specific_probability_shift": 0.00030077988049015403,
+        "delta_expected_flips": -0.04484914522618055,
+        "top5_overlap": 0.9474999755620956,
+        "top5_overlap_after_mean_control": 0.9599999785423279
+      }
+    ]
+  }
+}

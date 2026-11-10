@@ -1,0 +1,2879 @@
+{
+  "summary": [
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "baseline",
+      "graphs": 50,
+      "mean_size": 19.44,
+      "graph_sd": 1.6056024363688135,
+      "mean_base_size": 19.44,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.030836193561553954,
+      "p95_solve_s": 0.03437816600780934,
+      "mean_search_s": 0.030822458062320948,
+      "mean_post_s": 1.373549923300743e-05,
+      "mean_steps": 100,
+      "feasible": 1,
+      "params": 165505,
+      "peak_mib": 311.66015625,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "mlp",
+      "graphs": 50,
+      "mean_size": 19.4,
+      "graph_sd": 1.4846149779161804,
+      "mean_base_size": 19.4,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.03348998427391052,
+      "p95_solve_s": 0.03729921830818057,
+      "mean_search_s": 0.033476569056510926,
+      "mean_post_s": 1.3415217399597168e-05,
+      "mean_steps": 100,
+      "feasible": 1,
+      "params": 175850,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "message",
+      "graphs": 50,
+      "mean_size": 19.36,
+      "graph_sd": 1.5486663123277318,
+      "mean_base_size": 19.36,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.03390055435709655,
+      "p95_solve_s": 0.03763024960644543,
+      "mean_search_s": 0.0338861677236855,
+      "mean_post_s": 1.4386633411049843e-05,
+      "mean_steps": 100,
+      "feasible": 1,
+      "params": 175850,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "baseline",
+      "graphs": 50,
+      "mean_size": 19.5,
+      "graph_sd": 1.6319513798279803,
+      "mean_base_size": 19.44,
+      "mean_pave_gain": 0.06,
+      "pave_improved": 3,
+      "mean_solve_s": 0.05220324890688062,
+      "p95_solve_s": 0.08482935074716806,
+      "mean_search_s": 0.030822458062320948,
+      "mean_post_s": 0.02138079084455967,
+      "mean_steps": 100,
+      "feasible": 1,
+      "params": 169218,
+      "peak_mib": 311.66015625,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "mlp",
+      "graphs": 50,
+      "mean_size": 19.46,
+      "graph_sd": 1.5011560171265017,
+      "mean_base_size": 19.4,
+      "mean_pave_gain": 0.06,
+      "pave_improved": 3,
+      "mean_solve_s": 0.054317819504067305,
+      "p95_solve_s": 0.08681556885130703,
+      "mean_search_s": 0.033476569056510926,
+      "mean_post_s": 0.020841250447556376,
+      "mean_steps": 100,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "message",
+      "graphs": 50,
+      "mean_size": 19.42,
+      "graph_sd": 1.5919440047582434,
+      "mean_base_size": 19.36,
+      "mean_pave_gain": 0.06,
+      "pave_improved": 3,
+      "mean_solve_s": 0.056558377714827655,
+      "p95_solve_s": 0.09374376703053713,
+      "mean_search_s": 0.0338861677236855,
+      "mean_post_s": 0.022672209991142153,
+      "mean_steps": 100,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "budget05",
+      "post": "pave",
+      "arm": "baseline",
+      "graphs": 50,
+      "mean_size": 19.8,
+      "graph_sd": 1.6781914463529617,
+      "mean_base_size": 19.8,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.4837565883249044,
+      "p95_solve_s": 0.49512208425439896,
+      "mean_search_s": 0.44783584028482437,
+      "mean_post_s": 0.03591865256428719,
+      "mean_steps": 1078.96,
+      "feasible": 1,
+      "params": 169218,
+      "peak_mib": 311.66015625,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "budget05",
+      "post": "pave",
+      "arm": "mlp",
+      "graphs": 50,
+      "mean_size": 19.82,
+      "graph_sd": 1.6498608475645848,
+      "mean_base_size": 19.82,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.4847516736481339,
+      "p95_solve_s": 0.4942509885178879,
+      "mean_search_s": 0.4474780978448689,
+      "mean_post_s": 0.03727105671539903,
+      "mean_steps": 956.18,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "budget05",
+      "post": "pave",
+      "arm": "message",
+      "graphs": 50,
+      "mean_size": 19.82,
+      "graph_sd": 1.6865615304276234,
+      "mean_base_size": 19.82,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.46989097316749395,
+      "p95_solve_s": 0.49027071236632763,
+      "mean_search_s": 0.4486361224856228,
+      "mean_post_s": 0.02125416971743107,
+      "mean_steps": 1391.14,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "budget10",
+      "post": "pave",
+      "arm": "baseline",
+      "graphs": 50,
+      "mean_size": 19.8,
+      "graph_sd": 1.6781914463529617,
+      "mean_base_size": 19.8,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.9862758547905832,
+      "p95_solve_s": 0.9949088686844334,
+      "mean_search_s": 0.9477536328788847,
+      "mean_post_s": 0.03851988894864917,
+      "mean_steps": 2443,
+      "feasible": 1,
+      "params": 169218,
+      "peak_mib": 311.66015625,
+      "overruns": 1,
+      "fallbacks": 0,
+      "gpu": "1"
+    },
+    {
+      "protocol": "budget10",
+      "post": "pave",
+      "arm": "mlp",
+      "graphs": 50,
+      "mean_size": 19.88,
+      "graph_sd": 1.685956399077935,
+      "mean_base_size": 19.88,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.9703324220888316,
+      "p95_solve_s": 0.9939356381772086,
+      "mean_search_s": 0.9484795899502934,
+      "mean_post_s": 0.02185196508653462,
+      "mean_steps": 3099.36,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "1"
+    },
+    {
+      "protocol": "budget10",
+      "post": "pave",
+      "arm": "message",
+      "graphs": 50,
+      "mean_size": 19.84,
+      "graph_sd": 1.670390397970682,
+      "mean_base_size": 19.84,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.9841058326605707,
+      "p95_solve_s": 0.9953911201329901,
+      "mean_search_s": 0.9477720227465034,
+      "mean_post_s": 0.03633107622154057,
+      "mean_steps": 2412.38,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 1,
+      "fallbacks": 0,
+      "gpu": "1"
+    },
+    {
+      "protocol": "repeat05",
+      "post": "pave",
+      "arm": "baseline",
+      "graphs": 50,
+      "mean_size": 19.8,
+      "graph_sd": 1.6781914463529617,
+      "mean_base_size": 19.8,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.4780323181301355,
+      "p95_solve_s": 0.49504418652504684,
+      "mean_search_s": 0.4483718889579177,
+      "mean_post_s": 0.029659134354442358,
+      "mean_steps": 1281.7,
+      "feasible": 1,
+      "params": 169218,
+      "peak_mib": 311.66015625,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "repeat05",
+      "post": "pave",
+      "arm": "mlp",
+      "graphs": 50,
+      "mean_size": 19.82,
+      "graph_sd": 1.6498608475645848,
+      "mean_base_size": 19.82,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.4675586924143136,
+      "p95_solve_s": 0.4885790057014674,
+      "mean_search_s": 0.44844278412871064,
+      "mean_post_s": 0.019115267693996428,
+      "mean_steps": 1410.66,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "repeat05",
+      "post": "pave",
+      "arm": "message",
+      "graphs": 50,
+      "mean_size": 19.78,
+      "graph_sd": 1.6938062438888146,
+      "mean_base_size": 19.78,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.4842986014019698,
+      "p95_solve_s": 0.4944101041415706,
+      "mean_search_s": 0.44761931225657464,
+      "mean_post_s": 0.036677214857190846,
+      "mean_steps": 1009.28,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "0"
+    },
+    {
+      "protocol": "repeat10",
+      "post": "pave",
+      "arm": "baseline",
+      "graphs": 50,
+      "mean_size": 19.86,
+      "graph_sd": 1.6904292414674338,
+      "mean_base_size": 19.86,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.9710377844423056,
+      "p95_solve_s": 0.9901049342704937,
+      "mean_search_s": 0.9483987503685057,
+      "mean_post_s": 0.022638159897178413,
+      "mean_steps": 3123.94,
+      "feasible": 1,
+      "params": 169218,
+      "peak_mib": 311.66015625,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "1"
+    },
+    {
+      "protocol": "repeat10",
+      "post": "pave",
+      "arm": "mlp",
+      "graphs": 50,
+      "mean_size": 19.84,
+      "graph_sd": 1.670390397970682,
+      "mean_base_size": 19.84,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.9852291392628103,
+      "p95_solve_s": 0.9960236638085916,
+      "mean_search_s": 0.9476853288523853,
+      "mean_post_s": 0.03754106304608285,
+      "mean_steps": 2408.48,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "1"
+    },
+    {
+      "protocol": "repeat10",
+      "post": "pave",
+      "arm": "message",
+      "graphs": 50,
+      "mean_size": 19.84,
+      "graph_sd": 1.670390397970682,
+      "mean_base_size": 19.84,
+      "mean_pave_gain": 0.0,
+      "pave_improved": 0,
+      "mean_solve_s": 0.9849896745942534,
+      "p95_solve_s": 0.9949800403323025,
+      "mean_search_s": 0.9476168928015977,
+      "mean_post_s": 0.03737036640755832,
+      "mean_steps": 2467.54,
+      "feasible": 1,
+      "params": 179563,
+      "peak_mib": 320.83935546875,
+      "overruns": 0,
+      "fallbacks": 0,
+      "gpu": "1"
+    }
+  ],
+  "paired": [
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "mlp",
+      "control": "baseline",
+      "size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.18,
+          0.1
+        ],
+        "wins": 5,
+        "ties": 38,
+        "losses": 7,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "base_size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.18,
+          0.1
+        ],
+        "wins": 5,
+        "ties": 38,
+        "losses": 7,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 2.6537907123565674,
+        "median": 2.5668372400105,
+        "ci95": [
+          2.5508940257132053,
+          2.7641953688580543
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 1.900928094983101,
+        "best": 3.929304890334606,
+        "loo_range": [
+          2.6277598107651787,
+          2.669155255568271
+        ]
+      },
+      "search_ms": {
+        "mean": 2.6541109941899776,
+        "median": 2.566866809502244,
+        "ci95": [
+          2.551250877790153,
+          2.7643222957849503
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 1.9011921249330044,
+        "best": 3.928068093955517,
+        "loo_range": [
+          2.628111869704967,
+          2.6694766853993035
+        ]
+      },
+      "steps": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "message",
+      "control": "baseline",
+      "size": {
+        "mean": -0.08,
+        "median": 0.0,
+        "ci95": [
+          -0.22,
+          0.06
+        ],
+        "wins": 4,
+        "ties": 38,
+        "losses": 8,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.10204081632653061,
+          -0.061224489795918366
+        ]
+      },
+      "base_size": {
+        "mean": -0.08,
+        "median": 0.0,
+        "ci95": [
+          -0.22,
+          0.06
+        ],
+        "wins": 4,
+        "ties": 38,
+        "losses": 8,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.10204081632653061,
+          -0.061224489795918366
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 3.0643607955425978,
+        "median": 2.921729814261198,
+        "ci95": [
+          2.8960759330075234,
+          3.2372312606312335
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 2.08295788615942,
+        "best": 4.70802141353488,
+        "loo_range": [
+          3.0308167012978573,
+          3.0843894263463363
+        ]
+      },
+      "search_ms": {
+        "mean": 3.0637096613645554,
+        "median": 2.9206217732280493,
+        "ci95": [
+          2.895750117255375,
+          3.236680828500539
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 2.0835520699620247,
+        "best": 4.707606043666601,
+        "loo_range": [
+          3.0301607556032892,
+          3.0837128775156275
+        ]
+      },
+      "steps": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "message",
+      "control": "mlp",
+      "size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.16,
+          0.06
+        ],
+        "wins": 3,
+        "ties": 42,
+        "losses": 5,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "base_size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.16,
+          0.06
+        ],
+        "wins": 3,
+        "ties": 42,
+        "losses": 5,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 0.4105700831860304,
+        "median": 0.2317975740879774,
+        "ci95": [
+          0.2252097139135003,
+          0.5916062735486776
+        ],
+        "wins": 37,
+        "ties": 0,
+        "losses": 13,
+        "worst": -1.7304145731031895,
+        "best": 1.7409473657608032,
+        "loo_range": [
+          0.3834195263987901,
+          0.4542636476000961
+        ]
+      },
+      "search_ms": {
+        "mean": 0.4095986671745777,
+        "median": 0.22597354836761951,
+        "ci95": [
+          0.22442288580350578,
+          0.5906050002668053
+        ],
+        "wins": 37,
+        "ties": 0,
+        "losses": 13,
+        "worst": -1.7289286479353905,
+        "best": 1.739718485623598,
+        "loo_range": [
+          0.3824533647572508,
+          0.4532420817686587
+        ]
+      },
+      "steps": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "mlp",
+      "control": "baseline",
+      "size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.16,
+          0.08
+        ],
+        "wins": 4,
+        "ties": 40,
+        "losses": 6,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "base_size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.18,
+          0.1
+        ],
+        "wins": 5,
+        "ties": 38,
+        "losses": 7,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.1
+        ],
+        "wins": 3,
+        "ties": 44,
+        "losses": 3,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.02040816326530612,
+          0.02040816326530612
+        ]
+      },
+      "solve_ms": {
+        "mean": 2.1145705971866846,
+        "median": 2.0840398501604795,
+        "ci95": [
+          1.290889515541494,
+          2.920344329671934
+        ],
+        "wins": 42,
+        "ties": 0,
+        "losses": 8,
+        "worst": -6.5217697992920876,
+        "best": 10.5084921233356,
+        "loo_range": [
+          1.94326607624487,
+          2.290822442012782
+        ]
+      },
+      "search_ms": {
+        "mean": 2.6541109941899776,
+        "median": 2.566866809502244,
+        "ci95": [
+          2.551250877790153,
+          2.7643222957849503
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 1.9011921249330044,
+        "best": 3.928068093955517,
+        "loo_range": [
+          2.628111869704967,
+          2.6694766853993035
+        ]
+      },
+      "steps": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "message",
+      "control": "baseline",
+      "size": {
+        "mean": -0.08,
+        "median": 0.0,
+        "ci95": [
+          -0.18,
+          0.02
+        ],
+        "wins": 2,
+        "ties": 42,
+        "losses": 6,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.10204081632653061,
+          -0.061224489795918366
+        ]
+      },
+      "base_size": {
+        "mean": -0.08,
+        "median": 0.0,
+        "ci95": [
+          -0.22,
+          0.06
+        ],
+        "wins": 4,
+        "ties": 38,
+        "losses": 8,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.10204081632653061,
+          -0.061224489795918366
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.1
+        ],
+        "wins": 3,
+        "ties": 44,
+        "losses": 3,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.02040816326530612,
+          0.02040816326530612
+        ]
+      },
+      "solve_ms": {
+        "mean": 4.35512880794704,
+        "median": 4.261629888787866,
+        "ci95": [
+          3.386145151918754,
+          5.286172100575641
+        ],
+        "wins": 46,
+        "ties": 0,
+        "losses": 4,
+        "worst": -7.614069152623415,
+        "best": 12.273432221263647,
+        "loo_range": [
+          4.193530779103844,
+          4.599398154081131
+        ]
+      },
+      "search_ms": {
+        "mean": 3.0637096613645554,
+        "median": 2.9206217732280493,
+        "ci95": [
+          2.895750117255375,
+          3.236680828500539
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 2.0835520699620247,
+        "best": 4.707606043666601,
+        "loo_range": [
+          3.0301607556032892,
+          3.0837128775156275
+        ]
+      },
+      "steps": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "message",
+      "control": "mlp",
+      "size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.14,
+          0.06
+        ],
+        "wins": 2,
+        "ties": 44,
+        "losses": 4,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "base_size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.16,
+          0.06
+        ],
+        "wins": 3,
+        "ties": 42,
+        "losses": 5,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.1
+        ],
+        "wins": 3,
+        "ties": 44,
+        "losses": 3,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.02040816326530612,
+          0.02040816326530612
+        ]
+      },
+      "solve_ms": {
+        "mean": 2.240558210760355,
+        "median": 1.6189375892281532,
+        "ci95": [
+          1.3416069748345762,
+          3.15330497152172
+        ],
+        "wins": 40,
+        "ties": 0,
+        "losses": 10,
+        "worst": -6.68955547735095,
+        "best": 12.782649602741003,
+        "loo_range": [
+          2.0254134884750354,
+          2.4228054288850753
+        ]
+      },
+      "search_ms": {
+        "mean": 0.4095986671745777,
+        "median": 0.22597354836761951,
+        "ci95": [
+          0.22442288580350578,
+          0.5906050002668053
+        ],
+        "wins": 37,
+        "ties": 0,
+        "losses": 13,
+        "worst": -1.7289286479353905,
+        "best": 1.739718485623598,
+        "loo_range": [
+          0.3824533647572508,
+          0.4532420817686587
+        ]
+      },
+      "steps": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "protocol": "budget05",
+      "post": "pave",
+      "arm": "mlp",
+      "control": "baseline",
+      "size": {
+        "mean": 0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.06,
+          0.1
+        ],
+        "wins": 3,
+        "ties": 45,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.0,
+          0.04081632653061224
+        ]
+      },
+      "base_size": {
+        "mean": 0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.06,
+          0.1
+        ],
+        "wins": 3,
+        "ties": 45,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.0,
+          0.04081632653061224
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 0.9950853232294321,
+        "median": -0.023036031052470207,
+        "ci95": [
+          -2.2140479693189263,
+          4.2912948620505595
+        ],
+        "wins": 25,
+        "ties": 0,
+        "losses": 25,
+        "worst": -26.10683348029852,
+        "best": 27.058354578912258,
+        "loo_range": [
+          0.4631818690318234,
+          1.5481857069749005
+        ]
+      },
+      "search_ms": {
+        "mean": -0.35774243995547295,
+        "median": -0.3138585016131401,
+        "ci95": [
+          -0.8090510657057166,
+          0.08931370661593972
+        ],
+        "wins": 17,
+        "ties": 0,
+        "losses": 33,
+        "worst": -4.636519122868776,
+        "best": 4.2598657310009,
+        "loo_range": [
+          -0.4519793414035622,
+          -0.27042046683479326
+        ]
+      },
+      "steps": {
+        "mean": -122.78,
+        "median": -84.0,
+        "ci95": [
+          -171.54,
+          -72.63850000000002
+        ],
+        "wins": 12,
+        "ties": 0,
+        "losses": 38,
+        "worst": -552.0,
+        "best": 269.0,
+        "loo_range": [
+          -130.77551020408163,
+          -114.0204081632653
+        ]
+      }
+    },
+    {
+      "protocol": "budget05",
+      "post": "pave",
+      "arm": "message",
+      "control": "baseline",
+      "size": {
+        "mean": 0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.04,
+          0.1
+        ],
+        "wins": 2,
+        "ties": 47,
+        "losses": 1,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.0,
+          0.04081632653061224
+        ]
+      },
+      "base_size": {
+        "mean": 0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.04,
+          0.1
+        ],
+        "wins": 2,
+        "ties": 47,
+        "losses": 1,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.0,
+          0.04081632653061224
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": -13.865615157410502,
+        "median": -16.41273102723062,
+        "ci95": [
+          -17.72489686263725,
+          -9.83800667198375
+        ],
+        "wins": 8,
+        "ties": 0,
+        "losses": 42,
+        "worst": -38.68027962744236,
+        "best": 23.54167401790619,
+        "loo_range": [
+          -14.629029222212884,
+          -13.359193433532301
+        ]
+      },
+      "search_ms": {
+        "mean": 0.8002822007983923,
+        "median": 0.7871934212744236,
+        "ci95": [
+          0.46619222965091467,
+          1.1413583217654377
+        ],
+        "wins": 34,
+        "ties": 0,
+        "losses": 16,
+        "worst": -1.2185839004814625,
+        "best": 3.8481862284243107,
+        "loo_range": [
+          0.7380800777856185,
+          0.8414835498041037
+        ]
+      },
+      "steps": {
+        "mean": 312.18,
+        "median": 302.0,
+        "ci95": [
+          277.77799999999996,
+          347.061
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 80.0,
+        "best": 600.0,
+        "loo_range": [
+          306.3061224489796,
+          316.9183673469388
+        ]
+      }
+    },
+    {
+      "protocol": "budget05",
+      "post": "pave",
+      "arm": "message",
+      "control": "mlp",
+      "size": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          -0.08,
+          0.08
+        ],
+        "wins": 2,
+        "ties": 46,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.02040816326530612,
+          0.02040816326530612
+        ]
+      },
+      "base_size": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          -0.08,
+          0.08
+        ],
+        "wins": 2,
+        "ties": 46,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.02040816326530612,
+          0.02040816326530612
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": -14.860700480639935,
+        "median": -18.802371341735125,
+        "ci95": [
+          -19.04143134295009,
+          -10.573452111799272
+        ],
+        "wins": 11,
+        "ties": 0,
+        "losses": 39,
+        "worst": -38.36402436718345,
+        "best": 17.61186495423317,
+        "loo_range": [
+          -15.523405897678161,
+          -14.381040809485985
+        ]
+      },
+      "search_ms": {
+        "mean": 1.1580246407538652,
+        "median": 0.8567031472921371,
+        "ci95": [
+          0.8124100447166711,
+          1.5369103075936434
+        ],
+        "wins": 41,
+        "ties": 0,
+        "losses": 9,
+        "worst": -0.6441972218453884,
+        "best": 5.594926420599222,
+        "loo_range": [
+          1.0674756248386539,
+          1.1948046787660949
+        ]
+      },
+      "steps": {
+        "mean": 434.96,
+        "median": 425.0,
+        "ci95": [
+          402.39799999999997,
+          468.5005
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 230.0,
+        "best": 690.0,
+        "loo_range": [
+          429.7551020408163,
+          439.14285714285717
+        ]
+      }
+    },
+    {
+      "protocol": "budget10",
+      "post": "pave",
+      "arm": "mlp",
+      "control": "baseline",
+      "size": {
+        "mean": 0.08,
+        "median": 0.0,
+        "ci95": [
+          0.02,
+          0.16
+        ],
+        "wins": 4,
+        "ties": 46,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 1.0,
+        "loo_range": [
+          0.061224489795918366,
+          0.08163265306122448
+        ]
+      },
+      "base_size": {
+        "mean": 0.08,
+        "median": 0.0,
+        "ci95": [
+          0.02,
+          0.16
+        ],
+        "wins": 4,
+        "ties": 46,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 1.0,
+        "loo_range": [
+          0.061224489795918366,
+          0.08163265306122448
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": -15.94343270175159,
+        "median": -18.441519234329462,
+        "ci95": [
+          -19.6775126401335,
+          -12.18668581591919
+        ],
+        "wins": 10,
+        "ties": 0,
+        "losses": 40,
+        "worst": -37.50251466408372,
+        "best": 12.109445873647928,
+        "loo_range": [
+          -16.51594042778015,
+          -15.5034514372142
+        ]
+      },
+      "search_ms": {
+        "mean": 0.7259570714086294,
+        "median": 0.8507678285241127,
+        "ci95": [
+          0.4074277449399233,
+          1.0374030605889857
+        ],
+        "wins": 37,
+        "ties": 0,
+        "losses": 13,
+        "worst": -1.6485643573105335,
+        "best": 3.9547658525407314,
+        "loo_range": [
+          0.6600630146508314,
+          0.774416692402898
+        ]
+      },
+      "steps": {
+        "mean": 656.36,
+        "median": 637.5,
+        "ci95": [
+          608.34,
+          704.8014999999999
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 324.0,
+        "best": 1030.0,
+        "loo_range": [
+          648.734693877551,
+          663.1428571428571
+        ]
+      }
+    },
+    {
+      "protocol": "budget10",
+      "post": "pave",
+      "arm": "message",
+      "control": "baseline",
+      "size": {
+        "mean": 0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.04,
+          0.12
+        ],
+        "wins": 3,
+        "ties": 46,
+        "losses": 1,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.02040816326530612,
+          0.061224489795918366
+        ]
+      },
+      "base_size": {
+        "mean": 0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.04,
+          0.12
+        ],
+        "wins": 3,
+        "ties": 46,
+        "losses": 1,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.02040816326530612,
+          0.061224489795918366
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": -2.170022130012512,
+        "median": -1.1077953968197107,
+        "ci95": [
+          -5.485166469821706,
+          1.1501973636914036
+        ],
+        "wins": 23,
+        "ties": 0,
+        "losses": 27,
+        "worst": -40.838705375790596,
+        "best": 27.262075804173946,
+        "loo_range": [
+          -2.7706771898938687,
+          -1.3808653290782655
+        ]
+      },
+      "search_ms": {
+        "mean": 0.01838986761868,
+        "median": 0.16516190953552723,
+        "ci95": [
+          -0.3226556293666363,
+          0.3574787187390027
+        ],
+        "wins": 28,
+        "ties": 0,
+        "losses": 22,
+        "worst": -2.54849623888731,
+        "best": 2.705689985305071,
+        "loo_range": [
+          -0.036452991925940224,
+          0.07077529836370021
+        ]
+      },
+      "steps": {
+        "mean": -30.62,
+        "median": -56.0,
+        "ci95": [
+          -89.982,
+          30.16149999999998
+        ],
+        "wins": 19,
+        "ties": 0,
+        "losses": 31,
+        "worst": -526.0,
+        "best": 520.0,
+        "loo_range": [
+          -41.857142857142854,
+          -20.510204081632654
+        ]
+      }
+    },
+    {
+      "protocol": "budget10",
+      "post": "pave",
+      "arm": "message",
+      "control": "mlp",
+      "size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 48,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 0.0,
+        "loo_range": [
+          -0.04081632653061224,
+          -0.02040816326530612
+        ]
+      },
+      "base_size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 48,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 0.0,
+        "loo_range": [
+          -0.04081632653061224,
+          -0.02040816326530612
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 13.773410571739078,
+        "median": 15.816569095477462,
+        "ci95": [
+          9.467103149974719,
+          17.86396730854176
+        ],
+        "wins": 41,
+        "ties": 0,
+        "losses": 9,
+        "worst": -21.75553049892187,
+        "best": 34.97158223763108,
+        "loo_range": [
+          13.340794823455568,
+          14.498491001752566
+        ]
+      },
+      "search_ms": {
+        "mean": -0.7075672037899494,
+        "median": -0.7689266931265593,
+        "ci95": [
+          -1.012608608463779,
+          -0.3964291291777047
+        ],
+        "wins": 14,
+        "ties": 0,
+        "losses": 36,
+        "worst": -2.944731619209051,
+        "best": 1.8056933768093586,
+        "loo_range": [
+          -0.7588582360470781,
+          -0.6619107871487433
+        ]
+      },
+      "steps": {
+        "mean": -686.98,
+        "median": -711.0,
+        "ci95": [
+          -733.88,
+          -638.919
+        ],
+        "wins": 0,
+        "ties": 0,
+        "losses": 50,
+        "worst": -1030.0,
+        "best": -383.0,
+        "loo_range": [
+          -693.1836734693877,
+          -679.9795918367347
+        ]
+      }
+    },
+    {
+      "protocol": "repeat05",
+      "post": "pave",
+      "arm": "mlp",
+      "control": "baseline",
+      "size": {
+        "mean": 0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.06,
+          0.1
+        ],
+        "wins": 3,
+        "ties": 45,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.0,
+          0.04081632653061224
+        ]
+      },
+      "base_size": {
+        "mean": 0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.06,
+          0.1
+        ],
+        "wins": 3,
+        "ties": 45,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.0,
+          0.04081632653061224
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": -10.473625715821981,
+        "median": -10.519618634134531,
+        "ci95": [
+          -13.164207933936268,
+          -7.7260536048561335
+        ],
+        "wins": 4,
+        "ties": 0,
+        "losses": 46,
+        "worst": -30.729307793080807,
+        "best": 20.329110324382782,
+        "loo_range": [
+          -11.10225298194861,
+          -10.060244448939148
+        ]
+      },
+      "search_ms": {
+        "mean": 0.07089517079293728,
+        "median": 0.24128449149429798,
+        "ci95": [
+          -0.2545077935792506,
+          0.3847491010092199
+        ],
+        "wins": 32,
+        "ties": 0,
+        "losses": 18,
+        "worst": -2.4188123643398285,
+        "best": 2.2903690114617348,
+        "loo_range": [
+          0.025599786289492433,
+          0.12170552865278964
+        ]
+      },
+      "steps": {
+        "mean": 128.96,
+        "median": 53.0,
+        "ci95": [
+          91.4195,
+          169.34099999999998
+        ],
+        "wins": 47,
+        "ties": 0,
+        "losses": 3,
+        "worst": -10.0,
+        "best": 588.0,
+        "loo_range": [
+          119.59183673469387,
+          131.79591836734693
+        ]
+      }
+    },
+    {
+      "protocol": "repeat05",
+      "post": "pave",
+      "arm": "message",
+      "control": "baseline",
+      "size": {
+        "mean": -0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.06
+        ],
+        "wins": 2,
+        "ties": 45,
+        "losses": 3,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.04081632653061224,
+          0.0
+        ]
+      },
+      "base_size": {
+        "mean": -0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.06
+        ],
+        "wins": 2,
+        "ties": 45,
+        "losses": 3,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.04081632653061224,
+          0.0
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 6.266283271834254,
+        "median": 4.917841171845794,
+        "ci95": [
+          3.182153329020366,
+          9.419920358108357
+        ],
+        "wins": 37,
+        "ties": 0,
+        "losses": 13,
+        "worst": -21.557203959673643,
+        "best": 27.839308138936758,
+        "loo_range": [
+          5.826017458219917,
+          6.834109541865027
+        ]
+      },
+      "search_ms": {
+        "mean": -0.7525767013430595,
+        "median": -0.6656551267951727,
+        "ci95": [
+          -1.101954904384911,
+          -0.4125091810710728
+        ],
+        "wins": 10,
+        "ties": 0,
+        "losses": 40,
+        "worst": -3.9127031341195107,
+        "best": 1.8082098104059696,
+        "loo_range": [
+          -0.8048376505624275,
+          -0.6880843251639482
+        ]
+      },
+      "steps": {
+        "mean": -272.42,
+        "median": -280.0,
+        "ci95": [
+          -317.2005,
+          -227.37800000000001
+        ],
+        "wins": 3,
+        "ties": 1,
+        "losses": 46,
+        "worst": -560.0,
+        "best": 101.0,
+        "loo_range": [
+          -280.0408163265306,
+          -266.55102040816325
+        ]
+      }
+    },
+    {
+      "protocol": "repeat05",
+      "post": "pave",
+      "arm": "message",
+      "control": "mlp",
+      "size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.14,
+          0.06
+        ],
+        "wins": 2,
+        "ties": 44,
+        "losses": 4,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "base_size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.14,
+          0.06
+        ],
+        "wins": 2,
+        "ties": 44,
+        "losses": 4,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.061224489795918366,
+          -0.02040816326530612
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 16.739908987656236,
+        "median": 20.547494990751147,
+        "ci95": [
+          13.082383437082171,
+          20.290655828313902
+        ],
+        "wins": 43,
+        "ties": 0,
+        "losses": 7,
+        "worst": -18.491106107831,
+        "best": 36.80433984845877,
+        "loo_range": [
+          16.330430806823532,
+          17.458909295727405
+        ]
+      },
+      "search_ms": {
+        "mean": -0.8234718721359968,
+        "median": -0.679871067404747,
+        "ci95": [
+          -1.1469690734520555,
+          -0.5065161127131435
+        ],
+        "wins": 11,
+        "ties": 0,
+        "losses": 39,
+        "worst": -4.787970799952745,
+        "best": 1.5759295783936977,
+        "loo_range": [
+          -0.8724392486774192,
+          -0.7425637307519816
+        ]
+      },
+      "steps": {
+        "mean": -401.38,
+        "median": -399.5,
+        "ci95": [
+          -431.76099999999997,
+          -370.15950000000004
+        ],
+        "wins": 0,
+        "ties": 0,
+        "losses": 50,
+        "worst": -620.0,
+        "best": -139.0,
+        "loo_range": [
+          -406.734693877551,
+          -396.9183673469388
+        ]
+      }
+    },
+    {
+      "protocol": "repeat10",
+      "post": "pave",
+      "arm": "mlp",
+      "control": "baseline",
+      "size": {
+        "mean": -0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.04
+        ],
+        "wins": 1,
+        "ties": 47,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.04081632653061224,
+          0.0
+        ]
+      },
+      "base_size": {
+        "mean": -0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.04
+        ],
+        "wins": 1,
+        "ties": 47,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.04081632653061224,
+          0.0
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 14.191354820504785,
+        "median": 17.57610752247274,
+        "ci95": [
+          10.154487754683942,
+          18.002268146490678
+        ],
+        "wins": 39,
+        "ties": 0,
+        "losses": 11,
+        "worst": -22.20155531540513,
+        "best": 37.22474817186594,
+        "loo_range": [
+          13.721285568436189,
+          14.934067272258048
+        ]
+      },
+      "search_ms": {
+        "mean": -0.7134215161204338,
+        "median": -0.7027573883533478,
+        "ci95": [
+          -1.0948923439718783,
+          -0.37831427622586494
+        ],
+        "wins": 13,
+        "ties": 0,
+        "losses": 37,
+        "worst": -6.930329836905003,
+        "best": 1.6946392133831978,
+        "loo_range": [
+          -0.762565612640916,
+          -0.5865458361044222
+        ]
+      },
+      "steps": {
+        "mean": -715.46,
+        "median": -740.0,
+        "ci95": [
+          -772.2025,
+          -656.519
+        ],
+        "wins": 0,
+        "ties": 0,
+        "losses": 50,
+        "worst": -1152.0,
+        "best": -160.0,
+        "loo_range": [
+          -726.795918367347,
+          -706.5510204081633
+        ]
+      }
+    },
+    {
+      "protocol": "repeat10",
+      "post": "pave",
+      "arm": "message",
+      "control": "baseline",
+      "size": {
+        "mean": -0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.04
+        ],
+        "wins": 1,
+        "ties": 47,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.04081632653061224,
+          0.0
+        ]
+      },
+      "base_size": {
+        "mean": -0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.04
+        ],
+        "wins": 1,
+        "ties": 47,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.04081632653061224,
+          0.0
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": 13.951890151947737,
+        "median": 17.263109795749187,
+        "ci95": [
+          10.097941333660856,
+          17.7185970575083
+        ],
+        "wins": 42,
+        "ties": 0,
+        "losses": 8,
+        "worst": -13.241800013929605,
+        "best": 37.02093008905649,
+        "loo_range": [
+          13.481093418537354,
+          14.50686342063911
+        ]
+      },
+      "search_ms": {
+        "mean": -0.7818575669080019,
+        "median": -0.7614037021994591,
+        "ci95": [
+          -1.0913683795370162,
+          -0.4877050048671663
+        ],
+        "wins": 11,
+        "ties": 0,
+        "losses": 39,
+        "worst": -4.181642085313797,
+        "best": 1.1367974802851677,
+        "loo_range": [
+          -0.8210137923609238,
+          -0.7124742093895163
+        ]
+      },
+      "steps": {
+        "mean": -656.4,
+        "median": -647.0,
+        "ci95": [
+          -706.74,
+          -606.2395
+        ],
+        "wins": 0,
+        "ties": 0,
+        "losses": 50,
+        "worst": -1158.0,
+        "best": -255.0,
+        "loo_range": [
+          -664.5918367346939,
+          -646.1632653061224
+        ]
+      }
+    },
+    {
+      "protocol": "repeat10",
+      "post": "pave",
+      "arm": "message",
+      "control": "mlp",
+      "size": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          -0.06,
+          0.06
+        ],
+        "wins": 1,
+        "ties": 48,
+        "losses": 1,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.02040816326530612,
+          0.02040816326530612
+        ]
+      },
+      "base_size": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          -0.06,
+          0.06
+        ],
+        "wins": 1,
+        "ties": 48,
+        "losses": 1,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.02040816326530612,
+          0.02040816326530612
+        ]
+      },
+      "pave_gain": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "solve_ms": {
+        "mean": -0.23946466855704784,
+        "median": 0.131361186504364,
+        "ci95": [
+          -3.309471648419276,
+          2.634906265186145
+        ],
+        "wins": 26,
+        "ties": 0,
+        "losses": 24,
+        "worst": -38.40598417446017,
+        "best": 20.339941140264273,
+        "loo_range": [
+          -0.6594525422064625,
+          0.5394438927879139
+        ]
+      },
+      "search_ms": {
+        "mean": -0.06843605078756809,
+        "median": -0.17136149108409882,
+        "ci95": [
+          -0.4571242618840188,
+          0.34656839095987363
+        ],
+        "wins": 20,
+        "ties": 0,
+        "losses": 30,
+        "worst": -3.8403691723942757,
+        "best": 6.062340922653675,
+        "loo_range": [
+          -0.19355394820473631,
+          0.008542176183997368
+        ]
+      },
+      "steps": {
+        "mean": 59.06,
+        "median": 58.5,
+        "ci95": [
+          14.479500000000002,
+          103.62149999999998
+        ],
+        "wins": 31,
+        "ties": 0,
+        "losses": 19,
+        "worst": -348.0,
+        "best": 420.0,
+        "loo_range": [
+          51.69387755102041,
+          67.36734693877551
+        ]
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "protocol": "fixed",
+      "arm": "mlp",
+      "control": "baseline",
+      "pre_win_lost": 2,
+      "pre_loss_recovered": 2,
+      "pre_tie_became_win": 1,
+      "pre_tie_became_loss": 1
+    },
+    {
+      "protocol": "fixed",
+      "arm": "message",
+      "control": "baseline",
+      "pre_win_lost": 2,
+      "pre_loss_recovered": 3,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 1
+    },
+    {
+      "protocol": "fixed",
+      "arm": "message",
+      "control": "mlp",
+      "pre_win_lost": 2,
+      "pre_loss_recovered": 2,
+      "pre_tie_became_win": 1,
+      "pre_tie_became_loss": 1
+    },
+    {
+      "protocol": "budget05",
+      "arm": "mlp",
+      "control": "baseline",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "budget05",
+      "arm": "message",
+      "control": "baseline",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "budget05",
+      "arm": "message",
+      "control": "mlp",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "budget10",
+      "arm": "mlp",
+      "control": "baseline",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "budget10",
+      "arm": "message",
+      "control": "baseline",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "budget10",
+      "arm": "message",
+      "control": "mlp",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "repeat05",
+      "arm": "mlp",
+      "control": "baseline",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "repeat05",
+      "arm": "message",
+      "control": "baseline",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "repeat05",
+      "arm": "message",
+      "control": "mlp",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "repeat10",
+      "arm": "mlp",
+      "control": "baseline",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "repeat10",
+      "arm": "message",
+      "control": "baseline",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    },
+    {
+      "protocol": "repeat10",
+      "arm": "message",
+      "control": "mlp",
+      "pre_win_lost": 0,
+      "pre_loss_recovered": 0,
+      "pre_tie_became_win": 0,
+      "pre_tie_became_loss": 0
+    }
+  ],
+  "training": [
+    {
+      "arm": "mlp",
+      "updates": 512,
+      "wall_s": 9.716422839090228,
+      "peak_mib": 453.45068359375,
+      "alpha": -0.2128269523382187,
+      "delta_logit_rms": 0.09515845775604248,
+      "delta_prob_mean_abs": 0.0007366218487732112,
+      "train_flips": 5.641580581665039
+    },
+    {
+      "arm": "message",
+      "updates": 512,
+      "wall_s": 9.834775522816926,
+      "peak_mib": 453.45068359375,
+      "alpha": -0.18654215335845947,
+      "delta_logit_rms": 0.08284763246774673,
+      "delta_prob_mean_abs": 0.0006034359103068709,
+      "train_flips": 5.6463141441345215
+    }
+  ],
+  "budget_replication": [
+    {
+      "budget": "0.5",
+      "arm": "baseline",
+      "repeat_minus_first_size": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "repeat_minus_first_steps": {
+        "mean": 202.74,
+        "median": 203.0,
+        "ci95": [
+          165.36,
+          238.301
+        ],
+        "wins": 46,
+        "ties": 0,
+        "losses": 4,
+        "worst": -160.0,
+        "best": 490.0,
+        "loo_range": [
+          196.87755102040816,
+          210.14285714285714
+        ]
+      }
+    },
+    {
+      "budget": "0.5",
+      "arm": "mlp",
+      "repeat_minus_first_size": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "repeat_minus_first_steps": {
+        "mean": 454.48,
+        "median": 440.0,
+        "ci95": [
+          421.8595,
+          488.18
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 250.0,
+        "best": 700.0,
+        "loo_range": [
+          449.46938775510205,
+          458.6530612244898
+        ]
+      },
+      "pooled_size_vs_b": {
+        "mean": 0.02,
+        "median": 0.0,
+        "ci95": [
+          -0.06,
+          0.1
+        ],
+        "wins": 3,
+        "ties": 45,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          0.0,
+          0.04081632653061224
+        ]
+      },
+      "pooled_steps_vs_b": {
+        "mean": 3.09,
+        "median": -2.0,
+        "ci95": [
+          -32.6805,
+          38.52099999999999
+        ],
+        "wins": 25,
+        "ties": 0,
+        "losses": 25,
+        "worst": -266.0,
+        "best": 279.5,
+        "loo_range": [
+          -2.5510204081632653,
+          8.581632653061224
+        ]
+      },
+      "won_both_runs": 3,
+      "lost_both_runs": 2
+    },
+    {
+      "budget": "0.5",
+      "arm": "message",
+      "repeat_minus_first_size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 48,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 0.0,
+        "loo_range": [
+          -0.04081632653061224,
+          -0.02040816326530612
+        ]
+      },
+      "repeat_minus_first_steps": {
+        "mean": -381.86,
+        "median": -370.0,
+        "ci95": [
+          -410.9205,
+          -351.85900000000004
+        ],
+        "wins": 0,
+        "ties": 0,
+        "losses": 50,
+        "worst": -610.0,
+        "best": -159.0,
+        "loo_range": [
+          -386.40816326530614,
+          -377.2040816326531
+        ]
+      },
+      "pooled_size_vs_b": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          -0.07,
+          0.08
+        ],
+        "wins": 2,
+        "ties": 45,
+        "losses": 3,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.02040816326530612,
+          0.02040816326530612
+        ]
+      },
+      "pooled_steps_vs_b": {
+        "mean": 19.88,
+        "median": 1.75,
+        "ci95": [
+          -13.37,
+          53.98
+        ],
+        "wins": 25,
+        "ties": 0,
+        "losses": 25,
+        "worst": -200.0,
+        "best": 345.0,
+        "loo_range": [
+          13.244897959183673,
+          24.367346938775512
+        ]
+      },
+      "won_both_runs": 2,
+      "lost_both_runs": 1
+    },
+    {
+      "budget": "1.0",
+      "arm": "baseline",
+      "repeat_minus_first_size": {
+        "mean": 0.06,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.14
+        ],
+        "wins": 3,
+        "ties": 47,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 1.0,
+        "loo_range": [
+          0.04081632653061224,
+          0.061224489795918366
+        ]
+      },
+      "repeat_minus_first_steps": {
+        "mean": 680.94,
+        "median": 699.5,
+        "ci95": [
+          623.6990000000001,
+          737.4209999999999
+        ],
+        "wins": 50,
+        "ties": 0,
+        "losses": 0,
+        "worst": 215.0,
+        "best": 1110.0,
+        "loo_range": [
+          672.1836734693877,
+          690.4489795918367
+        ]
+      }
+    },
+    {
+      "budget": "1.0",
+      "arm": "mlp",
+      "repeat_minus_first_size": {
+        "mean": -0.04,
+        "median": 0.0,
+        "ci95": [
+          -0.1,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 48,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 0.0,
+        "loo_range": [
+          -0.04081632653061224,
+          -0.02040816326530612
+        ]
+      },
+      "repeat_minus_first_steps": {
+        "mean": -690.88,
+        "median": -685.0,
+        "ci95": [
+          -733.0619999999999,
+          -648.5595
+        ],
+        "wins": 0,
+        "ties": 0,
+        "losses": 50,
+        "worst": -1082.0,
+        "best": -360.0,
+        "loo_range": [
+          -697.6326530612245,
+          -682.8979591836735
+        ]
+      },
+      "pooled_size_vs_b": {
+        "mean": 0.03,
+        "median": 0.0,
+        "ci95": [
+          -0.01,
+          0.09
+        ],
+        "wins": 3,
+        "ties": 46,
+        "losses": 1,
+        "worst": -0.5,
+        "best": 1.0,
+        "loo_range": [
+          0.01020408163265306,
+          0.04081632653061224
+        ]
+      },
+      "pooled_steps_vs_b": {
+        "mean": -29.55,
+        "median": -39.5,
+        "ci95": [
+          -63.143249999999995,
+          4.45
+        ],
+        "wins": 22,
+        "ties": 0,
+        "losses": 28,
+        "worst": -271.0,
+        "best": 268.5,
+        "loo_range": [
+          -35.63265306122449,
+          -24.622448979591837
+        ]
+      },
+      "won_both_runs": 1,
+      "lost_both_runs": 0
+    },
+    {
+      "budget": "1.0",
+      "arm": "message",
+      "repeat_minus_first_size": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 50,
+        "losses": 0,
+        "worst": 0.0,
+        "best": 0.0,
+        "loo_range": [
+          0.0,
+          0.0
+        ]
+      },
+      "repeat_minus_first_steps": {
+        "mean": 55.16,
+        "median": 24.5,
+        "ci95": [
+          9.439,
+          102.62049999999999
+        ],
+        "wins": 29,
+        "ties": 0,
+        "losses": 21,
+        "worst": -298.0,
+        "best": 434.0,
+        "loo_range": [
+          47.42857142857143,
+          62.36734693877551
+        ]
+      },
+      "pooled_size_vs_b": {
+        "mean": 0.01,
+        "median": 0.0,
+        "ci95": [
+          -0.06,
+          0.08
+        ],
+        "wins": 3,
+        "ties": 45,
+        "losses": 2,
+        "worst": -1.0,
+        "best": 1.0,
+        "loo_range": [
+          -0.01020408163265306,
+          0.030612244897959183
+        ]
+      },
+      "pooled_steps_vs_b": {
+        "mean": -343.51,
+        "median": -341.25,
+        "ci95": [
+          -387.80025,
+          -299.48900000000003
+        ],
+        "wins": 0,
+        "ties": 0,
+        "losses": 50,
+        "worst": -720.5,
+        "best": -54.0,
+        "loo_range": [
+          -349.4183673469388,
+          -335.81632653061223
+        ]
+      },
+      "won_both_runs": 1,
+      "lost_both_runs": 1
+    }
+  ]
+}
