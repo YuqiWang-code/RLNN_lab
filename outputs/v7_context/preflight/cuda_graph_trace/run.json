@@ -1,0 +1,39 @@
+{
+  "source_sha": "87ad1a3cea7817354d7a402e25f315ef24377ff2",
+  "branch": "codex/v7-one-shot-mamba",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": "2.3.2.post1",
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0",
+  "status": "completed",
+  "steps": 100,
+  "native_scan_calls": 2,
+  "sequence_batches": [
+    [
+      1,
+      180
+    ],
+    [
+      3,
+      10
+    ]
+  ],
+  "native_calls_during_capture": 0,
+  "scan_calls_in_replay": 0
+}

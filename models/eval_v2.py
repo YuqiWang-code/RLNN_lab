@@ -73,6 +73,8 @@ def sync(device):
 
 def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None):
     """Keep the original per-trajectory energy record and A.3 decoder."""
+    if graph.num_nodes == 0:
+        return 0, 0
     device = graph.b.device
     generator = torch.Generator(device=device).manual_seed(seed)
     adj = adjacency(graph)

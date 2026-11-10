@@ -34,7 +34,7 @@ L_2=P^2Z,\qquad B_0=Z-PZ,\qquad B_1=PZ-P^2Z,\qquad Z=L_2+B_0+B_1.
 
 三种适配器均增加 **5,008参数**。普通消息的 `Z、PZ、P²Z` 与 F4 的 `L₂、B₀、B₁` 可线性互相恢复，因此其对照测量分支参数化与学习效果。状态MLP的共同门控仍包含图统计和尺度差强度，不应解释成完全没有图信息的网络。
 
-方法与源码依据见[关键论文阅读记录](../参考文献/v4_关键方法与源码.md)、[实验协议](../../train_scripts/legacy/v4_frequency/README.md)和[适配器实现](../../models/archived_frequency/mis_v4_frequency.py)。GRACE已有低高通专家与门控，GCON/COPT-MT已有组合优化多滤波器和传播差分；本实验检验的是动态MIS状态下的翻转策略收益。这里使用低阶传播差分，未采用WaveGC的显式谱小波构造。分支经MLP、门控及GCN后的频谱作用由实际输出测量，不能由输入频带名称直接推断。
+方法与源码依据见[关键论文阅读记录](v4_关键方法与源码.md)、[实验协议](../../train_scripts/legacy/v4_frequency/README.md)和[适配器实现](../../models/archived_frequency/mis_v4_frequency.py)。GRACE已有低高通专家与门控，GCON/COPT-MT已有组合优化多滤波器和传播差分；本实验检验的是动态MIS状态下的翻转策略收益。这里使用低阶传播差分，未采用WaveGC的显式谱小波构造。分支经MLP、门控及GCN后的频谱作用由实际输出测量，不能由输入频带名称直接推断。
 
 ## 2. 训练和评测协议
 

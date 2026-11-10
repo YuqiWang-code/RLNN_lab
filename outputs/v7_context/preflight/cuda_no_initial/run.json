@@ -1,0 +1,69 @@
+{
+  "source_sha": "a26a61e5a2c4c12b192a779cf5a0ecbf4ebe1f9e",
+  "branch": "codex/v7-one-shot-mamba",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": "2.3.2.post1",
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0",
+  "status": "completed",
+  "arm": "v7_mamba",
+  "precision": "no",
+  "device": "cuda",
+  "exact_zero_logits": true,
+  "capture_scan_shapes": [
+    [
+      2,
+      180,
+      32
+    ],
+    [
+      2,
+      10,
+      32
+    ],
+    [
+      2,
+      10,
+      32
+    ],
+    [
+      2,
+      10,
+      32
+    ]
+  ],
+  "gradient": [
+    [
+      1.5858607292175293,
+      0.0
+    ],
+    [
+      1.5858591794967651,
+      0.009967400692403316
+    ]
+  ],
+  "baseline_size": 18,
+  "v7_size": 18,
+  "same_solution": true,
+  "verified_pave_sha256": [
+    "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+    "38cd3d3e61b0649e8419579bcea99ef447eebd8b7c2efcb49b6372bd608c561e",
+    "b794b6dc37d377bb6ae256e4a5afebf37f5872b940639d13abe31309fbd1b605"
+  ]
+}

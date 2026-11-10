@@ -1,0 +1,188 @@
+{
+  "source_sha": "35f6bd6a71c6337051a6a9c46291acb0c200a6fd",
+  "branch": "codex/v7-one-shot-mamba",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": "2.3.2.post1",
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0",
+  "status": "completed",
+  "starts": 6,
+  "proxy_epochs": 25,
+  "graph_train": [
+    "graph_000641",
+    "graph_000583",
+    "graph_000789",
+    "graph_000326",
+    "graph_000765",
+    "graph_000882",
+    "graph_000253",
+    "graph_000089",
+    "graph_000501",
+    "graph_000483",
+    "graph_000065",
+    "graph_000031",
+    "graph_000444",
+    "graph_000390",
+    "graph_000804",
+    "graph_000194",
+    "graph_000340",
+    "graph_000769",
+    "graph_000878",
+    "graph_000728",
+    "graph_000785",
+    "graph_000623",
+    "graph_000123",
+    "graph_000278",
+    "graph_000567",
+    "graph_000170",
+    "graph_000371",
+    "graph_000366",
+    "graph_000378",
+    "graph_000994",
+    "graph_000681",
+    "graph_000837",
+    "graph_000599",
+    "graph_000564",
+    "graph_000950",
+    "graph_000896",
+    "graph_000938",
+    "graph_000504",
+    "graph_000563",
+    "graph_000188",
+    "graph_000800",
+    "graph_000730",
+    "graph_000584",
+    "graph_000211",
+    "graph_000817",
+    "graph_000761",
+    "graph_000106",
+    "graph_000967",
+    "graph_000843",
+    "graph_000879",
+    "graph_000425",
+    "graph_000755",
+    "graph_000046",
+    "graph_000671",
+    "graph_000752",
+    "graph_000451",
+    "graph_000477",
+    "graph_000571",
+    "graph_000948",
+    "graph_000580",
+    "graph_000751",
+    "graph_000084",
+    "graph_000704",
+    "graph_000335",
+    "graph_000545",
+    "graph_000861",
+    "graph_000465",
+    "graph_000687",
+    "graph_000402",
+    "graph_000581",
+    "graph_000828",
+    "graph_000480",
+    "graph_000328",
+    "graph_000482",
+    "graph_000847",
+    "graph_000831",
+    "graph_000916",
+    "graph_000763",
+    "graph_000841",
+    "graph_000428"
+  ],
+  "graph_heldout": [
+    "graph_000485",
+    "graph_000172",
+    "graph_000992",
+    "graph_000709",
+    "graph_000624",
+    "graph_000140",
+    "graph_000086",
+    "graph_000455",
+    "graph_000496",
+    "graph_000868",
+    "graph_000097",
+    "graph_000318",
+    "graph_000249",
+    "graph_000056",
+    "graph_000912",
+    "graph_000003",
+    "graph_000164",
+    "graph_000288",
+    "graph_000296",
+    "graph_000513"
+  ],
+  "b1_heldout_r2": {
+    "log_degree": 0.9168794751167297,
+    "neighbor_log_degree_mean": 0.5072479248046875,
+    "neighbor_log_degree_std": 0.01048952341079712,
+    "core": 0.6040693521499634,
+    "hub_distance": 0.03567928075790405,
+    "two_hop_fraction": 0.4950827956199646,
+    "density": 0.19283270835876465,
+    "size": -0.13017618656158447
+  },
+  "mean_label_split_spearman": 0.2552134896562424,
+  "mean_metrics": {
+    "local_mlp": {
+      "auc": 0.6284293271385991,
+      "spearman": 0.18629868699125446,
+      "brier": 0.03601219523698092
+    },
+    "full_mlp": {
+      "auc": 0.636176795384804,
+      "spearman": 0.20391849508624454,
+      "brier": 0.03561582174152136
+    },
+    "message": {
+      "auc": 0.6346614203106029,
+      "spearman": 0.20090928425799975,
+      "brier": 0.035549967736005786
+    },
+    "mamba": {
+      "auc": 0.6401701781151867,
+      "spearman": 0.21190134815704384,
+      "brier": 0.0353469816967845
+    }
+  },
+  "paired_delta_auc": {
+    "local_mlp": {
+      "delta_auc": 0.01174085097658768,
+      "ci95": [
+        0.00391352574793426,
+        0.019903074525985578
+      ]
+    },
+    "full_mlp": {
+      "delta_auc": 0.003993382730382733,
+      "ci95": [
+        -0.00438119407324806,
+        0.012083653416597069
+      ]
+    },
+    "message": {
+      "delta_auc": 0.005508757804583786,
+      "ci95": [
+        -0.0014167757430180415,
+        0.012568795203350216
+      ]
+    }
+  },
+  "information_direction": true
+}

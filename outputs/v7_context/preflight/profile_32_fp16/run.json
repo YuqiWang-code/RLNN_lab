@@ -1,0 +1,67 @@
+{
+  "source_sha": "87ad1a3cea7817354d7a402e25f315ef24377ff2",
+  "branch": "codex/v7-one-shot-mamba",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": "2.3.2.post1",
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0",
+  "status": "completed",
+  "split": "train",
+  "precision": "fp16",
+  "ref": 0,
+  "width": 32,
+  "d_state": 16,
+  "samples": 20,
+  "repeats": 5,
+  "checkpoint": null,
+  "cuda_graph": true,
+  "device": "NVIDIA GeForce RTX 5090",
+  "ratio": 1.2451399405729477,
+  "pass_speed": false,
+  "timings": {
+    "baseline": {
+      "bare_s": 0.04231556552927941,
+      "full_s": 0.13585958049166946,
+      "static_features_s": 0.0,
+      "ordering_s": 0.0,
+      "context_s": 0.0,
+      "prepare_capture_s": 0.014601984522305428,
+      "rollout_s": 0.024886827087029814,
+      "a3_s": 0.0028267539199441673,
+      "pave_s": 0.09354401496239007,
+      "search_steps": 100,
+      "p50_s": 0.040020579705014825,
+      "p95_s": 0.05713310088030994
+    },
+    "mamba": {
+      "bare_s": 0.052688800748437646,
+      "full_s": 0.13579706841148437,
+      "static_features_s": 0.0047637239657342435,
+      "ordering_s": 0.00017504851799458266,
+      "context_s": 0.003096771204471588,
+      "prepare_capture_s": 0.024500036388635637,
+      "rollout_s": 0.02546354405581951,
+      "a3_s": 0.0027252203039824963,
+      "pave_s": 0.08310826766304671,
+      "search_steps": 100,
+      "p50_s": 0.048289491795003414,
+      "p95_s": 0.0784421372693032
+    }
+  }
+}

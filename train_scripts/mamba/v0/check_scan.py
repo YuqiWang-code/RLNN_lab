@@ -7,8 +7,8 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "models"))
 
-import selective_scan_cuda
 import torch
+import selective_scan_cuda
 from torch.profiler import ProfilerActivity, profile, record_function
 
 from eval_v2 import TRAIN, dataset_at, search, write_run
