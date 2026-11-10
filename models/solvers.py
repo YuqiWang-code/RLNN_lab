@@ -11,7 +11,7 @@ from archived_frequency.mis_v2_frequency import SEGF, SEGF_MODES, frequency_topo
 from archived_frequency.mis_v4_frequency import V4FrequencyGCN, V4_MODES, v4_topology
 from archived_frequency.mis_v5_frequency import V5DAFRGCN, V5_MODES, v5_topology
 from archived_frequency.mis_v6_frequency import V6SCGCN, V6_MODES, v6_topology, polarization_bonus
-from mis_v7_context import V7StaticContextGCN
+from mis_v7_context import STATIC_MODES, V7StaticContextGCN
 from v7_structure import v7_topology
 from torch_scatter import scatter_min, scatter_max, scatter_add
 from torch_geometric.utils import add_remaining_self_loops
@@ -466,15 +466,18 @@ class RLNN(MetaSolver):
             model = self.accelerator.unwrap_model(self.model)
             adapter = model.adapter
             timings = getattr(self, 'context_timings', None)
-            topology = v7_topology(graph, adapter.normalize, self.order_seed, order=adapter.order,
-                                   views=self.order_views, timings=timings)
+            if self.context_mode in STATIC_MODES:
+                topology = adapter.topology(graph, adj)
+            else:
+                topology = v7_topology(graph, adapter.normalize, self.order_seed, order=adapter.order,
+                                       views=self.order_views, timings=timings)
             if not self.model.training:
                 if timings is not None:
                     start = torch.cuda.Event(enable_timing=True)
                     stop = torch.cuda.Event(enable_timing=True)
                     start.record()
                 with torch.no_grad():
-                    bias = adapter.scaled(adapter.precompute(topology), model.delta_limit).to(self.dtype)
+                    bias = adapter.action_bias(topology, model.delta_limit).to(self.dtype)
                 if timings is not None:
                     stop.record()
                     timings['_context_events'] = start, stop

@@ -4,11 +4,12 @@ import torch
 from torch import nn
 
 from models import GCN
+from mis_static_prior import STATIC_MODES, StaticPrior
 from v7_structure import FEATURES
 
 
 MAMBA_MODES = ("v7_mamba", "v7_shuffle_mamba", "v7_degree_mamba", "v7_uni_mamba", "v7_mamba_logit_gate")
-CONTEXT_MODES = ("none", "v7_mlp", "v7_message", "v7_static_linear") + MAMBA_MODES
+CONTEXT_MODES = ("none", "v7_mlp", "v7_message", "v7_static_linear") + MAMBA_MODES + STATIC_MODES
 
 
 class V7ActionPrior(nn.Module):
@@ -73,11 +74,14 @@ class V7ActionPrior(nn.Module):
     def scaled(self, bias, limit):
         return limit * self.alpha.tanh() * bias
 
+    def action_bias(self, topology, limit):
+        return self.scaled(self.precompute(topology), limit)
+
 
 class V7StaticContextGCN(GCN):
     def __init__(self, hidden, layers, mode, width, d_state, delta_limit):
         super().__init__(1, hidden, layers, 1)
-        self.adapter = V7ActionPrior(mode, width, d_state)
+        self.adapter = StaticPrior(mode) if mode in STATIC_MODES else V7ActionPrior(mode, width, d_state)
         self.delta_limit = delta_limit
 
     def forward(self, x, edge_index, _energy_adj, topology):
@@ -86,7 +90,7 @@ class V7StaticContextGCN(GCN):
         if bias is None:
             if not self.training:
                 raise ValueError("Evaluation requires the one-shot action bias")
-            bias = self.adapter.scaled(self.adapter.precompute(topology), self.delta_limit)
+            bias = self.adapter.action_bias(topology, self.delta_limit)
         bias = bias.to(base.dtype)
         delta = torch.where(x.bool(), bias[:, 1:2], bias[:, 0:1])
         if self.adapter.mode == "v7_mamba_logit_gate":

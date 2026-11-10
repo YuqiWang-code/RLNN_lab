@@ -17,7 +17,7 @@ FEATURES = ("log_degree", "neighbor_log_degree_mean", "neighbor_log_degree_std",
 
 class V7Topology(NamedTuple):
     normalized: torch.Tensor
-    features: torch.Tensor
+    features: torch.Tensor | None
     ptr: tuple
     orders: tuple
     views: int

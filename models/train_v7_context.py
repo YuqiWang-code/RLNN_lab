@@ -11,6 +11,7 @@ import torch
 
 from eval_v2 import TRAIN, dataset_at, search, write_run
 from main import build_parser, set_seed
+from mis_static_prior import STATIC_FEATURES, STATIC_MODES, cheap_features
 from mis_v1 import adjacency
 from mis_v3_search import SearchGraph, platform_search
 from mis_v3_value import load_pave_v3
@@ -23,6 +24,8 @@ from v7_runs import backbone, digest, pave, provenance
 class ContextRLNN(RLNN):
     def __init__(self, args):
         super().__init__(args)
+        self.validation_offset = args.validation_offset
+        self.valid_loader.dataset.files = self.valid_loader.dataset.files[self.validation_offset:]
         self.teacher_seed = 20261 + args.seed
         self.shuffle_seed = 30497 + args.seed
         self.train_loader.sampler.generator = torch.Generator().manual_seed(self.shuffle_seed)
@@ -34,9 +37,10 @@ class ContextRLNN(RLNN):
         self.ranker = load_pave_v3(pave(args.reference_seed))
         self.state_manifest = {}
         self.first_gradients = []
-        alpha = self.model.adapter.alpha
-        other = [p for p in self.model.adapter.parameters() if p is not alpha]
-        self.optimizer = torch.optim.Adam([dict(params=other), dict(params=[alpha], lr=args.alpha_lr)], lr=args.lr)
+        adapter = self.model.adapter
+        gates = [p for name, p in adapter.named_parameters() if name in ("alpha", "constants")]
+        other = [p for p in adapter.parameters() if all(p is not gate for gate in gates)]
+        self.optimizer = torch.optim.Adam([dict(params=other), dict(params=gates, lr=args.alpha_lr)], lr=args.lr)
         self.optimizer.register_step_pre_hook(self.record_gradients)
 
     def record_gradients(self, *_):
@@ -45,10 +49,15 @@ class ContextRLNN(RLNN):
 
     def gradient_metrics(self):
         adapter = self.accelerator.unwrap_model(self.model).adapter
-        encoder = getattr(adapter, "sequence", getattr(adapter, "context", adapter.out_proj))
-        gradients = [p.grad.detach().square().sum() for p in encoder.parameters() if p.grad is not None]
-        return dict(alpha_grad=float(adapter.alpha.grad.abs()) if adapter.alpha.grad is not None else None,
-                    encoder_grad_norm=float(torch.stack(gradients).sum().sqrt()) if gradients else 0.)
+        encoder = next((getattr(adapter, name) for name in ("sequence", "context", "out_proj")
+                        if hasattr(adapter, name)), None)
+        gradients = [p.grad.detach().square().sum() for p in encoder.parameters() if p.grad is not None] if encoder is not None else []
+        alpha = getattr(adapter, "alpha", None)
+        result = dict(alpha_grad=float(alpha.grad.abs()) if alpha is not None and alpha.grad is not None else None,
+                      encoder_grad_norm=float(torch.stack(gradients).sum().sqrt()) if gradients else 0.)
+        if hasattr(adapter, "constants"):
+            result["constants_grad_norm"] = float(adapter.constants.grad.norm()) if adapter.constants.grad is not None else None
+        return result
 
     @torch.no_grad()
     def generate_data(self, graph, A=None, normalized=None):
@@ -82,7 +91,7 @@ class ContextRLNN(RLNN):
         bare, pave_sizes, times, scores, steps = [], [], [], [], []
         for graphs in self.valid_loader:
             for graph in graphs:
-                seed = self.validation_seed + graph.idx
+                seed = self.validation_seed + self.validation_offset + graph.idx
                 cpu = SearchGraph(graph.num_nodes, graph.edge_index.cpu(), seed=seed)
                 tick = perf_counter()
                 solution, count = search(self, graph, cpu, seed)
@@ -100,11 +109,16 @@ class ContextRLNN(RLNN):
     @torch.no_grad()
     def print_log(self, logger):
         model = self.accelerator.unwrap_model(self.model)
-        logger["alpha"] = float(model.adapter.alpha)
+        adapter = model.adapter
+        logger["alpha"] = float(adapter.alpha) if hasattr(adapter, "alpha") else None
         if hasattr(self, "probe"):
             graph, _, topology, x = self.probe
-            bias = model.adapter.precompute(topology)
-            scaled = model.adapter.scaled(bias, model.delta_limit)
+            if self.context_mode in STATIC_MODES:
+                bias = scaled = adapter.action_bias(topology, model.delta_limit)
+                logger["c_add"], logger["c_drop"] = adapter.constants.tolist()
+            else:
+                bias = adapter.precompute(topology)
+                scaled = adapter.scaled(bias, model.delta_limit)
             delta = torch.where(x.bool(), scaled[:, 1:2], scaled[:, 0:1])
             base = self.teacher(x.unsqueeze(-1), graph.edge_index, topology.normalized).squeeze(-1)
             logger.update(static_bias_std=float(bias.std()), add_mean=float(bias[:, 0].mean()),
@@ -119,6 +133,7 @@ def main():
     parser.add_argument("--result_dir", type=Path, required=True)
     parser.add_argument("--reference_seed", type=int, choices=(0, 1, 2), required=True)
     parser.add_argument("--alpha_lr", type=float, default=.001)
+    parser.add_argument("--validation_offset", type=int, default=0)
     args = parser.parse_args()
     if args.context_mode == "none" or args.resume or args.mixed_precision != "no" or args.graph_batch_size < 2:
         parser.error("Use a v7 context, FP32 and multi-graph training")
@@ -131,17 +146,29 @@ def main():
     set_seed(args.seed)
     solver = ContextRLNN(args)
     adapter = solver.model.adapter
-    feature_mean, feature_std = normalizer(dataset_at(TRAIN, torch.float32, 1000))
-    adapter.feature_mean.copy_(torch.from_numpy(feature_mean))
-    adapter.feature_std.copy_(torch.from_numpy(feature_std))
-    normalization = dict(mean=feature_mean.tolist(), std=feature_std.tolist())
+    normalization = norm_digest = None
+    if args.context_mode != "static_constants":
+        if args.context_mode == "static_centered":
+            values = torch.cat([cheap_features(adjacency(graph), (0, graph.num_nodes))
+                                for graph in solver.train_loader.dataset])
+            feature_mean, feature_std = values.mean(dim=0), values.std(dim=0, correction=0).clamp_min(1e-4)
+        else:
+            feature_mean, feature_std = (torch.from_numpy(x) for x in normalizer(dataset_at(TRAIN, torch.float32, 1000)))
+        adapter.feature_mean.copy_(feature_mean)
+        adapter.feature_std.copy_(feature_std)
+        normalization = dict(mean=feature_mean.tolist(), std=feature_std.tolist())
+        norm_digest = sha256(feature_mean.numpy().tobytes()+feature_std.numpy().tobytes()).hexdigest()
     record = dict(**provenance(args.reference_seed), version="v7_context", arm=args.context_mode,
                   status="running", config=vars(args), started_at=datetime.now(timezone.utc).isoformat(),
                   teacher_state_seed=solver.teacher_seed, shuffle_seed=solver.shuffle_seed,
                   feature_normalization=normalization,
-                  feature_norm_sha256=sha256(feature_mean.tobytes()+feature_std.tobytes()).hexdigest(),
+                  feature_norm_sha256=norm_digest,
+                  validation_graph_ids=[Path(file).stem for file in solver.valid_loader.dataset.files],
                   params=sum(p.numel() for p in solver.model.parameters()),
                   trainable_params=sum(p.numel() for p in solver.model.parameters() if p.requires_grad))
+    if args.context_mode in STATIC_MODES:
+        record["version"] = "static_prior_v1"
+        record["static_feature_schema"] = STATIC_FEATURES if normalization else ()
     write_run(run, record)
     started = perf_counter()
     try:
