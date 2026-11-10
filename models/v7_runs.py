@@ -53,7 +53,8 @@ def provenance(ref):
                 torch_version=torch.__version__, cuda_version=torch.version.cuda)
 
 
-def preflight_policy(mode, precision, *, ref=0, width=32, d_state=16, checkpoint=None, cuda_graph=False):
+def preflight_policy(mode, precision, *, ref=0, width=32, d_state=16, checkpoint=None, cuda_graph=False,
+                     options=()):
     parser = policy_parser()
     with TemporaryDirectory() as scratch:
         if mode == "none":
@@ -70,7 +71,7 @@ def preflight_policy(mode, precision, *, ref=0, width=32, d_state=16, checkpoint
             torch.save(model.state_dict(), folder / "best.pt")
         args = parser.parse_args(["--result_dir", scratch, "--save_dir", str(folder), "--split", "validation",
             "--context_mode", mode, "--mixed_precision", precision, "--v7_width", str(width),
-            "--v7_d_state", str(d_state)])
+            "--v7_d_state", str(d_state), *options])
         solver = load_policy(args)
         solver.cuda_graph_search = cuda_graph
         solver.model.requires_grad_(False)

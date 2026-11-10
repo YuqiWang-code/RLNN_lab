@@ -71,7 +71,8 @@ def sync(device):
         torch.cuda.synchronize(device)
 
 
-def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None, decode_every=None, timings=None):
+def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None, decode_every=None,
+           timings=None, checkpoints=(), on_decode=None, on_prepare=None, archive_final=True):
     """Keep the original per-trajectory energy record and A.3 decoder."""
     if graph.num_nodes == 0:
         return 0, 0
@@ -81,6 +82,8 @@ def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None, decod
     generator = torch.Generator(device=device).manual_seed(seed)
     adj = adjacency(graph)
     topology = solver.policy_topology(graph, adj)
+    if on_prepare is not None:
+        on_prepare(topology)
     problem = solver.problem
     if getattr(solver, "cuda_graph_search", False):
         from capture_mis import captured_states
@@ -109,6 +112,8 @@ def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None, decod
         first = decode()
         if deadline is None or perf_counter() < deadline:
             incumbent = first
+        if on_decode is not None:
+            on_decode(0, first, incumbent, True)
     if observe is not None:
         observe(0, best_states, best_states, adj, topology)
     steps = 0
@@ -122,16 +127,23 @@ def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None, decod
         steps = step
         if observe is not None:
             observe(step, state, best_states, adj, topology)
-        if decode_interval is not None and (step % decode_interval == 0 or step == solver.num_t):
+        periodic = decode_interval is not None and (step % decode_interval == 0
+                                                    or (step == solver.num_t and archive_final))
+        if periodic or step in checkpoints or (step == solver.num_t and (on_decode is not None or decode_interval is None)):
             candidate = decode()
             now = perf_counter()
             if deadline is not None and now >= deadline:
                 break
-            if candidate.bit_count() > incumbent.bit_count():
-                incumbent = candidate
-            chunk_time = now - chunk_start
-            chunk_start = now
-    return (decode() if decode_interval is None else incumbent), steps
+            if periodic:
+                if candidate.bit_count() > incumbent.bit_count():
+                    incumbent = candidate
+                chunk_time = now - chunk_start
+                chunk_start = now
+            if on_decode is not None:
+                on_decode(step, candidate, incumbent, periodic)
+    if decode_interval is None:
+        return (candidate if steps and steps == solver.num_t else decode()), steps
+    return incumbent, steps
 
 
 def write_run(result, metadata):

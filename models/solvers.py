@@ -21,6 +21,7 @@ from torch.utils.data import DataLoader
 from utils import collate_fn, build_batch
 import torch.nn.functional as F
 import importlib
+from pathlib import Path
 import scipy.sparse as sp
 from scipy.optimize import minimize
 
@@ -241,11 +242,18 @@ class RLNN(MetaSolver):
         self.v6_frequency = self.frequency in V6_MODES
         self.context_mode = getattr(args, 'context_mode', 'none')
         self.v7_context = self.context_mode != 'none'
+        if args.do_train and self.context_mode in ('static_random', 'static_oracle'):
+            raise ValueError('Random and oracle modes are inference interventions')
         if self.v7_context:
             if args.problem != 'mis' or self.frequency != 'none':
                 raise ValueError('Static context requires MIS without a legacy frequency adapter')
             self.model = V7StaticContextGCN(args.num_h, args.num_l, self.context_mode,
-                                           args.v7_width, args.v7_d_state, args.v7_delta_limit)
+                                           args.v7_width, args.v7_d_state, args.v7_delta_limit,
+                                           static_node_limit=args.static_node_limit, static_encoder=args.static_encoder,
+                                           constant_limit=args.static_constant_limit, feature_dim=args.static_features,
+                                           peak_normalize=args.static_peak_normalize,
+                                           bias_seed=args.static_bias_seed, oracle_path=args.static_oracle_path,
+                                           order_seed=args.v7_order_seed, views=args.v7_order_views)
             self.order_seed, self.order_views = args.v7_order_seed, args.v7_order_views
         elif self.frequency != 'none':
             if args.problem != 'mis':
@@ -276,7 +284,12 @@ class RLNN(MetaSolver):
                 weights_only=True, 
                 map_location=self.accelerator.device
             )
-            self.load_ckpt(state_dict)
+            if self.context_mode in ('static_random', 'static_oracle'):
+                missing, extra = self.model.load_state_dict(state_dict, strict=False)
+                if any(not key.startswith('adapter.') for key in (*missing, *extra)):
+                    raise ValueError('Static interventions require an RLNN backbone checkpoint')
+            else:
+                self.load_ckpt(state_dict)
 
         self.num_d = args.num_d
         self.lambd = args.lambd
@@ -388,6 +401,10 @@ class RLNN(MetaSolver):
                 best_eval = obj_result
                 self.save_ckpt(os.path.join(save_dir, 'best.pt'))
     
+    def graph_batch_loss(self, graph, adjacency, topology, x, prob, *, terms):
+        return erdoes_graph_batch_loss(self.problem, adjacency, graph.b, x, prob,
+                                       graph.batch, len(graph.graph_ptr) - 1, self.num_d, self.lambd, terms=terms)
+
     def train_graph_batches(self, save_dir):
         best_eval = np.inf
         logger = {'Epoch': 0, 'Iteration': 0, 'loss': None, 'valid_obj': None, 'valid_time': None}
@@ -429,8 +446,7 @@ class RLNN(MetaSolver):
                     else:
                         logits = self.flip_logits(x, graph, A, normalized)
                     prob = logits.sigmoid()
-                    loss = erdoes_graph_batch_loss(self.problem, A, graph.b, x, prob,
-                        graph.batch, len(graphs), self.num_d, self.lambd, terms=track_terms)
+                    loss = self.graph_batch_loss(graph, A, normalized, x, prob, terms=track_terms)
                     if track_terms:
                         loss, values = loss
                         epoch_terms += values
@@ -467,7 +483,9 @@ class RLNN(MetaSolver):
             adapter = model.adapter
             timings = getattr(self, 'context_timings', None)
             if self.context_mode in STATIC_MODES:
-                topology = adapter.topology(graph, adj)
+                graph_id = (Path(self.test_loader.dataset.files[graph.idx]).stem
+                            if self.context_mode == 'static_oracle' else None)
+                topology = adapter.topology(graph, adj, timings=timings, graph_id=graph_id)
             else:
                 topology = v7_topology(graph, adapter.normalize, self.order_seed, order=adapter.order,
                                        views=self.order_views, timings=timings)
@@ -477,7 +495,9 @@ class RLNN(MetaSolver):
                     stop = torch.cuda.Event(enable_timing=True)
                     start.record()
                 with torch.no_grad():
-                    bias = adapter.action_bias(topology, model.delta_limit).to(self.dtype)
+                    intervention = getattr(self, 'static_intervention', None)
+                    bias = (intervention(adapter, topology, graph) if intervention is not None
+                            else adapter.action_bias(topology, model.delta_limit)).to(self.dtype)
                 if timings is not None:
                     stop.record()
                     timings['_context_events'] = start, stop

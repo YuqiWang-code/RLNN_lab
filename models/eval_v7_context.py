@@ -9,6 +9,7 @@ import torch
 import eval_v3
 from eval_v2 import ROOT, load_policy, write_run
 from mis_static_prior import STATIC_FEATURES, STATIC_MODES
+from v7_structure import FEATURES
 from v7_runs import digest, pave, provenance
 
 
@@ -56,7 +57,8 @@ def main():
 
     source = provenance(args.reference_seed)
     if args.context_mode in STATIC_MODES:
-        source["static_feature_schema"] = STATIC_FEATURES if args.context_mode == "static_centered" else ()
+        source["static_feature_schema"] = ((STATIC_FEATURES if args.static_features == 5 else FEATURES)
+                                           if args.context_mode == "static_centered" else ())
     rows = eval_v3.evaluate(args, policy_loader=prepare)
     for policy, records in rows.items():
         path = args.result_dir / policy

@@ -10,16 +10,18 @@ from v7_structure import FEATURES
 
 MAMBA_MODES = ("v7_mamba", "v7_shuffle_mamba", "v7_degree_mamba", "v7_uni_mamba", "v7_mamba_logit_gate")
 CONTEXT_MODES = ("none", "v7_mlp", "v7_message", "v7_static_linear") + MAMBA_MODES + STATIC_MODES
+STATIC_ENCODERS = {"matched-mlp": "v7_mlp", "msg": "v7_message", "mamba": "v7_mamba",
+                   "shuffle": "v7_shuffle_mamba", "degree": "v7_degree_mamba"}
 
 
 class V7ActionPrior(nn.Module):
-    def __init__(self, mode, width=32, d_state=16, feature_dim=len(FEATURES)):
+    def __init__(self, mode, width=32, d_state=16, feature_dim=len(FEATURES), *, standalone=True):
         super().__init__()
         self.mode = mode
         self.order = {"v7_shuffle_mamba": "shuffle", "v7_degree_mamba": "degree"}.get(mode, "bfs") if mode in MAMBA_MODES else None
-        self.register_buffer("feature_mean", torch.zeros(feature_dim))
-        self.register_buffer("feature_std", torch.ones(feature_dim))
-        self.alpha = nn.Parameter(torch.zeros(()))
+        self.register_buffer("feature_mean", torch.zeros(feature_dim) if standalone else None)
+        self.register_buffer("feature_std", torch.ones(feature_dim) if standalone else None)
+        self.alpha = nn.Parameter(torch.zeros(())) if standalone else None
         if mode == "v7_static_linear":
             self.out_proj = nn.Linear(feature_dim, 2)
             return
@@ -40,6 +42,8 @@ class V7ActionPrior(nn.Module):
             self.context = nn.Sequential(nn.Linear(2 * width, inner), nn.SiLU(), nn.Linear(inner, width))
 
     def normalize(self, x):
+        if self.feature_mean is None:
+            return x
         return ((x - self.feature_mean) / self.feature_std).clamp(-5, 5)
 
     def embeddings(self, topology):
@@ -72,17 +76,28 @@ class V7ActionPrior(nn.Module):
         return self.out_proj(self.embeddings(topology)).float().tanh()
 
     def scaled(self, bias, limit):
-        return limit * self.alpha.tanh() * bias
+        return limit * bias if self.alpha is None else limit * self.alpha.tanh() * bias
 
     def action_bias(self, topology, limit):
         return self.scaled(self.precompute(topology), limit)
 
 
 class V7StaticContextGCN(GCN):
-    def __init__(self, hidden, layers, mode, width, d_state, delta_limit):
+    def __init__(self, hidden, layers, mode, width, d_state, delta_limit=None, *,
+                 static_node_limit=None, static_encoder="mlp", **static_options):
         super().__init__(1, hidden, layers, 1)
-        self.adapter = StaticPrior(mode) if mode in STATIC_MODES else V7ActionPrior(mode, width, d_state)
-        self.delta_limit = delta_limit
+        self.delta_limit = .5 if delta_limit is None else delta_limit
+        if mode in STATIC_MODES:
+            node_limit = static_node_limit if static_node_limit is not None else (.125 if delta_limit is None else delta_limit)
+            encoder = None
+            if static_encoder != "mlp":
+                if mode != "static_centered" or static_options.get("feature_dim", 5) != len(FEATURES):
+                    raise ValueError("Structured static encoders require static_centered with 8 features")
+                encoder = V7ActionPrior(STATIC_ENCODERS[static_encoder], width, d_state, standalone=False)
+            self.adapter = StaticPrior(mode, node_limit=node_limit, encoder=encoder, **static_options)
+            self.delta_limit = (self.adapter.constant_limit, node_limit)
+        else:
+            self.adapter = V7ActionPrior(mode, width, d_state)
 
     def forward(self, x, edge_index, _energy_adj, topology):
         base = super().forward(x.unsqueeze(-1), edge_index, topology.normalized).squeeze(-1)

@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 import os
 from pathlib import Path
 from statistics import mean
+import sys
 from time import perf_counter
 
 import torch
@@ -130,6 +131,11 @@ def evaluate(args):
 
 
 if __name__ == "__main__":
+    if sys.argv[1:2] == ["v2"]:
+        from eval_static_prior_v2 import main
+        del sys.argv[1]
+        main()
+        sys.exit()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--protocol", required=True, choices=PROTOCOLS)
     parser.add_argument("--root", required=True, type=Path)
