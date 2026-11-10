@@ -5,7 +5,7 @@ from typing import NamedTuple
 
 import numpy as np
 from scipy.sparse import csr_matrix
-from scipy.sparse.csgraph import connected_components, shortest_path
+from scipy.sparse.csgraph import breadth_first_order, connected_components
 import torch
 
 from models import edge2adj
@@ -20,6 +20,7 @@ class V7Topology(NamedTuple):
     features: torch.Tensor
     ptr: tuple
     orders: tuple
+    views: int
     cached_action_bias: torch.Tensor | None = None
 
 
@@ -50,6 +51,23 @@ def core_numbers(adj, degree):
     return np.asarray(core)
 
 
+def small_graph_features(adj, degree):
+    matrix = adj.toarray()
+    remaining = np.ones(len(degree), dtype=bool)
+    current = degree.copy()
+    core = np.empty_like(degree)
+    shell = 0
+    while remaining.any():
+        shell = max(shell, current[remaining].min())
+        peel = remaining & (current <= shell)
+        core[peel] = shell
+        remaining[peel] = False
+        current -= matrix[peel].sum(axis=0, dtype=current.dtype)
+    dense = matrix.astype(np.float32)
+    reach = (dense @ dense > 0) | matrix
+    return core, reach.sum(axis=1) - reach.diagonal()
+
+
 def structure(edges, n, order_seed, *, order=None, views=1, tie_keys=None, timings=None):
     tick = perf_counter()
     if n == 0:
@@ -60,27 +78,32 @@ def structure(edges, n, order_seed, *, order=None, views=1, tie_keys=None, timin
     divisor = np.maximum(degree, 1)
     mean = (adj @ log) / divisor
     std = np.sqrt(np.maximum((adj @ log**2) / divisor - mean**2, 0))
-    core = core_numbers(adj, degree)
-    reach = (adj @ adj).maximum(adj)
-    two_hop = (np.diff(reach.indptr) - reach.diagonal()) / n
+    if n <= 512:
+        core, reach_count = small_graph_features(adj, degree)
+    else:
+        core = core_numbers(adj, degree)
+        reach = (adj @ adj).maximum(adj)
+        reach_count = np.diff(reach.indptr) - reach.diagonal()
+    two_hop = reach_count / n
     count, component = connected_components(adj, directed=False)
     random = np.random.default_rng(order_seed)
     keys = random.random((views + 1, n)) if tie_keys is None else tie_keys
     parts = (np.arange(n),) if count == 1 else tuple(np.flatnonzero(component == c) for c in range(count))
     hubs = [nodes[np.lexsort((keys[0, nodes], -core[nodes], -degree[nodes]))[0]] for nodes in parts]
-    if count == 1:
-        distance = shortest_path(adj, directed=False, unweighted=True, indices=hubs[0])
-    else:
-        distance = np.empty(n)
-        for nodes, hub in zip(parts, hubs):
-            distance[nodes] = shortest_path(adj, directed=False, unweighted=True, indices=hub)[nodes]
+    distance = [0] * n
+    for hub in hubs:
+        queue, predecessor = breadth_first_order(adj, hub, directed=True)
+        previous = predecessor.tolist()
+        for node in queue.tolist()[1:]:
+            distance[node] = distance[previous[node]] + 1
+    distance = np.asarray(distance)
     features = np.column_stack((log, mean, std, core, distance, two_hop,
                                 np.full(n, degree.sum() / max(1, n * (n - 1))),
                                 np.full(n, n / 300))).astype(np.float32)
     if timings is not None:
         timings["static_features_s"] += perf_counter() - tick
         tick = perf_counter()
-    orders = []
+    orders = {}
     if order is not None:
         for nodes in parts:
             sequences = []
@@ -92,10 +115,10 @@ def structure(edges, n, order_seed, *, order=None, views=1, tie_keys=None, timin
                 else:
                     ranking = np.lexsort((jitter[nodes], -degree[nodes], -core[nodes], distance[nodes]))
                 sequences.append(nodes[ranking])
-            orders.append(np.stack(sequences))
+            orders.setdefault(len(nodes), []).append(np.stack(sequences))
     if timings is not None:
         timings["ordering_s"] += perf_counter() - tick
-    return features, tuple(orders)
+    return features, tuple(np.concatenate(group) for group in orders.values())
 
 
 def v7_topology(graph, normalizer, order_seed, *, order=None, views=1, timings=None):
@@ -113,4 +136,4 @@ def v7_topology(graph, normalizer, order_seed, *, order=None, views=1, timings=N
         orders.extend(torch.as_tensor(seq + start, device=device) for seq in sequences)
     values = torch.as_tensor(np.concatenate(features), device=device)
     normalized = edge2adj(graph.edge_index, n)
-    return V7Topology(normalized, normalizer(values), ptr, tuple(orders))
+    return V7Topology(normalized, normalizer(values), ptr, tuple(orders), views)

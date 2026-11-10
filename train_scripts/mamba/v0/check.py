@@ -63,7 +63,8 @@ def check(args):
     x, orders = structure(edges, 6, 0, order="bfs", tie_keys=keys)
     y, relabeled = structure(perm[edges], 6, 0, order="bfs", tie_keys=keys[:, np.argsort(perm)])
     np.testing.assert_array_equal(x, y[perm])
-    assert {tuple(perm[o[0]]) for o in orders} == {tuple(o[0]) for o in relabeled}
+    assert {tuple(perm[row]) for group in orders for row in group} == {
+        tuple(row) for group in relabeled for row in group}
     gradients = None
     if args.precision == "no":
         context.requires_grad_(True)
@@ -93,7 +94,7 @@ def check(args):
         s, steps = search(solver, data, legal, 1017)
     if args.device == "cuda":
         hook.remove()
-        expected = [(2, order.shape[1], 32) for order in component_orders]
+        expected = [(2 * order.shape[0], order.shape[1], 32) for order in component_orders]
         assert scan_shapes == expected, (scan_shapes, expected)
     assert steps == 100 and legal.feasible(s)
     if args.precision == "no":

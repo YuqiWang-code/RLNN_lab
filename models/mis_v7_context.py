@@ -64,7 +64,7 @@ class V7ActionPrior(nn.Module):
                     forward, reverse = self.sequence(torch.cat((seq, seq.flip((1,))), dim=0)).chunk(2)
                     encoded = (forward + reverse.flip((1,))) * 0.5
                 index = order.flatten()
-                delta = delta.index_add(0, index, encoded.flatten(0, 1).to(delta.dtype) / len(order))
+                delta = delta.index_add(0, index, encoded.flatten(0, 1).to(delta.dtype) / topology.views)
         return self.norm(h + delta)
 
     def precompute(self, topology):

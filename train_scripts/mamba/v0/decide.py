@@ -19,19 +19,28 @@ def read(path):
 def p0(root, width):
     stage = root / "preflight"
     correctness = all(read(stage / name / "run.json")["status"] == "completed"
-                      for name in ("cpu", "cuda_no", "cuda_fp16", "permutation"))
-    speed = {precision: read(stage / f"profile_{width}_{precision}" / "run.json")["ratio"]
-             for precision in ("no", "fp16")}
+                      for name in ("cpu", "cuda_no", "cuda_fp16", "permutation", "cuda_graph_trace"))
+    speed, repeats = {}, False
+    for precision in ("no", "fp16"):
+        first = stage / f"profile_{width}_{precision}"
+        second = stage / f"profile_{width}_{precision}_repeat"
+        results = [read(first / "run.json")]
+        if (second / "run.json").exists():
+            repeats = True
+            results.append(read(second / "run.json"))
+        bare = {arm: mean(run["timings"][arm]["bare_s"] for run in results) for arm in ("baseline", "mamba")}
+        speed[precision] = bare["mamba"] / bare["baseline"]
     info = read(stage / "information_probe" / "run.json")
     ratios = max(speed.values())
-    repeat = 1.08 < ratios <= 1.12
-    stable_direction = info["information_direction"]
+    repeat = not repeats and 1.08 < ratios <= 1.12
+    deltas = info["paired_delta_auc"]
+    stable_direction = all(deltas[arm]["ci95"][0] > 0 for arm in ("local_mlp", "full_mlp")) and deltas["message"]["delta_auc"] > 0
     reliability = info["mean_label_split_spearman"]
     if not correctness:
         status = "fix_correctness"
     elif repeat:
         status = "remeasure"
-    elif ratios > 1.12:
+    elif ratios > 1.08:
         status = "profile_width16" if width != 16 else "no_go_speed"
     elif stable_direction:
         status = "go_training"
@@ -40,7 +49,7 @@ def p0(root, width):
     else:
         status = "no_go_information"
     return dict(status=status, correctness=correctness, width=width, speed_ratios=speed,
-                proxy_auc=info["mean_metrics"], proxy_deltas=info["paired_delta_auc"],
+                proxy_auc=info["mean_metrics"], proxy_deltas=deltas, information_direction=stable_direction,
                 proxy_reliability=reliability, weak_proxy_threshold=.25)
 
 

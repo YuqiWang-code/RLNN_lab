@@ -95,6 +95,9 @@ def profile(args):
                 selected, steps = search(policy, graph, legal, seed, observe=observe)
                 sync(device)
                 decoded = perf_counter()
+                events = policy.context_timings.pop("_context_events", None)
+                if events is not None:
+                    policy.context_timings["context_s"] = events[0].elapsed_time(events[1]) / 1000
                 improved = platform_search(legal, selected, choose=ranker.choose, horizon=1).best
                 final = perf_counter()
                 if not legal.feasible(selected) or not legal.feasible(improved):

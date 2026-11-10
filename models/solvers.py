@@ -470,13 +470,14 @@ class RLNN(MetaSolver):
                                    views=self.order_views, timings=timings)
             if not self.model.training:
                 if timings is not None:
-                    torch.cuda.synchronize(graph.b.device)
-                    start = time.perf_counter()
+                    start = torch.cuda.Event(enable_timing=True)
+                    stop = torch.cuda.Event(enable_timing=True)
+                    start.record()
                 with torch.no_grad():
                     bias = adapter.scaled(adapter.precompute(topology), model.delta_limit).to(self.dtype)
                 if timings is not None:
-                    torch.cuda.synchronize(graph.b.device)
-                    timings['context_s'] += time.perf_counter() - start
+                    stop.record()
+                    timings['_context_events'] = start, stop
                 topology = topology._replace(cached_action_bias=bias)
             return topology
         if self.v6_frequency:

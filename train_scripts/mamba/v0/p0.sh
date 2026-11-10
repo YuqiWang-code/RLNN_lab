@@ -8,7 +8,8 @@ case "$action" in
     ACCELERATE_USE_CPU=true "$PYTHON" -u "$SCRIPTS/check.py" --device cpu --output "$OUT/preflight/cpu"
     for precision in no fp16; do
       "$PYTHON" -u "$SCRIPTS/check.py" --device cuda --precision "$precision" --output "$OUT/preflight/cuda_$precision"
-    done ;;
+    done
+    "$PYTHON" -u "$SCRIPTS/check_scan.py" --output "$OUT/preflight/cuda_graph_trace" ;;
   timing)
     width="${WIDTH:-32}"
     for precision in no fp16; do
