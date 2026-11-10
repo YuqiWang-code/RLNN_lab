@@ -1,4 +1,6 @@
 method	category	pdf	title
+Graph-Mamba-Networks	图序列与长程依赖	https://arxiv.org/pdf/2402.08678v2	Graph Mamba: Towards Learning on Graphs with State Space Models
+ECO	神经组合优化	https://arxiv.org/pdf/2602.20730v3	Rethinking Efficiency in Neural Combinatorial Optimization: Batched Preference Optimization with Mamba
 Barabasi-Albert-1999	基础与综述	https://barabasi.com/media/Emergence-Barabasi-1999_gN74Tws.pdf|https://arxiv.org/pdf/cond-mat/9910332	Emergence of Scaling in Random Networks
 Bengio-2020-MLCO	基础与综述	https://arxiv.org/pdf/1811.06128	Machine Learning for Combinatorial Optimization: a Methodological Tour d'Horizon
 Berthold-2014-MINLP	求解器与启发式	https://www.zib.de/userpage//berthold/Berthold2014.pdf	Heuristic Algorithms in Global MINLP Solvers

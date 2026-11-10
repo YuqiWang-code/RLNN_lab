@@ -1,6 +1,6 @@
 # 历史研究方案
 
-本目录保存 v1–v3 的研究综述与结构设计。当前频域研究方案见 [v4 重设计](../temporary/RLNN_Frequency_v4_Literature_Code_Redesign.md)，冻结的 PAVE 实验依据见 [v3 结果分析](../temporary/RLNN_v3_Results_Analysis.md)。各版本源代码、训练入口和实验结果保留在原位置。
+本目录保存 v1–v3 的研究综述与结构设计。当前频域研究方案见 [v4 重设计](../已归档的想法和文件/RLNN_Frequency_v4_Literature_Code_Redesign.md)，冻结的 PAVE 实验依据见 [v3 结果分析](../temporary/RLNN_v3_Results_Analysis.md)。各版本源代码、训练入口和实验结果保留在原位置。
 
 | 文件 | 内容 |
 | --- | --- |

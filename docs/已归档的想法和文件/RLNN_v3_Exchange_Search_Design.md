@@ -116,7 +116,7 @@ step25–100 的 low 门均值范围为 0.86106–0.86168，high 为 0.80500–0
 
 静态一阶和固定融合优于完整 SEGF，但只有一个种子。它们值得保留为后续探索，不能据此直接替换主干。v3 主实验不继续扩大全轨迹分频组合。
 
-机制来源为 [SEGF phases](../../outputs/v2/diagnostics_frequency_segf/phases.csv)、[baseline phases](../../outputs/v2/diagnostics_frequency_base/phases.csv)、[门控直方图](../../outputs/v2/diagnostics_frequency_segf/run.json)、[诊断标签定义](../../models/diagnose_v2_frequency.py)、[分支实现](../../models/mis_v2_frequency.py)。
+机制来源为 [SEGF phases](../../outputs/v2/diagnostics_frequency_segf/phases.csv)、[baseline phases](../../outputs/v2/diagnostics_frequency_base/phases.csv)、[门控直方图](../../outputs/v2/diagnostics_frequency_segf/run.json)、[诊断标签定义](../../models/archived_frequency/diagnose_v2_frequency.py)、[分支实现](../../models/archived_frequency/mis_v2_frequency.py)。
 
 ## 4. PAVE 为什么没有排序信号
 
@@ -410,7 +410,7 @@ B0/B1 的固定步数质量可复用已保存解；新的规范计时重新运�
 | `models/train_exchange_value_v3.py` | 按图分割的数据、按状态平衡的排序训练 |
 | `models/diagnose_v3.py` | 联合邻域普查、oracle 差、复原率、标签覆盖 |
 | `models/eval_v3.py` | 固定工作量/总时间、逐图指标与端到端计时 |
-| `train_scripts/v3/` | `diagnose.sh`、`collect.sh`、`train.sh`、`eval.sh`、配置表与 README |
+| `train_scripts/legacy/v3/` | `diagnose.sh`、`collect.sh`、`train.sh`、`eval.sh`、配置表与 README |
 
 复用 v2 的 bitset 邻接和作者数据顺序，独立实现非严格改善动作的合法应用函数；v2 `apply()` 要求严格增大 Size，不能直接拿来执行 1→1。保留 v2 实现和结果，以便原样运行对照。
 

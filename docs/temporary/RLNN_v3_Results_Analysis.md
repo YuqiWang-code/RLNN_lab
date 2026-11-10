@@ -256,4 +256,4 @@ H1 起点和中间状态的非平局比例分别为3.550%、3.591%，其 Oracle�
 - [标签来源分层统计](../../outputs/v3/analysis/label_origin_summary.csv)，训练/验证、H1/H2及起点/中间状态的信号覆盖。
 - 原始记录位于 [seed0](../../outputs/v3/test_tuned_h1_seed0/pave/per_graph.csv)、[seed1](../../outputs/v3/test_tuned_h1_seed1/pave/per_graph.csv)、[seed2](../../outputs/v3/test_tuned_h1_seed2/pave/per_graph.csv) 及同目录其他策略。
 - [动作普查](../../outputs/v3/census/run.json)、[H1准入](../../outputs/v3/decision_h1.json)、[H2准入](../../outputs/v3/decision.json)、[适配混合数据](../../outputs/v3/labels_train_mixed_h1/run.json)。
-- [未训练控制](../../train_scripts/v3/untrained_control.py)、[状态评分结构](../../models/mis_v3_value.py)、[评分训练](../../models/train_exchange_value_v3.py)、[正式评测](../../models/eval_v3.py)。
+- [未训练控制](../../train_scripts/legacy/v3/untrained_control.py)、[状态评分结构](../../models/mis_v3_value.py)、[评分训练](../../models/train_exchange_value_v3.py)、[正式评测](../../models/eval_v3.py)。

@@ -20,8 +20,8 @@
 | `logs_train/` | 作者日志，仅供参考，不导入实验台账 |
 | `environment.yml` | 作者原始环境快照，供溯源 |
 
-从本目录运行 `python main.py --help`；正式项目入口在 `../train_scripts/v000_rlnn_baseline/`。启动器进入本目录，`from models import GCN` 加载本目录的 `models.py`。不使用 `python -m models.main`。
+从本目录运行 `python main.py --help`；正式项目入口在 `../train_scripts/legacy/v000_rlnn_baseline/`。启动器进入本目录，`from models import GCN` 加载本目录的 `models.py`。不使用 `python -m models.main`。
 
-工程适配包括参数解析器、可配置多图合批和外围结果工具。多图路径对每图损失取平均，并并行生成独立轨迹；默认网络、能量函数及解码保留原RLNN行为。RTX 5090环境见[服务器说明](../docs/服务器.md)。v4入口与开关见[实验协议](../train_scripts/v4_frequency/README.md)，`--frequency v4a` 启用频域适配器，默认 `none`。
+工程适配包括参数解析器、可配置多图合批和外围结果工具。多图路径对每图损失取平均，并并行生成独立轨迹；默认网络、能量函数及解码保留原RLNN行为。RTX 5090环境见[服务器说明](../docs/服务器.md)。v4入口与开关见[实验协议](../train_scripts/legacy/v4_frequency/README.md)，`--frequency v4a` 启用频域适配器，默认 `none`。
 
 MIS 缓存由 data/prepare_mis_tensors.py 创建，保留原始图顺序。--resume 接收 epoch 边界训练状态；当前多图训练每轮保存 latest_training.pt，包含 Adam 和主进程随机状态。

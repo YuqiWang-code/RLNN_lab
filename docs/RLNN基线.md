@@ -18,7 +18,7 @@
 | 更新预算 | 每 epoch 77 次，50 epoch 共 3850 次 |
 | 显存分配器 | cudaMallocAsync |
 
-启动入口 `train_scripts/v000_rlnn_baseline/train.sh`，可用 `GRAPH_BATCH_SIZE`、`BATCH_SIZE` 覆盖批大小。当前运行 `rb_train_g13_cache_w8_gpu1_seed0`，使用张量缓存与 8 个常驻 worker，从第 22 轮最佳权重继续至总第 50 轮，训练后独立测试。该起点 Adam 与随机状态缺失并重置，详见[数据读取性能与续训协议](数据读取性能.md)。
+启动入口 `train_scripts/legacy/v000_rlnn_baseline/train.sh`，可用 `GRAPH_BATCH_SIZE`、`BATCH_SIZE` 覆盖批大小。当前运行 `rb_train_g13_cache_w8_gpu1_seed0`，使用张量缓存与 8 个常驻 worker，从第 22 轮最佳权重继续至总第 50 轮，训练后独立测试。该起点 Adam 与随机状态缺失并重置，详见[数据读取性能与续训协议](数据读取性能.md)。
 
 ## 合批实现
 

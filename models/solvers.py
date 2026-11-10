@@ -7,10 +7,12 @@ import torch
 from torch.optim import AdamW, Adam
 from models import GCN, MLP, edge2adj
 from mis_v1 import MISStateGCN, adjacency, search
-from mis_v2_frequency import SEGF, SEGF_MODES, frequency_topology
-from mis_v4_frequency import V4FrequencyGCN, V4_MODES, v4_topology
-from mis_v5_frequency import V5DAFRGCN, V5_MODES, v5_topology
-from mis_v6_frequency import V6SCGCN, V6_MODES, v6_topology, polarization_bonus
+from archived_frequency.mis_v2_frequency import SEGF, SEGF_MODES, frequency_topology
+from archived_frequency.mis_v4_frequency import V4FrequencyGCN, V4_MODES, v4_topology
+from archived_frequency.mis_v5_frequency import V5DAFRGCN, V5_MODES, v5_topology
+from archived_frequency.mis_v6_frequency import V6SCGCN, V6_MODES, v6_topology, polarization_bonus
+from mis_v7_context import V7StaticContextGCN
+from v7_structure import v7_topology
 from torch_scatter import scatter_min, scatter_max, scatter_add
 from torch_geometric.utils import add_remaining_self_loops
 from accelerate import Accelerator
@@ -237,7 +239,15 @@ class RLNN(MetaSolver):
         self.v4_frequency = self.frequency in V4_MODES
         self.v5_frequency = self.frequency in V5_MODES
         self.v6_frequency = self.frequency in V6_MODES
-        if self.frequency != 'none':
+        self.context_mode = getattr(args, 'context_mode', 'none')
+        self.v7_context = self.context_mode != 'none'
+        if self.v7_context:
+            if args.problem != 'mis' or self.frequency != 'none':
+                raise ValueError('Static context requires MIS without a legacy frequency adapter')
+            self.model = V7StaticContextGCN(args.num_h, args.num_l, self.context_mode,
+                                           args.v7_width, args.v7_d_state, args.v7_delta_limit)
+            self.order_seed, self.order_views = args.v7_order_seed, args.v7_order_views
+        elif self.frequency != 'none':
             if args.problem != 'mis':
                 raise ValueError('State frequency encoders require MIS')
             model_type = (V6SCGCN if self.v6_frequency else V5DAFRGCN if self.v5_frequency else V4FrequencyGCN if self.v4_frequency
@@ -256,7 +266,7 @@ class RLNN(MetaSolver):
                 weights = torch.load(warm_start, map_location='cpu', weights_only=True)
                 if self.v5_frequency and any(key.startswith('adapter.') for key in weights):
                     raise ValueError('v5 warm start requires a plain RLNN checkpoint')
-                missing, extra = self.model.load_state_dict(weights, strict=not (self.segf or self.v4_frequency or self.v5_frequency))
+                missing, extra = self.model.load_state_dict(weights, strict=not (self.segf or self.v4_frequency or self.v5_frequency or self.v7_context))
                 if extra or any(not key.startswith('adapter.') for key in missing):
                     raise ValueError('Warm start must contain the original RLNN backbone')
             self.optimizer = Adam(self.model.parameters(), lr=args.lr)
@@ -393,6 +403,7 @@ class RLNN(MetaSolver):
         self.print_log(logger)
         for epoch in range(start_epoch, self.epochs):
             logger['Epoch'] = epoch+1
+            self.training_epoch = epoch
             self.model.train()
             if self.freeze_backbone_epochs:
                 for name, parameter in self.model.named_parameters():
@@ -451,6 +462,23 @@ class RLNN(MetaSolver):
             self.save_training_state(save_dir, epoch+1, best_eval, logger, history)
 
     def policy_topology(self, graph, adj):
+        if self.v7_context:
+            model = self.accelerator.unwrap_model(self.model)
+            adapter = model.adapter
+            timings = getattr(self, 'context_timings', None)
+            topology = v7_topology(graph, adapter.normalize, self.order_seed, order=adapter.order,
+                                   views=self.order_views, timings=timings)
+            if not self.model.training:
+                if timings is not None:
+                    torch.cuda.synchronize(graph.b.device)
+                    start = time.perf_counter()
+                with torch.no_grad():
+                    bias = adapter.scaled(adapter.precompute(topology), model.delta_limit).to(self.dtype)
+                if timings is not None:
+                    torch.cuda.synchronize(graph.b.device)
+                    timings['context_s'] += time.perf_counter() - start
+                topology = topology._replace(cached_action_bias=bias)
+            return topology
         if self.v6_frequency:
             return v6_topology(graph.edge_index, adj, graph.num_nodes)
         if self.v5_frequency:
@@ -462,6 +490,8 @@ class RLNN(MetaSolver):
         return edge2adj(graph.edge_index, graph.num_nodes)
 
     def flip_logits(self, x, graph, adjacency, normalized=None):
+        if self.v7_context:
+            return self.model(x, graph.edge_index, adjacency, normalized)
         if self.frequency == 'none':
             return self.model(x.unsqueeze(-1), graph.edge_index, normalized).squeeze(-1)
         return self.model(x, graph.edge_index, adjacency, normalized)
@@ -523,9 +553,10 @@ class RLNN(MetaSolver):
         
         best_sol = x.clone()
         best_energy = energy.clone()
+        topology = self.policy_topology(graph, A) if self.v7_context else None
         
         for epoch in range(self.num_t):          
-            delta = self.flip_logits(x, graph, A)
+            delta = self.flip_logits(x, graph, A, topology)
             flip_prob = torch.sigmoid(delta)
 
             rr = torch.rand_like(x)

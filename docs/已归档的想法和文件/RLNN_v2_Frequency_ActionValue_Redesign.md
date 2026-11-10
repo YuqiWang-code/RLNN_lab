@@ -805,7 +805,7 @@ models/
   mis_v2_value.py            # 对称交换特征、PAVE 排序网络
   train_exchange_value.py    # 同解候选的后续质量监督生成
   eval_v2.py                 # B / F / V / F+V 统一评估
-train_scripts/v2/
+train_scripts/legacy/v2/
   README.md                  # 精确配置和消融协议
   diagnose_exchange.sh
   train_frequency.sh
@@ -883,7 +883,7 @@ def evaluate_v2(G, rlnn, freq_adapter, value_ranker, budget):
 2. **GCON** — Wenkel et al., *Towards a General Recipe for Combinatorial Optimization With Multi-Filter GNNs*, LoG/PMLR 2025。论文 [PDF](https://raw.githubusercontent.com/mlresearch/v269/main/assets/wenkel25a/wenkel25a.pdf)；[官方源码](https://github.com/WenkelF/copt)。已使用多滤波器、图尺度聚合与差分；不能把“多尺度图小波”单独列为新贡献。
 3. **GRACE** — Liu et al., *Graph Few-Shot Learning via Adaptive Spectrum Experts and Cross-Set Distribution Calibration*, NeurIPS 2025。论文 [页面](https://proceedings.neurips.cc/paper_files/paper/2025/hash/eb154abcbfa13d23f01ad3e091e92b08-Abstract-Conference.html)、[PDF](https://arxiv.org/pdf/2510.12140)。已讨论自适应频率专家，任务是图少样本学习而非 RLNN/MIS。
 4. **COPT-MT** — Cantürk et al., *Can Computational Reducibility Lead to Transferable Models for Graph Combinatorial Optimization?*, ICML 2026。论文 [PDF](https://raw.githubusercontent.com/mlresearch/v306/main/assets/canturk26a/canturk26a.pdf)；[官方源码](https://github.com/semihcanturk/COPT-MT)。已把 GCON 风格图网络用于 MIS 等任务，是频域组合优化的重要对照。
-5. **本项目证据** — [v1 实验协议](https://github.com/YuqiWang-code/RLNN_lab/blob/32f80154e577e0565c7f8f6ee707c75a6ce4dc6b/train_scripts/v1/README.md)、[训练与逐图结果](https://github.com/YuqiWang-code/RLNN_lab/tree/32f80154e577e0565c7f8f6ee707c75a6ce4dc6b/outputs/v1)、[原实现代码](https://github.com/YuqiWang-code/RLNN_lab/blob/32f80154e577e0565c7f8f6ee707c75a6ce4dc6b/models/mis_v1.py)。
+5. **本项目证据** — [v1 实验协议](https://github.com/YuqiWang-code/RLNN_lab/blob/32f80154e577e0565c7f8f6ee707c75a6ce4dc6b/train_scripts/legacy/v1/README.md)、[训练与逐图结果](https://github.com/YuqiWang-code/RLNN_lab/tree/32f80154e577e0565c7f8f6ee707c75a6ce4dc6b/outputs/v1)、[原实现代码](https://github.com/YuqiWang-code/RLNN_lab/blob/32f80154e577e0565c7f8f6ee707c75a6ce4dc6b/models/mis_v1.py)。
 
 ---
 
