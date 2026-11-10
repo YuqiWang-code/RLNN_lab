@@ -86,7 +86,7 @@ def spectral_checks():
 
 
 def model_checks(device):
-    from mis_v4_frequency import V4FrequencyGCN, v4_topology
+    from archived_frequency.mis_v4_frequency import V4FrequencyGCN, v4_topology
     edges = edges_from([(0, 1), (0, 2), (1, 2), (2, 3), (3, 4)]).to(device)
     adj = torch.sparse_coo_tensor(edges, torch.full((edges.shape[1],), 0.5, device=device), (7, 7)).to_sparse_csr()
     topology = v4_topology(edges, adj, 7)

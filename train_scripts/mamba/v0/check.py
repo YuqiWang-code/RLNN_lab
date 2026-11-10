@@ -85,13 +85,16 @@ def check(args):
         hook = context.sequence.register_forward_pre_hook(lambda _, args: scan_shapes.append(tuple(args[0].shape)))
     data = dataset_at(TRAIN, solver.dtype, 1)[0]
     legal = SearchGraph(data.num_nodes, data.edge_index, seed=1017)
+    _, component_orders = structure(data.edge_index.numpy(), data.num_nodes, solver.order_seed + data.idx,
+                                    order=context.order, views=solver.order_views)
     data = data.to(device)
     with torch.no_grad():
         b, _ = search(base, data, legal, 1017)
         s, steps = search(solver, data, legal, 1017)
     if args.device == "cuda":
         hook.remove()
-        assert scan_shapes == [(2, data.num_nodes, 32)]
+        expected = [(2, order.shape[1], 32) for order in component_orders]
+        assert scan_shapes == expected, (scan_shapes, expected)
     assert steps == 100 and legal.feasible(s)
     if args.precision == "no":
         assert s == b
