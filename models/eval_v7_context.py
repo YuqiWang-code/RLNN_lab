@@ -45,8 +45,9 @@ def main():
         if solver.v7_context:
             norm = model.adapter
             from hashlib import sha256
-            model_metadata["feature_norm_sha256"] = sha256(norm.feature_mean.cpu().numpy().tobytes()
-                                                            + norm.feature_std.cpu().numpy().tobytes()).hexdigest()
+            if hasattr(norm, "feature_mean"):
+                model_metadata["feature_norm_sha256"] = sha256(norm.feature_mean.cpu().numpy().tobytes()
+                                                                + norm.feature_std.cpu().numpy().tobytes()).hexdigest()
             model_metadata["adapter_params"] = sum(p.numel() for p in norm.parameters())
         else:
             model_metadata["adapter_params"] = 0

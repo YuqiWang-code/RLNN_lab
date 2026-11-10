@@ -71,10 +71,12 @@ def sync(device):
         torch.cuda.synchronize(device)
 
 
-def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None):
+def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None, decode_every=None, timings=None):
     """Keep the original per-trajectory energy record and A.3 decoder."""
     if graph.num_nodes == 0:
         return 0, 0
+    if timings is not None:
+        started = perf_counter()
     device = graph.b.device
     generator = torch.Generator(device=device).manual_seed(seed)
     adj = adjacency(graph)
@@ -89,6 +91,9 @@ def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None):
         states = ((x, problem.energy_func(adj, graph.b, x)[0])
                   for x in solver.sample_states(graph, adj, generator=generator, normalized=topology))
     best_states, best_energy = next(states)
+    if timings is not None:
+        timings["policy_prepare_s"] = perf_counter() - started
+    decode_interval = decode_every if decode_every is not None else (10 if deadline is not None else None)
     incumbent = 0
     chunk_time = 0.0
     chunk_start = perf_counter()
@@ -100,9 +105,9 @@ def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None):
             raise ValueError("A.3 returned a conflicting independent set")
         return mask
 
-    if deadline is not None:
+    if decode_interval is not None:
         first = decode()
-        if perf_counter() < deadline:
+        if deadline is None or perf_counter() < deadline:
             incumbent = first
     if observe is not None:
         observe(0, best_states, best_states, adj, topology)
@@ -117,16 +122,16 @@ def search(solver, graph, cpu_graph, seed, *, deadline=None, observe=None):
         steps = step
         if observe is not None:
             observe(step, state, best_states, adj, topology)
-        if deadline is not None and (step % 10 == 0 or step == solver.num_t):
+        if decode_interval is not None and (step % decode_interval == 0 or step == solver.num_t):
             candidate = decode()
             now = perf_counter()
-            if now >= deadline:
+            if deadline is not None and now >= deadline:
                 break
             if candidate.bit_count() > incumbent.bit_count():
                 incumbent = candidate
             chunk_time = now - chunk_start
             chunk_start = now
-    return (decode() if deadline is None else incumbent), steps
+    return (decode() if decode_interval is None else incumbent), steps
 
 
 def write_run(result, metadata):
