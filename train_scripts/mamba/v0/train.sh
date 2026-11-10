@@ -6,6 +6,7 @@ shift
 export PYTORCH_ALLOC_CONF=backend:cudaMallocAsync
 exec "$PYTHON" -u models/train_v7_context.py --context_mode "$arm" --reference_seed "$REF_SEED" \
   --result_dir "$OUT/${RUN_NAME:-train_${arm}_ref${REF_SEED}}" --seed "$SEED" --epochs "${EPOCHS:-3}" \
+  --v7_width "${WIDTH:-32}" \
   --graph_batch_size 8 --batch_size 64 --lr 0.0003 --alpha_lr 0.001 \
   --method RLNN --loss erdoes --problem mis --beta 1.02 --lambd 0.5 \
   --train_path "$DATA/RB_small_train" --train_samples 1000 \

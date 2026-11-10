@@ -30,4 +30,3 @@ def build_batch(graphs):
     if all(hasattr(graph, "idx") for graph in graphs):
         data.graph_ids = tuple(int(graph.idx) for graph in graphs)
     return data
-    

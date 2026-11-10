@@ -14,6 +14,34 @@ from mis_v3_value import load_pave_v3
 from v7_runs import pave, preflight_policy, provenance
 
 
+def budget_probe(args, policies, ranker, dataset, device):
+    rows = []
+    for i, graph in enumerate(dataset):
+        gid = Path(dataset.files[i]).stem
+        seed = 1017 + i
+        edges = graph.edge_index
+        graph = graph.to(device)
+        for budget in (.5, 1.):
+            names = list(policies) if i % 2 == 0 else list(reversed(policies))
+            for name in names:
+                policy = policies[name]
+                policy.num_t = 10000
+                sync(device)
+                tick = perf_counter()
+                deadline = tick + budget
+                legal = SearchGraph(graph.num_nodes, edges, seed=seed)
+                selected, steps = search(policy, graph, legal, seed, deadline=deadline-.05)
+                fallback = not selected
+                if fallback:
+                    selected = 1 << legal.greedy_order[0]
+                result = platform_search(legal, selected, choose=ranker.choose, horizon=1, deadline=deadline)
+                elapsed = perf_counter()-tick
+                assert legal.feasible(result.best)
+                rows.append(dict(graph_id=gid, arm=name, budget=budget, search_steps=steps,
+                                 solve_s=elapsed, overrun=int(elapsed > budget), fallback=int(fallback)))
+    return rows
+
+
 @torch.no_grad()
 def profile(args):
     device = torch.device("cuda")
@@ -26,6 +54,23 @@ def profile(args):
         graph = dataset[0]
         legal = SearchGraph(graph.num_nodes, graph.edge_index, seed=1017)
         search(policy, graph.to(device), legal, 1017)
+    if args.budget_probe:
+        rows = budget_probe(args, policies, ranker, dataset, device)
+        args.output.mkdir(parents=True, exist_ok=False)
+        with (args.output / "per_graph.csv").open("w", newline="", encoding="utf-8") as stream:
+            writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+        results = {}
+        for budget in (.5, 1.):
+            results[str(budget)] = {}
+            for name in policies:
+                subset = [r for r in rows if r["arm"] == name and r["budget"] == budget]
+                results[str(budget)][name] = {key: mean(r[key] for r in subset)
+                                               for key in ("search_steps", "solve_s", "overrun", "fallback")}
+        write_run(args.output, dict(**provenance(args.ref), status="completed", split="train",
+                                   width=args.width, precision=args.precision, results=results))
+        return
     rows = []
     for i, graph in enumerate(dataset):
         gid = Path(dataset.files[i]).stem
@@ -90,5 +135,6 @@ if __name__ == "__main__":
     parser.add_argument("--repeats", type=int, default=5)
     parser.add_argument("--ref", type=int, default=0)
     parser.add_argument("--checkpoint", type=Path)
+    parser.add_argument("--budget-probe", action="store_true")
     parser.add_argument("--output", type=Path, required=True)
     profile(parser.parse_args())

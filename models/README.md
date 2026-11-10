@@ -10,9 +10,9 @@
 | `models.py` | GCN、MLP 与图卷积 |
 | `solvers.py` | RLNN/RLSA 训练、采样、评价 |
 | `mis_v3_search.py` / `mis_v3_value.py` | 合法平台搜索与PAVE，v4沿用冻结版本 |
-| `mis_v4_frequency.py` | 双尺度频域适配器、同参数MLP/消息对照与推理干预 |
-| `train_v4_frequency.py` | 匹配教师状态下的适配器训练 |
-| `eval_v4_frequency.py` / `diagnose_v4_frequency.py` | 冻结PAVE评测与频谱/门控诊断 |
+| `mis_v7_context.py` / `v7_structure.py` | 一次性静态图编码、双动作偏置和同信息对照 |
+| `train_v7_context.py` / `eval_v7_context.py` | 冻结教师训练、固定步数与同预算 PAVE 对照 |
+| `archived_frequency/` | 频域模型、训练和机制诊断 |
 | `probe_v4_utility.py` | 验证集上共享随机数的真实翻转收益探针 |
 | `problems/` | MIS、最大团、最大割的数据与目标 |
 | `data/` | RB/ER/BA 图生成源码及本地数据位置 |

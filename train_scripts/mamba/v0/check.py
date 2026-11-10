@@ -97,7 +97,7 @@ def check(args):
         assert s == b
     hashes = [provenance(ref)["pave_sha256"] for ref in range(3)]
     for ref, expected in enumerate(hashes):
-        matches = [path for path in (ROOT / "outputs/v5_frequency").glob(f"budget*baseline*seed{ref}/pave/run.json")]
+        matches = (ROOT / "outputs/v5_frequency").glob(f"eval_budget_*_baseline_extended_seed{ref}/pave/run.json")
         archived = {json.loads(path.read_text(encoding="utf-8")).get("pave_sha256") for path in matches}
         assert expected in archived, f"Frozen PAVE checkpoint differs for ref {ref}"
     args.output.mkdir(parents=True, exist_ok=False)

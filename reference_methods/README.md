@@ -8,6 +8,8 @@ python tools/fetch_references.py all
 
 下载只取公开的源码和论文。源码快照保存在本地与实验服务器，Git 跟踪清单、版本和本项目的适配入口。下载器过滤上游打包的权重、数据缓存和编译产物。已公开的部分实现按原仓库归档，IDG 的公开版本是 README 占位。
 
+Mamba 主线参考了 [Mamba](Mamba/upstream.json)、[Graph-Mamba](Graph-Mamba/upstream.json)、[NeuralWalker](NeuralWalker/upstream.json) 和 [Range-Measure](Range-Measure/upstream.json) 的作者代码。对应论文和用于 MIS 的定量对照见[文献索引](../docs/参考文献/文献索引.md)。
+
 正式对照的训练和评估入口见 [v1 实验](../train_scripts/legacy/v1/README.md)。论文 PDF 按研究方向收在[参考文献](../docs/参考文献/文献索引.md)。
 
 ## v4 频域方法快照

@@ -76,6 +76,7 @@ PYTHON="$HOME/envs/rlnn/bin/python" bash train_scripts/legacy/v000_rlnn_baseline
 | `train_scripts/legacy/v4_frequency/` | 共享教师状态训练、独占计时验证、频谱与收益诊断 |
 | `train_scripts/legacy/v5_frequency/` | DAFR-Lite 短训、固定步数与限时评测、机制诊断 |
 | `train_scripts/legacy/v6/` | SC-RLNN 训练、速度准入、固定步数评测与逐层诊断 |
+| `train_scripts/mamba/v0/` | 一次性 Mamba 静态先验、预检、同信息对照训练与限时评测 |
 | `outputs/v3/`、`outputs/v4_frequency/`、`outputs/v5_frequency/`、`outputs/v6/` | 各版本逐图记录、配对汇总与阶段决策 |
 | `reference_methods/` | [参考方法代码与来源](reference_methods/README.md) |
 | `docs/` | 服务器、数据集、参考文献与实验结果 |

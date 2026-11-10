@@ -43,7 +43,7 @@ def build_parser():
 
 
 @torch.no_grad()
-def evaluate(args):
+def evaluate(args, *, policy_loader=None):
     policies = list(dict.fromkeys(args.post))
     checkpoint_paths = {}
     for name, path in args.extra_value_checkpoint:
@@ -65,7 +65,7 @@ def evaluate(args):
         raise ValueError("The post reserve cannot be negative")
     if "pave" in policies and args.value_checkpoint is None:
         raise ValueError("PAVE requires --value-checkpoint")
-    solver = load_policy(args)
+    solver = (policy_loader or load_policy)(args)
     solver.model.requires_grad_(False)
     device = solver.accelerator.device
     dataset = dataset_at(args.test_path, solver.dtype, args.test_samples, official=args.split == "test")
