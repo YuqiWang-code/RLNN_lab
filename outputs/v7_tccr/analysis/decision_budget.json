@@ -1,0 +1,18 @@
+{
+  "version": "v7_tccr",
+  "mode": "budget",
+  "refs": [
+    0
+  ],
+  "results": [
+    {
+      "ref": 0,
+      "status": "budget_fail"
+    }
+  ],
+  "thresholds": {
+    "mean_delta": 0.05,
+    "loss_share": 0.1,
+    "recombine_ms": 25.0
+  }
+}

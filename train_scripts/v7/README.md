@@ -10,8 +10,10 @@
 | `check.sh` | 算子单测（`models/check_v7.py`）＋ 捕获一致性（自己的 T100 捕获 vs `eval_v2.search`） |
 | `probe.sh` | 单参考种子普查，`recombine` / `conflict` / `both` 三选一 |
 | `probe_pipeline.sh` | 端到端固定工作量：A.3 / 重组 / 冻结 PAVE / 重组+PAVE 四个解的大小 |
+| `probe_budget.sh` | 截止时间两臂（同预算、重组从搜索里扣时间）＋ B1–B5 判决 |
 | `probe_all.sh` | 多参考种子循环 + 汇总判决 |
 | `summarize.py` | 图级配对统计、bootstrap CI、G1–G5 门槛与 `decision.json` |
+| `summarize_budget.py` | ABBA 重复平均、图级配对 Δ、B1–B5 门槛与 `decision_budget.json` |
 
 ## 运行
 
@@ -19,6 +21,7 @@
 CUDA_VISIBLE_DEVICES=0 bash train_scripts/v7/check.sh
 CUDA_VISIBLE_DEVICES=0 bash train_scripts/v7/probe.sh both
 REFERENCE_SEED=0 bash train_scripts/v7/probe_pipeline.sh
+BUDGETS="0.5 1.0" bash train_scripts/v7/probe_budget.sh
 REFERENCE_SEED=1 bash train_scripts/v7/probe.sh both --gpu 1
 REFS="0 1 2" bash train_scripts/v7/probe_all.sh both
 ```
@@ -33,6 +36,8 @@ REFS="0 1 2" bash train_scripts/v7/probe_all.sh both
 | `outputs/v7_tccr/census/conflict_ref{r}.csv` | 每（图, 搜索种子, 层）一行：`a3` / `pave` 两层的区域数、改善区域数、`k=2/3/4` 的最大增益、窗口大小、普查耗时 |
 | `outputs/v7_tccr/pipeline/pipeline_ref{r}.csv` | 每（图, 搜索种子）一行：A.3／重组／PAVE／重组+PAVE 四个解的大小与分段耗时 |
 | `outputs/v7_tccr/pipeline/run_ref{r}.json` | 端到端运行的配置、均值与 SHA |
+| `outputs/v7_tccr/budget/budget_ref{r}.csv` | 每（图, 种子, 预算, 臂, 重复）一行：解大小、搜索步数、段耗时、是否超时 |
+| `outputs/v7_tccr/analysis/summary_budget_ref{r}.json` | 两档预算的配对 Δ、CI 与 B1–B5 判决 |
 | `outputs/v7_tccr/census/run_ref{r}.json` | 配置、种子、耗时、骨干与 PAVE 的 SHA、数据清单 SHA |
 | `outputs/v7_tccr/checks/run.json` | 捕获一致性逐图记录（`match=1` 表示与 `eval_v2.search` 逐位相同） |
 | `outputs/v7_tccr/analysis/decision.json` | G1–G5 与最终判决（`advance` / `recombine_only` / `conflict_only` / `stop`） |
@@ -50,4 +55,4 @@ G1–G5 任一组合不满足时按预注册判决表处理，不调门槛、不
 
 ## 本轮结论
 
-三个参考种子一致：重组在**冻结 PAVE 之上**还有 +0.088（69/231/0），区域通道只有 +0.043（8–15/100 图）。预注册判决 `stop`（G2/G3/G5 未过）。完整读数、限制与下一步见 [docs/temporary/RLNN_v7_TCCR_Results.md](../../docs/temporary/RLNN_v7_TCCR_Results.md)。
+三个参考种子一致：重组在**冻结 PAVE 之上**还有 +0.088（69/231/0），区域通道只有 +0.043（8–15/100 图）。但预算门（0.5 秒／1.0 秒）给出 −0.028／+0.010，20 ms 的搜索时间值 +0.060 > 重组增益 +0.033，按预注册是 `budget_fail`：这条线到此为止。完整读数、机制与下一步见 [docs/temporary/RLNN_v7_TCCR_Results.md](../../docs/temporary/RLNN_v7_TCCR_Results.md)。

@@ -105,6 +105,32 @@ def check_oracle_accounting(trials=60):
     return trials
 
 
+def check_fast_oracle(trials=40):
+    """mis_v7_fast must return exactly what the exhaustive exact oracle returns."""
+    import mis_v7_fast as fast
+
+    rng = random.Random(31)
+    for _ in range(trials):
+        num_nodes = rng.randint(30, 120)
+        neighbours = random_graph(rng, num_nodes, rng.uniform(0.02, 0.06))
+        solutions = []
+        for _ in range(20):
+            order = list(range(num_nodes))
+            rng.shuffle(order)
+            mask = 0
+            for v in order:
+                if not neighbours[v] & mask:
+                    mask |= 1 << v
+            solutions.append(recombine.polish(mask, neighbours))
+        candidate, gain, pair, calls = fast.oracle(solutions, neighbours)
+        best, expected_gain, expected_pair, _ = recombine.best_recombination(solutions, neighbours)
+        assert candidate == best, (candidate.bit_count(), best.bit_count())
+        assert gain == expected_gain, (gain, expected_gain)
+        assert pair == expected_pair, (pair, expected_pair)
+        assert calls <= 1
+    return trials
+
+
 def check_polish(trials=100):
     rng = random.Random(7)
     for _ in range(trials):
@@ -165,6 +191,7 @@ def main():
     results = {}
     results["recombination_pairs"] = check_recombination()
     results["oracle_cases"] = check_oracle_accounting()
+    results["fast_oracle_cases"] = check_fast_oracle()
     results["polish_cases"] = check_polish()
     results["region_cases"] = check_regions()
     results["three_to_four"] = check_three_to_four()

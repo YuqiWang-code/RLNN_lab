@@ -16,6 +16,8 @@
 | `mis_v7_conflict.py` | 阻挡集合、释放区域 `R(U)`、局部精确 MIS 与上下界（v7 TCCR 普查） |
 | `diagnose_v7_census.py` | v7 普查驱动：K=20 合法解捕获、重组 Oracle、区域 Oracle，只读不训练 |
 | `eval_v7_tccr.py` | v7 端到端固定工作量：A.3／重组／冻结 PAVE／重组+PAVE 四个解同进程对照 |
+| `mis_v7_fast.py` | 重组的快速筛选（一次批匹配给出 190 对的精确 ν，仅胜者走精确算子），结果与穷举一致 |
+| `eval_v7_budget.py` | v7 截止时间两臂对照：同预算下重组从搜索里扣时间，ABBA 重复 |
 | `check_v7.py` | v7 算子的暴力交叉验证、`polish` 不变量与 3→4 构造例（CPU，无检查点） |
 | `mis_structure.py` / `train_structure.py` / `eval_structure.py` | 已归档的结构补偿线（度数/门控/增益通道） |
 | `archived_frequency/` | 频域模型、训练和机制诊断 |
