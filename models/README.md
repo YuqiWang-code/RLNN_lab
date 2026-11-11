@@ -12,6 +12,11 @@
 | `mis_v3_search.py` / `mis_v3_value.py` | 合法平台搜索与PAVE，v4沿用冻结版本 |
 | `mis_v7_context.py` / `v7_structure.py` | 一次性静态图编码、双动作偏置和同信息对照 |
 | `train_v7_context.py` / `eval_v7_context.py` | 冻结教师训练、固定步数与同预算 PAVE 对照 |
+| `mis_v7_recombine.py` | 两个独立集的二部图差异区最优重组（König / 最大匹配），纯 Python bitset，无 torch 依赖 |
+| `mis_v7_conflict.py` | 阻挡集合、释放区域 `R(U)`、局部精确 MIS 与上下界（v7 TCCR 普查） |
+| `diagnose_v7_census.py` | v7 普查驱动：K=20 合法解捕获、重组 Oracle、区域 Oracle，只读不训练 |
+| `check_v7.py` | v7 算子的暴力交叉验证、`polish` 不变量与 3→4 构造例（CPU，无检查点） |
+| `mis_structure.py` / `train_structure.py` / `eval_structure.py` | 已归档的结构补偿线（度数/门控/增益通道） |
 | `archived_frequency/` | 频域模型、训练和机制诊断 |
 | `probe_v4_utility.py` | 验证集上共享随机数的真实翻转收益探针 |
 | `problems/` | MIS、最大团、最大割的数据与目标 |
