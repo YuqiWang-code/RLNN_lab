@@ -2,7 +2,7 @@
 
 **No-go，但失败点已经定位到一行超参数。** 用 KaMIS 训练解做方向标签、门固定 `tanh(alpha)=0.5`、6,000 次更新后，注入方向与 KaMIS 标签的 cosine 只有 **−0.04**，top-20 重合 4.3%（随机基线 8%），四个协议全部未过效应门槛。原因不是编码器容量或信息不足，而是**对齐项只占总损失的 0.19%**（0.0078 对 3.30），编码器实际只拟合了 Erdős 项。
 
-[P0 结果](RLNN_Mamba_v2_P0_Results.md) · [v1 复盘与 v2 方案](RLNN_Static_Prior_v1_Postmortem_and_v2_Plan.md) · [运行入口](../../train_scripts/mamba/v2/README.md)
+[P0 结果](RLNN_Mamba_v2_P0_Results.md) · [v1 复盘与 v2 方案](RLNN_Static_Prior_v1_Postmortem_and_v2_Plan.md) · [运行入口](../../../train_scripts/mamba/v2/README.md)
 
 ## 训练
 

@@ -2,7 +2,7 @@
 
 **No-go，且 v1 的 +0.090 未复现。** 把度数通道从"逐层残差"换成"读出端一次广播加"（`degree_out`）后，三个搜索种子下 T100＋PAVE 的配对 ΔSize 只有 **+0.0133**，95% CI [−0.040, +0.063]，20 胜 64 平 16 负。`all_out`（再加 softplus 尺度的增益残差）与 `degree_out` **逐位相同**——增益通道又一次完全失效。
 
-[设计](RLNN_Structure_v1_Design.md) · [v1 结果](RLNN_Structure_v1_Results.md) · [运行入口](../../train_scripts/structure/README.md) · [逐图记录](../../outputs/structure_v2/analysis/summary_ref0.json)
+[设计](RLNN_Structure_v1_Design.md) · [v1 结果](RLNN_Structure_v1_Results.md) · [运行入口](../../../train_scripts/structure/README.md) · [逐图记录](../../../outputs/structure_v2/analysis/summary_ref0.json)
 
 ## 本轮改动
 

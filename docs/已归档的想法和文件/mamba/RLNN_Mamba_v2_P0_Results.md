@@ -2,7 +2,7 @@
 
 **判决：`oracle_direction`。** oracle 剂量 0.5、来源 KaMIS。接口有明确杠杆：T100 上 +0.40 到 +0.45 个节点，T800 天花板 +0.14，0.5 秒 +0.19；反向 oracle 全程为负且随剂量单调。所有学习方向（`amp@A` 与 `rand@A`、v1 完整偏置、v1 仅节点项）在任何剂量下都不超过空对照带。
 
-[设计与方案](RLNN_Static_Prior_v1_Postmortem_and_v2_Plan.md) · [运行入口](../../train_scripts/mamba/v2/README.md)
+[设计与方案](RLNN_Static_Prior_v1_Postmortem_and_v2_Plan.md) · [运行入口](../../../train_scripts/mamba/v2/README.md)
 
 ## 设置
 

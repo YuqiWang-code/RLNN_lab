@@ -22,7 +22,7 @@ Mamba 主线参考了 [Mamba](Mamba/upstream.json)（Apache-2.0）、[Graph-Mamb
 | Sketch-Augmented | [source](Sketch-Augmented/source) | [NeurIPS 2025](https://arxiv.org/abs/2511.03824) | 层内 sketch 特征注入，`gain` 残差通道的模板 | 未提供根许可证 |
 | DiffQuadratic-MIS | [source](DiffQuadratic-MIS/source) | [ICML 2025](https://arxiv.org/abs/2406.19532) | MIS 可微二次松弛、基准与局部增益项 | 未提供根许可证 |
 
-结构补偿的设计与实验见 [v1 方案](../docs/temporary/RLNN_Structure_v1_Design.md) 与 [train_scripts/structure](../train_scripts/structure/README.md)。
+结构补偿的设计与实验见 [v1 方案](../docs/已归档的想法和文件/structure/RLNN_Structure_v1_Design.md) 与 [train_scripts/structure](../train_scripts/structure/README.md)（该研究线已归档）。
 
 ## v4 频域方法快照
 

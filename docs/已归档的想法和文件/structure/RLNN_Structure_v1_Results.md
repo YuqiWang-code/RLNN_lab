@@ -2,7 +2,7 @@
 
 **未过准入（`no_go`），但出现了本项目第一条非零信号。** 四个臂里只有 `degree`（逐层度数残差）方向一致为正：T100＋冻结 PAVE 的配对 ΔSize 为 **+0.090**，95% CI [−0.020, +0.200]，19 胜 70 平 11 负。速度门如实失败：每个臂每步多 11%–19% 的时间。
 
-[设计](RLNN_Structure_v1_Design.md) · [运行入口](../../train_scripts/structure/README.md) · [文献索引](../参考文献/文献索引.md) · [逐图记录](../../outputs/structure_v1/analysis/summary_ref0.json)
+[设计](RLNN_Structure_v1_Design.md) · [v2 结果](RLNN_Structure_v2_Results.md) · [运行入口](../../../train_scripts/structure/README.md) · [文献索引](../../参考文献/文献索引.md) · [逐图记录](../../../outputs/structure_v1/analysis/summary_ref0.json)
 
 ## 设置
 

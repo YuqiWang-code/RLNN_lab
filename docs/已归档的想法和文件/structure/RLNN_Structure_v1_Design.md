@@ -2,7 +2,8 @@
 
 > 研究点：**在冻结骨干内部补偿消息传递对结构信号与组合增益的压缩**。
 > 起点：B（原 RLNN 骨干，`GCN(1, 128, 5, 1)`）＋ 冻结 PAVE-Stats H1。PAVE 不动。
-> 前一条线（一次性静态先验 / Mamba）已归档：[归档总结](../已归档的想法和文件/mamba/README.md)。
+> 前一条线（一次性静态先验 / Mamba）已归档：[归档总结](../mamba/README.md)。
+> 本线终局：**No-go**，见[本目录 README](README.md)。
 
 ## 1. 问题在哪
 
@@ -96,7 +97,7 @@ f_i = [x_i, s_i, d_i − s_i, s_i/d_i, (2x_i−1)(β s_i − 1), d_i/250]
 
 ## 7. 与文献的关系
 
-检索范围 2024–2026，13 篇 CCF-A ＋ 1 篇 TMLR ＋ 3 篇预印本，PDF 与索引见[文献索引](../参考文献/文献索引.md)的「结构补偿」一节（S01–S17）。对应关系：
+检索范围 2024–2026，13 篇 CCF-A ＋ 1 篇 TMLR ＋ 3 篇预印本，PDF 与索引见[文献索引](../../参考文献/文献索引.md)的「结构补偿」一节（S01–S17）。对应关系：
 
 | 文献 | 支持的设计决定 |
 | --- | --- |
@@ -107,8 +108,8 @@ f_i = [x_i, s_i, d_i − s_i, s_i/d_i, (2x_i−1)(β s_i − 1), d_i/250]
 | S14 DiffQuadratic MIS（ICML 2025）· S15 MARCO（IJCAI 2024）· S16 LoRe（ICML 2026） | 组合优化的局部增益与状态回灌 → `gain` 的特征选型（选中邻居数、未覆盖邻居数、解析增益） |
 | S17 Unrealized Expectations（TMLR 2026） | 学习式 MIS 的诚实对照 → 定量表保留 KaMIS 与 B 的绝对参照，不用单一均值宣称收益 |
 
-可参考代码快照（作者仓库，pin 到 commit）：Polynormer（纯特征全局通道）、Sketch-Augmented（层内 sketch 特征注入）、DiffQuadratic-MIS（MIS 可微二次优化与基准）。见 [reference_methods](../../reference_methods/README.md)。
+可参考代码快照（作者仓库，pin 到 commit）：Polynormer（纯特征全局通道）、Sketch-Augmented（层内 sketch 特征注入）、DiffQuadratic-MIS（MIS 可微二次优化与基准）。见 [reference_methods](../../../reference_methods/README.md)。
 
 ## 8. 运行
 
-见 [train_scripts/structure/README.md](../../train_scripts/structure/README.md)。输出写入 `outputs/structure_v1/`，判决写入 `outputs/structure_v1/analysis/`。
+见 [train_scripts/structure/README.md](../../../train_scripts/structure/README.md)。输出写入 `outputs/structure_v1/`，判决写入 `outputs/structure_v1/analysis/`。
