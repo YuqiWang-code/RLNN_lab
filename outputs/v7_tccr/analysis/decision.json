@@ -1,0 +1,32 @@
+{
+  "version": "v7_tccr",
+  "mode": "census",
+  "refs": [
+    0,
+    1,
+    2
+  ],
+  "results": [
+    {
+      "ref": 0,
+      "status": "stop"
+    },
+    {
+      "ref": 1,
+      "status": "stop"
+    },
+    {
+      "ref": 2,
+      "status": "stop"
+    }
+  ],
+  "thresholds": {
+    "gain": 0.1,
+    "graphs": 20,
+    "pair_us": 2000.0,
+    "arm_fraction": 0.5,
+    "census_ms": 2000.0,
+    "census_p95": 4000.0,
+    "joint_graphs": 10
+  }
+}

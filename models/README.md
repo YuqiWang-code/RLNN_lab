@@ -15,6 +15,7 @@
 | `mis_v7_recombine.py` | 两个独立集的二部图差异区最优重组（König / 最大匹配），纯 Python bitset，无 torch 依赖 |
 | `mis_v7_conflict.py` | 阻挡集合、释放区域 `R(U)`、局部精确 MIS 与上下界（v7 TCCR 普查） |
 | `diagnose_v7_census.py` | v7 普查驱动：K=20 合法解捕获、重组 Oracle、区域 Oracle，只读不训练 |
+| `eval_v7_tccr.py` | v7 端到端固定工作量：A.3／重组／冻结 PAVE／重组+PAVE 四个解同进程对照 |
 | `check_v7.py` | v7 算子的暴力交叉验证、`polish` 不变量与 3→4 构造例（CPU，无检查点） |
 | `mis_structure.py` / `train_structure.py` / `eval_structure.py` | 已归档的结构补偿线（度数/门控/增益通道） |
 | `archived_frequency/` | 频域模型、训练和机制诊断 |

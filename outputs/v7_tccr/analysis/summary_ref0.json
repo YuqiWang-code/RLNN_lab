@@ -1,0 +1,376 @@
+{
+  "version": "v7_tccr",
+  "ref": 0,
+  "sizes": [
+    2,
+    3,
+    4
+  ],
+  "recombine": {
+    "graphs": 100,
+    "oracle": {
+      "count": 100,
+      "mean": 0.1,
+      "ci95": [
+        0.06333333333333332,
+        0.1433333333333333
+      ],
+      "wins": 23,
+      "ties": 77,
+      "losses": 0
+    },
+    "improved_graphs": 23,
+    "mean_distinct": 20.0,
+    "mean_union": 139.04,
+    "mean_best_size": 19.546666666666667,
+    "mean_jaccard": 0.09292633333333333,
+    "arms": {
+      "random": {
+        "count": 100,
+        "mean": 0.02,
+        "ci95": [
+          0.003333333333333333,
+          0.04
+        ],
+        "wins": 5,
+        "ties": 95,
+        "losses": 0
+      },
+      "hamming": {
+        "count": 100,
+        "mean": 0.026666666666666665,
+        "ci95": [
+          0.01,
+          0.04999999999999999
+        ],
+        "wins": 7,
+        "ties": 93,
+        "losses": 0
+      },
+      "top_size": {
+        "count": 100,
+        "mean": 0.03666666666666666,
+        "ci95": [
+          0.016666666666666666,
+          0.06
+        ],
+        "wins": 10,
+        "ties": 90,
+        "losses": 0
+      },
+      "matching_cost": {
+        "count": 100,
+        "mean": 0.013333333333333332,
+        "ci95": [
+          0.003333333333333333,
+          0.026666666666666665
+        ],
+        "wins": 4,
+        "ties": 96,
+        "losses": 0
+      }
+    },
+    "us_per_pair": 303.85046666666665,
+    "hamming_fraction": 0.2666666666666666,
+    "improving_pairs": 6.966666666666667,
+    "useful_pairs": 0.5666666666666667,
+    "pairwise_gain_max": 0.8033333333333333,
+    "pair_count": 190.0,
+    "full_oracle_ms": 57.73158866666666
+  },
+  "conflict_pave": {
+    "graphs": 100,
+    "best": {
+      "count": 100,
+      "mean": 0.03,
+      "ci95": [
+        0.01,
+        0.05333333333333333
+      ],
+      "wins": 8,
+      "ties": 92,
+      "losses": 0
+    },
+    "per_size": {
+      "2": {
+        "gain": {
+          "count": 100,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "wins": 0,
+          "ties": 100,
+          "losses": 0
+        },
+        "improved_graphs": 0,
+        "regions": 85.56,
+        "improving": 0.0
+      },
+      "3": {
+        "gain": {
+          "count": 100,
+          "mean": 0.01,
+          "ci95": [
+            0.0,
+            0.02333333333333333
+          ],
+          "wins": 3,
+          "ties": 97,
+          "losses": 0
+        },
+        "improved_graphs": 3,
+        "regions": 735.16,
+        "improving": 0.01
+      },
+      "4": {
+        "gain": {
+          "count": 100,
+          "mean": 0.03,
+          "ci95": [
+            0.01,
+            0.05333333333333333
+          ],
+          "wins": 8,
+          "ties": 92,
+          "losses": 0
+        },
+        "improved_graphs": 8,
+        "regions": 3832.9733333333334,
+        "improving": 0.19333333333333333
+      }
+    },
+    "census_ms": 1763.8997,
+    "census_p95": 3353.41,
+    "mean_final_size": 19.626666666666665,
+    "mean_pave_gain": 0.08
+  },
+  "conflict_a3": {
+    "graphs": 100,
+    "best": {
+      "count": 100,
+      "mean": 0.09666666666666666,
+      "ci95": [
+        0.06333333333333332,
+        0.13333333333333333
+      ],
+      "wins": 25,
+      "ties": 75,
+      "losses": 0
+    },
+    "per_size": {
+      "2": {
+        "gain": {
+          "count": 100,
+          "mean": 0.02,
+          "ci95": [
+            0.006666666666666666,
+            0.03666666666666667
+          ],
+          "wins": 6,
+          "ties": 94,
+          "losses": 0
+        },
+        "improved_graphs": 6,
+        "regions": 87.51333333333334,
+        "improving": 0.08
+      },
+      "3": {
+        "gain": {
+          "count": 100,
+          "mean": 0.06333333333333332,
+          "ci95": [
+            0.03666666666666667,
+            0.09333333333333334
+          ],
+          "wins": 17,
+          "ties": 83,
+          "losses": 0
+        },
+        "improved_graphs": 17,
+        "regions": 742.0733333333334,
+        "improving": 0.9066666666666666
+      },
+      "4": {
+        "gain": {
+          "count": 100,
+          "mean": 0.09666666666666666,
+          "ci95": [
+            0.06333333333333332,
+            0.13333333333333333
+          ],
+          "wins": 25,
+          "ties": 75,
+          "losses": 0
+        },
+        "improved_graphs": 25,
+        "regions": 3815.9266666666667,
+        "improving": 6.44
+      }
+    },
+    "census_ms": 1766.1194333333333,
+    "census_p95": 3327.92,
+    "mean_final_size": 19.546666666666667,
+    "mean_pave_gain": 0.0
+  },
+  "conflict_stalled": {
+    "graphs": 100,
+    "best": {
+      "count": 100,
+      "mean": 0.035,
+      "ci95": [
+        0.013333333333333332,
+        0.06166666666666666
+      ],
+      "wins": 8,
+      "ties": 92,
+      "losses": 0
+    },
+    "per_size": {
+      "2": {
+        "gain": {
+          "count": 100,
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "wins": 0,
+          "ties": 100,
+          "losses": 0
+        },
+        "improved_graphs": 0,
+        "regions": 86.60144927536231,
+        "improving": 0.0
+      },
+      "3": {
+        "gain": {
+          "count": 100,
+          "mean": 0.013333333333333332,
+          "ci95": [
+            0.0,
+            0.03166666666666666
+          ],
+          "wins": 3,
+          "ties": 97,
+          "losses": 0
+        },
+        "improved_graphs": 3,
+        "regions": 736.3840579710145,
+        "improving": 0.010869565217391304
+      },
+      "4": {
+        "gain": {
+          "count": 100,
+          "mean": 0.035,
+          "ci95": [
+            0.013333333333333332,
+            0.06166666666666666
+          ],
+          "wins": 8,
+          "ties": 92,
+          "losses": 0
+        },
+        "improved_graphs": 8,
+        "regions": 3797.855072463768,
+        "improving": 0.21014492753623187
+      }
+    },
+    "census_ms": 1760.9996014492754,
+    "census_p95": 3327.92,
+    "mean_final_size": 19.543478260869566,
+    "mean_pave_gain": 0.0
+  },
+  "verdict": {
+    "status": "stop",
+    "gates": {
+      "G1": {
+        "passed": true,
+        "mean_gain": 0.1,
+        "ci95": [
+          0.06333333333333332,
+          0.1433333333333333
+        ],
+        "improved_graphs": 23
+      },
+      "G2": {
+        "passed": false,
+        "us_per_pair": 303.85046666666665,
+        "hamming_fraction": 0.2666666666666666
+      },
+      "G3": {
+        "passed": false,
+        "mean_gain": 0.03,
+        "ci95": [
+          0.01,
+          0.05333333333333333
+        ],
+        "improved_graphs": 8
+      },
+      "G4": {
+        "passed": true,
+        "census_ms": 1763.8997,
+        "census_p95": 3353.41
+      },
+      "G5": {
+        "passed": false,
+        "graphs_with_three_to_four": 3
+      }
+    },
+    "thresholds": {
+      "gain": 0.1,
+      "graphs": 20,
+      "pair_us": 2000.0,
+      "arm_fraction": 0.5,
+      "census_ms": 2000.0,
+      "census_p95": 4000.0,
+      "joint_graphs": 10
+    },
+    "recombine_passed": false,
+    "conflict_passed": false
+  },
+  "pipeline": {
+    "graphs": 100,
+    "mean_a3": 19.546666666666667,
+    "mean_recombine": 19.64666666666667,
+    "mean_pave": 19.626666666666665,
+    "mean_recombine_pave": 19.696666666666665,
+    "recombine_effect": {
+      "count": 100,
+      "mean": 0.10000000000000007,
+      "ci95": [
+        0.06333333333333335,
+        0.14333333333333342
+      ],
+      "wins": 23,
+      "ties": 77,
+      "losses": 0
+    },
+    "pave_effect": {
+      "count": 100,
+      "mean": 0.08000000000000021,
+      "ci95": [
+        0.05333333333333346,
+        0.11000000000000021
+      ],
+      "wins": 23,
+      "ties": 77,
+      "losses": 0
+    },
+    "marginal_over_pave": {
+      "count": 100,
+      "mean": 0.06999999999999997,
+      "ci95": [
+        0.039999999999999966,
+        0.10333333333333336
+      ],
+      "wins": 18,
+      "ties": 82,
+      "losses": 0
+    },
+    "recombine_ms": 55.2678,
+    "pave_ms": 239.81963333333334,
+    "pairs": 190.0
+  }
+}

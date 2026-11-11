@@ -17,8 +17,9 @@ RLNN Lab 基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究 RB200–
 | **Mamba 线（已归档）** | v2 的 P0 证明注入接口有杠杆（oracle T100 +0.45、0.5 秒 +0.19、反向 −0.29），但 P1 的三次方向学习都失败：搜索目标 −0.04、权重主导 +0.05、纯监督 0.088（留出 AUC 0.6375）。**瓶颈在 8 维静态特征的输入信息**，T100 实测 +0.003。 | [归档总结](docs/已归档的想法和文件/mamba/README.md) · [定价曲线](docs/已归档的想法和文件/mamba/RLNN_Mamba_v2_P0_Results.md) |
 | 结构补偿 v1（已归档） | 层内注入度数残差/度数门控/显式增益三个零初始化通道。`degree` 在 T100＋PAVE 得 **+0.090**（CI [−0.020, +0.200]，19/70/11），是首个非零信号；`gate` +0.060、`gain` +0.030、`all` −0.020。速度门失败（1.11×–1.29×，基线是发射受限）。**未过准入**。 | [结果](docs/已归档的想法和文件/structure/RLNN_Structure_v1_Results.md) · [设计](docs/已归档的想法和文件/structure/RLNN_Structure_v1_Design.md) |
 | 结构补偿 v2（已归档） | 把度数通道改到读出端（一次广播加，静态量按图缓存），增益改可学正尺度，每图 3 个搜索种子。`degree_out` 只有 **+0.013**（CI [−0.040, +0.063]，20/64/16），`all_out` 与它逐位相同，速度仍 1.11×。**v1 的 +0.090 未复现，判为单种子波动**。 | [结果](docs/已归档的想法和文件/structure/RLNN_Structure_v2_Results.md) · [归档总结](docs/已归档的想法和文件/structure/README.md) · [汇总](outputs/structure_v2/analysis/summary_ref0.json) |
+| v7 · TCCR 普查（进行中） | 不改翻转概率，改用轨迹信息：K=20 合法解的**精确重组**在冻结 PAVE 之上还有 **+0.088**（三种子 69 胜 231 平 0 负）；冲突释放区域 `|U| ≤ 4` 只有 +0.043（8–15/100 图），预注册判决 `stop`（G2/G3/G5 未过）。预算档与作者 1,000 图未跑。 | [结果与判决](docs/temporary/RLNN_v7_TCCR_Results.md) · [预注册门槛](docs/temporary/RLNN_v7_TCCR_Prereg.md) · [运行入口](train_scripts/v7/README.md) |
 
-两条已关闭的线留下一个共同结论：**在 RB200–300 上，无论把静态结构信息放在输出端（Mamba 线）还是放进骨干内部（结构补偿：v6 换骨干、v1 层内注入、v2 读出端融合三种形态），对同预算解大小都没有可复现的增量**；可用的部署方案仍是 B 持续搜索＋冻结 PAVE-Stats H1。因此下一步不再改翻转概率的编码方式，转向**利用轨迹信息定位传统邻域触达不到的联合改进**（TCCR，见下）。
+两条已关闭的线留下一个共同结论：**在 RB200–300 上，无论把静态结构信息放在输出端（Mamba 线）还是放进骨干内部（结构补偿：v6 换骨干、v1 层内注入、v2 读出端融合三种形态），对同预算解大小都没有可复现的增量**。因此 v7 不再改翻转概率的编码方式，转向**利用已经算出来的轨迹信息**：K=20 个 A.3 合法解的精确二部图重组，在冻结 PAVE 之上再得 **+0.088**（三种子 69 胜 231 平 0 负），而冲突释放区域没有可用的量。部署方案是 B 持续搜索 ＋ 精确重组 ＋ 冻结 PAVE-Stats H1（重组为待验证的候选，预算档未过）。
 
 v5 验证中，原骨干持续搜索＋PAVE 在 0.5 秒和 1.0 秒预算下分别取得 **19.677** 和 **19.830**，DAFR＋PAVE 分别为 19.500 和 19.617。[逐种子与配对汇总](outputs/v5_frequency/analysis/) · [实验结果工作簿](docs/实验结果.xlsx)
 
@@ -85,9 +86,11 @@ PYTHON="$HOME/envs/rlnn/bin/python" bash train_scripts/legacy/v000_rlnn_baseline
 | `train_scripts/legacy/v6/` | SC-RLNN 训练、速度准入、固定步数评测与逐层诊断 |
 | `train_scripts/mamba/` | 已冻结的 Mamba / 一次性静态先验线（v0 预检、v1 静态先验、v2 接口普查与方向判决） |
 | `train_scripts/structure/` | 已冻结的结构补偿 v1/v2 线：模块自检、训练、固定步数与限时评测、种子池化汇总与准入 |
+| `train_scripts/v7/` | v7 TCCR 普查：算子自检、K=20 捕获、重组/区域普查、端到端重组+PAVE、门槛汇总 |
 | `outputs/v3/`、`outputs/v4_frequency/`、`outputs/v5_frequency/`、`outputs/v6/` | 各版本逐图记录、配对汇总与阶段决策 |
 | `outputs/v7_context/`、`outputs/static_prior_v1/`、`outputs/mamba_v2/` | Mamba 线的预检、静态先验与接口普查证据 |
 | `outputs/structure_v1/`、`outputs/structure_v2/` | 结构补偿的逐图记录、配对汇总与准入判决 |
+| `outputs/v7_tccr/` | TCCR 普查与端到端重组的逐图记录、门槛汇总与判决 |
 | `reference_methods/` | [参考方法代码与来源](reference_methods/README.md) |
 | `docs/` | 服务器、数据集、参考文献与实验结果 |
 | `docs/temporary/` | 研究方案、实验报告和版本快照 |

@@ -1,0 +1,4 @@
+graph_id,search_seed,num_k,a3_size,recombine_size,recombine_gain,pave_size,recombine_pave_size,recombine_pave_gain,pave_gain,search_ms,decode_ms,recombine_ms,pave_ms,recombine_pave_ms,pairs
+graph_000000,1017,20,21,21,1,21,22,1,0,464.73,201.24,103.25,308.7,243.88,190
+graph_000001,1017,20,19,19,1,19,19,0,0,286.68,4.95,49.26,245.8,148.2,190
+graph_000002,1017,20,22,22,1,22,22,0,0,261.75,2.22,32.83,114.34,133.37,190

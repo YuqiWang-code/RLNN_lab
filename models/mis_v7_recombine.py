@@ -214,23 +214,29 @@ def pair_gain(a, b, neighbours, use_polish=False):
 def best_recombination(solutions, neighbours, use_polish=False):
     """Oracle over all unordered pairs of a solution list.
 
-    Returns ``(best_candidate, best_gain, best_pair, pair_gains)`` with
-    ``pair_gains`` the gain of every pair in the order produced by
-    :func:`pairs`.
+    ``best_gain`` is measured against the best *single* solution of the list,
+    because that is the frozen baseline the operator has to beat (the A.3 argmax).
+    ``pair_gains`` keeps each pair's own gain relative to its better parent, which
+    is larger whenever a good mix comes from two mediocre parents; the count of
+    pairs that beat the global baseline is therefore reported separately by the
+    caller.
+
+    Returns ``(best_candidate, best_gain, best_pair, pair_gains)``.
     """
     gains = []
     best_gain = 0
     best_candidate = max(solutions, key=int.bit_count)
+    baseline = best_candidate.bit_count()
     best_pair = None
     for (i, j) in pairs(len(solutions)):
         result = recombine(solutions[i], solutions[j], neighbours)
         if use_polish:
             candidate = polish(result.candidate, neighbours)
-            gain = candidate.bit_count() - result.best_parent
+            gains.append(candidate.bit_count() - result.best_parent)
         else:
             candidate = result.candidate
-            gain = result.gain
-        gains.append(gain)
+            gains.append(result.gain)
+        gain = candidate.bit_count() - baseline
         if gain > best_gain:
             best_gain = gain
             best_candidate = candidate

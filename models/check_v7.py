@@ -82,6 +82,29 @@ def check_recombination(trials=200):
     return checked
 
 
+def check_oracle_accounting(trials=60):
+    """best_recombination must report the gain over the global best solution."""
+    rng = random.Random(23)
+    for _ in range(trials):
+        num_nodes = rng.randint(8, 18)
+        neighbours = random_graph(rng, num_nodes, rng.uniform(0.05, 0.25))
+        solutions = []
+        for _ in range(20):
+            order = list(range(num_nodes))
+            rng.shuffle(order)
+            mask = 0
+            for v in order:
+                if not neighbours[v] & mask:
+                    mask |= 1 << v
+            solutions.append(recombine.polish(mask, neighbours))
+        candidate, gain, pair, pair_gains = recombine.best_recombination(solutions, neighbours)
+        base = max(mask.bit_count() for mask in solutions)
+        assert candidate.bit_count() - base == gain, (candidate.bit_count(), base, gain)
+        assert gain <= max(pair_gains or [0])
+        assert recombine.is_independent(candidate, neighbours)
+    return trials
+
+
 def check_polish(trials=100):
     rng = random.Random(7)
     for _ in range(trials):
@@ -141,6 +164,7 @@ def check_three_to_four():
 def main():
     results = {}
     results["recombination_pairs"] = check_recombination()
+    results["oracle_cases"] = check_oracle_accounting()
     results["polish_cases"] = check_polish()
     results["region_cases"] = check_regions()
     results["three_to_four"] = check_three_to_four()

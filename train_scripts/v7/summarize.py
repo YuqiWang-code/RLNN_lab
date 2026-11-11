@@ -90,7 +90,10 @@ def recombine_block(folder, ref, sizes):
                 arms=arms, us_per_pair=cost_us,
                 hamming_fraction=(follow / oracle["mean"]) if oracle["mean"] else None,
                 improving_pairs=mean(float(row["improving_pairs"]) for row in rows),
-                pair_count=mean(float(row["pair_count"]) for row in rows))
+                useful_pairs=mean(float(row.get("useful_pairs", 0)) for row in rows),
+                pairwise_gain_max=mean(float(row.get("pairwise_gain_max", 0)) for row in rows),
+                pair_count=mean(float(row["pair_count"]) for row in rows),
+                full_oracle_ms=mean(float(row["pair_count"]) for row in rows) * cost_us / 1000)
 
 
 def conflict_block(folder, ref, sizes, layer, subset=None):
@@ -112,6 +115,28 @@ def conflict_block(folder, ref, sizes, layer, subset=None):
                 census_ms=mean(census), census_p95=percentile(census, .95),
                 mean_final_size=mean(float(row["final_size"]) for row in rows),
                 mean_pave_gain=mean(float(row["pave_gain"]) for row in rows))
+
+
+def pipeline_block(root, ref):
+    rows = load(Path(root) / "pipeline", f"pipeline_ref{ref}*.csv")
+    if not rows:
+        return None
+    a3 = per_graph(rows, "a3_size")
+    merged = per_graph(rows, "recombine_size")
+    pave = per_graph(rows, "pave_size")
+    both = per_graph(rows, "recombine_pave_size")
+    pairs = {graph: merged[graph] - a3[graph] for graph in a3}
+    marginal = {graph: both[graph] - pave[graph] for graph in a3}
+    pave_gain = {graph: pave[graph] - a3[graph] for graph in a3}
+    return dict(graphs=len(a3),
+                mean_a3=mean(a3.values()), mean_recombine=mean(merged.values()),
+                mean_pave=mean(pave.values()), mean_recombine_pave=mean(both.values()),
+                recombine_effect=effect(list(pairs.values())),
+                pave_effect=effect(list(pave_gain.values())),
+                marginal_over_pave=effect(list(marginal.values())),
+                recombine_ms=mean(float(row["recombine_ms"]) for row in rows),
+                pave_ms=mean(float(row["pave_ms"]) for row in rows),
+                pairs=mean(float(row["pairs"]) for row in rows))
 
 
 def decision(recombine, conflict, joint_graphs):
@@ -177,6 +202,7 @@ def main():
         summary = dict(version="v7_tccr", ref=ref, sizes=args.sizes,
                        recombine=recombine, conflict_pave=conflict, conflict_a3=a3,
                        conflict_stalled=stalled, verdict=verdict)
+        summary["pipeline"] = pipeline_block(args.root, ref)
         (analysis / f"summary_ref{ref}.json").write_text(
             json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         if verdict is not None:

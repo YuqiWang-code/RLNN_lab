@@ -9,6 +9,7 @@
 | `common.sh` | 路径、Python、`OUT_V7`、`SEEDS`、`backbone_dir`、`--gpu` 解析 |
 | `check.sh` | 算子单测（`models/check_v7.py`）＋ 捕获一致性（自己的 T100 捕获 vs `eval_v2.search`） |
 | `probe.sh` | 单参考种子普查，`recombine` / `conflict` / `both` 三选一 |
+| `probe_pipeline.sh` | 端到端固定工作量：A.3 / 重组 / 冻结 PAVE / 重组+PAVE 四个解的大小 |
 | `probe_all.sh` | 多参考种子循环 + 汇总判决 |
 | `summarize.py` | 图级配对统计、bootstrap CI、G1–G5 门槛与 `decision.json` |
 
@@ -17,6 +18,7 @@
 ```bash
 CUDA_VISIBLE_DEVICES=0 bash train_scripts/v7/check.sh
 CUDA_VISIBLE_DEVICES=0 bash train_scripts/v7/probe.sh both
+REFERENCE_SEED=0 bash train_scripts/v7/probe_pipeline.sh
 REFERENCE_SEED=1 bash train_scripts/v7/probe.sh both --gpu 1
 REFS="0 1 2" bash train_scripts/v7/probe_all.sh both
 ```
@@ -29,6 +31,8 @@ REFS="0 1 2" bash train_scripts/v7/probe_all.sh both
 | --- | --- |
 | `outputs/v7_tccr/census/recombine_ref{r}.csv` | 每（图, 搜索种子）一行：去重数、两两 Hamming/Jaccard、190 对 Oracle、四个固定预算选对策略、每次重组耗时 |
 | `outputs/v7_tccr/census/conflict_ref{r}.csv` | 每（图, 搜索种子, 层）一行：`a3` / `pave` 两层的区域数、改善区域数、`k=2/3/4` 的最大增益、窗口大小、普查耗时 |
+| `outputs/v7_tccr/pipeline/pipeline_ref{r}.csv` | 每（图, 搜索种子）一行：A.3／重组／PAVE／重组+PAVE 四个解的大小与分段耗时 |
+| `outputs/v7_tccr/pipeline/run_ref{r}.json` | 端到端运行的配置、均值与 SHA |
 | `outputs/v7_tccr/census/run_ref{r}.json` | 配置、种子、耗时、骨干与 PAVE 的 SHA、数据清单 SHA |
 | `outputs/v7_tccr/checks/run.json` | 捕获一致性逐图记录（`match=1` 表示与 `eval_v2.search` 逐位相同） |
 | `outputs/v7_tccr/analysis/decision.json` | G1–G5 与最终判决（`advance` / `recombine_only` / `conflict_only` / `stop`） |
@@ -43,3 +47,7 @@ REFS="0 1 2" bash train_scripts/v7/probe_all.sh both
 ## 停止规则
 
 G1–G5 任一组合不满足时按预注册判决表处理，不调门槛、不换图子集、不换种子救回。`stop` 时下一步是诊断 KaMIS 那 0.44 的差距落在哪类图/哪类结构上，而不是继续堆模块。
+
+## 本轮结论
+
+三个参考种子一致：重组在**冻结 PAVE 之上**还有 +0.088（69/231/0），区域通道只有 +0.043（8–15/100 图）。预注册判决 `stop`（G2/G3/G5 未过）。完整读数、限制与下一步见 [docs/temporary/RLNN_v7_TCCR_Results.md](../../docs/temporary/RLNN_v7_TCCR_Results.md)。

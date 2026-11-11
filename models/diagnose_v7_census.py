@@ -141,6 +141,8 @@ def recombine_row(graph_id, seed, masks, neighbours, pair_budget, decode_seconds
     best_candidate, best_gain, best_pair, pair_gains = recombine.best_recombination(masks, neighbours)
     oracle_seconds = perf_counter() - started
     assert recombine.is_independent(best_candidate, neighbours)
+    baseline = max(sizes)
+    assert best_candidate.bit_count() - baseline == best_gain
     arms = {}
     for strategy in STRATEGIES:
         incumbent, _ = apply_pairs(masks, neighbours, recombine.select_pairs(masks, strategy), pair_budget)
@@ -151,11 +153,22 @@ def recombine_row(graph_id, seed, masks, neighbours, pair_budget, decode_seconds
                 min_size=min(sizes), max_size=max(sizes), union_size=union.bit_count(),
                 hamming_mean=round(mean(hamming), 4), jaccard_mean=round(mean(jaccard), 4),
                 oracle_gain=best_gain, oracle_pair=str(best_pair),
+                pairwise_gain_max=max(pair_gains or [0]),
                 improving_pairs=sum(gain > 0 for gain in pair_gains),
+                useful_pairs=count_useful_pairs(masks, neighbours, baseline),
                 pair_count=pair_count, pair_gain_sum=sum(pair_gains),
                 oracle_us_per_pair=round(1e6 * oracle_seconds / max(pair_count, 1), 2),
                 decode_ms=round(1e3 * decode_seconds, 2),
                 **{f"arm_{name}": value for name, value in arms.items()})
+
+
+def count_useful_pairs(masks, neighbours, baseline):
+    """Pairs whose recombined set beats the best single solution of the list."""
+    useful = 0
+    for i, j in recombine.pairs(len(masks)):
+        if recombine.recombine(masks[i], masks[j], neighbours).size > baseline:
+            useful += 1
+    return useful
 
 
 def write_csv(path, rows):
@@ -241,13 +254,15 @@ def main():
                 if not recombine.is_independent(pave_final, neighbours):
                     raise ValueError(f"{graph_id}: PAVE returned a conflicting set")
                 for layer, initial, final in (("a3", a3_best, a3_best), ("pave", a3_best, pave_final)):
-                    census_started = perf_counter()
-                    stats = census_cache.get(final)
-                    if stats is None:
+                    cached = census_cache.get(final)
+                    if cached is None:
+                        census_started = perf_counter()
                         stats = conflict.census(final, neighbours, graph.num_nodes,
                                                 sizes=tuple(args.region_sizes))
-                        census_cache[final] = stats
-                    census_seconds = perf_counter() - census_started
+                        census_seconds = perf_counter() - census_started
+                        census_cache[final] = (stats, census_seconds)
+                    else:
+                        stats, census_seconds = cached
                     row = dict(graph_id=graph_id, search_seed=seed, layer=layer,
                                base_size=initial.bit_count(), final_size=final.bit_count(),
                                pave_gain=final.bit_count() - initial.bit_count(),
