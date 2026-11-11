@@ -1,0 +1,12 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+20/100 graphs base/recombine 0.5s:19.892/19.883 1.0s:20.142/20.175
+40/100 graphs base/recombine 0.5s:19.567/19.579 1.0s:19.775/19.800
+60/100 graphs base/recombine 0.5s:19.397/19.450 1.0s:19.653/19.667
+80/100 graphs base/recombine 0.5s:19.608/19.637 1.0s:19.887/19.896
+100/100 graphs base/recombine 0.5s:19.547/19.577 1.0s:19.848/19.852
+budget=0.5 baseline: mean 19.5467 over 600 runs
+budget=0.5 recombine: mean 19.5767 over 600 runs
+budget=1.0 baseline: mean 19.8483 over 600 runs
+budget=1.0 recombine: mean 19.8517 over 600 runs
+wrote outputs/v7_tccr/budget/budget_ref1.csv

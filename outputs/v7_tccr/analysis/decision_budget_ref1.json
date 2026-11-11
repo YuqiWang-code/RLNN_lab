@@ -1,0 +1,38 @@
+{
+  "status": "budget_fail",
+  "thresholds": {
+    "mean_delta": 0.05,
+    "loss_share": 0.1,
+    "recombine_ms": 25.0
+  },
+  "budgets": {
+    "0.5s": {
+      "ci_positive": false,
+      "mean_ok": false,
+      "loss_ok": false,
+      "overrun_ok": false,
+      "mean": 0.03,
+      "ci95": [
+        -0.030000000000000006,
+        0.08833333333333332
+      ],
+      "loss_share": 0.22,
+      "overruns": 0,
+      "recombine_ms": 63.1
+    },
+    "1s": {
+      "ci_positive": false,
+      "mean_ok": false,
+      "loss_ok": true,
+      "overrun_ok": false,
+      "mean": 0.0033333333333333335,
+      "ci95": [
+        -0.018333333333333333,
+        0.02666666666666666
+      ],
+      "loss_share": 0.09,
+      "overruns": 3,
+      "recombine_ms": 84.0
+    }
+  }
+}

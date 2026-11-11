@@ -2,11 +2,16 @@
   "version": "v7_tccr",
   "mode": "budget",
   "refs": [
-    0
+    0,
+    1
   ],
   "results": [
     {
       "ref": 0,
+      "status": "budget_fail"
+    },
+    {
+      "ref": 1,
       "status": "budget_fail"
     }
   ],

@@ -1,0 +1,117 @@
+{
+  "version": "v7_tccr",
+  "mode": "budget",
+  "ref": 1,
+  "budgets": [
+    0.5,
+    1.0
+  ],
+  "blocks": [
+    {
+      "budget": 0.5,
+      "pairs": 300,
+      "graphs": 100,
+      "mean_baseline": 19.546666666666667,
+      "mean_recombine": 19.576666666666668,
+      "delta": {
+        "count": 100,
+        "mean": 0.03,
+        "ci95": [
+          -0.030000000000000006,
+          0.08833333333333332
+        ],
+        "wins": 35,
+        "ties": 43,
+        "losses": 22
+      },
+      "pair_level": {
+        "count": 300,
+        "mean": 0.03,
+        "ci95": [
+          -0.023333333333333334,
+          0.085
+        ],
+        "wins": 65,
+        "ties": 191,
+        "losses": 44
+      },
+      "overruns": 0,
+      "recombine_ms_max": 63.1,
+      "steps_baseline": 114.86833333333334,
+      "steps_recombine": 114.43833333333333,
+      "ms_per_step": 8.88033
+    },
+    {
+      "budget": 1.0,
+      "pairs": 300,
+      "graphs": 100,
+      "mean_baseline": 19.848333333333333,
+      "mean_recombine": 19.851666666666667,
+      "delta": {
+        "count": 100,
+        "mean": 0.0033333333333333335,
+        "ci95": [
+          -0.018333333333333333,
+          0.02666666666666666
+        ],
+        "wins": 11,
+        "ties": 80,
+        "losses": 9
+      },
+      "pair_level": {
+        "count": 300,
+        "mean": 0.0033333333333333335,
+        "ci95": [
+          -0.02,
+          0.02666666666666667
+        ],
+        "wins": 16,
+        "ties": 271,
+        "losses": 13
+      },
+      "overruns": 3,
+      "recombine_ms_max": 84.0,
+      "steps_baseline": 330.8433333333333,
+      "steps_recombine": 323.1016666666667,
+      "ms_per_step": 2.9983375
+    }
+  ],
+  "verdict": {
+    "status": "budget_fail",
+    "thresholds": {
+      "mean_delta": 0.05,
+      "loss_share": 0.1,
+      "recombine_ms": 25.0
+    },
+    "budgets": {
+      "0.5s": {
+        "ci_positive": false,
+        "mean_ok": false,
+        "loss_ok": false,
+        "overrun_ok": false,
+        "mean": 0.03,
+        "ci95": [
+          -0.030000000000000006,
+          0.08833333333333332
+        ],
+        "loss_share": 0.22,
+        "overruns": 0,
+        "recombine_ms": 63.1
+      },
+      "1s": {
+        "ci_positive": false,
+        "mean_ok": false,
+        "loss_ok": true,
+        "overrun_ok": false,
+        "mean": 0.0033333333333333335,
+        "ci95": [
+          -0.018333333333333333,
+          0.02666666666666666
+        ],
+        "loss_share": 0.09,
+        "overruns": 3,
+        "recombine_ms": 84.0
+      }
+    }
+  }
+}
