@@ -1,0 +1,364 @@
+{
+  "ref": 0,
+  "results": [
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "baseline",
+      "graphs": 100,
+      "mean_size": 19.53,
+      "base_mean": 19.53,
+      "mean_solve_s": 0.12414479906670749,
+      "base_solve_s": 0.12414479906670749,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 100,
+        "losses": 0
+      },
+      "time_ms": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 100,
+        "losses": 0
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "degree",
+      "graphs": 100,
+      "mean_size": 19.59,
+      "base_mean": 19.53,
+      "mean_solve_s": 0.14817406232003122,
+      "base_solve_s": 0.12414479906670749,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.06,
+        "ci95": [
+          -0.06,
+          0.18
+        ],
+        "wins": 19,
+        "ties": 66,
+        "losses": 15
+      },
+      "time_ms": {
+        "delta": 24.029263253323734,
+        "ci95": [
+          17.543814982054755,
+          30.107632438419387
+        ],
+        "wins": 86,
+        "ties": 0,
+        "losses": 14
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "gate",
+      "graphs": 100,
+      "mean_size": 19.53,
+      "base_mean": 19.53,
+      "mean_solve_s": 0.1475022129015997,
+      "base_solve_s": 0.12414479906670749,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.0,
+        "ci95": [
+          -0.1,
+          0.1
+        ],
+        "wins": 13,
+        "ties": 74,
+        "losses": 13
+      },
+      "time_ms": {
+        "delta": 23.357413834892213,
+        "ci95": [
+          17.977667621453293,
+          28.604211964295246
+        ],
+        "wins": 84,
+        "ties": 0,
+        "losses": 16
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "gain",
+      "graphs": 100,
+      "mean_size": 19.54,
+      "base_mean": 19.53,
+      "mean_solve_s": 0.13797295450232924,
+      "base_solve_s": 0.12414479906670749,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.01,
+        "ci95": [
+          -0.08,
+          0.1
+        ],
+        "wins": 10,
+        "ties": 82,
+        "losses": 8
+      },
+      "time_ms": {
+        "delta": 13.828155435621738,
+        "ci95": [
+          8.555683080572635,
+          19.11851664632559
+        ],
+        "wins": 77,
+        "ties": 0,
+        "losses": 23
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "none",
+      "arm": "all",
+      "graphs": 100,
+      "mean_size": 19.54,
+      "base_mean": 19.53,
+      "mean_solve_s": 0.1596298269368708,
+      "base_solve_s": 0.12414479906670749,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.01,
+        "ci95": [
+          -0.11,
+          0.13
+        ],
+        "wins": 19,
+        "ties": 63,
+        "losses": 18
+      },
+      "time_ms": {
+        "delta": 35.48502787016332,
+        "ci95": [
+          29.71432482940145,
+          41.34581001976039
+        ],
+        "wins": 93,
+        "ties": 0,
+        "losses": 7
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "baseline",
+      "graphs": 100,
+      "mean_size": 19.62,
+      "base_mean": 19.62,
+      "mean_solve_s": 0.24896142520010472,
+      "base_solve_s": 0.24896142520010472,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 100,
+        "losses": 0
+      },
+      "time_ms": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "wins": 0,
+        "ties": 100,
+        "losses": 0
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "degree",
+      "graphs": 100,
+      "mean_size": 19.71,
+      "base_mean": 19.62,
+      "mean_solve_s": 0.26766921596135945,
+      "base_solve_s": 0.24896142520010472,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.09,
+        "ci95": [
+          -0.02,
+          0.2
+        ],
+        "wins": 19,
+        "ties": 70,
+        "losses": 11
+      },
+      "time_ms": {
+        "delta": 18.707790761254728,
+        "ci95": [
+          6.129045328474604,
+          31.45091016229707
+        ],
+        "wins": 64,
+        "ties": 0,
+        "losses": 36
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "gate",
+      "graphs": 100,
+      "mean_size": 19.68,
+      "base_mean": 19.62,
+      "mean_solve_s": 0.27348838296253236,
+      "base_solve_s": 0.24896142520010472,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.06,
+        "ci95": [
+          -0.04,
+          0.16
+        ],
+        "wins": 17,
+        "ties": 72,
+        "losses": 11
+      },
+      "time_ms": {
+        "delta": 24.526957762427628,
+        "ci95": [
+          14.316354230046272,
+          34.88921611034311
+        ],
+        "wins": 68,
+        "ties": 0,
+        "losses": 32
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "gain",
+      "graphs": 100,
+      "mean_size": 19.65,
+      "base_mean": 19.62,
+      "mean_solve_s": 0.27389137852471324,
+      "base_solve_s": 0.24896142520010472,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": 0.03,
+        "ci95": [
+          -0.07,
+          0.13
+        ],
+        "wins": 13,
+        "ties": 76,
+        "losses": 11
+      },
+      "time_ms": {
+        "delta": 24.929953324608505,
+        "ci95": [
+          13.215211424510926,
+          35.966127750696614
+        ],
+        "wins": 75,
+        "ties": 0,
+        "losses": 25
+      }
+    },
+    {
+      "protocol": "fixed",
+      "post": "pave",
+      "arm": "all",
+      "graphs": 100,
+      "mean_size": 19.6,
+      "base_mean": 19.62,
+      "mean_solve_s": 0.28347438978031275,
+      "base_solve_s": 0.24896142520010472,
+      "mean_steps": 100.0,
+      "feasible": true,
+      "size": {
+        "delta": -0.02,
+        "ci95": [
+          -0.13,
+          0.09
+        ],
+        "wins": 15,
+        "ties": 68,
+        "losses": 17
+      },
+      "time_ms": {
+        "delta": 34.51296458020806,
+        "ci95": [
+          22.855937566026114,
+          45.90365046844817
+        ],
+        "wins": 74,
+        "ties": 0,
+        "losses": 26
+      }
+    }
+  ],
+  "gates": {
+    "degree": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "gate": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "gain": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "all": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    }
+  },
+  "status": "no_go"
+}

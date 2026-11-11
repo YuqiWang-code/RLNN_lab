@@ -9,6 +9,7 @@ from archived_frequency.mis_v4_frequency import V4_MODES
 from archived_frequency.mis_v5_frequency import V5_MODES
 from archived_frequency.mis_v6_frequency import V6_MODES
 from mis_v7_context import CONTEXT_MODES
+from mis_structure import STRUCTURE_MODES
 from pathlib import Path
 
 def set_seed(seed):
@@ -46,6 +47,8 @@ def build_parser():
     parser.add_argument("--frequency", choices=("none", "stats", "low", "high", "fixed", "local", "dynamic") + SEGF_MODES + V4_MODES + V5_MODES + V6_MODES,
                         default="none", help="MIS state encoder and frequency fusion")
     parser.add_argument("--context_mode", choices=CONTEXT_MODES, default="none")
+    parser.add_argument("--structure_mode", choices=STRUCTURE_MODES, default="none",
+                        help="degree/gate/gain structural compensation inside the flip policy")
     parser.add_argument("--v7_width", type=int, default=32)
     parser.add_argument("--v7_d_state", type=int, default=16)
     parser.add_argument("--v7_order_seed", type=int, default=7301)

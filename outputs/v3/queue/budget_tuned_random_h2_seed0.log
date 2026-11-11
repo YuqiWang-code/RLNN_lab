@@ -1,0 +1,45 @@
+
+2026-11-08T21:31:40.832960+00:00
+/usr/bin/taskset -c 24-47 /home/hzeng/envs/rlnn/bin/python -u /home/hzeng/project/ZH/RLNN_lab/models/eval_v3.py --save_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints --result_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v3/budget_tuned_random_h2_seed0 --split test --test_samples 1000 --seed 1017 --train_seed 0 --backbone-seed 0 --head-seed 0 --num_t 100 --num_k 20 --frequency none --mixed_precision fp16 --horizon 2 --outer-rounds 8 --exchange_rounds 3 --repair-rounds 4 --candidate_cap 32 --improving-cap 48 --label RLNN-tuned-h2 --cohort-id budget_tuned_random_h2 --baseline-run outputs/v3/budget_original_none_ext_seed0/none --rule-reference-run outputs/v3/budget_tuned_random_h2_seed0/random --post random --time-budget-s 0.5 --post-reserve-s 0.05
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/1000 graphs: random=19.4800
+50/1000 graphs: random=19.4600
+75/1000 graphs: random=19.4933
+100/1000 graphs: random=19.4600
+125/1000 graphs: random=19.4880
+150/1000 graphs: random=19.5067
+175/1000 graphs: random=19.5086
+200/1000 graphs: random=19.5200
+225/1000 graphs: random=19.4978
+250/1000 graphs: random=19.5160
+275/1000 graphs: random=19.5709
+300/1000 graphs: random=19.5967
+325/1000 graphs: random=19.6154
+350/1000 graphs: random=19.6343
+375/1000 graphs: random=19.6240
+400/1000 graphs: random=19.6075
+425/1000 graphs: random=19.5882
+450/1000 graphs: random=19.6089
+475/1000 graphs: random=19.5937
+500/1000 graphs: random=19.5820
+525/1000 graphs: random=19.5657
+550/1000 graphs: random=19.5782
+575/1000 graphs: random=19.5826
+600/1000 graphs: random=19.6167
+625/1000 graphs: random=19.5984
+650/1000 graphs: random=19.6108
+675/1000 graphs: random=19.6044
+700/1000 graphs: random=19.5986
+725/1000 graphs: random=19.5779
+750/1000 graphs: random=19.5840
+775/1000 graphs: random=19.5742
+800/1000 graphs: random=19.5787
+825/1000 graphs: random=19.5830
+850/1000 graphs: random=19.5976
+875/1000 graphs: random=19.5954
+900/1000 graphs: random=19.6033
+925/1000 graphs: random=19.6011
+950/1000 graphs: random=19.5989
+975/1000 graphs: random=19.5846
+1000/1000 graphs: random=19.5820

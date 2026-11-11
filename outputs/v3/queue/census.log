@@ -1,0 +1,94 @@
+census 25/300 starts, 25 states, 0 informative
+census 50/300 starts, 50 states, 2 informative
+census 75/300 starts, 75 states, 3 informative
+census 100/300 starts, 100 states, 4 informative
+census 125/300 starts, 125 states, 5 informative
+census 150/300 starts, 150 states, 6 informative
+census 175/300 starts, 175 states, 9 informative
+census 200/300 starts, 200 states, 10 informative
+census 225/300 starts, 225 states, 11 informative
+census 250/300 starts, 250 states, 12 informative
+census 275/300 starts, 275 states, 14 informative
+census 300/300 starts, 300 states, 16 informative
+{
+  "D0_fallback": {
+    "states": 300,
+    "graphs": 100,
+    "available": 16,
+    "informative": 0,
+    "informative_graphs": 0,
+    "non_tied_pairs": 0,
+    "positive_states": 16,
+    "positive_coverage": 0.05333333333333334,
+    "mean_candidates": 0.10666666666666667,
+    "mean_oracle_gain": 0.05333333333333334,
+    "rule_gains": {
+      "coverage": 0.05333333333333334,
+      "degree": 0.05333333333333334,
+      "random": 0.05333333333333334
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.0,
+    "mean_truncation_loss": 0
+  },
+  "D1_union": {
+    "states": 300,
+    "graphs": 100,
+    "available": 16,
+    "informative": 0,
+    "informative_graphs": 0,
+    "non_tied_pairs": 0,
+    "positive_states": 16,
+    "positive_coverage": 0.05333333333333334,
+    "mean_candidates": 1.2766666666666666,
+    "mean_oracle_gain": 0.05333333333333334,
+    "rule_gains": {
+      "coverage": 0.05333333333333334,
+      "degree": 0.05333333333333334,
+      "random": 0.05333333333333334
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.0,
+    "mean_truncation_loss": 0
+  },
+  "D2_neutral_h1": {
+    "states": 300,
+    "graphs": 100,
+    "available": 300,
+    "informative": 13,
+    "informative_graphs": 12,
+    "non_tied_pairs": 460,
+    "positive_states": 13,
+    "positive_coverage": 0.043333333333333335,
+    "mean_candidates": 20.28,
+    "mean_oracle_gain": 0.043333333333333335,
+    "rule_gains": {
+      "coverage": 0.0033333333333333335,
+      "degree": 0.0033333333333333335,
+      "random": 0
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.04,
+    "mean_truncation_loss": 0.0033333333333333335
+  },
+  "D3_neutral_h2": {
+    "states": 300,
+    "graphs": 100,
+    "available": 300,
+    "informative": 16,
+    "informative_graphs": 14,
+    "non_tied_pairs": 510,
+    "positive_states": 16,
+    "positive_coverage": 0.05333333333333334,
+    "mean_candidates": 20.28,
+    "mean_oracle_gain": 0.05333333333333334,
+    "rule_gains": {
+      "coverage": 0.0033333333333333335,
+      "degree": 0.0033333333333333335,
+      "random": 0.0033333333333333335
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.05,
+    "mean_truncation_loss": 0.0033333333333333335
+  }
+}

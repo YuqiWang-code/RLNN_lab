@@ -46,3 +46,20 @@ Zhang-2022-DiscreteLangevin	采样与退火	https://arxiv.org/pdf/2206.09914	A L
 Zheng-2022-Alpa	环境与框架	https://arxiv.org/pdf/2201.12023	Alpa: Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning
 Rendl-2010-SDP	求解器与启发式	https://optimization-online.org/wp-content/uploads/2007/05/1659.pdf	Solving Max-Cut to Optimality by Intersecting Semidefinite and Polyhedral Relaxations，补充背景
 SDDS	神经组合优化	https://arxiv.org/pdf/2502.08696	Scalable Discrete Diffusion Samplers，补充对照
+DegreeBias-Origins	结构补偿	https://arxiv.org/pdf/2404.03139	Theoretical and Empirical Insights into the Origins of Degree Bias in Graph Neural Networks
+Networked-Inequality	结构补偿	https://arxiv.org/pdf/2309.17417	Networked Inequality: Preferential Attachment Bias in Graph Neural Network Link Prediction
+HighDegree-Augmentation	结构补偿	https://arxiv.org/pdf/2406.05482	Efficient Topology-aware Data Augmentation for High-Degree Graph Neural Networks
+Signed-Degree-Bias	结构补偿	https://arxiv.org/pdf/2408.08508	Mitigating Degree Bias in Signed Graph Neural Networks
+ResConn-Oversmoothing	结构补偿	https://arxiv.org/pdf/2406.02997	Residual Connections and Normalization Can Provably Prevent Oversmoothing in GNNs
+Rewiring-Survey	结构补偿	https://arxiv.org/pdf/2411.17429	Graph Rewiring in GNNs to Mitigate Over-Squashing and Over-Smoothing: A Survey
+Riemannian-Oversmoothing	结构补偿	https://arxiv.org/pdf/2510.17457	Deeper with Riemannian Geometry: Overcoming Oversmoothing and Oversquashing for Graph Foundation Models
+Oversquashing-Dynamical	结构补偿	https://arxiv.org/pdf/2405.01009	On Oversquashing in Graph Neural Networks Through the Lens of Dynamical Systems
+Curriculum-ResidualNorm	结构补偿	https://arxiv.org/pdf/2312.08221	Curriculum-Enhanced Residual Soft An-Isotropic Normalization for Over-smoothness in Deep GNNs
+GATE	结构补偿	https://arxiv.org/pdf/2406.00418	GATE: How to Keep Out Intrusive Neighbors
+Polynormer	结构补偿	https://arxiv.org/pdf/2403.01232	Polynormer: Polynomial-Expressive Graph Transformer in Linear Time
+Sketch-Augmented	结构补偿	https://arxiv.org/pdf/2511.03824	Sketch-Augmented Features Improve Learning Long-Range Dependencies in Graph Neural Networks
+Feature-Transportation	结构补偿	https://arxiv.org/pdf/2307.16092	Feature Transportation Improves Graph Neural Networks
+DiffQuadratic-MIS	结构补偿	https://arxiv.org/pdf/2406.19532	Differentiable Quadratic Optimization For The Maximum Independent Set Problem
+MARCO	结构补偿	https://arxiv.org/pdf/2408.02207	MARCO: A Memory-Augmented Reinforcement Framework for Combinatorial Optimization
+LoRe	结构补偿	https://arxiv.org/pdf/2605.29005	LoRe: Adaptive Interaction-Evaluation Routing with Per-Step Interaction Budgets for Iterative Graph Solvers
+Unrealized-Expectations	结构补偿	https://arxiv.org/pdf/2502.03669	Unrealized Expectations: Comparing AI Methods vs Classical Algorithms for Maximum Independent Set

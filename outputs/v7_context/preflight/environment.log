@@ -1,0 +1,195 @@
+Collecting mamba-ssm==2.3.2.post1
+  Downloading mamba_ssm-2.3.2.post1.tar.gz (216 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.4/216.4 kB 432.9 kB/s eta 0:00:00
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting tilelang==0.1.8
+  Downloading tilelang-0.1.8-cp38-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (43.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.5/43.5 MB 353.8 kB/s eta 0:00:00
+Requirement already satisfied: einops in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from mamba-ssm==2.3.2.post1) (0.8.1)
+Requirement already satisfied: torch in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from mamba-ssm==2.3.2.post1) (2.9.1+cu130)
+Requirement already satisfied: ninja in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from mamba-ssm==2.3.2.post1) (1.13.0)
+Collecting apache-tvm-ffi<=0.1.9
+  Downloading apache_tvm_ffi-0.1.9-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 596.5 kB/s eta 0:00:00
+Collecting quack-kernels>=0.3.4
+  Downloading quack_kernels-0.6.5-py3-none-any.whl (729 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 729.6/729.6 kB 557.6 kB/s eta 0:00:00
+Collecting transformers
+  Downloading transformers-5.20.2-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 278.8 kB/s eta 0:00:00
+Requirement already satisfied: packaging in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from mamba-ssm==2.3.2.post1) (25.0)
+Requirement already satisfied: setuptools>=61.0.0 in /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages (from mamba-ssm==2.3.2.post1) (79.0.1)
+Requirement already satisfied: triton>=3.5.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from mamba-ssm==2.3.2.post1) (3.5.1)
+Requirement already satisfied: numpy>=1.23.5 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from tilelang==0.1.8->mamba-ssm==2.3.2.post1) (1.26.4)
+Requirement already satisfied: cloudpickle in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from tilelang==0.1.8->mamba-ssm==2.3.2.post1) (3.1.2)
+Collecting z3-solver<4.15.5,>=4.13.0
+  Downloading z3_solver-4.15.4.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (29.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29.3/29.3 MB 334.1 kB/s eta 0:00:00
+Requirement already satisfied: tqdm>=4.62.3 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from tilelang==0.1.8->mamba-ssm==2.3.2.post1) (4.67.1)
+Collecting torch-c-dlpack-ext
+  Downloading torch_c_dlpack_ext-0.1.5-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (879 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 879.5/879.5 kB 654.4 kB/s eta 0:00:00
+Requirement already satisfied: psutil in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from tilelang==0.1.8->mamba-ssm==2.3.2.post1) (7.2.1)
+Requirement already satisfied: ml-dtypes in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from tilelang==0.1.8->mamba-ssm==2.3.2.post1) (0.5.4)
+Requirement already satisfied: typing-extensions>=4.10.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from tilelang==0.1.8->mamba-ssm==2.3.2.post1) (4.16.0)
+Collecting nvidia-cutlass-dsl>=4.7
+  Downloading nvidia_cutlass_dsl-4.8.1-py3-none-any.whl (10 kB)
+Requirement already satisfied: nvidia-cuda-cupti==13.0.48 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (13.0.48)
+Requirement already satisfied: nvidia-cusolver==12.0.3.29 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (12.0.3.29)
+Requirement already satisfied: fsspec>=0.8.5 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (2025.12.0)
+Requirement already satisfied: nvidia-nvshmem-cu13==3.3.24 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (3.3.24)
+Requirement already satisfied: nvidia-nvtx==13.0.39 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (13.0.39)
+Requirement already satisfied: nvidia-cuda-runtime==13.0.48 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (13.0.48)
+Requirement already satisfied: nvidia-cufile==1.15.0.42 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (1.15.0.42)
+Requirement already satisfied: nvidia-cuda-nvrtc==13.0.48 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (13.0.48)
+Requirement already satisfied: nvidia-nvjitlink==13.0.39 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (13.0.39)
+Requirement already satisfied: filelock in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (3.20.0)
+Requirement already satisfied: nvidia-cusparselt-cu13==0.8.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (0.8.0)
+Requirement already satisfied: nvidia-curand==10.4.0.35 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (10.4.0.35)
+Requirement already satisfied: nvidia-cufft==12.0.0.15 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (12.0.0.15)
+Requirement already satisfied: nvidia-cublas==13.0.0.19 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (13.0.0.19)
+Requirement already satisfied: nvidia-nccl-cu13==2.27.7 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (2.27.7)
+Requirement already satisfied: nvidia-cudnn-cu13==9.13.0.50 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (9.13.0.50)
+Requirement already satisfied: nvidia-cusparse==12.6.2.49 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (12.6.2.49)
+Requirement already satisfied: jinja2 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (3.1.6)
+Requirement already satisfied: networkx>=2.5.1 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (2.8.8)
+Requirement already satisfied: sympy>=1.13.3 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from torch->mamba-ssm==2.3.2.post1) (1.14.0)
+Collecting tokenizers<0.24.0,>=0.23.1
+  Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 554.9 kB/s eta 0:00:00
+Collecting regex>=2025.10.22
+  Downloading regex-2026.9.29-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (797 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 797.6/797.6 kB 454.6 kB/s eta 0:00:00
+Collecting typer
+  Downloading typer-0.29.0-py3-none-any.whl (121 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.1/121.1 kB 518.6 kB/s eta 0:00:00
+Collecting huggingface-hub<3.0,>=1.31.0
+  Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 398.0 kB/s eta 0:00:00
+Requirement already satisfied: pyyaml>=5.1 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from transformers->mamba-ssm==2.3.2.post1) (6.0.3)
+Collecting safetensors>=0.8.0
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 444.4 kB/s eta 0:00:00
+Collecting click<9.0.0,>=8.4.2
+  Downloading click-8.5.1-py3-none-any.whl (126 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.2/126.2 kB 525.5 kB/s eta 0:00:00
+Collecting hf-xet<2.0.0,>=1.6.0
+  Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 454.2 kB/s eta 0:00:00
+Collecting httpx2<3,>=2.0.0
+  Downloading httpx2-2.14.0-py3-none-any.whl (96 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.9/96.9 kB 455.1 kB/s eta 0:00:00
+Requirement already satisfied: tomli>=1.1.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from huggingface-hub<3.0,>=1.31.0->transformers->mamba-ssm==2.3.2.post1) (2.4.1)
+Collecting nvidia-cutlass-dsl-libs-base==4.8.1
+  Downloading nvidia_cutlass_dsl_libs_base-4.8.1-cp310-cp310-manylinux_2_28_x86_64.whl (3.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 414.7 kB/s eta 0:00:00
+Collecting nvidia-cutlass-dsl-libs-cu12==4.8.1
+  Downloading nvidia_cutlass_dsl_libs_cu12-4.8.1-cp310-cp310-manylinux_2_28_x86_64.whl (91.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 MB 645.5 kB/s eta 0:00:00
+Collecting cuda-bindings>=12.8
+  Downloading cuda_bindings-13.4.4-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (7.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 462.8 kB/s eta 0:00:00
+Collecting nvidia-cutlass-dsl-libs-core==4.8.1
+  Downloading nvidia_cutlass_dsl_libs_core-4.8.1-py3-none-any.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 577.2 kB/s eta 0:00:00
+Collecting backports.strenum
+  Downloading backports_strenum-1.3.1-py3-none-any.whl (8.3 kB)
+Requirement already satisfied: protobuf>=4.21.12 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from nvidia-cutlass-dsl-libs-base==4.8.1->nvidia-cutlass-dsl>=4.7->quack-kernels>=0.3.4->mamba-ssm==2.3.2.post1) (6.33.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from sympy>=1.13.3->torch->mamba-ssm==2.3.2.post1) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from jinja2->torch->mamba-ssm==2.3.2.post1) (2.1.5)
+Collecting shellingham>=1.3.0
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Requirement already satisfied: rich>=13.8.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from typer->transformers->mamba-ssm==2.3.2.post1) (14.2.0)
+Requirement already satisfied: pydantic>=2.5.3 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from typer->transformers->mamba-ssm==2.3.2.post1) (2.12.5)
+Requirement already satisfied: annotated-doc>=0.0.2 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from typer->transformers->mamba-ssm==2.3.2.post1) (0.0.5)
+Requirement already satisfied: anyio>=4.10 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers->mamba-ssm==2.3.2.post1) (4.15.1)
+Collecting httpcore2==2.14.0
+  Downloading httpcore2-2.14.0-py3-none-any.whl (84 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.3/84.3 kB 893.0 kB/s eta 0:00:00
+Collecting truststore>=0.10
+  Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Collecting idna>=3.18
+  Downloading idna-3.20-py3-none-any.whl (69 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 845.3 kB/s eta 0:00:00
+Requirement already satisfied: h11>=0.16 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from httpcore2==2.14.0->httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers->mamba-ssm==2.3.2.post1) (0.16.0)
+Requirement already satisfied: pydantic-core==2.41.5 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from pydantic>=2.5.3->typer->transformers->mamba-ssm==2.3.2.post1) (2.41.5)
+Requirement already satisfied: annotated-types>=0.6.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from pydantic>=2.5.3->typer->transformers->mamba-ssm==2.3.2.post1) (0.7.0)
+Requirement already satisfied: typing-inspection>=0.4.2 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from pydantic>=2.5.3->typer->transformers->mamba-ssm==2.3.2.post1) (0.4.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from rich>=13.8.0->typer->transformers->mamba-ssm==2.3.2.post1) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from rich>=13.8.0->typer->transformers->mamba-ssm==2.3.2.post1) (2.19.2)
+Requirement already satisfied: exceptiongroup>=1.0.2 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from anyio>=4.10->httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers->mamba-ssm==2.3.2.post1) (1.3.1)
+Collecting cuda-pathfinder>=1.4.2
+  Downloading cuda_pathfinder-1.8.3-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 792.6 kB/s eta 0:00:00
+Requirement already satisfied: mdurl~=0.1 in /home/hzeng/envs/nexco/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers->mamba-ssm==2.3.2.post1) (0.1.2)
+Building wheels for collected packages: mamba-ssm
+  Building wheel for mamba-ssm (pyproject.toml): started
+  Building wheel for mamba-ssm (pyproject.toml): still running...
+  Building wheel for mamba-ssm (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building wheel for mamba-ssm (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [52 lines of output]
+      /home/hzeng/envs/rlnn/lib/python3.10/site-packages/wheel/bdist_wheel.py:4: FutureWarning: The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command, and will be removed in a future release. Please update to setuptools v70.1 or later which contains an integrated version of this command.
+        warn(
+      /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+      !!
+      
+              ********************************************************************************
+              Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+      
+              This deprecation is overdue, please update your project and remove deprecated
+              calls to avoid build errors in the future.
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        corresp(dist, value, root_dir)
+      /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsWarning: `install_requires` overwritten in `pyproject.toml` (dependencies)
+        corresp(dist, value, root_dir)
+      /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: Apache Software License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        dist._finalize_license_expression()
+      /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: Apache Software License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      
+      
+      torch.__version__  = 2.9.1+cu130
+      
+      
+      running bdist_wheel
+      Guessing wheel URL:  https://github.com/state-spaces/mamba/releases/download/v2.3.2.post1/mamba_ssm-2.3.2.post1+cu13torch2.9cxx11abiTRUE-cp310-cp310-linux_x86_64.whl
+      error: Remote end closed connection without response
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for mamba-ssm
+Failed to build mamba-ssm
+ERROR: Could not build wheels for mamba-ssm, which is required to install pyproject.toml-based projects
+
+[notice] A new release of pip is available: 23.0.1 -> 26.3
+[notice] To update, run: /home/hzeng/envs/rlnn_mamba/bin/python -m pip install --upgrade pip

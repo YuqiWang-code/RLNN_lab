@@ -1,0 +1,12 @@
+none_seed0 GPU0 pid=2089727
+none_seed1 GPU1 pid=2089728
+none_seed2 GPU0 pid=2089730
+v4a_mlp_seed0 GPU1 pid=2089731
+v4a_mlp_seed1 GPU0 pid=2089733
+v4a_mlp_seed2 GPU1 pid=2089734
+v4a_message_seed0 GPU0 pid=2089735
+v4a_message_seed1 GPU1 pid=2089736
+v4a_message_seed2 GPU0 pid=2089738
+v4a_seed0 GPU1 pid=2089741
+v4a_seed1 GPU0 pid=2089743
+v4a_seed2 GPU1 pid=2089745

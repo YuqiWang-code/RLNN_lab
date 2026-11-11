@@ -19,7 +19,7 @@ def captured_states(solver, graph, adjacency, topology, generator):
         if solver.v6_frequency:
             logits = solver.model(state, graph.edge_index, adjacency, topology, adjacency_product=product)
         else:
-            logits = solver.flip_logits(state, graph, adjacency, topology)
+            logits = solver.flip_logits(state, graph, adjacency, topology, adjacency_product=product)
         noise = torch.rand(state.shape, device=device, dtype=state.dtype, generator=generator)
         x = torch.where(noise < logits.sigmoid(), 1 - state, state)
         ax = adjacency @ x

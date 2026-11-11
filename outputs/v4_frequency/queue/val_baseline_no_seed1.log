@@ -1,0 +1,6 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.8000, pave=19.8800
+50/100 graphs: none=19.4400, pave=19.5000
+75/100 graphs: none=19.5200, pave=19.6000
+100/100 graphs: none=19.5500, pave=19.6200

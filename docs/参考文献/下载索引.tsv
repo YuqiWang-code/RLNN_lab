@@ -94,3 +94,20 @@ Zhang-2022-DiscreteLangevin	采样与退火	采样与退火/Zhang-2022-DiscreteL
 Zheng-2022-Alpa	环境与框架	环境与框架/Zheng-2022-Alpa.pdf	https://arxiv.org/pdf/2201.12023		Alpa: Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning
 Rendl-2010-SDP	求解器与启发式	求解器与启发式/Rendl-2010-SDP.pdf	https://optimization-online.org/wp-content/uploads/2007/05/1659.pdf		Solving Max-Cut to Optimality by Intersecting Semidefinite and Polyhedral Relaxations，补充背景
 SDDS	神经组合优化	神经组合优化/SDDS.pdf	https://arxiv.org/pdf/2502.08696		Scalable Discrete Diffusion Samplers，补充对照
+DegreeBias-Origins	Graph Neural Networks	结构补偿/DegreeBias-Origins.pdf	https://arxiv.org/pdf/2404.03139		逐模块分解度数偏误的来源，给"平均聚合系统性扭曲高度数节点"提供可引用依据
+Networked-Inequality	Graph Neural Networks	结构补偿/Networked-Inequality.pdf	https://arxiv.org/pdf/2309.17417		度数结构会隐式泄漏进表征，支持把度数作为显式信号而不是等它自己涌现
+HighDegree-Augmentation	Graph Neural Networks	结构补偿/HighDegree-Augmentation.pdf	https://arxiv.org/pdf/2406.05482		把高度数节点当作独立欠服务子群，支持度数条件化的层而不是统一聚合
+Signed-Degree-Bias	Graph Neural Networks	结构补偿/Signed-Degree-Bias.pdf	https://arxiv.org/pdf/2408.08508		在聚合路径里用度数感知组件纠正度数偏误，说明此类改造便宜且可叠加
+ResConn-Oversmoothing	Graph Neural Networks	结构补偿/ResConn-Oversmoothing.pdf	https://arxiv.org/pdf/2406.02997		证明残差＋归一化可界定过平滑，支持把补偿项放进残差流
+Rewiring-Survey	Graph Neural Networks	结构补偿/Rewiring-Survey.pdf	https://arxiv.org/pdf/2411.17429		梳理重连类补救的取舍，用于论证拓扑侧手段之外的层内补偿
+Riemannian-Oversmoothing	Graph Neural Networks	结构补偿/Riemannian-Oversmoothing.pdf	https://arxiv.org/pdf/2510.17457		层内几何改造可同时缓解过平滑与过挤压，层级改造的先例
+Oversquashing-Dynamical	Graph Neural Networks	结构补偿/Oversquashing-Dynamical.pdf	https://arxiv.org/pdf/2405.01009		把过挤压刻画为传播动力学的收缩，给门控"选择性保留邻居信号"提供语言
+Curriculum-ResidualNorm	Graph Neural Networks	结构补偿/Curriculum-ResidualNorm.pdf	https://arxiv.org/pdf/2312.08221		残差与归一化联合调节，工程上保留浅层路径不变
+GATE	Graph Neural Networks	结构补偿/GATE.pdf	https://arxiv.org/pdf/2406.00418		可学习的逐边门控排除侵入邻居，与 gate 臂最接近的已发表形态
+Polynormer	Graph Neural Networks	结构补偿/Polynormer.pdf	https://arxiv.org/pdf/2403.01232	https://github.com/cornell-zhang/Polynormer	纯特征全局通道与局部消息传递并行，非消息传递通道有价值的证据
+Sketch-Augmented	Graph Neural Networks	结构补偿/Sketch-Augmented.pdf	https://arxiv.org/pdf/2511.03824	https://github.com/ryienh/sketched-random-features	把非消息传递的 sketch 特征注入层内，显式特征残差通道的模板
+Feature-Transportation	Graph Neural Networks	结构补偿/Feature-Transportation.pdf	https://arxiv.org/pdf/2307.16092		用跨层特征输运与扩散并列建模，可零初始化的残差特征通道
+DiffQuadratic-MIS	Neural Combinatorial Optimization	结构补偿/DiffQuadratic-MIS.pdf	https://arxiv.org/pdf/2406.19532	https://github.com/ledenmat/pCQO-mis-benchmark	MIS 的可微二次松弛与任务损失，强非 RL 对照与局部增益项的来源
+MARCO	Neural Combinatorial Optimization	结构补偿/MARCO.pdf	https://arxiv.org/pdf/2408.02207		把解状态记忆回灌策略，与把逐步翻转增益注入 logits 同构
+LoRe	Neural Combinatorial Optimization	结构补偿/LoRe.pdf	https://arxiv.org/pdf/2605.29005		迭代图求解器里按步控制邻居交互预算，直接对应迭代翻转策略
+Unrealized-Expectations	Neural Combinatorial Optimization	结构补偿/Unrealized-Expectations.pdf	https://arxiv.org/pdf/2502.03669		大规模诚实对照：学习式 MIS 仍落后经典求解器；声称结构补偿收益时的评测基准

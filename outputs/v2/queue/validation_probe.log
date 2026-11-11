@@ -1,0 +1,21 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+12/12 graphs: rule23=0.000
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graph trajectories
+50/100 graph trajectories
+75/100 graph trajectories
+100/100 graph trajectories
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.680, rule=19.720, heuristic=19.720, random=19.720, rule23=19.760
+50/100 graphs: none=19.340, rule=19.380, heuristic=19.380, random=19.380, rule23=19.440
+75/100 graphs: none=19.413, rule=19.440, heuristic=19.440, random=19.440, rule23=19.493
+100/100 graphs: none=19.460, rule=19.500, heuristic=19.500, random=19.500, rule23=19.540
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.680, rule=19.680, heuristic=19.680, random=19.680, rule23=19.680
+50/100 graphs: none=19.340, rule=19.360, heuristic=19.360, random=19.360, rule23=19.360
+75/100 graphs: none=19.400, rule=19.427, heuristic=19.427, random=19.427, rule23=19.440
+100/100 graphs: none=19.450, rule=19.490, heuristic=19.490, random=19.490, rule23=19.510

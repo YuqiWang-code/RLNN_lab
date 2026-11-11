@@ -1,0 +1,34 @@
+GPU 1: running test_original_h1_seed1; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/test_original_h1_seed1.log
+GPU 1: completed test_original_h1_seed1
+GPU 1: running test_tuned_h2_seed0; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/test_tuned_h2_seed0.log
+GPU 1: completed test_tuned_h2_seed0
+GPU 1: running test_tuned_h2_seed2; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/test_tuned_h2_seed2.log
+GPU 1: completed test_tuned_h2_seed2
+GPU 1: running test_tuned_h1_seed1; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/test_tuned_h1_seed1.log
+GPU 1: completed test_tuned_h1_seed1
+GPU 1: fixed shard completed (4 jobs)
+GPU 1: running budget_tuned_none_ext_seed0; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_none_ext_seed0.log
+GPU 1: completed budget_tuned_none_ext_seed0
+GPU 1: running budget_tuned_random_h2_seed0; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_random_h2_seed0.log
+GPU 1: completed budget_tuned_random_h2_seed0
+GPU 1: running budget_tuned_message_h1_seed0; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_message_h1_seed0.log
+GPU 1: completed budget_tuned_message_h1_seed0
+GPU 1: running budget_tuned_adapted_h1_seed0; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_adapted_h1_seed0.log
+GPU 1: completed budget_tuned_adapted_h1_seed0
+GPU 1: running budget_tuned_none_ext_seed1; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_none_ext_seed1.log
+GPU 1: completed budget_tuned_none_ext_seed1
+GPU 1: running budget_tuned_random_h2_seed1; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_random_h2_seed1.log
+GPU 1: completed budget_tuned_random_h2_seed1
+GPU 1: running budget_tuned_message_h1_seed1; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_message_h1_seed1.log
+GPU 1: completed budget_tuned_message_h1_seed1
+GPU 1: running budget_tuned_adapted_h1_seed1; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_adapted_h1_seed1.log
+GPU 1: completed budget_tuned_adapted_h1_seed1
+GPU 1: running budget_tuned_none_ext_seed2; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_none_ext_seed2.log
+GPU 1: completed budget_tuned_none_ext_seed2
+GPU 1: running budget_tuned_random_h2_seed2; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_random_h2_seed2.log
+GPU 1: completed budget_tuned_random_h2_seed2
+GPU 1: running budget_tuned_message_h1_seed2; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_message_h1_seed2.log
+GPU 1: completed budget_tuned_message_h1_seed2
+GPU 1: running budget_tuned_adapted_h1_seed2; log /home/hzeng/project/ZH/RLNN_lab/outputs/v3/queue/budget_tuned_adapted_h1_seed2.log
+GPU 1: completed budget_tuned_adapted_h1_seed2
+GPU 1: budget shard completed (12 jobs)

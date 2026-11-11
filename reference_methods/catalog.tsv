@@ -53,3 +53,6 @@ CAM	神经组合优化	Shengyu-Feng/CAM	https://arxiv.org/pdf/2605.30920	同测�
 Bertsekas-Rollout	采样与退火		https://arxiv.org/pdf/1910.00120	成对动作 rollout 参考
 COMA	因果与图表征	oxwhirl/pymarl	https://arxiv.org/pdf/1705.08926	固定其他动作的反事实优势参考
 T2TCO	神经组合优化	Thinklab-SJTU/T2TCO	https://papers.neurips.cc/paper_files/paper/2023/file/9c93b3cd3bc60c0fe7b0c2d74a2da966-Paper-Conference.pdf	论文引用，扩散推理参考
+Polynormer	结构补偿	cornell-zhang/Polynormer	https://arxiv.org/pdf/2403.01232	Polynormer 的纯特征全局通道，用于非消息传递通道对照
+Sketch-Augmented	结构补偿	ryienh/sketched-random-features	https://arxiv.org/pdf/2511.03824	sketch 特征注入层的实现参考
+DiffQuadratic-MIS	结构补偿	ledenmat/pCQO-mis-benchmark	https://arxiv.org/pdf/2406.19532	MIS 可微二次优化与基准代码

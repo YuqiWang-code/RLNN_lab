@@ -1,0 +1,303 @@
+Collecting mamba-ssm==2.3.2.post1
+  Downloading mamba_ssm-2.3.2.post1.tar.gz (216 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.4/216.4 kB 343.2 kB/s eta 0:00:00
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Saved ./mamba_ssm-2.3.2.post1.tar.gz
+Successfully downloaded mamba-ssm
+
+[notice] A new release of pip is available: 23.0.1 -> 26.3
+[notice] To update, run: /home/hzeng/envs/rlnn_mamba/bin/python -m pip install --upgrade pip
+Processing /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: mamba_ssm
+  Building wheel for mamba_ssm (pyproject.toml): started
+  Building wheel for mamba_ssm (pyproject.toml): finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × Building wheel for mamba_ssm (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [273 lines of output]
+      /home/hzeng/envs/rlnn/lib/python3.10/site-packages/wheel/bdist_wheel.py:4: FutureWarning: The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command, and will be removed in a future release. Please update to setuptools v70.1 or later which contains an integrated version of this command.
+        warn(
+      /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+      !!
+      
+              ********************************************************************************
+              Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+      
+              This deprecation is overdue, please update your project and remove deprecated
+              calls to avoid build errors in the future.
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        corresp(dist, value, root_dir)
+      /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsWarning: `install_requires` overwritten in `pyproject.toml` (dependencies)
+        corresp(dist, value, root_dir)
+      /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: Apache Software License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        dist._finalize_license_expression()
+      /home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: Apache Software License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      
+      
+      torch.__version__  = 2.9.1+cu130
+      
+      
+      running bdist_wheel
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm
+      copying mamba_ssm/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/distributed
+      copying mamba_ssm/distributed/distributed_utils.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/distributed
+      copying mamba_ssm/distributed/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/distributed
+      copying mamba_ssm/distributed/tensor_parallel.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/distributed
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/mha.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/mamba2.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/mamba_simple.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/ssd_minimal.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/mamba3.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/mlp.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/mamba2_simple.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/block.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      copying mamba_ssm/modules/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/modules
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/models
+      copying mamba_ssm/models/mixer_seq_simple.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/models
+      copying mamba_ssm/models/config_mamba.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/models
+      copying mamba_ssm/models/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/models
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/ops
+      copying mamba_ssm/ops/selective_scan_interface.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops
+      copying mamba_ssm/ops/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/utils
+      copying mamba_ssm/utils/generation.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/utils
+      copying mamba_ssm/utils/hf.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/utils
+      copying mamba_ssm/utils/determinism.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/utils
+      copying mamba_ssm/utils/torch.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/utils
+      copying mamba_ssm/utils/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/utils
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang
+      copying mamba_ssm/ops/tilelang/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/cute
+      copying mamba_ssm/ops/cute/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/cute
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/k_activations.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/layernorm_gated.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/layer_norm.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/ssd_chunk_scan.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/ssd_chunk_state.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/softplus.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/selective_state_update.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/ssd_combined.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/ssd_state_passing.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      copying mamba_ssm/ops/triton/ssd_bmm.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang/mamba3
+      copying mamba_ssm/ops/tilelang/mamba3/mamba3_mimo_bwd_varlen.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang/mamba3
+      copying mamba_ssm/ops/tilelang/mamba3/mamba3_mimo_fwd_varlen.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang/mamba3
+      copying mamba_ssm/ops/tilelang/mamba3/mamba3_mimo.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang/mamba3
+      copying mamba_ssm/ops/tilelang/mamba3/mamba3_mimo_bwd.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang/mamba3
+      copying mamba_ssm/ops/tilelang/mamba3/mamba3_mimo_fwd.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang/mamba3
+      copying mamba_ssm/ops/tilelang/mamba3/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/tilelang/mamba3
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/cute/mamba3
+      copying mamba_ssm/ops/cute/mamba3/mamba3_step_fn.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/cute/mamba3
+      copying mamba_ssm/ops/cute/mamba3/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/cute/mamba3
+      creating build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/mamba3_mimo_utils.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/mamba3_siso_step.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/mamba3_siso_fwd.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/angle_dt.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/mamba3_siso_bwd.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/utils.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/mamba3_mimo_rotary_step.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/mamba3_siso_combined.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      copying mamba_ssm/ops/triton/mamba3/__init__.py -> build/lib.linux-x86_64-cpython-310/mamba_ssm/ops/triton/mamba3
+      running egg_info
+      writing mamba_ssm.egg-info/PKG-INFO
+      writing dependency_links to mamba_ssm.egg-info/dependency_links.txt
+      writing requirements to mamba_ssm.egg-info/requires.txt
+      writing top-level names to mamba_ssm.egg-info/top_level.txt
+      reading manifest file 'mamba_ssm.egg-info/SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      warning: manifest_maker: MANIFEST.in, line 3: unknown action 'README.md'
+      
+      adding license file 'LICENSE'
+      adding license file 'AUTHORS'
+      writing manifest file 'mamba_ssm.egg-info/SOURCES.txt'
+      running build_ext
+      W1110 11:23:39.486000 2165119 torch/utils/cpp_extension.py:521] The detected CUDA version (13.1) has a minor version mismatch with the version that was used to compile PyTorch (13.0). Most likely this shouldn't be a problem.
+      W1110 11:23:39.487000 2165119 torch/utils/cpp_extension.py:531] There are no g++ version bounds defined for CUDA version 13.1
+      building 'selective_scan_cuda' extension
+      creating /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan
+      [1/10] /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_real.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_bf16_real.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_real.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      FAILED: /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_real.o
+      /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_real.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_bf16_real.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_real.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrt" (declared at line 629 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern double rsqrt (double __x) noexcept (true); extern double __rsqrt (double __x) noexcept (true);
+                                         ^
+      
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrtf" (declared at line 653 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern float rsqrtf (float __x) noexcept (true); extern float __rsqrtf (float __x) noexcept (true);
+                                        ^
+      
+      2 errors detected in the compilation of "/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_bf16_real.cu".
+      [2/10] /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_real.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp16_real.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_real.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      FAILED: /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_real.o
+      /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_real.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp16_real.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_real.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrt" (declared at line 629 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern double rsqrt (double __x) noexcept (true); extern double __rsqrt (double __x) noexcept (true);
+                                         ^
+      
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrtf" (declared at line 653 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern float rsqrtf (float __x) noexcept (true); extern float __rsqrtf (float __x) noexcept (true);
+                                        ^
+      
+      2 errors detected in the compilation of "/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp16_real.cu".
+      [3/10] /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_complex.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_bf16_complex.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_complex.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      FAILED: /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_complex.o
+      /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_complex.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_bf16_complex.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_bf16_complex.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrt" (declared at line 629 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern double rsqrt (double __x) noexcept (true); extern double __rsqrt (double __x) noexcept (true);
+                                         ^
+      
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrtf" (declared at line 653 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern float rsqrtf (float __x) noexcept (true); extern float __rsqrtf (float __x) noexcept (true);
+                                        ^
+      
+      2 errors detected in the compilation of "/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_bf16_complex.cu".
+      [4/10] /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp32_complex.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp32_complex.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp32_complex.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      FAILED: /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp32_complex.o
+      /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp32_complex.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp32_complex.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp32_complex.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrt" (declared at line 629 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern double rsqrt (double __x) noexcept (true); extern double __rsqrt (double __x) noexcept (true);
+                                         ^
+      
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrtf" (declared at line 653 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern float rsqrtf (float __x) noexcept (true); extern float __rsqrtf (float __x) noexcept (true);
+                                        ^
+      
+      2 errors detected in the compilation of "/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp32_complex.cu".
+      [5/10] /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_complex.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp16_complex.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_complex.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      FAILED: /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_complex.o
+      /usr/local/cuda-13/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_complex.o.d -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp16_complex.cu -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan_bwd_fp16_complex.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT16_CONVERSIONS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -U__CUDA_NO_BFLOAT162_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math --ptxas-options=-v -lineinfo -gencode arch=compute_120,code=sm_120 --threads 4 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrt" (declared at line 629 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern double rsqrt (double __x) noexcept (true); extern double __rsqrt (double __x) noexcept (true);
+                                         ^
+      
+      /usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function "rsqrtf" (declared at line 653 of /usr/local/cuda-13/include/crt/math_functions.h)
+        extern float rsqrtf (float __x) noexcept (true); extern float __rsqrtf (float __x) noexcept (true);
+                                        ^
+      
+      2 errors detected in the compilation of "/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan_bwd_fp16_complex.cu".
+      [6/10] c++ -MMD -MF /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan.o.d -pthread -B /home/hzeng/envs/nexco/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/hzeng/envs/nexco/include -fPIC -O2 -isystem /home/hzeng/envs/nexco/include -fPIC -I/home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include -I/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda-13/include -I/home/hzeng/envs/rlnn_mamba/include -I/home/hzeng/envs/nexco/include/python3.10 -c -c /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/csrc/selective_scan/selective_scan.cpp -o /home/hzeng/project/ZH/RLNN_lab/tmp/v7_mamba_build/mamba_ssm-2.3.2.post1/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/selective_scan.o -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=selective_scan_cuda
+      ninja: build stopped: subcommand failed.
+      Traceback (most recent call last):
+        File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2597, in _run_ninja_build
+          subprocess.run(
+        File "/home/hzeng/envs/nexco/lib/python3.10/subprocess.py", line 526, in run
+          raise CalledProcessError(retcode, process.args,
+      subprocess.CalledProcessError: Command '['ninja', '-v', '-j', '6']' returned non-zero exit status 1.
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 353, in <module>
+          main()
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 335, in main
+          json_out['return_val'] = hook(**hook_input['kwargs'])
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 251, in build_wheel
+          return _build_backend().build_wheel(wheel_directory, config_settings,
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/build_meta.py", line 435, in build_wheel
+          return _build(['bdist_wheel', '--dist-info-dir', str(metadata_directory)])
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/build_meta.py", line 423, in _build
+          return self._build_with_temp_dir(
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/build_meta.py", line 404, in _build_with_temp_dir
+          self.run_setup()
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/build_meta.py", line 317, in run_setup
+          exec(code, locals())
+        File "<string>", line 341, in <module>
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/__init__.py", line 117, in setup
+          return distutils.core.setup(**attrs)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 186, in setup
+          return run_commands(dist)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 202, in run_commands
+          dist.run_commands()
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1002, in run_commands
+          self.run_command(cmd)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+        File "<string>", line 317, in run
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/command/bdist_wheel.py", line 370, in run
+          self.run_command("build")
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/cmd.py", line 357, in run_command
+          self.distribution.run_command(command)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/command/build.py", line 135, in run
+          self.run_command(cmd_name)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/cmd.py", line 357, in run_command
+          self.distribution.run_command(command)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/dist.py", line 1104, in run_command
+          super().run_command(command)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+          cmd_obj.run()
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/command/build_ext.py", line 99, in run
+          _build_ext.run(self)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 368, in run
+          self.build_extensions()
+        File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 1082, in build_extensions
+          build_ext.build_extensions(self)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 484, in build_extensions
+          self._build_extensions_serial()
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 510, in _build_extensions_serial
+          self.build_extension(ext)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/command/build_ext.py", line 264, in build_extension
+          _build_ext.build_extension(self, ext)
+        File "/home/hzeng/envs/nexco/lib/python3.10/site-packages/Cython/Distutils/build_ext.py", line 135, in build_extension
+          super(build_ext, self).build_extension(ext)
+        File "/home/hzeng/envs/rlnn_mamba/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 565, in build_extension
+          objects = self.compiler.compile(
+        File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 866, in unix_wrap_ninja_compile
+          _write_ninja_file_and_compile_objects(
+        File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2223, in _write_ninja_file_and_compile_objects
+          _run_ninja_build(
+        File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2614, in _run_ninja_build
+          raise RuntimeError(message) from e
+      RuntimeError: Error compiling objects for extension
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for mamba_ssm
+Failed to build mamba_ssm
+ERROR: Could not build wheels for mamba_ssm, which is required to install pyproject.toml-based projects
+
+[notice] A new release of pip is available: 23.0.1 -> 26.3
+[notice] To update, run: /home/hzeng/envs/rlnn_mamba/bin/python -m pip install --upgrade pip

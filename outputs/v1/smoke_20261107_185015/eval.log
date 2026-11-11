@@ -1,0 +1,7 @@
+
+  0%|          | 0/1 [00:00<?, ?it/s]/home/hzeng/project/ZH/RLNN_lab/models/solvers.py:433: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+
+100%|██████████| 1/1 [00:01<00:00,  1.54s/it]
+100%|██████████| 1/1 [00:01<00:00,  1.54s/it]
+-3.0 1.5294029712677002

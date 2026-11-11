@@ -1,0 +1,10 @@
+== shell syntax ==
+== module identity and wiring ==
+/home/hzeng/project/ZH/RLNN_lab/models/models.py:47: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  return torch.sparse_coo_tensor(tmp, edge_weight, torch.Size((num_nodes, num_nodes))).to_sparse_csr()
+Structure checks passed: zero-init identity, switches, batch invariance, gain plumbing, cache parity
+== parser surface ==
+parser exposes --structure_mode with degree/gate/gain/all
+== frozen backbone present ==
+-rw-rw-r-- 1 hzeng hzeng 668801 Nov  8 11:05 /home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt
+all checks passed

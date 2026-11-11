@@ -1,6 +1,6 @@
 # Mamba v0 · PC-OSM-RLNN
 
-Mamba 研究线的第一版，对应 [v7 方案](../../../docs/temporary/RLNN_v7_OneShot_Mamba_Research_and_Implementation_Plan.md)。模型使用冻结的 B 和 PAVE H1。一次性编码在求解开始时完成，节点动作偏置在 20 条粒子和所有采样步间共享。训练每次更新重新计算带梯度的编码。[P0 结果](../../../docs/temporary/RLNN_Mamba_v0_P0_Results.md)
+Mamba 研究线的第一版，对应 [v7 方案](../../../docs/已归档的想法和文件/mamba/RLNN_v7_OneShot_Mamba_Research_and_Implementation_Plan.md)。模型使用冻结的 B 和 PAVE H1。一次性编码在求解开始时完成，节点动作偏置在 20 条粒子和所有采样步间共享。训练每次更新重新计算带梯度的编码。[P0 结果](../../../docs/已归档的想法和文件/mamba/RLNN_Mamba_v0_P0_Results.md)
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 bash train_scripts/mamba/v0/setup_env.sh
@@ -24,4 +24,4 @@ CUDA_VISIBLE_DEVICES=0 REF_SEED=0 BUDGET=0.5 bash train_scripts/mamba/v0/eval_bu
 
 核心对照为 `baseline`、`v7_mlp`、`v7_message`、`v7_shuffle_mamba`。线性、度排序、单向和 logit 门控可由 `--context_mode` 切换，`--v7_order_views` 设为 1、2 或 4。固定工作量和两档时间预算的逐图结果均写入 `outputs/v7_context`。
 
-冻结 B 和 PAVE 的静态先验小试使用 `pilot_static.sh`。首轮完成后用 `pilot_static.sh repeat-budgets` 复测两档预算，再运行 `python train_scripts/mamba/v0/analyze_static_pilot.py` 汇总逐图差值。[小试与 v1 方案](../../../docs/temporary/RLNN_Static_Prior_v1_Analysis_and_Plan.md)
+冻结 B 和 PAVE 的静态先验小试使用 `pilot_static.sh`。首轮完成后用 `pilot_static.sh repeat-budgets` 复测两档预算，再运行 `python train_scripts/mamba/v0/analyze_static_pilot.py` 汇总逐图差值。[小试与 v1 方案](../../../docs/已归档的想法和文件/mamba/RLNN_Static_Prior_v1_Analysis_and_Plan.md)

@@ -1,0 +1,22 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+1/20 validation graphs; 3 states
+2/20 validation graphs; 6 states
+3/20 validation graphs; 9 states
+4/20 validation graphs; 12 states
+5/20 validation graphs; 15 states
+6/20 validation graphs; 18 states
+7/20 validation graphs; 21 states
+8/20 validation graphs; 24 states
+9/20 validation graphs; 27 states
+10/20 validation graphs; 30 states
+11/20 validation graphs; 33 states
+12/20 validation graphs; 36 states
+13/20 validation graphs; 39 states
+14/20 validation graphs; 42 states
+15/20 validation graphs; 45 states
+16/20 validation graphs; 48 states
+17/20 validation graphs; 51 states
+18/20 validation graphs; 54 states
+19/20 validation graphs; 57 states
+20/20 validation graphs; 60 states

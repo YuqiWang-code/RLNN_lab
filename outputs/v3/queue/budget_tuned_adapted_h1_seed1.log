@@ -1,0 +1,45 @@
+
+2026-11-08T22:14:46.585357+00:00
+/usr/bin/taskset -c 24-47 /home/hzeng/envs/rlnn/bin/python -u /home/hzeng/project/ZH/RLNN_lab/models/eval_v3.py --save_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed1/checkpoints --result_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v3/budget_tuned_adapted_h1_seed1 --split test --test_samples 1000 --seed 1017 --train_seed 1 --backbone-seed 1 --head-seed 1 --num_t 100 --num_k 20 --frequency none --mixed_precision fp16 --horizon 1 --outer-rounds 8 --exchange_rounds 3 --repair-rounds 4 --candidate_cap 32 --improving-cap 48 --label RLNN-tuned-h1 --cohort-id budget_tuned_adapted_h1 --baseline-run outputs/v3/budget_original_none_ext_seed1/none --rule-reference-run outputs/v3/budget_tuned_random_h2_seed1/random --post pave_adapted --extra-value-checkpoint pave_adapted /home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_adapted_h1_seed1/checkpoints/best.pt --time-budget-s 0.5 --post-reserve-s 0.05
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/1000 graphs: pave_adapted=19.7200
+50/1000 graphs: pave_adapted=19.6600
+75/1000 graphs: pave_adapted=19.6267
+100/1000 graphs: pave_adapted=19.5600
+125/1000 graphs: pave_adapted=19.5520
+150/1000 graphs: pave_adapted=19.5933
+175/1000 graphs: pave_adapted=19.5829
+200/1000 graphs: pave_adapted=19.5750
+225/1000 graphs: pave_adapted=19.5511
+250/1000 graphs: pave_adapted=19.5760
+275/1000 graphs: pave_adapted=19.6291
+300/1000 graphs: pave_adapted=19.6500
+325/1000 graphs: pave_adapted=19.6708
+350/1000 graphs: pave_adapted=19.6971
+375/1000 graphs: pave_adapted=19.7013
+400/1000 graphs: pave_adapted=19.6850
+425/1000 graphs: pave_adapted=19.6659
+450/1000 graphs: pave_adapted=19.6778
+475/1000 graphs: pave_adapted=19.6632
+500/1000 graphs: pave_adapted=19.6480
+525/1000 graphs: pave_adapted=19.6324
+550/1000 graphs: pave_adapted=19.6345
+575/1000 graphs: pave_adapted=19.6365
+600/1000 graphs: pave_adapted=19.6650
+625/1000 graphs: pave_adapted=19.6416
+650/1000 graphs: pave_adapted=19.6477
+675/1000 graphs: pave_adapted=19.6489
+700/1000 graphs: pave_adapted=19.6414
+725/1000 graphs: pave_adapted=19.6262
+750/1000 graphs: pave_adapted=19.6293
+775/1000 graphs: pave_adapted=19.6103
+800/1000 graphs: pave_adapted=19.6088
+825/1000 graphs: pave_adapted=19.6097
+850/1000 graphs: pave_adapted=19.6247
+875/1000 graphs: pave_adapted=19.6149
+900/1000 graphs: pave_adapted=19.6178
+925/1000 graphs: pave_adapted=19.6184
+950/1000 graphs: pave_adapted=19.6179
+975/1000 graphs: pave_adapted=19.6021
+1000/1000 graphs: pave_adapted=19.6000

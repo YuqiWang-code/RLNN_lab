@@ -1,0 +1,140 @@
+{
+  "source_sha": "7d5c805f8ce0c0aa45e043d291bbc718fe96c77e",
+  "branch": "codex/v7-one-shot-mamba",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": "2.3.2.post1",
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0",
+  "version": "static_prior_v2",
+  "status": "completed",
+  "backend": "fp32-graph",
+  "regime_note": "deadline includes prepare and PAVE; mechanism replay is outside timing",
+  "precision": "fp32",
+  "cuda_graph": true,
+  "num_k": 20,
+  "reserve_s": 0.05,
+  "decode_every": 10,
+  "graph_ids": [
+    "graph_000000",
+    "graph_000001"
+  ],
+  "search_seeds": {
+    "graph_000000": [
+      1017
+    ],
+    "graph_000001": [
+      1018
+    ]
+  },
+  "config": {
+    "ref": 0,
+    "offset": 0,
+    "samples": 2,
+    "seeds_per_graph": 1,
+    "backend": "fp32-graph",
+    "checkpoint": null,
+    "oracle_kamis_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/mamba_v2/preflight/oracles/oracle-kamis.json",
+    "oracle_b_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/mamba_v2/preflight/oracles/oracle-b.json",
+    "oracle_amplitude": 1.0,
+    "static_bias_seed": 7311,
+    "arms": [
+      "b0",
+      "amp@0",
+      "amp@0.5",
+      "rand@0.5",
+      "oracle-kamis@1"
+    ],
+    "compare": [],
+    "feature_drop": null,
+    "protocol": "budget",
+    "steps": [
+      25,
+      50,
+      100,
+      200,
+      400,
+      800
+    ],
+    "budgets": [
+      0.5
+    ],
+    "repeats": 1,
+    "output": "/home/hzeng/project/ZH/RLNN_lab/outputs/mamba_v2/preflight/budget"
+  },
+  "feature_norm_sha256": {
+    "amp@0": "c226da1034fde3dbd1626cbbbfc429fcf78fe3a070da5d5b7f9fa76d44f5ff63",
+    "amp@0.5": "c226da1034fde3dbd1626cbbbfc429fcf78fe3a070da5d5b7f9fa76d44f5ff63",
+    "rand@0.5": "c226da1034fde3dbd1626cbbbfc429fcf78fe3a070da5d5b7f9fa76d44f5ff63",
+    "oracle-kamis@1": "c226da1034fde3dbd1626cbbbfc429fcf78fe3a070da5d5b7f9fa76d44f5ff63"
+  },
+  "oracle_sha256": {
+    "oracle-kamis@1": "2a0c4ead779689890cd9c512c98d4caa0b4d4f9615149494cfea4c20e68d8f48"
+  },
+  "doses": {
+    "amp@0": 0.0,
+    "amp@0.5": 0.5,
+    "rand@0.5": 0.5,
+    "oracle-kamis@1": 1.0
+  },
+  "random_rms": 0.0107,
+  "rng_protocol": "same generator seed per graph and arm, separate fixed bias seed",
+  "checkpoint_sha256": {
+    "b0": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+    "amp@0": "ce60ba40616e63bd9901d5bb97a8e8950bd50311366243e6e0afb3a9679287fa",
+    "amp@0.5": "ce60ba40616e63bd9901d5bb97a8e8950bd50311366243e6e0afb3a9679287fa",
+    "rand@0.5": "ce60ba40616e63bd9901d5bb97a8e8950bd50311366243e6e0afb3a9679287fa",
+    "oracle-kamis@1": "ce60ba40616e63bd9901d5bb97a8e8950bd50311366243e6e0afb3a9679287fa"
+  },
+  "alpha": {
+    "amp@0": -0.15241020917892456,
+    "amp@0.5": -0.15241020917892456,
+    "rand@0.5": -0.15241020917892456,
+    "oracle-kamis@1": -0.15241020917892456
+  },
+  "limits": {
+    "amp@0": [
+      0.25,
+      0.125
+    ],
+    "amp@0.5": [
+      0.25,
+      0.125
+    ],
+    "rand@0.5": [
+      0.25,
+      0.125
+    ],
+    "oracle-kamis@1": [
+      0.25,
+      0.125
+    ]
+  },
+  "params": {
+    "b0": 165505,
+    "amp@0": 165638,
+    "amp@0.5": 165638,
+    "rand@0.5": 165638,
+    "oracle-kamis@1": 165638
+  },
+  "pave_params": 3713,
+  "gpu": "0",
+  "device": "cuda",
+  "started_at": "2026-11-10T08:13:42.628176+00:00",
+  "finished_at": "2026-11-10T08:13:49.254658+00:00"
+}

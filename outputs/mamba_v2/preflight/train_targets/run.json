@@ -1,0 +1,20 @@
+{
+  "split": "train",
+  "graph_ids": [
+    "graph_000000",
+    "graph_000001",
+    "graph_000002",
+    "graph_000003",
+    "graph_000004",
+    "graph_000005",
+    "graph_000006",
+    "graph_000007"
+  ],
+  "backend": "fp32-graph",
+  "ref": 0,
+  "kamis_binary": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis",
+  "kamis_seconds": 1.0,
+  "b_steps": 800,
+  "b_seed_offset": 1000003,
+  "seeds_per_graph": 3
+}

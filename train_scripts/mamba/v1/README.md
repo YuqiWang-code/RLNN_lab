@@ -1,6 +1,6 @@
 # 静态先验 v1
 
-沿用冻结 B 和 PAVE H1。短训使用 256 张训练图和 512 次更新，评测用上轮未使用的第 51–100 张验证图。[v1 设计](../../../docs/temporary/RLNN_Static_Prior_v1_Analysis_and_Plan.md) · [实验结果](../../../docs/temporary/RLNN_Static_Prior_v1_Results.md)
+沿用冻结 B 和 PAVE H1。短训使用 256 张训练图和 512 次更新，评测用上轮未使用的第 51–100 张验证图。[v1 设计](../../../docs/已归档的想法和文件/mamba/RLNN_Static_Prior_v1_Analysis_and_Plan.md) · [实验结果](../../../docs/已归档的想法和文件/mamba/RLNN_Static_Prior_v1_Results.md)
 
 | 组 | 作用 |
 | --- | --- |

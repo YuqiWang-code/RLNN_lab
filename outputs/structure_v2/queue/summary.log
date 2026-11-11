@@ -1,0 +1,41 @@
+{
+  "status": "no_go",
+  "gates": {
+    "degree": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "gate": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "gain": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "all": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    }
+  }
+}

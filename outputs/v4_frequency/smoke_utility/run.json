@@ -1,0 +1,105 @@
+{
+  "version": "v4_frequency",
+  "mode": "utility_probe",
+  "status": "completed",
+  "split": "validation",
+  "seed": 0,
+  "config": {
+    "teacher_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+    "model": [
+      [
+        "mlp",
+        "v4a_mlp",
+        "outputs/v4_frequency/smoke_v4a_mlp/checkpoints/best.pt"
+      ],
+      [
+        "message",
+        "v4a_message",
+        "outputs/v4_frequency/smoke_v4a_message/checkpoints/best.pt"
+      ],
+      [
+        "frequency",
+        "v4a",
+        "outputs/v4_frequency/smoke_v4a/checkpoints/best.pt"
+      ]
+    ],
+    "validation_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v4_frequency/smoke_utility",
+    "seed": 0,
+    "graphs": 1,
+    "nodes": 4,
+    "horizon": 10,
+    "device": "cuda"
+  },
+  "checkpoints": {
+    "baseline": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+    "mlp": "outputs/v4_frequency/smoke_v4a_mlp/checkpoints/best.pt",
+    "message": "outputs/v4_frequency/smoke_v4a_message/checkpoints/best.pt",
+    "frequency": "outputs/v4_frequency/smoke_v4a/checkpoints/best.pt"
+  },
+  "started_at": "2026-11-09T03:16:35.855555+00:00",
+  "protocol": "Current single-trajectory states; paired node flips with common continuation noise; per-column energy archive and A.3",
+  "continuation_policy": "frozen baseline",
+  "continuation_steps": 10,
+  "replicates": 2,
+  "times": [
+    25,
+    50,
+    100
+  ],
+  "precision": "float32",
+  "model_selection": "diagnostic only",
+  "graphs": 1,
+  "states": 3,
+  "actions": 12,
+  "informative_states": 1,
+  "informative_state_fraction": 0.3333333333333333,
+  "informative_graphs": 1,
+  "total_pairs": 18,
+  "non_tied_pairs": 3,
+  "non_tied_pair_fraction": 0.16666666666666666,
+  "model_metrics": {
+    "baseline": {
+      "states": 3,
+      "informative_states": 1,
+      "state_mean_pair_accuracy": 0.0,
+      "pooled_pair_accuracy": 0.0,
+      "mean_top1_gain": 0.0,
+      "mean_uniform_gain": 0.041666666666666664,
+      "mean_oracle_flip_gain": 0.16666666666666666,
+      "mean_top1_regret": 0.16666666666666666
+    },
+    "mlp": {
+      "states": 3,
+      "informative_states": 1,
+      "state_mean_pair_accuracy": 0.0,
+      "pooled_pair_accuracy": 0.0,
+      "mean_top1_gain": 0.0,
+      "mean_uniform_gain": 0.041666666666666664,
+      "mean_oracle_flip_gain": 0.16666666666666666,
+      "mean_top1_regret": 0.16666666666666666
+    },
+    "message": {
+      "states": 3,
+      "informative_states": 1,
+      "state_mean_pair_accuracy": 0.0,
+      "pooled_pair_accuracy": 0.0,
+      "mean_top1_gain": 0.0,
+      "mean_uniform_gain": 0.041666666666666664,
+      "mean_oracle_flip_gain": 0.16666666666666666,
+      "mean_top1_regret": 0.16666666666666666
+    },
+    "frequency": {
+      "states": 3,
+      "informative_states": 1,
+      "state_mean_pair_accuracy": 0.0,
+      "pooled_pair_accuracy": 0.0,
+      "mean_top1_gain": 0.0,
+      "mean_uniform_gain": 0.041666666666666664,
+      "mean_oracle_flip_gain": 0.16666666666666666,
+      "mean_top1_regret": 0.16666666666666666
+    }
+  },
+  "finished_at": "2026-11-09T03:16:38.938622+00:00",
+  "wall_time_s": 3.0827503320761025
+}

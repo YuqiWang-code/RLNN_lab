@@ -1,0 +1,102 @@
+collect 25/2000 starts, 100 states, 0 informative
+collect 50/2000 starts, 200 states, 4 informative
+collect 75/2000 starts, 300 states, 8 informative
+collect 100/2000 starts, 400 states, 8 informative
+collect 125/2000 starts, 500 states, 12 informative
+collect 150/2000 starts, 600 states, 29 informative
+collect 175/2000 starts, 700 states, 29 informative
+collect 200/2000 starts, 800 states, 36 informative
+collect 225/2000 starts, 900 states, 43 informative
+collect 250/2000 starts, 1000 states, 51 informative
+collect 275/2000 starts, 1100 states, 55 informative
+collect 300/2000 starts, 1200 states, 61 informative
+collect 325/2000 starts, 1300 states, 67 informative
+collect 350/2000 starts, 1400 states, 67 informative
+collect 375/2000 starts, 1500 states, 67 informative
+collect 400/2000 starts, 1600 states, 76 informative
+collect 425/2000 starts, 1700 states, 84 informative
+collect 450/2000 starts, 1800 states, 84 informative
+collect 475/2000 starts, 1900 states, 84 informative
+collect 500/2000 starts, 2000 states, 90 informative
+collect 525/2000 starts, 2100 states, 90 informative
+collect 550/2000 starts, 2200 states, 94 informative
+collect 575/2000 starts, 2300 states, 98 informative
+collect 600/2000 starts, 2400 states, 106 informative
+collect 625/2000 starts, 2500 states, 106 informative
+collect 650/2000 starts, 2600 states, 106 informative
+collect 675/2000 starts, 2700 states, 111 informative
+collect 700/2000 starts, 2800 states, 111 informative
+collect 725/2000 starts, 2900 states, 113 informative
+collect 750/2000 starts, 3000 states, 121 informative
+collect 775/2000 starts, 3100 states, 128 informative
+collect 800/2000 starts, 3199 states, 128 informative
+collect 825/2000 starts, 3297 states, 131 informative
+collect 850/2000 starts, 3397 states, 135 informative
+collect 875/2000 starts, 3497 states, 135 informative
+collect 900/2000 starts, 3597 states, 135 informative
+collect 925/2000 starts, 3694 states, 139 informative
+collect 950/2000 starts, 3794 states, 143 informative
+collect 975/2000 starts, 3894 states, 144 informative
+collect 1000/2000 starts, 3994 states, 148 informative
+collect 1025/2000 starts, 4094 states, 148 informative
+collect 1050/2000 starts, 4194 states, 148 informative
+collect 1075/2000 starts, 4294 states, 152 informative
+collect 1100/2000 starts, 4394 states, 152 informative
+collect 1125/2000 starts, 4494 states, 152 informative
+collect 1150/2000 starts, 4594 states, 156 informative
+collect 1175/2000 starts, 4694 states, 160 informative
+collect 1200/2000 starts, 4794 states, 173 informative
+collect 1225/2000 starts, 4894 states, 178 informative
+collect 1250/2000 starts, 4993 states, 182 informative
+collect 1275/2000 starts, 5093 states, 182 informative
+collect 1300/2000 starts, 5191 states, 190 informative
+collect 1325/2000 starts, 5291 states, 190 informative
+collect 1350/2000 starts, 5391 states, 190 informative
+collect 1375/2000 starts, 5491 states, 190 informative
+collect 1400/2000 starts, 5591 states, 198 informative
+collect 1425/2000 starts, 5690 states, 200 informative
+collect 1450/2000 starts, 5790 states, 207 informative
+collect 1475/2000 starts, 5890 states, 208 informative
+collect 1500/2000 starts, 5990 states, 208 informative
+collect 1525/2000 starts, 6090 states, 212 informative
+collect 1550/2000 starts, 6190 states, 216 informative
+collect 1575/2000 starts, 6290 states, 224 informative
+collect 1600/2000 starts, 6390 states, 228 informative
+collect 1625/2000 starts, 6490 states, 232 informative
+collect 1650/2000 starts, 6590 states, 240 informative
+collect 1675/2000 starts, 6690 states, 245 informative
+collect 1700/2000 starts, 6788 states, 247 informative
+collect 1725/2000 starts, 6887 states, 251 informative
+collect 1750/2000 starts, 6987 states, 255 informative
+collect 1775/2000 starts, 7087 states, 259 informative
+collect 1800/2000 starts, 7187 states, 259 informative
+collect 1825/2000 starts, 7287 states, 263 informative
+collect 1850/2000 starts, 7387 states, 267 informative
+collect 1875/2000 starts, 7487 states, 271 informative
+collect 1900/2000 starts, 7587 states, 271 informative
+collect 1925/2000 starts, 7687 states, 275 informative
+collect 1950/2000 starts, 7787 states, 279 informative
+collect 1975/2000 starts, 7887 states, 282 informative
+collect 2000/2000 starts, 7987 states, 286 informative
+{
+  "labels_h1": {
+    "states": 7987,
+    "graphs": 1000,
+    "available": 7979,
+    "informative": 286,
+    "informative_graphs": 82,
+    "non_tied_pairs": 13792,
+    "positive_states": 286,
+    "positive_coverage": 0.035808188305997246,
+    "mean_candidates": 21.05333667209215,
+    "mean_oracle_gain": 0.036559409039689496,
+    "rule_gains": {
+      "coverage": 0.0008764241893076249,
+      "degree": 0.0008764241893076249,
+      "random": 0.005383748591461125
+    },
+    "strongest_rule": "random",
+    "oracle_gap": 0.031175660448228372,
+    "mean_truncation_loss": 0
+  }
+}

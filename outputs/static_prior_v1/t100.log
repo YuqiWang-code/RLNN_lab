@@ -1,0 +1,7 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+t100 repeat 0 10/50 baseline=19.200, constants=19.400, centered=19.400, masked=19.400
+t100 repeat 0 20/50 baseline=19.900, constants=20.050, centered=20.000, masked=20.050
+t100 repeat 0 30/50 baseline=19.900, constants=19.967, centered=19.967, masked=20.033
+t100 repeat 0 40/50 baseline=19.750, constants=19.800, centered=19.800, masked=19.850
+t100 repeat 0 50/50 baseline=19.740, constants=19.760, centered=19.760, masked=19.780

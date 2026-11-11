@@ -1,0 +1,2 @@
+Epoch,Iteration,loss,valid_obj,valid_time,train_energy,train_distance,train_flips,train_peak_mib
+1,2,5989.135009765625,-18.25,0.5818971395492554,780.5382690429688,10316.52734375,106.12458038330078,2544.1455078125

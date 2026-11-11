@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
+import numpy as np
 import torch
 
 from eval_static_prior import write_rows
@@ -28,11 +29,12 @@ def prepare(args):
     else:
         dataset, graph_ids = cohort(args)
     use_kamis = args.kamis is not None and (not args.train_targets or args.train_oracle == "kamis")
-    use_base = not args.kamis_only and (not args.train_targets or args.train_oracle == "b")
+    use_base = not args.kamis_only and (not args.train_targets or args.train_oracle in ("b", "freq"))
+    frequency = args.train_targets and args.train_oracle == "freq"
     base = baseline(args) if use_base else None
     if base is not None:
-        base.num_t = 800
-    kamis_targets, b_targets = {}, {}
+        base.num_t = args.b_steps
+    kamis_targets, b_targets, freq_targets = {}, {}, {}
     for index, (gid, graph) in enumerate(zip(graph_ids, dataset), args.offset):
         edges = graph.edge_index
         if use_kamis:
@@ -42,21 +44,29 @@ def prepare(args):
             kamis_targets[gid] = selected
         if base is not None:
             graph = graph.to(base.accelerator.device)
-            best = 0
-            for seed in search_seeds(index, args.seeds_per_graph):
+            starts = args.freq_starts if frequency else args.seeds_per_graph
+            solutions = []
+            for seed in search_seeds(index, starts):
                 seed += 1_000_003
                 legal = SearchGraph(graph.num_nodes, edges, seed=seed)
                 selected, _ = search(base, graph, legal, seed)
-                if selected.bit_count() > best.bit_count():
-                    best = selected
+                solutions.append(selected)
+            best = max(solutions, key=lambda mask: mask.bit_count())
             b_targets[gid] = list(nodes(best))
+            if frequency:
+                elite = sorted(solutions, key=lambda mask: -mask.bit_count())[:max(1, len(solutions) // 2)]
+                counts = np.zeros(graph.num_nodes, dtype=np.float32)
+                for mask in elite:
+                    counts[list(nodes(mask))] += 1
+                freq_targets[gid] = (counts / len(elite)).tolist()
     suffix = "-train" if args.train_targets else ""
-    for name, targets in (("oracle-kamis", kamis_targets), ("oracle-b", b_targets)):
+    for name, targets in (("oracle-kamis", kamis_targets), ("oracle-b", b_targets), ("oracle-freq", freq_targets)):
         if targets:
             (args.output / f"{name}{suffix}.json").write_text(json.dumps(targets, indent=2) + "\n", encoding="utf-8")
     write_run(args.output, dict(split="train" if args.train_targets else "validation", graph_ids=graph_ids,
                                 backend=args.backend, ref=args.ref, kamis_binary=args.kamis,
-                                kamis_seconds=args.kamis_seconds, b_steps=800, b_seed_offset=1_000_003,
+                                kamis_seconds=args.kamis_seconds, b_steps=args.b_steps, b_seed_offset=1_000_003,
+                                freq_starts=args.freq_starts if frequency else None,
                                 seeds_per_graph=args.seeds_per_graph))
 
 
@@ -117,10 +127,12 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--prepare", action="store_true")
     parser.add_argument("--train-targets", action="store_true")
-    parser.add_argument("--train-oracle", choices=("kamis", "b"), default="kamis")
+    parser.add_argument("--train-oracle", choices=("kamis", "b", "freq"), default="kamis")
     parser.add_argument("--kamis-only", action="store_true")
     parser.add_argument("--kamis", type=Path)
     parser.add_argument("--kamis-seconds", type=float, default=1.)
+    parser.add_argument("--b-steps", type=int, default=800)
+    parser.add_argument("--freq-starts", type=int, default=4)
     parser.set_defaults(samples=None)
     args = parser.parse_args()
     if args.samples is None:

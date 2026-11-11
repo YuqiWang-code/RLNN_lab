@@ -1,0 +1,25 @@
+{
+  "version": "v1",
+  "status": "completed",
+  "mode": "train",
+  "run": "smoke_gcon_191215",
+  "method": "GCON",
+  "config": {
+    "label": "GCON",
+    "result_dir": "outputs/v1/smoke_gcon_191215",
+    "train_seed": 0,
+    "seed": 0,
+    "epochs": 1,
+    "batch_size": 8,
+    "train_samples": 4,
+    "valid_samples": 2,
+    "test_samples": -1,
+    "hidden": 64,
+    "layers": 4,
+    "checkpoint": null,
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/author_rld4co/MIS/RB_small_test"
+  },
+  "started_at": "2026-11-07T11:12:28.802554+00:00",
+  "wall_time_s": 2.64311684994027,
+  "best_val_size": 17.5
+}

@@ -1,0 +1,45 @@
+
+2026-11-08T07:06:20.239110+00:00
+/usr/bin/taskset -c 24-47 /home/hzeng/envs/rlnn/bin/python -u /home/hzeng/project/ZH/RLNN_lab/models/eval_v3.py --save_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed2/checkpoints --result_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v3/test_tuned_h2_seed2 --split test --test_samples 1000 --seed 1017 --train_seed 2 --backbone-seed 2 --head-seed 2 --num_t 100 --num_k 20 --frequency none --mixed_precision fp16 --horizon 2 --outer-rounds 8 --exchange_rounds 3 --repair-rounds 4 --candidate_cap 32 --improving-cap 48 --label RLNN-tuned-h2 --cohort-id fixed_tuned_h2 --baseline-run outputs/v3/test_original_h1_seed2/none --rule-reference-run outputs/v3/test_tuned_h2_seed2/random --post none rule23 random degree coverage pave --value-checkpoint /home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h2_seed2/checkpoints/best.pt
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/1000 graphs: none=19.5600, rule23=19.6000, random=19.6000, degree=19.6000, coverage=19.6000, pave=19.6000
+50/1000 graphs: none=19.4600, rule23=19.5200, random=19.5400, degree=19.5200, coverage=19.5200, pave=19.5600
+75/1000 graphs: none=19.4933, rule23=19.5467, random=19.5733, degree=19.5467, coverage=19.5467, pave=19.5867
+100/1000 graphs: none=19.4300, rule23=19.4700, random=19.5000, degree=19.4800, coverage=19.4800, pave=19.5400
+125/1000 graphs: none=19.4560, rule23=19.4880, random=19.5120, degree=19.4960, coverage=19.4960, pave=19.5600
+150/1000 graphs: none=19.4867, rule23=19.5267, random=19.5533, degree=19.5333, coverage=19.5333, pave=19.6067
+175/1000 graphs: none=19.5029, rule23=19.5371, random=19.5600, degree=19.5429, coverage=19.5429, pave=19.6057
+200/1000 graphs: none=19.4750, rule23=19.5100, random=19.5450, degree=19.5150, coverage=19.5150, pave=19.5900
+225/1000 graphs: none=19.4622, rule23=19.4978, random=19.5333, degree=19.5022, coverage=19.5022, pave=19.5733
+250/1000 graphs: none=19.4800, rule23=19.5200, random=19.5520, degree=19.5240, coverage=19.5240, pave=19.5920
+275/1000 graphs: none=19.5309, rule23=19.5709, random=19.6000, degree=19.5745, coverage=19.5745, pave=19.6545
+300/1000 graphs: none=19.5433, rule23=19.5800, random=19.6067, degree=19.5833, coverage=19.5833, pave=19.6633
+325/1000 graphs: none=19.5569, rule23=19.5938, random=19.6185, degree=19.5969, coverage=19.5969, pave=19.6800
+350/1000 graphs: none=19.5886, rule23=19.6257, random=19.6486, degree=19.6286, coverage=19.6286, pave=19.7086
+375/1000 graphs: none=19.5893, rule23=19.6320, random=19.6533, degree=19.6347, coverage=19.6347, pave=19.7147
+400/1000 graphs: none=19.5825, rule23=19.6250, random=19.6450, degree=19.6275, coverage=19.6275, pave=19.7075
+425/1000 graphs: none=19.5671, rule23=19.6118, random=19.6306, degree=19.6165, coverage=19.6141, pave=19.6894
+450/1000 graphs: none=19.5800, rule23=19.6289, random=19.6489, degree=19.6333, coverage=19.6311, pave=19.7044
+475/1000 graphs: none=19.5663, rule23=19.6147, random=19.6337, degree=19.6189, coverage=19.6168, pave=19.6884
+500/1000 graphs: none=19.5620, rule23=19.6100, random=19.6280, degree=19.6140, coverage=19.6120, pave=19.6860
+525/1000 graphs: none=19.5543, rule23=19.6057, random=19.6229, degree=19.6095, coverage=19.6076, pave=19.6800
+550/1000 graphs: none=19.5618, rule23=19.6164, random=19.6327, degree=19.6200, coverage=19.6182, pave=19.6909
+575/1000 graphs: none=19.5722, rule23=19.6243, random=19.6400, degree=19.6278, coverage=19.6261, pave=19.6974
+600/1000 graphs: none=19.6033, rule23=19.6550, random=19.6700, degree=19.6583, coverage=19.6567, pave=19.7267
+625/1000 graphs: none=19.5872, rule23=19.6384, random=19.6528, degree=19.6416, coverage=19.6400, pave=19.7088
+650/1000 graphs: none=19.5969, rule23=19.6492, random=19.6646, degree=19.6523, coverage=19.6508, pave=19.7185
+675/1000 graphs: none=19.5970, rule23=19.6489, random=19.6637, degree=19.6519, coverage=19.6504, pave=19.7170
+700/1000 graphs: none=19.5871, rule23=19.6386, random=19.6529, degree=19.6414, coverage=19.6400, pave=19.7071
+725/1000 graphs: none=19.5655, rule23=19.6152, random=19.6317, degree=19.6207, coverage=19.6193, pave=19.6869
+750/1000 graphs: none=19.5680, rule23=19.6173, random=19.6347, degree=19.6227, coverage=19.6213, pave=19.6880
+775/1000 graphs: none=19.5497, rule23=19.6026, random=19.6206, degree=19.6077, coverage=19.6065, pave=19.6748
+800/1000 graphs: none=19.5487, rule23=19.6025, random=19.6212, degree=19.6075, coverage=19.6062, pave=19.6737
+825/1000 graphs: none=19.5503, rule23=19.6024, random=19.6230, degree=19.6073, coverage=19.6061, pave=19.6752
+850/1000 graphs: none=19.5624, rule23=19.6153, random=19.6353, degree=19.6200, coverage=19.6188, pave=19.6871
+875/1000 graphs: none=19.5543, rule23=19.6080, random=19.6286, degree=19.6126, coverage=19.6114, pave=19.6811
+900/1000 graphs: none=19.5611, rule23=19.6167, random=19.6367, degree=19.6211, coverage=19.6200, pave=19.6878
+925/1000 graphs: none=19.5589, rule23=19.6173, random=19.6378, degree=19.6216, coverage=19.6205, pave=19.6865
+950/1000 graphs: none=19.5621, rule23=19.6189, random=19.6389, degree=19.6232, coverage=19.6221, pave=19.6863
+975/1000 graphs: none=19.5487, rule23=19.6041, random=19.6246, degree=19.6092, coverage=19.6082, pave=19.6718
+1000/1000 graphs: none=19.5470, rule23=19.6010, random=19.6210, degree=19.6060, coverage=19.6050, pave=19.6670

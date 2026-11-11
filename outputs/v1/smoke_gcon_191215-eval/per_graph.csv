@@ -1,0 +1,3 @@
+graph_id,group,independent_set_size,solve_time_s,conflicts,extra_candidates,archive_seconds,archive_gain,archive_gap,baseline_archive_gap,selected_nodes
+idx_0,1,19,1.733513415325433,0,,,,,,2 11 22 41 44 60 66 78 94 103 110 152 154 173 184 195 203 229 238
+idx_1,1,18,0.04727570293471217,0,,,,,,7 12 30 51 64 78 84 92 107 118 138 141 155 173 182 218 223 239

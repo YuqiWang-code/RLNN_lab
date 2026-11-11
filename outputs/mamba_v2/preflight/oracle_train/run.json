@@ -1,0 +1,210 @@
+{
+  "source_sha": "7d5c805f8ce0c0aa45e043d291bbc718fe96c77e",
+  "branch": "codex/v7-one-shot-mamba",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": "2.3.2.post1",
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0",
+  "version": "static_prior_v2",
+  "arm": "static_centered",
+  "status": "completed",
+  "config": {
+    "resume": null,
+    "seed": 42,
+    "epochs": 1,
+    "batch_size": 20,
+    "graph_batch_size": 8,
+    "lr": 0.01,
+    "train_path": "models/data/MIS_tensors/RB_small_train",
+    "train_samples": 8,
+    "valid_path": "models/data/MIS_tensors/RB_small_val",
+    "valid_samples": 2,
+    "test_path": "./",
+    "test_samples": -1,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "outputs/mamba_v2/preflight/oracle_train/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 4,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "context_mode": "static_centered",
+    "v7_width": 32,
+    "v7_d_state": 16,
+    "v7_order_seed": 7301,
+    "v7_order_views": 1,
+    "v7_delta_limit": null,
+    "static_constant_limit": 0.25,
+    "static_node_limit": 2.0,
+    "static_peak_normalize": true,
+    "static_bias_seed": 1017,
+    "static_oracle_path": null,
+    "static_features": 8,
+    "static_encoder": "mlp",
+    "warm_start": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints/best.pt",
+    "freeze_backbone_epochs": 0,
+    "finetune_lr": null,
+    "validation_seed": 1017,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.0,
+    "mixed_precision": "no",
+    "do_train": true,
+    "skip_decode": false,
+    "result_dir": "outputs/mamba_v2/preflight/oracle_train",
+    "reference_seed": 0,
+    "alpha_lr": 0.001,
+    "validation_offset": 0,
+    "static_v2": true,
+    "student_mix": 0.2,
+    "student_mix_every": 1,
+    "oracle_train_targets": "outputs/mamba_v2/preflight/train_targets/oracle-kamis-train.json",
+    "oracle_weight": 0.03
+  },
+  "started_at": "2026-11-10T08:15:08.709277+00:00",
+  "teacher_state_seed": 20303,
+  "shuffle_seed": 30539,
+  "feature_normalization": {
+    "mean": [
+      3.39422869682312,
+      3.4626312255859375,
+      0.2476305216550827,
+      21.785110473632812,
+      1.9441624879837036,
+      0.44045090675354004,
+      0.1430031657218933,
+      0.7447057962417603
+    ],
+    "std": [
+      0.46030351519584656,
+      0.3887423276901245,
+      0.11896801739931107,
+      5.98405122756958,
+      0.9956113696098328,
+      0.24928846955299377,
+      0.026959773153066635,
+      0.06922055780887604
+    ]
+  },
+  "feature_norm_sha256": "74f03f73412ae9a5883085fc21b2708e7a09cf8630778ff90d7f42b5f4a92790",
+  "validation_graph_ids": [
+    "graph_000000",
+    "graph_000001"
+  ],
+  "params": 165686,
+  "trainable_params": 180,
+  "oracle_train_targets_sha256": "6e37b3a504d1724b9845b11dbd74b57831680f140708209b25d63ce351d44801",
+  "oracle_fixed_gate": 0.5,
+  "updates": 4,
+  "epochs": 1,
+  "best_validation_size": 20.5,
+  "first_gradients": [
+    {
+      "alpha_grad": null,
+      "encoder_grad_norm": 20.82314682006836,
+      "constants_grad_norm": 4.80391788482666
+    },
+    {
+      "alpha_grad": null,
+      "encoder_grad_norm": 6.708820819854736,
+      "constants_grad_norm": 4.802730560302734
+    }
+  ],
+  "teacher_state_sha256": {
+    "0": "93b515710cde5c269649d6e3fcecafa86ca1a498d5fe37d950274ebfa112a031",
+    "4": "a6e6f938e6dd5e432f12b8667c04a4c1963ca0b8575a52790d1bbbe9ae23b0e7",
+    "7": "c4477e5818fbfc01bbcb4a2e4943af513afa8956fbd8509c391ac5821ffe7891",
+    "5": "57a925609b02f97a3c67045ec2d5692c2fe1c67e4b99158012009bdac70ab11e",
+    "2": "575209bb822624aeb3e75963efc05cc9869c979544992974302a9468fc113b8c",
+    "6": "fd8c767d277c789100f9808c94104ba8fcbaf90f1d1f7b55cb46221fa87dcc04",
+    "1": "95a5f8acf1a15f2294b0851fbd30f8a6e5b66308745ba8222f7b6548ece9c996",
+    "3": "72a60552acc8b7d512f636ec26d88065a42da00f91c1f3ef694c6847f8ca790c"
+  },
+  "adapter_checkpoint_sha256": "339316012bc428cea4542cc4004ce7833c0d7e6220121299f61f160a035976de",
+  "peak_memory_mib": 150.3623046875,
+  "training_state_sha256": {
+    "0": "fc2fefdb046fe09507f11d8fc606d6b86629d916f76bc540ebcaa3168df9322c",
+    "4": "17d285916d4d4c2c8e66bc82f055b440d9ab0b222f4c045c4e1a536bae988fa3",
+    "7": "bbd73a70a45bf894705bd179fb598adf5b8af2419a9a849db971c7f0b16f87d5",
+    "5": "ad737e2a18b3378a20289586ae035b463255a0eaa8ff7c5f60d2ab9c5ba45d5c",
+    "2": "4c1c702a52fc46629d79131dbdd117842a4dbee44953c392b8378085c38ea301",
+    "6": "7cbe00f8e794a94b23a5ca2b509c7a03b8e8493891ed92054fcc0946dbe67758",
+    "1": "b02367da85c96529d51aa45fab969cbbfaa137ea92ae435f2f6acd8f2249027f",
+    "3": "d72f952bf3ef03ba62f380c17dfa55e86e13064d1cd8e4d2d408bc8b083970ae"
+  },
+  "student_columns": {
+    "0": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "4": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "7": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "5": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "2": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "6": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "3": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "train_wall_s": 3.1857963311485946,
+  "finished_at": "2026-11-10T08:15:11.896253+00:00"
+}

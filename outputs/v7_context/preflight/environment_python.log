@@ -1,0 +1,36 @@
+Collecting transformers<5,>=4.45
+  Downloading transformers-4.57.6-py3-none-any.whl (12.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 10.3 MB/s eta 0:00:00
+Requirement already satisfied: einops in /home/hzeng/envs/nexco/lib/python3.10/site-packages (0.8.1)
+Requirement already satisfied: numpy>=1.17 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from transformers<5,>=4.45) (1.26.4)
+Collecting regex!=2019.12.17
+  Downloading regex-2026.9.29-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (797 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 797.6/797.6 kB 31.6 MB/s eta 0:00:00
+Requirement already satisfied: packaging>=20.0 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from transformers<5,>=4.45) (26.3)
+Requirement already satisfied: pyyaml>=5.1 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from transformers<5,>=4.45) (6.0.3)
+Collecting huggingface-hub<1.0,>=0.34.0
+  Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 20.5 MB/s eta 0:00:00
+Collecting tokenizers<=0.23.0,>=0.22.0
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 21.2 MB/s eta 0:00:00
+Requirement already satisfied: requests in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from transformers<5,>=4.45) (2.34.2)
+Requirement already satisfied: filelock in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from transformers<5,>=4.45) (4.1.0)
+Requirement already satisfied: safetensors>=0.4.3 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from transformers<5,>=4.45) (0.8.0)
+Requirement already satisfied: tqdm>=4.27 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from transformers<5,>=4.45) (4.67.1)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.34.0->transformers<5,>=4.45) (1.8.0)
+Requirement already satisfied: fsspec>=2023.5.0 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.34.0->transformers<5,>=4.45) (2026.9.0)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.34.0->transformers<5,>=4.45) (4.16.0)
+Requirement already satisfied: certifi>=2023.5.7 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from requests->transformers<5,>=4.45) (2026.10.23)
+Requirement already satisfied: urllib3<3,>=1.26 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from requests->transformers<5,>=4.45) (2.8.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from requests->transformers<5,>=4.45) (3.5.2)
+Requirement already satisfied: idna<4,>=2.5 in /home/hzeng/envs/rlnn/lib/python3.10/site-packages (from requests->transformers<5,>=4.45) (3.20)
+Installing collected packages: regex, huggingface-hub, tokenizers, transformers
+  Attempting uninstall: huggingface-hub
+    Found existing installation: huggingface_hub 2.4.0
+    Not uninstalling huggingface-hub at /home/hzeng/envs/rlnn/lib/python3.10/site-packages, outside environment /home/hzeng/envs/rlnn_mamba
+    Can't uninstall 'huggingface_hub'. No files were found to uninstall.
+Successfully installed huggingface-hub-0.36.2 regex-2026.9.29 tokenizers-0.22.2 transformers-4.57.6
+
+[notice] A new release of pip is available: 23.0.1 -> 26.3
+[notice] To update, run: /home/hzeng/envs/rlnn_mamba/bin/python -m pip install --upgrade pip

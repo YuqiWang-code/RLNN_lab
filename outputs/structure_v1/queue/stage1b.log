@@ -1,0 +1,76 @@
+2026-11-11T11:39:56+08:00
+phase fixed (uniform CUDA graph)
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.7600, pave=19.8400
+50/100 graphs: none=19.4400, pave=19.5000
+75/100 graphs: none=19.5067, pave=19.5867
+100/100 graphs: none=19.5300, pave=19.6200
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.8800, pave=19.9200
+50/100 graphs: none=19.4800, pave=19.5800
+75/100 graphs: none=19.5600, pave=19.6533
+100/100 graphs: none=19.5900, pave=19.7100
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.8400, pave=19.9600
+50/100 graphs: none=19.4800, pave=19.6000
+75/100 graphs: none=19.5333, pave=19.6800
+100/100 graphs: none=19.5300, pave=19.6800
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.9200, pave=19.9200
+50/100 graphs: none=19.5000, pave=19.5600
+75/100 graphs: none=19.5333, pave=19.6267
+100/100 graphs: none=19.5400, pave=19.6500
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/100 graphs: none=19.7200, pave=19.7600
+50/100 graphs: none=19.3800, pave=19.4400
+75/100 graphs: none=19.4933, pave=19.5333
+100/100 graphs: none=19.5400, pave=19.6000
+phase summarize
+{
+  "status": "no_go",
+  "gates": {
+    "degree": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "gate": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "gain": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    },
+    "all": {
+      "checks": {
+        "fixed": false,
+        "speed": false,
+        "budget": false,
+        "feasible": true
+      },
+      "advance": false
+    }
+  }
+}
+2026-11-11T11:43:31+08:00
+done

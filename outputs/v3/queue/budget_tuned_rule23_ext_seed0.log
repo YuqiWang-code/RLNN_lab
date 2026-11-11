@@ -1,0 +1,45 @@
+
+2026-11-08T21:26:09.672112+00:00
+/usr/bin/taskset -c 0-23 /home/hzeng/envs/rlnn/bin/python -u /home/hzeng/project/ZH/RLNN_lab/models/eval_v3.py --save_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints --result_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v3/budget_tuned_rule23_ext_seed0 --split test --test_samples 1000 --seed 1017 --train_seed 0 --backbone-seed 0 --head-seed 0 --num_t 100 --num_k 20 --frequency none --mixed_precision fp16 --horizon 2 --outer-rounds 8 --exchange_rounds 3 --repair-rounds 4 --candidate_cap 32 --improving-cap 48 --label RLNN-tuned-h2 --cohort-id budget_tuned_rule23_ext --baseline-run outputs/v3/budget_original_none_ext_seed0/none --rule-reference-run outputs/v3/budget_tuned_random_h2_seed0/random --post rule23 --time-budget-s 0.5 --post-reserve-s 0.02 --extended-search
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/1000 graphs: rule23=19.6400
+50/1000 graphs: rule23=19.5800
+75/1000 graphs: rule23=19.6267
+100/1000 graphs: rule23=19.5800
+125/1000 graphs: rule23=19.6000
+150/1000 graphs: rule23=19.6267
+175/1000 graphs: rule23=19.6343
+200/1000 graphs: rule23=19.6450
+225/1000 graphs: rule23=19.6089
+250/1000 graphs: rule23=19.6160
+275/1000 graphs: rule23=19.6545
+300/1000 graphs: rule23=19.6700
+325/1000 graphs: rule23=19.6831
+350/1000 graphs: rule23=19.6971
+375/1000 graphs: rule23=19.6853
+400/1000 graphs: rule23=19.6650
+425/1000 graphs: rule23=19.6471
+450/1000 graphs: rule23=19.6578
+475/1000 graphs: rule23=19.6442
+500/1000 graphs: rule23=19.6200
+525/1000 graphs: rule23=19.6038
+550/1000 graphs: rule23=19.6109
+575/1000 graphs: rule23=19.6104
+600/1000 graphs: rule23=19.6300
+625/1000 graphs: rule23=19.6016
+650/1000 graphs: rule23=19.6092
+675/1000 graphs: rule23=19.6000
+700/1000 graphs: rule23=19.5900
+725/1000 graphs: rule23=19.5655
+750/1000 graphs: rule23=19.5667
+775/1000 graphs: rule23=19.5471
+800/1000 graphs: rule23=19.5475
+825/1000 graphs: rule23=19.5491
+850/1000 graphs: rule23=19.5576
+875/1000 graphs: rule23=19.5543
+900/1000 graphs: rule23=19.5633
+925/1000 graphs: rule23=19.5622
+950/1000 graphs: rule23=19.5611
+975/1000 graphs: rule23=19.5508
+1000/1000 graphs: rule23=19.5510

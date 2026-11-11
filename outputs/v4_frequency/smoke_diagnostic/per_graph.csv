@@ -1,0 +1,2 @@
+graph_id,base_size,final_size,rule_size,pave_gain,pave_time_s,score_time_s,search_steps,trajectory_with_diagnostics_s,diagnostic_observer_s,selected_nodes
+graph_000000,22,22,22,0,0.0,0.0,100,8.272661119233817,5.93413131358102,2 18 26 43 55 63 71 82 93 104 119 129 137 144 150 160 179 193 203 213 227 238

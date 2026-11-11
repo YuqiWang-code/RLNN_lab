@@ -1,0 +1,23 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+Epoch: 0 Iteration: 0 loss: None valid_obj: None valid_time: None alpha: 0.0
+  0%|          | 0/1 [00:00<?, ?it/s]/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+100%|██████████| 1/1 [00:02<00:00,  2.06s/it]100%|██████████| 1/1 [00:02<00:00,  2.06s/it]
+Epoch: 1 Iteration: 2 loss: 262.41415290832515 valid_obj: -21 valid_time: 0.23781066830269992 alpha: -0.0016179957892745733 train_energy: 136.892578125 train_distance: 68.89694213867188 train_flips: 11.925202369689941 train_peak_mib: 407.47607421875 static_bias_std: 0.5977873206138611 add_mean: -0.09697078913450241 drop_mean: 0.34025755524635315 delta_logit_rms: 0.0004929720307700336 delta_prob_mean_abs: 3.7035777040728135e-06 alpha_grad: 0.09513253718614578 encoder_grad_norm: 7.353419641731307e-05 val_pave_size: 21 val_post_s: 0.06480094976723194 val_steps: 100
+Epoch: 0 Iteration: 0 loss: None valid_obj: None valid_time: None alpha: 0.0
+  0%|          | 0/1 [00:00<?, ?it/s]/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+100%|██████████| 1/1 [00:02<00:00,  2.23s/it]100%|██████████| 1/1 [00:02<00:00,  2.23s/it]
+Epoch: 1 Iteration: 2 loss: 262.41415290832515 valid_obj: -21 valid_time: 0.27967540826648474 alpha: -0.00161900429520756 train_energy: 136.892578125 train_distance: 68.89695739746094 train_flips: 11.925204277038574 train_peak_mib: 407.455078125 static_bias_std: 0.5994663834571838 add_mean: -0.09967988729476929 drop_mean: 0.3373514711856842 delta_logit_rms: 0.0004943765816278756 delta_prob_mean_abs: 3.7048366721137427e-06 alpha_grad: 0.0950862392783165 encoder_grad_norm: 0.0005448725423775613 val_pave_size: 21 val_post_s: 0.1173194837756455 val_steps: 100
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+Proxy labels 20/100
+Proxy labels 40/100
+Proxy labels 60/100
+Proxy labels 80/100
+Proxy labels 100/100
+local_mlp 0.6284293271385991
+full_mlp 0.636176795384804
+message 0.6346614203106029
+mamba 0.6401701781151867

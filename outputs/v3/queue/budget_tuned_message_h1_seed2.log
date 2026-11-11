@@ -1,0 +1,45 @@
+
+2026-11-08T22:37:55.300697+00:00
+/usr/bin/taskset -c 24-47 /home/hzeng/envs/rlnn/bin/python -u /home/hzeng/project/ZH/RLNN_lab/models/eval_v3.py --save_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed2/checkpoints --result_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v3/budget_tuned_message_h1_seed2 --split test --test_samples 1000 --seed 1017 --train_seed 2 --backbone-seed 2 --head-seed 2 --num_t 100 --num_k 20 --frequency none --mixed_precision fp16 --horizon 1 --outer-rounds 8 --exchange_rounds 3 --repair-rounds 4 --candidate_cap 32 --improving-cap 48 --label RLNN-tuned-h1 --cohort-id budget_tuned_message_h1 --baseline-run outputs/v3/budget_original_none_ext_seed2/none --rule-reference-run outputs/v3/budget_tuned_random_h2_seed2/random --post pave_message --extra-value-checkpoint pave_message /home/hzeng/project/ZH/RLNN_lab/outputs/v3/message_h1_seed2/checkpoints/best.pt --time-budget-s 0.5 --post-reserve-s 0.05
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/1000 graphs: pave_message=19.6000
+50/1000 graphs: pave_message=19.5000
+75/1000 graphs: pave_message=19.5067
+100/1000 graphs: pave_message=19.4800
+125/1000 graphs: pave_message=19.4960
+150/1000 graphs: pave_message=19.5667
+175/1000 graphs: pave_message=19.5657
+200/1000 graphs: pave_message=19.5500
+225/1000 graphs: pave_message=19.5289
+250/1000 graphs: pave_message=19.5400
+275/1000 graphs: pave_message=19.5927
+300/1000 graphs: pave_message=19.6067
+325/1000 graphs: pave_message=19.6185
+350/1000 graphs: pave_message=19.6429
+375/1000 graphs: pave_message=19.6480
+400/1000 graphs: pave_message=19.6400
+425/1000 graphs: pave_message=19.6329
+450/1000 graphs: pave_message=19.6533
+475/1000 graphs: pave_message=19.6316
+500/1000 graphs: pave_message=19.6220
+525/1000 graphs: pave_message=19.6076
+550/1000 graphs: pave_message=19.6127
+575/1000 graphs: pave_message=19.6209
+600/1000 graphs: pave_message=19.6467
+625/1000 graphs: pave_message=19.6288
+650/1000 graphs: pave_message=19.6431
+675/1000 graphs: pave_message=19.6430
+700/1000 graphs: pave_message=19.6329
+725/1000 graphs: pave_message=19.6166
+750/1000 graphs: pave_message=19.6200
+775/1000 graphs: pave_message=19.6065
+800/1000 graphs: pave_message=19.6062
+825/1000 graphs: pave_message=19.6048
+850/1000 graphs: pave_message=19.6165
+875/1000 graphs: pave_message=19.6103
+900/1000 graphs: pave_message=19.6167
+925/1000 graphs: pave_message=19.6184
+950/1000 graphs: pave_message=19.6200
+975/1000 graphs: pave_message=19.6092
+1000/1000 graphs: pave_message=19.6070

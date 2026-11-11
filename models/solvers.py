@@ -12,6 +12,7 @@ from archived_frequency.mis_v4_frequency import V4FrequencyGCN, V4_MODES, v4_top
 from archived_frequency.mis_v5_frequency import V5DAFRGCN, V5_MODES, v5_topology
 from archived_frequency.mis_v6_frequency import V6SCGCN, V6_MODES, v6_topology, polarization_bonus
 from mis_v7_context import STATIC_MODES, V7StaticContextGCN
+from mis_structure import STRUCTURE_MODES, StructureGCN, structure_topology
 from v7_structure import v7_topology
 from torch_scatter import scatter_min, scatter_max, scatter_add
 from torch_geometric.utils import add_remaining_self_loops
@@ -242,9 +243,19 @@ class RLNN(MetaSolver):
         self.v6_frequency = self.frequency in V6_MODES
         self.context_mode = getattr(args, 'context_mode', 'none')
         self.v7_context = self.context_mode != 'none'
+        self.structure_mode = getattr(args, 'structure_mode', 'none') or 'none'
+        self.structure = self.structure_mode != 'none'
+        self.structure_gain = False
+        if self.structure and (self.context_mode != 'none' or self.frequency != 'none'):
+            raise ValueError('Structural compensation cannot be combined with another encoder')
+        if self.structure and args.problem != 'mis':
+            raise ValueError('Structural compensation requires MIS')
         if args.do_train and self.context_mode in ('static_random', 'static_oracle'):
             raise ValueError('Random and oracle modes are inference interventions')
-        if self.v7_context:
+        if self.structure:
+            self.model = StructureGCN(args.num_h, args.num_l, self.structure_mode, args.beta)
+            self.structure_gain = self.model.needs_product
+        elif self.v7_context:
             if args.problem != 'mis' or self.frequency != 'none':
                 raise ValueError('Static context requires MIS without a legacy frequency adapter')
             self.model = V7StaticContextGCN(args.num_h, args.num_l, self.context_mode,
@@ -274,8 +285,8 @@ class RLNN(MetaSolver):
                 weights = torch.load(warm_start, map_location='cpu', weights_only=True)
                 if self.v5_frequency and any(key.startswith('adapter.') for key in weights):
                     raise ValueError('v5 warm start requires a plain RLNN checkpoint')
-                missing, extra = self.model.load_state_dict(weights, strict=not (self.segf or self.v4_frequency or self.v5_frequency or self.v7_context))
-                if extra or any(not key.startswith('adapter.') for key in missing):
+                missing, extra = self.model.load_state_dict(weights, strict=not (self.segf or self.v4_frequency or self.v5_frequency or self.v7_context or self.structure))
+                if extra or any(not key.startswith(('adapter.', 'compensation.')) for key in missing):
                     raise ValueError('Warm start must contain the original RLNN backbone')
             self.optimizer = Adam(self.model.parameters(), lr=args.lr)
         else:
@@ -444,7 +455,8 @@ class RLNN(MetaSolver):
                         logits, counts, orthogonality = self.model(
                             x, graph.edge_index, A, normalized, regularize=True)
                     else:
-                        logits = self.flip_logits(x, graph, A, normalized)
+                        product = (A @ x) if self.structure_gain else None
+                        logits = self.flip_logits(x, graph, A, normalized, adjacency_product=product)
                     prob = logits.sigmoid()
                     loss = self.graph_batch_loss(graph, A, normalized, x, prob, terms=track_terms)
                     if track_terms:
@@ -478,6 +490,16 @@ class RLNN(MetaSolver):
             self.save_training_state(save_dir, epoch+1, best_eval, logger, history)
 
     def policy_topology(self, graph, adj):
+        if self.structure:
+            topology = structure_topology(graph.edge_index, edge2adj(graph.edge_index, graph.num_nodes),
+                                          graph.num_nodes, getattr(graph, 'graph_ptr', None))
+            if not self.model.training:
+                model = self.accelerator.unwrap_model(self.model)
+                if model.compensation.use_degree or model.compensation.use_gate or model.compensation.use_readout:
+                    with torch.no_grad():
+                        bias, scale, readout = model.compensation.prepare(topology)
+                    topology = topology._replace(cached_bias=bias, cached_scale=scale, cached_readout=readout)
+            return topology
         if self.v7_context:
             model = self.accelerator.unwrap_model(self.model)
             adapter = model.adapter
@@ -513,7 +535,9 @@ class RLNN(MetaSolver):
             return frequency_topology(graph.edge_index, adj, graph.num_nodes)
         return edge2adj(graph.edge_index, graph.num_nodes)
 
-    def flip_logits(self, x, graph, adjacency, normalized=None):
+    def flip_logits(self, x, graph, adjacency, normalized=None, adjacency_product=None):
+        if self.structure:
+            return self.model(x, graph.edge_index, normalized.normalized, normalized, adjacency_product)
         if self.v7_context:
             return self.model(x, graph.edge_index, adjacency, normalized)
         if self.frequency == 'none':
@@ -532,7 +556,8 @@ class RLNN(MetaSolver):
         for epoch in range(self.num_tp):
             data.append(x.clone())
             
-            delta = self.flip_logits(x, graph, A, normalized)
+            product = (A @ x) if self.structure_gain else None
+            delta = self.flip_logits(x, graph, A, normalized, adjacency_product=product)
             flip_prob = torch.sigmoid(delta)
 
             rr = torch.rand_like(x)
@@ -546,8 +571,8 @@ class RLNN(MetaSolver):
         if normalized is None:
             normalized = self.policy_topology(graph, adjacency)
         for step in range(self.num_t + 1):
+            product = (adjacency @ x) if (with_energy or self.structure_gain) else None
             if with_energy:
-                product = adjacency @ x
                 yield x, (x * (self.problem.beta * product + graph.b)).sum(dim=0)
             else:
                 yield x
@@ -556,7 +581,7 @@ class RLNN(MetaSolver):
             if with_energy:
                 logits = self.model(x, graph.edge_index, adjacency, normalized, adjacency_product=product)
             else:
-                logits = self.flip_logits(x, graph, adjacency, normalized)
+                logits = self.flip_logits(x, graph, adjacency, normalized, adjacency_product=product)
             if adjust is not None:
                 logits = adjust(x, logits)
             rr = torch.rand_like(x) if generator is None else torch.rand(x.shape, device=x.device, dtype=x.dtype, generator=generator)
@@ -577,10 +602,11 @@ class RLNN(MetaSolver):
         
         best_sol = x.clone()
         best_energy = energy.clone()
-        topology = self.policy_topology(graph, A) if self.v7_context else None
+        topology = self.policy_topology(graph, A) if (self.v7_context or self.structure) else None
         
         for epoch in range(self.num_t):          
-            delta = self.flip_logits(x, graph, A, topology)
+            product = (A @ x) if self.structure_gain else None
+            delta = self.flip_logits(x, graph, A, topology, adjacency_product=product)
             flip_prob = torch.sigmoid(delta)
 
             rr = torch.rand_like(x)

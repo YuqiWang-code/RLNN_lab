@@ -1,0 +1,45 @@
+
+2026-11-08T21:33:44.843835+00:00
+/usr/bin/taskset -c 0-23 /home/hzeng/envs/rlnn/bin/python -u /home/hzeng/project/ZH/RLNN_lab/models/eval_v3.py --save_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints --result_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v3/budget_tuned_stats_h1_seed0 --split test --test_samples 1000 --seed 1017 --train_seed 0 --backbone-seed 0 --head-seed 0 --num_t 100 --num_k 20 --frequency none --mixed_precision fp16 --horizon 1 --outer-rounds 8 --exchange_rounds 3 --repair-rounds 4 --candidate_cap 32 --improving-cap 48 --label RLNN-tuned-h1 --cohort-id budget_tuned_stats_h1 --baseline-run outputs/v3/budget_original_none_ext_seed0/none --rule-reference-run outputs/v3/budget_tuned_random_h2_seed0/random --post pave --value-checkpoint /home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt --time-budget-s 0.5 --post-reserve-s 0.05
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/1000 graphs: pave=19.6000
+50/1000 graphs: pave=19.5800
+75/1000 graphs: pave=19.6133
+100/1000 graphs: pave=19.5500
+125/1000 graphs: pave=19.5680
+150/1000 graphs: pave=19.5933
+175/1000 graphs: pave=19.6000
+200/1000 graphs: pave=19.6050
+225/1000 graphs: pave=19.5778
+250/1000 graphs: pave=19.6040
+275/1000 graphs: pave=19.6582
+300/1000 graphs: pave=19.6833
+325/1000 graphs: pave=19.7015
+350/1000 graphs: pave=19.7200
+375/1000 graphs: pave=19.7093
+400/1000 graphs: pave=19.6950
+425/1000 graphs: pave=19.6729
+450/1000 graphs: pave=19.6956
+475/1000 graphs: pave=19.6800
+500/1000 graphs: pave=19.6660
+525/1000 graphs: pave=19.6495
+550/1000 graphs: pave=19.6600
+575/1000 graphs: pave=19.6696
+600/1000 graphs: pave=19.7017
+625/1000 graphs: pave=19.6784
+650/1000 graphs: pave=19.6877
+675/1000 graphs: pave=19.6815
+700/1000 graphs: pave=19.6757
+725/1000 graphs: pave=19.6552
+750/1000 graphs: pave=19.6600
+775/1000 graphs: pave=19.6477
+800/1000 graphs: pave=19.6462
+825/1000 graphs: pave=19.6485
+850/1000 graphs: pave=19.6635
+875/1000 graphs: pave=19.6594
+900/1000 graphs: pave=19.6667
+925/1000 graphs: pave=19.6670
+950/1000 graphs: pave=19.6663
+975/1000 graphs: pave=19.6503
+1000/1000 graphs: pave=19.6470

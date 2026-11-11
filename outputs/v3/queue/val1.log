@@ -1,0 +1,6 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+validation seed=1 stream=0 25/100 mean=19.7200
+validation seed=1 stream=0 50/100 mean=19.3600
+validation seed=1 stream=0 75/100 mean=19.4267
+validation seed=1 stream=0 100/100 mean=19.4600

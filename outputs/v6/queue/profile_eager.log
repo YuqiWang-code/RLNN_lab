@@ -1,0 +1,6 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+{'status': 'completed', 'split': 'validation', 'samples': 20, 'repeats': 3, 'checkpoint': None, 'reference_seed': 0, 'precision': 'fp16', 'device': 'NVIDIA GeForce RTX 5090', 'mean_search_s': {'B': 0.26258219343920547, 'SC-RLNN': 0.5043355205794796}, 'ratio': 1.9206767754274483, 'limit': 1.08, 'pass_speed': False}
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+{'status': 'completed', 'split': 'validation', 'samples': 20, 'repeats': 3, 'checkpoint': None, 'reference_seed': 0, 'precision': 'no', 'device': 'NVIDIA GeForce RTX 5090', 'mean_search_s': {'B': 0.17274664220555375, 'SC-RLNN': 0.3791784457784767}, 'ratio': 2.1949974884448795, 'limit': 1.08, 'pass_speed': False}

@@ -1,0 +1,45 @@
+
+2026-11-08T21:23:43.945279+00:00
+/usr/bin/taskset -c 24-47 /home/hzeng/envs/rlnn/bin/python -u /home/hzeng/project/ZH/RLNN_lab/models/eval_v3.py --save_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints --result_dir /home/hzeng/project/ZH/RLNN_lab/outputs/v3/budget_tuned_none_ext_seed0 --split test --test_samples 1000 --seed 1017 --train_seed 0 --backbone-seed 0 --head-seed 0 --num_t 100 --num_k 20 --frequency none --mixed_precision fp16 --horizon 1 --outer-rounds 8 --exchange_rounds 3 --repair-rounds 4 --candidate_cap 32 --improving-cap 48 --label RLNN-tuned-h1 --cohort-id budget_tuned_none_ext --baseline-run outputs/v3/budget_original_none_ext_seed0/none --rule-reference-run outputs/v3/budget_tuned_random_h2_seed0/random --post none --time-budget-s 0.5 --post-reserve-s 0.0 --extended-search
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+25/1000 graphs: none=19.6800
+50/1000 graphs: none=19.5800
+75/1000 graphs: none=19.6133
+100/1000 graphs: none=19.5500
+125/1000 graphs: none=19.5360
+150/1000 graphs: none=19.5600
+175/1000 graphs: none=19.5714
+200/1000 graphs: none=19.5600
+225/1000 graphs: none=19.5333
+250/1000 graphs: none=19.5680
+275/1000 graphs: none=19.6182
+300/1000 graphs: none=19.6500
+325/1000 graphs: none=19.6708
+350/1000 graphs: none=19.6914
+375/1000 graphs: none=19.6987
+400/1000 graphs: none=19.6825
+425/1000 graphs: none=19.6682
+450/1000 graphs: none=19.6889
+475/1000 graphs: none=19.6779
+500/1000 graphs: none=19.6620
+525/1000 graphs: none=19.6495
+550/1000 graphs: none=19.6582
+575/1000 graphs: none=19.6643
+600/1000 graphs: none=19.6933
+625/1000 graphs: none=19.6656
+650/1000 graphs: none=19.6708
+675/1000 graphs: none=19.6622
+700/1000 graphs: none=19.6500
+725/1000 graphs: none=19.6303
+750/1000 graphs: none=19.6320
+775/1000 graphs: none=19.6103
+800/1000 graphs: none=19.6025
+825/1000 graphs: none=19.6012
+850/1000 graphs: none=19.6094
+875/1000 graphs: none=19.6011
+900/1000 graphs: none=19.6022
+925/1000 graphs: none=19.5978
+950/1000 graphs: none=19.5958
+975/1000 graphs: none=19.5785
+1000/1000 graphs: none=19.5730

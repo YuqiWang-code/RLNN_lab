@@ -1,0 +1,9 @@
+Epoch: 0 Iteration: 0 loss: None valid_obj: None valid_time: None
+  0%|          | 0/2 [00:00<?, ?it/s]/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+ 50%|█████     | 1/2 [00:00<00:00,  1.10it/s]100%|██████████| 2/2 [00:01<00:00,  1.55it/s]100%|██████████| 2/2 [00:01<00:00,  1.46it/s]
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:00<00:00,  9.89it/s] 75%|███████▌  | 3/4 [00:00<00:00, 13.55it/s]100%|██████████| 4/4 [00:00<00:00, 13.78it/s]
+Epoch: 1 Iteration: 32 loss: 61.672323650169226 valid_obj: -20.75 valid_time: 0.07104122638702393 train_energy: 4.816412448883057 train_distance: 9.519432067871094 train_flips: 5.611903667449951 train_peak_mib: 845.34130859375
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  2.57it/s]100%|██████████| 2/2 [00:00<00:00,  2.39it/s]100%|██████████| 2/2 [00:00<00:00,  2.41it/s]
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|█████     | 2/4 [00:00<00:00, 12.96it/s]100%|██████████| 4/4 [00:00<00:00, 12.09it/s]100%|██████████| 4/4 [00:00<00:00, 12.20it/s]
+Epoch: 2 Iteration: 64 loss: 13.189216193038133 valid_obj: -20.5 valid_time: 0.07587707042694092 train_energy: 4.138910293579102 train_distance: 10.846844673156738 train_flips: 5.672410011291504 train_peak_mib: 846.73974609375

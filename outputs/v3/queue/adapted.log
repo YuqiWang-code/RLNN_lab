@@ -1,0 +1,207 @@
+collect 25/2000 starts, 100 states, 0 informative
+collect 50/2000 starts, 200 states, 1 informative
+collect 75/2000 starts, 300 states, 4 informative
+collect 100/2000 starts, 400 states, 6 informative
+collect 125/2000 starts, 500 states, 11 informative
+collect 150/2000 starts, 600 states, 20 informative
+collect 175/2000 starts, 700 states, 20 informative
+collect 200/2000 starts, 800 states, 24 informative
+collect 225/2000 starts, 900 states, 32 informative
+collect 250/2000 starts, 1000 states, 38 informative
+collect 275/2000 starts, 1100 states, 40 informative
+collect 300/2000 starts, 1200 states, 46 informative
+collect 325/2000 starts, 1300 states, 49 informative
+collect 350/2000 starts, 1400 states, 54 informative
+collect 375/2000 starts, 1500 states, 54 informative
+collect 400/2000 starts, 1600 states, 61 informative
+collect 425/2000 starts, 1700 states, 66 informative
+collect 450/2000 starts, 1800 states, 66 informative
+collect 475/2000 starts, 1900 states, 69 informative
+collect 500/2000 starts, 2000 states, 73 informative
+collect 525/2000 starts, 2100 states, 74 informative
+collect 550/2000 starts, 2200 states, 78 informative
+collect 575/2000 starts, 2300 states, 81 informative
+collect 600/2000 starts, 2400 states, 83 informative
+collect 625/2000 starts, 2500 states, 83 informative
+collect 650/2000 starts, 2600 states, 87 informative
+collect 675/2000 starts, 2700 states, 89 informative
+collect 700/2000 starts, 2800 states, 89 informative
+collect 725/2000 starts, 2900 states, 90 informative
+collect 750/2000 starts, 3000 states, 94 informative
+collect 775/2000 starts, 3100 states, 102 informative
+collect 800/2000 starts, 3199 states, 103 informative
+collect 825/2000 starts, 3297 states, 106 informative
+collect 850/2000 starts, 3397 states, 109 informative
+collect 875/2000 starts, 3497 states, 113 informative
+collect 900/2000 starts, 3597 states, 113 informative
+collect 925/2000 starts, 3694 states, 117 informative
+collect 950/2000 starts, 3794 states, 121 informative
+collect 975/2000 starts, 3894 states, 123 informative
+collect 1000/2000 starts, 3994 states, 125 informative
+collect 1025/2000 starts, 4094 states, 125 informative
+collect 1050/2000 starts, 4194 states, 126 informative
+collect 1075/2000 starts, 4294 states, 129 informative
+collect 1100/2000 starts, 4394 states, 130 informative
+collect 1125/2000 starts, 4494 states, 132 informative
+collect 1150/2000 starts, 4594 states, 134 informative
+collect 1175/2000 starts, 4694 states, 136 informative
+collect 1200/2000 starts, 4794 states, 144 informative
+collect 1225/2000 starts, 4894 states, 146 informative
+collect 1250/2000 starts, 4993 states, 149 informative
+collect 1275/2000 starts, 5093 states, 150 informative
+collect 1300/2000 starts, 5191 states, 154 informative
+collect 1325/2000 starts, 5291 states, 155 informative
+collect 1350/2000 starts, 5391 states, 156 informative
+collect 1375/2000 starts, 5491 states, 156 informative
+collect 1400/2000 starts, 5591 states, 161 informative
+collect 1425/2000 starts, 5690 states, 163 informative
+collect 1450/2000 starts, 5790 states, 169 informative
+collect 1475/2000 starts, 5890 states, 171 informative
+collect 1500/2000 starts, 5990 states, 171 informative
+collect 1525/2000 starts, 6090 states, 173 informative
+collect 1550/2000 starts, 6190 states, 176 informative
+collect 1575/2000 starts, 6290 states, 183 informative
+collect 1600/2000 starts, 6390 states, 188 informative
+collect 1625/2000 starts, 6490 states, 193 informative
+collect 1650/2000 starts, 6590 states, 195 informative
+collect 1675/2000 starts, 6690 states, 201 informative
+collect 1700/2000 starts, 6788 states, 204 informative
+collect 1725/2000 starts, 6887 states, 205 informative
+collect 1750/2000 starts, 6987 states, 208 informative
+collect 1775/2000 starts, 7087 states, 210 informative
+collect 1800/2000 starts, 7187 states, 211 informative
+collect 1825/2000 starts, 7287 states, 213 informative
+collect 1850/2000 starts, 7387 states, 217 informative
+collect 1875/2000 starts, 7487 states, 224 informative
+collect 1900/2000 starts, 7587 states, 224 informative
+collect 1925/2000 starts, 7687 states, 226 informative
+collect 1950/2000 starts, 7787 states, 227 informative
+collect 1975/2000 starts, 7887 states, 228 informative
+collect 2000/2000 starts, 7987 states, 232 informative
+{
+  "labels_h1": {
+    "states": 7987,
+    "graphs": 1000,
+    "available": 7976,
+    "informative": 232,
+    "informative_graphs": 135,
+    "non_tied_pairs": 10467,
+    "positive_states": 232,
+    "positive_coverage": 0.029047201702766996,
+    "mean_candidates": 21.214097909102293,
+    "mean_oracle_gain": 0.02942281206961312,
+    "rule_gains": {
+      "coverage": 0.001126831100538375,
+      "degree": 0.001001627644923,
+      "random": 0.0033804933016151244
+    },
+    "strongest_rule": "random",
+    "oracle_gap": 0.026042318767997997,
+    "mean_truncation_loss": 0
+  }
+}
+{
+  "version": "v3",
+  "status": "completed",
+  "mode": "labels",
+  "split": "train",
+  "created_at": "2026-11-08T06:28:53.001122+00:00",
+  "config": {
+    "starts": [
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_train_seed0_stream0/starts.pt",
+      "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/starts_train_seed0_stream1/starts.pt"
+    ],
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1",
+    "mode": "collect",
+    "workers": 24,
+    "horizon": 1,
+    "candidate_cap": 32,
+    "states_per_start": 4,
+    "limit": null,
+    "anchored": false,
+    "policy": "mixture",
+    "mix_seed": 0,
+    "original_data": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_h1/states.pt",
+    "policy_data": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_pave_h1/states.pt",
+    "value_checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/stats_h1_seed0/checkpoints/best.pt"
+  },
+  "samples": 1993,
+  "state_count": 7987,
+  "graph_count": 1000,
+  "informative_states": 264,
+  "informative_graphs": 107,
+  "origin_counts": {
+    "intermediate": 5987,
+    "initial": 2000
+  },
+  "source_counts": {
+    "original": 3994,
+    "policy": 3993
+  },
+  "source_origin_counts": {
+    "original": {
+      "initial": 1000,
+      "intermediate": 2994
+    },
+    "policy": {
+      "initial": 1000,
+      "intermediate": 2993
+    }
+  },
+  "available_source_states": {
+    "original": 7987,
+    "policy": 7987
+  },
+  "sampling": "origin-stratified without replacement within each source"
+}
+{
+  "version": "v3",
+  "mode": "training_admission",
+  "variant": "D2_neutral_h1",
+  "decided_at": "2026-11-08T06:29:48.544122+00:00",
+  "thresholds": {
+    "validation_states": 300,
+    "validation_graphs": 100,
+    "validation_informative_graphs": 10,
+    "validation_oracle_gap": 0.03,
+    "training_informative_states": 100,
+    "training_informative_graphs": 50
+  },
+  "validation": {
+    "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/census/run.json",
+    "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_validation_h1/states.pt",
+    "states": 300,
+    "graphs": 100,
+    "available": 300,
+    "informative": 13,
+    "informative_graphs": 12,
+    "non_tied_pairs": 460,
+    "positive_states": 13,
+    "positive_coverage": 0.043333333333333335,
+    "mean_candidates": 20.28,
+    "mean_oracle_gain": 0.043333333333333335,
+    "rule_gains": {
+      "coverage": 0.0033333333333333335,
+      "degree": 0.0033333333333333335,
+      "random": 0
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.04,
+    "mean_truncation_loss": 0.0033333333333333335
+  },
+  "training": {
+    "run_json": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_mixed_h1/run.json",
+    "states_path": "/home/hzeng/project/ZH/RLNN_lab/outputs/v3/labels_train_mixed_h1/states.pt",
+    "states": 7987,
+    "samples": 1993,
+    "informative_states": 264,
+    "informative_graphs": 107,
+    "horizon": 1,
+    "anchored": false
+  },
+  "validation_pass": true,
+  "training_pass": true,
+  "train": true,
+  "pass": true,
+  "reasons": []
+}

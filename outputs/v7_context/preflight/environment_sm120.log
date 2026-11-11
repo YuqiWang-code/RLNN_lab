@@ -1,0 +1,18 @@
+Processing ./tmp/v7_mamba_build/mamba_ssm-2.3.2.post1
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: mamba_ssm
+  Building wheel for mamba_ssm (pyproject.toml): started
+  Building wheel for mamba_ssm (pyproject.toml): still running...
+  Building wheel for mamba_ssm (pyproject.toml): still running...
+  Building wheel for mamba_ssm (pyproject.toml): still running...
+  Building wheel for mamba_ssm (pyproject.toml): finished with status 'done'
+  Created wheel for mamba_ssm: filename=mamba_ssm-2.3.2.post1-cp310-cp310-linux_x86_64.whl size=39557385 sha256=31e23bb359fbcb0bc8ed411039acf91c2bd92d952b612478d5d723215ae8f582
+  Stored in directory: /tmp/pip-ephem-wheel-cache-13wjm34u/wheels/35/6a/be/864e925ee5ecf3abe70d8d2d4951d8b39ab369633e47cfdf39
+Successfully built mamba_ssm
+Installing collected packages: mamba_ssm
+Successfully installed mamba_ssm-2.3.2.post1
+
+[notice] A new release of pip is available: 23.0.1 -> 26.3
+[notice] To update, run: /home/hzeng/envs/rlnn_mamba/bin/python -m pip install --upgrade pip
+2.9.1+cu130 13.0 2.3.2.post1 torch.Size([1, 256, 32])

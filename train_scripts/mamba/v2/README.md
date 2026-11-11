@@ -1,6 +1,6 @@
 # 静态先验 v2
 
-验证方案见 [RLNN_Static_Prior_v1_Postmortem_and_v2_Plan.md](../../../docs/temporary/RLNN_Static_Prior_v1_Postmortem_and_v2_Plan.md)。主口径为 FP32 CUDA Graph、K20、验证集前 100 图、每图 3 个搜索种子。P0 默认每图做一轮交错以缩短普查时间。P1 和 P2 保留两轮，第二轮反转图内臂序。预算任务分卡计时。所有臂共用原骨干、A.3 解码和冻结的 PAVE-Stats H1。实验输出位于 `outputs/mamba_v2`。
+验证方案见 [RLNN_Static_Prior_v1_Postmortem_and_v2_Plan.md](../../../docs/已归档的想法和文件/mamba/RLNN_Static_Prior_v1_Postmortem_and_v2_Plan.md)。主口径为 FP32 CUDA Graph、K20、验证集前 100 图、每图 3 个搜索种子。P0 默认每图做一轮交错以缩短普查时间。P1 和 P2 保留两轮，第二轮反转图内臂序。预算任务分卡计时。所有臂共用原骨干、A.3 解码和冻结的 PAVE-Stats H1。实验输出位于 `outputs/mamba_v2`。
 
 ## P0 接口普查
 

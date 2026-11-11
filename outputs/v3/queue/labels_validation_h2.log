@@ -1,0 +1,34 @@
+collect 25/300 starts, 100 states, 0 informative
+collect 50/300 starts, 200 states, 10 informative
+collect 75/300 starts, 298 states, 14 informative
+collect 100/300 starts, 398 states, 18 informative
+collect 125/300 starts, 498 states, 22 informative
+collect 150/300 starts, 598 states, 26 informative
+collect 175/300 starts, 698 states, 37 informative
+collect 200/300 starts, 798 states, 41 informative
+collect 225/300 starts, 898 states, 45 informative
+collect 250/300 starts, 998 states, 46 informative
+collect 275/300 starts, 1096 states, 53 informative
+collect 300/300 starts, 1194 states, 61 informative
+{
+  "labels_h2": {
+    "states": 1194,
+    "graphs": 100,
+    "available": 1191,
+    "informative": 61,
+    "informative_graphs": 15,
+    "non_tied_pairs": 1839,
+    "positive_states": 61,
+    "positive_coverage": 0.05108877721943048,
+    "mean_candidates": 19.67001675041876,
+    "mean_oracle_gain": 0.05108877721943048,
+    "rule_gains": {
+      "coverage": 0.002512562814070352,
+      "degree": 0.002512562814070352,
+      "random": 0.0008375209380234506
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0.048576214405360134,
+    "mean_truncation_loss": 0
+  }
+}

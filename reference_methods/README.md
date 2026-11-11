@@ -12,6 +12,18 @@ Mamba 主线参考了 [Mamba](Mamba/upstream.json)（Apache-2.0）、[Graph-Mamb
 
 正式对照的训练和评估入口见 [v1 实验](../train_scripts/legacy/v1/README.md)。论文 PDF 按研究方向收在[参考文献](../docs/参考文献/文献索引.md)。
 
+## 结构补偿方法快照（2026-11-11）
+
+三篇论文有可核实的作者仓库，已 pin 到 commit 并快照源码；其余 14 篇在 arXiv 摘要页与论文正文里未找到可核实的公开仓库，只归档 PDF，不臆造入口。
+
+| 方法 | 本地源码 | 论文 | 主要用途 | 许可证 |
+| --- | --- | --- | --- | --- |
+| Polynormer | [source](Polynormer/source) | [ICLR 2024](https://arxiv.org/abs/2403.01232) | 纯特征全局通道与局部消息传递并行，非消息传递通道的对照 | 未提供根许可证 |
+| Sketch-Augmented | [source](Sketch-Augmented/source) | [NeurIPS 2025](https://arxiv.org/abs/2511.03824) | 层内 sketch 特征注入，`gain` 残差通道的模板 | 未提供根许可证 |
+| DiffQuadratic-MIS | [source](DiffQuadratic-MIS/source) | [ICML 2025](https://arxiv.org/abs/2406.19532) | MIS 可微二次松弛、基准与局部增益项 | 未提供根许可证 |
+
+结构补偿的设计与实验见 [v1 方案](../docs/temporary/RLNN_Structure_v1_Design.md) 与 [train_scripts/structure](../train_scripts/structure/README.md)。
+
 ## v4 频域方法快照
 
 16篇参考论文对应源码均已归档。`source/` 保留作者文件，`upstream.json` 固定版本；这些参考快照不等于在 RLNN 上完成复现。关键实现阅读见[方法与源码](../docs/已归档的想法和文件/v4_关键方法与源码.md)。

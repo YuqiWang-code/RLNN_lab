@@ -1,0 +1,83 @@
+census 5/5 starts, 5 states, 0 informative
+{
+  "D0_fallback": {
+    "states": 5,
+    "graphs": 5,
+    "available": 0,
+    "informative": 0,
+    "informative_graphs": 0,
+    "non_tied_pairs": 0,
+    "positive_states": 0,
+    "positive_coverage": 0,
+    "mean_candidates": 0,
+    "mean_oracle_gain": 0,
+    "rule_gains": {
+      "coverage": 0,
+      "degree": 0,
+      "random": 0
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0,
+    "mean_truncation_loss": 0
+  },
+  "D1_union": {
+    "states": 5,
+    "graphs": 5,
+    "available": 0,
+    "informative": 0,
+    "informative_graphs": 0,
+    "non_tied_pairs": 0,
+    "positive_states": 0,
+    "positive_coverage": 0,
+    "mean_candidates": 0,
+    "mean_oracle_gain": 0,
+    "rule_gains": {
+      "coverage": 0,
+      "degree": 0,
+      "random": 0
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0,
+    "mean_truncation_loss": 0
+  },
+  "D2_neutral_h1": {
+    "states": 5,
+    "graphs": 5,
+    "available": 5,
+    "informative": 0,
+    "informative_graphs": 0,
+    "non_tied_pairs": 0,
+    "positive_states": 0,
+    "positive_coverage": 0,
+    "mean_candidates": 25.2,
+    "mean_oracle_gain": 0,
+    "rule_gains": {
+      "coverage": 0,
+      "degree": 0,
+      "random": 0
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0,
+    "mean_truncation_loss": 0
+  },
+  "D3_neutral_h2": {
+    "states": 5,
+    "graphs": 5,
+    "available": 5,
+    "informative": 0,
+    "informative_graphs": 0,
+    "non_tied_pairs": 0,
+    "positive_states": 0,
+    "positive_coverage": 0,
+    "mean_candidates": 25.2,
+    "mean_oracle_gain": 0,
+    "rule_gains": {
+      "coverage": 0,
+      "degree": 0,
+      "random": 0
+    },
+    "strongest_rule": "coverage",
+    "oracle_gap": 0,
+    "mean_truncation_loss": 0
+  }
+}

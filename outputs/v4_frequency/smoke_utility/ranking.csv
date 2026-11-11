@@ -1,0 +1,13 @@
+graph_id,graph_index,state_id,step,model,pairs,non_tied_pairs,correct_pair_credit,pair_accuracy,score_tied_pairs,top1_gain,uniform_gain,oracle_flip_gain,top1_regret,chosen_node
+graph_000000,0,graph_000000:t25,25,baseline,6,0,0.0,,0,0.0,0.0,0.0,0.0,112
+graph_000000,0,graph_000000:t25,25,mlp,6,0,0.0,,0,0.0,0.0,0.0,0.0,112
+graph_000000,0,graph_000000:t25,25,message,6,0,0.0,,0,0.0,0.0,0.0,0.0,112
+graph_000000,0,graph_000000:t25,25,frequency,6,0,0.0,,0,0.0,0.0,0.0,0.0,112
+graph_000000,0,graph_000000:t50,50,baseline,6,0,0.0,,0,0.0,0.0,0.0,0.0,200
+graph_000000,0,graph_000000:t50,50,mlp,6,0,0.0,,0,0.0,0.0,0.0,0.0,200
+graph_000000,0,graph_000000:t50,50,message,6,0,0.0,,0,0.0,0.0,0.0,0.0,200
+graph_000000,0,graph_000000:t50,50,frequency,6,0,0.0,,0,0.0,0.0,0.0,0.0,200
+graph_000000,0,graph_000000:t100,100,baseline,6,3,0.0,0.0,0,0.0,0.125,0.5,0.5,208
+graph_000000,0,graph_000000:t100,100,mlp,6,3,0.0,0.0,0,0.0,0.125,0.5,0.5,208
+graph_000000,0,graph_000000:t100,100,message,6,3,0.0,0.0,0,0.0,0.125,0.5,0.5,208
+graph_000000,0,graph_000000:t100,100,frequency,6,3,0.0,0.0,0,0.0,0.125,0.5,0.5,208
