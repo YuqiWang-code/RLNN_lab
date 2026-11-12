@@ -1,0 +1,6 @@
+/home/hzeng/project/ZH/RLNN_lab/models/v8_train.py:73: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  (size, size)).to_sparse_csr()
+/home/hzeng/project/ZH/RLNN_lab/models/v8_train.py:88: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  losses.append(float(loss))
+epoch 1 step 200 loss 4648943.07280

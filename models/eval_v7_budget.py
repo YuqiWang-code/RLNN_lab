@@ -20,6 +20,7 @@ pairs and only the winner goes through the exact operator.
         --seeds 1017 1019 1021 --budgets 0.5 1.0
 """
 import csv
+import json
 from pathlib import Path
 from statistics import mean
 from time import perf_counter
@@ -184,7 +185,8 @@ def main():
                                 masks, neighbours, matrix, deadline=recombine_deadline)
                             sync(device)
                             recombine_seconds = perf_counter() - recombine_started
-                            selected = merged
+                            if merged.bit_count() > selected.bit_count():
+                                selected = merged
                         final = run_pave(topology, selected, ranker, args, deadline)
                         sync(device)
                         seconds = perf_counter() - tick

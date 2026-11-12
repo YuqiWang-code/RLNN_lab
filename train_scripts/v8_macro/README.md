@@ -1,0 +1,35 @@
+# v8 宏步（ACMD）启动器
+
+`models/` 侧对应文件：`mis_v8_macro.py`、`v8_collect.py`、`v8_train.py`、`v8_eval.py`、`check_v8.py`、`diagnose_v8_prior.py`。方案与判读标准见 [RLNN_lab_v8_review_and_research.md](../../docs/temporary/RLNN_lab_v8_review_and_research.md)，实测结果与"停止主线"的决定见 [RLNN_v8_P0_Results.md](../../docs/temporary/RLNN_v8_P0_Results.md)。
+
+**现状：P0 闸门已判定停止，训练与评测脚本保留但未产出结论。** 下面的顺序是完整路径，重启时按序执行即可；第 2 步是已知的止损点。
+
+## 顺序
+
+| 步 | 命令 | 作用 |
+| --- | --- | --- |
+| 0 | `bash check.sh` | 内核自检：M=1 读出等值、联合似然退化、块记录语义（CPU，无检查点） |
+| 1 | `bash collect.sh` | 冻结教师切块，写 `outputs/v8_macro/data/blocks_{train,validation}_ref0.pt` |
+| 2 | `bash prior.sh` | P0-B 相关性打乱 + P0-C 端点档案漏失（约 2.5 分钟 / 60 图） |
+| 3 | `bash train_all.sh` | A2 / A3 / A5 三臂小训练（先读结果文档里的损失标定问题） |
+| 4 | `bash eval.sh A3 budget` | 固定预算评测，两臂同图同种子，冻结 PAVE `horizon=1` |
+
+## 环境变量
+
+`common.sh` 里统一设置，全部可覆盖：
+
+| 变量 | 默认 | 说明 |
+| --- | --- | --- |
+| `PYTHON` | `/home/hzeng/envs/rlnn/bin/python` | 服务器解释器（本地无 `torch_scatter`，不能在 Windows 上跑） |
+| `OUT_V8` | `outputs/v8_macro` | 产物根目录 |
+| `REFERENCE_SEED` | `0` | 骨干与 PAVE 的参考种子，必须成对 |
+| `SEEDS` | `1017 1019 1021` | 搜索种子；`diag*`/`collect` 只用第一个 |
+| `HORIZON` | `2` | 块的宏步长度；PAVE 侧固定 1 |
+| `CUDA_VISIBLE_DEVICES` | `0` | 两张 5090 长期被占用，换卡前先看 `nvidia-smi` |
+| `EPOCHS` | `3` | 单臂训练轮数 |
+
+## 注意
+
+- `HORIZON=2` 是**宏步长度**，与 PAVE 的 `horizon` 不是一回事。评测器里 PAVE 一律 `horizon=1`，改错会让结论与 v5/v7 基线不可比（v5 归档的 `fixed_time` 运行全是 1，v7 普查曾误用 2，已记录为偏差）。
+- 训练必须把 `edge2adj` 的归一化邻接喂给 kernel，不是 0/1 邻接；这是 v8 首轮训练浪费掉一轮的直接原因。
+- `prior.sh` 只用冻结模型，不训练、不写检查点，可以随时重跑；它是这条线的止损闸门，先跑它再谈训练。

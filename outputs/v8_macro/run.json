@@ -1,0 +1,294 @@
+{
+  "version": "v8_macro",
+  "status": "completed",
+  "mode": "prior",
+  "graphs": 60,
+  "steps": [
+    25,
+    50,
+    75,
+    90
+  ],
+  "repeats": 24,
+  "macro_h": [
+    1,
+    2
+  ],
+  "shuffle_seeds": [
+    0,
+    1,
+    2
+  ],
+  "pave": true,
+  "backbone_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "summary": {
+    "h1": {
+      "25": {
+        "size_joint": 17.666666666666668,
+        "size_marginal": 17.666666666666668,
+        "size_gap": 0.0,
+        "size_gap_ci": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "energy_joint": -16.225465528170268,
+        "energy_marginal": -16.225465514924792,
+        "conflicts_joint": 2.3494792342185975,
+        "conflicts_marginal": 2.3494792342185975,
+        "flip_rate": 0.020522478269413114,
+        "graphs": 60
+      },
+      "50": {
+        "size_joint": 18.15,
+        "size_marginal": 18.15,
+        "size_gap": 0.0,
+        "size_gap_ci": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "energy_joint": -17.036382269859313,
+        "energy_marginal": -17.036382179790074,
+        "conflicts_joint": 2.059201443195343,
+        "conflicts_marginal": 2.059201443195343,
+        "flip_rate": 0.019329233444295824,
+        "graphs": 60
+      },
+      "75": {
+        "size_joint": 18.341666666666665,
+        "size_marginal": 18.341666666666665,
+        "size_gap": 0.0,
+        "size_gap_ci": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "energy_joint": -17.3686599334081,
+        "energy_marginal": -17.36865996784634,
+        "conflicts_joint": 1.9814236757655939,
+        "conflicts_marginal": 1.9814236757655939,
+        "flip_rate": 0.018882578471675515,
+        "graphs": 60
+      },
+      "90": {
+        "size_joint": 18.416666666666668,
+        "size_marginal": 18.416666666666668,
+        "size_gap": 0.0,
+        "size_gap_ci": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "energy_joint": -17.52902102470398,
+        "energy_marginal": -17.529020942582026,
+        "conflicts_joint": 1.8873264397184053,
+        "conflicts_marginal": 1.8873264397184053,
+        "flip_rate": 0.01940063989798849,
+        "graphs": 60
+      }
+    },
+    "h2": {
+      "25": {
+        "size_joint": 17.833333333333332,
+        "size_marginal": 17.85,
+        "size_gap": -0.016666666666669272,
+        "size_gap_ci": [
+          -0.016666666666666843,
+          -0.0916666666666667,
+          0.06111111111111092
+        ],
+        "energy_joint": -16.223472547531127,
+        "energy_marginal": -15.041150779194302,
+        "conflicts_joint": 2.3645834068457288,
+        "conflicts_marginal": 3.1639468462930784,
+        "flip_rate": 0.020805568511908252,
+        "graphs": 60
+      },
+      "50": {
+        "size_joint": 18.233333333333334,
+        "size_marginal": 18.247222222222224,
+        "size_gap": -0.013888888888889284,
+        "size_gap_ci": [
+          -0.01388888888888884,
+          -0.06944444444444446,
+          0.03888888888888899
+        ],
+        "energy_joint": -17.053250328699747,
+        "energy_marginal": -16.019319762123956,
+        "conflicts_joint": 2.0281250650684037,
+        "conflicts_marginal": 2.627546375658777,
+        "flip_rate": 0.019552891817875208,
+        "graphs": 60
+      },
+      "75": {
+        "size_joint": 18.408333333333335,
+        "size_marginal": 18.416666666666668,
+        "size_gap": -0.00833333333333286,
+        "size_gap_ci": [
+          -0.008333333333333333,
+          -0.04999999999999997,
+          0.03333333333333333
+        ],
+        "energy_joint": -17.350777999560037,
+        "energy_marginal": -16.224662295977275,
+        "conflicts_joint": 1.959722273548444,
+        "conflicts_marginal": 2.629976921942499,
+        "flip_rate": 0.01981233328115195,
+        "graphs": 60
+      },
+      "90": {
+        "size_joint": 18.441666666666666,
+        "size_marginal": 18.47222222222222,
+        "size_gap": -0.030555555555555003,
+        "size_gap_ci": [
+          -0.030555555555555565,
+          -0.07499999999999994,
+          0.013888888888888869
+        ],
+        "energy_joint": -17.497805865605674,
+        "energy_marginal": -16.634535023901197,
+        "conflicts_joint": 1.938541723291079,
+        "conflicts_marginal": 2.400520904031065,
+        "flip_rate": 0.01907740255895381,
+        "graphs": 60
+      }
+    },
+    "archive": {
+      "arch_energy": [
+        0.004000091552734375,
+        0.001666704813639323,
+        0.006666819254557292
+      ],
+      "arch_size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size_before_pave": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "size_after_pave": [
+        0.016666666666666666,
+        -0.03333333333333333,
+        0.08333333333333333
+      ],
+      "graphs": 60,
+      "affected": 3
+    }
+  },
+  "provenance": {
+    "source_sha": "v8-queue",
+    "branch": "v8-macro",
+    "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+    "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+    "manifests": {
+      "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+      "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+      "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+    },
+    "static_feature_schema": [
+      "log_degree",
+      "neighbor_log_degree_mean",
+      "neighbor_log_degree_std",
+      "core",
+      "hub_distance",
+      "two_hop_fraction",
+      "density",
+      "size"
+    ],
+    "mamba_version": null,
+    "torch_version": "2.9.1+cu130",
+    "cuda_version": "13.0"
+  },
+  "seconds": 141.28098763525486,
+  "config": {
+    "resume": "None",
+    "seed": "1017",
+    "epochs": "100",
+    "batch_size": "1",
+    "graph_batch_size": "1",
+    "lr": "0.01",
+    "train_path": "None",
+    "train_samples": "-1",
+    "valid_path": "None",
+    "valid_samples": "-1",
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "test_samples": "-1",
+    "problem": "mis",
+    "num_workers": "0",
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": "100",
+    "num_k": "20",
+    "num_tp": "100",
+    "num_kp": "10",
+    "num_l": "5",
+    "num_h": "128",
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": "32",
+    "v7_d_state": "16",
+    "v7_order_seed": "7301",
+    "v7_order_views": "1",
+    "v7_delta_limit": "None",
+    "static_constant_limit": "0.25",
+    "static_node_limit": "None",
+    "static_peak_normalize": "False",
+    "static_bias_seed": "1017",
+    "static_oracle_path": "None",
+    "static_features": "5",
+    "static_encoder": "mlp",
+    "warm_start": "None",
+    "freeze_backbone_epochs": "0",
+    "finetune_lr": "None",
+    "validation_seed": "None",
+    "num_d": "5",
+    "beta": "1.02",
+    "tau0": "0.01",
+    "lambd": "0.5",
+    "mixed_precision": "no",
+    "do_train": "False",
+    "skip_decode": "False",
+    "split": "validation",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro",
+    "train_seed": "0",
+    "candidate_cap": "32",
+    "exchange_rounds": "3",
+    "larger": "False",
+    "post": "['none']",
+    "label": "v8_prior",
+    "value_checkpoint": "None",
+    "extra_value_checkpoint": "[]",
+    "horizon": "1",
+    "outer_rounds": "8",
+    "repair_rounds": "4",
+    "improving_cap": "48",
+    "anchored": "False",
+    "time_budget_s": "None",
+    "post_reserve_s": "0.05",
+    "extended_search": "False",
+    "cohort_id": "None",
+    "backbone_seed": "None",
+    "head_seed": "None",
+    "baseline_run": "None",
+    "rule_reference_run": "None",
+    "reference_seed": "0",
+    "seeds": "[1017]",
+    "graphs": "60",
+    "steps": "[25, 50, 75, 90]",
+    "particles": "2",
+    "repeats": "24",
+    "macro_h": "[1, 2]",
+    "shuffle_seeds": "[0, 1, 2]",
+    "phase": "both",
+    "archive_graphs": "0",
+    "archive_h": "2",
+    "no_pave": "False"
+  }
+}

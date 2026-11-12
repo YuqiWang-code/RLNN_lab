@@ -1,0 +1,27 @@
+/home/hzeng/project/ZH/RLNN_lab/models/v8_train.py:73: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  (size, size)).to_sparse_csr()
+/home/hzeng/project/ZH/RLNN_lab/models/v8_train.py:88: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  losses.append(float(loss))
+epoch 1 step 200 loss 4390239.11057
+epoch 1 step 400 loss 784779.66536
+epoch 1 step 600 loss 173207.24187
+epoch 1 step 800 loss 98830.62962
+epoch 1 step 1000 loss 48199.89443
+epoch 1 step 1200 loss 28359.12367
+epoch 1: 1200 blocks, loss 920602.61092
+epoch 2 step 200 loss 14183.37386
+epoch 2 step 400 loss 9541.18409
+epoch 2 step 600 loss 5119.05847
+epoch 2 step 800 loss 6902.38742
+epoch 2 step 1000 loss 3895.57064
+epoch 2 step 1200 loss 1395.95933
+epoch 2: 1200 blocks, loss 6839.58897
+epoch 3 step 200 loss 725.90716
+epoch 3 step 400 loss 812.87744
+epoch 3 step 600 loss 750.79882
+epoch 3 step 800 loss 539.65042
+epoch 3 step 1000 loss 982.67676
+epoch 3 step 1200 loss 4569.93874
+epoch 3: 1200 blocks, loss 1396.97489
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/train_A2_ref0/best.pt
