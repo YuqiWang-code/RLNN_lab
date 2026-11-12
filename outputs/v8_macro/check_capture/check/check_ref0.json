@@ -10,33 +10,37 @@
   ],
   "summary": {
     "graphs": 2,
-    "steps": 20,
+    "steps": 200,
     "chunk": 10,
-    "eager_ms_per_step": 1.706447685137391,
-    "captured_ms_per_step": 0.26217972626909614,
-    "capture_ms": 46.44760140217841,
-    "speedup": 6.508694281669691
+    "eager_ms_per_step": 2.163500916212797,
+    "captured_ms_per_step": 0.2687396842520684,
+    "capture_ms": 67.48901726678014,
+    "speedup": 8.050544980857792
   },
   "rows": [
     {
       "graph_id": "graph_000000",
       "nodes": 240,
-      "steps": 20,
+      "steps": 200,
       "chunk": 10,
-      "capture_ms": 41.5287078358233,
-      "eager_ms_per_step": 1.5219333581626415,
-      "captured_ms_per_step": 0.2668714849278331,
-      "speedup": 5.702869898498897
+      "capture_ms": 70.74796967208385,
+      "eager_ms_per_step": 2.40350809879601,
+      "captured_ms_per_step": 0.2772482088766992,
+      "speedup": 8.669156452025714,
+      "decode_calls": 20,
+      "decode_calls_skipped": 19
     },
     {
       "graph_id": "graph_000001",
       "nodes": 231,
-      "steps": 20,
+      "steps": 200,
       "chunk": 10,
-      "capture_ms": 51.366494968533516,
-      "eager_ms_per_step": 1.8909620121121407,
-      "captured_ms_per_step": 0.2574879676103592,
-      "speedup": 7.343884957659917
+      "capture_ms": 64.23006486147642,
+      "eager_ms_per_step": 1.9234937336295843,
+      "captured_ms_per_step": 0.2602311596274376,
+      "speedup": 7.391481236848701,
+      "decode_calls": 20,
+      "decode_calls_skipped": 18
     }
   ],
   "config": {
@@ -132,7 +136,7 @@
     "check_search": false,
     "check_graphs": 3,
     "graphs": 2,
-    "steps": 20,
+    "steps": 200,
     "chunk": 10,
     "repeat": 3
   }

@@ -1,0 +1,228 @@
+{
+  "version": "v8_positioning",
+  "status": "completed",
+  "mode": "capture_budget",
+  "ref": 0,
+  "summary": {
+    "ref": 0,
+    "seeds": [
+      1017
+    ],
+    "budgets": [
+      0.5
+    ],
+    "graphs": 3,
+    "repeats": 1,
+    "horizon": 1,
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "arms": [
+      "eager",
+      "captured"
+    ],
+    "decoders": [
+      "eager",
+      "captured"
+    ],
+    "decode_chunk": 4,
+    "cells": [
+      "eager/eager",
+      "eager/captured",
+      "captured/eager",
+      "captured/captured"
+    ],
+    "wall_time_s": 6.35,
+    "table": {
+      "0.5": {
+        "eager/eager": {
+          "n": 3,
+          "final_size": 20.666666666666668,
+          "search_size": 20.666666666666668,
+          "steps": 134.66666666666666,
+          "ms_per_step": 3.2143333333333333,
+          "prelude_s": 0.07636666666666667,
+          "search_time_s": 0.43220000000000003,
+          "decode_time_s": 0.119,
+          "overruns": 0
+        },
+        "eager/captured": {
+          "n": 3,
+          "final_size": 20.666666666666668,
+          "search_size": 20.666666666666668,
+          "steps": 125.33333333333333,
+          "ms_per_step": 3.3903333333333334,
+          "prelude_s": 0.0096,
+          "search_time_s": 0.4205,
+          "decode_time_s": 0.025066666666666668,
+          "overruns": 0
+        },
+        "captured/eager": {
+          "n": 3,
+          "final_size": 21,
+          "search_size": 21,
+          "steps": 796.6666666666666,
+          "ms_per_step": 0.575,
+          "prelude_s": 0.1095,
+          "search_time_s": 0.4494666666666667,
+          "decode_time_s": 0.3379,
+          "overruns": 0
+        },
+        "captured/captured": {
+          "n": 3,
+          "final_size": 21,
+          "search_size": 21,
+          "steps": 1103.3333333333333,
+          "ms_per_step": 0.4086666666666667,
+          "prelude_s": 0.06703333333333333,
+          "search_time_s": 0.4502333333333333,
+          "decode_time_s": 0.3708,
+          "overruns": 0
+        },
+        "paired": [
+          {
+            "left": "eager/captured",
+            "right": "eager/eager",
+            "n": 3,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "wins": 0,
+            "ties": 3,
+            "losses": 0,
+            "step_ratio": 0.928374725758592
+          },
+          {
+            "left": "captured/eager",
+            "right": "eager/eager",
+            "n": 3,
+            "mean": 0.3333333333333333,
+            "low": 0.0,
+            "high": 1.0,
+            "wins": 1,
+            "ties": 2,
+            "losses": 0,
+            "step_ratio": 5.904805768531357
+          },
+          {
+            "left": "captured/captured",
+            "right": "eager/eager",
+            "n": 3,
+            "mean": 0.3333333333333333,
+            "low": 0.0,
+            "high": 1.0,
+            "wins": 1,
+            "ties": 2,
+            "losses": 0,
+            "step_ratio": 8.218567220855292
+          }
+        ]
+      }
+    }
+  },
+  "config": {
+    "resume": null,
+    "seed": 1017,
+    "epochs": 100,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.01,
+    "train_path": null,
+    "train_samples": -1,
+    "valid_path": null,
+    "valid_samples": -1,
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "test_samples": 3,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": 32,
+    "v7_d_state": 16,
+    "v7_order_seed": 7301,
+    "v7_order_views": 1,
+    "v7_delta_limit": null,
+    "static_constant_limit": 0.25,
+    "static_node_limit": null,
+    "static_peak_normalize": false,
+    "static_bias_seed": 1017,
+    "static_oracle_path": null,
+    "static_features": 5,
+    "static_encoder": "mlp",
+    "warm_start": null,
+    "freeze_backbone_epochs": 0,
+    "finetune_lr": null,
+    "validation_seed": null,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": false,
+    "skip_decode": false,
+    "split": "validation",
+    "result_dir": "outputs/v8_macro/smoke_decode",
+    "train_seed": 0,
+    "candidate_cap": 32,
+    "exchange_rounds": 3,
+    "larger": false,
+    "post": [
+      "none"
+    ],
+    "label": "v7_tccr_census",
+    "value_checkpoint": null,
+    "extra_value_checkpoint": [],
+    "horizon": 1,
+    "outer_rounds": 8,
+    "repair_rounds": 4,
+    "improving_cap": 48,
+    "anchored": false,
+    "time_budget_s": null,
+    "post_reserve_s": 0.05,
+    "extended_search": false,
+    "cohort_id": null,
+    "backbone_seed": null,
+    "head_seed": null,
+    "baseline_run": null,
+    "rule_reference_run": null,
+    "reference_seed": 0,
+    "seeds": [
+      1017
+    ],
+    "phase": "both",
+    "region_sizes": [
+      2,
+      3,
+      4
+    ],
+    "pair_budget": 8,
+    "cuda_graph": false,
+    "check_search": false,
+    "check_graphs": 3,
+    "budgets": [
+      0.5
+    ],
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "repeats": 1,
+    "arms": [
+      "eager",
+      "captured"
+    ],
+    "decoders": [
+      "eager",
+      "captured"
+    ],
+    "decode_chunk": 4
+  }
+}

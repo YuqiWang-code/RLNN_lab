@@ -1,0 +1,363 @@
+{
+  "version": "v8_positioning",
+  "status": "completed",
+  "mode": "capture_budget",
+  "ref": 0,
+  "summary": {
+    "ref": 0,
+    "seeds": [
+      1017
+    ],
+    "budgets": [
+      0.5,
+      1.0
+    ],
+    "graphs": 100,
+    "repeats": 2,
+    "horizon": 1,
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "arms": [
+      "eager",
+      "captured"
+    ],
+    "decoders": [
+      "eager",
+      "captured",
+      "cached"
+    ],
+    "decode_chunk": 4,
+    "cells": [
+      "eager/eager",
+      "eager/captured",
+      "captured/eager",
+      "captured/captured",
+      "captured/cached"
+    ],
+    "wall_time_s": 1506.24,
+    "table": {
+      "0.5": {
+        "eager/eager": {
+          "n": 200,
+          "final_size": 19.64,
+          "search_size": 19.575,
+          "steps": 103.705,
+          "ms_per_step": 4.140555,
+          "prelude_s": 0.073142,
+          "search_time_s": 0.4177925,
+          "decode_time_s": 0.1158515,
+          "overruns": 0
+        },
+        "eager/captured": {
+          "n": 200,
+          "final_size": 19.68,
+          "search_size": 19.65,
+          "steps": 132.08,
+          "ms_per_step": 3.26261,
+          "prelude_s": 0.009556,
+          "search_time_s": 0.4201665,
+          "decode_time_s": 0.025093,
+          "overruns": 0
+        },
+        "captured/eager": {
+          "n": 200,
+          "final_size": 19.875,
+          "search_size": 19.875,
+          "steps": 692.4,
+          "ms_per_step": 0.67008,
+          "prelude_s": 0.1455405,
+          "search_time_s": 0.4498435,
+          "decode_time_s": 0.301961,
+          "overruns": 0
+        },
+        "captured/captured": {
+          "n": 200,
+          "final_size": 19.92,
+          "search_size": 19.92,
+          "steps": 1071,
+          "ms_per_step": 0.42367,
+          "prelude_s": 0.078385,
+          "search_time_s": 0.4502175,
+          "decode_time_s": 0.3592755,
+          "overruns": 0
+        },
+        "captured/cached": {
+          "n": 200,
+          "final_size": 19.92,
+          "search_size": 19.92,
+          "steps": 1207.35,
+          "ms_per_step": 0.37678,
+          "prelude_s": 0.079831,
+          "search_time_s": 0.4505005,
+          "decode_time_s": 0.1576915,
+          "overruns": 1
+        },
+        "paired": [
+          {
+            "left": "eager/captured",
+            "right": "eager/eager",
+            "n": 100,
+            "mean": 0.04,
+            "low": 0.015,
+            "high": 0.07,
+            "wins": 7,
+            "ties": 93,
+            "losses": 0,
+            "step_ratio": 1.28332602563339
+          },
+          {
+            "left": "captured/eager",
+            "right": "eager/eager",
+            "n": 100,
+            "mean": 0.235,
+            "low": 0.155,
+            "high": 0.325,
+            "wins": 26,
+            "ties": 74,
+            "losses": 0,
+            "step_ratio": 6.742108209892396
+          },
+          {
+            "left": "captured/captured",
+            "right": "eager/eager",
+            "n": 100,
+            "mean": 0.28,
+            "low": 0.195,
+            "high": 0.37,
+            "wins": 30,
+            "ties": 70,
+            "losses": 0,
+            "step_ratio": 10.511653058191667
+          },
+          {
+            "left": "captured/cached",
+            "right": "eager/eager",
+            "n": 100,
+            "mean": 0.28,
+            "low": 0.195,
+            "high": 0.37,
+            "wins": 30,
+            "ties": 70,
+            "losses": 0,
+            "step_ratio": 11.847372159994384
+          }
+        ]
+      },
+      "1.0": {
+        "eager/eager": {
+          "n": 200,
+          "final_size": 19.775,
+          "search_size": 19.765,
+          "steps": 262.97,
+          "ms_per_step": 3.55533,
+          "prelude_s": 0.073992,
+          "search_time_s": 0.919406,
+          "decode_time_s": 0.1567185,
+          "overruns": 0
+        },
+        "eager/captured": {
+          "n": 200,
+          "final_size": 19.78,
+          "search_size": 19.77,
+          "steps": 296.295,
+          "ms_per_step": 3.140985,
+          "prelude_s": 0.0096545,
+          "search_time_s": 0.9200005,
+          "decode_time_s": 0.0429655,
+          "overruns": 1
+        },
+        "captured/eager": {
+          "n": 200,
+          "final_size": 19.99,
+          "search_size": 19.99,
+          "steps": 2208.55,
+          "ms_per_step": 0.43826,
+          "prelude_s": 0.141863,
+          "search_time_s": 0.9503675,
+          "decode_time_s": 0.8056895,
+          "overruns": 1
+        },
+        "captured/captured": {
+          "n": 200,
+          "final_size": 20,
+          "search_size": 20,
+          "steps": 2621.4,
+          "ms_per_step": 0.365005,
+          "prelude_s": 0.080465,
+          "search_time_s": 0.950361,
+          "decode_time_s": 0.856596,
+          "overruns": 1
+        },
+        "captured/cached": {
+          "n": 200,
+          "final_size": 20.01,
+          "search_size": 20.01,
+          "steps": 3064.75,
+          "ms_per_step": 0.312355,
+          "prelude_s": 0.0820515,
+          "search_time_s": 0.950448,
+          "decode_time_s": 0.1856725,
+          "overruns": 0
+        },
+        "paired": [
+          {
+            "left": "eager/captured",
+            "right": "eager/eager",
+            "n": 100,
+            "mean": 0.005,
+            "low": 0.0,
+            "high": 0.015,
+            "wins": 1,
+            "ties": 99,
+            "losses": 0,
+            "step_ratio": 1.133267063246767
+          },
+          {
+            "left": "captured/eager",
+            "right": "eager/eager",
+            "n": 100,
+            "mean": 0.215,
+            "low": 0.13,
+            "high": 0.31,
+            "wins": 20,
+            "ties": 80,
+            "losses": 0,
+            "step_ratio": 8.490401262787136
+          },
+          {
+            "left": "captured/captured",
+            "right": "eager/eager",
+            "n": 100,
+            "mean": 0.225,
+            "low": 0.14,
+            "high": 0.32,
+            "wins": 21,
+            "ties": 79,
+            "losses": 0,
+            "step_ratio": 10.095937907397989
+          },
+          {
+            "left": "captured/cached",
+            "right": "eager/eager",
+            "n": 100,
+            "mean": 0.235,
+            "low": 0.15,
+            "high": 0.33,
+            "wins": 22,
+            "ties": 78,
+            "losses": 0,
+            "step_ratio": 11.802488804870235
+          }
+        ]
+      }
+    }
+  },
+  "config": {
+    "resume": null,
+    "seed": 1017,
+    "epochs": 100,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.01,
+    "train_path": null,
+    "train_samples": -1,
+    "valid_path": null,
+    "valid_samples": -1,
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "test_samples": 100,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": 32,
+    "v7_d_state": 16,
+    "v7_order_seed": 7301,
+    "v7_order_views": 1,
+    "v7_delta_limit": null,
+    "static_constant_limit": 0.25,
+    "static_node_limit": null,
+    "static_peak_normalize": false,
+    "static_bias_seed": 1017,
+    "static_oracle_path": null,
+    "static_features": 5,
+    "static_encoder": "mlp",
+    "warm_start": null,
+    "freeze_backbone_epochs": 0,
+    "finetune_lr": null,
+    "validation_seed": null,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": false,
+    "skip_decode": false,
+    "split": "validation",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/positioning_decode",
+    "train_seed": 0,
+    "candidate_cap": 32,
+    "exchange_rounds": 3,
+    "larger": false,
+    "post": [
+      "none"
+    ],
+    "label": "v7_tccr_census",
+    "value_checkpoint": null,
+    "extra_value_checkpoint": [],
+    "horizon": 1,
+    "outer_rounds": 8,
+    "repair_rounds": 4,
+    "improving_cap": 48,
+    "anchored": false,
+    "time_budget_s": null,
+    "post_reserve_s": 0.05,
+    "extended_search": false,
+    "cohort_id": null,
+    "backbone_seed": null,
+    "head_seed": null,
+    "baseline_run": null,
+    "rule_reference_run": null,
+    "reference_seed": 0,
+    "seeds": [
+      1017
+    ],
+    "phase": "both",
+    "region_sizes": [
+      2,
+      3,
+      4
+    ],
+    "pair_budget": 8,
+    "cuda_graph": false,
+    "check_search": false,
+    "check_graphs": 3,
+    "budgets": [
+      0.5,
+      1.0
+    ],
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "repeats": 2,
+    "arms": [
+      "eager",
+      "captured"
+    ],
+    "decoders": [
+      "eager",
+      "captured",
+      "cached"
+    ],
+    "decode_chunk": 4
+  }
+}

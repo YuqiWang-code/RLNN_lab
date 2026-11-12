@@ -127,6 +127,25 @@ def main():
         if [int(m) for m in captured_masks] != [int(m) for m in eager_masks]:
             raise AssertionError(f"{graph_id}: decoded masks diverged")
 
+        # Skipping repeat decodes must leave the incumbent bit-for-bit unchanged.
+        def incumbent_of(skip):
+            engine = CapturedSearch(solver, graph, adj, topology,
+                                    torch.Generator(device=device).manual_seed(seed),
+                                    chunk=args.chunk)
+            calls = []
+
+            def keep(best):
+                calls.append(max(solution_masks(solver.problem, best, adj, graph.b),
+                                 key=int.bit_count))
+
+            engine.run(perf_counter() + 1e6, keep, max_blocks=blocks, skip_unchanged=skip)
+            return max(calls, key=int.bit_count), len(calls)
+
+        full_incumbent, full_calls = incumbent_of(False)
+        skipped_incumbent, skipped_calls = incumbent_of(True)
+        if full_incumbent != skipped_incumbent:
+            raise AssertionError(f"{graph_id}: skipping repeat decodes changed the incumbent")
+
         eager_seconds = eager_timing(solver, graph, adj, topology, args.steps, args.repeat)
         replay_times = []
         for _ in range(args.repeat):
@@ -141,11 +160,12 @@ def main():
                    chunk=args.chunk, capture_ms=capture_seconds * 1e3,
                    eager_ms_per_step=eager_seconds * 1e3,
                    captured_ms_per_step=median(replay_times) * 1e3,
-                   speedup=eager_seconds / median(replay_times))
+                   speedup=eager_seconds / median(replay_times),
+                   decode_calls=full_calls, decode_calls_skipped=skipped_calls)
         rows.append(row)
         print(f"{graph_id}: identical over {args.steps} steps; eager {row['eager_ms_per_step']:.3f} ms, "
               f"captured {row['captured_ms_per_step']:.3f} ms ({row['speedup']:.2f}x), "
-              f"capture {row['capture_ms']:.1f} ms", flush=True)
+              f"capture {row['capture_ms']:.1f} ms, decodes {full_calls} -> {skipped_calls}", flush=True)
 
     summary = dict(graphs=len(rows), steps=args.steps, chunk=args.chunk,
                    eager_ms_per_step=median(row["eager_ms_per_step"] for row in rows),

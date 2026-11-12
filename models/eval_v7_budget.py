@@ -50,7 +50,7 @@ def build_budget_parser():
 
 
 @torch.no_grad()
-def deadline_search(solver, graph, adj, seed, cutoff, normalized=None):
+def deadline_search(solver, graph, adj, seed, cutoff, normalized=None, masks_of=None):
     """Frozen T-interval search, but stop at ``cutoff`` and keep every decode.
 
     Mirrors ``eval_v2.search``: the incumbent improves only on the 10-step decodes,
@@ -76,10 +76,12 @@ def deadline_search(solver, graph, adj, seed, cutoff, normalized=None):
     def decode():
         nonlocal decode_seconds
         started = perf_counter()
-        decoded = solution_masks(problem, best_states, adj, graph.b)
+        if masks_of is None:
+            decoded = solution_masks(problem, best_states, adj, graph.b)
+        else:
+            decoded = [masks_of(best_states)]
         decode_seconds += perf_counter() - started
         return decoded
-
     masks = decode()
     incumbent = max(masks, key=int.bit_count)
     prelude = perf_counter() - entered

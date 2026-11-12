@@ -9,6 +9,7 @@
    而我们是 19.51；没有等预算曲线，这个数字既不能证明我们快，也不能证明我们差。
 2. 论文真正的技术杠杆在哪？`models/profile_budget_step.py` 给出线索：eager 每步 2.16 ms，捕获成 CUDA 图后 0.26–0.33 ms。
    冻结策略本身是我们自己的，**步数是唯一「每毫秒价值已知为正」的方向**。
+3. 捕获之后解码成了主项（占 62–82 %），把它也搬进图里还能再挤出多少？这条决定速度工程要不要继续（§5）。
 
 ## 1. 协议
 
@@ -22,6 +23,8 @@
   - 实测（validation 前 2 图）：`identical over 20 steps; eager 1.706 ms/step, captured 0.262 ms/step (6.51x), capture 46.4 ms`。
   - 产物 `outputs/v8_macro/check_capture/check/check_ref0.json`。
 - 捕获成本（每图一次，约 46–126 ms）**计入预算**，不是免费加速。
+- 解码三档：`eager`（原始 `solution_masks`）、`captured`（`CapturedDecoder`，chunk 4）、
+  `cached`（档案没动就跳过解码）。后两档同样要先过闸门（位集与 `solution_masks` 全等）。
 
 ## 2. 引擎消融：等时钟、同轨迹
 
@@ -103,7 +106,53 @@
 - 注意 `solve_time_s` 是我们的完整求解墙钟（含捕获与 PAVE），KaMIS 的墙钟含进程启动与图写盘——
   这是两者的真实开销，不做调整。
 
-## 5. 结论
+## 5. 解码：第二个瓶颈，但杠杆已经用尽
+
+捕获把搜索加速 6.7× 之后，**解码成了主项**：captured 臂里解码占 search+decode 时间的 67.1 %（0.5 s）
+与 84.8 %（1.0 s），而 eager 臂只有 27.7 % 与 17.0 %。原因不是算术量，而是主机侧控制流：
+A.3 每迭代都要把 `gain` 拉回主机判停，一次 sync 就吃掉一个 kernel 的时间。
+
+`models/mis_v8_decode.py` 把这段迭代搬进捕获块（`chunk=4`，每次重放到 `flag` 为假即停；
+**过冲安全**——收敛后 `where(gain>0, 1-x, x)` 不动状态，多跑是 no-op），
+`decode_best` 只在设备端取最大粒子、单列 packbits 回主机。
+闸门 `outputs/v8_macro/decode_cost/check_decode_ref0.json`：4 图 × 4 时间点 × 4 个 chunk，
+位集与 `solution_masks` 全等；eager 6.694 ms → chunk4 1.086 ms
+（真实约 4.8×：eager 侧含 packbits 与 int 转换，捕获侧只测 `decode()`）。
+
+`cached` 是第三级：解码是 `best_states` 的纯函数，档案没动就不可能变，
+所以用图上的 `improvements` 计数器跳过重复解码（可证明等价，闸门里单独断言过）。
+
+等时钟五格对照（100 图 × 2 重复，ref0 冻结骨干与冻结 PAVE `horizon=1`）：
+
+| 时钟 | 引擎/解码 | 步数 | 解 | ms/步 | 解码占比 | 对 eager/eager | 胜/平/负 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 0.5 s | eager/eager | 103.7 | 19.640 | 4.141 | 27.7 % | — | — |
+| 0.5 s | eager/captured | 132.1 | 19.680 | 3.263 | 6.0 % | +0.0400 [+0.0150,+0.0700] ×1.28 | 7/93/0 |
+| 0.5 s | captured/eager | 692.4 | 19.875 | 0.670 | 67.1 % | +0.2350 [+0.1550,+0.3250] ×6.74 | 26/74/0 |
+| 0.5 s | captured/captured | 1071.0 | 19.920 | 0.424 | 79.8 % | +0.2800 [+0.1950,+0.3700] ×10.51 | 30/70/0 |
+| 0.5 s | captured/cached | 1207.3 | 19.920 | 0.377 | 35.0 % | +0.2800 [+0.1950,+0.3700] ×11.85 | 30/70/0 |
+| 1.0 s | eager/eager | 263.0 | 19.775 | 3.555 | 17.0 % | — | — |
+| 1.0 s | eager/captured | 296.3 | 19.780 | 3.141 | 4.7 % | +0.0050 [+0.0000,+0.0150] ×1.13 | 1/99/0 |
+| 1.0 s | captured/eager | 2208.6 | 19.990 | 0.438 | 84.8 % | +0.2150 [+0.1300,+0.3100] ×8.49 | 20/80/0 |
+| 1.0 s | captured/captured | 2621.4 | 20.000 | 0.365 | 90.1 % | +0.2250 [+0.1400,+0.3200] ×10.10 | 21/79/0 |
+| 1.0 s | captured/cached | 3064.8 | 20.010 | 0.312 | 19.5 % | +0.2350 [+0.1500,+0.3300] ×11.80 | 22/78/0 |
+
+（本表的绝对解与 §4 那轮不完全相同——两轮间隔数小时，GPU 与其他人共享，`eager/eager` 的 ms/步
+从 3.66 变成 4.14；有意义的量是同一轮内的配对差，因此下表只用配对差。）
+
+读这张表的四条：
+
+1. 捕获仍是主杠杆：+0.235 / +0.215（§4 那轮是 +0.195 / +0.225，两轮都无负例，可复现）。
+2. 解码换掉在 **eager 引擎**上几乎没用：+0.040（0.5 s）与 +0.005（1.0 s），因为 eager 臂只有 100–300 步，
+   解码本来就只占 17–28 %。它值钱是在 captured 引擎上：步数 692 → 1071、2209 → 2621。
+3. **但步数已经饱和**：×6.74 → ×10.51 步只买到 +0.045（0.5 s），×8.49 → ×10.10 只买到 +0.010（1.0 s）；
+   再叠 `cached`（步数 ×11.85 / ×11.80）是 +0.000 / +0.010。
+   也就是说 700 步之后，每翻一倍步数的价值从 +0.2 掉到 +0.01。
+4. 因此速度工程的总账是：捕获 +0.235 / +0.215，解码 +0.045 / +0.010，缓存 +0.000 / +0.010，
+   合计 +0.280 / +0.235。**这条线到此为止**——剩下的 prelude 隐藏、chunk 调到 2 之类最多再值 +0.01，
+   而要进一步必须提高**每步的质量**（第 10 条方法线的地盘），不是每毫秒的步数。
+
+## 6. 结论
 
 1. 定位问题有了答案：**在 0.5 s 与 1.0 s 这两个时钟上，我们是唯一能交结果的方法**（KaMIS 地板 1.87 s/图），
    解为 19.885 / 20.000；在 KaMIS 能跑的时钟（≥1.9 s）上，四格配对差全部跨零、93–96/100 图相同，
@@ -112,21 +161,25 @@
 2. 技术杠杆问题也有了答案：**步数**。同样的时钟、同样的冻结策略、同样的解码与 PAVE，只把执行方式换成捕获图块，
    0.5 s 多 +0.195、1.0 s 多 +0.225，21/79/0 与 22/78/0，步数 6.75× / 7.88×。
    这是本项目第一个零负、CI 不跨零的正结果；代价是每图一次 46–126 ms 的捕获前导（已计入时钟）。
-3. 因此后续顺序调整：**先做速度工程（捕获 + 解码开销），再谈第 10 条方法线**。
-   解码现在占 search 时间的 22.4%（p90 48.6%，中位 6.92 ms/次），是捕获之后下一个值得动的地方；
-   按本轮曲线，再快一倍步数大约还能值 +0.01 ~ +0.02（已接近饱和），所以解码优化的目标应当改成
-   **让 0.5 s 档吃下现在 1.0 s 档的步数**，而不是追求无限步数。
+3. 技术杠杆的顺序已经走完：**捕获是主杠杆（+0.235 / +0.215），解码是次要杠杆（+0.045 / +0.010），
+   跳过重复解码是零头（+0.000 / +0.010）**，三项合计 +0.280 / +0.235（见 §5）。
+   速度工程到此为止：0.5 s 档从 104 步做到 1207 步，解从 19.640 做到 19.920，之后每翻倍步数只值 +0.01。
 4. 写作口径：不要把「19.885 @0.5 s vs KaMIS 20.06 @2.7 s」写成胜；正确写法是
    「在 0.5–1.8 s 区间只有本方法能在预算内给出解，在 ≥1.9 s 区间两者持平」，并把捕获前后的
    19.690 → 19.885 作为「同样的墙钟，多 6.7 倍步数」的证据。
+5. 若还要往上，唯一没被证伪的方向是**每步质量**（策略/解码质量本身），而不是每毫秒步数；
+   预算曲线在 700–3000 步区间已经平到 +0.01 量级，任何「再快一点」的工程都不再值得做。
 
 
-## 6. 复现
+## 7. 复现
 
 ```bash
-bash train_scripts/v8_macro/check_capture.sh                     # 闸门：同轨迹 + 6.5x 速度
+bash train_scripts/v8_macro/check_capture.sh                     # 闸门：同轨迹 + 8.7x 速度 + 跳过解码等价
+bash train_scripts/v8_macro/decode_cost.sh                       # 解码成本分解
+bash train_scripts/v8_macro/check_decode.sh                      # 解码闸门：位集一致 + chunk 4 最快
 bash train_scripts/v8_macro/kamis.sh                             # KaMIS anytime（约 42 min，纯 CPU）
 bash train_scripts/v8_macro/capture_budget.sh                    # eager vs captured，0.5/1.0 s
+DECODERS="eager captured cached" bash train_scripts/v8_macro/decode_budget.sh   # 五格解码对照
 BUDGETS="2.5 5.0" ARMS=captured \
   RESULT_DIR=outputs/v8_macro/positioning_wall \
   bash train_scripts/v8_macro/capture_budget.sh                  # 等钟高预算档
@@ -142,4 +195,7 @@ python models/summarize_v8_positioning.py                        # 汇总表
 | `outputs/v8_macro/positioning/kamis/kamis_ref0.csv` | 800 行 KaMIS 结果 |
 | `outputs/v8_macro/positioning/capture_budget/capture_budget_ref0.csv` | 800 行 eager/captured |
 | `outputs/v8_macro/positioning_wall/capture_budget/capture_budget_ref0.csv` | 400 行 captured 高预算 |
-| `outputs/v8_macro/positioning/summary/positioning_ref0.md` | 汇总表（本文 §4 的来源） |
+| `outputs/v8_macro/decode_cost/decode_cost_ref0.json` | 解码成本分解（迭代数 / 单迭代 / 稀疏 mm / 捕获重放） |
+| `outputs/v8_macro/decode_cost/check_decode_ref0.json` | 解码闸门（位集一致 + 各 chunk 速度） |
+| `outputs/v8_macro/positioning_decode/capture_budget/capture_budget_ref0.csv` | 2000 行五格解码对照 |
+| `outputs/v8_macro/positioning/summary/positioning_ref0.md` | 汇总表（本文 §4、§5 的来源） |

@@ -45,6 +45,9 @@ class CapturedSearch:
         self.product = (adjacency @ self.state) if solver.structure_gain else None
         self.best_states = self.state.clone()
         self.best_energy = self.problem.energy_func(adjacency, graph.b, self.state)[0]
+        # Counts archive improvements on the device: a block that leaves the archive
+        # untouched makes the next decode a pure repeat, so ``run`` can skip it.
+        self.improvements = torch.zeros(1, device=self.device, dtype=torch.long)
         self._adjacency = adjacency
         self._topology = topology
         self._forward = solver.flip_logits
@@ -75,6 +78,7 @@ class CapturedSearch:
             improves = energy < self.best_energy
             self.best_states.copy_(torch.where(improves.unsqueeze(0), self.state, self.best_states))
             self.best_energy.copy_(torch.where(improves, energy, self.best_energy))
+            torch.add(self.improvements, improves.sum().reshape(1), out=self.improvements)
 
     def _build(self):
         device = self.device
@@ -82,6 +86,7 @@ class CapturedSearch:
         stream.wait_stream(torch.cuda.current_stream(device))
         rng_state = self.generator.get_state()
         state, best, energy = self.state.clone(), self.best_states.clone(), self.best_energy.clone()
+        improvements = self.improvements.clone()
         with torch.cuda.stream(stream):
             self._body()
         torch.cuda.current_stream(device).wait_stream(stream)
@@ -91,6 +96,7 @@ class CapturedSearch:
         self.state.copy_(state)
         self.best_states.copy_(best)
         self.best_energy.copy_(energy)
+        self.improvements.copy_(improvements)
         self.graph_exec = torch.cuda.CUDAGraph()
         self.graph_exec.register_generator_state(self.generator)
         with torch.cuda.graph(self.graph_exec, stream=stream):
@@ -98,12 +104,20 @@ class CapturedSearch:
         torch.cuda.current_stream(device).wait_stream(stream)
         self._warm = 0.0
 
-    def run(self, deadline, decode, *, max_blocks=None):
-        """Replay blocks until ``deadline``; returns (steps, decode_seconds, blocks)."""
+    def run(self, deadline, decode, *, max_blocks=None, skip_unchanged=False):
+        """Replay blocks until ``deadline``; returns (steps, decode_seconds, blocks).
+
+        With ``skip_unchanged`` a block decodes only when it moved the archive.  The
+        decode is a pure function of ``best_states``, so a block that left the
+        archive alone would decode the very same matrix again and the incumbent
+        cannot change: skipping is exact, not an approximation.
+        """
         steps = 0
         blocks = 0
         decode_seconds = 0.0
         block_time = self._warm
+        self.improvements.zero_()
+        decoded_at = -1
         while True:
             if max_blocks is not None and blocks >= max_blocks:
                 break
@@ -113,7 +127,13 @@ class CapturedSearch:
             self.graph_exec.replay()
             steps += self.chunk
             blocks += 1
-            decoded = decode(self.best_states)
+            if skip_unchanged:
+                moved = int(self.improvements.item())
+                if moved == decoded_at:
+                    block_time = perf_counter() - started
+                    continue
+                decoded_at = moved
+            decode(self.best_states)
             decode_seconds += perf_counter() - started
             block_time = perf_counter() - started
         return steps, decode_seconds, blocks

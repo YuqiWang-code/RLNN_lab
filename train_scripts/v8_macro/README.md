@@ -27,10 +27,15 @@
 | P2 | `bash kamis.sh` | KaMIS anytime 曲线，4 档 `--time_limit` × 2 种子（纯 CPU，约 42 分钟） |
 | P3 | `bash capture_budget.sh` | eager vs captured 等时钟对照，0.5/1.0 秒（GPU，约 11 分钟） |
 | P4 | `BUDGETS="2.5 5.0" ARMS=captured RESULT_DIR=outputs/v8_macro/positioning_wall bash capture_budget.sh` | 等钟高预算档（约 45 分钟） |
-| P5 | `python models/summarize_v8_positioning.py` | 汇总三份 CSV 成一张定位表 |
+| P5 | `python models/summarize_v8_positioning.py` | 汇总 KaMIS 与两份 CSV 成一张定位表 |
+| P6 | `bash decode_cost.sh` | 解码成本分解：A.3 迭代数、单迭代、稀疏 mm、捕获重放（约 2 分钟） |
+| P7 | `bash check_decode.sh` | 解码闸门：捕获解码必须与 `solution_masks` 逐位一致，再报 chunk 扫描（约 2 分钟） |
+| P8 | `DECODERS="eager captured cached" bash decode_budget.sh` | 五格等钟对照：两种引擎 × 三种解码（0.5/1.0 秒，约 30 分钟） |
+| P9 | `python models/summarize_v8_positioning.py` | 重跑汇总，多出「解码消融」一节 |
 
-`models/` 侧对应文件：`mis_v8_capture.py`、`check_capture_budget.py`、`profile_budget_step.py`、
-`eval_kamis_anytime.py`、`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`。
+`models/` 侧对应文件：`mis_v8_capture.py`、`mis_v8_decode.py`、`check_capture_budget.py`、
+`check_decode_capture.py`、`probe_decode_cost.py`、`profile_budget_step.py`、`eval_kamis_anytime.py`、
+`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`。
 
 ## 环境变量
 
@@ -48,6 +53,8 @@
 | `GRAPHS` | `100` | 定位实验用的验证图数 |
 | `BUDGETS` | `0.5 1.0` | 预算档（秒），空格分隔 |
 | `ARMS` | `eager captured` | 引擎臂；只跑捕获臂时写 `ARMS=captured`，此时不出配对行 |
+| `DECODERS` | `eager captured cached` | 解码臂：`eager` 是 `solution_masks`，`captured` 是捕获分块，`cached` 再加「档案没动就跳过解码」（只能配捕获引擎） |
+| `DECODE_CHUNK` | `4` | 捕获解码每次重放的 A.3 迭代数，闸门扫描过 2/4/8/16，4 最快 |
 | `REPEATS` | `2` | 每格的重复次数，两臂顺序交替 |
 | `RESULT_DIR` | `$OUT_V8/positioning` | 定位产物根目录，高预算档写 `$OUT_V8/positioning_wall` |
 | `SEEDS_LIST` | `1017` | 定位实验的搜索种子（与 `SEEDS` 分开，避免误用三个种子把时长乘三） |

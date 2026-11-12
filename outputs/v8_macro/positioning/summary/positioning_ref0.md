@@ -35,3 +35,20 @@ KaMIS has a floor of about 1.9 s per graph even at a 0.1 s limit, so the small c
 | 3.12 (KaMIS 1 s) vs 2.49 (ours 2.5 s) | 20.0650 | 20.0400 | -0.0250 [-0.0700,+0.0150] | 2/93/5 |
 | 4.93 (KaMIS 4 s) vs 4.98 (ours 5 s) | 20.0650 | 20.0500 | -0.0150 [-0.0500,+0.0200] | 1/96/3 |
 
+## Decoder ablation at equal clock
+
+The captured engine turned the search decode-bound, so the A.3 loop was moved into a captured chunk (``mis_v8_decode.py``). ``cached`` additionally skips a decode when the block left the archive untouched, which is exact because the decode is a pure function of ``best_states``.
+
+| clock | cell | steps | size | ms/step | decode share | vs eager/eager [CI] | wins/ties/losses |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 0.5 s | captured/cached | 1207 | 19.9200 | 0.377 | 35.0 % | +0.2800 [+0.1950,+0.3700] | 30/70/0 |
+| 0.5 s | captured/captured | 1071 | 19.9200 | 0.424 | 79.8 % | +0.2800 [+0.1950,+0.3700] | 30/70/0 |
+| 0.5 s | captured/eager | 692 | 19.8750 | 0.670 | 67.1 % | +0.2350 [+0.1550,+0.3250] | 26/74/0 |
+| 0.5 s | eager/captured | 132 | 19.6800 | 3.263 | 6.0 % | +0.0400 [+0.0150,+0.0700] | 7/93/0 |
+| 0.5 s | eager/eager | 104 | 19.6400 | 4.141 | 27.7 % | - | - |
+| 1 s | captured/cached | 3065 | 20.0100 | 0.312 | 19.5 % | +0.2350 [+0.1500,+0.3300] | 22/78/0 |
+| 1 s | captured/captured | 2621 | 20.0000 | 0.365 | 90.1 % | +0.2250 [+0.1400,+0.3200] | 21/79/0 |
+| 1 s | captured/eager | 2209 | 19.9900 | 0.438 | 84.8 % | +0.2150 [+0.1300,+0.3100] | 20/80/0 |
+| 1 s | eager/captured | 296 | 19.7800 | 3.141 | 4.7 % | +0.0050 [+0.0000,+0.0150] | 1/99/0 |
+| 1 s | eager/eager | 263 | 19.7750 | 3.555 | 17.0 % | - | - |
+

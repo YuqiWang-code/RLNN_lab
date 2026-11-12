@@ -162,5 +162,119 @@
         "n": 100
       }
     }
+  },
+  "decode": {
+    "captured/cached@0.5": {
+      "size": 19.92,
+      "steps": 1207.35,
+      "decode_share": 0.3500362374736543,
+      "paired": {
+        "mean": 0.28,
+        "low": 0.195,
+        "high": 0.37,
+        "wins": 30,
+        "ties": 70,
+        "losses": 0,
+        "n": 100
+      }
+    },
+    "captured/captured@0.5": {
+      "size": 19.92,
+      "steps": 1071.0,
+      "decode_share": 0.7980042979226708,
+      "paired": {
+        "mean": 0.28,
+        "low": 0.195,
+        "high": 0.37,
+        "wins": 30,
+        "ties": 70,
+        "losses": 0,
+        "n": 100
+      }
+    },
+    "captured/eager@0.5": {
+      "size": 19.875,
+      "steps": 692.4,
+      "decode_share": 0.6712578930227957,
+      "paired": {
+        "mean": 0.235,
+        "low": 0.155,
+        "high": 0.325,
+        "wins": 26,
+        "ties": 74,
+        "losses": 0,
+        "n": 100
+      }
+    },
+    "eager/captured@0.5": {
+      "size": 19.68,
+      "steps": 132.08,
+      "decode_share": 0.0597215627614291,
+      "paired": {
+        "mean": 0.04,
+        "low": 0.015,
+        "high": 0.07,
+        "wins": 7,
+        "ties": 93,
+        "losses": 0,
+        "n": 100
+      }
+    },
+    "captured/cached@1": {
+      "size": 20.01,
+      "steps": 3064.75,
+      "decode_share": 0.19535261266266013,
+      "paired": {
+        "mean": 0.235,
+        "low": 0.15,
+        "high": 0.33,
+        "wins": 22,
+        "ties": 78,
+        "losses": 0,
+        "n": 100
+      }
+    },
+    "captured/captured@1": {
+      "size": 20.0,
+      "steps": 2621.4,
+      "decode_share": 0.9013374917531338,
+      "paired": {
+        "mean": 0.225,
+        "low": 0.14,
+        "high": 0.32,
+        "wins": 21,
+        "ties": 79,
+        "losses": 0,
+        "n": 100
+      }
+    },
+    "captured/eager@1": {
+      "size": 19.99,
+      "steps": 2208.55,
+      "decode_share": 0.8477662588419742,
+      "paired": {
+        "mean": 0.215,
+        "low": 0.13,
+        "high": 0.31,
+        "wins": 20,
+        "ties": 80,
+        "losses": 0,
+        "n": 100
+      }
+    },
+    "eager/captured@1": {
+      "size": 19.78,
+      "steps": 296.295,
+      "decode_share": 0.04670160505347551,
+      "paired": {
+        "mean": 0.005,
+        "low": 0.0,
+        "high": 0.015,
+        "wins": 1,
+        "ties": 99,
+        "losses": 0,
+        "n": 100
+      }
+    }
   }
 }

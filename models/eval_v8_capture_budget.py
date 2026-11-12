@@ -28,9 +28,11 @@ from mis_v3_search import SearchGraph
 from mis_v3_value import PAVEV3
 from mis_v7_recombine import is_independent
 from mis_v8_capture import CapturedSearch
+from mis_v8_decode import CapturedDecoder
 from v7_runs import pave, provenance
 
 ARMS = ("eager", "captured")
+DECODERS = ("eager", "captured", "cached")
 
 
 def build_capture_parser():
@@ -40,12 +42,15 @@ def build_capture_parser():
     parser.add_argument("--chunk", type=int, default=DECODE_INTERVAL)
     parser.add_argument("--repeats", type=int, default=2)
     parser.add_argument("--arms", nargs="+", choices=ARMS, default=list(ARMS))
+    parser.add_argument("--decoders", nargs="+", choices=DECODERS, default=["eager"])
+    parser.add_argument("--decode_chunk", type=int, default=4)
     parser.set_defaults(horizon=1, num_t=100)
     return parser
 
 
 @torch.no_grad()
-def captured_search(solver, graph, adj, seed, cutoff, normalized=None):
+def captured_search(solver, graph, adj, seed, cutoff, normalized=None, masks_of=None,
+                    skip_unchanged=False):
     """``deadline_search`` with the step replaced by a captured block replay.
 
     Returns the same tuple: (incumbent, masks, steps, decode_seconds, prelude).
@@ -65,15 +70,19 @@ def captured_search(solver, graph, adj, seed, cutoff, normalized=None):
     def decode(best):
         nonlocal incumbent, masks, decode_seconds
         started = perf_counter()
-        masks = solution_masks(problem, best, adj, graph.b)
+        if masks_of is None:
+            masks = solution_masks(problem, best, adj, graph.b)
+            candidate = max(masks, key=int.bit_count)
+        else:
+            candidate = masks_of(best)
+            masks = [candidate]
         decode_seconds += perf_counter() - started
-        candidate = max(masks, key=int.bit_count)
         if candidate.bit_count() > incumbent.bit_count():
             incumbent = candidate
 
     decode(search.best_states)
     prelude = perf_counter() - entered
-    steps, decode_seconds, _ = search.run(cutoff, decode)
+    steps, decode_seconds, _ = search.run(cutoff, decode, skip_unchanged=skip_unchanged)
     return incumbent, masks, steps, decode_seconds, prelude
 
 
@@ -115,9 +124,15 @@ def main():
                                                          perf_counter() + 0.2)
     run_pave(warm_topology, warm_selected, ranker, args, perf_counter() + 0.1)
     captured_search(solver, warm, warm_adj, args.seeds[0], perf_counter() + 0.2)
+    warm_template = torch.zeros(warm.num_nodes, solver.num_k, device=device, dtype=solver.dtype)
+    CapturedDecoder(solver.problem, warm_adj, warm.b, warm_template,
+                    chunk=args.decode_chunk).decode_best(warm_template)
     sync(device)
 
     rows = []
+    # ``cached`` needs the archive counter that only the captured block keeps.
+    cells = [(arm, kind) for arm in args.arms for kind in args.decoders
+             if not (arm == "eager" and kind == "cached")]
     started = perf_counter()
     for index, graph in enumerate(dataset):
         graph_id = f"idx_{index}" if args.split == "test" else Path(dataset.files[index]).stem
@@ -133,26 +148,41 @@ def main():
                 # Throwaway pass of the same shape so both arms meet a warm allocator.
                 deadline_search(solver, graph, adj, seed, perf_counter() + 0.25, normalized)
                 sync(device)
-                order = args.arms if (index + seed) % 2 == 0 else args.arms[::-1]
+                order = cells if (index + seed) % 2 == 0 else cells[::-1]
                 for repeat in range(args.repeats):
                     arms = order if repeat == 0 else order[::-1]
-                    for arm in arms:
+                    for arm, decoder_kind in arms:
                         engine = deadline_search if arm == "eager" else captured_search
                         sync(device)
                         tick = perf_counter()
                         deadline = tick + budget
                         cutoff = deadline - args.post_reserve
-                        selected, masks, steps, decode_seconds, prelude = engine(
-                            solver, graph, adj, seed, cutoff, normalized)
+                        masks_of = None
+                        skip_unchanged = decoder_kind == "cached"
+                        if decoder_kind in ("captured", "cached"):
+                            # Charged inside the clock, exactly like the search capture.
+                            template = torch.zeros(graph.num_nodes, solver.num_k,
+                                                   device=device, dtype=solver.dtype)
+                            masks_of = CapturedDecoder(solver.problem, adj, graph.b, template,
+                                                       chunk=args.decode_chunk).decode_best
+                        if arm == "eager":
+                            selected, masks, steps, decode_seconds, prelude = engine(
+                                solver, graph, adj, seed, cutoff, normalized, masks_of)
+                        else:
+                            selected, masks, steps, decode_seconds, prelude = engine(
+                                solver, graph, adj, seed, cutoff, normalized, masks_of,
+                                skip_unchanged)
                         sync(device)
                         search_seconds = perf_counter() - tick
                         final = run_pave(topology, selected, ranker, args, deadline)
                         sync(device)
                         seconds = perf_counter() - tick
                         if not is_independent(final, neighbours):
-                            raise ValueError(f"{graph_id}: illegal set in arm {arm}")
+                            raise ValueError(f"{graph_id}: illegal set in {arm}/{decoder_kind}")
+                        cell_name = f"{arm}/{decoder_kind}"
                         rows.append(dict(graph_id=graph_id, search_seed=seed, budget=budget, arm=arm,
-                                         repeat=repeat, first=int(arms[0] == arm),
+                                         decoder=decoder_kind, cell=cell_name,
+                                         repeat=repeat, first=int(arms[0] == (arm, decoder_kind)),
                                          final_size=final.bit_count(),
                                          search_size=selected.bit_count(),
                                          pave_gain=final.bit_count() - selected.bit_count(),
@@ -166,59 +196,66 @@ def main():
         if (index + 1) % 20 == 0 or index + 1 == len(dataset):
             parts = []
             for budget in args.budgets:
-                for arm in args.arms:
-                    sizes = [r["final_size"] for r in rows if r["budget"] == budget and r["arm"] == arm]
-                    steps = [r["steps"] for r in rows if r["budget"] == budget and r["arm"] == arm]
-                    parts.append(f"{budget}s/{arm}:{mean(sizes):.3f}@{mean(steps):.0f}st")
+                for arm, kind in cells:
+                    chosen = [r for r in rows if r["budget"] == budget and r["cell"] == f"{arm}/{kind}"]
+                    if not chosen:
+                        continue
+                    parts.append(f"{budget}s/{arm}/{kind}:{mean(r['final_size'] for r in chosen):.3f}"
+                                 f"@{mean(r['steps'] for r in chosen):.0f}st")
             print(f"{index + 1}/{len(dataset)} " + " ".join(parts), flush=True)
 
+    names = [f"{arm}/{kind}" for arm, kind in cells]
     summary = dict(ref=args.reference_seed, seeds=args.seeds, budgets=args.budgets,
                    graphs=len(dataset), repeats=args.repeats, horizon=args.horizon,
                    post_reserve=args.post_reserve, chunk=args.chunk, arms=list(args.arms),
+                   decoders=list(args.decoders), decode_chunk=args.decode_chunk, cells=names,
                    wall_time_s=round(perf_counter() - started, 2))
+
+    def paired(budget, left, right):
+        diffs, ratios = [], []
+        for graph_id in sorted({r["graph_id"] for r in rows}):
+            picked = {}
+            for name in (left, right):
+                values = [r for r in rows if r["graph_id"] == graph_id
+                          and r["budget"] == budget and r["cell"] == name]
+                if values:
+                    picked[name] = (mean(v["final_size"] for v in values),
+                                    mean(v["steps"] for v in values))
+            if len(picked) == 2:
+                diffs.append(picked[left][0] - picked[right][0])
+                ratios.append(picked[left][1] / max(picked[right][1], 1e-9))
+        effect, low, high = paired_bootstrap(diffs)
+        return dict(left=left, right=right, n=len(diffs), mean=effect, low=low, high=high,
+                    wins=sum(d > 0 for d in diffs), ties=sum(d == 0 for d in diffs),
+                    losses=sum(d < 0 for d in diffs),
+                    step_ratio=mean(ratios) if ratios else 0.0)
+
     table = {}
     for budget in args.budgets:
         cell = {}
-        for arm in args.arms:
-            chosen = [r for r in rows if r["budget"] == budget and r["arm"] == arm]
-            cell[arm] = dict(n=len(chosen),
-                             final_size=mean(r["final_size"] for r in chosen),
-                             search_size=mean(r["search_size"] for r in chosen),
-                             steps=mean(r["steps"] for r in chosen),
-                             ms_per_step=mean(r["ms_per_step"] for r in chosen),
-                             prelude_s=mean(r["prelude_s"] for r in chosen),
-                             search_time_s=mean(r["search_time_s"] for r in chosen),
-                             overruns=sum(r["deadline_overrun"] for r in chosen))
-        # Paired per graph: average repeats first, then subtract arms.
-        diffs, step_ratios = [], []
-        for graph_id in sorted({r["graph_id"] for r in rows}):
-            picked = {}
-            for arm in args.arms:
-                values = [r for r in rows if r["graph_id"] == graph_id
-                          and r["budget"] == budget and r["arm"] == arm]
-                if values:
-                    picked[arm] = (mean(v["final_size"] for v in values),
-                                   mean(v["steps"] for v in values))
-            if len(picked) == len(args.arms) == 2:
-                diffs.append(picked["captured"][0] - picked["eager"][0])
-                step_ratios.append(picked["captured"][1] / max(picked["eager"][1], 1e-9))
-        effect, low, high = paired_bootstrap(diffs)
-        cell["paired_gain_captured_minus_eager"] = dict(mean=effect, low=low, high=high,
-                                                        wins=sum(d > 0 for d in diffs),
-                                                        ties=sum(d == 0 for d in diffs),
-                                                        losses=sum(d < 0 for d in diffs))
-        cell["step_ratio_captured_over_eager"] = mean(step_ratios) if step_ratios else 0.0
+        for name in names:
+            chosen = [r for r in rows if r["budget"] == budget and r["cell"] == name]
+            cell[name] = dict(n=len(chosen),
+                              final_size=mean(r["final_size"] for r in chosen),
+                              search_size=mean(r["search_size"] for r in chosen),
+                              steps=mean(r["steps"] for r in chosen),
+                              ms_per_step=mean(r["ms_per_step"] for r in chosen),
+                              prelude_s=mean(r["prelude_s"] for r in chosen),
+                              search_time_s=mean(r["search_time_s"] for r in chosen),
+                              decode_time_s=mean(r["decode_time_s"] for r in chosen),
+                              overruns=sum(r["deadline_overrun"] for r in chosen))
+        # Every cell is compared against the slow reference, paired per graph.
+        pairs = [paired(budget, name, "eager/eager") for name in names if name != "eager/eager"]
+        cell["paired"] = pairs
         table[str(budget)] = cell
-        description = " | ".join(
-            f"{arm} {cell[arm]['final_size']:.4f} @ {cell[arm]['steps']:.0f} steps"
-            for arm in args.arms)
-        if len(args.arms) == 2:
-            description += (f" | paired +{effect:.4f} [{low:+.4f},{high:+.4f}] "
-                            f"{cell['paired_gain_captured_minus_eager']['wins']}/"
-                            f"{cell['paired_gain_captured_minus_eager']['ties']}/"
-                            f"{cell['paired_gain_captured_minus_eager']['losses']} "
-                            f"steps x{cell['step_ratio_captured_over_eager']:.2f}")
-        print(f"budget={budget}: {description}", flush=True)
+        print(f"budget={budget}: " + " | ".join(
+            f"{name} {cell[name]['final_size']:.4f} @ {cell[name]['steps']:.0f} steps"
+            for name in names), flush=True)
+        for pair in pairs:
+            print(f"  {pair['left']} - {pair['right']}: {pair['mean']:+.4f} "
+                  f"[{pair['low']:+.4f},{pair['high']:+.4f}] "
+                  f"{pair['wins']}/{pair['ties']}/{pair['losses']} steps x{pair['step_ratio']:.2f}",
+                  flush=True)
 
     summary["table"] = table
     metadata = dict(version="v8_positioning", status="completed", mode="capture_budget",

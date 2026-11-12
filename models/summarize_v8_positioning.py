@@ -23,6 +23,7 @@ import torch
 ROOT = Path(__file__).resolve().parents[1]
 POSITIONING = ROOT / "outputs/v8_macro/positioning"
 WALL = ROOT / "outputs/v8_macro/positioning_wall"
+DECODE = ROOT / "outputs/v8_macro/positioning_decode"
 BOOTSTRAP = 5000
 
 
@@ -63,6 +64,7 @@ def main():
     parser.add_argument("--reference_seed", type=int, default=0)
     parser.add_argument("--positioning", type=Path, default=POSITIONING)
     parser.add_argument("--wall", type=Path, default=WALL)
+    parser.add_argument("--decode", type=Path, default=DECODE)
     args = parser.parse_args()
     ref = args.reference_seed
 
@@ -157,12 +159,55 @@ def main():
                      f"{stats['mean']:+.4f} [{stats['low']:+.4f},{stats['high']:+.4f}] | "
                      f"{stats['wins']}/{stats['ties']}/{stats['losses']} |")
     lines.append("")
+
+    decode_summary = {}
+    decode_path = args.decode / "capture_budget" / f"capture_budget_ref{ref}.csv"
+    if decode_path.exists():
+        decode_rows = read_rows(decode_path)
+        cells = sorted({r["cell"] for r in decode_rows})
+        per_cell = pool(decode_rows, lambda r: (r["cell"], float(r["budget"])), "final_size",
+                        extra=("steps", "ms_per_step", "search_time_s", "decode_time_s"))
+        per_graph = pool(decode_rows, lambda r: (r["cell"], r["graph_id"], float(r["budget"])),
+                         "final_size")
+        lines.append("## Decoder ablation at equal clock\n")
+        lines.append("The captured engine turned the search decode-bound, so the A.3 loop was "
+                     "moved into a captured chunk (``mis_v8_decode.py``). ``cached`` additionally "
+                     "skips a decode when the block left the archive untouched, which is exact "
+                     "because the decode is a pure function of ``best_states``.\n")
+        lines.append("| clock | cell | steps | size | ms/step | decode share | vs eager/eager [CI] | wins/ties/losses |")
+        lines.append("| --- | --- | --- | --- | --- | --- | --- | --- |")
+        for budget in sorted({float(r["budget"]) for r in decode_rows}):
+            for name in cells:
+                entry = per_cell.get((name, budget))
+                if entry is None:
+                    continue
+                share = entry["decode_time_s"] / max(entry["search_time_s"], 1e-9)
+                if name == "eager/eager":
+                    pair_text, record_text = "-", "-"
+                else:
+                    diffs = []
+                    for graph_id in sorted({r["graph_id"] for r in decode_rows}):
+                        ours = per_graph.get((name, graph_id, budget))
+                        base = per_graph.get(("eager/eager", graph_id, budget))
+                        if ours and base:
+                            diffs.append(ours["value"] - base["value"])
+                    stats = bootstrap(diffs, seed=ref)
+                    pair_text = (f"{stats['mean']:+.4f} "
+                                 f"[{stats['low']:+.4f},{stats['high']:+.4f}]")
+                    record_text = f"{stats['wins']}/{stats['ties']}/{stats['losses']}"
+                    decode_summary[f"{name}@{budget:g}"] = dict(size=entry["value"],
+                                                                steps=entry["steps"],
+                                                                decode_share=share, paired=stats)
+                lines.append(f"| {budget:g} s | {name} | {entry['steps']:.0f} | {entry['value']:.4f} | "
+                             f"{entry['ms_per_step']:.3f} | {100 * share:.1f} % | "
+                             f"{pair_text} | {record_text} |")
+        lines.append("")
     texts = "\n".join(lines) + "\n"
 
     summary = dict(ref=ref, graphs=len({r["graph_id"] for r in kamis_rows}),
                    kamis={str(k): v for k, v in kamis.items()},
                    curve={f"{arm}@{b:g}": v for (arm, b), v in curve.items()},
-                   ablation=ablation, matched_wall=matched)
+                   ablation=ablation, matched_wall=matched, decode=decode_summary)
     out = args.positioning / "summary"
     out.mkdir(parents=True, exist_ok=True)
     (out / f"positioning_ref{ref}.md").write_text(texts, encoding="utf-8")

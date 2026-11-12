@@ -30,3 +30,31 @@ graph_000001: identical over 20 steps; eager 1.891 ms, captured 0.257 ms (7.34x)
   "speedup": 6.508694281669691
 }
 wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/check_capture/check/check_ref0.json
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+graph_000000: identical over 20 steps; eager 1.901 ms, captured 0.274 ms (6.94x), capture 104.3 ms, decodes 2 -> 2
+graph_000001: identical over 20 steps; eager 2.106 ms, captured 0.268 ms (7.86x), capture 73.0 ms, decodes 2 -> 2
+{
+  "graphs": 2,
+  "steps": 20,
+  "chunk": 10,
+  "eager_ms_per_step": 2.0031934953294694,
+  "captured_ms_per_step": 0.2708763931877911,
+  "capture_ms": 88.62582594156265,
+  "speedup": 7.395230982497285
+}
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/check_capture/check/check_ref0.json
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+graph_000000: identical over 200 steps; eager 2.404 ms, captured 0.277 ms (8.67x), capture 70.7 ms, decodes 20 -> 19
+graph_000001: identical over 200 steps; eager 1.923 ms, captured 0.260 ms (7.39x), capture 64.2 ms, decodes 20 -> 18
+{
+  "graphs": 2,
+  "steps": 200,
+  "chunk": 10,
+  "eager_ms_per_step": 2.163500916212797,
+  "captured_ms_per_step": 0.2687396842520684,
+  "capture_ms": 67.48901726678014,
+  "speedup": 8.050544980857792
+}
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/check_capture/check/check_ref0.json

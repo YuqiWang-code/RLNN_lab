@@ -1,0 +1,569 @@
+{
+  "version": "v8_positioning",
+  "mode": "check_decode",
+  "summary": {
+    "chunk2": {
+      "decode_ms": 1.05,
+      "capture_ms": 6.282,
+      "speedup": 5.81
+    },
+    "chunk4": {
+      "decode_ms": 1.086,
+      "capture_ms": 8.8,
+      "speedup": 6.19
+    },
+    "chunk8": {
+      "decode_ms": 1.509,
+      "capture_ms": 11.645,
+      "speedup": 4.89
+    },
+    "chunk16": {
+      "decode_ms": 1.937,
+      "capture_ms": 21.491,
+      "speedup": 3.51
+    },
+    "eager_ms": 6.694,
+    "best_chunk": 4
+  },
+  "rows": [
+    {
+      "graph": "idx_0",
+      "nodes": 240,
+      "search_steps": 1,
+      "eager_ms": 63.893,
+      "chunk2": {
+        "capture_ms": 64.866,
+        "decode_ms": 10.691,
+        "speedup": 5.98
+      },
+      "chunk4": {
+        "capture_ms": 8.893,
+        "decode_ms": 8.782,
+        "speedup": 7.28
+      },
+      "chunk8": {
+        "capture_ms": 13.177,
+        "decode_ms": 9.123,
+        "speedup": 7.0
+      },
+      "chunk16": {
+        "capture_ms": 26.746,
+        "decode_ms": 9.263,
+        "speedup": 6.9
+      }
+    },
+    {
+      "graph": "idx_0",
+      "nodes": 240,
+      "search_steps": 25,
+      "eager_ms": 6.102,
+      "chunk2": {
+        "capture_ms": 8.389,
+        "decode_ms": 1.105,
+        "speedup": 5.52
+      },
+      "chunk4": {
+        "capture_ms": 12.556,
+        "decode_ms": 1.098,
+        "speedup": 5.56
+      },
+      "chunk8": {
+        "capture_ms": 11.426,
+        "decode_ms": 1.504,
+        "speedup": 4.06
+      },
+      "chunk16": {
+        "capture_ms": 19.823,
+        "decode_ms": 1.958,
+        "speedup": 3.12
+      }
+    },
+    {
+      "graph": "idx_0",
+      "nodes": 240,
+      "search_steps": 100,
+      "eager_ms": 7.974,
+      "chunk2": {
+        "capture_ms": 6.42,
+        "decode_ms": 1.006,
+        "speedup": 7.93
+      },
+      "chunk4": {
+        "capture_ms": 8.197,
+        "decode_ms": 1.129,
+        "speedup": 7.06
+      },
+      "chunk8": {
+        "capture_ms": 20.357,
+        "decode_ms": 1.514,
+        "speedup": 5.27
+      },
+      "chunk16": {
+        "capture_ms": 19.88,
+        "decode_ms": 1.916,
+        "speedup": 4.16
+      }
+    },
+    {
+      "graph": "idx_0",
+      "nodes": 240,
+      "search_steps": 300,
+      "eager_ms": 3.185,
+      "chunk2": {
+        "capture_ms": 4.281,
+        "decode_ms": 0.753,
+        "speedup": 4.23
+      },
+      "chunk4": {
+        "capture_ms": 5.603,
+        "decode_ms": 0.811,
+        "speedup": 3.93
+      },
+      "chunk8": {
+        "capture_ms": 9.455,
+        "decode_ms": 1.009,
+        "speedup": 3.15
+      },
+      "chunk16": {
+        "capture_ms": 15.218,
+        "decode_ms": 1.874,
+        "speedup": 1.7
+      }
+    },
+    {
+      "graph": "idx_1",
+      "nodes": 231,
+      "search_steps": 1,
+      "eager_ms": 56.774,
+      "chunk2": {
+        "capture_ms": 9.565,
+        "decode_ms": 10.085,
+        "speedup": 5.63
+      },
+      "chunk4": {
+        "capture_ms": 11.924,
+        "decode_ms": 9.262,
+        "speedup": 6.13
+      },
+      "chunk8": {
+        "capture_ms": 14.835,
+        "decode_ms": 8.41,
+        "speedup": 6.75
+      },
+      "chunk16": {
+        "capture_ms": 23.877,
+        "decode_ms": 8.302,
+        "speedup": 6.84
+      }
+    },
+    {
+      "graph": "idx_1",
+      "nodes": 231,
+      "search_steps": 25,
+      "eager_ms": 6.768,
+      "chunk2": {
+        "capture_ms": 6.145,
+        "decode_ms": 1.017,
+        "speedup": 6.65
+      },
+      "chunk4": {
+        "capture_ms": 7.856,
+        "decode_ms": 1.072,
+        "speedup": 6.31
+      },
+      "chunk8": {
+        "capture_ms": 10.393,
+        "decode_ms": 1.499,
+        "speedup": 4.52
+      },
+      "chunk16": {
+        "capture_ms": 24.812,
+        "decode_ms": 1.916,
+        "speedup": 3.53
+      }
+    },
+    {
+      "graph": "idx_1",
+      "nodes": 231,
+      "search_steps": 100,
+      "eager_ms": 5.084,
+      "chunk2": {
+        "capture_ms": 5.54,
+        "decode_ms": 0.958,
+        "speedup": 5.31
+      },
+      "chunk4": {
+        "capture_ms": 7.159,
+        "decode_ms": 1.059,
+        "speedup": 4.8
+      },
+      "chunk8": {
+        "capture_ms": 11.437,
+        "decode_ms": 1.515,
+        "speedup": 3.35
+      },
+      "chunk16": {
+        "capture_ms": 32.53,
+        "decode_ms": 2.01,
+        "speedup": 2.53
+      }
+    },
+    {
+      "graph": "idx_1",
+      "nodes": 231,
+      "search_steps": 300,
+      "eager_ms": 6.404,
+      "chunk2": {
+        "capture_ms": 6.447,
+        "decode_ms": 1.082,
+        "speedup": 5.92
+      },
+      "chunk4": {
+        "capture_ms": 11.391,
+        "decode_ms": 0.871,
+        "speedup": 7.35
+      },
+      "chunk8": {
+        "capture_ms": 17.166,
+        "decode_ms": 1.077,
+        "speedup": 5.95
+      },
+      "chunk16": {
+        "capture_ms": 26.884,
+        "decode_ms": 1.957,
+        "speedup": 3.27
+      }
+    },
+    {
+      "graph": "idx_2",
+      "nodes": 216,
+      "search_steps": 1,
+      "eager_ms": 56.935,
+      "chunk2": {
+        "capture_ms": 5.45,
+        "decode_ms": 7.777,
+        "speedup": 7.32
+      },
+      "chunk4": {
+        "capture_ms": 7.079,
+        "decode_ms": 7.048,
+        "speedup": 8.08
+      },
+      "chunk8": {
+        "capture_ms": 9.8,
+        "decode_ms": 6.823,
+        "speedup": 8.34
+      },
+      "chunk16": {
+        "capture_ms": 17.895,
+        "decode_ms": 7.31,
+        "speedup": 7.79
+      }
+    },
+    {
+      "graph": "idx_2",
+      "nodes": 216,
+      "search_steps": 25,
+      "eager_ms": 5.384,
+      "chunk2": {
+        "capture_ms": 11.677,
+        "decode_ms": 0.857,
+        "speedup": 6.28
+      },
+      "chunk4": {
+        "capture_ms": 16.839,
+        "decode_ms": 0.88,
+        "speedup": 6.12
+      },
+      "chunk8": {
+        "capture_ms": 13.351,
+        "decode_ms": 0.999,
+        "speedup": 5.39
+      },
+      "chunk16": {
+        "capture_ms": 17.37,
+        "decode_ms": 1.795,
+        "speedup": 3.0
+      }
+    },
+    {
+      "graph": "idx_2",
+      "nodes": 216,
+      "search_steps": 100,
+      "eager_ms": 3.842,
+      "chunk2": {
+        "capture_ms": 5.268,
+        "decode_ms": 0.832,
+        "speedup": 4.62
+      },
+      "chunk4": {
+        "capture_ms": 12.632,
+        "decode_ms": 0.825,
+        "speedup": 4.66
+      },
+      "chunk8": {
+        "capture_ms": 11.201,
+        "decode_ms": 0.976,
+        "speedup": 3.94
+      },
+      "chunk16": {
+        "capture_ms": 19.586,
+        "decode_ms": 1.83,
+        "speedup": 2.1
+      }
+    },
+    {
+      "graph": "idx_2",
+      "nodes": 216,
+      "search_steps": 300,
+      "eager_ms": 3.04,
+      "chunk2": {
+        "capture_ms": 4.013,
+        "decode_ms": 0.585,
+        "speedup": 5.2
+      },
+      "chunk4": {
+        "capture_ms": 6.16,
+        "decode_ms": 0.769,
+        "speedup": 3.95
+      },
+      "chunk8": {
+        "capture_ms": 9.406,
+        "decode_ms": 0.975,
+        "speedup": 3.12
+      },
+      "chunk16": {
+        "capture_ms": 18.677,
+        "decode_ms": 1.86,
+        "speedup": 1.63
+      }
+    },
+    {
+      "graph": "idx_3",
+      "nodes": 240,
+      "search_steps": 1,
+      "eager_ms": 57.714,
+      "chunk2": {
+        "capture_ms": 5.261,
+        "decode_ms": 10.102,
+        "speedup": 5.71
+      },
+      "chunk4": {
+        "capture_ms": 9.221,
+        "decode_ms": 8.869,
+        "speedup": 6.51
+      },
+      "chunk8": {
+        "capture_ms": 13.745,
+        "decode_ms": 8.682,
+        "speedup": 6.65
+      },
+      "chunk16": {
+        "capture_ms": 25.553,
+        "decode_ms": 9.483,
+        "speedup": 6.09
+      }
+    },
+    {
+      "graph": "idx_3",
+      "nodes": 240,
+      "search_steps": 25,
+      "eager_ms": 7.133,
+      "chunk2": {
+        "capture_ms": 6.848,
+        "decode_ms": 1.119,
+        "speedup": 6.38
+      },
+      "chunk4": {
+        "capture_ms": 8.707,
+        "decode_ms": 1.142,
+        "speedup": 6.25
+      },
+      "chunk8": {
+        "capture_ms": 12.839,
+        "decode_ms": 1.672,
+        "speedup": 4.27
+      },
+      "chunk16": {
+        "capture_ms": 24.815,
+        "decode_ms": 1.987,
+        "speedup": 3.59
+      }
+    },
+    {
+      "graph": "idx_3",
+      "nodes": 240,
+      "search_steps": 100,
+      "eager_ms": 8.099,
+      "chunk2": {
+        "capture_ms": 5.587,
+        "decode_ms": 0.906,
+        "speedup": 8.94
+      },
+      "chunk4": {
+        "capture_ms": 6.259,
+        "decode_ms": 1.074,
+        "speedup": 7.54
+      },
+      "chunk8": {
+        "capture_ms": 10.88,
+        "decode_ms": 1.475,
+        "speedup": 5.49
+      },
+      "chunk16": {
+        "capture_ms": 14.147,
+        "decode_ms": 1.899,
+        "speedup": 4.26
+      }
+    },
+    {
+      "graph": "idx_3",
+      "nodes": 240,
+      "search_steps": 300,
+      "eager_ms": 6.619,
+      "chunk2": {
+        "capture_ms": 13.626,
+        "decode_ms": 1.344,
+        "speedup": 4.92
+      },
+      "chunk4": {
+        "capture_ms": 9.88,
+        "decode_ms": 1.142,
+        "speedup": 5.8
+      },
+      "chunk8": {
+        "capture_ms": 11.854,
+        "decode_ms": 1.532,
+        "speedup": 4.32
+      },
+      "chunk16": {
+        "capture_ms": 23.102,
+        "decode_ms": 1.893,
+        "speedup": 3.5
+      }
+    }
+  ],
+  "config": {
+    "resume": null,
+    "seed": 1017,
+    "epochs": 100,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.01,
+    "train_path": null,
+    "train_samples": -1,
+    "valid_path": null,
+    "valid_samples": -1,
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "test_samples": -1,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": 32,
+    "v7_d_state": 16,
+    "v7_order_seed": 7301,
+    "v7_order_views": 1,
+    "v7_delta_limit": null,
+    "static_constant_limit": 0.25,
+    "static_node_limit": null,
+    "static_peak_normalize": false,
+    "static_bias_seed": 1017,
+    "static_oracle_path": null,
+    "static_features": 5,
+    "static_encoder": "mlp",
+    "warm_start": null,
+    "freeze_backbone_epochs": 0,
+    "finetune_lr": null,
+    "validation_seed": null,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": false,
+    "skip_decode": false,
+    "split": "validation",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/decode_cost",
+    "train_seed": 0,
+    "candidate_cap": 32,
+    "exchange_rounds": 3,
+    "larger": false,
+    "post": [
+      "none"
+    ],
+    "label": "v7_tccr_census",
+    "value_checkpoint": null,
+    "extra_value_checkpoint": [],
+    "horizon": 2,
+    "outer_rounds": 8,
+    "repair_rounds": 4,
+    "improving_cap": 48,
+    "anchored": false,
+    "time_budget_s": null,
+    "post_reserve_s": 0.05,
+    "extended_search": false,
+    "cohort_id": null,
+    "backbone_seed": null,
+    "head_seed": null,
+    "baseline_run": null,
+    "rule_reference_run": null,
+    "reference_seed": 0,
+    "seeds": [
+      1017,
+      1019,
+      1021
+    ],
+    "phase": "both",
+    "region_sizes": [
+      2,
+      3,
+      4
+    ],
+    "pair_budget": 8,
+    "cuda_graph": false,
+    "check_search": false,
+    "check_graphs": 3,
+    "graphs": 4,
+    "repeat": 5,
+    "search_steps": [
+      1,
+      25,
+      100,
+      300
+    ]
+  },
+  "source_sha": "20261112T113011Z-unversioned",
+  "branch": "v8-macro",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": null,
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0"
+}

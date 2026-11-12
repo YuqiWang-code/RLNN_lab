@@ -19,12 +19,15 @@
 | `v8_eval.py` | `fixed_nfe` 与 `budget` 两口径；冻结 PAVE 一律 `horizon=1`，档案只收截止前已完成的合法解 |
 | `check_v8.py` | M=1 读出等值、联合似然退化、块记录语义三组自检（不需要检查点） |
 | `diagnose_v8_prior.py` | P0-B 相关性打乱 + P0-C 端点档案漏失；只读冻结策略与冻结 PAVE，不训练 |
-| `mis_v8_capture.py` | `CapturedSearch`：把 10 步冻结步捕获成一块 CUDA 图并重放，`register_generator_state` 保证每次重放的随机数与 eager 一致；解码留在图外 |
-| `check_capture_budget.py` | 捕获闸门：同种子下断言 state / 档案状态 / 档案能量 / 解码掩码与 eager 逐位相等，然后才计时（1.71 → 0.26 ms/步） |
+| `mis_v8_capture.py` | `CapturedSearch`：把 10 步冻结步捕获成一块 CUDA 图并重放，`register_generator_state` 保证每次重放的随机数与 eager 一致；`improvements` 计数在图上，`skip_unchanged` 据此跳过重复解码（可证明等价） |
+| `check_capture_budget.py` | 捕获闸门：同种子下断言 state / 档案状态 / 档案能量 / 解码掩码与 eager 逐位相等，再断言跳过解码不改主解，然后才计时（2.16 → 0.27 ms/步） |
+| `mis_v8_decode.py` | `CapturedDecoder`：把 A.3 解码的迭代循环搬进捕获块（`chunk=4` 最快，1.09 ms vs 6.69 ms），`decode_best` 只在设备端取最大粒子、单列回主机 |
+| `check_decode_capture.py` | 解码闸门：4 图 × 4 时间点 × 4 个 chunk，先断言位集与 `solution_masks` 相同再报速度 |
+| `probe_decode_cost.py` | 解码成本分解：A.3 迭代数、单迭代 / 稀疏 mm / 单次 sync / 捕获重放，用来定位「解码受限」而非算术受限 |
 | `profile_budget_step.py` | 每步成本分解：eager / captured / forward / energy / decode，用来判断瓶颈是算术还是发射延迟 |
 | `eval_kamis_anytime.py` | KaMIS（ReduMIS）四档 `--time_limit` anytime 曲线，按图配对到 v7 冻结基线 |
-| `eval_v8_capture_budget.py` | eager vs captured 等时钟对照（`--arms` 可选单臂），同种子、同解码节奏、冻结 PAVE `horizon=1` |
-| `summarize_v8_positioning.py` | 把 KaMIS 与两份预算 CSV 合成一张「墙钟 vs 解」定位表 |
+| `eval_v8_capture_budget.py` | 等时钟对照：`--arms`（引擎）× `--decoders`（解码）的格子，同种子、同解码节奏、冻结 PAVE `horizon=1`，每格都与 `eager/eager` 按图配对 |
+| `summarize_v8_positioning.py` | 把 KaMIS、两份预算 CSV、解码消融合成「墙钟 vs 解」定位表 |
 
 结果见 [`../docs/temporary/RLNN_v8_Positioning_Results.md`](../docs/temporary/RLNN_v8_Positioning_Results.md)，
 启动器见 [`../train_scripts/v8_macro/`](../train_scripts/v8_macro/README.md)。
