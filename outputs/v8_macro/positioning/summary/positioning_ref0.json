@@ -1,0 +1,166 @@
+{
+  "ref": 0,
+  "graphs": 100,
+  "kamis": {
+    "0.1": {
+      "n": 200,
+      "value": 20.045,
+      "wall_time_s": 1.868045
+    },
+    "0.5": {
+      "n": 200,
+      "value": 20.06,
+      "wall_time_s": 2.67482
+    },
+    "1.0": {
+      "n": 200,
+      "value": 20.065,
+      "wall_time_s": 3.1225805
+    },
+    "4.0": {
+      "n": 200,
+      "value": 20.065,
+      "wall_time_s": 4.926369
+    }
+  },
+  "curve": {
+    "captured@0.5": {
+      "n": 200,
+      "value": 19.885,
+      "steps": 795.2,
+      "solve_time_s": 0.486298,
+      "ms_per_step": 0.58498
+    },
+    "eager@0.5": {
+      "n": 200,
+      "value": 19.69,
+      "steps": 120.56,
+      "solve_time_s": 0.481971,
+      "ms_per_step": 3.657675
+    },
+    "captured@1": {
+      "n": 200,
+      "value": 20.0,
+      "steps": 2348.25,
+      "solve_time_s": 0.9855305,
+      "ms_per_step": 0.41306
+    },
+    "eager@1": {
+      "n": 200,
+      "value": 19.775,
+      "steps": 301.075,
+      "solve_time_s": 0.9814555,
+      "ms_per_step": 3.1358800000000002
+    },
+    "captured@2.5": {
+      "n": 200,
+      "value": 20.04,
+      "steps": 7284.7,
+      "solve_time_s": 2.485134,
+      "ms_per_step": 0.341305
+    },
+    "captured@5": {
+      "n": 200,
+      "value": 20.05,
+      "steps": 15660.65,
+      "solve_time_s": 4.9847695,
+      "ms_per_step": 0.31931
+    }
+  },
+  "ablation": {
+    "0.5": {
+      "eager": 19.69,
+      "captured": 19.885,
+      "paired": {
+        "mean": 0.195,
+        "low": 0.125,
+        "high": 0.27,
+        "wins": 21,
+        "ties": 79,
+        "losses": 0,
+        "n": 100
+      },
+      "step_ratio": 6.748148007492203
+    },
+    "1.0": {
+      "eager": 19.775,
+      "captured": 20.0,
+      "paired": {
+        "mean": 0.225,
+        "low": 0.14,
+        "high": 0.32,
+        "wins": 22,
+        "ties": 78,
+        "losses": 0,
+        "n": 100
+      },
+      "step_ratio": 7.882181049778406
+    }
+  },
+  "matched_wall": {
+    "0.1": {
+      "kamis_size": 20.045,
+      "kamis_wall": 1.868045,
+      "ours_budget": 2.5,
+      "ours_size": 20.04,
+      "ours_wall": 2.485134,
+      "paired": {
+        "mean": -0.005,
+        "low": -0.045,
+        "high": 0.035,
+        "wins": 2,
+        "ties": 94,
+        "losses": 4,
+        "n": 100
+      }
+    },
+    "0.5": {
+      "kamis_size": 20.06,
+      "kamis_wall": 2.67482,
+      "ours_budget": 2.5,
+      "ours_size": 20.04,
+      "ours_wall": 2.485134,
+      "paired": {
+        "mean": -0.02,
+        "low": -0.06,
+        "high": 0.02,
+        "wins": 2,
+        "ties": 93,
+        "losses": 5,
+        "n": 100
+      }
+    },
+    "1.0": {
+      "kamis_size": 20.065,
+      "kamis_wall": 3.1225805,
+      "ours_budget": 2.5,
+      "ours_size": 20.04,
+      "ours_wall": 2.485134,
+      "paired": {
+        "mean": -0.025,
+        "low": -0.07,
+        "high": 0.015,
+        "wins": 2,
+        "ties": 93,
+        "losses": 5,
+        "n": 100
+      }
+    },
+    "4.0": {
+      "kamis_size": 20.065,
+      "kamis_wall": 4.926369,
+      "ours_budget": 5.0,
+      "ours_size": 20.05,
+      "ours_wall": 4.9847695,
+      "paired": {
+        "mean": -0.015,
+        "low": -0.05,
+        "high": 0.02,
+        "wins": 1,
+        "ties": 96,
+        "losses": 3,
+        "n": 100
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_capture_budget.py", line 165, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_capture_budget.py", line 122, in main
+    raise AssertionError(f"{graph_id}: archive states diverged")
+AssertionError: graph_000000: archive states diverged

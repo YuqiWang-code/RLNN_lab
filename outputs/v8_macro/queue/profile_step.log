@@ -1,0 +1,26 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+graph_000000: eager 1.592 ms/step, captured 0.509 ms/step (3.13x), forward 1.750, energy 0.211, decode 63.559 ms
+graph_000001: eager 2.163 ms/step, captured 0.331 ms/step (6.54x), forward 1.695, energy 0.115, decode 52.726 ms
+graph_000002: eager 2.302 ms/step, captured 0.289 ms/step (7.96x), forward 1.642, energy 0.134, decode 75.946 ms
+{
+  "eager_ms_per_step": 2.1632773033343256,
+  "captured_ms_per_step": 0.3307609655894339,
+  "forward_ms_per_step": 1.6952817561104894,
+  "energy_ms_per_step": 0.13361667515709996,
+  "decode_ms": 63.55881318449974,
+  "eager_over_captured": 6.540304112001997,
+  "steps_per_second_now": 462.26158729565987,
+  "steps_per_second_if_captured": 3023.3313602103744,
+  "projection": {
+    "0.5s": {
+      "now": 231,
+      "captured": 1512
+    },
+    "1s": {
+      "now": 462,
+      "captured": 3023
+    }
+  }
+}
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/profile_step/profile/profile_ref0.json

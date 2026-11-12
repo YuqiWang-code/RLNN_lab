@@ -1,0 +1,10 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+20/100 2.5s/captured:20.350@7166st 5.0s/captured:20.350@15302st
+40/100 2.5s/captured:19.975@7290st 5.0s/captured:19.975@15610st
+60/100 2.5s/captured:19.833@7449st 5.0s/captured:19.833@15931st
+80/100 2.5s/captured:20.075@7300st 5.0s/captured:20.087@15644st
+100/100 2.5s/captured:20.040@7285st 5.0s/captured:20.050@15661st
+budget=2.5: captured 20.0400 @ 7285 steps
+budget=5.0: captured 20.0500 @ 15661 steps
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/positioning_wall/capture_budget/capture_budget_ref0.csv

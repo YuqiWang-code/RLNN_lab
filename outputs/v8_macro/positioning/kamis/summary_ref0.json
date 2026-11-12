@@ -1,0 +1,118 @@
+{
+  "version": "v8_positioning",
+  "status": "completed",
+  "mode": "kamis_anytime",
+  "split": "validation",
+  "samples": 100,
+  "budgets": [
+    0.1,
+    0.5,
+    1.0,
+    4.0
+  ],
+  "seeds": [
+    1017,
+    1019
+  ],
+  "kamis": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis",
+  "kamis_sha256": "edf3c458aebd6b569e558cfcef825b22b80c7060d904d8a0b0045c1fa160e0e1",
+  "wall_time_s": 2521.03,
+  "per_budget": {
+    "0.1s": {
+      "kamis_mean": 20.045,
+      "kamis_median": 20.0,
+      "wall_mean_s": 1.868045,
+      "wall_max_s": 4.8212,
+      "runs": 200,
+      "reference": null,
+      "note": "no paired baseline rows for this budget"
+    },
+    "0.5s": {
+      "kamis_mean": 20.06,
+      "kamis_median": 20.0,
+      "wall_mean_s": 2.67482,
+      "wall_max_s": 6.0519,
+      "runs": 200,
+      "reference": "outputs/v7_tccr/budget/budget_ref0.csv",
+      "paired_graphs": 100,
+      "ours_mean": 19.61,
+      "delta_mean": -0.4500000000000001,
+      "delta_ci": [
+        -0.5416666666666667,
+        -0.36333333333333345
+      ],
+      "wins": 0,
+      "ties": 34,
+      "losses": 66
+    },
+    "1s": {
+      "kamis_mean": 20.065,
+      "kamis_median": 20.0,
+      "wall_mean_s": 3.1225805,
+      "wall_max_s": 7.6659,
+      "runs": 200,
+      "reference": "outputs/v7_tccr/budget/budget_ref0.csv",
+      "paired_graphs": 100,
+      "ours_mean": 19.796666666666667,
+      "delta_mean": -0.2683333333333333,
+      "delta_ci": [
+        -0.34333333333333343,
+        -0.1966666666666666
+      ],
+      "wins": 0,
+      "ties": 59,
+      "losses": 41
+    },
+    "4s": {
+      "kamis_mean": 20.065,
+      "kamis_median": 20.0,
+      "wall_mean_s": 4.926369,
+      "wall_max_s": 8.0431,
+      "runs": 200,
+      "reference": null,
+      "note": "no paired baseline rows for this budget"
+    }
+  },
+  "config": {
+    "split": "validation",
+    "test_path": null,
+    "test_samples": 100,
+    "kamis": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis",
+    "budgets": [
+      0.1,
+      0.5,
+      1.0,
+      4.0
+    ],
+    "seeds": [
+      1017,
+      1019
+    ],
+    "reference_seed": 0,
+    "reference_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v7_tccr/budget",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/positioning",
+    "bootstrap": 5000
+  },
+  "source_sha": "unversioned",
+  "branch": "v8-macro",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": null,
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0"
+}

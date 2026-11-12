@@ -1,0 +1,32 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_capture_budget.py", line 165, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_capture_budget.py", line 122, in main
+    raise AssertionError(f"{graph_id}: archive states diverged")
+AssertionError: graph_000000: archive states diverged
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+graph_000000: identical over 20 steps; eager 3.478 ms, captured 0.271 ms (12.84x), capture 58.4 ms
+graph_000001: identical over 20 steps; eager 2.651 ms, captured 0.257 ms (10.31x), capture 60.1 ms
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_capture_budget.py", line 165, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_capture_budget.py", line 158, in main
+    (output / "check_ref%d.json" % args.reference_seed).write_text(
+TypeError: unsupported operand type(s) for %: 'PosixPath' and 'int'
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+graph_000000: identical over 20 steps; eager 1.522 ms, captured 0.267 ms (5.70x), capture 41.5 ms
+graph_000001: identical over 20 steps; eager 1.891 ms, captured 0.257 ms (7.34x), capture 51.4 ms
+{
+  "graphs": 2,
+  "steps": 20,
+  "chunk": 10,
+  "eager_ms_per_step": 1.706447685137391,
+  "captured_ms_per_step": 0.26217972626909614,
+  "capture_ms": 46.44760140217841,
+  "speedup": 6.508694281669691
+}
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/check_capture/check/check_ref0.json

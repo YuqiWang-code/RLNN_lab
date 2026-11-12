@@ -4,9 +4,12 @@
 
 当前研究入口是 **RLNN / erdoes**。RLSA 是退火方法，`reinforce` 是另一种训练损失，均保留上游能力，但不是本项目默认基线。
 
-本目录按"是否还在跑"分三组：**现行**（v8 宏步）、**冻结协议**（所有人共用的评测与 PAVE）、**已关闭线**（保留可复现，不再改）。新增模块请放到对应组里，不要在目录顶部平铺。
+本目录按"是否还在跑"分三组：**现行**（v8 宏步与定位/步数）、**冻结协议**（所有人共用的评测与 PAVE）、**已关闭线**（保留可复现，不再改）。新增模块请放到对应组里，不要在目录顶部平铺。
 
-## 现行：v8 宏步（ACMD）
+## 现行：v8 宏步（ACMD）与定位/步数
+
+**宏步线停在 P0**（两个 P0 诊断都无最终质量信号，见 `../docs/temporary/RLNN_v8_P0_Results.md`），
+目录里现在真正在跑的是**定位与步数**：等预算对照 KaMIS、把冻结步捕获成 CUDA 图块提高步数。
 
 | 文件 | 职责 |
 | --- | --- |
@@ -16,7 +19,14 @@
 | `v8_eval.py` | `fixed_nfe` 与 `budget` 两口径；冻结 PAVE 一律 `horizon=1`，档案只收截止前已完成的合法解 |
 | `check_v8.py` | M=1 读出等值、联合似然退化、块记录语义三组自检（不需要检查点） |
 | `diagnose_v8_prior.py` | P0-B 相关性打乱 + P0-C 端点档案漏失；只读冻结策略与冻结 PAVE，不训练 |
+| `mis_v8_capture.py` | `CapturedSearch`：把 10 步冻结步捕获成一块 CUDA 图并重放，`register_generator_state` 保证每次重放的随机数与 eager 一致；解码留在图外 |
+| `check_capture_budget.py` | 捕获闸门：同种子下断言 state / 档案状态 / 档案能量 / 解码掩码与 eager 逐位相等，然后才计时（1.71 → 0.26 ms/步） |
+| `profile_budget_step.py` | 每步成本分解：eager / captured / forward / energy / decode，用来判断瓶颈是算术还是发射延迟 |
+| `eval_kamis_anytime.py` | KaMIS（ReduMIS）四档 `--time_limit` anytime 曲线，按图配对到 v7 冻结基线 |
+| `eval_v8_capture_budget.py` | eager vs captured 等时钟对照（`--arms` 可选单臂），同种子、同解码节奏、冻结 PAVE `horizon=1` |
+| `summarize_v8_positioning.py` | 把 KaMIS 与两份预算 CSV 合成一张「墙钟 vs 解」定位表 |
 
+结果见 [`../docs/temporary/RLNN_v8_Positioning_Results.md`](../docs/temporary/RLNN_v8_Positioning_Results.md)，
 启动器见 [`../train_scripts/v8_macro/`](../train_scripts/v8_macro/README.md)。
 
 ## 冻结协议：骨干、搜索与 PAVE

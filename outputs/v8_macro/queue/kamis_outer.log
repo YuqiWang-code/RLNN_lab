@@ -1,0 +1,10 @@
+20/100 graphs kamis 0.1s:20.350 0.5s:20.350 1.0s:20.350 4.0s:20.350
+40/100 graphs kamis 0.1s:19.988 0.5s:20.000 1.0s:20.000 4.0s:20.000
+60/100 graphs kamis 0.1s:19.842 0.5s:19.850 1.0s:19.850 4.0s:19.850
+80/100 graphs kamis 0.1s:20.069 0.5s:20.087 1.0s:20.094 4.0s:20.094
+100/100 graphs kamis 0.1s:20.045 0.5s:20.060 1.0s:20.065 4.0s:20.065
+budget=0.1s kamis 20.0450 (1.868s/graph) unpaired
+budget=0.5s kamis 20.0600 (2.675s/graph) ours 19.6100 delta -0.4500 [-0.5417,-0.3633] 0/34/66
+budget=1s kamis 20.0650 (3.123s/graph) ours 19.7967 delta -0.2683 [-0.3433,-0.1967] 0/59/41
+budget=4s kamis 20.0650 (4.926s/graph) unpaired
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/positioning/kamis/kamis_ref0.csv
