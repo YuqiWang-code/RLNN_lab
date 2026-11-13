@@ -85,6 +85,8 @@ def load_reference(path):
 
 def main():
     parser = build_parser()
+    parser.add_argument("--shards", type=int, default=1, help="split the graph list into N processes")
+    parser.add_argument("--shard", type=int, default=0, help="which shard this process runs")
     args = parser.parse_args()
     binary = args.kamis.expanduser().resolve()
     if not binary.is_file():
@@ -98,7 +100,9 @@ def main():
     reference = load_reference(args.reference_dir / f"budget_ref{args.reference_seed}.csv")
     rows = []
     started = perf_counter()
-    for index, graph in enumerate(dataset):
+    indices = list(range(len(dataset)))[args.shard::args.shards]
+    for position, index in enumerate(indices):
+        graph = dataset[index]
         graph_id = f"idx_{index}" if args.split == "test" else Path(dataset.files[index]).stem
         neighbours = neighbours_of(graph)
         for budget in args.budgets:
@@ -111,13 +115,14 @@ def main():
                     raise ValueError(f"{graph_id}: KaMIS returned a non-independent set")
                 rows.append(dict(graph_id=graph_id, budget=budget, seed=seed, size=size,
                                  wall_time_s=round(seconds, 4)))
-        if (index + 1) % 20 == 0 or index + 1 == len(dataset):
+        if (position + 1) % 20 == 0 or position + 1 == len(indices):
             summary = " ".join(
                 f"{budget}s:{mean(row['size'] for row in rows if row['budget'] == budget):.3f}"
                 for budget in args.budgets)
-            print(f"{index + 1}/{len(dataset)} graphs kamis {summary}", flush=True)
+            print(f"{position + 1}/{len(indices)} graphs kamis {summary}", flush=True)
 
-    path = output / f"kamis_ref{args.reference_seed}.csv"
+    tag = "" if args.shards == 1 else f"_shard{args.shard}"
+    path = output / f"kamis_ref{args.reference_seed}{tag}.csv"
     with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()

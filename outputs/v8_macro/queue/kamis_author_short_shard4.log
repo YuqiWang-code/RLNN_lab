@@ -1,0 +1,12 @@
+20/166 graphs kamis 0.5s:20.000 1.0s:20.000
+40/166 graphs kamis 0.5s:19.975 1.0s:19.975
+60/166 graphs kamis 0.5s:20.333 1.0s:20.333
+80/166 graphs kamis 0.5s:20.200 1.0s:20.200
+100/166 graphs kamis 0.5s:20.120 1.0s:20.120
+120/166 graphs kamis 0.5s:20.000 1.0s:20.000
+140/166 graphs kamis 0.5s:20.043 1.0s:20.043
+160/166 graphs kamis 0.5s:20.081 1.0s:20.081
+166/166 graphs kamis 0.5s:20.108 1.0s:20.108
+budget=0.5s kamis 20.1084 (2.804s/graph) unpaired
+budget=1s kamis 20.1084 (3.444s/graph) unpaired
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/kamis_author/kamis/kamis_ref0_shard4.csv

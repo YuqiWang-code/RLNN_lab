@@ -36,10 +36,16 @@
 | P11 | `SOURCE=min_degree bash pave_external.sh` | 正对照：贪心起点上 PAVE 的增益（约 1 分钟） |
 | P12 | `bash regime.sh` | 跨族/跨规模迁移判决：生成 ER/BA/RB-large → 转 tensor → 四族各 40 图、1.0 秒三臂对照（约 18 分钟，含数据生成） |
 | P13 | `FAMILIES="RB_large" PAVE_LIMIT=1.0 RESULT_DIR=outputs/v8_macro/regime_repair bash regime.sh` | 修复时钟消融：把 PAVE 的时钟从 0.1 秒提到 1.0 秒，区分「机制不工作」与「预算不够」（约 9 分钟） |
+| P14 | `SHARDS=4 bash author_test.sh` | **论文主张的主表**：1000 张作者测试图 × 3 搜索种子 × 0.5/1.0 秒 × 三格（`eager/eager`、`captured/eager`、`captured/cached`），四个分片并行（约 2 小时） |
+| P15 | `bash author_kamis.sh` | 同卡 KaMIS 对照：1000 图 0.5/1.0 秒（6 分片，约 15 分钟）+ 100 图 5/35/98 秒（5 分片，约 50 分钟） |
+| P16 | `SHARDS=2 bash er_grid.sh` | ER-[700–800]：p=0.15 生成 128 图 → 转 tensor → 同三格网格（约 1 小时） |
+| P17 | `python models/merge_v8_shards.py --pattern '<dir>/capture_budget_ref0_shard*.csv' --out <dir>/capture_budget_ref0.csv` | 把分片 CSV 合成单文件（`graph_id` 用全局下标，不会因分片错位） |
+| P18 | `python models/summarize_v8_claim.py --csv <merged.csv>` | 主张分解表：`search_size`（无平台）vs `final_size`（+平台）+ 图级配对 CI |
 
 `models/` 侧对应文件：`mis_v8_capture.py`、`mis_v8_decode.py`、`check_capture_budget.py`、
 `check_decode_capture.py`、`probe_decode_cost.py`、`profile_budget_step.py`、`eval_kamis_anytime.py`、
-`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`、`eval_pave_external.py`、`eval_regime.py`。
+`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`、`eval_pave_external.py`、`eval_regime.py`、
+`summarize_v8_claim.py`、`merge_v8_shards.py`。
 
 ## 环境变量
 
@@ -67,6 +73,9 @@
 | `PROCESSES` | `8` | 生成图与转 tensor 的并行进程数 |
 | `PAVE_LIMIT` | 空 | `regime.sh` 透传给 `--pave_limit`；空则用脚本默认 0.1 秒（n≈1000 时不够，要写 1.0） |
 | `SOURCE` | `kamis` | PAVE 外接实验的起点：`kamis`（KaMIS 解）或 `min_degree`（贪心，作正对照）；同时决定产物目录 |
+| `SHARDS` | `4`（`author_test.sh`）/`2`（`er_grid.sh`） | 图列表分给几个进程；每个进程约 1.5 GiB 显存，单进程吃不满 GPU（python 侧是串行的） |
+| `SHORT_SHARDS` / `LONG_SHARDS` | `6` / `5` | `author_kamis.sh` 的 CPU 分片数（KaMIS 单线程，96 核随便分） |
+| `V8_GPU` | `1` | `author_test.sh`、`er_grid.sh` 用的卡；GPU0 长期被别人占满 |
 
 ## 注意
 

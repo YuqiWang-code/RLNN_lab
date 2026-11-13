@@ -22,10 +22,11 @@ class ErdosRenyi:
         n = random.randint(self.min_n, self.max_n)
         return nx.erdos_renyi_graph(n, self.p)
 
-def _worker(idx: int, sampler: ErdosRenyi, output_dir: Path):
+def _worker(idx: int, sampler: ErdosRenyi, output_dir: Path, seed: int):
     """
     Generate one ER graph and write it to disk.
     """
+    random.seed(seed + idx)
     G = sampler.generate_graph()
     stub = f"{sampler}_{idx}"
     out_path = output_dir / f"{stub}.gpickle"
@@ -55,12 +56,13 @@ def main():
         default=1,
         help="Number of parallel worker processes",
     )
+    p.add_argument("--seed", type=int, default=0, help="Base RNG seed; worker i uses seed + i")
     args = p.parse_args()
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     sampler = ErdosRenyi(args.min_n, args.max_n, args.p)
-    worker_fn = partial(_worker, sampler=sampler, output_dir=args.output_dir)
+    worker_fn = partial(_worker, sampler=sampler, output_dir=args.output_dir, seed=args.seed)
 
     indices = list(range(args.num_graphs))
     with Pool(processes=args.processes) as pool:

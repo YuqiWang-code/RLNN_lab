@@ -44,6 +44,8 @@ def build_capture_parser():
     parser.add_argument("--arms", nargs="+", choices=ARMS, default=list(ARMS))
     parser.add_argument("--decoders", nargs="+", choices=DECODERS, default=["eager"])
     parser.add_argument("--decode_chunk", type=int, default=4)
+    parser.add_argument("--shards", type=int, default=1, help="split the graph list into N processes")
+    parser.add_argument("--shard", type=int, default=0, help="which shard this process runs")
     parser.set_defaults(horizon=1, num_t=100)
     return parser
 
@@ -134,7 +136,9 @@ def main():
     cells = [(arm, kind) for arm in args.arms for kind in args.decoders
              if not (arm == "eager" and kind == "cached")]
     started = perf_counter()
-    for index, graph in enumerate(dataset):
+    indices = list(range(len(dataset)))[args.shard::args.shards]
+    for position, index in enumerate(indices):
+        graph = dataset[index]
         graph_id = f"idx_{index}" if args.split == "test" else Path(dataset.files[index]).stem
         edges = graph.edge_index
         graph = graph.to(device)
@@ -193,7 +197,7 @@ def main():
                                          prelude_s=round(prelude, 4),
                                          ms_per_step=round(1e3 * search_seconds / max(steps, 1), 3),
                                          deadline_overrun=int(seconds > budget)))
-        if (index + 1) % 20 == 0 or index + 1 == len(dataset):
+        if (position + 1) % 20 == 0 or position + 1 == len(indices):
             parts = []
             for budget in args.budgets:
                 for arm, kind in cells:
@@ -202,11 +206,11 @@ def main():
                         continue
                     parts.append(f"{budget}s/{arm}/{kind}:{mean(r['final_size'] for r in chosen):.3f}"
                                  f"@{mean(r['steps'] for r in chosen):.0f}st")
-            print(f"{index + 1}/{len(dataset)} " + " ".join(parts), flush=True)
+            print(f"{position + 1}/{len(indices)} " + " ".join(parts), flush=True)
 
     names = [f"{arm}/{kind}" for arm, kind in cells]
     summary = dict(ref=args.reference_seed, seeds=args.seeds, budgets=args.budgets,
-                   graphs=len(dataset), repeats=args.repeats, horizon=args.horizon,
+                   graphs=len(indices), repeats=args.repeats, horizon=args.horizon,
                    post_reserve=args.post_reserve, chunk=args.chunk, arms=list(args.arms),
                    decoders=list(args.decoders), decode_chunk=args.decode_chunk, cells=names,
                    wall_time_s=round(perf_counter() - started, 2))
@@ -258,11 +262,13 @@ def main():
                   flush=True)
 
     summary["table"] = table
+    tag = "" if args.shards == 1 else f"_shard{args.shard}"
+    summary["shard"] = dict(index=args.shard, count=args.shards)
     metadata = dict(version="v8_positioning", status="completed", mode="capture_budget",
                     summary=summary, config=vars(args), **provenance(args.reference_seed))
-    (output / f"summary_ref{args.reference_seed}.json").write_text(
+    (output / f"summary_ref{args.reference_seed}{tag}.json").write_text(
         json.dumps(metadata, indent=2, ensure_ascii=False, default=str) + "\n", encoding="utf-8")
-    path = output / f"capture_budget_ref{args.reference_seed}.csv"
+    path = output / f"capture_budget_ref{args.reference_seed}{tag}.csv"
     with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()

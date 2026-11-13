@@ -1,0 +1,89 @@
+{
+  "version": "v8_positioning",
+  "status": "completed",
+  "mode": "kamis_anytime",
+  "split": "test",
+  "samples": 100,
+  "budgets": [
+    5.0,
+    35.0,
+    98.0
+  ],
+  "seeds": [
+    1017
+  ],
+  "kamis": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis",
+  "kamis_sha256": "edf3c458aebd6b569e558cfcef825b22b80c7060d904d8a0b0045c1fa160e0e1",
+  "wall_time_s": 2650.07,
+  "per_budget": {
+    "5s": {
+      "kamis_mean": 19.5,
+      "kamis_median": 19.0,
+      "wall_mean_s": 5.94225,
+      "wall_max_s": 7.6883,
+      "runs": 20,
+      "reference": null,
+      "note": "no paired baseline rows for this budget"
+    },
+    "35s": {
+      "kamis_mean": 19.55,
+      "kamis_median": 19.0,
+      "wall_mean_s": 34.683255,
+      "wall_max_s": 38.4369,
+      "runs": 20,
+      "reference": null,
+      "note": "no paired baseline rows for this budget"
+    },
+    "98s": {
+      "kamis_mean": 19.55,
+      "kamis_median": 19.0,
+      "wall_mean_s": 91.841925,
+      "wall_max_s": 100.6779,
+      "runs": 20,
+      "reference": null,
+      "note": "no paired baseline rows for this budget"
+    }
+  },
+  "config": {
+    "split": "test",
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_author_test",
+    "test_samples": 100,
+    "kamis": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis",
+    "budgets": [
+      5.0,
+      35.0,
+      98.0
+    ],
+    "seeds": [
+      1017
+    ],
+    "reference_seed": 0,
+    "reference_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/kamis_author_long/none",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/kamis_author_long",
+    "bootstrap": 5000,
+    "shards": 5,
+    "shard": 4
+  },
+  "source_sha": "20261113T092618Z-unversioned",
+  "branch": "v8-macro",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": null,
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0"
+}

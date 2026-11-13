@@ -1,0 +1,30 @@
+[regime] generating ER 200-300 (p=0.1)
+[regime] generating BA 200-300 (m=4)
+[regime] generating RB large (n 800-1400)
+[regime] converting ER_200_300 to tensors
+[regime] converting BA_200_300 to tensors
+[regime] converting RB_large to tensors
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+RB_small_val 10/40 rl:20.700 kamis:20.800 greedy:19.600
+RB_small_val 20/40 rl:20.300 kamis:20.350 greedy:19.300
+RB_small_val 30/40 rl:20.233 kamis:20.333 greedy:19.267
+RB_small_val 40/40 rl:19.925 kamis:20.000 greedy:19.025
+ER_200_300 10/40 rl:44.900 kamis:44.900 greedy:42.800
+ER_200_300 20/40 rl:44.150 kamis:44.550 greedy:42.250
+ER_200_300 30/40 rl:44.067 kamis:44.467 greedy:42.300
+ER_200_300 40/40 rl:43.825 kamis:44.450 greedy:42.125
+BA_200_300 10/40 rl:105.400 kamis:107.800 greedy:107.300
+BA_200_300 20/40 rl:104.350 kamis:106.150 greedy:105.550
+BA_200_300 30/40 rl:107.933 kamis:109.800 greedy:109.233
+BA_200_300 40/40 rl:109.975 kamis:111.750 greedy:111.000
+RB_large 10/40 rl:39.200 kamis:42.700 greedy:38.200
+RB_large 20/40 rl:38.500 kamis:41.900 greedy:37.600
+RB_large 30/40 rl:39.167 kamis:42.767 greedy:38.300
+RB_large 40/40 rl:38.875 kamis:42.500 greedy:37.900
+family               n       rl    kamis   greedy              rl-kamis         greedy repair
+RB_small_val       231   19.925   20.000   19.025   -0.075 [-0.175,+0.000]   +0.750 [+0.500,+1.000]
+ER_200_300         252   43.825   44.450   42.125   -0.625 [-0.900,-0.325]   +1.575 [+1.250,+1.925]
+BA_200_300         251  109.975  111.750  111.000   -1.775 [-2.200,-1.400]   +0.550 [+0.300,+0.825]
+RB_large          1010   38.875   42.500   37.900   -3.625 [-4.000,-3.250]   +0.000 [+0.000,+0.000]
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/regime/regime/regime_ref0.csv

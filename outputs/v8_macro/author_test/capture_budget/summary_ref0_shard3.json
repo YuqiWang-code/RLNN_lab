@@ -1,0 +1,298 @@
+{
+  "version": "v8_positioning",
+  "status": "completed",
+  "mode": "capture_budget",
+  "summary": {
+    "ref": 0,
+    "seeds": [
+      1017,
+      1019,
+      1021
+    ],
+    "budgets": [
+      0.5,
+      1.0
+    ],
+    "graphs": 250,
+    "repeats": 1,
+    "horizon": 1,
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "arms": [
+      "eager",
+      "captured"
+    ],
+    "decoders": [
+      "eager",
+      "cached"
+    ],
+    "decode_chunk": 4,
+    "cells": [
+      "eager/eager",
+      "captured/eager",
+      "captured/cached"
+    ],
+    "wall_time_s": 3614.42,
+    "table": {
+      "0.5": {
+        "eager/eager": {
+          "n": 750,
+          "final_size": 19.417333333333332,
+          "search_size": 18.916,
+          "steps": 59.074666666666666,
+          "ms_per_step": 12.717152,
+          "prelude_s": 0.1385012,
+          "search_time_s": 0.3705597333333333,
+          "decode_time_s": 0.20606706666666666,
+          "overruns": 0
+        },
+        "captured/eager": {
+          "n": 750,
+          "final_size": 19.608,
+          "search_size": 19.469333333333335,
+          "steps": 157.52,
+          "ms_per_step": 5.920646666666666,
+          "prelude_s": 0.2507196,
+          "search_time_s": 0.44543173333333336,
+          "decode_time_s": 0.192632,
+          "overruns": 2
+        },
+        "captured/cached": {
+          "n": 750,
+          "final_size": 19.768,
+          "search_size": 19.753333333333334,
+          "steps": 365.05333333333334,
+          "ms_per_step": 1.383696,
+          "prelude_s": 0.1091992,
+          "search_time_s": 0.44783026666666664,
+          "decode_time_s": 0.28166173333333333,
+          "overruns": 1
+        },
+        "paired": [
+          {
+            "left": "captured/eager",
+            "right": "eager/eager",
+            "n": 250,
+            "mean": 0.19066666666666668,
+            "low": 0.1453333333333334,
+            "high": 0.236,
+            "wins": 99,
+            "ties": 136,
+            "losses": 15,
+            "step_ratio": 4.265851258667338
+          },
+          {
+            "left": "captured/cached",
+            "right": "eager/eager",
+            "n": 250,
+            "mean": 0.35066666666666674,
+            "low": 0.30533333333333335,
+            "high": 0.3973333333333335,
+            "wins": 147,
+            "ties": 100,
+            "losses": 3,
+            "step_ratio": 10.306855514975561
+          }
+        ]
+      },
+      "1.0": {
+        "eager/eager": {
+          "n": 750,
+          "final_size": 19.714666666666666,
+          "search_size": 19.670666666666666,
+          "steps": 206.552,
+          "ms_per_step": 4.965906666666666,
+          "prelude_s": 0.1504028,
+          "search_time_s": 0.9141986666666667,
+          "decode_time_s": 0.33528853333333336,
+          "overruns": 1
+        },
+        "captured/eager": {
+          "n": 750,
+          "final_size": 19.818666666666665,
+          "search_size": 19.817333333333334,
+          "steps": 653.56,
+          "ms_per_step": 1.5807133333333334,
+          "prelude_s": 0.24040293333333335,
+          "search_time_s": 0.9475358666666667,
+          "decode_time_s": 0.7048673333333333,
+          "overruns": 2
+        },
+        "captured/cached": {
+          "n": 750,
+          "final_size": 19.862666666666666,
+          "search_size": 19.862666666666666,
+          "steps": 1016.9333333333333,
+          "ms_per_step": 1.0017893333333334,
+          "prelude_s": 0.11330306666666666,
+          "search_time_s": 0.9487753333333333,
+          "decode_time_s": 0.4868816,
+          "overruns": 1
+        },
+        "paired": [
+          {
+            "left": "captured/eager",
+            "right": "eager/eager",
+            "n": 250,
+            "mean": 0.10400000000000001,
+            "low": 0.07733333333333331,
+            "high": 0.13333333333333325,
+            "wins": 56,
+            "ties": 193,
+            "losses": 1,
+            "step_ratio": 3.4427774722568194
+          },
+          {
+            "left": "captured/cached",
+            "right": "eager/eager",
+            "n": 250,
+            "mean": 0.148,
+            "low": 0.11466666666666665,
+            "high": 0.18266666666666662,
+            "wins": 73,
+            "ties": 176,
+            "losses": 1,
+            "step_ratio": 5.685071849695912
+          }
+        ]
+      }
+    },
+    "shard": {
+      "index": 3,
+      "count": 4
+    }
+  },
+  "config": {
+    "resume": null,
+    "seed": 1017,
+    "epochs": 100,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.01,
+    "train_path": null,
+    "train_samples": -1,
+    "valid_path": null,
+    "valid_samples": -1,
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_author_test",
+    "test_samples": 1000,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": 32,
+    "v7_d_state": 16,
+    "v7_order_seed": 7301,
+    "v7_order_views": 1,
+    "v7_delta_limit": null,
+    "static_constant_limit": 0.25,
+    "static_node_limit": null,
+    "static_peak_normalize": false,
+    "static_bias_seed": 1017,
+    "static_oracle_path": null,
+    "static_features": 5,
+    "static_encoder": "mlp",
+    "warm_start": null,
+    "freeze_backbone_epochs": 0,
+    "finetune_lr": null,
+    "validation_seed": null,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": false,
+    "skip_decode": false,
+    "split": "test",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/author_test",
+    "train_seed": 0,
+    "candidate_cap": 32,
+    "exchange_rounds": 3,
+    "larger": false,
+    "post": [
+      "none"
+    ],
+    "label": "v7_tccr_census",
+    "value_checkpoint": null,
+    "extra_value_checkpoint": [],
+    "horizon": 1,
+    "outer_rounds": 8,
+    "repair_rounds": 4,
+    "improving_cap": 48,
+    "anchored": false,
+    "time_budget_s": null,
+    "post_reserve_s": 0.05,
+    "extended_search": false,
+    "cohort_id": null,
+    "backbone_seed": null,
+    "head_seed": null,
+    "baseline_run": null,
+    "rule_reference_run": null,
+    "reference_seed": 0,
+    "seeds": [
+      1017,
+      1019,
+      1021
+    ],
+    "phase": "both",
+    "region_sizes": [
+      2,
+      3,
+      4
+    ],
+    "pair_budget": 8,
+    "cuda_graph": false,
+    "check_search": false,
+    "check_graphs": 3,
+    "budgets": [
+      0.5,
+      1.0
+    ],
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "repeats": 1,
+    "arms": [
+      "eager",
+      "captured"
+    ],
+    "decoders": [
+      "eager",
+      "cached"
+    ],
+    "decode_chunk": 4,
+    "shards": 4,
+    "shard": 3
+  },
+  "source_sha": "20261113T093153Z-unversioned",
+  "branch": "v8-macro",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": null,
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0"
+}

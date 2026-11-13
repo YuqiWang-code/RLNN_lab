@@ -1,0 +1,22 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+20/250 0.5s/eager/eager:19.150@24st 0.5s/captured/eager:19.433@178st 0.5s/captured/cached:19.650@445st 1.0s/eager/eager:19.583@183st 1.0s/captured/eager:19.650@529st 1.0s/captured/cached:19.700@1154st
+40/250 0.5s/eager/eager:19.350@19st 0.5s/captured/eager:19.508@120st 0.5s/captured/cached:19.900@349st 1.0s/eager/eager:19.842@184st 1.0s/captured/eager:19.967@624st 1.0s/captured/cached:20.000@1144st
+60/250 0.5s/eager/eager:19.206@20st 0.5s/captured/eager:19.383@112st 0.5s/captured/cached:19.744@320st 1.0s/eager/eager:19.667@179st 1.0s/captured/eager:19.806@636st 1.0s/captured/cached:19.856@1153st
+80/250 0.5s/eager/eager:19.292@19st 0.5s/captured/eager:19.512@112st 0.5s/captured/cached:19.854@329st 1.0s/eager/eager:19.762@179st 1.0s/captured/eager:19.917@627st 1.0s/captured/cached:19.967@1089st
+100/250 0.5s/eager/eager:19.277@19st 0.5s/captured/eager:19.510@116st 0.5s/captured/cached:19.827@339st 1.0s/eager/eager:19.737@180st 1.0s/captured/eager:19.887@619st 1.0s/captured/cached:19.937@1040st
+120/250 0.5s/eager/eager:19.311@18st 0.5s/captured/eager:19.583@130st 0.5s/captured/cached:19.883@388st 1.0s/eager/eager:19.781@188st 1.0s/captured/eager:19.942@706st 1.0s/captured/cached:19.983@1033st
+140/250 0.5s/eager/eager:19.231@17st 0.5s/captured/eager:19.538@138st 0.5s/captured/cached:19.826@426st 1.0s/eager/eager:19.726@193st 1.0s/captured/eager:19.881@794st 1.0s/captured/cached:19.914@1017st
+160/250 0.5s/eager/eager:19.223@16st 0.5s/captured/eager:19.552@153st 0.5s/captured/cached:19.837@454st 1.0s/eager/eager:19.731@200st 1.0s/captured/eager:19.898@863st 1.0s/captured/cached:19.927@992st
+180/250 0.5s/eager/eager:19.144@16st 0.5s/captured/eager:19.502@162st 0.5s/captured/cached:19.787@477st 1.0s/eager/eager:19.672@204st 1.0s/captured/eager:19.843@922st 1.0s/captured/cached:19.867@980st
+200/250 0.5s/eager/eager:19.182@15st 0.5s/captured/eager:19.560@165st 0.5s/captured/cached:19.833@492st 1.0s/eager/eager:19.723@207st 1.0s/captured/eager:19.890@956st 1.0s/captured/cached:19.912@976st
+220/250 0.5s/eager/eager:19.189@16st 0.5s/captured/eager:19.571@171st 0.5s/captured/cached:19.844@491st 1.0s/eager/eager:19.738@210st 1.0s/captured/eager:19.900@989st 1.0s/captured/cached:19.920@985st
+240/250 0.5s/eager/eager:19.235@20st 0.5s/captured/eager:19.586@169st 0.5s/captured/cached:19.864@478st 1.0s/eager/eager:19.760@210st 1.0s/captured/eager:19.917@983st 1.0s/captured/cached:19.938@1037st
+250/250 0.5s/eager/eager:19.227@22st 0.5s/captured/eager:19.587@173st 0.5s/captured/cached:19.855@480st 1.0s/eager/eager:19.751@210st 1.0s/captured/eager:19.908@974st 1.0s/captured/cached:19.928@1046st
+budget=0.5: eager/eager 19.2267 @ 22 steps | captured/eager 19.5867 @ 173 steps | captured/cached 19.8547 @ 480 steps
+  captured/eager - eager/eager: +0.3600 [+0.2973,+0.4200] 158/69/23 steps x14.00
+  captured/cached - eager/eager: +0.6280 [+0.5653,+0.6893] 195/55/0 steps x40.77
+budget=1.0: eager/eager 19.7507 @ 210 steps | captured/eager 19.9080 @ 974 steps | captured/cached 19.9280 @ 1046 steps
+  captured/eager - eager/eager: +0.1573 [+0.1280,+0.1880] 88/162/0 steps x4.57
+  captured/cached - eager/eager: +0.1773 [+0.1467,+0.2107] 98/152/0 steps x5.23
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/author_test/capture_budget/capture_budget_ref0_shard0.csv

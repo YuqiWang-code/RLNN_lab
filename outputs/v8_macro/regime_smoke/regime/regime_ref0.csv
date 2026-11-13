@@ -1,0 +1,7 @@
+family,graph_id,nodes,edges,search_seed,budget,arm,size,raw_size,pave_gain,steps,wall_s,search_s,decode_s,prelude_s,ms_per_step,deadline_overrun
+RB_small_val,graph_000000,240,9130,1017,1.0,rl,22,22,0,2070,0.9838,0.9496,0.3537,0.062,0.459,0
+RB_small_val,graph_000000,240,9130,1017,1.0,kamis,22,22,0,0,3.8091,3.8091,0.0,0.0,0.0,0
+RB_small_val,graph_000000,240,9130,1017,1.0,greedy,20,19,1,0,0.0884,0.0884,0.0,0.0,0.0,0
+RB_small_val,graph_000001,231,8192,1017,1.0,rl,19,19,0,2380,0.9957,0.9496,0.2034,0.1424,0.399,0
+RB_small_val,graph_000001,231,8192,1017,1.0,kamis,19,19,0,0,2.6,2.6,0.0,0.0,0.0,0
+RB_small_val,graph_000001,231,8192,1017,1.0,greedy,19,19,0,0,0.055,0.055,0.0,0.0,0.0,0

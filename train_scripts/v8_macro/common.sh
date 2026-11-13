@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
-set -euo pipefail
-ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
+# Shared defaults for the v8 launchers.
+#
+# Launchers are normally run from disk (``bash train_scripts/v8_macro/x.sh``), but
+# tmp/remote.py pipes them into ``bash -s``, where BASH_SOURCE is unset.  In that
+# case the current directory is the repository root, which is all we need.
+if [ -n "${BASH_SOURCE[0]:-}" ] && [ -f "${BASH_SOURCE[0]}" ]; then
+  ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
+else
+  ROOT="$PWD"
+fi
+
 cd "$ROOT"
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
 export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1

@@ -1,0 +1,4 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+20/128 0.5s/eager/eager:40.083@13st 0.5s/captured/eager:40.100@26st 0.5s/captured/cached:42.033@187st 1.0s/eager/eager:41.483@91st 1.0s/captured/eager:42.033@149st 1.0s/captured/cached:42.233@484st
+40/128 0.5s/eager/eager:40.092@13st 0.5s/captured/eager:39.900@28st 0.5s/captured/cached:42.150@188st 1.0s/eager/eager:41.650@97st 1.0s/captured/eager:42.075@150st 1.0s/captured/cached:42.392@495st

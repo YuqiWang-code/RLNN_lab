@@ -1,0 +1,5 @@
+20/20 graphs kamis 5.0s:19.500 35.0s:19.550 98.0s:19.550
+budget=5s kamis 19.5000 (5.942s/graph) unpaired
+budget=35s kamis 19.5500 (34.683s/graph) unpaired
+budget=98s kamis 19.5500 (91.842s/graph) unpaired
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/kamis_author_long/kamis/kamis_ref0_shard4.csv
