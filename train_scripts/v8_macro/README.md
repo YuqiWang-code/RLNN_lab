@@ -32,10 +32,12 @@
 | P7 | `bash check_decode.sh` | 解码闸门：捕获解码必须与 `solution_masks` 逐位一致，再报 chunk 扫描（约 2 分钟） |
 | P8 | `DECODERS="eager captured cached" bash decode_budget.sh` | 五格等钟对照：两种引擎 × 三种解码（0.5/1.0 秒，约 30 分钟） |
 | P9 | `python models/summarize_v8_positioning.py` | 重跑汇总，多出「解码消融」一节 |
+| P10 | `SOURCE=kamis bash pave_external.sh` | PAVE 外接判决：KaMIS 解上增益（约 8 分钟，CPU） |
+| P11 | `SOURCE=min_degree bash pave_external.sh` | 正对照：贪心起点上 PAVE 的增益（约 1 分钟） |
 
 `models/` 侧对应文件：`mis_v8_capture.py`、`mis_v8_decode.py`、`check_capture_budget.py`、
 `check_decode_capture.py`、`probe_decode_cost.py`、`profile_budget_step.py`、`eval_kamis_anytime.py`、
-`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`。
+`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`、`eval_pave_external.py`。
 
 ## 环境变量
 
@@ -59,6 +61,7 @@
 | `RESULT_DIR` | `$OUT_V8/positioning` | 定位产物根目录，高预算档写 `$OUT_V8/positioning_wall` |
 | `SEEDS_LIST` | `1017` | 定位实验的搜索种子（与 `SEEDS` 分开，避免误用三个种子把时长乘三） |
 | `KAMIS` | `$ROOT/tmp/kamis_build/redumis` | ReduMIS 二进制；缺失时 `kamis.sh` 直接报错 |
+| `SOURCE` | `kamis` | PAVE 外接实验的起点：`kamis`（KaMIS 解）或 `min_degree`（贪心，作正对照）；同时决定产物目录 |
 
 ## 注意
 

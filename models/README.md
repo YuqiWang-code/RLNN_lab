@@ -28,6 +28,7 @@
 | `eval_kamis_anytime.py` | KaMIS（ReduMIS）四档 `--time_limit` anytime 曲线，按图配对到 v7 冻结基线 |
 | `eval_v8_capture_budget.py` | 等时钟对照：`--arms`（引擎）× `--decoders`（解码）的格子，同种子、同解码节奏、冻结 PAVE `horizon=1`，每格都与 `eager/eager` 按图配对 |
 | `summarize_v8_positioning.py` | 把 KaMIS、两份预算 CSV、解码消融合成「墙钟 vs 解」定位表 |
+| `eval_pave_external.py` | 把 PAVE 接在外部求解器输出上：`--source kamis\|min_degree`，六个臂（原始 / 一次扩展 / PAVE 学习·规则·随机 / 长 KaMIS），每臂强制独立集与单调性断言 |
 
 结果见 [`../docs/temporary/RLNN_v8_Positioning_Results.md`](../docs/temporary/RLNN_v8_Positioning_Results.md)，
 启动器见 [`../train_scripts/v8_macro/`](../train_scripts/v8_macro/README.md)。
