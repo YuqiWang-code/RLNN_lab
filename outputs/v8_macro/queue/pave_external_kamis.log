@@ -1,0 +1,11 @@
+20/100 graphs kamis:20.350 kamis_pave:20.350 kamis_pave_rule:20.350 kamis_pave_random:20.350 kamis_long:20.350
+40/100 graphs kamis:20.000 kamis_pave:20.000 kamis_pave_rule:20.000 kamis_pave_random:20.000 kamis_long:20.000
+60/100 graphs kamis:19.850 kamis_pave:19.850 kamis_pave_rule:19.850 kamis_pave_random:19.850 kamis_long:19.850
+80/100 graphs kamis:20.075 kamis_pave:20.075 kamis_pave_rule:20.075 kamis_pave_random:20.075 kamis_long:20.075
+100/100 graphs kamis:20.050 kamis_pave:20.050 kamis_pave_rule:20.050 kamis_pave_random:20.050 kamis_long:20.050
+kamis_extend       20.0500 delta +0.0000 [+0.0000,+0.0000] 0/100/0
+kamis_pave         20.0500 delta +0.0000 [+0.0000,+0.0000] 0/100/0
+kamis_pave_rule    20.0500 delta +0.0000 [+0.0000,+0.0000] 0/100/0
+kamis_pave_random  20.0500 delta +0.0000 [+0.0000,+0.0000] 0/100/0
+kamis_long         20.0500 delta +0.0000 [+0.0000,+0.0000] 0/100/0
+wrote outputs/v8_macro/pave_external_rerun/pave_external_kamis/pave_external_kamis_ref0.csv

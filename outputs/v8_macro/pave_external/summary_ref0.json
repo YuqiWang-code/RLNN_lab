@@ -1,0 +1,138 @@
+{
+  "version": "v8_pave_external",
+  "status": "completed",
+  "mode": "pave_external",
+  "split": "validation",
+  "samples": 100,
+  "seeds": [
+    1017
+  ],
+  "kamis": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis",
+  "kamis_sha256": "edf3c458aebd6b569e558cfcef825b22b80c7060d904d8a0b0045c1fa160e0e1",
+  "kamis_limit": 0.1,
+  "pave_limit": 0.1,
+  "pave_args": {
+    "outer_rounds": 8,
+    "initial_rounds": 3,
+    "horizon": 2,
+    "candidate_cap": 32,
+    "improving_cap": 48,
+    "repair_rounds": 4,
+    "anchored": false
+  },
+  "pave_checkpoint_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "wall_time_s": 452.45,
+  "summary": {
+    "kamis_extend": {
+      "mean": 20.05,
+      "delta_mean": 0,
+      "delta_ci": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "graphs": 100
+    },
+    "kamis_pave": {
+      "mean": 20.05,
+      "delta_mean": 0,
+      "delta_ci": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "graphs": 100,
+      "seconds_mean": 0.071768,
+      "deadline_hit": 66,
+      "exchanges_mean": 0
+    },
+    "kamis_pave_rule": {
+      "mean": 20.05,
+      "delta_mean": 0,
+      "delta_ci": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "graphs": 100,
+      "seconds_mean": 0.069929,
+      "deadline_hit": 52,
+      "exchanges_mean": 0
+    },
+    "kamis_pave_random": {
+      "mean": 20.05,
+      "delta_mean": 0,
+      "delta_ci": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "graphs": 100,
+      "seconds_mean": 0.070109,
+      "deadline_hit": 47,
+      "exchanges_mean": 0
+    },
+    "kamis_long": {
+      "mean": 20.05,
+      "delta_mean": 0,
+      "delta_ci": [
+        0.0,
+        0.0
+      ],
+      "wins": 0,
+      "ties": 100,
+      "losses": 0,
+      "graphs": 100,
+      "wall_mean_s": 2.244263
+    },
+    "kamis": {
+      "mean": 20.05,
+      "graphs": 100,
+      "wall_mean_s": 2.028882
+    },
+    "extend_gain_mean": 0
+  },
+  "config": {
+    "split": "validation",
+    "test_path": "None",
+    "test_samples": "100",
+    "kamis": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis",
+    "source": "kamis",
+    "kamis_limit": "0.1",
+    "pave_limit": "0.1",
+    "seeds": "[1017]",
+    "reference_seed": "0",
+    "result_dir": "outputs/v8_macro/pave_external_rerun",
+    "bootstrap": "5000"
+  },
+  "source_sha": "e813b78b5ba686d57c0639bd86c5a0596a9ac1c1",
+  "branch": "main",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": null,
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0"
+}

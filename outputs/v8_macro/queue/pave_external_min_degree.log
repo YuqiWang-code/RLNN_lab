@@ -1,0 +1,11 @@
+20/100 graphs kamis:18.700 kamis_pave:19.400 kamis_pave_rule:19.250 kamis_pave_random:19.250 kamis_long:18.700
+40/100 graphs kamis:18.275 kamis_pave:19.100 kamis_pave_rule:18.950 kamis_pave_random:18.950 kamis_long:18.275
+60/100 graphs kamis:18.267 kamis_pave:18.950 kamis_pave_rule:18.817 kamis_pave_random:18.817 kamis_long:18.267
+80/100 graphs kamis:18.413 kamis_pave:19.113 kamis_pave_rule:18.988 kamis_pave_random:18.988 kamis_long:18.413
+100/100 graphs kamis:18.380 kamis_pave:19.090 kamis_pave_rule:18.930 kamis_pave_random:18.950 kamis_long:18.380
+kamis_extend       18.3800 delta +0.0000 [+0.0000,+0.0000] 0/100/0
+kamis_pave         19.0900 delta +0.7100 [+0.5600,+0.8700] 53/47/0
+kamis_pave_rule    18.9300 delta +0.5500 [+0.4300,+0.6800] 47/53/0
+kamis_pave_random  18.9500 delta +0.5700 [+0.4400,+0.7000] 47/53/0
+kamis_long         18.3800 delta +0.0000 [+0.0000,+0.0000] 0/100/0
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/pave_external_min_degree/pave_external_min_degree_ref0.csv
