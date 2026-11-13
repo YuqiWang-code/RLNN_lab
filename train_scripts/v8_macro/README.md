@@ -34,10 +34,12 @@
 | P9 | `python models/summarize_v8_positioning.py` | 重跑汇总，多出「解码消融」一节 |
 | P10 | `SOURCE=kamis bash pave_external.sh` | PAVE 外接判决：KaMIS 解上增益（约 8 分钟，CPU） |
 | P11 | `SOURCE=min_degree bash pave_external.sh` | 正对照：贪心起点上 PAVE 的增益（约 1 分钟） |
+| P12 | `bash regime.sh` | 跨族/跨规模迁移判决：生成 ER/BA/RB-large → 转 tensor → 四族各 40 图、1.0 秒三臂对照（约 18 分钟，含数据生成） |
+| P13 | `FAMILIES="RB_large" PAVE_LIMIT=1.0 RESULT_DIR=outputs/v8_macro/regime_repair bash regime.sh` | 修复时钟消融：把 PAVE 的时钟从 0.1 秒提到 1.0 秒，区分「机制不工作」与「预算不够」（约 9 分钟） |
 
 `models/` 侧对应文件：`mis_v8_capture.py`、`mis_v8_decode.py`、`check_capture_budget.py`、
 `check_decode_capture.py`、`probe_decode_cost.py`、`profile_budget_step.py`、`eval_kamis_anytime.py`、
-`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`、`eval_pave_external.py`。
+`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`、`eval_pave_external.py`、`eval_regime.py`。
 
 ## 环境变量
 
@@ -61,6 +63,9 @@
 | `RESULT_DIR` | `$OUT_V8/positioning` | 定位产物根目录，高预算档写 `$OUT_V8/positioning_wall` |
 | `SEEDS_LIST` | `1017` | 定位实验的搜索种子（与 `SEEDS` 分开，避免误用三个种子把时长乘三） |
 | `KAMIS` | `$ROOT/tmp/kamis_build/redumis` | ReduMIS 二进制；缺失时 `kamis.sh` 直接报错 |
+| `FAMILIES` | `RB_small_val ER_200_300 BA_200_300 RB_large` | `regime.sh` 要跑的图族；单族复跑时只写一个 |
+| `PROCESSES` | `8` | 生成图与转 tensor 的并行进程数 |
+| `PAVE_LIMIT` | 空 | `regime.sh` 透传给 `--pave_limit`；空则用脚本默认 0.1 秒（n≈1000 时不够，要写 1.0） |
 | `SOURCE` | `kamis` | PAVE 外接实验的起点：`kamis`（KaMIS 解）或 `min_degree`（贪心，作正对照）；同时决定产物目录 |
 
 ## 注意
@@ -73,3 +78,7 @@
   所以「0.1 秒档」在墙钟上并不存在；表里必须同时报解和实测墙钟，不能只报 `--time_limit`。
 - `capture_budget.sh` 的 `BUDGETS`/`ARMS` 是**不加强引号**展开的（空格分隔列表）；加引号会被当成单个参数，报
   `argument --budgets: invalid float value: '0.5 1.0'`。
+- `regime.sh` 的数据生成是幂等的：`MIS_tensors/<family>` 已存在就跳过，所以要重新生成必须先删掉那个目录。
+- `regime.sh` 里 KaMIS 拿的是**完整的 `--time_limit` 算法时间**，我们的 `rl` 臂把这同一段墙钟分给捕获、解码、PAVE 和写盘，
+  两边口径不同且对基线有利；引用时不能只说「1 秒对 1 秒」，必须同时报 KaMIS 的实测墙钟（n≈1010 时是 12.8 s）。
+- 贪心臂的 PAVE 时钟由 `PAVE_LIMIT` 控制（默认 0.1 秒）。在 n≈1000 上 0.1 秒会得到「修复 +0.000」的假象，要看机制必须给到 1.0 秒。

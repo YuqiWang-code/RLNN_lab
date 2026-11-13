@@ -12,9 +12,9 @@ from xu_util import get_random_instance
 
 def worker(args):
     """
-    args: (idx, min_n, max_n, save_dir, seed)
+    args: (idx, min_n, max_n, save_dir, seed, size)
     """
-    idx, min_n, max_n, save_dir, seed = args
+    idx, min_n, max_n, save_dir, seed, size = args
 
     # reproducible RNG per-worker
     random.seed(seed + idx)
@@ -25,7 +25,7 @@ def worker(args):
 
     # sample until node-count constraint is satisfied
     while True:
-        g, _ = get_random_instance(size="small")  # size argument ignored now
+        g, _ = get_random_instance(size=size)  # size selects the xu instance family
         g.remove_nodes_from(list(nx.isolates(g)))
         n_nodes = g.number_of_nodes()
         if min_n <= n_nodes <= max_n:
@@ -47,6 +47,8 @@ def main():
                    help='Maximum node count per graph')
     p.add_argument('--seed',        type=int,   default=0,
                    help='Base random seed')
+    p.add_argument('--size',        type=str,   default='small', choices=('small', 'large'),
+                   help='xu instance family: small gives n≈100–300, large gives n≈800–1300')
     p.add_argument('--save-dir',    type=str,   required=True,
                    help='Directory to write .gpickle files')
     p.add_argument('--processes',   type=int,   default=cpu_count(),
@@ -61,7 +63,7 @@ def main():
 
     # build jobs list
     jobs = [
-        (i, args.min_n, args.max_n, save_dir, args.seed)
+        (i, args.min_n, args.max_n, save_dir, args.seed, args.size)
         for i in range(args.num_graphs)
     ]
 

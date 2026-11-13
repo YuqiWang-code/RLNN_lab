@@ -1,0 +1,19 @@
+[regime] generating ER 200-300 (p=0.1)
+  0%|          | 0/40 [00:00<?, ?it/s]  2%|▎         | 1/40 [00:00<00:10,  3.67it/s] 65%|██████▌   | 26/40 [00:00<00:00, 88.12it/s]100%|██████████| 40/40 [00:00<00:00, 99.18it/s]
+Done! 40 ER graphs written to /home/hzeng/project/ZH/RLNN_lab/models/data/raw_regime/ER_200_300
+[regime] generating BA 200-300 (m=4)
+Saving → /home/hzeng/project/ZH/RLNN_lab/models/data/raw_regime/BA_200_300
+Generating 40 BA graphs (n∈[200,300], m=4) using 8 processes…
+BA Graphs:   0%|          | 0/40 [00:00<?, ?it/s]BA Graphs: 100%|██████████| 40/40 [00:00<00:00, 1331.69it/s]
+Done!
+[regime] generating RB large (n 800-1400)
+Saving → /home/hzeng/project/ZH/RLNN_lab/models/data/raw_regime/RB_large
+Generating 40 RB graphs with n∈[800,1400] using 8 processes…
+RB Graphs:   0%|          | 0/40 [00:00<?, ?it/s]RB Graphs:   2%|▎         | 1/40 [00:00<00:15,  2.52it/s]RB Graphs:   5%|▌         | 2/40 [00:00<00:13,  2.84it/s]RB Graphs:  10%|█         | 4/40 [00:00<00:05,  6.00it/s]RB Graphs:  15%|█▌        | 6/40 [00:00<00:03,  8.85it/s]RB Graphs:  20%|██        | 8/40 [00:01<00:03, 10.32it/s]RB Graphs:  25%|██▌       | 10/40 [00:01<00:04,  6.50it/s]RB Graphs:  30%|███       | 12/40 [00:01<00:03,  7.23it/s]RB Graphs:  32%|███▎      | 13/40 [00:01<00:03,  7.14it/s]RB Graphs:  35%|███▌      | 14/40 [00:02<00:03,  7.02it/s]RB Graphs:  38%|███▊      | 15/40 [00:02<00:03,  7.18it/s]RB Graphs:  42%|████▎     | 17/40 [00:02<00:03,  7.50it/s]RB Graphs:  48%|████▊     | 19/40 [00:02<00:02,  9.23it/s]RB Graphs:  52%|█████▎    | 21/40 [00:02<00:01,  9.78it/s]RB Graphs:  57%|█████▊    | 23/40 [00:03<00:02,  8.17it/s]RB Graphs:  62%|██████▎   | 25/40 [00:03<00:01,  9.34it/s]RB Graphs:  68%|██████▊   | 27/40 [00:03<00:01,  9.83it/s]RB Graphs:  72%|███████▎  | 29/40 [00:03<00:01, 10.29it/s]RB Graphs:  78%|███████▊  | 31/40 [00:03<00:01,  8.11it/s]RB Graphs:  82%|████████▎ | 33/40 [00:04<00:01,  6.80it/s]RB Graphs:  88%|████████▊ | 35/40 [00:04<00:00,  8.47it/s]RB Graphs:  95%|█████████▌| 38/40 [00:04<00:00, 11.13it/s]RB Graphs: 100%|██████████| 40/40 [00:05<00:00,  6.08it/s]RB Graphs: 100%|██████████| 40/40 [00:05<00:00,  7.46it/s]
+Done!
+[regime] converting ER_200_300 to tensors
+/home/hzeng/project/ZH/RLNN_lab/models/data/raw_regime/ER_200_300: 40 graphs converted; edge order and tensor equality passed
+[regime] converting BA_200_300 to tensors
+/home/hzeng/project/ZH/RLNN_lab/models/data/raw_regime/BA_200_300: 40 graphs converted; edge order and tensor equality passed
+[regime] converting RB_large to tensors
+/home/hzeng/project/ZH/RLNN_lab/models/data/raw_regime/RB_large: 40 graphs converted; edge order and tensor equality passed

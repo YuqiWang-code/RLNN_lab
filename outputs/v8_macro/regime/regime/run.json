@@ -1,0 +1,346 @@
+{
+  "ref": 0,
+  "seeds": [
+    1017
+  ],
+  "budgets": [
+    1.0
+  ],
+  "families": [
+    "RB_small_val",
+    "ER_200_300",
+    "BA_200_300",
+    "RB_large"
+  ],
+  "graphs": 40,
+  "arms": [
+    "rl",
+    "kamis",
+    "greedy"
+  ],
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "decode_chunk": 4,
+  "pave_limit": 0.1,
+  "kamis": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis",
+  "wall_time_s": 1064.13,
+  "summary": {
+    "RB_small_val": {
+      "graphs": 40,
+      "nodes": 230.825,
+      "edges": 8474.05,
+      "arms": {
+        "rl": {
+          "size": 19.925,
+          "wall_s": 0.987235
+        },
+        "kamis": {
+          "size": 20,
+          "wall_s": 3.522525
+        },
+        "greedy": {
+          "size": 19.025,
+          "wall_s": 0.08123
+        }
+      },
+      "greedy_raw": 18.275,
+      "steps": 3079.25,
+      "paired": {
+        "rl_gt_kamis": {
+          "n": 40,
+          "mean": -0.075,
+          "low": -0.175,
+          "high": 0.0,
+          "wins": 0,
+          "ties": 37,
+          "losses": 3
+        },
+        "rl_gt_greedy": {
+          "n": 40,
+          "mean": 0.9,
+          "low": 0.65,
+          "high": 1.15,
+          "wins": 26,
+          "ties": 14,
+          "losses": 0
+        },
+        "greedy_repair": {
+          "n": 40,
+          "mean": 0.75,
+          "low": 0.5,
+          "high": 1.0,
+          "wins": 22,
+          "ties": 18,
+          "losses": 0
+        }
+      }
+    },
+    "ER_200_300": {
+      "graphs": 40,
+      "nodes": 251.825,
+      "edges": 6389.15,
+      "arms": {
+        "rl": {
+          "size": 43.825,
+          "wall_s": 0.9858399999999999
+        },
+        "kamis": {
+          "size": 44.45,
+          "wall_s": 4.8161875
+        },
+        "greedy": {
+          "size": 42.125,
+          "wall_s": 0.090225
+        }
+      },
+      "greedy_raw": 40.55,
+      "steps": 3213.5,
+      "paired": {
+        "rl_gt_kamis": {
+          "n": 40,
+          "mean": -0.625,
+          "low": -0.9,
+          "high": -0.325,
+          "wins": 3,
+          "ties": 12,
+          "losses": 25
+        },
+        "rl_gt_greedy": {
+          "n": 40,
+          "mean": 1.7,
+          "low": 1.225,
+          "high": 2.150624999999991,
+          "wins": 30,
+          "ties": 7,
+          "losses": 3
+        },
+        "greedy_repair": {
+          "n": 40,
+          "mean": 1.575,
+          "low": 1.25,
+          "high": 1.925,
+          "wins": 32,
+          "ties": 8,
+          "losses": 0
+        }
+      }
+    },
+    "BA_200_300": {
+      "graphs": 40,
+      "nodes": 251.3,
+      "edges": 1978.4,
+      "arms": {
+        "rl": {
+          "size": 109.975,
+          "wall_s": 0.99501
+        },
+        "kamis": {
+          "size": 111.75,
+          "wall_s": 0.6586650000000001
+        },
+        "greedy": {
+          "size": 111,
+          "wall_s": 0.08787249999999999
+        }
+      },
+      "greedy_raw": 110.45,
+      "steps": 3853,
+      "paired": {
+        "rl_gt_kamis": {
+          "n": 40,
+          "mean": -1.775,
+          "low": -2.2,
+          "high": -1.4,
+          "wins": 0,
+          "ties": 6,
+          "losses": 34
+        },
+        "rl_gt_greedy": {
+          "n": 40,
+          "mean": -1.025,
+          "low": -1.45,
+          "high": -0.625,
+          "wins": 4,
+          "ties": 11,
+          "losses": 25
+        },
+        "greedy_repair": {
+          "n": 40,
+          "mean": 0.55,
+          "low": 0.3,
+          "high": 0.825,
+          "wins": 15,
+          "ties": 25,
+          "losses": 0
+        }
+      }
+    },
+    "RB_large": {
+      "graphs": 40,
+      "nodes": 1009.875,
+      "edges": 94979.8,
+      "arms": {
+        "rl": {
+          "size": 38.875,
+          "wall_s": 0.9939525
+        },
+        "kamis": {
+          "size": 42.5,
+          "wall_s": 12.7858875
+        },
+        "greedy": {
+          "size": 37.9,
+          "wall_s": 0.4955775
+        }
+      },
+      "greedy_raw": 37.9,
+      "steps": 689.5,
+      "paired": {
+        "rl_gt_kamis": {
+          "n": 40,
+          "mean": -3.625,
+          "low": -4.0,
+          "high": -3.25,
+          "wins": 0,
+          "ties": 1,
+          "losses": 39
+        },
+        "rl_gt_greedy": {
+          "n": 40,
+          "mean": 0.975,
+          "low": 0.5,
+          "high": 1.425,
+          "wins": 26,
+          "ties": 8,
+          "losses": 6
+        },
+        "greedy_repair": {
+          "n": 40,
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "wins": 0,
+          "ties": 40,
+          "losses": 0
+        }
+      }
+    }
+  },
+  "config": {
+    "resume": "None",
+    "seed": "1017",
+    "epochs": "100",
+    "batch_size": "1",
+    "graph_batch_size": "1",
+    "lr": "0.01",
+    "train_path": "None",
+    "train_samples": "-1",
+    "valid_path": "None",
+    "valid_samples": "-1",
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+    "test_samples": "-1",
+    "problem": "mis",
+    "num_workers": "0",
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": "100",
+    "num_k": "20",
+    "num_tp": "100",
+    "num_kp": "10",
+    "num_l": "5",
+    "num_h": "128",
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": "32",
+    "v7_d_state": "16",
+    "v7_order_seed": "7301",
+    "v7_order_views": "1",
+    "v7_delta_limit": "None",
+    "static_constant_limit": "0.25",
+    "static_node_limit": "None",
+    "static_peak_normalize": "False",
+    "static_bias_seed": "1017",
+    "static_oracle_path": "None",
+    "static_features": "5",
+    "static_encoder": "mlp",
+    "warm_start": "None",
+    "freeze_backbone_epochs": "0",
+    "finetune_lr": "None",
+    "validation_seed": "None",
+    "num_d": "5",
+    "beta": "1.02",
+    "tau0": "0.01",
+    "lambd": "0.5",
+    "mixed_precision": "no",
+    "do_train": "False",
+    "skip_decode": "False",
+    "split": "validation",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/regime",
+    "train_seed": "0",
+    "candidate_cap": "32",
+    "exchange_rounds": "3",
+    "larger": "False",
+    "post": "['none']",
+    "label": "v7_tccr_census",
+    "value_checkpoint": "None",
+    "extra_value_checkpoint": "[]",
+    "horizon": "1",
+    "outer_rounds": "8",
+    "repair_rounds": "4",
+    "improving_cap": "48",
+    "anchored": "False",
+    "time_budget_s": "None",
+    "post_reserve_s": "0.05",
+    "extended_search": "False",
+    "cohort_id": "None",
+    "backbone_seed": "None",
+    "head_seed": "None",
+    "baseline_run": "None",
+    "rule_reference_run": "None",
+    "reference_seed": "0",
+    "seeds": "[1017]",
+    "phase": "both",
+    "region_sizes": "[2, 3, 4]",
+    "pair_budget": "8",
+    "cuda_graph": "False",
+    "check_search": "False",
+    "check_graphs": "3",
+    "budgets": "[1.0]",
+    "post_reserve": "0.05",
+    "chunk": "10",
+    "repeats": "2",
+    "arms": "['captured']",
+    "decoders": "['cached']",
+    "decode_chunk": "4",
+    "families": "['RB_small_val', 'ER_200_300', 'BA_200_300', 'RB_large']",
+    "data_root": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors",
+    "graphs": "40",
+    "pave_limit": "0.1",
+    "kamis": "/home/hzeng/project/ZH/RLNN_lab/tmp/kamis_build/redumis"
+  },
+  "source_sha": "regime-050000",
+  "branch": "v8-macro",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": null,
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0"
+}
