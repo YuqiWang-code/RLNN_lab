@@ -140,21 +140,24 @@ class PaddedSearch:
         return perf_counter() - started
 
     # ------------------------------------------------------------------ step
-    def prime(self, mask, n=None):
-        """Start every particle from ``mask`` (an int bitset over the real nodes).
+    def prime(self, mask, n=None, particle=None):
+        """Start particles from ``mask`` (an int bitset over the real nodes).
 
         Used for initialisation studies (e.g. a greedy start) and for feeding a
-        platform result back into the captured search.  The archive is reset to
-        the primed state so the first block compares against the right energy.
+        platform result back into the captured search.  ``particle=None`` primes
+        every column and resets the archive; a single column is injected without
+        touching the archive, so the other particles keep their own basins.
         """
         n = int(self.nodes if n is None else n)
         bits = torch.tensor([(mask >> i) & 1 for i in range(n)], dtype=self.dtype,
                             device=self.device)
-        self.state[:, :].zero_()
-        self.state[:n].copy_(bits.unsqueeze(1).expand(n, self.num_k))
-        self.best_states.copy_(self.state)
-        self.best_energy.copy_(self.problem.energy_func(self.adjacency, self.bias, self.state)[0])
-        self.improvements.zero_()
+        columns = slice(None) if particle is None else slice(particle, particle + 1)
+        self.state[:, columns].zero_()
+        self.state[:n, columns] = bits.unsqueeze(1).expand(n, self.num_k if particle is None else 1)
+        if particle is None:
+            self.best_states.copy_(self.state)
+            self.best_energy.copy_(self.problem.energy_func(self.adjacency, self.bias, self.state)[0])
+            self.improvements.zero_()
 
     def _body(self):
         for _ in range(self.chunk):
