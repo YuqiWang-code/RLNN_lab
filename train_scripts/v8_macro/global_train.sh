@@ -27,8 +27,14 @@ NUM_K="${NUM_K:-20}"
 NUM_H="${NUM_H:-128}"
 NUM_L="${NUM_L:-5}"
 LAMBD="${LAMBD:-0.5}"
+ARCH="${ARCH:-global}"
+WARM_START="${WARM_START:-}"
+FINETUNE_LR="${FINETUNE_LR:-2e-5}"
 
-"$PYTHON" -u "$ROOT/tools/run_rlnn.py" train --version v2 --run "$RUN_NAME" --arch global \
+EXTRA=()
+if [ -n "$WARM_START" ]; then EXTRA+=(--warm_start "$WARM_START" --finetune_lr "$FINETUNE_LR"); fi
+
+"$PYTHON" -u "$ROOT/tools/run_rlnn.py" train --version v2 --run "$RUN_NAME" --arch "$ARCH" \
   --frequency none --seed 0 --epochs "$EPOCHS" \
   --graph_batch_size "$GRAPH_BATCH" --batch_size "$BATCH" --lr "$LR" \
   --validation_seed 1017 \
@@ -38,4 +44,5 @@ LAMBD="${LAMBD:-0.5}"
   --num_workers "${WORKERS:-4}" \
   --num_k "$NUM_K" --num_t 100 --num_tp "$NUM_TP" --num_d 5 --num_l "$NUM_L" --num_h "$NUM_H" \
   --mixed_precision no --beta 1.02 --lambd "$LAMBD" \
+  ${EXTRA[@]+"${EXTRA[@]}"} \
   "$@" 2>&1 | tee "$OUT/queue/global_${RUN_NAME}.log"

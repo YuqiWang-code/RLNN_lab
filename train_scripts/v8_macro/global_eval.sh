@@ -13,6 +13,8 @@ RUN_NAME="${RUN_NAME:-global_tp50}"
 GRAPHS="${GRAPHS:-500}"
 BUDGETS="${BUDGETS:-0.5 1.0}"
 RESULT_DIR="${RESULT_DIR:-$OUT/global_eval}"
+ARCH="${ARCH:-global}"
+SEEDS_LIST="${SEEDS_LIST:-1017}"
 
 CHECKPOINT="$ROOT/outputs/v2/$RUN_NAME/checkpoints"
 if [ ! -f "$CHECKPOINT/best.pt" ]; then
@@ -21,19 +23,17 @@ if [ ! -f "$CHECKPOINT/best.pt" ]; then
 fi
 
 mkdir -p "$OUT/queue"
-python "$ROOT/models/eval_v8_capture_budget.py" \
+"$PYTHON" "$ROOT/models/eval_v8_capture_budget.py" \
     --split test \
     --test_path "$ROOT/models/data/MIS_tensors/RB_small_author_test" \
     --test_samples "$GRAPHS" \
     --budgets $BUDGETS \
     --arms captured \
     --decoders cached \
-    --arch global \
+    --arch "${ARCH:-global}" \
     --reference_seed "$REFERENCE_SEED" \
     --save_dir "$CHECKPOINT" \
     --seeds $SEEDS_LIST \
     --repeats "${REPEATS:-1}" \
-    --reserve_frac "${RESERVE_FRAC:-0.2}" \
     --decode_chunk "${DECODE_CHUNK:-4}" \
-    --decode_every "${DECODE_EVERY:-3}" \
     --result_dir "$RESULT_DIR" 2>&1 | tee "$OUT/queue/global_eval_$RUN_NAME.log"

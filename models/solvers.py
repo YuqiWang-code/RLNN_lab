@@ -279,6 +279,7 @@ class RLNN(MetaSolver):
             self.model = GCN(1, args.num_h, args.num_l, 1)
         self.model.reset_parameters()
         
+        self.global_token = getattr(args, 'arch', 'gcn') == 'global'
         self.validation_seed = getattr(args, 'validation_seed', None)
         self.freeze_backbone_epochs = getattr(args, 'freeze_backbone_epochs', 0)
         self.finetune_lr = getattr(args, 'finetune_lr', None)
@@ -288,8 +289,8 @@ class RLNN(MetaSolver):
                 weights = torch.load(warm_start, map_location='cpu', weights_only=True)
                 if self.v5_frequency and any(key.startswith('adapter.') for key in weights):
                     raise ValueError('v5 warm start requires a plain RLNN checkpoint')
-                missing, extra = self.model.load_state_dict(weights, strict=not (self.segf or self.v4_frequency or self.v5_frequency or self.v7_context or self.structure))
-                if extra or any(not key.startswith(('adapter.', 'compensation.')) for key in missing):
+                missing, extra = self.model.load_state_dict(weights, strict=not (self.segf or self.v4_frequency or self.v5_frequency or self.v7_context or self.structure or self.global_token))
+                if extra or any(not key.startswith(('adapter.', 'compensation.', 'tokens.')) for key in missing):
                     raise ValueError('Warm start must contain the original RLNN backbone')
             self.optimizer = Adam(self.model.parameters(), lr=args.lr)
         else:

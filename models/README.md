@@ -28,6 +28,8 @@
 | `eval_kamis_anytime.py` | KaMIS（ReduMIS）四档 `--time_limit` anytime 曲线，按图配对到 v7 冻结基线 |
 | `eval_v8_capture_budget.py` | 等时钟对照：`--arms`（引擎）× `--decoders`（解码）的格子，同种子、同解码节奏、冻结 PAVE `horizon=1`，每格都与 `eager/eager` 按图配对 |
 | `summarize_v8_positioning.py` | 把 KaMIS、两份预算 CSV、解码消融合成「墙钟 vs 解」定位表 |
+| `mis_v8_global.py` | `GlobalTokenGCN`：每层加 `mean/max` 池化的图级广播（路线第 1 步，结果中性） |
+| `compare_v8_runs.py` | 两个评测 CSV 的图级配对自助（换骨干/换头时用） |
 | `eval_pave_external.py` | 把 PAVE 接在外部求解器输出上：`--source kamis\|min_degree`，六个臂（原始 / 一次扩展 / PAVE 学习·规则·随机 / 长 KaMIS），每臂强制独立集与单调性断言 |
 | `eval_regime.py` | 跨族/跨规模迁移：`--families RB_small_val ER_200_300 BA_200_300 RB_large`，三臂（`rl` 捕获搜索@1.0 s / `kamis` 整预算给算法时间 / 贪心+PAVE），每族 40 图、按图配对自助 |
 | `summarize_v8_claim.py` | 主张分解表：用 CSV 里的 `search_size`（平台前）与 `final_size`（平台后）算「捕获 × 平台」2×2，判断两个组件是相加还是替代 |
