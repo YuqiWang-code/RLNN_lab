@@ -272,6 +272,9 @@ class RLNN(MetaSolver):
             model_type = (V6SCGCN if self.v6_frequency else V5DAFRGCN if self.v5_frequency else V4FrequencyGCN if self.v4_frequency
                           else SEGF if self.segf else MISStateGCN)
             self.model = model_type(args.num_h, args.num_l, args.beta, self.frequency)
+        elif getattr(args, 'arch', 'gcn') == 'global':
+            from mis_v8_global import GlobalTokenGCN
+            self.model = GlobalTokenGCN(1, args.num_h, args.num_l, 1)
         else:
             self.model = GCN(1, args.num_h, args.num_l, 1)
         self.model.reset_parameters()

@@ -42,6 +42,8 @@ def build_parser():
     parser.add_argument("--num_k", type=int, default=100, help='number of particles')
     parser.add_argument("--num_tp", type=int, default=100, help='number of particles')
     parser.add_argument("--num_kp", type=int, default=10, help='number of particles')
+    parser.add_argument("--arch", choices=("gcn", "global"), default="gcn",
+                        help="flip policy backbone; global adds a pooled graph token")
     parser.add_argument("--num_l", type=int, default=1000, help='number of layers')
     parser.add_argument("--num_h", type=int, default=100, help='hidden dimension')
     parser.add_argument("--frequency", choices=("none", "stats", "low", "high", "fixed", "local", "dynamic") + SEGF_MODES + V4_MODES + V5_MODES + V6_MODES,

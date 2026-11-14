@@ -1,0 +1,303 @@
+RLNN_LAB — v8 「版本 A」论文快照
+================================
+
+生成日期：2026-11-14
+仓库：F:\Code_Repositories_2\RLNN_lab（远端 origin/codex/v7-one-shot-mamba）
+本快照对应提交：23dff5b（v8 escape: exchange rounds and kicks do not raise the plateau）
+用途：这是一个**冻结备选方案**。如果后续「改网络结构 / 扩移动集」的方向也失败，
+       就按这份快照的口径与数字写论文，不需要重新跑实验。
+
+------------------------------------------------------------------
+0. 这份快照是什么
+------------------------------------------------------------------
+把「版本 A：收口」所需的全部东西压在一个文件里：
+  §1 一句话主张（三段）
+  §2 环境与协议
+  §3 主结果（作者 1000 图）
+  §4 摊薄捕获（机制 + 五档表）
+  §5 平台 PAVE（诊断性结论）
+  §6 负结果清单（这一版论文的方法论主体）
+  §7 明确不主张的边界
+  §8 文件清单（代码 / 启动器 / 文档 / 产物）
+  §9 复现命令
+  §10 版本与依赖
+
+论文骨架：this is a **systems + diagnosis** paper，不是 SOTA paper。
+
+------------------------------------------------------------------
+1. 一句话主张（A 版，写论文就用这三段）
+------------------------------------------------------------------
+①  把冻结的神经搜索循环做成 CUDA 图块，并**一次捕获服务整个数据集**（padded 引擎），
+    每图预热从 93.5 ms 降到约 6 ms，同钟步数 ×6，0.2 s/图的解从 19.397 抬到 19.841；
+    在论文 RLNN 的每图时钟（0.197 s）上，SIZE 与 TIME 两轴**同时**超过 RLNN 19.52。
+
+②  后处理平台 PAVE 的增益是**输入解次优程度的函数**，不是常数：
+    贪心起点 +0.710，我们 0.5 s 的弱搜索 +0.222，已收敛的解 +0.000。
+    因此「捕获」与「平台」是替代关系而不是相加关系——这是原计划里写错的一条，
+    本版论文把它作为一个可迁移的诊断结论呈现，而不是作为一个 additive 贡献。
+
+③  九条方法线 + 重训 + 重组 + 交换/踢动调度的负结果，构成方法论部分：
+    同钟对照、图级配对自助 CI、逐位闸门、预注册判读表、以及「负结果也要有机制解释」。
+
+------------------------------------------------------------------
+2. 环境与协议
+------------------------------------------------------------------
+硬件/软件：两张 RTX 5090（GPU0 长期被他人占满，本快照全部实验跑在 GPU1）；
+            torch 2.9.1+cu130；python /home/hzeng/envs/rlnn/bin/python；
+            KaMIS 二进制 tmp/kamis_build/redumis
+            （sha256 edf3c458aebd6b569e558cfcef825b22b80c7060d904d8a0b0045c1fa160e0e1）。
+数据：     作者发布的 RB-[200-300] 测试集 1000 张（models/data/MIS_tensors/RB_small_author_test），
+            n≈231，e≈8474；训练/验证用生成的同分布 RB。
+骨干：     冻结 v2/none_seed0（outputs/v2/none_seed0/checkpoints/best.pt），
+            GCN(1 → num_h 128 → num_l 5 → 1)，num_k=20 粒子，num_t=100 训练步长。
+           **不做任何微调**（重训已验证为负，见 §6.4）。
+平台：     冻结 PAVE V3（v7_runs.pave(ref0)），horizon=1，outer_rounds=8，
+            candidate_cap=32，improving_cap=48，repair_rounds=4。
+时钟：     每图墙钟预算，预置 post_reserve=0.05 s（摊薄引擎按 --reserve_frac=0.2 缩比）。
+统计：     图级配对自助（5000 次重采样，按图配对），报告 mean / 95% CI / 胜-平-负。
+种子：     搜索种子 1017/1019/1021（主表只用 1017；三种子 CI 是待补项）。
+
+------------------------------------------------------------------
+3. 主结果：作者 1000 图（每图时钟，单进程独占 GPU1）
+------------------------------------------------------------------
+3.1 逐图捕获（per-graph capture，旧引擎）
+
+  时钟     eager/eager   captured/eager   captured/cached  步数(cached)
+  0.5 s    19.3780       19.6630          19.8403           402
+  1.0 s    19.7717       19.8993          19.9333          1058
+
+3.2 摊薄捕获（padded，一次捕获服务整集，见 §4）
+
+  时钟    解        步数    ms/步   load     同钟旧引擎   差额
+  0.05 s  19.4040    67    0.591   6.4 ms   17.6720      +1.732
+  0.10 s  19.6890   178    0.443   6.2 ms   17.9947      +1.694
+  0.20 s  19.8410   414    0.384   5.9 ms   19.3970      +0.444
+  0.50 s  19.9450  1310    0.343   6.3 ms   19.8403      +0.105
+  1.00 s  19.9830  2887    0.329   6.3 ms   19.9333      +0.050
+
+3.3 同卡基线（同一批 1000 图、同一台机器）
+
+  方法              SIZE       TIME（每图）      备注
+  KaMIS (ReduMIS)   20.1060    1.0 s            同卡实测；0.5 s 档 20.1020
+  KaMIS 长档        20.0400    5 s              100 图子集
+                    20.0500    35 s
+                    20.0500    98 s             5 s 即饱和
+  RLNN（论文）      19.52      0.197 s          按「整测试集 1.64 min / 500 图」折算
+  RLSA（论文）      19.97      0.070 s          按「整测试集 35 s / 500 图」折算
+  本方法（摊薄）    19.841     0.20 s
+                    19.983     1.00 s
+
+3.4 判定
+
+  · 对 RLNN：0.2 s 19.841 vs 19.52（SIZE +0.32），时钟同年 → **两轴同时赢**。
+  · 对 RLSA：19.97@0.070 s。我们 0.07 s 插值 ≈19.55（输 0.42），
+    要到 1.0 s 的 19.983 才越过 SIZE，但慢 14 倍 → **两轴不成立**。
+  · 对 KaMIS：1 s 20.106 vs 我们 19.983 → 差 0.12，且 KaMIS 在 0.5 s 就到 20.10。
+
+------------------------------------------------------------------
+4. 摊薄捕获：机制（这是论文里最"工程"的一节，也是唯一真正赢的机制）
+------------------------------------------------------------------
+问题：逐图捕获要整块录一次 CUDA graph，约 93.5 ms；0.2 s 时钟里占 47%，
+      0.1 s 以下一步都走不了（实测 0 步，解 17.67/17.99）。
+
+做法（models/mis_v8_pad.py，class PaddedSearch）：
+  · 固定 CSR 布局：crow = arange(0, rows*cap+1, cap) 恒定，cap = 数据集最大出度+1；
+    只有 col/raw/norm/bias 这些**缓冲区内容**每图重写（copy_），形状不变 → 图可复用。
+  · 单一持久 torch.Generator（register_generator_state 进图），每图 manual_seed 重置。
+  · 每个图 load 只写缓冲（约 n_max×cap 个元素），实测 6 ms。
+  · 解码仍用捕获版 A.3（chunk=4），再对前 n 行 packbits。
+  · 过冲安全：收敛后 where(gain>0, 1-x, x) 不动状态，多跑是 no-op。
+
+闸门（models/check_padded_capture.py）拆成两条事实，因为 spmm 的行内归约顺序不可消除：
+  · capture replay vs padded eager：**逐位相等**（60 步状态/档案/解码 bitset），硬断言。
+  · padded vs 未 padded：只报 drifted_nodes 与 |Δsize| ≤ 1（实测 drifted 66–178，
+    解大小全部一致；spmm 差 8.94e-08、logits 差 1.72e-05）。
+
+必须单进程：4 分片并发时 0.05 s 档只走 0–5 步、1.0 s 只到 650–900 步
+（kernel 发射被串行化）→ 所有摊薄数字都是 SHARDS=1 独占 GPU1 跑出来的。
+
+------------------------------------------------------------------
+5. 平台 PAVE：增益是输入次优程度的函数（诊断性结论）
+------------------------------------------------------------------
+机制：PAVE = repair（size+1 交换）+ extend + 学习排序器（PAVEV3）选择候选，
+      预算内反复 outer_rounds 轮；它只能修「还没到局部最优」的解。
+
+实验（100 图，同一套 PAVE 超参，只换输入）：
+
+  输入                     输入 SIZE   PAVE 后   增益 [95% CI]              胜/平/负
+  最小度贪心               18.3800     19.0900   +0.7100 [+0.5600,+0.8700]  53/47/0
+  我们 0.5 s 捕获搜索      19.8750     19.8750   +0.0000                    0/100/0
+  KaMIS 0.1 s              20.0500     20.0500   +0.0000   [0,0]            0/100/0
+  （KaMIS 六臂：extend/pave/rule/random/long 全部 +0.0000，三个 PAVE 臂
+     exchanges 均值 0.00、100/100 图零次交换，extend_gain 0.0 —— 已是极大集）
+
+排序器本身的价值（只在弱构造器启动时可见）：
+  学习 19.0900 vs 规则 18.9300：+0.1600 [+0.0800,+0.2500] 15/84/1
+  学习 vs 随机 18.9500：        +0.1400 [+0.0700,+0.2200] 14/85/1
+  规则 vs 随机：                −0.0200 [−0.0800,+0.0300] 2/95/3
+
+结论：**PAVE 不是 solver-agnostic**。它是「把未收敛的解修到局部最优」的算子，
+      增益随输入收敛程度单调下降（0.710 → 0.222 → 0.000）。
+      论文里不能写成「接在任何求解器输出上都能 +」。
+
+------------------------------------------------------------------
+6. 负结果清单（这一版论文的方法论主体）
+------------------------------------------------------------------
+6.1 九条方法线（v1–v7 全部归档，最好可复现值 0）
+    static prior / structure / frequency 交换 / v7 context（TCCR）等，
+    详见 models/README.md「已关闭线」与 docs/temporary/RLNN_v7_TCCR_Results.md。
+
+6.2 P0 闸门（v8 宏步 ACMD 线）
+    h=2 的联合似然对最终解大小无信号：−0.017/−0.014/−0.008/−0.031，四格 CI 全跨零；
+    full vs endpoint 档案：能量 +0.0040[+0.0017,+0.0067]、大小 0[0,0]。
+    → 按预注册判读表在训练前停止主线（省下数天 GPU）。见 RLNN_v8_P0_Results.md。
+
+6.3 速度工程到头（捕获 + 解码 + 缓存）
+    0.5 s：eager/eager 19.640 → captured/cached 19.920（+0.280）；
+    1.0 s：19.775 → 20.010（+0.235）。
+    其中解码搬进图块 +0.045/+0.010、跳过重复解码 +0.000/+0.010。
+    **700 步之后每翻倍步数只值 +0.01** → 继续堆步数无意义。
+    见 RLNN_v8_Positioning_Results.md。
+
+6.4 重训（抬上限）——三条都负
+    冻结骨干步数曲线（120 图）：100 步 19.3917 / 300 步 19.6917 /
+                                1000 步 19.8083 / 3000 步 19.8667。
+    微调 ft_tp50：19.4083 / 19.6500 / 19.8000 / 19.8750（几乎重合）；
+    微调 ft_tp300：19.3583 / 19.6333 / 19.7500 / 19.8417（更差）。
+    valid_obj：基线 19.52–19.53，ft_tp50 19.53→19.56，ft_tp300 19.47→19.40。
+    贪心初始化：30/100/300 步 = 18.7583 / 19.1750 / 19.4417（比随机低 0.45–0.56）。
+    从零训练（num_tp=300、30 epochs、1000 图、2.4 h）：valid_obj 18.92。
+    原因：erdoes 损失只做**一步前瞻**（flipped=(1-p)x+p(1-x) 的能量 +
+          λ(E[#flips]−5)²），不奖励逃出局部最优。见 RLNN_v8_Retrain.md。
+
+6.5 重组与调度（逃逸）
+    König 精确重组（打在 0.5/1.0 s 上）：+0.0617 [+0.0483,+0.0753] / +0.0240 [+0.0170,+0.0317]。
+    把 PAVE 交换插进搜索循环（inject/refill）：30 图探针 +0.033 / 0.000 / −0.100。
+    随机踢动（删 5% 再补）：+0.067 / −0.033 / 0.000 / −0.033。
+    → 20 个粒子的档案并集已经是「1-flip + (2,1)-swap 双邻域都空」的局部最优。
+    见 RLNN_v8_Retrain.md §6。
+
+6.6 跨族/跨规模迁移（换 regime）
+    RB_small_val −0.075[−0.175,0.000]；ER_200_300 −0.625[−0.900,−0.325]；
+    BA_200_300 −1.775[−2.200,−1.400]；RB_large −3.625[−4.000,−3.250]。
+    ER-[700-800]（128 图，p=0.15）：1.0 s 42.1771 vs KaMIS 44.00 / RLSA 44.10 / RLNN 43.34。
+    → 冻结策略只在训练分布上成立，退化随距离单调。见 RLNN_v8_Regime_Probe.md。
+
+------------------------------------------------------------------
+7. 明确不主张的边界（写论文时必须写进 limitations）
+------------------------------------------------------------------
+· 不主张 SIZE 超过 KaMIS（20.106）或 RLSA（19.97@0.07 s）。
+  在 1.0 s 档我们 19.983，比 KaMIS 低 0.12，比 RLSA 的同钟插值高但慢 14 倍。
+· 不主张两个组件可相加：捕获与平台是替代关系（§5）。
+· 不主张跨图族/跨规模泛化：ER、BA、n≈1000 全部退化（§6.6）。
+· 主表只有搜索种子 1017（三种子 CI 待补）；单机单卡。
+· KaMIS 的 TIME 含进程启动 + 图写盘约 1.87 s/图，所以「0.5 s 以下只有我们能交解」
+  是框架地板差异，不能作为卖点。
+
+------------------------------------------------------------------
+8. 文件清单
+------------------------------------------------------------------
+8.1 采集与训练（v8 宏步线，已停在 P0）
+  models/mis_v8_macro.py          MacroKernel / widen_readout / joint_log_likelihood
+  models/v8_collect.py            采块标签
+  models/v8_train.py              A2/A3/A4/A5/A6 训练臂
+  models/v8_eval.py               fixed_nfe / budget 评测
+  models/check_v8.py              三组 kernel 闸门
+  models/diagnose_v8_prior.py     P0-B（相关性打乱）/ P0-C（端点档案）
+  train_scripts/v8_macro/{common.sh,check.sh,collect.sh,train.sh,train_all.sh,eval.sh,prior.sh}
+
+8.2 定位与速度（本快照的主角）
+  models/mis_v8_capture.py        CapturedSearch（逐图捕获）
+  models/mis_v8_decode.py         CapturedDecoder / decode_best（A.3 进图块）
+  models/mis_v8_pad.py            PaddedSearch（一次捕获服务整集）★
+  models/check_capture_budget.py  逐图捕获闸门
+  models/check_decode_capture.py  解码闸门
+  models/check_padded_capture.py  摊薄闸门 ★
+  models/profile_budget_step.py   每步成本分解
+  models/probe_decode_cost.py     解码成本分解
+  models/eval_v8_capture_budget.py  引擎×解码的格子
+  models/eval_v8_padded.py       摊薄评测 ★
+  models/eval_v8_steps.py        按步数评测
+  models/eval_v8_interleave.py   交换/踢动调度 ★
+  models/eval_kamis_anytime.py   KaMIS 等钟曲线
+  models/eval_pave_external.py   PAVE 外接任意起点
+  models/eval_regime.py          跨族/跨规模
+  models/eval_v8_recombine.py    König 重组
+  models/summarize_v8_positioning.py / summarize_v8_claim.py / merge_v8_shards.py
+  train_scripts/v8_macro/{check_capture.sh,decode_cost.sh,check_decode.sh,decode_budget.sh,
+                          capture_budget.sh,kamis.sh,padded.sh,author_test.sh,author_short.sh,
+                          author_kamis.sh,er_grid.sh,regime.sh,pave_external.sh,
+                          retrain.sh,recombine.sh,interleave.sh}
+
+8.3 文档（docs/temporary/）
+  RLNN_lab_v8_review_and_research.md   预注册与判读表（v8 方案）
+  RLNN_v8_P0_Results.md                P0 闸门负结果
+  RLNN_v8_Positioning_Results.md       定位 / 等钟 / 解码
+  RLNN_v8_PAVE_External_Results.md     PAVE 不是 solver-agnostic
+  RLNN_v8_Regime_Probe.md              跨族迁移
+  RLNN_v8_Paper_Table.md               作者集主表 + 逐条判定
+  RLNN_v8_Amortised_Capture.md         摊薄捕获 ★
+  RLNN_v8_Retrain.md                   重训 + 逃逸（交换/踢动）
+  v8_paper_snapshot_A.txt              本文件
+
+8.4 关键产物（outputs/v8_macro/）
+  author_test/capture_budget/capture_budget_ref0.csv        1000 图 × 5 格（18000 行）
+  padded_short/padded/padded_ref0.{csv,json}                0.05/0.1/0.2 s 摊薄
+  padded_long/padded/padded_ref0.{csv,json}                 0.5/1.0 s 摊薄
+  check_padded/check/check_ref0.json                        摊薄闸门
+  author_short/capture_budget/capture_budget_ref0.csv       逐图捕获短时钟
+  kamis_author/kamis/kamis_ref0.csv                         同卡 KaMIS 0.5/1.0 s
+  kamis_author_long/kamis/kamis_ref0.csv                    同卡 KaMIS 5/35/98 s
+  steps_baseline/                                           步数曲线
+  interleave*/                                               交换/踢动调度
+  recombine/recombine/recombine_ref0.csv                    König 重组
+  pave_external*/                                            PAVE 外接
+  regime*/                                                  跨族
+  er700_800/capture_budget/capture_budget_ref0.csv          ER-[700-800]
+
+8.5 冻结协议（不能改）
+  models/{main.py,models.py,solvers.py,mis_v1.py,utils.py,problems/,data/,
+          mis_v3_search.py,mis_v3_value.py,eval_v1.py,eval_v2.py,eval_v3.py,...}
+  训练用 --num_t 100 / --num_k 20 / frequency none；评测必须 horizon=1。
+
+------------------------------------------------------------------
+9. 复现命令（按顺序）
+------------------------------------------------------------------
+# 0) 环境
+cd /home/hzeng/project/ZH/RLNN_lab
+export RLNN_SOURCE_SHA=$(git rev-parse HEAD)   # 服务器无 git 时手工填
+export CUDA_VISIBLE_DEVICES=1
+
+# 1) 摊薄闸门（必须先过）
+GRAPHS=4 STEPS=60 bash train_scripts/v8_macro/check_padded.sh
+
+# 2) 摊薄五档表（单进程，约 20 分钟 / 1000 图）
+GRAPHS=1000 BUDGETS="0.05 0.1 0.2" bash train_scripts/v8_macro/padded.sh
+GRAPHS=1000 BUDGETS="0.5 1.0" RESULT_DIR=outputs/v8_macro/padded_long \
+  bash train_scripts/v8_macro/padded.sh
+
+# 3) 逐图捕获主表（4 分片，约 57 分钟）
+GRAPHS=1000 SHARDS=4 BUDGETS="0.5 1.0" bash train_scripts/v8_macro/author_test.sh
+python models/merge_v8_shards.py \
+  --pattern 'outputs/v8_macro/author_test/capture_budget/capture_budget_ref0_shard*.csv' \
+  --out outputs/v8_macro/author_test/capture_budget/capture_budget_ref0.csv
+python models/summarize_v8_claim.py
+
+# 4) 同卡 KaMIS
+GRAPHS=1000 bash train_scripts/v8_macro/author_kamis.sh
+
+# 5) PAVE 诊断（外接贪心与 KaMIS）
+SOURCE=min_degree bash train_scripts/v8_macro/pave_external.sh
+SOURCE=kamis KAMIS_LIMIT=0.1 bash train_scripts/v8_macro/pave_external.sh
+
+# 6) 汇总
+python models/summarize_v8_positioning.py
+
+------------------------------------------------------------------
+10. 版本与依赖
+------------------------------------------------------------------
+提交：23dff5b（本快照冻结点）
+python：3.x + torch 2.9.1+cu130 + torch_scatter/torch_geometric（服务器）
+       networkx 2.8.8（read_gpickle/write_gpickle 仍可用）
+GPU：单卡（实验全程 GPU1）；摊薄必须单进程
+CSV 行数：author_test 18000、author_short 9000、ER 2304、KaMIS 2000/300
