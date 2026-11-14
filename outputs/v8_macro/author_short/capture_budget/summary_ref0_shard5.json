@@ -1,0 +1,253 @@
+{
+  "version": "v8_positioning",
+  "status": "completed",
+  "mode": "capture_budget",
+  "summary": {
+    "ref": 0,
+    "seeds": [
+      1017,
+      1019,
+      1021
+    ],
+    "budgets": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "graphs": 166,
+    "repeats": 1,
+    "horizon": 1,
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "arms": [
+      "captured"
+    ],
+    "decoders": [
+      "cached"
+    ],
+    "decode_chunk": 4,
+    "cells": [
+      "captured/cached"
+    ],
+    "wall_time_s": 451.05,
+    "table": {
+      "0.05": {
+        "captured/cached": {
+          "n": 498,
+          "final_size": 17.73694779116466,
+          "search_size": 17.73694779116466,
+          "steps": 0,
+          "ms_per_step": 106.04883132530121,
+          "prelude_s": 0.09447369477911646,
+          "search_time_s": 0.10605160642570281,
+          "decode_time_s": 0.0,
+          "overruns": 498
+        },
+        "paired": [
+          {
+            "left": "captured/cached",
+            "right": "eager/eager",
+            "n": 0,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0,
+            "step_ratio": 0.0
+          }
+        ]
+      },
+      "0.1": {
+        "captured/cached": {
+          "n": 498,
+          "final_size": 18.106425702811244,
+          "search_size": 17.73694779116466,
+          "steps": 0,
+          "ms_per_step": 104.08970080321285,
+          "prelude_s": 0.09288092369477911,
+          "search_time_s": 0.10409016064257028,
+          "decode_time_s": 0.0,
+          "overruns": 307
+        },
+        "paired": [
+          {
+            "left": "captured/cached",
+            "right": "eager/eager",
+            "n": 0,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0,
+            "step_ratio": 0.0
+          }
+        ]
+      },
+      "0.2": {
+        "captured/cached": {
+          "n": 498,
+          "final_size": 19.59437751004016,
+          "search_size": 19.289156626506024,
+          "steps": 50.22088353413655,
+          "ms_per_step": 4.846118473895582,
+          "prelude_s": 0.09414738955823293,
+          "search_time_s": 0.14746044176706827,
+          "decode_time_s": 0.041917670682730925,
+          "overruns": 1
+        },
+        "paired": [
+          {
+            "left": "captured/cached",
+            "right": "eager/eager",
+            "n": 0,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0,
+            "step_ratio": 0.0
+          }
+        ]
+      }
+    },
+    "shard": {
+      "index": 5,
+      "count": 6
+    }
+  },
+  "config": {
+    "resume": null,
+    "seed": 1017,
+    "epochs": 100,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.01,
+    "train_path": null,
+    "train_samples": -1,
+    "valid_path": null,
+    "valid_samples": -1,
+    "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_author_test",
+    "test_samples": 1000,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": 32,
+    "v7_d_state": 16,
+    "v7_order_seed": 7301,
+    "v7_order_views": 1,
+    "v7_delta_limit": null,
+    "static_constant_limit": 0.25,
+    "static_node_limit": null,
+    "static_peak_normalize": false,
+    "static_bias_seed": 1017,
+    "static_oracle_path": null,
+    "static_features": 5,
+    "static_encoder": "mlp",
+    "warm_start": null,
+    "freeze_backbone_epochs": 0,
+    "finetune_lr": null,
+    "validation_seed": null,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": false,
+    "skip_decode": false,
+    "split": "test",
+    "result_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/author_short",
+    "train_seed": 0,
+    "candidate_cap": 32,
+    "exchange_rounds": 3,
+    "larger": false,
+    "post": [
+      "none"
+    ],
+    "label": "v7_tccr_census",
+    "value_checkpoint": null,
+    "extra_value_checkpoint": [],
+    "horizon": 1,
+    "outer_rounds": 8,
+    "repair_rounds": 4,
+    "improving_cap": 48,
+    "anchored": false,
+    "time_budget_s": null,
+    "post_reserve_s": 0.05,
+    "extended_search": false,
+    "cohort_id": null,
+    "backbone_seed": null,
+    "head_seed": null,
+    "baseline_run": null,
+    "rule_reference_run": null,
+    "reference_seed": 0,
+    "seeds": [
+      1017,
+      1019,
+      1021
+    ],
+    "phase": "both",
+    "region_sizes": [
+      2,
+      3,
+      4
+    ],
+    "pair_budget": 8,
+    "cuda_graph": false,
+    "check_search": false,
+    "check_graphs": 3,
+    "budgets": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "repeats": 1,
+    "arms": [
+      "captured"
+    ],
+    "decoders": [
+      "cached"
+    ],
+    "decode_chunk": 4,
+    "shards": 6,
+    "shard": 5
+  },
+  "source_sha": "da44cb6f77a7186d2ca7067120d3661939846f41",
+  "branch": "v8-macro",
+  "backbone_weight_sha256": "88b1b4724d61dc663c6dde51368d8c28f6caf045f4b4861331ca76cead082701",
+  "pave_sha256": "08b5777d89ffd9893bd42bc6b98e6a8df306ba79362331bbe6ce490404c22313",
+  "manifests": {
+    "train": "04bf0e55b131acc70b851562895a92404f46d039ef41071fa9a458e9de3b00cd",
+    "validation": "fb752d2676f44c409c2a7de560084d53212df45c1edcd7727d71132380603c12",
+    "test": "daa180ff2f53a8aaa46a527363b213dce932220a1480751aa45778d98e306289"
+  },
+  "static_feature_schema": [
+    "log_degree",
+    "neighbor_log_degree_mean",
+    "neighbor_log_degree_std",
+    "core",
+    "hub_distance",
+    "two_hop_fraction",
+    "density",
+    "size"
+  ],
+  "mamba_version": null,
+  "torch_version": "2.9.1+cu130",
+  "cuda_version": "13.0"
+}

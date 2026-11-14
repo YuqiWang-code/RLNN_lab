@@ -1,0 +1,248 @@
+{
+  "version": "v8_recombine",
+  "status": "completed",
+  "mode": "recombine",
+  "ref": 0,
+  "summary": {
+    "ref": 0,
+    "seeds": [
+      1017,
+      1019,
+      1021
+    ],
+    "budgets": [
+      0.5,
+      1.0
+    ],
+    "graphs": 167,
+    "horizon": 1,
+    "arms": [
+      "captured",
+      "recombine",
+      "oracle"
+    ],
+    "reserve": 0.05,
+    "decode_chunk": 4,
+    "wall_time_s": 2379.99,
+    "table": {
+      "0.5": {
+        "captured": {
+          "n": 501,
+          "final_size": 19.660678642714572,
+          "steps": 183.1936127744511,
+          "recombine_gain": 0,
+          "decode_time_s": 0.5873021956087824,
+          "recombine_time_s": 0.0,
+          "overruns": 231
+        },
+        "recombine": {
+          "n": 501,
+          "final_size": 19.704590818363272,
+          "steps": 137.66467065868264,
+          "recombine_gain": 0.11177644710578842,
+          "decode_time_s": 0.5110221556886227,
+          "recombine_time_s": 0.08080898203592814,
+          "overruns": 434
+        },
+        "oracle": {
+          "n": 501,
+          "final_size": 19.748502994011975,
+          "steps": 177.86427145708583,
+          "recombine_gain": 0.09780439121756487,
+          "decode_time_s": 0.5876161676646706,
+          "recombine_time_s": 0.07966367265469061,
+          "overruns": 501
+        },
+        "paired": [
+          {
+            "left": "recombine",
+            "right": "captured",
+            "n": 167,
+            "mean": 0.04391217564870267,
+            "low": 0.011976047904191723,
+            "high": 0.07784431137724553,
+            "wins": 26,
+            "ties": 131,
+            "losses": 10
+          },
+          {
+            "left": "oracle",
+            "right": "captured",
+            "n": 167,
+            "mean": 0.08782435129740526,
+            "low": 0.055888223552894335,
+            "high": 0.11976047904191628,
+            "wins": 37,
+            "ties": 126,
+            "losses": 4
+          }
+        ]
+      },
+      "1.0": {
+        "captured": {
+          "n": 501,
+          "final_size": 19.84431137724551,
+          "steps": 598.5229540918164,
+          "recombine_gain": 0,
+          "decode_time_s": 1.1067780439121757,
+          "recombine_time_s": 0.0,
+          "overruns": 256
+        },
+        "recombine": {
+          "n": 501,
+          "final_size": 19.880239520958085,
+          "steps": 523.7524950099801,
+          "recombine_gain": 0.059880239520958084,
+          "decode_time_s": 1.0819820359281438,
+          "recombine_time_s": 0.07999920159680639,
+          "overruns": 440
+        },
+        "oracle": {
+          "n": 501,
+          "final_size": 19.88822355289421,
+          "steps": 594.3712574850299,
+          "recombine_gain": 0.0499001996007984,
+          "decode_time_s": 1.1072463073852294,
+          "recombine_time_s": 0.0821245508982036,
+          "overruns": 501
+        },
+        "paired": [
+          {
+            "left": "recombine",
+            "right": "captured",
+            "n": 167,
+            "mean": 0.03592814371257481,
+            "low": 0.017964071856287362,
+            "high": 0.0558882235528942,
+            "wins": 18,
+            "ties": 147,
+            "losses": 2
+          },
+          {
+            "left": "oracle",
+            "right": "captured",
+            "n": 167,
+            "mean": 0.04391217564870257,
+            "low": 0.023952095808383256,
+            "high": 0.06387225548902196,
+            "wins": 21,
+            "ties": 145,
+            "losses": 1
+          }
+        ]
+      }
+    },
+    "shard": {
+      "index": 1,
+      "count": 6
+    }
+  },
+  "config": {
+    "resume": null,
+    "seed": 1017,
+    "epochs": 100,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.01,
+    "train_path": null,
+    "train_samples": -1,
+    "valid_path": null,
+    "valid_samples": -1,
+    "test_path": "models/data/MIS_tensors/RB_small_author_test",
+    "test_samples": 1000,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": 32,
+    "v7_d_state": 16,
+    "v7_order_seed": 7301,
+    "v7_order_views": 1,
+    "v7_delta_limit": null,
+    "static_constant_limit": 0.25,
+    "static_node_limit": null,
+    "static_peak_normalize": false,
+    "static_bias_seed": 1017,
+    "static_oracle_path": null,
+    "static_features": 5,
+    "static_encoder": "mlp",
+    "warm_start": null,
+    "freeze_backbone_epochs": 0,
+    "finetune_lr": null,
+    "validation_seed": null,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": false,
+    "skip_decode": false,
+    "split": "test",
+    "result_dir": "outputs/v8_macro/recombine",
+    "train_seed": 0,
+    "candidate_cap": 32,
+    "exchange_rounds": 3,
+    "larger": false,
+    "post": [
+      "none"
+    ],
+    "label": "v7_tccr_census",
+    "value_checkpoint": null,
+    "extra_value_checkpoint": [],
+    "horizon": 1,
+    "outer_rounds": 8,
+    "repair_rounds": 4,
+    "improving_cap": 48,
+    "anchored": false,
+    "time_budget_s": null,
+    "post_reserve_s": 0.05,
+    "extended_search": false,
+    "cohort_id": null,
+    "backbone_seed": null,
+    "head_seed": null,
+    "baseline_run": null,
+    "rule_reference_run": null,
+    "reference_seed": 0,
+    "seeds": [
+      1017,
+      1019,
+      1021
+    ],
+    "phase": "both",
+    "region_sizes": [
+      2,
+      3,
+      4
+    ],
+    "pair_budget": 8,
+    "cuda_graph": false,
+    "check_search": false,
+    "check_graphs": 3,
+    "budgets": [
+      0.5,
+      1.0
+    ],
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "arms": [
+      "captured",
+      "recombine",
+      "oracle"
+    ],
+    "reserve": 0.05,
+    "decode_chunk": 4,
+    "shards": 6,
+    "shard": 1
+  }
+}

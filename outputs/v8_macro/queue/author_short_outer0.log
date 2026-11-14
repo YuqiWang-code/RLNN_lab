@@ -1,0 +1,18 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+20/167 0.05s/captured/cached:17.533@0st 0.1s/captured/cached:17.950@0st 0.2s/captured/cached:19.283@52st
+40/167 0.05s/captured/cached:17.542@0st 0.1s/captured/cached:17.975@0st 0.2s/captured/cached:19.400@52st
+60/167 0.05s/captured/cached:17.778@0st 0.1s/captured/cached:18.150@0st 0.2s/captured/cached:19.633@50st
+80/167 0.05s/captured/cached:17.683@0st 0.1s/captured/cached:18.000@0st 0.2s/captured/cached:19.467@50st
+100/167 0.05s/captured/cached:17.683@0st 0.1s/captured/cached:17.977@0st 0.2s/captured/cached:19.470@49st
+120/167 0.05s/captured/cached:17.667@0st 0.1s/captured/cached:17.986@0st 0.2s/captured/cached:19.444@50st
+140/167 0.05s/captured/cached:17.693@0st 0.1s/captured/cached:18.017@0st 0.2s/captured/cached:19.479@50st
+160/167 0.05s/captured/cached:17.710@0st 0.1s/captured/cached:18.046@0st 0.2s/captured/cached:19.492@50st
+167/167 0.05s/captured/cached:17.683@0st 0.1s/captured/cached:18.018@0st 0.2s/captured/cached:19.463@51st
+budget=0.05: captured/cached 17.6826 @ 0 steps
+  captured/cached - eager/eager: +0.0000 [+0.0000,+0.0000] 0/0/0 steps x0.00
+budget=0.1: captured/cached 18.0180 @ 0 steps
+  captured/cached - eager/eager: +0.0000 [+0.0000,+0.0000] 0/0/0 steps x0.00
+budget=0.2: captured/cached 19.4631 @ 51 steps
+  captured/cached - eager/eager: +0.0000 [+0.0000,+0.0000] 0/0/0 steps x0.00
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v8_macro/author_short/capture_budget/capture_budget_ref0_shard0.csv

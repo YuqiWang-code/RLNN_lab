@@ -1,0 +1,18 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+20/166 0.5s/captured:19.700@177st+0.00 0.5s/recombine:19.733@161st+0.08 0.5s/oracle:19.767@196st+0.03 1.0s/captured:19.783@612st+0.00 1.0s/recombine:19.783@524st+0.00 1.0s/oracle:19.783@549st+0.00
+40/166 0.5s/captured:19.650@168st+0.00 0.5s/recombine:19.708@146st+0.10 0.5s/oracle:19.725@184st+0.05 1.0s/captured:19.792@616st+0.00 1.0s/recombine:19.817@513st+0.03 1.0s/oracle:19.817@548st+0.03
+60/166 0.5s/captured:19.983@178st+0.00 0.5s/recombine:20.044@145st+0.11 0.5s/oracle:20.067@185st+0.07 1.0s/captured:20.117@596st+0.00 1.0s/recombine:20.144@507st+0.03 1.0s/oracle:20.150@562st+0.03
+80/166 0.5s/captured:19.846@175st+0.00 0.5s/recombine:19.900@142st+0.10 0.5s/oracle:19.942@182st+0.07 1.0s/captured:20.000@582st+0.00 1.0s/recombine:20.017@511st+0.03 1.0s/oracle:20.025@584st+0.03
+100/166 0.5s/captured:19.760@169st+0.00 0.5s/recombine:19.823@140st+0.11 0.5s/oracle:19.863@176st+0.09 1.0s/captured:19.940@584st+0.00 1.0s/recombine:19.953@527st+0.02 1.0s/oracle:19.960@576st+0.03
+120/166 0.5s/captured:19.642@166st+0.00 0.5s/recombine:19.708@139st+0.11 0.5s/oracle:19.756@177st+0.09 1.0s/captured:19.831@596st+0.00 1.0s/recombine:19.842@534st+0.02 1.0s/oracle:19.847@570st+0.03
+140/166 0.5s/captured:19.695@167st+0.00 0.5s/recombine:19.755@137st+0.12 0.5s/oracle:19.805@179st+0.09 1.0s/captured:19.874@597st+0.00 1.0s/recombine:19.883@527st+0.02 1.0s/oracle:19.888@567st+0.02
+160/166 0.5s/captured:19.719@166st+0.00 0.5s/recombine:19.777@136st+0.12 0.5s/oracle:19.831@181st+0.09 1.0s/captured:19.910@600st+0.00 1.0s/recombine:19.925@528st+0.03 1.0s/oracle:19.929@567st+0.03
+166/166 0.5s/captured:19.731@166st+0.00 0.5s/recombine:19.801@136st+0.13 0.5s/oracle:19.859@181st+0.10 1.0s/captured:19.932@597st+0.00 1.0s/recombine:19.956@526st+0.04 1.0s/oracle:19.960@564st+0.04
+budget=0.5: captured 19.7309 @ 166 steps (recombine +0.000) | recombine 19.8012 @ 136 steps (recombine +0.129) | oracle 19.8594 @ 181 steps (recombine +0.102)
+  recombine - captured: +0.0703 [+0.0361,+0.1064] 36/119/11
+  oracle - captured: +0.1285 [+0.0944,+0.1667] 53/110/3
+budget=1.0: captured 19.9317 @ 597 steps (recombine +0.000) | recombine 19.9558 @ 526 steps (recombine +0.040) | oracle 19.9598 @ 564 steps (recombine +0.036)
+  recombine - captured: +0.0241 [+0.0060,+0.0462] 15/146/5
+  oracle - captured: +0.0281 [+0.0100,+0.0482] 15/148/3
+wrote outputs/v8_macro/recombine/recombine/recombine_ref0_shard4.csv

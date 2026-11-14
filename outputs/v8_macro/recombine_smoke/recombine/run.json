@@ -1,0 +1,244 @@
+{
+  "version": "v8_recombine",
+  "status": "completed",
+  "mode": "recombine",
+  "ref": 0,
+  "summary": {
+    "ref": 0,
+    "seeds": [
+      1017
+    ],
+    "budgets": [
+      0.5,
+      1.0
+    ],
+    "graphs": 8,
+    "horizon": 1,
+    "arms": [
+      "captured",
+      "recombine",
+      "oracle"
+    ],
+    "reserve": 0.05,
+    "decode_chunk": 4,
+    "wall_time_s": 37.75,
+    "table": {
+      "0.5": {
+        "captured": {
+          "n": 8,
+          "final_size": 19.625,
+          "steps": 1431.25,
+          "recombine_gain": 0,
+          "decode_time_s": 0.2075,
+          "recombine_time_s": 0.0,
+          "overruns": 6
+        },
+        "recombine": {
+          "n": 8,
+          "final_size": 19.625,
+          "steps": 1243.75,
+          "recombine_gain": 0.125,
+          "decode_time_s": 0.202775,
+          "recombine_time_s": 0.069,
+          "overruns": 8
+        },
+        "oracle": {
+          "n": 8,
+          "final_size": 19.625,
+          "steps": 1403.75,
+          "recombine_gain": 0,
+          "decode_time_s": 0.2092125,
+          "recombine_time_s": 0.0772125,
+          "overruns": 8
+        },
+        "paired": [
+          {
+            "left": "recombine",
+            "right": "captured",
+            "n": 8,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "wins": 0,
+            "ties": 8,
+            "losses": 0
+          },
+          {
+            "left": "oracle",
+            "right": "captured",
+            "n": 8,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "wins": 0,
+            "ties": 8,
+            "losses": 0
+          }
+        ]
+      },
+      "1.0": {
+        "captured": {
+          "n": 8,
+          "final_size": 19.625,
+          "steps": 3358.75,
+          "recombine_gain": 0,
+          "decode_time_s": 0.2274125,
+          "recombine_time_s": 0.0,
+          "overruns": 6
+        },
+        "recombine": {
+          "n": 8,
+          "final_size": 19.625,
+          "steps": 3145,
+          "recombine_gain": 0,
+          "decode_time_s": 0.224575,
+          "recombine_time_s": 0.0757625,
+          "overruns": 7
+        },
+        "oracle": {
+          "n": 8,
+          "final_size": 19.625,
+          "steps": 3370,
+          "recombine_gain": 0,
+          "decode_time_s": 0.2241375,
+          "recombine_time_s": 0.066025,
+          "overruns": 8
+        },
+        "paired": [
+          {
+            "left": "recombine",
+            "right": "captured",
+            "n": 8,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "wins": 0,
+            "ties": 8,
+            "losses": 0
+          },
+          {
+            "left": "oracle",
+            "right": "captured",
+            "n": 8,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "wins": 0,
+            "ties": 8,
+            "losses": 0
+          }
+        ]
+      }
+    },
+    "shard": {
+      "index": 0,
+      "count": 1
+    }
+  },
+  "config": {
+    "resume": null,
+    "seed": 1017,
+    "epochs": 100,
+    "batch_size": 1,
+    "graph_batch_size": 1,
+    "lr": 0.01,
+    "train_path": null,
+    "train_samples": -1,
+    "valid_path": null,
+    "valid_samples": -1,
+    "test_path": "models/data/MIS_tensors/RB_small_author_test",
+    "test_samples": 8,
+    "problem": "mis",
+    "num_workers": 0,
+    "method": "RLNN",
+    "loss": "erdoes",
+    "save_dir": "/home/hzeng/project/ZH/RLNN_lab/outputs/v2/none_seed0/checkpoints",
+    "log_file": "log.txt",
+    "num_t": 100,
+    "num_k": 20,
+    "num_tp": 100,
+    "num_kp": 10,
+    "num_l": 5,
+    "num_h": 128,
+    "frequency": "none",
+    "context_mode": "none",
+    "structure_mode": "none",
+    "v7_width": 32,
+    "v7_d_state": 16,
+    "v7_order_seed": 7301,
+    "v7_order_views": 1,
+    "v7_delta_limit": null,
+    "static_constant_limit": 0.25,
+    "static_node_limit": null,
+    "static_peak_normalize": false,
+    "static_bias_seed": 1017,
+    "static_oracle_path": null,
+    "static_features": 5,
+    "static_encoder": "mlp",
+    "warm_start": null,
+    "freeze_backbone_epochs": 0,
+    "finetune_lr": null,
+    "validation_seed": null,
+    "num_d": 5,
+    "beta": 1.02,
+    "tau0": 0.01,
+    "lambd": 0.5,
+    "mixed_precision": "no",
+    "do_train": false,
+    "skip_decode": false,
+    "split": "test",
+    "result_dir": "outputs/v8_macro/recombine_smoke",
+    "train_seed": 0,
+    "candidate_cap": 32,
+    "exchange_rounds": 3,
+    "larger": false,
+    "post": [
+      "none"
+    ],
+    "label": "v7_tccr_census",
+    "value_checkpoint": null,
+    "extra_value_checkpoint": [],
+    "horizon": 1,
+    "outer_rounds": 8,
+    "repair_rounds": 4,
+    "improving_cap": 48,
+    "anchored": false,
+    "time_budget_s": null,
+    "post_reserve_s": 0.05,
+    "extended_search": false,
+    "cohort_id": null,
+    "backbone_seed": null,
+    "head_seed": null,
+    "baseline_run": null,
+    "rule_reference_run": null,
+    "reference_seed": 0,
+    "seeds": [
+      1017
+    ],
+    "phase": "both",
+    "region_sizes": [
+      2,
+      3,
+      4
+    ],
+    "pair_budget": 8,
+    "cuda_graph": false,
+    "check_search": false,
+    "check_graphs": 3,
+    "budgets": [
+      0.5,
+      1.0
+    ],
+    "post_reserve": 0.05,
+    "chunk": 10,
+    "arms": [
+      "captured",
+      "recombine",
+      "oracle"
+    ],
+    "reserve": 0.05,
+    "decode_chunk": 4,
+    "shards": 1,
+    "shard": 0
+  }
+}
