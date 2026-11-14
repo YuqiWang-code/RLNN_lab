@@ -18,6 +18,7 @@ for i in $(seq 0 $((SHARDS - 1))); do
     --decoders ${DECODERS:-captured cached} \
     --seeds ${SEEDS_LIST:-1017 1019 1021} \
     --repeats "${REPEATS:-1}" \
+    --decode_every "${DECODE_EVERY:-1}" \
     --result_dir "${RESULT_DIR:-$OUT/padded_author}" \
     --shards "$SHARDS" --shard "$i" \
     > "$OUT/queue/padded_shard${i}.log" 2>&1 &

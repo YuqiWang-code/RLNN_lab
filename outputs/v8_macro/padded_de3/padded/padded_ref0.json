@@ -1,0 +1,32 @@
+{
+  "ref": 0,
+  "seeds": [
+    1017
+  ],
+  "budgets": [
+    0.1,
+    0.2
+  ],
+  "graphs": 1000,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "padded"
+  ],
+  "decoders": [
+    "cached"
+  ],
+  "decode_chunk": 4,
+  "cells": [
+    "padded/cached"
+  ],
+  "padded": {
+    "nodes": 264,
+    "capacity": 105,
+    "capture_s": 1.0179,
+    "load_s": 0.0062
+  },
+  "wall_time_s": 293.13
+}

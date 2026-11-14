@@ -43,6 +43,8 @@ def build_parser():
     parser = build_capture_parser()
     parser.add_argument("--reserve_frac", type=float, default=0.2,
                         help="PAVE reserve as a fraction of the budget (capped by --post_reserve)")
+    parser.add_argument("--decode_every", type=int, default=1,
+                        help="decode the archive every N blocks (the archive is monotone)")
     parser.add_argument("--padded_shapes", type=int, default=None,
                         help="cap the shape scan (default: the whole split)")
     parser.set_defaults(arms=["padded"], decoders=["captured", "cached"])
@@ -119,7 +121,8 @@ def main():
                         decode(engine.best_states)
                         prelude = perf_counter() - tick
                         steps, decode_seconds, blocks = engine.run(
-                            cutoff, decode, skip_unchanged=decoder_kind == "cached")
+                            cutoff, decode, skip_unchanged=decoder_kind == "cached",
+                            decode_every=args.decode_every)
                         sync(device)
                         search_seconds = perf_counter() - tick
                         selected = max(masks_box, key=int.bit_count)

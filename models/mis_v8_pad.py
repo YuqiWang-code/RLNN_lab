@@ -173,12 +173,15 @@ class PaddedSearch:
         torch.cuda.current_stream(device).wait_stream(stream)
 
     # ------------------------------------------------------------------- run
-    def run(self, deadline, decode, *, max_blocks=None, skip_unchanged=False):
+    def run(self, deadline, decode, *, max_blocks=None, skip_unchanged=False,
+            decode_every=1):
         steps = blocks = 0
         decode_seconds = 0.0
         block_time = 0.0
         self.improvements.zero_()
         decoded_at = -1
+        pending = False
+        every = max(1, int(decode_every))
         while True:
             if max_blocks is not None and blocks >= max_blocks:
                 break
@@ -194,9 +197,20 @@ class PaddedSearch:
                     block_time = perf_counter() - started
                     continue
                 decoded_at = moved
+            if blocks % every:
+                pending = True
+                block_time = perf_counter() - started
+                continue
+            pending = False
             decode(self.best_states)
             decode_seconds += perf_counter() - started
             block_time = perf_counter() - started
+        if pending:
+            # the archive is monotone, so one final decode is never worse than
+            # decoding every block; it has to happen anyway to return a mask.
+            started = perf_counter()
+            decode(self.best_states)
+            decode_seconds += perf_counter() - started
         return steps, decode_seconds, blocks
 
     # ---------------------------------------------------------------- decode
