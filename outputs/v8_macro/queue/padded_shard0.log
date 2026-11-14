@@ -1,0 +1,56 @@
+padded shape: nodes 264, capacity 105
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+20/1000 0.5s/padded/cached:19.700@1309st 1.0s/padded/cached:19.700@2883st
+40/1000 0.5s/padded/cached:19.900@1309st 1.0s/padded/cached:19.950@2878st
+60/1000 0.5s/padded/cached:19.867@1308st 1.0s/padded/cached:19.900@2880st
+80/1000 0.5s/padded/cached:19.887@1309st 1.0s/padded/cached:19.925@2882st
+100/1000 0.5s/padded/cached:19.850@1308st 1.0s/padded/cached:19.890@2882st
+120/1000 0.5s/padded/cached:19.833@1310st 1.0s/padded/cached:19.867@2884st
+140/1000 0.5s/padded/cached:19.929@1308st 1.0s/padded/cached:19.957@2884st
+160/1000 0.5s/padded/cached:19.962@1309st 1.0s/padded/cached:19.994@2885st
+180/1000 0.5s/padded/cached:19.900@1309st 1.0s/padded/cached:19.939@2888st
+200/1000 0.5s/padded/cached:19.910@1309st 1.0s/padded/cached:19.950@2888st
+220/1000 0.5s/padded/cached:19.877@1309st 1.0s/padded/cached:19.918@2888st
+240/1000 0.5s/padded/cached:19.879@1309st 1.0s/padded/cached:19.925@2888st
+260/1000 0.5s/padded/cached:19.923@1309st 1.0s/padded/cached:19.965@2889st
+280/1000 0.5s/padded/cached:19.925@1310st 1.0s/padded/cached:19.964@2890st
+300/1000 0.5s/padded/cached:19.953@1309st 1.0s/padded/cached:19.990@2889st
+320/1000 0.5s/padded/cached:19.969@1308st 1.0s/padded/cached:20.006@2888st
+340/1000 0.5s/padded/cached:20.000@1308st 1.0s/padded/cached:20.044@2887st
+360/1000 0.5s/padded/cached:20.006@1308st 1.0s/padded/cached:20.047@2886st
+380/1000 0.5s/padded/cached:20.016@1307st 1.0s/padded/cached:20.055@2885st
+400/1000 0.5s/padded/cached:19.985@1307st 1.0s/padded/cached:20.025@2884st
+420/1000 0.5s/padded/cached:19.974@1308st 1.0s/padded/cached:20.014@2885st
+440/1000 0.5s/padded/cached:19.991@1308st 1.0s/padded/cached:20.030@2885st
+460/1000 0.5s/padded/cached:19.974@1308st 1.0s/padded/cached:20.011@2885st
+480/1000 0.5s/padded/cached:19.973@1308st 1.0s/padded/cached:20.008@2886st
+500/1000 0.5s/padded/cached:19.956@1308st 1.0s/padded/cached:19.990@2885st
+520/1000 0.5s/padded/cached:19.944@1308st 1.0s/padded/cached:19.977@2885st
+540/1000 0.5s/padded/cached:19.956@1308st 1.0s/padded/cached:19.991@2886st
+560/1000 0.5s/padded/cached:19.948@1307st 1.0s/padded/cached:19.986@2885st
+580/1000 0.5s/padded/cached:19.971@1307st 1.0s/padded/cached:20.007@2885st
+600/1000 0.5s/padded/cached:19.993@1308st 1.0s/padded/cached:20.028@2886st
+620/1000 0.5s/padded/cached:19.974@1308st 1.0s/padded/cached:20.008@2885st
+640/1000 0.5s/padded/cached:19.978@1308st 1.0s/padded/cached:20.014@2886st
+660/1000 0.5s/padded/cached:19.980@1308st 1.0s/padded/cached:20.015@2886st
+680/1000 0.5s/padded/cached:19.987@1308st 1.0s/padded/cached:20.021@2886st
+700/1000 0.5s/padded/cached:19.977@1308st 1.0s/padded/cached:20.011@2886st
+720/1000 0.5s/padded/cached:19.951@1309st 1.0s/padded/cached:19.986@2887st
+740/1000 0.5s/padded/cached:19.961@1309st 1.0s/padded/cached:19.995@2887st
+760/1000 0.5s/padded/cached:19.959@1309st 1.0s/padded/cached:19.993@2887st
+780/1000 0.5s/padded/cached:19.951@1309st 1.0s/padded/cached:19.986@2887st
+800/1000 0.5s/padded/cached:19.945@1309st 1.0s/padded/cached:19.980@2887st
+820/1000 0.5s/padded/cached:19.951@1309st 1.0s/padded/cached:19.987@2887st
+840/1000 0.5s/padded/cached:19.950@1309st 1.0s/padded/cached:19.986@2887st
+860/1000 0.5s/padded/cached:19.969@1309st 1.0s/padded/cached:20.003@2887st
+880/1000 0.5s/padded/cached:19.961@1309st 1.0s/padded/cached:19.997@2887st
+900/1000 0.5s/padded/cached:19.962@1309st 1.0s/padded/cached:19.998@2887st
+920/1000 0.5s/padded/cached:19.963@1309st 1.0s/padded/cached:19.999@2886st
+940/1000 0.5s/padded/cached:19.956@1309st 1.0s/padded/cached:19.993@2887st
+960/1000 0.5s/padded/cached:19.952@1310st 1.0s/padded/cached:19.990@2887st
+980/1000 0.5s/padded/cached:19.942@1310st 1.0s/padded/cached:19.980@2887st
+1000/1000 0.5s/padded/cached:19.945@1310st 1.0s/padded/cached:19.983@2887st
+ 0.5s padded/cached      size 19.9450 steps 1309.9 search 19.9440 ms/step 0.343 load 6.28 ms decode 143.35 ms
+ 1.0s padded/cached      size 19.9830 steps 2887.1 search 19.9810 ms/step 0.329 load 6.34 ms decode 157.49 ms
+wrote outputs/v8_macro/padded_long/padded/padded_ref0.csv

@@ -1,0 +1,122 @@
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 161, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 69, in main
+    parser.add_argument("--result_dir", type=Path, default=Path("outputs/v8_macro/padded"))
+  File "/home/hzeng/envs/nexco/lib/python3.10/argparse.py", line 1448, in add_argument
+    return self._add_action(action)
+  File "/home/hzeng/envs/nexco/lib/python3.10/argparse.py", line 1814, in _add_action
+    self._optionals._add_action(action)
+  File "/home/hzeng/envs/nexco/lib/python3.10/argparse.py", line 1650, in _add_action
+    action = super(_ArgumentGroup, self)._add_action(action)
+  File "/home/hzeng/envs/nexco/lib/python3.10/argparse.py", line 1462, in _add_action
+    self._check_conflict(action)
+  File "/home/hzeng/envs/nexco/lib/python3.10/argparse.py", line 1599, in _check_conflict
+    conflict_handler(action, confl_optionals)
+  File "/home/hzeng/envs/nexco/lib/python3.10/argparse.py", line 1608, in _handle_conflict_error
+    raise ArgumentError(action, message % conflict_string)
+argparse.ArgumentError: argument --result_dir: conflicting option string: --result_dir
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 160, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 82, in main
+    engine = PaddedSearch(solver, n_max=n_max, capacity=capacity, chunk=args.chunk,
+  File "/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py", line 83, in __init__
+    self._build()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py", line 163, in _build
+    self._body()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py", line 144, in _body
+    logits = self.model(self.state.unsqueeze(-1), None, self.normalized,
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+TypeError: GCN.forward() got an unexpected keyword argument 'degree'
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 160, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 82, in main
+    engine = PaddedSearch(solver, n_max=n_max, capacity=capacity, chunk=args.chunk,
+  File "/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py", line 83, in __init__
+    self._build()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py", line 160, in _build
+    self._body()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py", line 145, in _body
+    flipped = torch.where(noise < logits.sigmoid(), 1 - self.state, self.state)
+RuntimeError: The size of tensor a (240) must match the size of tensor b (20) at non-singleton dimension 1
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 160, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 102, in main
+    assert torch.equal(eager_best[:n], best), (
+AssertionError: 0: padded eager diverged from the unpadded loop
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 160, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 102, in main
+    assert torch.equal(eager_best[:n], best), (
+AssertionError: 0: padded eager diverged from the unpadded loop
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 173, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 111, in main
+    energy_gap = abs(float(eager_energy) - float(best_energy))
+ValueError: only one element tensors can be converted to Python scalars
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 173, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 130, in main
+    assert decoded and max(decoded, key=int.bit_count) == incumbent, (
+AssertionError: 0: decoded bitset differs from solution_masks
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+1/4 0: capture identical over 60 steps (vs unpadded: 82 node-slots drifted, size 21 -> 21), load 4.3 ms, replay 0.282 ms/step, decode 3.85 ms
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 173, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 98, in main
+    loaded = engine.load(graph, edges, seed)
+  File "/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py", line 131, in load
+    self.bias.copy_(graph.b.reshape(-1, 1))
+RuntimeError: The size of tensor a (240) must match the size of tensor b (231) at non-singleton dimension 0
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+1/4 0: capture identical over 60 steps (vs unpadded: 82 node-slots drifted, size 21 -> 21), load 4.3 ms, replay 0.285 ms/step, decode 3.98 ms
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 173, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/models/check_padded_capture.py", line 128, in main
+    eager_masks = solution_masks(solver.problem, eager_best, adj, graph.b)
+  File "/home/hzeng/project/ZH/RLNN_lab/models/diagnose_v7_census.py", line 112, in solution_masks
+    decoded = problem.decode_gradient_flip(states, adj, bias, return_solutions=True)
+  File "/home/hzeng/project/ZH/RLNN_lab/models/problems/mis.py", line 72, in decode_gradient_flip
+    gradient = 2 * self.beta * (adjacency @ solutions) + bias
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (231x231 and 240x20)
+padded shape: nodes 240, capacity 71
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+1/4 0: capture identical over 60 steps (vs unpadded: 82 node-slots drifted, size 21 -> 21), load 3.8 ms, replay 0.282 ms/step, decode 3.81 ms
+2/4 1: capture identical over 60 steps (vs unpadded: 66 node-slots drifted, size 19 -> 19), load 4.6 ms, replay 0.285 ms/step, decode 3.77 ms
+3/4 2: capture identical over 60 steps (vs unpadded: 100 node-slots drifted, size 22 -> 22), load 8.9 ms, replay 0.280 ms/step, decode 3.54 ms
+4/4 3: capture identical over 60 steps (vs unpadded: 178 node-slots drifted, size 22 -> 22), load 3.7 ms, replay 0.282 ms/step, decode 3.71 ms
+padded engine gate passed: bit-identical trajectory, replay and decode

@@ -41,11 +41,13 @@
 | P16 | `SHARDS=2 bash er_grid.sh` | ER-[700–800]：p=0.15 生成 128 图 → 转 tensor → 同三格网格（约 1 小时） |
 | P17 | `python models/merge_v8_shards.py --pattern '<dir>/capture_budget_ref0_shard*.csv' --out <dir>/capture_budget_ref0.csv` | 把分片 CSV 合成单文件（`graph_id` 用全局下标，不会因分片错位） |
 | P18 | `python models/summarize_v8_claim.py --csv <merged.csv>` | 主张分解表：`search_size`（无平台）vs `final_size`（+平台）+ 图级配对 CI |
+| P19 | `GRAPHS=4 STEPS=60 bash check_padded.sh` | 摊薄闸门：捕获 vs padded eager 逐位相等，另报与未 padded 的 `drifted_nodes` 与解大小 |
+| P20 | `SHARDS=1 BUDGETS="0.05 0.1 0.2" DECODERS=cached RESULT_DIR=outputs/v8_macro/padded_short bash padded.sh` | 摊薄评测（短时钟，约 5 分钟）：整个数据集只捕获一次，prelude 从 93 ms 掉到 6 ms |
 
-`models/` 侧对应文件：`mis_v8_capture.py`、`mis_v8_decode.py`、`check_capture_budget.py`、
-`check_decode_capture.py`、`probe_decode_cost.py`、`profile_budget_step.py`、`eval_kamis_anytime.py`、
-`eval_v8_capture_budget.py`、`summarize_v8_positioning.py`、`eval_pave_external.py`、`eval_regime.py`、
-`summarize_v8_claim.py`、`merge_v8_shards.py`。
+`models/` 侧对应文件：`mis_v8_capture.py`、`mis_v8_decode.py`、`mis_v8_pad.py`、`check_capture_budget.py`、
+`check_decode_capture.py`、`check_padded_capture.py`、`probe_decode_cost.py`、`profile_budget_step.py`、
+`eval_kamis_anytime.py`、`eval_v8_capture_budget.py`、`eval_v8_padded.py`、`summarize_v8_positioning.py`、
+`eval_pave_external.py`、`eval_regime.py`、`summarize_v8_claim.py`、`merge_v8_shards.py`。
 
 ## 环境变量
 

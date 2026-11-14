@@ -1,0 +1,13 @@
+graph_id,search_seed,budget,arm,decoder,cell,repeat,first,final_size,search_size,pave_gain,steps,blocks,solve_time_s,search_time_s,decode_time_s,load_s,reserve_s,prelude_s,ms_per_step,deadline_overrun
+idx_0,1017,0.05,padded,cached,padded/cached,0,1,19,19,0,0,0,0.1283,0.1281,0.0,0.015,0.01,0.1256,128.122,1
+idx_0,1017,0.05,padded,captured,padded/captured,0,0,19,19,0,0,0,0.1373,0.1371,0.0,0.0048,0.01,0.1315,137.138,1
+idx_0,1017,0.2,padded,cached,padded/cached,0,1,19,19,0,10,1,0.2049,0.2047,0.0666,0.0053,0.04,0.1379,20.474,1
+idx_0,1017,0.2,padded,captured,padded/captured,0,0,19,19,0,10,1,0.1962,0.1686,0.0366,0.0068,0.04,0.1319,16.865,0
+idx_1,1017,0.05,padded,captured,padded/captured,0,1,18,18,0,0,0,0.0782,0.0778,0.0,0.005,0.01,0.0744,77.845,1
+idx_1,1017,0.05,padded,cached,padded/cached,0,0,18,18,0,0,0,0.116,0.1159,0.0,0.0081,0.01,0.1126,115.861,1
+idx_1,1017,0.2,padded,captured,padded/captured,0,1,21,19,2,20,2,0.1949,0.1516,0.0334,0.0058,0.04,0.1181,7.58,0
+idx_1,1017,0.2,padded,cached,padded/cached,0,0,21,19,2,10,1,0.1927,0.1384,0.0273,0.0035,0.04,0.111,13.843,0
+idx_2,1017,0.05,padded,cached,padded/cached,0,1,19,19,0,0,0,0.1258,0.1257,0.0,0.005,0.01,0.1242,125.738,1
+idx_2,1017,0.05,padded,captured,padded/captured,0,0,19,19,0,0,0,0.1385,0.1383,0.0,0.0038,0.01,0.1338,138.293,1
+idx_2,1017,0.2,padded,cached,padded/cached,0,1,20,20,0,50,5,0.1947,0.1567,0.0605,0.0071,0.04,0.0955,3.134,0
+idx_2,1017,0.2,padded,captured,padded/captured,0,0,20,20,0,80,8,0.1722,0.1572,0.1001,0.0081,0.04,0.0569,1.965,0

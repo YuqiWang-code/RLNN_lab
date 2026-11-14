@@ -1,0 +1,5 @@
+padded shape: nodes 264, capacity 105
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+20/250 0.05s/padded/captured:18.200@4st 0.05s/padded/cached:18.100@1st 0.1s/padded/captured:19.050@17st 0.1s/padded/cached:19.050@22st 0.2s/padded/captured:19.300@28st 0.2s/padded/cached:19.400@36st 1.0s/padded/captured:19.900@904st 1.0s/padded/cached:19.900@774st
+40/250 0.05s/padded/captured:18.275@2st 0.05s/padded/cached:18.250@2st 0.1s/padded/captured:19.275@20st 0.1s/padded/cached:19.250@20st 0.2s/padded/captured:19.650@36st 0.2s/padded/cached:19.725@70st 1.0s/padded/captured:20.175@864st 1.0s/padded/cached:20.200@778st

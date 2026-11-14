@@ -32,6 +32,9 @@
 | `eval_regime.py` | 跨族/跨规模迁移：`--families RB_small_val ER_200_300 BA_200_300 RB_large`，三臂（`rl` 捕获搜索@1.0 s / `kamis` 整预算给算法时间 / 贪心+PAVE），每族 40 图、按图配对自助 |
 | `summarize_v8_claim.py` | 主张分解表：用 CSV 里的 `search_size`（平台前）与 `final_size`（平台后）算「捕获 × 平台」2×2，判断两个组件是相加还是替代 |
 | `merge_v8_shards.py` | 合并 `--shards N` 产生的分片 CSV（按 `graph_id/budget/cell/seed/repeat` 去重，`graph_id` 用全局下标） |
+| `mis_v8_pad.py` | `PaddedSearch`：缓冲按 `(n_max, capacity)` 固定、**整个数据集只捕获一次**，每图只改写边缓冲（`load` 6 ms 而不是 93 ms）；`decode_best` 只对真实节点取最大粒子 |
+| `check_padded_capture.py` | 摊薄闸门：捕获 vs padded eager 逐位相等；padded vs 未 padded 报告 `drifted_nodes` 与 `size` 是否一致（浮点归约顺序不同，差在 1e-7 级） |
+| `eval_v8_padded.py` | 摊薄评测：`--budgets` 任意短时钟、`--reserve_frac` 让 PAVE 预留随时钟缩放（否则 0.05 s 档一步都走不了） |
 
 结果见 [`../docs/temporary/RLNN_v8_Positioning_Results.md`](../docs/temporary/RLNN_v8_Positioning_Results.md)，
 启动器见 [`../train_scripts/v8_macro/`](../train_scripts/v8_macro/README.md)。
