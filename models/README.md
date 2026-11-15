@@ -1,5 +1,8 @@
 # RLNN 源码
 
+> 已关闭方法线的代码在 [closed/](closed/README.md)，那 18 个文件不被本目录的活跃模块引用，也不能原样运行。docs/temporary/ 的索引见 [docs/temporary/README.md](../docs/temporary/README.md)。
+
+
 上游：[Shengyu-Feng/RLD4CO](https://github.com/Shengyu-Feng/RLD4CO)，作者 Shengyu Feng、Yiming Yang。基于项目根目录提供的 ZIP，版本与适配记录见[源码来源](../docs/源码来源.md)；[原始 README](README.upstream.md)保留作者说明和引用。包内未提供许可证文件。
 
 当前研究入口是 **RLNN / erdoes**。RLSA 是退火方法，`reinforce` 是另一种训练损失，均保留上游能力，但不是本项目默认基线。
@@ -67,7 +70,7 @@
 | `mis_structure.py` / `train_structure.py` / `eval_structure.py` | 结构补偿（度数/门控/增益） | v1 +0.090 判为单种子波动，v2 `degree_out` +0.013 不显著 |
 | `archived_frequency/` | 频域适配器 | 已归档，模型/训练/机制诊断全部移入该子目录 |
 | `mis_v7_context.py` / `v7_structure.py` / `train_v7_context.py` / `eval_v7_context.py` | v7 上下文/静态编码 | 方向学不出来，余弦 0.088 |
-| `mis_v7_recombine.py` / `mis_v7_conflict.py` / `mis_v7_fast.py` / `diagnose_v7_census.py` / `diagnose_v7_context.py` / `eval_v7_tccr.py` / `eval_v7_budget.py` / `check_v7.py` / `probe_v7_context.py` / `profile_v7_context.py` / `v7_runs.py` | v7 TCCR（精确重组 + 冲突释放） | 固定工作量 +0.088 但预算门四格 CI 全跨零，`budget_fail`；见[结果文档](../docs/temporary/RLNN_v7_TCCR_Results.md) |
+| `mis_v7_recombine.py` / `mis_v7_conflict.py` / `mis_v7_fast.py` / `diagnose_v7_census.py` / `diagnose_v7_context.py` / `eval_v7_tccr.py` / `eval_v7_budget.py` / `check_v7.py` / `probe_v7_context.py` / `profile_v7_context.py` / `v7_runs.py` | v7 TCCR（精确重组 + 冲突释放） | 固定工作量 +0.088 但预算门四格 CI 全跨零，`budget_fail`；见[结果文档](../docs/已归档的想法和文件/v7_tccr/RLNN_v7_TCCR_Results.md) |
 
 `v7_runs.py` 虽是 v7 命名的，但 `backbone`/`pave`/`digest`/`provenance`/`preflight_policy` 是 v8 仍在用的公共工具，不要跟着 v7 一起清掉。
 
