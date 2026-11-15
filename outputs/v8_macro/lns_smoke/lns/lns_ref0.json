@@ -1,0 +1,31 @@
+{
+  "ref": 0,
+  "samples": 4,
+  "balls": 40,
+  "radii": [
+    1,
+    2
+  ],
+  "budgets": [
+    1.0
+  ],
+  "wall_time_s": 4.1,
+  "1.0s_r1": {
+    "graphs": 4,
+    "size": 20,
+    "regions": 37.75,
+    "positive": 0,
+    "graphs_with_gain": 0,
+    "best": 0,
+    "greedy_gain": 0
+  },
+  "1.0s_r2": {
+    "graphs": 4,
+    "size": 20,
+    "regions": 8.75,
+    "positive": 0,
+    "graphs_with_gain": 0,
+    "best": 0,
+    "greedy_gain": 0
+  }
+}
