@@ -1,0 +1,5 @@
+graph_id,budget,size,n,base,final,gain,improved,rounds,positive_rounds,best_round
+idx_0,1.0,8,242,19,19,0,0,10,0,0
+idx_1,1.0,8,240,22,22,0,0,10,0,0
+idx_2,1.0,8,230,21,21,0,0,10,0,0
+idx_3,1.0,8,200,18,18,0,0,10,0,0
