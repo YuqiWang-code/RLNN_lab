@@ -1,0 +1,50 @@
+{
+  "ref": 0,
+  "seeds": [
+    1017
+  ],
+  "budgets": [
+    0.2
+  ],
+  "graphs": 20,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "search",
+    "inject",
+    "refill"
+  ],
+  "cycle_steps": 100,
+  "pave_share": 0.02,
+  "decode_every": 2,
+  "decode_chunk": 4,
+  "padded": {
+    "nodes": 264,
+    "capacity": 94,
+    "capture_s": 0.8417
+  },
+  "wall_time_s": 11.58,
+  "paired": {
+    "0.2/inject": {
+      "mean": 0.0,
+      "low": 0.0,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 20,
+      "losses": 0,
+      "n": 20
+    },
+    "0.2/refill": {
+      "mean": 0.0,
+      "low": 0.0,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 20,
+      "losses": 0,
+      "n": 20
+    }
+  },
+  "rows": 60
+}

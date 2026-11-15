@@ -1,0 +1,70 @@
+{
+  "ref": 0,
+  "seeds": [
+    1017
+  ],
+  "budgets": [
+    0.05,
+    0.1,
+    0.2,
+    1.0
+  ],
+  "graphs": 30,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "search",
+    "kick"
+  ],
+  "cycle_steps": 50,
+  "pave_share": 0.1,
+  "decode_every": 2,
+  "decode_chunk": 4,
+  "padded": {
+    "nodes": 264,
+    "capacity": 94,
+    "capture_s": 0.8793
+  },
+  "wall_time_s": 79.63,
+  "paired": {
+    "0.05/kick": {
+      "mean": 0.06666666666666667,
+      "low": 0.0,
+      "high": 0.16666666666666666,
+      "wins": 2,
+      "ties": 28,
+      "losses": 0,
+      "n": 30
+    },
+    "0.1/kick": {
+      "mean": -0.03333333333333333,
+      "low": -0.1,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 29,
+      "losses": 1,
+      "n": 30
+    },
+    "0.2/kick": {
+      "mean": 0.0,
+      "low": -0.1,
+      "high": 0.1,
+      "wins": 1,
+      "ties": 28,
+      "losses": 1,
+      "n": 30
+    },
+    "1.0/kick": {
+      "mean": -0.03333333333333333,
+      "low": -0.1,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 29,
+      "losses": 1,
+      "n": 30
+    }
+  },
+  "rows": 240
+}

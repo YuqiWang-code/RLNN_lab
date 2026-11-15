@@ -1,0 +1,7 @@
+graph_id,search_seed,budget,arm,decoder,cell,repeat,first,temperature,anneal,final_size,search_size,pave_gain,steps,blocks,solve_time_s,search_time_s,decode_time_s,load_s,reserve_s,prelude_s,ms_per_step,deadline_overrun
+idx_0,1017,0.2,padded,cached,padded/cached/T4,0,1,4.0,0,19,19,0,410,41,0.1932,0.1575,0.1118,0.0014,0.04,0.01,0.384,0
+idx_0,1017,0.2,padded,cached,padded/cached,0,1,1.0,0,19,19,0,480,48,0.1944,0.16,0.0988,0.0011,0.04,0.009,0.333,0
+idx_1,1017,0.2,padded,cached,padded/cached,0,1,1.0,0,21,21,0,460,46,0.1702,0.1582,0.0968,0.001,0.04,0.0092,0.344,0
+idx_1,1017,0.2,padded,cached,padded/cached/T4,0,1,4.0,0,21,21,0,420,42,0.168,0.1575,0.1192,0.001,0.04,0.0091,0.375,0
+idx_2,1017,0.2,padded,cached,padded/cached/T4,0,1,4.0,0,21,20,1,410,41,0.1941,0.1576,0.1245,0.001,0.04,0.0084,0.384,0
+idx_2,1017,0.2,padded,cached,padded/cached,0,1,1.0,0,21,21,0,480,48,0.1898,0.1589,0.101,0.001,0.04,0.0084,0.331,0

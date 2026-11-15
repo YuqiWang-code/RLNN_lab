@@ -1,0 +1,97 @@
+padded shape: nodes 264, capacity 105
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v8_pad.py:66: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+20/1000 0.05s/search:19.250@79st/0.0x 0.05s/inject:19.350@84st/2.6x 0.1s/search:19.550@195st/0.0x 0.1s/inject:19.550@184st/4.0x 0.2s/search:19.650@444st/0.0x 0.2s/inject:19.600@359st/7.0x 1.0s/search:19.700@2927st/0.0x 1.0s/inject:19.700@1038st/18.3x
+40/1000 0.05s/search:19.525@78st/0.0x 0.05s/inject:19.600@84st/2.7x 0.1s/search:19.750@194st/0.0x 0.1s/inject:19.750@182st/3.9x 0.2s/search:19.875@443st/0.0x 0.2s/inject:19.800@352st/6.9x 1.0s/search:19.950@2926st/0.0x 1.0s/inject:19.925@1068st/18.8x
+60/1000 0.05s/search:19.417@78st/0.0x 0.05s/inject:19.467@82st/2.6x 0.1s/search:19.717@192st/0.0x 0.1s/inject:19.717@183st/3.9x 0.2s/search:19.817@441st/0.0x 0.2s/inject:19.767@349st/6.9x 1.0s/search:19.900@2928st/0.0x 1.0s/inject:19.867@1066st/18.7x
+80/1000 0.05s/search:19.413@76st/0.0x 0.05s/inject:19.450@82st/2.6x 0.1s/search:19.712@191st/0.0x 0.1s/inject:19.712@181st/3.9x 0.2s/search:19.837@439st/0.0x 0.2s/inject:19.775@347st/6.8x 1.0s/search:19.925@2928st/0.0x 1.0s/inject:19.887@1068st/18.8x
+100/1000 0.05s/search:19.390@77st/0.0x 0.05s/inject:19.420@82st/2.6x 0.1s/search:19.680@192st/0.0x 0.1s/inject:19.670@181st/3.9x 0.2s/search:19.800@438st/0.0x 0.2s/inject:19.730@347st/6.8x 1.0s/search:19.890@2928st/0.0x 1.0s/inject:19.850@1071st/18.9x
+120/1000 0.05s/search:19.350@76st/0.0x 0.05s/inject:19.375@82st/2.6x 0.1s/search:19.650@191st/0.0x 0.1s/inject:19.633@181st/3.9x 0.2s/search:19.767@438st/0.0x 0.2s/inject:19.708@346st/6.8x 1.0s/search:19.867@2930st/0.0x 1.0s/inject:19.833@1065st/18.8x
+140/1000 0.05s/search:19.414@76st/0.0x 0.05s/inject:19.443@82st/2.7x 0.1s/search:19.700@193st/0.0x 0.1s/inject:19.686@182st/3.9x 0.2s/search:19.829@438st/0.0x 0.2s/inject:19.779@346st/6.9x 1.0s/search:19.957@2929st/0.0x 1.0s/inject:19.929@1065st/18.8x
+160/1000 0.05s/search:19.456@76st/0.0x 0.05s/inject:19.481@83st/2.7x 0.1s/search:19.731@193st/0.0x 0.1s/inject:19.719@182st/3.9x 0.2s/search:19.856@438st/0.0x 0.2s/inject:19.812@348st/6.9x 1.0s/search:19.994@2931st/0.0x 1.0s/inject:19.962@1067st/18.8x
+180/1000 0.05s/search:19.411@76st/0.0x 0.05s/inject:19.433@83st/2.7x 0.1s/search:19.672@194st/0.0x 0.1s/inject:19.656@182st/3.9x 0.2s/search:19.800@438st/0.0x 0.2s/inject:19.761@347st/6.9x 1.0s/search:19.939@2932st/0.0x 1.0s/inject:19.900@1064st/18.8x
+200/1000 0.05s/search:19.415@76st/0.0x 0.05s/inject:19.440@83st/2.7x 0.1s/search:19.680@194st/0.0x 0.1s/inject:19.665@182st/3.9x 0.2s/search:19.810@438st/0.0x 0.2s/inject:19.770@347st/6.9x 1.0s/search:19.950@2931st/0.0x 1.0s/inject:19.900@1063st/18.8x
+220/1000 0.05s/search:19.395@76st/0.0x 0.05s/inject:19.427@82st/2.7x 0.1s/search:19.655@194st/0.0x 0.1s/inject:19.641@182st/3.9x 0.2s/search:19.773@437st/0.0x 0.2s/inject:19.736@346st/6.9x 1.0s/search:19.918@2931st/0.0x 1.0s/inject:19.864@1059st/18.7x
+240/1000 0.05s/search:19.387@75st/0.0x 0.05s/inject:19.421@83st/2.7x 0.1s/search:19.650@194st/0.0x 0.1s/inject:19.633@182st/3.9x 0.2s/search:19.775@438st/0.0x 0.2s/inject:19.738@347st/6.9x 1.0s/search:19.925@2931st/0.0x 1.0s/inject:19.858@1058st/18.7x
+260/1000 0.05s/search:19.435@76st/0.0x 0.05s/inject:19.465@83st/2.7x 0.1s/search:19.700@195st/0.0x 0.1s/inject:19.681@182st/3.9x 0.2s/search:19.827@438st/0.0x 0.2s/inject:19.785@348st/6.9x 1.0s/search:19.965@2932st/0.0x 1.0s/inject:19.904@1056st/18.6x
+280/1000 0.05s/search:19.450@76st/0.0x 0.05s/inject:19.479@83st/2.7x 0.1s/search:19.707@195st/0.0x 0.1s/inject:19.686@182st/3.9x 0.2s/search:19.832@439st/0.0x 0.2s/inject:19.793@348st/6.9x 1.0s/search:19.964@2933st/0.0x 1.0s/inject:19.907@1057st/18.7x
+300/1000 0.05s/search:19.477@76st/0.0x 0.05s/inject:19.507@83st/2.7x 0.1s/search:19.733@195st/0.0x 0.1s/inject:19.717@183st/4.0x 0.2s/search:19.860@440st/0.0x 0.2s/inject:19.823@348st/6.9x 1.0s/search:19.990@2934st/0.0x 1.0s/inject:19.933@1057st/18.7x
+320/1000 0.05s/search:19.484@76st/0.0x 0.05s/inject:19.512@83st/2.7x 0.1s/search:19.744@195st/0.0x 0.1s/inject:19.728@183st/4.0x 0.2s/search:19.869@439st/0.0x 0.2s/inject:19.834@348st/6.9x 1.0s/search:20.006@2933st/0.0x 1.0s/inject:19.947@1056st/18.6x
+340/1000 0.05s/search:19.509@76st/0.0x 0.05s/inject:19.535@83st/2.7x 0.1s/search:19.765@195st/0.0x 0.1s/inject:19.750@183st/4.0x 0.2s/search:19.891@439st/0.0x 0.2s/inject:19.859@348st/6.9x 1.0s/search:20.044@2932st/0.0x 1.0s/inject:19.979@1057st/18.7x
+360/1000 0.05s/search:19.517@76st/0.0x 0.05s/inject:19.544@83st/2.7x 0.1s/search:19.775@196st/0.0x 0.1s/inject:19.761@183st/4.0x 0.2s/search:19.900@439st/0.0x 0.2s/inject:19.869@349st/6.9x 1.0s/search:20.047@2931st/0.0x 1.0s/inject:19.986@1056st/18.7x
+380/1000 0.05s/search:19.521@76st/0.0x 0.05s/inject:19.545@83st/2.7x 0.1s/search:19.779@195st/0.0x 0.1s/inject:19.766@183st/3.9x 0.2s/search:19.911@438st/0.0x 0.2s/inject:19.876@348st/6.9x 1.0s/search:20.055@2930st/0.0x 1.0s/inject:19.997@1054st/18.6x
+400/1000 0.05s/search:19.490@76st/0.0x 0.05s/inject:19.512@83st/2.6x 0.1s/search:19.747@195st/0.0x 0.1s/inject:19.735@182st/3.9x 0.2s/search:19.880@438st/0.0x 0.2s/inject:19.845@348st/6.9x 1.0s/search:20.025@2928st/0.0x 1.0s/inject:19.968@1053st/18.6x
+420/1000 0.05s/search:19.481@76st/0.0x 0.05s/inject:19.500@83st/2.7x 0.1s/search:19.743@195st/0.0x 0.1s/inject:19.729@182st/4.0x 0.2s/search:19.871@438st/0.0x 0.2s/inject:19.838@347st/6.9x 1.0s/search:20.014@2930st/0.0x 1.0s/inject:19.957@1055st/18.6x
+440/1000 0.05s/search:19.491@76st/0.0x 0.05s/inject:19.509@83st/2.6x 0.1s/search:19.757@195st/0.0x 0.1s/inject:19.743@182st/4.0x 0.2s/search:19.886@438st/0.0x 0.2s/inject:19.855@347st/6.9x 1.0s/search:20.030@2931st/0.0x 1.0s/inject:19.973@1054st/18.6x
+460/1000 0.05s/search:19.478@76st/0.0x 0.05s/inject:19.493@83st/2.6x 0.1s/search:19.741@195st/0.0x 0.1s/inject:19.726@182st/4.0x 0.2s/search:19.870@438st/0.0x 0.2s/inject:19.839@347st/6.9x 1.0s/search:20.011@2931st/0.0x 1.0s/inject:19.957@1052st/18.6x
+480/1000 0.05s/search:19.481@76st/0.0x 0.05s/inject:19.496@83st/2.6x 0.1s/search:19.740@195st/0.0x 0.1s/inject:19.725@182st/4.0x 0.2s/search:19.869@438st/0.0x 0.2s/inject:19.840@347st/6.9x 1.0s/search:20.008@2931st/0.0x 1.0s/inject:19.954@1051st/18.6x
+500/1000 0.05s/search:19.466@76st/0.0x 0.05s/inject:19.478@82st/2.6x 0.1s/search:19.722@195st/0.0x 0.1s/inject:19.706@182st/4.0x 0.2s/search:19.854@438st/0.0x 0.2s/inject:19.822@347st/6.9x 1.0s/search:19.990@2931st/0.0x 1.0s/inject:19.936@1051st/18.6x
+520/1000 0.05s/search:19.448@76st/0.0x 0.05s/inject:19.465@82st/2.6x 0.1s/search:19.708@195st/0.0x 0.1s/inject:19.692@182st/4.0x 0.2s/search:19.838@438st/0.0x 0.2s/inject:19.806@346st/6.9x 1.0s/search:19.977@2931st/0.0x 1.0s/inject:19.925@1051st/18.6x
+540/1000 0.05s/search:19.457@76st/0.0x 0.05s/inject:19.474@82st/2.6x 0.1s/search:19.719@195st/0.0x 0.1s/inject:19.702@182st/4.0x 0.2s/search:19.846@438st/0.0x 0.2s/inject:19.813@346st/6.9x 1.0s/search:19.991@2931st/0.0x 1.0s/inject:19.937@1051st/18.6x
+560/1000 0.05s/search:19.457@76st/0.0x 0.05s/inject:19.473@82st/2.6x 0.1s/search:19.716@195st/0.0x 0.1s/inject:19.700@182st/4.0x 0.2s/search:19.839@438st/0.0x 0.2s/inject:19.807@347st/6.9x 1.0s/search:19.986@2931st/0.0x 1.0s/inject:19.930@1050st/18.5x
+580/1000 0.05s/search:19.476@76st/0.0x 0.05s/inject:19.495@82st/2.6x 0.1s/search:19.738@195st/0.0x 0.1s/inject:19.722@182st/4.0x 0.2s/search:19.862@438st/0.0x 0.2s/inject:19.829@347st/6.9x 1.0s/search:20.007@2931st/0.0x 1.0s/inject:19.952@1049st/18.5x
+600/1000 0.05s/search:19.498@76st/0.0x 0.05s/inject:19.517@82st/2.6x 0.1s/search:19.758@195st/0.0x 0.1s/inject:19.742@183st/4.0x 0.2s/search:19.885@438st/0.0x 0.2s/inject:19.850@347st/6.9x 1.0s/search:20.028@2931st/0.0x 1.0s/inject:19.975@1051st/18.6x
+620/1000 0.05s/search:19.474@76st/0.0x 0.05s/inject:19.492@83st/2.6x 0.1s/search:19.745@195st/0.0x 0.1s/inject:19.724@183st/4.0x 0.2s/search:19.869@438st/0.0x 0.2s/inject:19.835@348st/6.9x 1.0s/search:20.008@2931st/0.0x 1.0s/inject:19.956@1055st/18.6x
+640/1000 0.05s/search:19.484@76st/0.0x 0.05s/inject:19.505@83st/2.6x 0.1s/search:19.750@196st/0.0x 0.1s/inject:19.730@183st/4.0x 0.2s/search:19.875@439st/0.0x 0.2s/inject:19.841@348st/6.9x 1.0s/search:20.014@2932st/0.0x 1.0s/inject:19.961@1055st/18.6x
+660/1000 0.05s/search:19.486@76st/0.0x 0.05s/inject:19.505@83st/2.6x 0.1s/search:19.752@196st/0.0x 0.1s/inject:19.727@183st/4.0x 0.2s/search:19.879@439st/0.0x 0.2s/inject:19.844@348st/6.9x 1.0s/search:20.015@2932st/0.0x 1.0s/inject:19.964@1055st/18.6x
+680/1000 0.05s/search:19.490@76st/0.0x 0.05s/inject:19.507@83st/2.6x 0.1s/search:19.757@196st/0.0x 0.1s/inject:19.732@183st/4.0x 0.2s/search:19.888@439st/0.0x 0.2s/inject:19.850@348st/6.9x 1.0s/search:20.021@2932st/0.0x 1.0s/inject:19.971@1056st/18.7x
+700/1000 0.05s/search:19.477@76st/0.0x 0.05s/inject:19.494@82st/2.6x 0.1s/search:19.741@194st/0.0x 0.1s/inject:19.717@181st/4.0x 0.2s/search:19.874@435st/0.0x 0.2s/inject:19.837@346st/6.8x 1.0s/search:20.011@2914st/0.0x 1.0s/inject:19.960@1052st/18.6x
+720/1000 0.05s/search:19.443@75st/0.0x 0.05s/inject:19.461@81st/2.6x 0.1s/search:19.708@192st/0.0x 0.1s/inject:19.683@180st/3.9x 0.2s/search:19.847@432st/0.0x 0.2s/inject:19.810@344st/6.8x 1.0s/search:19.986@2894st/0.0x 1.0s/inject:19.935@1048st/18.5x
+740/1000 0.05s/search:19.453@75st/0.0x 0.05s/inject:19.470@82st/2.6x 0.1s/search:19.718@193st/0.0x 0.1s/inject:19.692@180st/4.0x 0.2s/search:19.854@433st/0.0x 0.2s/inject:19.816@344st/6.8x 1.0s/search:19.995@2897st/0.0x 1.0s/inject:19.945@1050st/18.6x
+760/1000 0.05s/search:19.453@75st/0.0x 0.05s/inject:19.472@82st/2.6x 0.1s/search:19.716@193st/0.0x 0.1s/inject:19.692@180st/4.0x 0.2s/search:19.854@433st/0.0x 0.2s/inject:19.816@345st/6.8x 1.0s/search:19.993@2900st/0.0x 1.0s/inject:19.943@1052st/18.6x
+780/1000 0.05s/search:19.447@76st/0.0x 0.05s/inject:19.468@82st/2.6x 0.1s/search:19.708@193st/0.0x 0.1s/inject:19.685@181st/4.0x 0.2s/search:19.846@434st/0.0x 0.2s/inject:19.809@346st/6.8x 1.0s/search:19.986@2904st/0.0x 1.0s/inject:19.935@1053st/18.6x
+800/1000 0.05s/search:19.448@76st/0.0x 0.05s/inject:19.468@82st/2.6x 0.1s/search:19.704@194st/0.0x 0.1s/inject:19.681@181st/4.0x 0.2s/search:19.841@435st/0.0x 0.2s/inject:19.805@347st/6.9x 1.0s/search:19.980@2907st/0.0x 1.0s/inject:19.929@1055st/18.6x
+820/1000 0.05s/search:19.455@76st/0.0x 0.05s/inject:19.477@83st/2.6x 0.1s/search:19.710@194st/0.0x 0.1s/inject:19.688@182st/4.0x 0.2s/search:19.848@436st/0.0x 0.2s/inject:19.812@348st/6.9x 1.0s/search:19.987@2911st/0.0x 1.0s/inject:19.934@1056st/18.7x
+840/1000 0.05s/search:19.455@77st/0.0x 0.05s/inject:19.475@83st/2.6x 0.1s/search:19.708@195st/0.0x 0.1s/inject:19.687@182st/4.0x 0.2s/search:19.849@436st/0.0x 0.2s/inject:19.813@349st/6.9x 1.0s/search:19.986@2914st/0.0x 1.0s/inject:19.933@1058st/18.7x
+860/1000 0.05s/search:19.467@77st/0.0x 0.05s/inject:19.490@83st/2.6x 0.1s/search:19.724@195st/0.0x 0.1s/inject:19.703@182st/4.0x 0.2s/search:19.863@437st/0.0x 0.2s/inject:19.828@350st/6.9x 1.0s/search:20.003@2917st/0.0x 1.0s/inject:19.951@1060st/18.7x
+880/1000 0.05s/search:19.464@77st/0.0x 0.05s/inject:19.486@83st/2.6x 0.1s/search:19.720@195st/0.0x 0.1s/inject:19.700@183st/4.0x 0.2s/search:19.857@438st/0.0x 0.2s/inject:19.823@350st/6.9x 1.0s/search:19.997@2920st/0.0x 1.0s/inject:19.944@1063st/18.8x
+900/1000 0.05s/search:19.468@77st/0.0x 0.05s/inject:19.492@84st/2.6x 0.1s/search:19.724@196st/0.0x 0.1s/inject:19.706@183st/4.0x 0.2s/search:19.859@438st/0.0x 0.2s/inject:19.827@350st/6.9x 1.0s/search:19.998@2922st/0.0x 1.0s/inject:19.946@1063st/18.8x
+920/1000 0.05s/search:19.468@77st/0.0x 0.05s/inject:19.493@84st/2.6x 0.1s/search:19.726@196st/0.0x 0.1s/inject:19.705@183st/4.0x 0.2s/search:19.860@438st/0.0x 0.2s/inject:19.826@350st/6.9x 1.0s/search:19.999@2924st/0.0x 1.0s/inject:19.947@1062st/18.8x
+940/1000 0.05s/search:19.462@77st/0.0x 0.05s/inject:19.486@84st/2.6x 0.1s/search:19.717@196st/0.0x 0.1s/inject:19.697@183st/4.0x 0.2s/search:19.854@439st/0.0x 0.2s/inject:19.819@351st/6.9x 1.0s/search:19.993@2926st/0.0x 1.0s/inject:19.939@1062st/18.8x
+960/1000 0.05s/search:19.460@78st/0.0x 0.05s/inject:19.484@84st/2.6x 0.1s/search:19.714@196st/0.0x 0.1s/inject:19.693@183st/4.0x 0.2s/search:19.850@439st/0.0x 0.2s/inject:19.816@351st/6.9x 1.0s/search:19.990@2929st/0.0x 1.0s/inject:19.934@1063st/18.8x
+980/1000 0.05s/search:19.445@78st/0.0x 0.05s/inject:19.469@84st/2.6x 0.1s/search:19.700@196st/0.0x 0.1s/inject:19.679@183st/4.0x 0.2s/search:19.839@440st/0.0x 0.2s/inject:19.804@351st/6.9x 1.0s/search:19.980@2931st/0.0x 1.0s/inject:19.924@1064st/18.8x
+1000/1000 0.05s/search:19.446@78st/0.0x 0.05s/inject:19.470@84st/2.6x 0.1s/search:19.701@196st/0.0x 0.1s/inject:19.680@184st/4.1x 0.2s/search:19.841@440st/0.0x 0.2s/inject:19.805@352st/6.9x 1.0s/search:19.983@2933st/0.0x 1.0s/inject:19.928@1063st/18.8x
+0.05s search   size 19.4460 search 19.3810 steps 78 exch 0.0 inject 0.0 gain 0.00 pave 0.0 ms
+0.05s inject   size 19.4700 search 19.4250 steps 84 exch 2.6 inject 0.0 gain 0.01 pave 0.9 ms
+ 0.1s search   size 19.7010 search 19.6840 steps 196 exch 0.0 inject 0.0 gain 0.00 pave 0.0 ms
+ 0.1s inject   size 19.6800 search 19.6770 steps 184 exch 4.1 inject 0.1 gain 0.07 pave 6.8 ms
+ 0.2s search   size 19.8410 search 19.8360 steps 440 exch 0.0 inject 0.0 gain 0.00 pave 0.0 ms
+ 0.2s inject   size 19.8050 search 19.7980 steps 352 exch 6.9 inject 0.1 gain 0.10 pave 29.6 ms
+ 1.0s search   size 19.9830 search 19.9810 steps 2933 exch 0.0 inject 0.0 gain 0.00 pave 0.0 ms
+ 1.0s inject   size 19.9280 search 19.9280 steps 1063 exch 18.8 inject 0.2 gain 0.18 pave 580.6 ms
+0.05s inject - search: +0.0240 [+0.0080,+0.0390] 39/943/18
+ 0.1s inject - search: -0.0210 [-0.0320,-0.0100] 5/969/26
+ 0.2s inject - search: -0.0360 [-0.0490,-0.0240] 3/958/39
+ 1.0s inject - search: -0.0550 [-0.0690,-0.0410] 0/945/55
+{
+  "ref": 0,
+  "seeds": [
+    1017
+  ],
+  "budgets": [
+    0.05,
+    0.1,
+    0.2,
+    1.0
+  ],
+  "graphs": 1000,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "search",
+    "inject"
+  ],
+  "cycle_steps": 60,
+  "pave_share": 0.05,
+  "decode_every": 2,
+  "decode_chunk": 4,
+  "padded": {
+    "nodes": 264,
+    "capacity": 105,
+    "capture_s": 1.1195
+  },
+  "wall_time_s": 2648.87,
+  "rows": 8000
+}

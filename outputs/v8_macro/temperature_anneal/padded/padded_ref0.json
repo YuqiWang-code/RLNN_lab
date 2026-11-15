@@ -1,0 +1,42 @@
+{
+  "ref": 0,
+  "seeds": [
+    1017
+  ],
+  "budgets": [
+    0.2,
+    1.0
+  ],
+  "graphs": 100,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "padded"
+  ],
+  "decoders": [
+    "cached"
+  ],
+  "decode_chunk": 4,
+  "cells": [
+    "padded/cached",
+    "padded/cached/T2a",
+    "padded/cached/T4a",
+    "padded/cached/T8a"
+  ],
+  "temperatures": [
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ],
+  "anneal": true,
+  "padded": {
+    "nodes": 264,
+    "capacity": 94,
+    "capture_s": 0.2623,
+    "load_s": 0.0051
+  },
+  "wall_time_s": 470.22
+}

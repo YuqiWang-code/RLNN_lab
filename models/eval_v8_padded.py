@@ -39,6 +39,14 @@ def shape_of(dataset, limit=None):
     return nodes, degree + 1
 
 
+def cell_of(arm, decoder, temperature, anneal):
+    """Cell name; the deployed temperature keeps the old name so old CSVs match."""
+    if float(temperature) == 1.0:
+        return f"{arm}/{decoder}"
+    suffix = "a" if anneal else ""
+    return f"{arm}/{decoder}/T{temperature:g}{suffix}"
+
+
 def build_parser():
     parser = build_capture_parser()
     parser.add_argument("--reserve_frac", type=float, default=0.2,
@@ -47,6 +55,10 @@ def build_parser():
                         help="decode the archive every N blocks (the archive is monotone)")
     parser.add_argument("--padded_shapes", type=int, default=None,
                         help="cap the shape scan (default: the whole split)")
+    parser.add_argument("--temperatures", type=float, nargs="+", default=[1.0],
+                        help="policy temperatures; 1.0 is the deployed policy")
+    parser.add_argument("--anneal", action="store_true",
+                        help="cool each temperature back to 1.0 along the budget")
     parser.set_defaults(arms=["padded"], decoders=["captured", "cached"])
     return parser
 
@@ -82,7 +94,8 @@ def main():
 
     extended = 20000
     solver.num_t = extended
-    cells = [(arm, kind) for arm in args.arms for kind in args.decoders]
+    cells = [(arm, kind, temp) for arm in args.arms for kind in args.decoders
+             for temp in args.temperatures]
     rows = []
     started = perf_counter()
     for position, index in enumerate(indices):
@@ -99,7 +112,7 @@ def main():
                 order = cells if (index + seed) % 2 == 0 else cells[::-1]
                 for repeat in range(args.repeats):
                     arms = order if repeat == 0 else order[::-1]
-                    for arm, decoder_kind in arms:
+                    for arm, decoder_kind, temp in arms:
                         sync(device)
                         tick = perf_counter()
                         deadline = tick + budget
@@ -122,7 +135,8 @@ def main():
                         prelude = perf_counter() - tick
                         steps, decode_seconds, blocks = engine.run(
                             cutoff, decode, skip_unchanged=decoder_kind == "cached",
-                            decode_every=args.decode_every)
+                            decode_every=args.decode_every, temperature=temp,
+                            anneal=args.anneal)
                         sync(device)
                         search_seconds = perf_counter() - tick
                         selected = max(masks_box, key=int.bit_count)
@@ -131,10 +145,12 @@ def main():
                         seconds = perf_counter() - tick
                         if not is_independent(final, neighbours):
                             raise ValueError(f"{graph_id}: illegal set in {arm}/{decoder_kind}")
-                        cell_name = f"{arm}/{decoder_kind}"
+                        cell_name = cell_of(arm, decoder_kind, temp, args.anneal)
                         rows.append(dict(graph_id=graph_id, search_seed=seed, budget=budget,
                                          arm=arm, decoder=decoder_kind, cell=cell_name,
-                                         repeat=repeat, first=int(arms[0] == (arm, decoder_kind)),
+                                         repeat=repeat,
+                                         first=int(arms[0][:2] == (arm, decoder_kind)),
+                                         temperature=temp, anneal=int(args.anneal),
                                          final_size=final.bit_count(),
                                          search_size=selected.bit_count(),
                                          pave_gain=final.bit_count() - selected.bit_count(),
@@ -150,20 +166,22 @@ def main():
         if (position + 1) % 20 == 0 or position + 1 == len(indices):
             parts = []
             for budget in args.budgets:
-                for arm, kind in cells:
+                for arm, kind, temp in cells:
+                    name = cell_of(arm, kind, temp, args.anneal)
                     chosen = [r for r in rows if r["budget"] == budget
-                              and r["cell"] == f"{arm}/{kind}"]
+                              and r["cell"] == name]
                     if chosen:
-                        parts.append(f"{budget}s/{arm}/{kind}:"
+                        parts.append(f"{budget}s/{name}:"
                                      f"{mean(r['final_size'] for r in chosen):.3f}"
                                      f"@{mean(r['steps'] for r in chosen):.0f}st")
             print(f"{position + 1}/{len(indices)} " + " ".join(parts), flush=True)
 
-    names = [f"{arm}/{kind}" for arm, kind in cells]
+    names = [cell_of(arm, kind, temp, args.anneal) for arm, kind, temp in cells]
     summary = dict(ref=args.reference_seed, seeds=args.seeds, budgets=args.budgets,
                    graphs=len(indices), repeats=args.repeats, horizon=args.horizon,
                    post_reserve=args.post_reserve, chunk=args.chunk, arms=list(args.arms),
                    decoders=list(args.decoders), decode_chunk=args.decode_chunk, cells=names,
+                   temperatures=list(args.temperatures), anneal=bool(args.anneal),
                    padded=dict(nodes=n_max, capacity=capacity,
                                capture_s=round(capture_seconds, 4),
                                load_s=round(mean(r["load_s"] for r in rows), 4)),
@@ -185,7 +203,7 @@ def main():
 
     # Paired difference against the eager arm of the same budget, when present.
     for budget in args.budgets:
-        base = f"padded/{args.decoders[0]}"
+        base = cell_of(args.arms[0], args.decoders[0], 1.0, args.anneal)
         for name in names[1:]:
             diffs = []
             for graph_id in sorted({r["graph_id"] for r in rows}):

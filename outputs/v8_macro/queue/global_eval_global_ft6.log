@@ -1,0 +1,32 @@
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+20/500 0.5s/captured/cached:19.700@906st 1.0s/captured/cached:19.750@2356st
+40/500 0.5s/captured/cached:19.900@915st 1.0s/captured/cached:19.925@2347st
+60/500 0.5s/captured/cached:19.883@940st 1.0s/captured/cached:19.933@2385st
+80/500 0.5s/captured/cached:19.863@949st 1.0s/captured/cached:19.938@2390st
+100/500 0.5s/captured/cached:19.830@960st 1.0s/captured/cached:19.890@2401st
+120/500 0.5s/captured/cached:19.800@957st 1.0s/captured/cached:19.867@2401st
+140/500 0.5s/captured/cached:19.871@955st 1.0s/captured/cached:19.943@2398st
+160/500 0.5s/captured/cached:19.913@956st 1.0s/captured/cached:19.988@2398st
+180/500 0.5s/captured/cached:19.861@962st 1.0s/captured/cached:19.928@2400st
+200/500 0.5s/captured/cached:19.875@961st 1.0s/captured/cached:19.940@2397st
+220/500 0.5s/captured/cached:19.845@957st 1.0s/captured/cached:19.914@2396st
+240/500 0.5s/captured/cached:19.858@956st 1.0s/captured/cached:19.921@2392st
+260/500 0.5s/captured/cached:19.915@955st 1.0s/captured/cached:19.973@2390st
+280/500 0.5s/captured/cached:19.914@955st 1.0s/captured/cached:19.975@2389st
+300/500 0.5s/captured/cached:19.943@954st 1.0s/captured/cached:20.000@2388st
+320/500 0.5s/captured/cached:19.959@952st 1.0s/captured/cached:20.012@2384st
+340/500 0.5s/captured/cached:19.988@949st 1.0s/captured/cached:20.044@2378st
+360/500 0.5s/captured/cached:19.992@946st 1.0s/captured/cached:20.044@2374st
+380/500 0.5s/captured/cached:20.000@944st 1.0s/captured/cached:20.055@2370st
+400/500 0.5s/captured/cached:19.968@942st 1.0s/captured/cached:20.025@2367st
+420/500 0.5s/captured/cached:19.955@942st 1.0s/captured/cached:20.012@2367st
+440/500 0.5s/captured/cached:19.968@941st 1.0s/captured/cached:20.025@2369st
+460/500 0.5s/captured/cached:19.954@940st 1.0s/captured/cached:20.009@2366st
+480/500 0.5s/captured/cached:19.958@940st 1.0s/captured/cached:20.010@2368st
+500/500 0.5s/captured/cached:19.942@941st 1.0s/captured/cached:19.992@2368st
+budget=0.5: captured/cached 19.9420 @ 941 steps
+  captured/cached - eager/eager: +0.0000 [+0.0000,+0.0000] 0/0/0 steps x0.00
+budget=1.0: captured/cached 19.9920 @ 2368 steps
+  captured/cached - eager/eager: +0.0000 [+0.0000,+0.0000] 0/0/0 steps x0.00
+wrote outputs/v8_macro/global_eval_ft6/capture_budget/capture_budget_ref0.csv

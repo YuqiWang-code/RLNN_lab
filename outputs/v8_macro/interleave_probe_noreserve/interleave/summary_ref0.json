@@ -1,0 +1,107 @@
+{
+  "ref": 0,
+  "seeds": [
+    1017
+  ],
+  "budgets": [
+    0.05,
+    0.1,
+    0.2,
+    1.0
+  ],
+  "graphs": 30,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "search",
+    "inject",
+    "refill"
+  ],
+  "cycle_steps": 50,
+  "pave_share": 0.1,
+  "decode_every": 2,
+  "decode_chunk": 4,
+  "padded": {
+    "nodes": 264,
+    "capacity": 94,
+    "capture_s": 0.8743
+  },
+  "wall_time_s": 118.93,
+  "paired": {
+    "0.05/inject": {
+      "mean": 0.03333333333333333,
+      "low": 0.0,
+      "high": 0.1,
+      "wins": 1,
+      "ties": 29,
+      "losses": 0,
+      "n": 30
+    },
+    "0.05/refill": {
+      "mean": 0.0,
+      "low": -0.1,
+      "high": 0.1,
+      "wins": 1,
+      "ties": 28,
+      "losses": 1,
+      "n": 30
+    },
+    "0.1/inject": {
+      "mean": 0.0,
+      "low": 0.0,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 30,
+      "losses": 0,
+      "n": 30
+    },
+    "0.1/refill": {
+      "mean": -0.03333333333333333,
+      "low": -0.1,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 29,
+      "losses": 1,
+      "n": 30
+    },
+    "0.2/inject": {
+      "mean": -0.1,
+      "low": -0.23333333333333334,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 27,
+      "losses": 3,
+      "n": 30
+    },
+    "0.2/refill": {
+      "mean": -0.06666666666666667,
+      "low": -0.2,
+      "high": 0.06666666666666667,
+      "wins": 1,
+      "ties": 26,
+      "losses": 3,
+      "n": 30
+    },
+    "1.0/inject": {
+      "mean": 0.0,
+      "low": 0.0,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 30,
+      "losses": 0,
+      "n": 30
+    },
+    "1.0/refill": {
+      "mean": -0.03333333333333333,
+      "low": -0.1,
+      "high": 0.0,
+      "wins": 0,
+      "ties": 29,
+      "losses": 1,
+      "n": 30
+    }
+  },
+  "rows": 360
+}

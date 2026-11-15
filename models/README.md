@@ -37,6 +37,7 @@
 | `mis_v8_pad.py` | `PaddedSearch`：缓冲按 `(n_max, capacity)` 固定、**整个数据集只捕获一次**，每图只改写边缓冲（`load` 6 ms 而不是 93 ms）；`decode_best` 只对真实节点取最大粒子 |
 | `check_padded_capture.py` | 摊薄闸门：捕获 vs padded eager 逐位相等；padded vs 未 padded 报告 `drifted_nodes` 与 `size` 是否一致（浮点归约顺序不同，差在 1e-7 级） |
 | `eval_v8_padded.py` | 摊薄评测：`--budgets` 任意短时钟、`--reserve_frac` 让 PAVE 预留随时钟缩放（否则 0.05 s 档一步都走不了） |
+| `summarize_v8_temperature.py` | 温度扫描汇总：每格均值 + 对 `T = 1` 的图级配对 CI、胜/平/负；`--base` 可指定基线格 |
 
 结果见 [`../docs/temporary/RLNN_v8_Positioning_Results.md`](../docs/temporary/RLNN_v8_Positioning_Results.md)，
 启动器见 [`../train_scripts/v8_macro/`](../train_scripts/v8_macro/README.md)。

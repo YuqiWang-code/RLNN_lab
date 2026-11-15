@@ -72,6 +72,11 @@ class PaddedSearch:
         self.best_energy = torch.zeros(self.num_k, dtype=self.dtype, device=self.device)
         self.improvements = torch.zeros(1, dtype=torch.long, device=self.device)
         self.nodes = 0
+        # Policy temperature: ``_body`` divides the logits by it, so T > 1 makes
+        # the same policy propose flips it would otherwise reject.  A device
+        # scalar, so the value is read at replay time and the captured graph
+        # does not have to be rebuilt when it changes between blocks.
+        self.temperature = torch.ones((), dtype=self.dtype, device=self.device)
         # The generator has to be one stable object: the capture registers it.
         self.generator = torch.Generator(device=self.device).manual_seed(0)
         self.decoder = None
@@ -162,9 +167,10 @@ class PaddedSearch:
     def _body(self):
         for _ in range(self.chunk):
             logits = self.model(self.state.unsqueeze(-1), None, self.normalized).squeeze(-1)
+            probs = torch.div(logits, self.temperature).sigmoid()
             noise = torch.rand(self.state.shape, device=self.device, dtype=self.dtype,
                                generator=self.generator)
-            flipped = torch.where(noise < logits.sigmoid(), 1 - self.state, self.state)
+            flipped = torch.where(noise < probs, 1 - self.state, self.state)
             self.state.copy_(flipped)
             energy = self.problem.energy_func(self.adjacency, self.bias, self.state)[0]
             improves = energy < self.best_energy
@@ -193,7 +199,7 @@ class PaddedSearch:
 
     # ------------------------------------------------------------------- run
     def run(self, deadline, decode, *, max_blocks=None, skip_unchanged=False,
-            decode_every=1):
+            decode_every=1, temperature=1.0, anneal=False):
         steps = blocks = 0
         decode_seconds = 0.0
         block_time = 0.0
@@ -201,7 +207,15 @@ class PaddedSearch:
         decoded_at = -1
         pending = False
         every = max(1, int(decode_every))
+        # A constant T runs the softened policy; ``anneal`` cools it back to the
+        # deployed one along a straight line in *remaining time*, which is the
+        # only clock the deadline loop knows about.
+        self.temperature.fill_(float(temperature))
+        window = max(deadline - perf_counter(), 1e-6)
         while True:
+            if anneal and temperature > 1.0:
+                left = max(deadline - perf_counter(), 0.0)
+                self.temperature.fill_(1.0 + (float(temperature) - 1.0) * left / window)
             if max_blocks is not None and blocks >= max_blocks:
                 break
             if perf_counter() + block_time >= deadline:

@@ -43,6 +43,7 @@
 | P18 | `python models/summarize_v8_claim.py --csv <merged.csv>` | 主张分解表：`search_size`（无平台）vs `final_size`（+平台）+ 图级配对 CI |
 | P19 | `GRAPHS=4 STEPS=60 bash check_padded.sh` | 摊薄闸门：捕获 vs padded eager 逐位相等，另报与未 padded 的 `drifted_nodes` 与解大小 |
 | P20 | `SHARDS=1 BUDGETS="0.05 0.1 0.2" DECODERS=cached RESULT_DIR=outputs/v8_macro/padded_short bash padded.sh` | 摊薄评测（短时钟，约 5 分钟）：整个数据集只捕获一次，prelude 从 93 ms 掉到 6 ms |
+| P21 | `GRAPHS=100 BUDGETS="0.2 1.0" TEMPERATURES="1 2 4 8" bash temperature.sh` | 温度闸门：固定温度与退火（`ANNEAL=1`）对照，产物 `$OUT/temperature*/padded/`，汇总用 `models/summarize_v8_temperature.py` |
 
 `models/` 侧对应文件：`mis_v8_capture.py`、`mis_v8_decode.py`、`mis_v8_pad.py`、`check_capture_budget.py`、
 `check_decode_capture.py`、`check_padded_capture.py`、`probe_decode_cost.py`、`profile_budget_step.py`、
@@ -75,6 +76,8 @@
 | `PROCESSES` | `8` | 生成图与转 tensor 的并行进程数 |
 | `PAVE_LIMIT` | 空 | `regime.sh` 透传给 `--pave_limit`；空则用脚本默认 0.1 秒（n≈1000 时不够，要写 1.0） |
 | `SOURCE` | `kamis` | PAVE 外接实验的起点：`kamis`（KaMIS 解）或 `min_degree`（贪心，作正对照）；同时决定产物目录 |
+| `TEMPERATURES` | `1 2 4 8` | P21 的温度扫描列表；`1` 是部署策略，导出成 `padded/cached` 以便与旧 CSV 对齐 |
+| `ANNEAL` | `0` | `1` 时每个温度按剩余时间线性降到 1（cell 名加后缀 `a`） |
 | `SHARDS` | `4`（`author_test.sh`）/`2`（`er_grid.sh`） | 图列表分给几个进程；每个进程约 1.5 GiB 显存，单进程吃不满 GPU（python 侧是串行的） |
 | `SHORT_SHARDS` / `LONG_SHARDS` | `6` / `5` | `author_kamis.sh` 的 CPU 分片数（KaMIS 单线程，96 核随便分） |
 | `V8_GPU` | `1` | `author_test.sh`、`er_grid.sh` 用的卡；GPU0 长期被别人占满 |
