@@ -70,3 +70,46 @@ python models/probe_lns_headroom.py --test_samples 3 --radii 1 --balls 20  # 冒
 - `outputs/v8_macro/lns_headroom/lns/lns_ref0.{csv,json}`（20 图 × 1.0 s）
 - `outputs/v8_macro/lns_smoke/lns/lns_ref0.csv`（4 图冒烟）
 - `outputs/v8_macro/queue/lns_headroom.log`
+
+## 5. 策略重填（2026-11-15）
+
+前两个算子都用「比网络弱」的填充（精确 MIS 付不起区域代价、贪心比网络弱）。这一版把**冻结策略本身**当作重建器。
+
+### 5.1 一个设计 bug（先说清，否则数字会被误读）
+
+`models/probe_cluster_rebuild.py` 的 `cluster_of` 是在**已选点**里长连通簇——而已选点两两不相邻（独立集的定义），所以簇恒为 1 个点。早先「连通簇毁灭 + 贪心重建 = 0」的测量实际只测了「移除单点」，不是大移动。
+
+`models/eval_v8_rebuild.py`（新）改用**图上的 BFS 球**：随机选一个已选点，取半径 2 的球作区域，清掉区域内所有已选点，再用 `PaddedSearch.prime(candidate)` 把清空解注入全部粒子、跑 60 步重填、与 incumbent 取大。1 秒里 25% 留给循环（约 12–13 轮）。
+
+### 5.2 机制：重填比拆掉的少
+
+| 每轮 | 值 |
+| 区域大小 | 132.0 节点 |
+| 拆掉的已选点 | 11.29 |
+| 重填回来的 | 10.80 |
+| 净 | **−0.49** |
+
+即策略每次都能把拆掉的洞**基本填回**（96%），但重填本身略逊于原解——它收敛回同一个局部最优，只是偶尔少一两个点。要想「越过」，必须有某一轮重填出比原解**更多**的点，而净值为负说明这不是噪声能常给的事。
+
+### 5.3 结果（100 张作者图，1.0 s 等钟，seed 1017）
+
+| 臂 | 解 | 轮数 | 正轮次/图 |
+| search（纯捕获） | 19.8900 | — | — |
+| rebuild（25% 时钟循环） | **19.9100** | 12.6 | 0.04 |
+
+图级：**3 胜 / 96 平 / 1 负**。唯一的负例是初始搜索只分到 0.75 s（incumbent 已比满钟搜索差 1），循环没能追回——这是分摊时钟的固有代价。
+
+### 5.4 判读
+
++0.02 是这个方向三周来**第一个非负信号**，但离判据（1000 图 1.0 s ≥ 20.05）差两个数量级，而且机制上已经被解释清楚：重填净值为负，说明 132 节点的洞已经被策略吃到与原来等价。要真正越过，得让**洞的填充器比产生 incumbent 的填充器更强**——这正好是 KaMIS 图缩减在做的事（先把图折叠到可精确求解的规模，再放回来），也就是「重写主循环」那条 3–5 天的路。
+
+产物：`outputs/v8_macro/rebuild_100/rebuild/rebuild_ref0.csv`（100 图）、`outputs/v8_macro/rebuild_ball/`（4 图诊断）、`outputs/v8_macro/queue/rebuild_100.log`。
+复现：
+
+```
+python models/eval_v8_rebuild.py --split test \
+  --test_path models/data/MIS_tensors/RB_small_author_test \
+  --test_samples 100 --budgets 1.0 --arms search rebuild \
+  --reserve 0.25 --cycle_steps 60 --radius 2 \
+  --save_dir outputs/v2/none_seed0/checkpoints --reference_seed 0
+```

@@ -1,0 +1,5 @@
+graph_id,search_seed,budget,arm,repeat,nodes,final_size,cycles,positive_cycles,refill_gain,refill_best,removed,cluster,load_s,solve_time_s,ms_per_step,deadline_overrun
+idx_0,1017,1.0,rebuild,0,242,19,13,0,13,1,13,13,0.053138,1.0022,0.0,0
+idx_1,1017,1.0,rebuild,0,240,22,13,0,13,1,13,13,0.004315,1.002863,0.0,0
+idx_2,1017,1.0,rebuild,0,230,21,13,0,-8,1,13,13,0.010121,1.000156,0.0,0
+idx_3,1017,1.0,rebuild,0,200,18,12,0,12,1,12,12,0.001823,1.000384,0.0,0

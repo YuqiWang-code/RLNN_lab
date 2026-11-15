@@ -94,3 +94,34 @@ def repair(selected, region, neighbours):
 def apply_repair(selected, region, replacement):
     """Swap the region's points for the repaired set."""
     return (selected & ~region) | replacement
+
+def cluster_of(selected, neighbours, size, rng):
+    """Grow a connected cluster of selected vertices from a random seed."""
+    points = [v for v in range(len(neighbours)) if (selected >> v) & 1]
+    if not points:
+        return 0
+    cluster = 1 << rng.choice(points)
+    while bin(cluster).count("1") < size:
+        frontier = 0
+        rest = cluster
+        while rest:
+            bit = rest & -rest
+            rest ^= bit
+            frontier |= neighbours[bit.bit_length() - 1] & selected
+        frontier &= ~cluster
+        if not frontier:
+            break
+        options = [v for v in range(len(neighbours)) if (frontier >> v) & 1]
+        cluster |= 1 << rng.choice(options)
+    return cluster
+
+
+def closed_region(cluster, neighbours):
+    """The cluster plus every neighbour of it (all points that touch it)."""
+    region = cluster
+    rest = cluster
+    while rest:
+        bit = rest & -rest
+        rest ^= bit
+        region |= neighbours[bit.bit_length() - 1]
+    return region
