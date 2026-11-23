@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[preprint]{icml2027}
+\usepackage{colortbl}
+\input{table_style}
+
+\icmltitlerunning{SPRINT: Feasible-Set-First Neural MIS Under a 200 ms Deadline}
+
+\begin{document}
+\twocolumn[
+\icmltitle{SPRINT: Feasible-Set-First Neural Search for Maximum Independent Set Under a 200-Millisecond Deadline}
+\begin{icmlauthorlist}
+\icmlauthor{Han Zeng}{jnu}
+\icmlauthor{Xin Zhang}{jnu}
+\end{icmlauthorlist}
+\icmlaffiliation{jnu}{Jiangnan University}
+\icmlcorrespondingauthor{Xin Zhang}{zhangxin@jiangnan.edu.cn}
+\icmlkeywords{maximum independent set, neural combinatorial optimization, GPU execution, anytime algorithms}
+\vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}
+
+\begin{abstract}
+A deadline-constrained solver should be judged by what it has delivered, not by what it would score with more time. We make delivery the metric on maximum independent set, where every delivered set is checkable against the input edges, and we hold it fixed across four graph families, four deadlines from 50 to 500~ms, and every measured neural, heuristic and exact solver. SPRINT, the solver family we introduce, answers a deadline with two routes. Its constructive route, SPRINT-C, publishes a greedy maximal set before the network is called and spends the rest of the budget on a learned-ranked exchange and clique-bound search; at 200~ms it delivers the largest mean set of any measured solver on all four families (20.1150, 42.4417, 44.3438 and 370.1250 vertices, ahead of resident OnlineMIS by 0.03, 0.68, 1.62 and 6.54), and on RB-[200--300] it reaches all 3,000 verified optima at every budget with one frozen checkpoint. Its speculative route, SPRINT-S, keeps 200 particles on the GPU: CUDA Graph replay and policy compilation raise executed updates in 200~ms from 82.9 to 348.6, adding 0.3320 vertices at unchanged per-step quality, and a midpoint decode makes the eventually scored set available 87.6~ms before the terminal one. What a deadline rewards is the decision to hold and publish a feasible set; the appendix isolates the smaller, family-dependent share that learned ordering contributes.
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/method}
+\input{sections/experiments}
+\input{sections/discussion}
+
+\section*{Impact Statement}
+Short-budget selection can support time-sensitive planning. In a dispatch application the conflict graph, together with the temperature and capacity checks, determines which plans are operationally feasible. Our benchmark measures graph feasibility and computation time. Evaluating safety, product quality and service outcomes requires data and validation from the intended operation.
+
+\section*{AI Disclosure Statement}
+Generative AI tools assisted with literature search, experimental design and execution, analysis code, mathematical exposition, figures, and manuscript drafting. The numerical comparisons are based on solver outputs and per-instance timing records.
+
+\urlstyle{same}
+\bibliographystyle{icml2027}
+\bibliography{references}
+
+\clearpage
+\appendix
+\input{sections/appendix}
+\end{document}

@@ -1,0 +1,28 @@
+{
+  "architecture": "Fused RLNN residual GCN 1-128-5-1 + linear priority residual",
+  "initial_checkpoint": "outputs/v2/none_seed0/checkpoints/best.pt",
+  "graph_data": "models/data/scale_priority_20261121",
+  "epochs": 24,
+  "seed": 8707,
+  "loss": "graph-balanced soft-label BCE on top four of eight OnlineMIS feasible sets",
+  "encoder_lr": 8e-05,
+  "head_lr": 0.0015,
+  "weight_decay": 0.001,
+  "gradient_clip": 2.0,
+  "accumulate_graphs": 4,
+  "validation": "deterministic greedy by predicted priority",
+  "selection": "largest graph-mean greedy gain over degree / best teacher size, ties by smallest validation loss; epochs >=1",
+  "device": "NVIDIA GeForce RTX 5090",
+  "regimes": [
+    "RB_small",
+    "RB_large",
+    "ER_small"
+  ],
+  "torch": "2.9.1+cu130",
+  "train_graphs": 384,
+  "validation_graphs": {
+    "RB_small": 16,
+    "RB_large": 16,
+    "ER_small": 16
+  }
+}

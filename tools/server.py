@@ -54,7 +54,13 @@ def push(sftp, remote):
             continue
         # Keep readers of an active script on the existing inode.
         staged = f'{target}.upload-{os.getpid()}'
-        sftp.put(str(source), staged)
+        if source.suffix == '.sh':
+            # Shell scripts are stored with CRLF in the Windows worktree; the
+            # server needs LF or bash treats "pipefail\r" as an invalid option.
+            import io
+            sftp.putfo(io.BytesIO(source.read_bytes().replace(b'\r\n', b'\n')), staged)
+        else:
+            sftp.put(str(source), staged)
         sftp.utime(staged, (int(local_stat.st_atime), int(local_stat.st_mtime)))
         if source.suffix == '.sh':
             sftp.chmod(staged, 0o755)

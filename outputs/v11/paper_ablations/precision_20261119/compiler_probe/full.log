@@ -1,0 +1,37 @@
+padded shape: nodes 242, capacity 82
+compiled policy: OptimizedModule
+/home/hzeng/project/ZH/RLNN_lab/tmp/precision_20261119/models/mis_v8_pad.py:38: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+I1119 11:50:17.626000 1656275 torch/_dynamo/utils.py:1749] [0/0] ChromiumEventLogger initialized with id d82bf6a2-5800-48f7-beda-19c36720505b
+I1119 11:50:17.634000 1656275 torch/_dynamo/symbolic_convert.py:3859] [0/0] Step 1: torchdynamo start tracing forward /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:819
+I1119 11:50:17.635000 1656275 torch/fx/experimental/symbolic_shapes.py:3769] [0/0] create_env
+I1119 11:50:18.688000 1656275 torch/_dynamo/symbolic_convert.py:4076] [0/0] Step 1: torchdynamo done tracing forward (RETURN_VALUE)
+I1119 11:50:18.721000 1656275 torch/_dynamo/output_graph.py:2167] [0/0] Step 2: calling compiler function inductor
+I1119 11:50:21.134000 1656275 torch/_dynamo/output_graph.py:2172] [0/0] Step 2: done compiler function inductor
+I1119 11:50:21.170000 1656275 torch/fx/experimental/symbolic_shapes.py:5242] [0/0] produce_guards
+I1119 11:50:21.291000 1656275 torch/_dynamo/pgo.py:893] [0/0] put_code_state: no cache key, skipping
+I1119 11:50:21.292000 1656275 torch/_dynamo/convert_frame.py:1506] [0/0] run_gc_after_compile: running gc
+8/8 0.2s/padded/captured:19.500@130st
+ 0.2s padded/captured    size 19.5000 steps 130.0 search 19.5000 ms/step 0.671 load 6.88 ms decode 21.69 ms
+wrote /home/hzeng/project/ZH/RLNN_lab/tmp/precision_20261119/probe_full/seed_1017/padded/padded_ref0.csv
+wrote /home/hzeng/project/ZH/RLNN_lab/tmp/precision_20261119/probe_full/seed_1017/v11_rows.csv
+I1119 11:50:30.709000 1656275 torch/_dynamo/eval_frame.py:563] TorchDynamo attempted to trace the following frames: [
+I1119 11:50:30.709000 1656275 torch/_dynamo/eval_frame.py:563]   * forward /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:819
+I1119 11:50:30.709000 1656275 torch/_dynamo/eval_frame.py:563] ]
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] TorchDynamo compilation metrics:
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] Function, Runtimes (s)
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] _compile.compile_inner, 3.6679
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] compile_attempt_0, 3.5134
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] bytecode_tracing, 1.0363
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] OutputGraph.call_user_compiler, 2.4155
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] inductor_codecache_torch_key, 0.4288
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] _recursive_pre_grad_passes, 0.0109
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] AOTAutogradCache.inductor_load, 0.1492
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] TritonBundler.read_and_emit, 0.0039
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] TritonBundler.load_cached_static_autotuners, 0.0021
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] PyCodeCache.load_by_key_path, 0.0760
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] StaticAutotunerFuture.warm_precompile, 0.0268
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] CachingAutotuner.synchronize, 0.0042
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] async_compile.wait, 0.0044
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] build_guards, 0.1444
+I1119 11:50:30.710000 1656275 torch/_dynamo/utils.py:845] gc, 0.0035

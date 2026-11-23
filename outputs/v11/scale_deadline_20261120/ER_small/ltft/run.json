@@ -1,0 +1,25 @@
+{
+  "method": "ltft",
+  "graphs": 128,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/MIS_tensors/ER_small_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "1",
+  "solver_config": {
+    "checkpoint": "/home/hzeng/project/ZH/RLNN_lab/tmp/learned_baselines_20261119/ltft_training/alg.pt",
+    "model": "upstream forward-looking GFlowNet",
+    "upstream_revision": "feaa3b57f522e3a57a6a943bfa9bf1a2501eaf2d",
+    "dgl": "2.4.0+cu124",
+    "device": "cuda:0",
+    "rollouts": 20,
+    "delivery": "largest legal complete or partial rollout after each synchronized action"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

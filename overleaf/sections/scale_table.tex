@@ -1,0 +1,36 @@
+\begin{table*}[t]
+\centering\footnotesize\setlength{\tabcolsep}{2.6pt}
+\caption{Maximum independent set at 200\,ms per graph. Size averages the largest feasible set delivered to the host by the cutoff over all $N$ graph--seed pairs. A missed delivery scores zero. Ready counts timely deliveries. Time is the mean wall time per call in milliseconds, including overruns. DiffUCO skips inference on large RB and large ER after calibration. An em dash marks an unavailable measurement (Gurobi license details in Appendix~\ref{app:protocol}). Bold marks the highest mean size in each range.}
+\label{tab:external-deadline}
+\resizebox{\textwidth}{!}{\begin{tabular}{lrrrrrrrrrrrr}
+\toprule
+\paperHeader & \multicolumn{3}{c}{\paperHead{RB-[200--300]}} & \multicolumn{3}{c}{\paperHead{RB-[800--1200]}} & \multicolumn{3}{c}{\paperHead{ER-[700--800]}} & \multicolumn{3}{c}{\paperHead{ER-[9000--11000]}} \\
+\paperHeader & \multicolumn{3}{c}{$N=3000$} & \multicolumn{3}{c}{$N=3000$} & \multicolumn{3}{c}{$N=384$} & \multicolumn{3}{c}{$N=48$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}
+\paperHeader \paperHead{Solver} & \paperHead{Size\,$\uparrow$} & \paperHead{Time\,$\downarrow$} & \paperHead{Ready} & \paperHead{Size\,$\uparrow$} & \paperHead{Time\,$\downarrow$} & \paperHead{Ready} & \paperHead{Size\,$\uparrow$} & \paperHead{Time\,$\downarrow$} & \paperHead{Ready} & \paperHead{Size\,$\uparrow$} & \paperHead{Time\,$\downarrow$} & \paperHead{Ready} \\
+\midrule
+Gurobi (vertex MIP) & 16.5967 & 200.61 & 3000 & 32.0680 & 208.14 & 3000 & 29.8984 & 213.29 & 384 & \multicolumn{3}{c}{\textemdash} \\
+KaMIS (ReduMIS CLI) & 1.8473 & 195.64 & 280 & 0.3490 & 202.75 & 26 & 0.0000 & 202.90 & 0 & 0.0000 & 206.18 & 0 \\
+OnlineMIS (tuned CLI) & 20.0087 & 188.56 & 2994 & 41.6140 & 152.35 & 2997 & 42.5365 & 151.19 & 384 & 0.0000 & 206.15 & 0 \\
+\rowcolor{TableOrange}
+OnlineMIS (resident) & 20.0817 & 197.11 & 3000 & 41.7613 & 197.72 & 3000 & 42.7240 & 198.00 & 384 & 363.5833 & 197.48 & 48 \\
+Released RLNN & 19.4247 & 152.25 & 2999 & 34.7923 & 166.72 & 2993 & 40.5469 & 145.57 & 383 & 0.0000 & 1606.14 & 0 \\
+FLD-EG (recon.) & 18.3327 & 183.45 & 2999 & 35.3673 & 182.26 & 2999 & 34.9688 & 179.93 & 383 & 0.0000 & 346.88 & 0 \\
+DiffUCO & 19.6473 & 52.22 & 3000 & 0.0000 & $<0.01$ & 0 & 42.8333 & 157.20 & 384 & 0.0000 & $<0.01$ & 0 \\
+LTFT & 14.1917 & 191.25 & 3000 & 20.9747 & 195.55 & 3000 & 21.1562 & 198.41 & 383 & 3.7083 & 181.07 & 48 \\
+DIFUSCO & 15.3523 & 161.78 & 2997 & 31.7993 & 94.99 & 3000 & 28.7109 & 165.92 & 355 & 0.0000 & 669.41 & 0 \\
+DGL-TreeSearch & 5.0850 & 169.55 & 3000 & 6.1747 & 173.49 & 3000 & 9.4531 & 164.76 & 384 & 0.0000 & 25.30 & 0 \\
+DIMES (ER retrain) & 18.9183 & 197.54 & 3000 & 35.4367 & 191.76 & 3000 & 37.4297 & 193.35 & 384 & 178.8542 & 279.00 & 30 \\
+INTEL & 17.1893 & 200.24 & 3000 & 24.1410 & 200.23 & 3000 & 37.3620 & 201.16 & 384 & 65.6042 & 200.53 & 48 \\
+PPO-LwD & 16.0697 & 190.43 & 3000 & 29.5217 & 192.71 & 3000 & 32.1667 & 193.29 & 384 & 208.1875 & 193.09 & 48 \\
+DISCS iSCO & 19.3037 & 198.48 & 2960 & 0.1477 & 190.91 & 14 & 40.5677 & 196.05 & 383 & 0.0000 & 183.63 & 0 \\
+RLSA & 19.9507 & 156.52 & 2999 & 31.2113 & 166.55 & 2527 & 43.1536 & 167.75 & 383 & 0.0000 & 2011.52 & 0 \\
+iSCO (300 steps) & 11.4743 & 104.06 & 1804 & 0.1473 & 190.97 & 14 & 40.6146 & 195.74 & 383 & 0.0000 & 182.09 & 0 \\
+\midrule
+\rowcolor{TableGreen}
+SPRINT-C (degree) & \textbf{20.1150} & 2.53 & 3000 & \textbf{42.4663} & 137.18 & 3000 & 44.2578 & 197.06 & 384 & 369.4167 & 197.27 & 48 \\
+\rowcolor{TableBlue}
+\textbf{SPRINT-C (learned)} & \textbf{20.1150} & 10.37 & 3000 & 42.4417 & 139.04 & 3000 & \textbf{44.3438} & 197.08 & 384 & \textbf{370.1250} & 197.24 & 48 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

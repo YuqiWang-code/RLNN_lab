@@ -1,0 +1,467 @@
+{
+  "graphs": 200,
+  "outer_rounds": 8,
+  "budget": 0.0,
+  "choose": "coverage",
+  "seed": 1017,
+  "tabu_modes": [
+    "cross",
+    "same"
+  ],
+  "formulas": {
+    "er": "ER = 1 - |pool_tabu| / |pool_plain|, paired per (graph, state, outer round)",
+    "ar": "AR = |{rounds: size_after == size_before, mask changed, archive not refreshed}| / outer_rounds"
+  },
+  "wall_s": 226.5,
+  "per_h": {
+    "cross:0": {
+      "mode": "cross",
+      "h": 0,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.905,
+      "gain": 1.8,
+      "ar": 0.988125,
+      "refreshed_rounds": 0.095,
+      "er": 0.0,
+      "er_pooled": 0.0,
+      "er_rejected": 0,
+      "er_rounds": 7.94,
+      "fifo_checks": 0,
+      "fifo_hits": 0,
+      "fifo_sample": null,
+      "deadline_hits": 0
+    },
+    "cross:8": {
+      "mode": "cross",
+      "h": 8,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.85,
+      "gain": 1.745,
+      "ar": 0.98875,
+      "refreshed_rounds": 0.09,
+      "er": 0.06675199198952046,
+      "er_pooled": 0.06629972491447152,
+      "er_rejected": 1654,
+      "er_rounds": 7.94,
+      "fifo_checks": 63341,
+      "fifo_hits": 4493,
+      "fifo_sample": {
+        "mode": "cross",
+        "action_added": [
+          133
+        ],
+        "action_removed": [
+          132
+        ],
+        "tabu_added": [
+          6,
+          132,
+          164
+        ],
+        "tabu_removed": [
+          56,
+          139
+        ],
+        "intersect": [
+          132
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "cross:16": {
+      "mode": "cross",
+      "h": 16,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.85,
+      "gain": 1.745,
+      "ar": 0.98875,
+      "refreshed_rounds": 0.09,
+      "er": 0.06675199198952046,
+      "er_pooled": 0.06629972491447152,
+      "er_rejected": 1654,
+      "er_rounds": 7.94,
+      "fifo_checks": 63341,
+      "fifo_hits": 4493,
+      "fifo_sample": {
+        "mode": "cross",
+        "action_added": [
+          133
+        ],
+        "action_removed": [
+          132
+        ],
+        "tabu_added": [
+          6,
+          132,
+          164
+        ],
+        "tabu_removed": [
+          56,
+          139
+        ],
+        "intersect": [
+          132
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "cross:32": {
+      "mode": "cross",
+      "h": 32,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.85,
+      "gain": 1.745,
+      "ar": 0.98875,
+      "refreshed_rounds": 0.09,
+      "er": 0.06675199198952046,
+      "er_pooled": 0.06629972491447152,
+      "er_rejected": 1654,
+      "er_rounds": 7.94,
+      "fifo_checks": 63341,
+      "fifo_hits": 4493,
+      "fifo_sample": {
+        "mode": "cross",
+        "action_added": [
+          133
+        ],
+        "action_removed": [
+          132
+        ],
+        "tabu_added": [
+          6,
+          132,
+          164
+        ],
+        "tabu_removed": [
+          56,
+          139
+        ],
+        "intersect": [
+          132
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "cross:64": {
+      "mode": "cross",
+      "h": 64,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.85,
+      "gain": 1.745,
+      "ar": 0.98875,
+      "refreshed_rounds": 0.09,
+      "er": 0.06675199198952046,
+      "er_pooled": 0.06629972491447152,
+      "er_rejected": 1654,
+      "er_rounds": 7.94,
+      "fifo_checks": 63341,
+      "fifo_hits": 4493,
+      "fifo_sample": {
+        "mode": "cross",
+        "action_added": [
+          133
+        ],
+        "action_removed": [
+          132
+        ],
+        "tabu_added": [
+          6,
+          132,
+          164
+        ],
+        "tabu_removed": [
+          56,
+          139
+        ],
+        "intersect": [
+          132
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "cross:128": {
+      "mode": "cross",
+      "h": 128,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.85,
+      "gain": 1.745,
+      "ar": 0.98875,
+      "refreshed_rounds": 0.09,
+      "er": 0.06675199198952046,
+      "er_pooled": 0.06629972491447152,
+      "er_rejected": 1654,
+      "er_rounds": 7.94,
+      "fifo_checks": 63341,
+      "fifo_hits": 4493,
+      "fifo_sample": {
+        "mode": "cross",
+        "action_added": [
+          133
+        ],
+        "action_removed": [
+          132
+        ],
+        "tabu_added": [
+          6,
+          132,
+          164
+        ],
+        "tabu_removed": [
+          56,
+          139
+        ],
+        "intersect": [
+          132
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "same:0": {
+      "mode": "same",
+      "h": 0,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.905,
+      "gain": 1.8,
+      "ar": 0.988125,
+      "refreshed_rounds": 0.095,
+      "er": 0.0,
+      "er_pooled": 0.0,
+      "er_rejected": 0,
+      "er_rounds": 7.94,
+      "fifo_checks": 0,
+      "fifo_hits": 0,
+      "fifo_sample": null,
+      "deadline_hits": 0
+    },
+    "same:8": {
+      "mode": "same",
+      "h": 8,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.905,
+      "gain": 1.8,
+      "ar": 0.988125,
+      "refreshed_rounds": 0.095,
+      "er": 0.004578135024252617,
+      "er_pooled": 0.004490154966620246,
+      "er_rejected": 67,
+      "er_rounds": 7.94,
+      "fifo_checks": 61517,
+      "fifo_hits": 138,
+      "fifo_sample": {
+        "mode": "same",
+        "action_added": [
+          23
+        ],
+        "action_removed": [
+          25
+        ],
+        "tabu_added": [
+          23,
+          62,
+          92,
+          105,
+          167,
+          195
+        ],
+        "tabu_removed": [
+          28,
+          103,
+          190
+        ],
+        "intersect": [
+          23
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "same:16": {
+      "mode": "same",
+      "h": 16,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.905,
+      "gain": 1.8,
+      "ar": 0.988125,
+      "refreshed_rounds": 0.095,
+      "er": 0.004578135024252617,
+      "er_pooled": 0.004490154966620246,
+      "er_rejected": 67,
+      "er_rounds": 7.94,
+      "fifo_checks": 61517,
+      "fifo_hits": 138,
+      "fifo_sample": {
+        "mode": "same",
+        "action_added": [
+          23
+        ],
+        "action_removed": [
+          25
+        ],
+        "tabu_added": [
+          23,
+          62,
+          92,
+          105,
+          167,
+          195
+        ],
+        "tabu_removed": [
+          28,
+          103,
+          190
+        ],
+        "intersect": [
+          23
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "same:32": {
+      "mode": "same",
+      "h": 32,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.905,
+      "gain": 1.8,
+      "ar": 0.988125,
+      "refreshed_rounds": 0.095,
+      "er": 0.004578135024252617,
+      "er_pooled": 0.004490154966620246,
+      "er_rejected": 67,
+      "er_rounds": 7.94,
+      "fifo_checks": 61517,
+      "fifo_hits": 138,
+      "fifo_sample": {
+        "mode": "same",
+        "action_added": [
+          23
+        ],
+        "action_removed": [
+          25
+        ],
+        "tabu_added": [
+          23,
+          62,
+          92,
+          105,
+          167,
+          195
+        ],
+        "tabu_removed": [
+          28,
+          103,
+          190
+        ],
+        "intersect": [
+          23
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "same:64": {
+      "mode": "same",
+      "h": 64,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.905,
+      "gain": 1.8,
+      "ar": 0.988125,
+      "refreshed_rounds": 0.095,
+      "er": 0.004578135024252617,
+      "er_pooled": 0.004490154966620246,
+      "er_rejected": 67,
+      "er_rounds": 7.94,
+      "fifo_checks": 61517,
+      "fifo_hits": 138,
+      "fifo_sample": {
+        "mode": "same",
+        "action_added": [
+          23
+        ],
+        "action_removed": [
+          25
+        ],
+        "tabu_added": [
+          23,
+          62,
+          92,
+          105,
+          167,
+          195
+        ],
+        "tabu_removed": [
+          28,
+          103,
+          190
+        ],
+        "intersect": [
+          23
+        ]
+      },
+      "deadline_hits": 0
+    },
+    "same:128": {
+      "mode": "same",
+      "h": 128,
+      "graphs": 200,
+      "start_size": 17.105,
+      "best_size": 18.905,
+      "gain": 1.8,
+      "ar": 0.988125,
+      "refreshed_rounds": 0.095,
+      "er": 0.004578135024252617,
+      "er_pooled": 0.004490154966620246,
+      "er_rejected": 67,
+      "er_rounds": 7.94,
+      "fifo_checks": 61517,
+      "fifo_hits": 138,
+      "fifo_sample": {
+        "mode": "same",
+        "action_added": [
+          23
+        ],
+        "action_removed": [
+          25
+        ],
+        "tabu_added": [
+          23,
+          62,
+          92,
+          105,
+          167,
+          195
+        ],
+        "tabu_removed": [
+          28,
+          103,
+          190
+        ],
+        "intersect": [
+          23
+        ]
+      },
+      "deadline_hits": 0
+    }
+  },
+  "verdict": {
+    "best_ar": 0.98875,
+    "best_refreshed_rounds": 0.095,
+    "best_fifo_hits": 4493,
+    "ar_threshold": 0.125,
+    "er_window": [
+      0.05,
+      0.6
+    ],
+    "er_ok": true,
+    "passed": true,
+    "kill_reason": null
+  }
+}

@@ -1,0 +1,34 @@
+split,setting,initial_incumbent,scorer,degree_prior,learned_mix,refine_ms,refine_first,plateau,perturb,seeds,graphs,runs,size,mean_wall_ms,on_time,bound_attained,frozen_model
+ER_small,degree,degree greedy maximal set,none,1,,0,0,50,4,517 601,16,32,44.40625,197.0552,32,0,0
+ER_small,learned0,degree greedy maximal set,joint epoch 1,0,,0,0,50,4,517 601,16,32,44.21875,197.0748,32,0,0
+ER_small,learned100,degree greedy maximal set,joint epoch 1,0,,100.0,0,50,4,517 601,16,32,43.9375,197.1068,32,0,0
+ER_small,learned70,degree greedy maximal set,joint epoch 1,0,,70.0,0,50,4,517 601,16,32,44,197.1097,32,0,0
+ER_small,mix025,degree greedy maximal set,joint epoch 1,1,0.25,0,0,50,4,517 601,16,32,44.21875,197.0848,32,0,1
+ER_small,mix050,degree greedy maximal set,joint epoch 1,1,0.5,0,0,50,4,517 601,16,32,44.1875,197.0725,32,0,0
+ER_small,mix100,degree greedy maximal set,joint epoch 1,1,1.0,0,0,50,4,517 601,16,32,44.21875,197.0847,32,0,0
+ER_small,neutral0,degree greedy maximal set,none,0,,0,0,50,4,517 601,16,32,44.15625,197.0772,32,0,0
+ER_small,neutral100,degree greedy maximal set,none,0,,100.0,0,50,4,517 601,16,32,43.90625,197.1091,32,0,0
+ER_small,neutral70,degree greedy maximal set,none,0,,70.0,0,50,4,517 601,16,32,43.96875,197.1099,32,0,0
+ER_small,uniform_local,single vertex,none,0,,0,0,50,4,517,16,16,44.125,197.0981,16,0,0
+ER_small,uniform_long,single vertex,none,0,,0,0,160,5,517,16,16,44,197.0982,16,0,0
+ER_small,uniform_short,single vertex,none,0,,0,0,16,3,517,16,16,43.6875,197.0869,16,0,0
+RB_large,degree,degree greedy maximal set,none,1,,140.0,0,50,4,517 601,16,32,41.53125,148.7705,32,14,0
+RB_large,learned140,degree greedy maximal set,joint epoch 1,0,,140.0,0,50,4,517 601,16,32,41.53125,143.4621,32,15,0
+RB_large,learned90,degree greedy maximal set,joint epoch 1,0,,90.0,0,50,4,517 601,16,32,41.5,168.1757,32,14,0
+RB_large,mix025,degree greedy maximal set,joint epoch 1,1,0.25,140.0,0,50,4,517 601,16,32,41.625,147.0511,32,14,0
+RB_large,mix025_first165,degree greedy maximal set,joint epoch 1,1,0.25,165.0,1,50,4,517 601,16,32,41.65625,128.0211,32,13,0
+RB_large,mix025_last175,degree greedy maximal set,joint epoch 1,1,0.25,175.0,0,50,4,517 601,16,32,41.75,131.1988,32,14,1
+RB_large,mix050,degree greedy maximal set,joint epoch 1,1,0.5,140.0,0,50,4,517 601,16,32,41.65625,146.7076,32,14,0
+RB_large,mix100,degree greedy maximal set,joint epoch 1,1,1.0,140.0,0,50,4,517 601,16,32,41.625,148.4573,32,15,0
+RB_large,neutral140,degree greedy maximal set,none,0,,140.0,0,50,4,517 601,16,32,41.5,148.8489,32,14,0
+RB_large,neutral90,degree greedy maximal set,none,0,,90.0,0,50,4,517 601,16,32,41.40625,171.3315,32,12,0
+RB_large,uniform_clique_first,single vertex,none,0,,130.0,1,50,4,517,16,16,40.8125,197.086,16,3,0
+RB_large,uniform_clique_last,single vertex,none,0,,140.0,0,50,4,517,16,16,41.4375,156.3384,16,6,0
+RB_large,uniform_local,single vertex,none,0,,0,0,50,4,517,16,16,40.8125,197.1245,16,0,0
+RB_small,degree,degree greedy maximal set,none,1,,185.0,1,50,4,517 601,16,32,20.0625,3.6705,32,32,0
+RB_small,learned185,degree greedy maximal set,joint epoch 1,0,,185.0,1,50,4,517 601,16,32,20.0625,13.152,32,32,0
+RB_small,mix025,degree greedy maximal set,joint epoch 1,1,0.25,185.0,1,50,4,517 601,16,32,20.0625,8.0187,32,32,1
+RB_small,mix050,degree greedy maximal set,joint epoch 1,1,0.5,185.0,1,50,4,517 601,16,32,20.0625,9.4177,32,32,0
+RB_small,mix100,degree greedy maximal set,joint epoch 1,1,1.0,185.0,1,50,4,517 601,16,32,20.0625,7.8941,32,32,0
+RB_small,neutral185,degree greedy maximal set,none,0,,185.0,1,50,4,517 601,16,32,20.0625,4.7851,32,32,0
+RB_small,uniform_clique_first,single vertex,none,0,,120.0,1,50,4,517,16,16,20.0625,22.3249,16,15,0

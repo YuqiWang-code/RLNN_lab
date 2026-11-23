@@ -1,0 +1,77 @@
+{
+  "mode": "gate0",
+  "csv": "outputs/v11/gate0/a0_steps808_n1000/padded/padded_ref0.csv",
+  "json": "outputs/v11/gate0/a0_steps808_n1000/padded/padded_ref0.json",
+  "v11_csv": "outputs/v11/gate0/a0_steps808_n1000/v11_rows.csv",
+  "graphs": 1000,
+  "rows": 2000,
+  "tolerance": 0.01,
+  "reference": 20.069,
+  "reference_kind": "A0_declared_config_fp16_dense_810_steps",
+  "mean_search_size": 20.069,
+  "delta_search": 0.0,
+  "config_sensitivity": 0.007,
+  "config_sensitivity_note": "fp32<->fp16, deterministic, not in the tolerance",
+  "historical_clock_reference": 20.0685,
+  "historical_note": "historical_clock_reference_unreproducible",
+  "delta_vs_historical": 0.0005,
+  "mean_final_size": 20.0705,
+  "final_size_note": "report only; contains PAVE 0.2 s reserve jitter +-0.0005, never use for <=0.001 decisions",
+  "mean_steps": 810.0,
+  "mean_ms_per_step": 0.877,
+  "artifact": {
+    "path": "outputs/v11/gate0/a0_steps808_n1000/v11_rows.csv",
+    "rows": 2000,
+    "values": {
+      "dtype": [
+        "fp16"
+      ],
+      "dense": [
+        "1"
+      ],
+      "fp32_csr": [
+        "0"
+      ],
+      "fixed_steps": [
+        "808"
+      ],
+      "steps": [
+        "810"
+      ]
+    },
+    "consistent": true,
+    "dtype": "fp16",
+    "dense": "1",
+    "fp32_csr": "0",
+    "fixed_steps": "808"
+  },
+  "checks": {
+    "figures": true,
+    "search": true,
+    "steps_810": true,
+    "dtype_fp16": true,
+    "dense": true,
+    "fixed_steps": true,
+    "not_fp32_csr": true,
+    "artifact_consistent": true
+  },
+  "passed": true,
+  "summary_keys": [
+    "anneal",
+    "arms",
+    "budgets",
+    "cells",
+    "chunk",
+    "decode_chunk",
+    "decoders",
+    "graphs",
+    "horizon",
+    "padded",
+    "post_reserve",
+    "ref",
+    "repeats",
+    "seeds",
+    "temperatures",
+    "wall_time_s"
+  ]
+}

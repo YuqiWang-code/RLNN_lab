@@ -71,7 +71,13 @@ class GCNConv(nn.Module):
     def forward(self, x, adj):
         support = torch.matmul(x, self.weight)
         support = support.flatten(1)
-        output = torch.spmm(adj, support)
+        # ``spmm`` on CSR is ~1 GFLOP/s: on the author graphs (264 nodes, mean
+        # degree 80) a dense matmul is 20x faster at the same result.  The
+        # padded engine can hand over a dense matrix; training still passes CSR.
+        if adj.layout == torch.strided:
+            output = torch.matmul(adj, support)
+        else:
+            output = torch.spmm(adj, support)
         output = output.reshape(x.shape)
         if self.bias is not None:
             return output + self.bias
@@ -85,11 +91,18 @@ class GCNConv(nn.Module):
 
 
 class GCN(nn.Module):
-    def __init__(self, in_channels, hidden_channels, num_layers, out_channels, dropout=0.5):
+    def __init__(self, in_channels, hidden_channels, num_layers, out_channels, dropout=0.5, normalize=False):
         super(GCN, self).__init__()   
         self.initial_project = nn.Linear(in_channels, hidden_channels)
         self.convs = nn.ModuleList()  
         self.linears = nn.ModuleList()
+        # ``normalize`` divides every layer's neighbour aggregate by its RMS over
+        # nodes.  Symmetric normalisation makes each hop a mean, so on a dense
+        # graph the node-to-node contrast decays by ~1/d per hop (d ~ 80 here) and
+        # everything past the first hop is averaging noise.  Renormalising keeps
+        # the layer stack -- and with it the composition of hops -- while removing
+        # the decay, so a deep GCN still gets a usable multi-hop receptive field.
+        self.normalize = normalize
         
         for i in range(num_layers):
             conv = GCNConv(hidden_channels, hidden_channels)
@@ -116,6 +129,8 @@ class GCN(nn.Module):
     def project_hidden(self, x, adj):
         for conv, linear in zip(self.convs,self.linears):
             nei = conv(x, adj)
+            if self.normalize:
+                nei = nei / nei.pow(2).mean(dim=0, keepdim=True).sqrt().clamp_min(1e-3)
             x_ = linear(x)
             x = self.activation(nei + x_) + x
         

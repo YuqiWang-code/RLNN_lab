@@ -1,0 +1,4 @@
+index, name, memory.total [MiB], memory.free [MiB]
+0, NVIDIA GeForce RTX 5090, 32607 MiB, 25589 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB, 15047 MiB
+isco: 16/16 graphs

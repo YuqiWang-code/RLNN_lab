@@ -1,0 +1,8 @@
+{
+  "status": "License limit",
+  "reason": "Model too large for size-limited license; visit https://gurobi.com/unrestricted for more information",
+  "error_code": 10010,
+  "first_rejected_graph": "idx_0",
+  "variables": 9904,
+  "constraints": 9904
+}

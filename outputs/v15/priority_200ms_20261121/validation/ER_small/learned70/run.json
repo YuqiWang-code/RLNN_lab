@@ -1,0 +1,24 @@
+{
+  "dataset": "models/data/scale_priority_20261121/ER_small/validation",
+  "checkpoint": "outputs/v11/scale_priority_20261121/training/best.pt",
+  "output": "outputs/v15/priority_200ms_20261121/validation/ER_small/learned70",
+  "library": "tmp/priority_validation_v15/search.so",
+  "refiner": "tmp/priority_validation_v15/refine.so",
+  "refine_ms": 70.0,
+  "refine_first": false,
+  "budget_ms": 200,
+  "reserve_ms": 3,
+  "weight": 0.7,
+  "plateau": 50,
+  "perturb": 4,
+  "seeds": [
+    517,
+    601
+  ],
+  "limit": null,
+  "graphs": 16,
+  "host": "user",
+  "torch": "2.9.1+cu130",
+  "gpu": "1",
+  "timing": "Resident host edge_index to materialized host incumbents. CSR construction, GPU scoring, device transfers and search are timed."
+}

@@ -1,0 +1,5 @@
+graph_id,budget,cell,arm,decoder,seed,repeat,search_size,final_size,steps,wall_ms,ms_per_step,search_ms,load_ms,blocks,pave_gain,deadline_overrun,temperature,anneal,fixed_steps
+graph_000000,1.0,padded/captured,padded,captured,1017,0,22,22,810,997.9,1.172,,,81,0,0,1.0,0,810
+graph_000001,1.0,padded/captured,padded,captured,1017,0,19,19,810,940.7,1.118,,,81,0,0,1.0,0,810
+graph_000002,1.0,padded/captured,padded,captured,1017,0,18,18,810,907.6,1.081,,,81,0,0,1.0,0,810
+graph_000003,1.0,padded/captured,padded,captured,1017,0,18,18,810,915.7,1.078,,,81,0,0,1.0,0,810

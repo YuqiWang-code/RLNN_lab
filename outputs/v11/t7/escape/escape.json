@@ -1,0 +1,73 @@
+{
+ "graphs": 200,
+ "rounds": 8,
+ "escape_budget": 0.2,
+ "h": 8,
+ "mode": "cross",
+ "steps": 810,
+ "deploy_reserve": 0.05,
+ "build_wall_s": 142.7,
+ "escape_wall_s": 93.2,
+ "per_cell": {
+  "deploy:h0": {
+   "graphs": 200,
+   "start_size": 20.105,
+   "best_size": 20.105,
+   "gain": 0,
+   "gain_positive_graphs": 0,
+   "best_gain": 0,
+   "refreshed_rounds": 0,
+   "refresh_graphs": 0,
+   "ar": 0.923125,
+   "er": 0.0,
+   "fifo_hits": 0,
+   "fifo_checks": 0,
+   "deadline_hits": 30
+  },
+  "deploy:h8": {
+   "graphs": 200,
+   "start_size": 20.105,
+   "best_size": 20.105,
+   "gain": 0,
+   "gain_positive_graphs": 0,
+   "best_gain": 0,
+   "refreshed_rounds": 0,
+   "refresh_graphs": 0,
+   "ar": 0.920625,
+   "er": 0.0,
+   "fifo_hits": 0,
+   "fifo_checks": 0,
+   "deadline_hits": 32
+  },
+  "greedy:h0": {
+   "graphs": 200,
+   "start_size": 17.105,
+   "best_size": 18.905,
+   "gain": 1.8,
+   "gain_positive_graphs": 172,
+   "best_gain": 5,
+   "refreshed_rounds": 0.095,
+   "refresh_graphs": 17,
+   "ar": 0.910625,
+   "er": 0.0,
+   "fifo_hits": 0,
+   "fifo_checks": 0,
+   "deadline_hits": 43
+  },
+  "greedy:h8": {
+   "graphs": 200,
+   "start_size": 17.105,
+   "best_size": 18.85,
+   "gain": 1.745,
+   "gain_positive_graphs": 172,
+   "best_gain": 5,
+   "refreshed_rounds": 0.09,
+   "refresh_graphs": 16,
+   "ar": 0.91125,
+   "er": 0.0667723351962476,
+   "fifo_hits": 4447,
+   "fifo_checks": 59113,
+   "deadline_hits": 46
+  }
+ }
+}

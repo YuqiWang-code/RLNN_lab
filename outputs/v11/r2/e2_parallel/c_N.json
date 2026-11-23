@@ -1,0 +1,99 @@
+{
+ "protocol": {
+  "num_k_base": 200,
+  "steps_bench": 200,
+  "chunk": 10,
+  "dense": true,
+  "dtype": "torch.float16",
+  "graph": "graph_000000",
+  "nodes": 216,
+  "n_max": 264,
+  "capacity": 105,
+  "seeds": [
+   1017,
+   1019,
+   1021,
+   1023
+  ]
+ },
+ "rows": [
+  {
+   "n_arms": 1,
+   "num_k": 200,
+   "steps": 200,
+   "ms_step": 0.8133,
+   "ms_block": 8.1328,
+   "p10": 0.8071,
+   "p90": 0.8143,
+   "peak_gib": 0.147,
+   "forward": 0.8766,
+   "energy_csr": 0.0343,
+   "energy_dense": 0.0264,
+   "sample": 0.894,
+   "decode": 0.2735,
+   "eager_sum": 1.8048,
+   "captured_minus_eager": -0.9915,
+   "c": 1.0
+  },
+  {
+   "n_arms": 2,
+   "num_k": 400,
+   "steps": 200,
+   "ms_step": 1.9436,
+   "ms_block": 19.4362,
+   "p10": 1.9425,
+   "p90": 1.9455,
+   "peak_gib": 0.285,
+   "forward": 1.9893,
+   "energy_csr": 0.0346,
+   "energy_dense": 0.0264,
+   "sample": 2.0099,
+   "decode": 0.2488,
+   "eager_sum": 4.0337,
+   "captured_minus_eager": -2.0901,
+   "c": 2.3898
+  },
+  {
+   "n_arms": 3,
+   "num_k": 600,
+   "steps": 200,
+   "ms_step": 3.5612,
+   "ms_block": 35.6116,
+   "p10": 3.5601,
+   "p90": 3.562,
+   "peak_gib": 0.422,
+   "forward": 3.6067,
+   "energy_csr": 0.0347,
+   "energy_dense": 0.0263,
+   "sample": 3.6256,
+   "decode": 0.2449,
+   "eager_sum": 7.267,
+   "captured_minus_eager": -3.7058,
+   "c": 4.3787
+  },
+  {
+   "n_arms": 4,
+   "num_k": 800,
+   "steps": 200,
+   "ms_step": 4.9955,
+   "ms_block": 49.9553,
+   "p10": 4.9944,
+   "p90": 4.9974,
+   "peak_gib": 0.56,
+   "forward": 5.0303,
+   "energy_csr": 0.0352,
+   "energy_dense": 0.026,
+   "sample": 5.0465,
+   "decode": 0.2426,
+   "eager_sum": 10.112,
+   "captured_minus_eager": -5.1164,
+   "c": 6.1423
+  }
+ ],
+ "verdict": {
+  "n2_c": 2.3898,
+  "n3_c": 4.3787,
+  "n2_threshold": 1.6,
+  "n3_threshold": 1.99
+ }
+}

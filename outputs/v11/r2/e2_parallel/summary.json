@@ -1,0 +1,72 @@
+{
+ "graphs": 200,
+ "plans": [
+  [
+   1,
+   810
+  ],
+  [
+   2,
+   330
+  ],
+  [
+   3,
+   180
+  ]
+ ],
+ "delta": {
+  "par2_search": {
+   "mean": -0.02,
+   "boot_mean": -0.02,
+   "ci": [
+    -0.055,
+    0.015
+   ],
+   "steps_per_arm": 330,
+   "wins": 4,
+   "losses": 8,
+   "ties": 188
+  },
+  "par2_final": {
+   "mean": -0.02,
+   "boot_mean": -0.02,
+   "ci": [
+    -0.055,
+    0.015
+   ],
+   "steps_per_arm": 330,
+   "wins": 4,
+   "losses": 8,
+   "ties": 188
+  },
+  "par3_search": {
+   "mean": -0.06,
+   "boot_mean": -0.06,
+   "ci": [
+    -0.095,
+    -0.025
+   ],
+   "steps_per_arm": 180,
+   "wins": 1,
+   "losses": 13,
+   "ties": 186
+  },
+  "par3_final": {
+   "mean": -0.045,
+   "boot_mean": -0.045,
+   "ci": [
+    -0.08,
+    -0.015
+   ],
+   "steps_per_arm": 180,
+   "wins": 1,
+   "losses": 10,
+   "ties": 189
+  }
+ },
+ "mean_ms": {
+  "single_ms": 0.8176,
+  "par2_ms": 1.9481,
+  "par3_ms": 3.5851
+ }
+}

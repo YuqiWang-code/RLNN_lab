@@ -1,0 +1,1349 @@
+{
+  "generated_at": "2026-11-17T13:19:20.154361+00:00",
+  "task": "R2-E1 parallel-trajectory (best-of-N) headroom",
+  "bootstrap": {
+    "reps": 5000,
+    "unit": "graph",
+    "seed": 20261117
+  },
+  "metric_note": "search_size where present; final_size only when search_size is absent (flagged)",
+  "discovery": {
+    "local": [
+      {
+        "path": "outputs/v8_macro/author_test/capture_budget/capture_budget_ref0.csv",
+        "note": "v8_macro author_test merged grid; 1000 author-test graphs; 3 search seeds; 0.5/1.0 s clock; arms eager/captured; decoders eager/cached; repeat=0",
+        "exists": true,
+        "rows": 18000,
+        "graphs": 1000,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "decoder",
+          "cell",
+          "repeat",
+          "first",
+          "final_size",
+          "search_size",
+          "pave_gain",
+          "steps",
+          "solve_time_s",
+          "search_time_s",
+          "decode_time_s",
+          "prelude_s",
+          "ms_per_step",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.5,
+          1.0
+        ],
+        "arm": [
+          "captured",
+          "eager"
+        ],
+        "decoder": [
+          "cached",
+          "eager"
+        ],
+        "repeat": [
+          0
+        ],
+        "steps": {
+          "mean": 442.42566666666664,
+          "min": 0.0,
+          "max": 2720.0
+        }
+      },
+      {
+        "path": "outputs/v8_macro/author_test/capture_budget/capture_budget_ref0_shard0.csv",
+        "note": "shard of the above",
+        "exists": true,
+        "rows": 4500,
+        "graphs": 250,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "decoder",
+          "cell",
+          "repeat",
+          "first",
+          "final_size",
+          "search_size",
+          "pave_gain",
+          "steps",
+          "solve_time_s",
+          "search_time_s",
+          "decode_time_s",
+          "prelude_s",
+          "ms_per_step",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.5,
+          1.0
+        ],
+        "arm": [
+          "captured",
+          "eager"
+        ],
+        "decoder": [
+          "cached",
+          "eager"
+        ],
+        "repeat": [
+          0
+        ],
+        "steps": {
+          "mean": 484.1722222222222,
+          "min": 0.0,
+          "max": 2110.0
+        }
+      },
+      {
+        "path": "outputs/v8_macro/recombine/recombine/recombine_ref0.csv",
+        "note": "v8_macro recombine grid; 1000 graphs; 3 seeds; 0.5/1.0 s; arms captured/oracle/recombine; no search_size column (final_size only)",
+        "exists": true,
+        "rows": 18000,
+        "graphs": 1000,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "first",
+          "final_size",
+          "steps",
+          "recombine_gain",
+          "decode_time_s",
+          "recombine_time_s",
+          "solve_time_s",
+          "reserve_s",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.5,
+          1.0
+        ],
+        "arm": [
+          "captured",
+          "oracle",
+          "recombine"
+        ],
+        "steps": {
+          "mean": 364.65277777777777,
+          "min": 40.0,
+          "max": 3360.0
+        }
+      },
+      {
+        "path": "outputs/v8_macro/author_short/capture_budget/capture_budget_ref0.csv",
+        "note": "v8_macro author_short; 3 seeds but budgets 0.05/0.1/0.2 s (not the 1.0 s protocol)",
+        "exists": true,
+        "rows": 9000,
+        "graphs": 1000,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "decoder",
+          "cell",
+          "repeat",
+          "first",
+          "final_size",
+          "search_size",
+          "pave_gain",
+          "steps",
+          "solve_time_s",
+          "search_time_s",
+          "decode_time_s",
+          "prelude_s",
+          "ms_per_step",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.05,
+          0.1,
+          0.2
+        ],
+        "arm": [
+          "captured"
+        ],
+        "decoder": [
+          "cached"
+        ],
+        "repeat": [
+          0
+        ],
+        "steps": {
+          "mean": 16.601111111111113,
+          "min": 0.0,
+          "max": 170.0
+        }
+      },
+      {
+        "path": "outputs/v8_macro/er700_800/capture_budget/capture_budget_ref0.csv",
+        "note": "ER700-800 subset; 3 seeds; 0.5/1.0 s; 128 graphs only",
+        "exists": true,
+        "rows": 2304,
+        "graphs": 128,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "decoder",
+          "cell",
+          "repeat",
+          "first",
+          "final_size",
+          "search_size",
+          "pave_gain",
+          "steps",
+          "solve_time_s",
+          "search_time_s",
+          "decode_time_s",
+          "prelude_s",
+          "ms_per_step",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.5,
+          1.0
+        ],
+        "arm": [
+          "captured",
+          "eager"
+        ],
+        "decoder": [
+          "cached",
+          "eager"
+        ],
+        "repeat": [
+          0
+        ],
+        "steps": {
+          "mean": 49.91015625,
+          "min": 0.0,
+          "max": 370.0
+        }
+      },
+      {
+        "path": "outputs/structure_v2/fixed_baseline_ref0_s1017/pave/per_graph.csv",
+        "note": "structure_v2 fixed-work eval (100 steps), 100 val graphs; one dir per seed base; final_size only",
+        "exists": true,
+        "rows": 100,
+        "graphs": 100,
+        "columns": [
+          "graph_id",
+          "group",
+          "backbone_seed",
+          "head_seed",
+          "search_seed",
+          "independent_set_size",
+          "final_size",
+          "base_size",
+          "rule_size",
+          "solve_time_s",
+          "search_time_s",
+          "post_time_s",
+          "exchange_time_s",
+          "score_time_s",
+          "conflicts",
+          "search_steps",
+          "neutral_decisions",
+          "improving_exchanges",
+          "exchanges",
+          "outer_rounds",
+          "candidate_count",
+          "full_candidate_count",
+          "returned_to_start",
+          "anchored_rollbacks",
+          "incumbent_fallback",
+          "post_deadline_hit",
+          "deadline_overrun",
+          "selected_nodes"
+        ],
+        "search_seed": [
+          1017,
+          1018,
+          1019,
+          1020,
+          1021,
+          1022,
+          1023,
+          1024
+        ]
+      },
+      {
+        "path": "outputs/v11/gate0/a0_steps808_n1000/padded/padded_ref0.csv",
+        "note": "A0 protocol itself: 1000 graphs, 810 fixed steps, K=200, captured decoder, ref0; seed 1017 ONLY, repeats=2",
+        "exists": false
+      },
+      {
+        "path": "outputs/v11/gate0/a0_clock1s_n1000/padded/padded_ref0.csv",
+        "note": "A0 clock variant (650-750 steps at 1.0 s); seed 1017 only, repeats=2; deleted at 2026-11-17T21:14 by the t11 gate rerun",
+        "exists": false
+      }
+    ],
+    "server": [
+      {
+        "path": "outputs/v11/gate0/a0_steps808_n1000/padded/padded_ref0.csv",
+        "rows": 2000,
+        "graphs": 1000,
+        "seeds": [
+          1017
+        ],
+        "repeats": 2,
+        "steps": 810,
+        "budget": 1.0,
+        "K": 200,
+        "verdict": "A0 protocol but single seed -> cannot form a triple"
+      },
+      {
+        "path": "outputs/v11/gate0/a0_steps808_repeat/padded/padded_ref0.csv",
+        "rows": 2000,
+        "graphs": 1000,
+        "seeds": [
+          1017
+        ],
+        "repeats": 2,
+        "steps": 810,
+        "verdict": "same as above (repeat-only)"
+      },
+      {
+        "path": "outputs/v11/gate0/a0_clock1s_n1000/padded/padded_ref0.csv",
+        "rows": 2000,
+        "graphs": 1000,
+        "seeds": [
+          1017
+        ],
+        "repeats": 2,
+        "steps": "650-750",
+        "verdict": "single seed; file deleted 21:14 by t11 rerun"
+      },
+      {
+        "path": "outputs/structure_v2/fixed_baseline_ref0_s{1017,1019,1021}/pave/per_graph.csv",
+        "rows": 100,
+        "graphs": 100,
+        "seeds": [
+          1017,
+          1019,
+          1021
+        ],
+        "steps": 100,
+        "verdict": "protocol-consistent triple but fixed-work 100 steps / 100 graphs, not 1.0 s"
+      },
+      {
+        "path": "outputs/v9/**",
+        "exists": false
+      },
+      {
+        "path": "outputs/v11/**",
+        "note": "no 1019/1021 eval dirs anywhere under outputs/"
+      }
+    ],
+    "main_table": [
+      {
+        "pool": "P1_author_test_b1.0_captured_cached",
+        "path": "outputs/v8_macro/author_test/capture_budget/capture_budget_ref0.csv",
+        "selection": "budget==1.0, arm==captured, decoder==cached, repeat==0",
+        "graphs": 1000,
+        "seeds": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget_s": 1.0,
+        "K": 20,
+        "backbone": "outputs/v2/none_seed0/checkpoints (same dir as A0)",
+        "metric": "search_size",
+        "protocol_vs_A0": "same checkpoint dir / same 1000 author-test graphs / same captured decoder; differs in K (20 vs 200) and step control (clock vs fixed 810)"
+      }
+    ],
+    "excluded": [
+      {
+        "what": "outputs/v11/gate0/a0_steps808_n1000",
+        "why": "only seed 1017 on disk (t7 three-seed A0 not produced yet)"
+      },
+      {
+        "what": "outputs/v8_macro/author_short",
+        "why": "budgets 0.05/0.1/0.2 s, not 1.0 s"
+      },
+      {
+        "what": "outputs/v8_macro/recombine",
+        "why": "no search_size column -> final_size only; recombine grid protocol, used as cross-check not main"
+      },
+      {
+        "what": "outputs/v8_macro/er700_800",
+        "why": "128 ER graphs only -> supplementary robustness"
+      },
+      {
+        "what": "outputs/structure_v2/fixed_*_s1017/1019/1021",
+        "why": "fixed-work 100 steps, 100 graphs, final_size only -> out of the 1.0 s protocol"
+      },
+      {
+        "what": "outputs/v8_macro/*_shard*.csv",
+        "why": "shards of the same merged run, not extra seeds"
+      }
+    ],
+    "inventory_local": [
+      {
+        "path": "outputs/v8_macro/author_test/capture_budget/capture_budget_ref0.csv",
+        "note": "v8_macro author_test merged grid; 1000 author-test graphs; 3 search seeds; 0.5/1.0 s clock; arms eager/captured; decoders eager/cached; repeat=0",
+        "exists": true,
+        "rows": 18000,
+        "graphs": 1000,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "decoder",
+          "cell",
+          "repeat",
+          "first",
+          "final_size",
+          "search_size",
+          "pave_gain",
+          "steps",
+          "solve_time_s",
+          "search_time_s",
+          "decode_time_s",
+          "prelude_s",
+          "ms_per_step",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.5,
+          1.0
+        ],
+        "arm": [
+          "captured",
+          "eager"
+        ],
+        "decoder": [
+          "cached",
+          "eager"
+        ],
+        "repeat": [
+          0
+        ],
+        "steps": {
+          "mean": 442.42566666666664,
+          "min": 0.0,
+          "max": 2720.0
+        }
+      },
+      {
+        "path": "outputs/v8_macro/author_test/capture_budget/capture_budget_ref0_shard0.csv",
+        "note": "shard of the above",
+        "exists": true,
+        "rows": 4500,
+        "graphs": 250,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "decoder",
+          "cell",
+          "repeat",
+          "first",
+          "final_size",
+          "search_size",
+          "pave_gain",
+          "steps",
+          "solve_time_s",
+          "search_time_s",
+          "decode_time_s",
+          "prelude_s",
+          "ms_per_step",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.5,
+          1.0
+        ],
+        "arm": [
+          "captured",
+          "eager"
+        ],
+        "decoder": [
+          "cached",
+          "eager"
+        ],
+        "repeat": [
+          0
+        ],
+        "steps": {
+          "mean": 484.1722222222222,
+          "min": 0.0,
+          "max": 2110.0
+        }
+      },
+      {
+        "path": "outputs/v8_macro/recombine/recombine/recombine_ref0.csv",
+        "note": "v8_macro recombine grid; 1000 graphs; 3 seeds; 0.5/1.0 s; arms captured/oracle/recombine; no search_size column (final_size only)",
+        "exists": true,
+        "rows": 18000,
+        "graphs": 1000,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "first",
+          "final_size",
+          "steps",
+          "recombine_gain",
+          "decode_time_s",
+          "recombine_time_s",
+          "solve_time_s",
+          "reserve_s",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.5,
+          1.0
+        ],
+        "arm": [
+          "captured",
+          "oracle",
+          "recombine"
+        ],
+        "steps": {
+          "mean": 364.65277777777777,
+          "min": 40.0,
+          "max": 3360.0
+        }
+      },
+      {
+        "path": "outputs/v8_macro/author_short/capture_budget/capture_budget_ref0.csv",
+        "note": "v8_macro author_short; 3 seeds but budgets 0.05/0.1/0.2 s (not the 1.0 s protocol)",
+        "exists": true,
+        "rows": 9000,
+        "graphs": 1000,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "decoder",
+          "cell",
+          "repeat",
+          "first",
+          "final_size",
+          "search_size",
+          "pave_gain",
+          "steps",
+          "solve_time_s",
+          "search_time_s",
+          "decode_time_s",
+          "prelude_s",
+          "ms_per_step",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.05,
+          0.1,
+          0.2
+        ],
+        "arm": [
+          "captured"
+        ],
+        "decoder": [
+          "cached"
+        ],
+        "repeat": [
+          0
+        ],
+        "steps": {
+          "mean": 16.601111111111113,
+          "min": 0.0,
+          "max": 170.0
+        }
+      },
+      {
+        "path": "outputs/v8_macro/er700_800/capture_budget/capture_budget_ref0.csv",
+        "note": "ER700-800 subset; 3 seeds; 0.5/1.0 s; 128 graphs only",
+        "exists": true,
+        "rows": 2304,
+        "graphs": 128,
+        "columns": [
+          "graph_id",
+          "search_seed",
+          "budget",
+          "arm",
+          "decoder",
+          "cell",
+          "repeat",
+          "first",
+          "final_size",
+          "search_size",
+          "pave_gain",
+          "steps",
+          "solve_time_s",
+          "search_time_s",
+          "decode_time_s",
+          "prelude_s",
+          "ms_per_step",
+          "deadline_overrun"
+        ],
+        "search_seed": [
+          1017,
+          1019,
+          1021
+        ],
+        "budget": [
+          0.5,
+          1.0
+        ],
+        "arm": [
+          "captured",
+          "eager"
+        ],
+        "decoder": [
+          "cached",
+          "eager"
+        ],
+        "repeat": [
+          0
+        ],
+        "steps": {
+          "mean": 49.91015625,
+          "min": 0.0,
+          "max": 370.0
+        }
+      },
+      {
+        "path": "outputs/structure_v2/fixed_baseline_ref0_s1017/pave/per_graph.csv",
+        "note": "structure_v2 fixed-work eval (100 steps), 100 val graphs; one dir per seed base; final_size only",
+        "exists": true,
+        "rows": 100,
+        "graphs": 100,
+        "columns": [
+          "graph_id",
+          "group",
+          "backbone_seed",
+          "head_seed",
+          "search_seed",
+          "independent_set_size",
+          "final_size",
+          "base_size",
+          "rule_size",
+          "solve_time_s",
+          "search_time_s",
+          "post_time_s",
+          "exchange_time_s",
+          "score_time_s",
+          "conflicts",
+          "search_steps",
+          "neutral_decisions",
+          "improving_exchanges",
+          "exchanges",
+          "outer_rounds",
+          "candidate_count",
+          "full_candidate_count",
+          "returned_to_start",
+          "anchored_rollbacks",
+          "incumbent_fallback",
+          "post_deadline_hit",
+          "deadline_overrun",
+          "selected_nodes"
+        ],
+        "search_seed": [
+          1017,
+          1018,
+          1019,
+          1020,
+          1021,
+          1022,
+          1023,
+          1024
+        ]
+      },
+      {
+        "path": "outputs/v11/gate0/a0_steps808_n1000/padded/padded_ref0.csv",
+        "note": "A0 protocol itself: 1000 graphs, 810 fixed steps, K=200, captured decoder, ref0; seed 1017 ONLY, repeats=2",
+        "exists": false
+      },
+      {
+        "path": "outputs/v11/gate0/a0_clock1s_n1000/padded/padded_ref0.csv",
+        "note": "A0 clock variant (650-750 steps at 1.0 s); seed 1017 only, repeats=2; deleted at 2026-11-17T21:14 by the t11 gate rerun",
+        "exists": false
+      }
+    ],
+    "inventory_server": [
+      {
+        "path": "outputs/v11/gate0/a0_steps808_n1000/padded/padded_ref0.csv",
+        "rows": 2000,
+        "graphs": 1000,
+        "seeds": [
+          1017
+        ],
+        "repeats": 2,
+        "steps": 810,
+        "budget": 1.0,
+        "K": 200,
+        "verdict": "A0 protocol but single seed -> cannot form a triple"
+      },
+      {
+        "path": "outputs/v11/gate0/a0_steps808_repeat/padded/padded_ref0.csv",
+        "rows": 2000,
+        "graphs": 1000,
+        "seeds": [
+          1017
+        ],
+        "repeats": 2,
+        "steps": 810,
+        "verdict": "same as above (repeat-only)"
+      },
+      {
+        "path": "outputs/v11/gate0/a0_clock1s_n1000/padded/padded_ref0.csv",
+        "rows": 2000,
+        "graphs": 1000,
+        "seeds": [
+          1017
+        ],
+        "repeats": 2,
+        "steps": "650-750",
+        "verdict": "single seed; file deleted 21:14 by t11 rerun"
+      },
+      {
+        "path": "outputs/structure_v2/fixed_baseline_ref0_s{1017,1019,1021}/pave/per_graph.csv",
+        "rows": 100,
+        "graphs": 100,
+        "seeds": [
+          1017,
+          1019,
+          1021
+        ],
+        "steps": 100,
+        "verdict": "protocol-consistent triple but fixed-work 100 steps / 100 graphs, not 1.0 s"
+      },
+      {
+        "path": "outputs/v9/**",
+        "exists": false
+      },
+      {
+        "path": "outputs/v11/**",
+        "note": "no 1019/1021 eval dirs anywhere under outputs/"
+      }
+    ],
+    "exclusion_log": [
+      {
+        "what": "outputs/v11/gate0/a0_steps808_n1000",
+        "why": "only seed 1017 on disk (t7 three-seed A0 not produced yet)"
+      },
+      {
+        "what": "outputs/v8_macro/author_short",
+        "why": "budgets 0.05/0.1/0.2 s, not 1.0 s"
+      },
+      {
+        "what": "outputs/v8_macro/recombine",
+        "why": "no search_size column -> final_size only; recombine grid protocol, used as cross-check not main"
+      },
+      {
+        "what": "outputs/v8_macro/er700_800",
+        "why": "128 ER graphs only -> supplementary robustness"
+      },
+      {
+        "what": "outputs/structure_v2/fixed_*_s1017/1019/1021",
+        "why": "fixed-work 100 steps, 100 graphs, final_size only -> out of the 1.0 s protocol"
+      },
+      {
+        "what": "outputs/v8_macro/*_shard*.csv",
+        "why": "shards of the same merged run, not extra seeds"
+      }
+    ]
+  },
+  "pools": {
+    "P1_author_test_b1.0_captured_cached": {
+      "label": "v8 author_test 1000 graphs, budget=1.0s, arm=captured, decoder=cached, K=20",
+      "n_graphs": 1000,
+      "n_seeds": 3,
+      "mean1": 19.929333333333332,
+      "per_seed_mean": {
+        "1017": 19.929,
+        "1019": 19.928,
+        "1021": 19.931
+      },
+      "world_sd_of_per_graph_size": 1.5955482501833365,
+      "sigma_per_graph": {
+        "mean": 0.10911920087683927,
+        "median": 0.0,
+        "p10": 0.0,
+        "p90": 0.5773502691896258,
+        "frac_sigma_zero": 0.812
+      },
+      "max2": 19.992333333333335,
+      "max3": 20.022,
+      "d_max2": 0.0630000000000001,
+      "d_max2_ci95": [
+        0.05466666666666676,
+        0.07133333333333344
+      ],
+      "d_max3": 0.09266666666666666,
+      "d_max3_ci95": [
+        0.08033333333333331,
+        0.10533333333333335
+      ],
+      "d_max2_vs_seed_first": 0.06333333333333344,
+      "d_max3_vs_seed_first": 0.093,
+      "d_marginal_third": 0.02966666666666656,
+      "frac_graphs_2nd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_gain_ge2": 0.0,
+      "frac_graphs_3rd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_no_gain": 0.812,
+      "max_over_n_normal": {
+        "N2_sigma_mean": 0.06156391649455679,
+        "N2_per_graph_sigma": 0.0615639164945568,
+        "N3_sigma_mean": 0.09234587474729113,
+        "N3_per_graph_sigma": 0.09234587474729115
+      },
+      "max_over_n_empirical": {
+        "N2": 0.0630000000000001,
+        "N3": 0.09266666666666666
+      },
+      "model_check_normal_minus_empirical": {
+        "N2": -0.001436083505443296,
+        "N3": -0.0003207919193755071
+      },
+      "mean_steps": 1057.8133333333333,
+      "source": "outputs\\v8_macro\\author_test\\capture_budget\\capture_budget_ref0.csv"
+    },
+    "P1_author_test_b0.5_captured_cached": {
+      "label": "v8 author_test 1000 graphs, budget=0.5s, arm=captured, decoder=cached, K=20",
+      "n_graphs": 1000,
+      "n_seeds": 3,
+      "mean1": 19.824333333333332,
+      "per_seed_mean": {
+        "1017": 19.812,
+        "1019": 19.835,
+        "1021": 19.826
+      },
+      "world_sd_of_per_graph_size": 1.579934483055714,
+      "sigma_per_graph": {
+        "mean": 0.15311106998930268,
+        "median": 0.0,
+        "p10": 0.0,
+        "p90": 0.5773502691896258,
+        "frac_sigma_zero": 0.737
+      },
+      "max2": 19.913,
+      "max3": 19.956,
+      "d_max2": 0.08866666666666681,
+      "d_max2_ci95": [
+        0.07966666666666675,
+        0.09833333333333348
+      ],
+      "d_max3": 0.13166666666666665,
+      "d_max3_ci95": [
+        0.11733333333333329,
+        0.14633333333333334
+      ],
+      "d_max2_vs_seed_first": 0.10100000000000016,
+      "d_max3_vs_seed_first": 0.144,
+      "d_marginal_third": 0.042999999999999844,
+      "frac_graphs_2nd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_gain_ge2": 0.0,
+      "frac_graphs_3rd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_no_gain": 0.737,
+      "max_over_n_normal": {
+        "N2_sigma_mean": 0.08638367080650404,
+        "N2_per_graph_sigma": 0.08638367080650405,
+        "N3_sigma_mean": 0.1295755062174116,
+        "N3_per_graph_sigma": 0.12957550621741165
+      },
+      "max_over_n_empirical": {
+        "N2": 0.08866666666666681,
+        "N3": 0.13166666666666665
+      },
+      "model_check_normal_minus_empirical": {
+        "N2": -0.0022829958601627565,
+        "N3": -0.002091160449255003
+      },
+      "mean_steps": 401.87,
+      "source": "outputs\\v8_macro\\author_test\\capture_budget\\capture_budget_ref0.csv"
+    },
+    "P1b_author_test_b1.0_captured_eagerdec": {
+      "label": "v8 author_test budget=1.0s arm=captured decoder=eager (variant)",
+      "n_graphs": 1000,
+      "n_seeds": 3,
+      "mean1": 19.892666666666663,
+      "per_seed_mean": {
+        "1017": 19.883,
+        "1019": 19.897,
+        "1021": 19.898
+      },
+      "world_sd_of_per_graph_size": 1.5933600125090361,
+      "sigma_per_graph": {
+        "mean": 0.1285944094909073,
+        "median": 0.0,
+        "p10": 0.0,
+        "p90": 0.5773502691896258,
+        "frac_sigma_zero": 0.779
+      },
+      "max2": 19.967,
+      "max3": 20.002,
+      "d_max2": 0.07433333333333346,
+      "d_max2_ci95": [
+        0.06566666666666676,
+        0.08333333333333344
+      ],
+      "d_max3": 0.10933333333333331,
+      "d_max3_ci95": [
+        0.09533333333333333,
+        0.12300000000000003
+      ],
+      "d_max2_vs_seed_first": 0.08400000000000012,
+      "d_max3_vs_seed_first": 0.119,
+      "d_marginal_third": 0.03499999999999987,
+      "frac_graphs_2nd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_gain_ge2": 0.0,
+      "frac_graphs_3rd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_no_gain": 0.779,
+      "max_over_n_normal": {
+        "N2_sigma_mean": 0.07255162633110344,
+        "N2_per_graph_sigma": 0.07255162633110344,
+        "N3_sigma_mean": 0.10882743950308488,
+        "N3_per_graph_sigma": 0.10882743950308488
+      },
+      "max_over_n_empirical": {
+        "N2": 0.07433333333333346,
+        "N3": 0.10933333333333331
+      },
+      "model_check_normal_minus_empirical": {
+        "N2": -0.0017817070022300152,
+        "N3": -0.0005058938302484328
+      },
+      "mean_steps": 738.7866666666666,
+      "source": "outputs\\v8_macro\\author_test\\capture_budget\\capture_budget_ref0.csv"
+    },
+    "P2_recombine_b1.0_captured": {
+      "label": "v8 recombine grid arm=captured budget=1.0s, metric=final_size (search_size absent)",
+      "n_graphs": 1000,
+      "n_seeds": 3,
+      "mean1": 19.88433333333333,
+      "per_seed_mean": {
+        "1017": 19.879,
+        "1019": 19.889,
+        "1021": 19.885
+      },
+      "world_sd_of_per_graph_size": 1.588475869795401,
+      "sigma_per_graph": {
+        "mean": 0.13321321164442432,
+        "median": 0.0,
+        "p10": 0.0,
+        "p90": 0.5773502691896258,
+        "frac_sigma_zero": 0.77
+      },
+      "max2": 19.961333333333336,
+      "max3": 19.997,
+      "d_max2": 0.0770000000000001,
+      "d_max2_ci95": [
+        0.06800000000000014,
+        0.08600000000000009
+      ],
+      "d_max3": 0.11266666666666664,
+      "d_max3_ci95": [
+        0.09899999999999995,
+        0.12666666666666662
+      ],
+      "d_max2_vs_seed_first": 0.08233333333333345,
+      "d_max3_vs_seed_first": 0.118,
+      "d_marginal_third": 0.03566666666666654,
+      "frac_graphs_2nd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_gain_ge2": 0.0,
+      "frac_graphs_3rd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_no_gain": 0.77,
+      "max_over_n_normal": {
+        "N2_sigma_mean": 0.07515750639436511,
+        "N2_per_graph_sigma": 0.07515750639436512,
+        "N3_sigma_mean": 0.11273625959820832,
+        "N3_per_graph_sigma": 0.11273625959820832
+      },
+      "max_over_n_empirical": {
+        "N2": 0.0770000000000001,
+        "N3": 0.11266666666666664
+      },
+      "model_check_normal_minus_empirical": {
+        "N2": -0.0018424936056349733,
+        "N3": 6.959293154168433e-05
+      },
+      "mean_steps": 599.95,
+      "source": "outputs\\v8_macro\\recombine\\recombine\\recombine_ref0.csv",
+      "metric": "final_size"
+    },
+    "P3_structure_v2_fixed100": {
+      "label": "structure_v2 fixed_baseline/pave, 100 graphs, fixed 100 steps, metric=final_size",
+      "n_graphs": 100,
+      "n_seeds": 3,
+      "mean1": 19.58,
+      "per_seed_mean": {
+        "1017": 19.62,
+        "1019": 19.57,
+        "1021": 19.55
+      },
+      "world_sd_of_per_graph_size": 1.5667848655175396,
+      "sigma_per_graph": {
+        "mean": 0.2929016319029166,
+        "median": 0.0,
+        "p10": 0.0,
+        "p90": 0.5773502691896258,
+        "frac_sigma_zero": 0.51
+      },
+      "max2": 19.75,
+      "max3": 19.83,
+      "d_max2": 0.17000000000000018,
+      "d_max2_ci95": [
+        0.13666666666666683,
+        0.20666666666666653
+      ],
+      "d_max3": 0.24999999999999992,
+      "d_max3_ci95": [
+        0.19333333333333325,
+        0.30999999999999983
+      ],
+      "d_max2_vs_seed_first": 0.13000000000000025,
+      "d_max3_vs_seed_first": 0.21,
+      "d_marginal_third": 0.07999999999999975,
+      "frac_graphs_2nd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_gain_ge2": 0.0,
+      "frac_graphs_3rd_traj_gain_ge1": 0.0,
+      "frac_graphs_2nd_traj_no_gain": 0.51,
+      "max_over_n_normal": {
+        "N2_sigma_mean": 0.16525204970977686,
+        "N2_per_graph_sigma": 0.16525204970977686,
+        "N3_sigma_mean": 0.24787807457931035,
+        "N3_per_graph_sigma": 0.2478780745793104
+      },
+      "max_over_n_empirical": {
+        "N2": 0.17000000000000018,
+        "N3": 0.24999999999999992
+      },
+      "model_check_normal_minus_empirical": {
+        "N2": -0.004747950290223318,
+        "N3": -0.0021219254206895077
+      },
+      "mean_steps": 100.0,
+      "source": "outputs/structure_v2/fixed_baseline_ref0_s{1017,1019,1021}/pave/per_graph.csv",
+      "metric": "final_size"
+    },
+    "P4_er700_800_b1.0_captured": {
+      "label": "v8 ER700-800 subset, 128 graphs, budget=1.0s, arm=captured",
+      "n_graphs": 128,
+      "n_seeds": 3,
+      "mean1": 39.829427083333336,
+      "per_seed_mean": {
+        "1017": 39.8984375,
+        "1019": 39.62890625,
+        "1021": 39.9609375
+      },
+      "world_sd_of_per_graph_size": 0.6163650549029464,
+      "sigma_per_graph": {
+        "mean": 0.839252805288321,
+        "median": 0.7637626158259734,
+        "p10": 0.28867513459481287,
+        "p90": 1.508257569495584,
+        "frac_sigma_zero": 0.03125
+      },
+      "max2": 40.35416666666667,
+      "max3": 40.6484375,
+      "d_max2": 0.5247395833333339,
+      "d_max2_ci95": [
+        0.4765625000000006,
+        0.5729166666666667
+      ],
+      "d_max3": 0.8190104166666667,
+      "d_max3_ci95": [
+        0.7395833333333334,
+        0.8984375000000002
+      ],
+      "d_max2_vs_seed_first": 0.45572916666666713,
+      "d_max3_vs_seed_first": 0.75,
+      "d_marginal_third": 0.29427083333333287,
+      "frac_graphs_2nd_traj_gain_ge1": 0.109375,
+      "frac_graphs_2nd_traj_gain_ge2": 0.0,
+      "frac_graphs_3rd_traj_gain_ge1": 0.0078125,
+      "frac_graphs_2nd_traj_no_gain": 0.03125,
+      "max_over_n_normal": {
+        "N2_sigma_mean": 0.47349769066682446,
+        "N2_per_graph_sigma": 0.47349769066682446,
+        "N3_sigma_mean": 0.7102465360421993,
+        "N3_per_graph_sigma": 0.7102465360421993
+      },
+      "max_over_n_empirical": {
+        "N2": 0.5247395833333339,
+        "N3": 0.8190104166666667
+      },
+      "model_check_normal_minus_empirical": {
+        "N2": -0.05124189266650947,
+        "N3": -0.1087638806244674
+      },
+      "mean_steps": 116.11979166666667,
+      "source": "outputs\\v8_macro\\er700_800\\capture_budget\\capture_budget_ref0.csv"
+    }
+  },
+  "step_curve": {
+    "source": "outputs\\v8_macro\\steps_baseline\\steps\\steps_ref0.csv",
+    "points": [
+      {
+        "steps": 100,
+        "mean_size": 19.391666666666666,
+        "sd": 1.562672959614866,
+        "n": 120
+      },
+      {
+        "steps": 300,
+        "mean_size": 19.691666666666666,
+        "sd": 1.6490171930823623,
+        "n": 120
+      },
+      {
+        "steps": 1000,
+        "mean_size": 19.808333333333334,
+        "sd": 1.6917786042914642,
+        "n": 120
+      },
+      {
+        "steps": 3000,
+        "mean_size": 19.866666666666667,
+        "sd": 1.7341519290896246,
+        "n": 120
+      }
+    ],
+    "log_linear_slope_per_e_step": 0.13489579881765842,
+    "interp": {
+      "269": 19.59366466424092,
+      "404": 19.648527257534035,
+      "808": 19.742029900153877,
+      "810": 19.742363388083472
+    },
+    "delta_404_minus_810": -0.09383613054943751,
+    "delta_269_minus_810": -0.14869872384255345
+  },
+  "net_estimate": {
+    "N2": {
+      "full_length_gain": 0.0630000000000001,
+      "per_arm_steps": 404,
+      "step_penalty_est": -0.09383613054943751,
+      "net_upper_bound_est": -0.030836130549437415
+    },
+    "N3": {
+      "full_length_gain": 0.09266666666666666,
+      "per_arm_steps": 269,
+      "step_penalty_est": -0.14869872384255345,
+      "net_upper_bound_est": -0.05603205717588679
+    }
+  },
+  "verdict": {
+    "criterion": "max3 - mean1 >= +0.020 => parallel arm worth building",
+    "measured_p1_full_length_d_max3": 0.09266666666666666,
+    "measured_p1_d_max3_ci95": [
+      0.08033333333333331,
+      0.10533333333333335
+    ],
+    "net_upper_bound_N3": -0.05603205717588679,
+    "decision": "variance_sufficient_parallel_arm",
+    "protocol_caveat": "A0 (K=200, 810 fixed steps, seed 1017 only) has no 3-seed triple on disk; P1 is the nearest 1.0 s 3-seed grid (same ref0 checkpoint dir, same 1000 author_test graphs, captured decoder, K=20).",
+    "net_decision": "parallel arm loses budget to the step split; do not build"
+  },
+  "p1_integer_structure": {
+    "spread_histogram": {
+      "0": 812,
+      "1": 187,
+      "2": 1
+    },
+    "frac_spread_zero": 0.812,
+    "frac_spread_ge1": 0.188,
+    "frac_spread_ge2": 0.001,
+    "max_spread": 2,
+    "prefix_gain_2nd": {
+      "mean": 0.063,
+      "frac_ge1": 0.063,
+      "frac_ge2": 0.0,
+      "hist": {
+        "0": 937,
+        "1": 63
+      }
+    },
+    "prefix_gain_3rd": {
+      "mean": 0.03,
+      "frac_ge1": 0.03,
+      "hist": {
+        "0": 970,
+        "1": 30
+      }
+    },
+    "frac_graphs_all_three_equal": 0.812,
+    "best_of_3_beats_best_of_1_on_frac_graphs": 0.093,
+    "best_of_3_beats_mean_on_frac_graphs": 0.188,
+    "e2_breakeven": {
+      "N2_full": {
+        "gain": 0.0630000000000001,
+        "min_steps_per_arm_for_breakeven": 507.7590891522041,
+        "max_batch_slowdown_factor": 1.5952447081793097,
+        "note": "batch slowdown = ms/step(batch N arms) / ms/step(batch 1); if measured ratio is below this, best-of-N nets positive within the same 1 s"
+      },
+      "N3_full": {
+        "gain": 0.09266666666666666,
+        "min_steps_per_arm_for_breakeven": 407.5176582811782,
+        "max_batch_slowdown_factor": 1.9876439303671052,
+        "note": "batch slowdown = ms/step(batch N arms) / ms/step(batch 1); if measured ratio is below this, best-of-N nets positive within the same 1 s"
+      }
+    },
+    "absolute": {
+      "mean_single_seed_1017": 19.929,
+      "mean_best_of_2": 19.992,
+      "mean_best_of_3": 20.022
+    },
+    "paired_penalty_model": {
+      "steps_1.0s": 1057.8133333333333,
+      "steps_0.5s": 401.87,
+      "mean_size_1.0s": 19.929333333333332,
+      "mean_size_0.5s": 19.824333333333332,
+      "penalty_50pct_cut_measured": -0.10500000000000043,
+      "log_slope_per_e_step_paired": 0.10849007021871677,
+      "net_budget_split": {
+        "N2": {
+          "gain_full_length": 0.063,
+          "steps_per_arm": 528.9066666666666,
+          "penalty_paired_est": -0.07519958629085402,
+          "net": -0.01219958629085402
+        },
+        "N3": {
+          "gain_full_length": 0.093,
+          "steps_per_arm": 352.6044444444444,
+          "penalty_paired_est": -0.11918852434074838,
+          "net": -0.02618852434074838
+        }
+      }
+    }
+  },
+  "r2_decision": {
+    "headline": {
+      "d_max2_full_length": 0.0630000000000001,
+      "d_max3_full_length": 0.09266666666666666,
+      "d_max3_ci95": [
+        0.08033333333333331,
+        0.10533333333333335
+      ],
+      "d_max3_vs_single_seed_1017": 0.093,
+      "criterion_0.020_passed": true,
+      "integer_structure": {
+        "graphs_identical_across_3_seeds": 0.812,
+        "graphs_differ_by_1": 0.187,
+        "graphs_differ_by_2": 0.001,
+        "frac_2nd_traj_adds_1": 0.063,
+        "frac_3rd_traj_adds_1": 0.03,
+        "frac_any_traj_adds_2": 0.0
+      }
+    },
+    "budget_split_net": {
+      "model_A_steps_baseline_curve": {
+        "N2": {
+          "full_length_gain": 0.0630000000000001,
+          "per_arm_steps": 404,
+          "step_penalty_est": -0.09383613054943751,
+          "net_upper_bound_est": -0.030836130549437415
+        },
+        "N3": {
+          "full_length_gain": 0.09266666666666666,
+          "per_arm_steps": 269,
+          "step_penalty_est": -0.14869872384255345,
+          "net_upper_bound_est": -0.05603205717588679
+        }
+      },
+      "model_B_paired_0.5s_cell": {
+        "N2": {
+          "gain_full_length": 0.063,
+          "steps_per_arm": 528.9066666666666,
+          "penalty_paired_est": -0.07519958629085402,
+          "net": -0.01219958629085402
+        },
+        "N3": {
+          "gain_full_length": 0.093,
+          "steps_per_arm": 352.6044444444444,
+          "penalty_paired_est": -0.11918852434074838,
+          "net": -0.02618852434074838
+        }
+      },
+      "conclusion": "both penalty models put best-of-2/3 under a strict 1 s split below zero -> a budget-split parallel arm does not pay"
+    },
+    "e2_thresholds_batched_arm": {
+      "N2": {
+        "steps_baseline_curve": {
+          "steps_per_arm_needed_for_breakeven_at_1s": 507.8,
+          "max_batch_slowdown_vs_batch1": 1.595
+        },
+        "paired_0.5s_cell": {
+          "steps_per_arm_needed_for_breakeven_at_1s": 453.2,
+          "max_batch_slowdown_vs_batch1": 1.787
+        }
+      },
+      "N3": {
+        "steps_baseline_curve": {
+          "steps_per_arm_needed_for_breakeven_at_1s": 406.5,
+          "max_batch_slowdown_vs_batch1": 1.993
+        },
+        "paired_0.5s_cell": {
+          "steps_per_arm_needed_for_breakeven_at_1s": 343.7,
+          "max_batch_slowdown_vs_batch1": 2.357
+        }
+      }
+    },
+    "e2_thresholds_note": "slowdown = ms/step(batch N arms in one forward) / ms/step(batch 1); ratio is anchor-invariant, steps anchored on A0 = 810 steps / 1.0 s",
+    "verdict": "variance headroom is abundant (+0.093, 4.6x the +0.020 bar) but it is entirely consumed by the 808/N step split; build a parallel arm ONLY if E2 shows batch-of-N per-step cost <= ~2.0x (N=3) / <= ~1.6x (N=2) of batch-of-1, otherwise the variance route is closed and R2 should spend the budget on E3 (speed) instead"
+  }
+}

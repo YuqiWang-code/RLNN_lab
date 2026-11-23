@@ -1,0 +1,31 @@
+{
+  "dataset": "models/data/MIS_tensors/RB_large_author_test",
+  "checkpoint": "outputs/v11/scale_priority_20261121/training/best.pt",
+  "output": "outputs/v16/anytime_author/RB_large/50/learned",
+  "library": "tmp/v16_anytime_build/priority_search.so",
+  "refiner": "tmp/v16_anytime_build/mis_clique_refine.so",
+  "refine_ms": 43.0,
+  "refine_first": false,
+  "budget_ms": 50.0,
+  "reserve_ms": 3.0,
+  "weight": 0.7,
+  "degree_prior": true,
+  "learned_mix": 0.25,
+  "plateau": 50,
+  "perturb": 4,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "limit": null,
+  "graphs": 1000,
+  "host": "user",
+  "torch": "2.9.1+cu130",
+  "cpu_affinity": [
+    10
+  ],
+  "accelerator": "NVIDIA GeForce RTX 5090",
+  "gpu": "0",
+  "timing": "Resident host edge_index to materialized host incumbents. CSR construction, GPU scoring, device transfers and search are timed."
+}

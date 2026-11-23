@@ -1,0 +1,16 @@
+{
+  "cohort": "All 14 entries labeled REG in the DIMACS COLOR catalog, without size or difficulty exclusions",
+  "catalog": "https://mat.tepper.cmu.edu/COLOR/instances.html",
+  "source": "https://archive.dimacs.rutgers.edu/pub/challenge/graph/benchmarks/color/",
+  "objective": "Maximum cardinality set of pairwise noninterfering register-allocation vertices. Use the original graph, retain isolated vertices, collapse repeated undirected edges.",
+  "families": {"fpsol2": 3, "inithx": 3, "mulsol": 5, "zeroin": 3},
+  "checkpoint": "outputs/v11/scale_priority_20261121/training/best.pt",
+  "schedule": "Fixed ER_small feasible exchange search for all instances, without RB-specific clique branching. Identical exchange settings for learned and degree.",
+  "learning_mix": 0.25,
+  "seeds": [1017, 1019, 1021],
+  "budget_ms": 200,
+  "methods": ["learned", "degree", "online_mis"],
+  "input": "Resident CPU edge list for every method",
+  "endpoints": ["largest host-materialized feasible set at 200 ms (zero on miss)", "mean wall time", "on-time coverage", "first feasible host solution time"],
+  "aggregation": "Each graph has three seeds. Take the arithmetic mean over graph-seed pairs. For contrasts average within each graph before calculating the cross-graph mean. The 14 instances represent four source programs."
+}

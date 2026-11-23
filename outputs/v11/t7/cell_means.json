@@ -1,0 +1,90 @@
+[
+ {
+  "cell": "gate0/a0_steps808_n1000(reference)",
+  "budget": "1.0",
+  "rows": 2000,
+  "search": 20.069,
+  "final": 20.0705,
+  "steps": 810.0,
+  "ms": 0.8773,
+  "dtype": null,
+  "dense": null
+ },
+ {
+  "cell": "a02_s1017_1000",
+  "budget": "0.2",
+  "rows": 1000,
+  "search": 19.879,
+  "final": 19.901,
+  "steps": 126.1,
+  "ms": 1.2884,
+  "dtype": null,
+  "dense": null
+ },
+ {
+  "cell": "a02_s1019_1000",
+  "budget": "0.2",
+  "rows": 1000,
+  "search": 19.9,
+  "final": 19.922,
+  "steps": 145.0,
+  "ms": 1.13,
+  "dtype": null,
+  "dense": null
+ },
+ {
+  "cell": "a02_s1021_1000",
+  "budget": "0.2",
+  "rows": 1000,
+  "search": 19.878,
+  "final": 19.902,
+  "steps": 119.3,
+  "ms": 1.5119,
+  "dtype": null,
+  "dense": null
+ },
+ {
+  "cell": "a0_s1019_steps808_1000",
+  "budget": "1.0",
+  "rows": 1000,
+  "search": 20.066,
+  "final": 20.066,
+  "steps": 810.0,
+  "ms": 0.8938,
+  "dtype": null,
+  "dense": null
+ },
+ {
+  "cell": "a0_s1021_steps808_1000",
+  "budget": "1.0",
+  "rows": 1000,
+  "search": 20.071,
+  "final": 20.071,
+  "steps": 810.0,
+  "ms": 0.8946,
+  "dtype": null,
+  "dense": null
+ },
+ {
+  "cell": "ladder_s1017_1000",
+  "budget": "0.1",
+  "rows": 1000,
+  "search": 18.554,
+  "final": 19.065,
+  "steps": 21.6,
+  "ms": 9.6465,
+  "dtype": null,
+  "dense": null
+ },
+ {
+  "cell": "ladder_s1017_1000",
+  "budget": "0.5",
+  "rows": 1000,
+  "search": 20.047,
+  "final": 20.05,
+  "steps": 470.3,
+  "ms": 0.9529,
+  "dtype": null,
+  "dense": null
+ }
+]

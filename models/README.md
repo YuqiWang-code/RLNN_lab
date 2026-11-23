@@ -1,18 +1,30 @@
 # RLNN 源码
 
-> 已关闭方法线的代码在 [closed/](closed/README.md)，那 18 个文件不被本目录的活跃模块引用，也不能原样运行。docs/temporary/ 的索引见 [docs/temporary/README.md](../docs/temporary/README.md)。
+已关闭方法线的源码见 [closed/](closed/README.md)。复跑归档实验时，以对应历史提交的代码和启动器为准。 [实验文档](../docs/temporary/README.md)
 
 
 上游：[Shengyu-Feng/RLD4CO](https://github.com/Shengyu-Feng/RLD4CO)，作者 Shengyu Feng、Yiming Yang。基于项目根目录提供的 ZIP，版本与适配记录见[源码来源](../docs/源码来源.md)；[原始 README](README.upstream.md)保留作者说明和引用。包内未提供许可证文件。
 
 当前研究入口是 **RLNN / erdoes**。RLSA 是退火方法，`reinforce` 是另一种训练损失，均保留上游能力，但不是本项目默认基线。
 
-本目录按"是否还在跑"分三组：**现行**（v8 宏步与定位/步数）、**冻结协议**（所有人共用的评测与 PAVE）、**已关闭线**（保留可复现，不再改）。新增模块请放到对应组里，不要在目录顶部平铺。
+## 当前限时评测
 
-## 现行：v8 宏步（ACMD）与定位/步数
+### 跨规模的节点优先级与可行解搜索
 
-**宏步线停在 P0**（两个 P0 诊断都无最终质量信号，见 `../docs/temporary/RLNN_v8_P0_Results.md`），
-目录里现在真正在跑的是**定位与步数**：等预算对照 KaMIS、把冻结步捕获成 CUDA 图块提高步数。
+[scale_priority.py](scale_priority.py) 从已有 Fused RLNN 权重初始化五层、128 通道的 GCN。每张图只计算一次节点优先级。读出使用骨干的原输出，并加入由隐藏表示、节点度和局部聚类等特征计算的残差分数。三档图共用一组微调权重。监督目标来自独立生成图上多次 OnlineMIS 输出的优质合法集。[生成训练和验证数据](../train_scripts/v11/prepare_scale_priority.py) · [联合训练](../train_scripts/v11/train_scale_priority.py)
+
+[priority_search.cpp](priority_search.cpp) 根据优先级构造合法集、交换选中顶点并持续记录改进。[mis_clique_refine.cpp](mis_clique_refine.cpp) 从邻接关系构造互不重叠的团。每团最多贡献一个顶点，因此非空团数是分支搜索的上界。在较大图上，上界过松时可固定部分现有解，只重搜剩余邻域。[eval_priority_search.py](eval_priority_search.py) 从主机边索引开始逐图计时，包含 CSR 转换、设备传输、神经打分、CPU 搜索和主机端保存节点。每个输出解都在原图上检查。[三档正式评测与离线最优值](../docs/三档MIS限时评估.md)
+
+### 原融合版的粒子搜索与解码
+
+- [eval_v8_padded.py](eval_v8_padded.py) 组织逐图预算、A.3 解码、PAVE 调用和结果记录。融合通过 `--compile_model` 在捕获前编译冻结策略。
+- [mis_v8_pad.py](mis_v8_pad.py) 固定张量形状，跨图重放 CUDA Graph。限时搜索预留末次解码时间，并保留中段已完成的合法解。
+- [fused_pave_02s.sh](../train_scripts/v11/fused_pave_02s.sh) 复跑融合下的 PAVE 开关对照。 [当前结果](../docs/项目现状.md)
+- [paper_ablation.sh](../train_scripts/v11/paper_ablation.sh) 设置搜索 replay、策略编译、邻接表示、精度、解码宽度与时机和 PAVE 预算。逐图记录包含实际搜索和解码后端。 [论文消融协议](../docs/论文实验.md#正式消融顺序)
+
+## v8 宏步与捕获实验
+
+宏步线停在 P0，捕获与摊薄进入后续引擎。 [P0 结果](../docs/temporary/RLNN_v8_P0_Results.md) · [定位与步数](../docs/temporary/RLNN_v8_Positioning_Results.md)
 
 | 文件 | 职责 |
 | --- | --- |

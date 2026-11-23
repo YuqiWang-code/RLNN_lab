@@ -1,0 +1,18 @@
+\definecolor{TableInk}{HTML}{393B3C}
+\definecolor{TableCream}{HTML}{F5EEE5}
+\definecolor{TableBlue}{HTML}{E1EAF7}
+\definecolor{TableGreen}{HTML}{E7EFDB}
+\definecolor{TableOrange}{HTML}{F9E8D8}
+\definecolor{TableGold}{HTML}{FBF0C8}
+\newcommand{\paperTableStyle}{%
+  \arrayrulecolor{TableInk}%
+  \setlength{\heavyrulewidth}{0.70pt}%
+  \setlength{\lightrulewidth}{0.40pt}%
+  \setlength{\aboverulesep}{0pt}%
+  \setlength{\belowrulesep}{0pt}%
+  \renewcommand{\arraystretch}{1.12}%
+}
+\AddToHook{env/table/begin}{\paperTableStyle}
+\AddToHook{env/table*/begin}{\paperTableStyle}
+\newcommand{\paperHeader}{\rowcolor{TableCream}}
+\newcommand{\paperHead}[1]{\textbf{#1}}

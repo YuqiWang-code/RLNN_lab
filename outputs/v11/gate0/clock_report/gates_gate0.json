@@ -1,0 +1,90 @@
+{
+  "mode": "gate0",
+  "csv": "outputs/v11/gate0/a0_clock1s_n1000/padded/padded_ref0.csv",
+  "json": "outputs/v11/gate0/a0_clock1s_n1000/padded/padded_ref0.json",
+  "v11_csv": "outputs/v11/gate0/a0_clock1s_n1000/v11_rows.csv",
+  "graphs": 1000,
+  "rows": 2000,
+  "tolerance": 0.01,
+  "reference": 20.069,
+  "reference_kind": "A0_declared_config_fp16_dense_810_steps",
+  "mean_search_size": 20.077,
+  "delta_search": 0.008,
+  "config_sensitivity": 0.007,
+  "config_sensitivity_note": "fp32<->fp16, deterministic, not in the tolerance",
+  "historical_clock_reference": 20.0685,
+  "historical_note": "historical_clock_reference_unreproducible",
+  "delta_vs_historical": 0.0085,
+  "mean_final_size": 20.0785,
+  "final_size_note": "report only; contains PAVE 0.2 s reserve jitter +-0.0005, never use for <=0.001 decisions",
+  "mean_steps": 1079.8,
+  "mean_ms_per_step": 0.878,
+  "artifact": {
+    "path": "outputs/v11/gate0/a0_clock1s_n1000/v11_rows.csv",
+    "rows": 2000,
+    "values": {
+      "dtype": [
+        "fp16"
+      ],
+      "dense": [
+        "1"
+      ],
+      "fp32_csr": [
+        "0"
+      ],
+      "fixed_steps": [
+        "0"
+      ],
+      "steps": [
+        "1010",
+        "1020",
+        "1030",
+        "1040",
+        "1050",
+        "1060",
+        "1070",
+        "1080",
+        "1090",
+        "1100",
+        "1110",
+        "1120",
+        "1130",
+        "930"
+      ]
+    },
+    "consistent": false,
+    "dtype": "fp16",
+    "dense": "1",
+    "fp32_csr": "0",
+    "fixed_steps": "0"
+  },
+  "checks": {
+    "figures": true,
+    "search": true,
+    "steps_810": false,
+    "dtype_fp16": true,
+    "dense": true,
+    "fixed_steps": false,
+    "not_fp32_csr": true,
+    "artifact_consistent": false
+  },
+  "passed": false,
+  "summary_keys": [
+    "anneal",
+    "arms",
+    "budgets",
+    "cells",
+    "chunk",
+    "decode_chunk",
+    "decoders",
+    "graphs",
+    "horizon",
+    "padded",
+    "post_reserve",
+    "ref",
+    "repeats",
+    "seeds",
+    "temperatures",
+    "wall_time_s"
+  ]
+}

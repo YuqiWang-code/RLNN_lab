@@ -1,0 +1,14 @@
+index, name, memory.total [MiB], memory.free [MiB]
+0, NVIDIA GeForce RTX 5090, 32607 MiB, 26227 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB, 15047 MiB
+DGL calibration: 32 maps in 211.23 ms
+DGL calibration: 16 maps in 146.86 ms
+DGL calibration: 8 maps in 78.04 ms
+DGL calibration: 4 maps in 61.31 ms
+dgl_treesearch: 20/128 graphs
+dgl_treesearch: 40/128 graphs
+dgl_treesearch: 60/128 graphs
+dgl_treesearch: 80/128 graphs
+dgl_treesearch: 100/128 graphs
+dgl_treesearch: 120/128 graphs
+dgl_treesearch: 128/128 graphs

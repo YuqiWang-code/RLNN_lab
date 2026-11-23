@@ -1,0 +1,72 @@
+{
+  "script": "models/probe_unroll_grad.py",
+  "checkpoint": "outputs/v2/none_seed0/checkpoints",
+  "graphs": 2,
+  "steps": 40,
+  "decode_every": 10,
+  "num_k": 20,
+  "probe_seed": 2027,
+  "split": "validation",
+  "test_path": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_val",
+  "checks": {
+    "finite": true,
+    "nonzero_grad": true,
+    "direction": false,
+    "correlation": false,
+    "scale": true,
+    "feasible": true
+  },
+  "required": [
+    "finite",
+    "nonzero_grad",
+    "direction",
+    "correlation",
+    "feasible"
+  ],
+  "passed": false,
+  "summary": {
+    "delta_minus": -0.050001,
+    "delta_plus": 0.075,
+    "spearman_grad_vs_delta": 0.0,
+    "grad_over_logits": [
+      0.00011,
+      0.000132
+    ],
+    "grad_norm_mean": 0.169085
+  },
+  "wall_s": 3.147,
+  "rows": [
+    {
+      "graph_id": "0",
+      "nodes": 240,
+      "loss": -19.75,
+      "base_size": 19.75,
+      "size_minus_grad": 19.35,
+      "size_plus_grad": 19.5,
+      "delta_minus": -0.4,
+      "delta_plus": -0.25,
+      "logits_norm": 1548.72314453125,
+      "grad_norm": 0.1709808111190796,
+      "grad_std_over_absmean": 3.4657886028289795,
+      "eta": 9.05787693013482,
+      "finite": true,
+      "feasible": true
+    },
+    {
+      "graph_id": "1",
+      "nodes": 231,
+      "loss": -16.950000762939453,
+      "base_size": 16.95,
+      "size_minus_grad": 17.25,
+      "size_plus_grad": 17.35,
+      "delta_minus": 0.299999,
+      "delta_plus": 0.4,
+      "logits_norm": 1271.3729248046875,
+      "grad_norm": 0.1671900898218155,
+      "grad_std_over_absmean": 3.3957598209381104,
+      "eta": 7.604355773477159,
+      "finite": true,
+      "feasible": true
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "method": "kamis",
+  "graphs": 16,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/MIS_tensors/ER_large_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "",
+  "solver_config": {
+    "binary": "tmp/kamis_build/redumis",
+    "internal_limit_ms": 180,
+    "outer_limit_ms": 200,
+    "omp_threads": "1"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

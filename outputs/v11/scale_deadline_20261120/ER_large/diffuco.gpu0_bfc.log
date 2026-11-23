@@ -1,0 +1,23 @@
+index, name, memory.total [MiB], memory.free [MiB]
+0, NVIDIA GeForce RTX 5090, 32607 MiB, 26227 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB, 14413 MiB
+2026-11-20 20:56:54.698715: W external/xla/xla/tsl/framework/bfc_allocator.cc:501] Allocator (GPU_0_bfc) ran out of memory trying to allocate 9.20GiB (rounded to 9876061440)requested by op 
+If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
+Current allocation summary follows.
+Current allocation summary follows.
+2026-11-20 20:56:54.699213: W external/xla/xla/tsl/framework/bfc_allocator.cc:512] ___________________________________________________________________________________________________*
+E1120 20:56:54.699260 1907906 pjrt_stream_executor_client.cc:2916] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 9876061256 bytes. [tf-allocator-allocation-error='']
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 274, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 233, in main
+    evaluate(args, graphs, solver)
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 135, in evaluate
+    solver.warmup(solver.prepare(graphs[0]))
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/official_diffuco_deadline.py", line 85, in warmup
+    self.run((graph, energy), np.int32(1017), factor).block_until_ready()
+jaxlib._jax.XlaRuntimeError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 9876061256 bytes.

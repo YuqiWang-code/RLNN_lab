@@ -1,0 +1,29 @@
+{
+  "method": "isco",
+  "graphs": 128,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/MIS_tensors/ER_small_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "1",
+  "solver_config": {
+    "revision": "aa8c12281a790fb36e98b32cc52279041b107f4a",
+    "jax": "0.6.2",
+    "accelerator": "cuda:0",
+    "sampler": "DISCS adaptive SQRT PAFS",
+    "cooling_horizon": 300,
+    "max_steps": 300,
+    "particles": 200,
+    "block_steps": 10,
+    "penalty": 1.001,
+    "temperature": "DISCS ertest exponential schedule with RB horizon 300",
+    "candidate": "best feasible DISCS sample"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

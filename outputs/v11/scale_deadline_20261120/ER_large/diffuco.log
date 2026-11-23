@@ -1,0 +1,6 @@
+index, name, memory.total [MiB], memory.free [MiB]
+0, NVIDIA GeForce RTX 5090, 32607 MiB, 26227 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB, 15047 MiB
+DiffUCO warm solve estimate (seconds): {1: 36.29208795540035, 3: 37.90582678792998}
+diffuco: 16/16 graphs
+XLA_PYTHON_CLIENT_ALLOCATOR=platform

@@ -1,0 +1,18 @@
+M3 1000 图协议功效分析
+captured/cached    mean 19.9333 sd 1.6082 n 3000
+captured/eager     mean 19.8993 sd 1.6085 n 3000
+eager/eager        mean 19.7717 sd 1.5991 n 3000
+配对噪声 captured/cached 种子 1017-1019 mean -0.0010 sd 0.3649 n 1000
+配对噪声 captured/eager 种子 1017-1019 mean -0.0180 sd 0.3871 n 1000
+配对噪声 eager/eager 种子 1017-1019 mean -0.0180 sd 0.4732 n 1000
+配对噪声 部署 repeat0-1 mean +0.0010 sd 0.0316 n 1000
+部署 K=200 mean 20.0690 sd 1.6361 steps 810
+sigma_graph 1.6066 sigma_pair 0.0316 sigma_seedmean 0.0075
+Δ +0.0050 power 0.210 n80 54
+Δ +0.0100 power 0.636 n80 14
+Δ +0.0200 power 0.996 n80 4
+Δ +0.0335 power 1.000 n80 2
+Δ +0.0500 power 1.000 n80 1
+n1000x1 min detectable +0.0210
+n1000x3 min detectable +0.0121
+判据 -> 协议很强：+0.020 可靠可检出

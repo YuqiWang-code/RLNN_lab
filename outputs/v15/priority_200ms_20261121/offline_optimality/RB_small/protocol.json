@@ -1,0 +1,9 @@
+{
+  "solver": "CaDiCaL 1.9.5",
+  "pysat": "1.9.dev24",
+  "dataset": "models/data/MIS_tensors/RB_small_author_test",
+  "timed_run": "outputs/v15/priority_200ms_20261121/test/RB_small/learned",
+  "graphs": 1000,
+  "query": "Independent set larger than best delivered, using edge clauses and verified disjoint cliques.",
+  "timing": "Post hoc exact calculation, outside every scored solve."
+}

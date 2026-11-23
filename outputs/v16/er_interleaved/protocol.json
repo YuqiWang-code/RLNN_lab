@@ -1,0 +1,91 @@
+{
+  "started_at": "2026-11-21T08:38:17+08:00",
+  "host": "user",
+  "torch": "2.9.1+cu130",
+  "cuda_device": "NVIDIA GeForce RTX 5090",
+  "gpu": "1",
+  "cpu_affinity": [
+    24
+  ],
+  "checkpoint": "outputs/v11/scale_priority_20261121/training/best.pt",
+  "priority_schedule": "ER_small",
+  "timing": "Resident host edge list to copied CPU witnesses",
+  "reserve_ms": 3,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "cells": [
+    [
+      50,
+      "learned"
+    ],
+    [
+      50,
+      "degree"
+    ],
+    [
+      50,
+      "online_mis"
+    ],
+    [
+      100,
+      "learned"
+    ],
+    [
+      100,
+      "degree"
+    ],
+    [
+      100,
+      "online_mis"
+    ],
+    [
+      200,
+      "learned"
+    ],
+    [
+      200,
+      "degree"
+    ],
+    [
+      200,
+      "online_mis"
+    ],
+    [
+      500,
+      "learned"
+    ],
+    [
+      500,
+      "degree"
+    ],
+    [
+      500,
+      "online_mis"
+    ]
+  ],
+  "williams_base_order": [
+    0,
+    1,
+    11,
+    2,
+    10,
+    3,
+    9,
+    4,
+    8,
+    5,
+    7,
+    6
+  ],
+  "indexing": "graph in manifest order, then seed in listed order. Add block index modulo 12 to each base treatment index.",
+  "graphs": 128,
+  "degree_prior": true,
+  "learned_mix": 0.25,
+  "weight": 0.7,
+  "plateau": 50,
+  "perturb": 4,
+  "finished_at": "2026-11-21T08:54:46+08:00"
+}

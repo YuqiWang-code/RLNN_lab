@@ -1,0 +1,29 @@
+{
+  "method": "dimes",
+  "graphs": 128,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/MIS_tensors/ER_small_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "1",
+  "solver_config": {
+    "checkpoint": "outputs/v17/dimes_training/dimes_er_small.npz",
+    "revision": "95aaa91c74cd47dc441c84eea9d38ead44f61ffd",
+    "inference": "GCN_DEEP_DIVER_DIMES FP32, self loops, normalize factor 1",
+    "decoder": "greedy followed by repeated best-of-batch masked categorical samples",
+    "samples_per_batch": 32,
+    "heads": 1,
+    "steps": "completed decoded sets",
+    "tf_fixture_max_abs_error": 2.3126602172851562e-05,
+    "fixture_decoder_matches_on_tf_logits": true,
+    "fixture_port_greedy_matches_upstream": true,
+    "test_time_meta_update": false
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Host edge_index to copied host vertex sets. CSR, self loops, support, GPU inference and decoding are timed."
+}

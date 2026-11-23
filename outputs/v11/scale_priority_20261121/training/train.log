@@ -1,0 +1,28 @@
+/home/hzeng/project/ZH/RLNN_lab/models/scale_priority.py:40: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  adjacency = torch.sparse_csr_tensor(crow, col, torch.ones_like(col, dtype=dtype),
+epoch 00 loss 0.0000 sizes RB_small=15.375 RB_large=31.375 ER_small=29.875
+epoch 01 loss 0.6880 sizes RB_small=16.562 RB_large=32.812 ER_small=33.625
+epoch 02 loss 0.6631 sizes RB_small=16.375 RB_large=32.688 ER_small=33.312
+epoch 03 loss 0.6606 sizes RB_small=16.438 RB_large=32.812 ER_small=33.875
+epoch 04 loss 0.6592 sizes RB_small=16.312 RB_large=32.562 ER_small=33.312
+epoch 05 loss 0.6578 sizes RB_small=16.312 RB_large=32.562 ER_small=33.562
+epoch 06 loss 0.6567 sizes RB_small=16.312 RB_large=32.812 ER_small=33.312
+epoch 07 loss 0.6558 sizes RB_small=16.312 RB_large=32.812 ER_small=33.562
+epoch 08 loss 0.6552 sizes RB_small=16.062 RB_large=32.750 ER_small=33.438
+epoch 09 loss 0.6547 sizes RB_small=16.438 RB_large=33.125 ER_small=33.438
+epoch 10 loss 0.6544 sizes RB_small=16.125 RB_large=32.375 ER_small=33.062
+epoch 11 loss 0.6538 sizes RB_small=16.188 RB_large=32.438 ER_small=33.375
+epoch 12 loss 0.6533 sizes RB_small=16.250 RB_large=32.625 ER_small=33.188
+epoch 13 loss 0.6531 sizes RB_small=16.250 RB_large=32.188 ER_small=33.125
+epoch 14 loss 0.6529 sizes RB_small=16.438 RB_large=32.812 ER_small=32.875
+epoch 15 loss 0.6526 sizes RB_small=16.250 RB_large=32.438 ER_small=33.125
+epoch 16 loss 0.6522 sizes RB_small=16.312 RB_large=32.188 ER_small=33.062
+epoch 17 loss 0.6522 sizes RB_small=16.375 RB_large=33.000 ER_small=32.938
+epoch 18 loss 0.6519 sizes RB_small=16.375 RB_large=32.688 ER_small=33.125
+epoch 19 loss 0.6518 sizes RB_small=16.375 RB_large=32.625 ER_small=32.688
+epoch 20 loss 0.6512 sizes RB_small=16.188 RB_large=33.312 ER_small=33.250
+epoch 21 loss 0.6513 sizes RB_small=16.375 RB_large=32.750 ER_small=33.125
+epoch 22 loss 0.6510 sizes RB_small=16.312 RB_large=32.500 ER_small=33.438
+epoch 23 loss 0.6508 sizes RB_small=16.312 RB_large=32.750 ER_small=33.125
+epoch 24 loss 0.6506 sizes RB_small=16.188 RB_large=32.500 ER_small=33.375
+All selection decisions frozen.

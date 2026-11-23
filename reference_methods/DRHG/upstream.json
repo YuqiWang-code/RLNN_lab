@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/CIAM-Group/DRHG",
+  "revision": "1e28f20810cf10c79c87f76c35ab4dde5f7ee422",
+  "license": "仓库根未提供 LICENSE 文件（许可未声明，仅作阅读参考）",
+  "paper": "AAAI 2025, doi 10.1609/aaai.v39i17.34018",
+  "note": "destroy→图缩减→hyper-graph 求解→恢复；快照裁掉 .pt 权重与解缓存，代码与数据清单保留。",
+  "excluded_from_snapshot": [
+    "*.pt：预训练权重与解缓存（17 个文件，见上游 commit 1e28f20）",
+    "data 实例文件 6 个 >2MB（TSP/CVRP LKH 解与 10k 测试集）"
+  ]
+}

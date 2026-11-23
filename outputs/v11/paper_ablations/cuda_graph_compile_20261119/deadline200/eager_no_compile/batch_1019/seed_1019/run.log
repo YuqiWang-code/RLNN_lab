@@ -1,0 +1,56 @@
+padded shape: nodes 264, capacity 105
+/home/hzeng/project/ZH/RLNN_lab/tmp/paper_2x2_20261119/mis_v8_pad.py:38: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+20/1000 0.2s/padded/captured:19.300@78st
+40/1000 0.2s/padded/captured:19.650@77st
+60/1000 0.2s/padded/captured:19.583@75st
+80/1000 0.2s/padded/captured:19.587@78st
+100/1000 0.2s/padded/captured:19.570@78st
+120/1000 0.2s/padded/captured:19.533@77st
+140/1000 0.2s/padded/captured:19.593@77st
+160/1000 0.2s/padded/captured:19.631@75st
+180/1000 0.2s/padded/captured:19.594@75st
+200/1000 0.2s/padded/captured:19.620@75st
+220/1000 0.2s/padded/captured:19.595@76st
+240/1000 0.2s/padded/captured:19.587@76st
+260/1000 0.2s/padded/captured:19.642@75st
+280/1000 0.2s/padded/captured:19.643@75st
+300/1000 0.2s/padded/captured:19.667@75st
+320/1000 0.2s/padded/captured:19.675@75st
+340/1000 0.2s/padded/captured:19.709@75st
+360/1000 0.2s/padded/captured:19.722@75st
+380/1000 0.2s/padded/captured:19.721@76st
+400/1000 0.2s/padded/captured:19.705@76st
+420/1000 0.2s/padded/captured:19.698@76st
+440/1000 0.2s/padded/captured:19.714@76st
+460/1000 0.2s/padded/captured:19.691@76st
+480/1000 0.2s/padded/captured:19.698@77st
+500/1000 0.2s/padded/captured:19.680@77st
+520/1000 0.2s/padded/captured:19.665@76st
+540/1000 0.2s/padded/captured:19.672@76st
+560/1000 0.2s/padded/captured:19.668@76st
+580/1000 0.2s/padded/captured:19.686@76st
+600/1000 0.2s/padded/captured:19.715@76st
+620/1000 0.2s/padded/captured:19.692@76st
+640/1000 0.2s/padded/captured:19.698@76st
+660/1000 0.2s/padded/captured:19.702@76st
+680/1000 0.2s/padded/captured:19.706@76st
+700/1000 0.2s/padded/captured:19.696@76st
+720/1000 0.2s/padded/captured:19.671@76st
+740/1000 0.2s/padded/captured:19.677@76st
+760/1000 0.2s/padded/captured:19.679@76st
+780/1000 0.2s/padded/captured:19.672@76st
+800/1000 0.2s/padded/captured:19.668@76st
+820/1000 0.2s/padded/captured:19.676@76st
+840/1000 0.2s/padded/captured:19.674@76st
+860/1000 0.2s/padded/captured:19.686@76st
+880/1000 0.2s/padded/captured:19.680@76st
+900/1000 0.2s/padded/captured:19.686@76st
+920/1000 0.2s/padded/captured:19.687@76st
+940/1000 0.2s/padded/captured:19.679@76st
+960/1000 0.2s/padded/captured:19.678@76st
+980/1000 0.2s/padded/captured:19.664@76st
+1000/1000 0.2s/padded/captured:19.665@76st
+ 0.2s padded/captured    size 19.6650 steps 76.2 search 19.6650 ms/step 2.641 load 5.50 ms decode 2.40 ms
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v11/paper_ablations/cuda_graph_compile_20261119/deadline200/eager_no_compile/batch_1019/seed_1019/padded/padded_ref0.csv
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v11/paper_ablations/cuda_graph_compile_20261119/deadline200/eager_no_compile/batch_1019/seed_1019/v11_rows.csv

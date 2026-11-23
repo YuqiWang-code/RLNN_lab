@@ -1,0 +1,39 @@
+{
+  "mode": "gate0-negative",
+  "checks": {
+    "clean_passes": true,
+    "shift_fails": true,
+    "config_fails": true
+  },
+  "passed": true,
+  "clean": {
+    "figures": true,
+    "search": true,
+    "steps_810": true,
+    "dtype_fp16": true,
+    "dense": true,
+    "fixed_steps": true,
+    "not_fp32_csr": true,
+    "artifact_consistent": true
+  },
+  "shift": {
+    "figures": true,
+    "search": false,
+    "steps_810": true,
+    "dtype_fp16": true,
+    "dense": true,
+    "fixed_steps": true,
+    "not_fp32_csr": true,
+    "artifact_consistent": true
+  },
+  "fp32": {
+    "figures": true,
+    "search": true,
+    "steps_810": true,
+    "dtype_fp16": false,
+    "dense": false,
+    "fixed_steps": true,
+    "not_fp32_csr": false,
+    "artifact_consistent": true
+  }
+}

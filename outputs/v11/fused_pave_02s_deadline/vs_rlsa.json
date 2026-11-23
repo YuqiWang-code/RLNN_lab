@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "source_rows": 3000,
+    "mean_size": 20.03,
+    "mean_wall_ms": 193.79906666666665,
+    "wall_p50_ms": 193.9,
+    "wall_p95_ms": 196.4,
+    "mean_steps": 350.98333333333335,
+    "ready_by_deadline": 3000
+  },
+  "reference": {
+    "source_rows": 1000,
+    "mean_size": 19.973,
+    "mean_wall_ms": 208.38645044481382,
+    "wall_p50_ms": 206.69825142249465,
+    "wall_p95_ms": 293.69632380548865,
+    "mean_steps": null,
+    "ready_by_deadline": 450
+  },
+  "deadline_ms": 200,
+  "graph_count": 1000,
+  "pairs": 3000,
+  "mean_paired_delta": 0.057,
+  "ci95": [
+    0.04,
+    0.07433333333333333
+  ],
+  "wins": 244,
+  "ties": 2683,
+  "losses": 73,
+  "same_seed_protocol": false,
+  "sources": {
+    "candidate": "outputs/v11/fused_pave_02s_deadline",
+    "candidate_glob": "pave_off_s*/v11_rows.csv",
+    "reference": "outputs/v1/rlsa/per_graph.csv"
+  }
+}

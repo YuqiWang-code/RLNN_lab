@@ -1,0 +1,108 @@
+{
+ "graphs": 1000,
+ "rungs": [
+  "greedy",
+  "0.1",
+  "0.2",
+  "0.5",
+  "1.0"
+ ],
+ "pave_budget_greedy": 0.05,
+ "pave_reserve_note": "search rungs use the deployment reserve min(0.05, 0.2*budget)",
+ "sources": {
+  "greedy": "computed here",
+  "1.0": "outputs/v11/gate0/a0_steps808_n1000/padded/padded_ref0.csv",
+  "0.2": "outputs/v11/t7/a02_s1017_1000/padded/padded_ref0.csv",
+  "0.1": "outputs/v11/t7/ladder_s1017_1000/padded/padded_ref0.csv",
+  "0.5": "outputs/v11/t7/ladder_s1017_1000/padded/padded_ref0.csv"
+ },
+ "per_rung": {
+  "greedy": {
+   "graphs": 1000,
+   "mean_c": 2.14,
+   "mean_rho": 0.07517608967997308,
+   "c_positive_graphs": 914,
+   "c_positive_fraction": 0.914,
+   "c_max": 6.0,
+   "c_min": 0.0
+  },
+  "0.1": {
+   "graphs": 1000,
+   "mean_c": 0.511,
+   "mean_rho": 0.08209511047326265,
+   "c_positive_graphs": 390,
+   "c_positive_fraction": 0.39,
+   "c_max": 4.0,
+   "c_min": 0.0
+  },
+  "0.2": {
+   "graphs": 1000,
+   "mean_c": 0.022,
+   "mean_rho": 0.08785288164441327,
+   "c_positive_graphs": 22,
+   "c_positive_fraction": 0.022,
+   "c_max": 1.0,
+   "c_min": 0.0
+  },
+  "0.5": {
+   "graphs": 1000,
+   "mean_c": 0.003,
+   "mean_rho": 0.08857331927880346,
+   "c_positive_graphs": 3,
+   "c_positive_fraction": 0.003,
+   "c_max": 1.0,
+   "c_min": 0.0
+  },
+  "1.0": {
+   "graphs": 1000,
+   "mean_c": 0.002,
+   "mean_rho": 0.08866882717633706,
+   "c_positive_graphs": 2,
+   "c_positive_fraction": 0.002,
+   "c_max": 1.0,
+   "c_min": 0.0
+  }
+ },
+ "fit_rung_means": {
+  "slope": -152.369966483568,
+  "intercept": 13.406785608533713,
+  "r2": 0.9399277169285419,
+  "zero": 0.08798837407357138,
+  "points": [
+   {
+    "rung": "greedy",
+    "rho": 0.07517608967997308,
+    "c": 2.14
+   },
+   {
+    "rung": "0.1",
+    "rho": 0.08209511047326265,
+    "c": 0.511
+   },
+   {
+    "rung": "0.2",
+    "rho": 0.08785288164441327,
+    "c": 0.022
+   },
+   {
+    "rung": "0.5",
+    "rho": 0.08857331927880346,
+    "c": 0.003
+   },
+   {
+    "rung": "1.0",
+    "rho": 0.08866882717633706,
+    "c": 0.002
+   }
+  ]
+ },
+ "fit_per_point": {
+  "slope": -61.38998414522578,
+  "intercept": 5.721411211183512,
+  "r2": 0.3274474565724659
+ },
+ "spearman_c_rho": -0.4150973347158934,
+ "one_second_bound": "strict",
+ "one_second_c_positive_fraction": 0.002,
+ "wall_s": 38.7
+}

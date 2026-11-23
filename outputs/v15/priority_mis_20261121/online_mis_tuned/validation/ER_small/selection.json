@@ -1,0 +1,31 @@
+{
+  "method": "OnlineMIS",
+  "host_budget_ms": 200,
+  "cpu": 20,
+  "validation_seed": 517,
+  "rule": "maximum mean deadline-scored size, ties choose longer internal limit",
+  "selected_internal_ms": 120,
+  "validation": [
+    {
+      "internal_ms": 120,
+      "mean_size": 42.4375,
+      "mean_wall_ms": 142.54096278455108,
+      "on_time": 16,
+      "runs": 16
+    },
+    {
+      "internal_ms": 150,
+      "mean_size": 37.25,
+      "mean_wall_ms": 171.9392889062874,
+      "on_time": 14,
+      "runs": 16
+    },
+    {
+      "internal_ms": 180,
+      "mean_size": 13.25,
+      "mean_wall_ms": 199.10391789744608,
+      "on_time": 5,
+      "runs": 16
+    }
+  ]
+}

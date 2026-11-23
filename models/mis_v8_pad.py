@@ -1,36 +1,5 @@
-"""Amortised capture: one CUDA graph for a whole dataset.
+"""Padded RLNN search with reusable graph buffers and optional CUDA Graph replay."""
 
-``models/mis_v8_capture.py`` captures the frozen step per graph and buys ~7x
-steps, but the capture costs 46-70 ms and it is charged inside the clock.  On the
-paper's clock that is the whole budget: at 0.2 s/graph the prelude is 47 % of the
-clock and at 0.1 s the run takes *zero* steps (``outputs/v8_macro/author_short``).
-
-This module removes the per-graph capture.  Every graph is padded to ``n_max``
-nodes with a fixed per-row capacity, so the CSR layout -- and therefore every
-tensor shape and pointer the CUDA graph recorded -- never changes.  One capture
-serves the whole dataset; loading a graph is five buffer copies.
-
-The padding is exact rather than approximate:
-
-* a padded node has bias 0 and no incident edge, and the MIS energy is
-  ``sum(x * (beta * A x + b))``, so padded nodes contribute exactly 0;
-* a padded node's row is ``col = self, weight = 0``, so its normalised weights
-  are zero and real rows are untouched;
-* ``torch.rand`` and ``torch.randint`` are filled in row-major order for a fixed
-  ``num_k``, so ``rand((n_max, k))[:n]`` equals ``rand((n, k))`` drawn from the
-  same seed.  The padded trajectory of the real rows is therefore bit-identical
-  to the unpadded one, which ``models/check_padded_capture.py`` asserts.
-
-The deployed backbone is a plain ``GCN(1, hidden, layers, 1)`` -- ``state_features``
-belongs to the frequency adapters, which this checkpoint does not use -- so its only
-graph input is the normalised adjacency.  Padding therefore needs no extra
-bookkeeping: zero-weight entries and a zero bias make every padded contribution
-exactly zero.
-
-    engine = PaddedSearch(solver, n_max=300, capacity=33)
-    engine.load(graph, graph.edge_index, seed)     # outside the clock
-    steps, decode_seconds, _ = engine.run(deadline, decode)
-"""
 import numpy as np
 import torch
 from time import perf_counter
@@ -39,13 +8,15 @@ from time import perf_counter
 class PaddedSearch:
     """One captured block, reused for every graph that fits in ``n_max`` nodes."""
 
-    def __init__(self, solver, *, n_max, capacity, chunk=10, device=None, decode_chunk=4):
+    def __init__(self, solver, *, n_max, capacity, chunk=10, device=None, decode_chunk=4,
+                 dense=False, capture=True):
         if not torch.cuda.is_available():
             raise RuntimeError("padded search requires CUDA")
         if solver.frequency != "none" or solver.structure or solver.v7_context:
             raise ValueError("the padded engine mirrors the plain frozen step only")
         self.solver = solver
         self.model = solver.model
+        self.scale_operator = getattr(solver, "scale_operator", False)
         self.problem = solver.problem
         self.dtype = solver.dtype
         self.device = device or solver.accelerator.device
@@ -63,21 +34,21 @@ class PaddedSearch:
         self.norm = torch.zeros(rows * cap, dtype=self.dtype, device=self.device)
         self.real = torch.zeros(rows * cap, dtype=self.dtype, device=self.device)
         self.bias = torch.zeros(rows, 1, dtype=self.dtype, device=self.device)
+        self.scale = torch.ones(rows, 1, dtype=self.dtype, device=self.device)
         self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
                                                  device=self.device)
         self.normalized = torch.sparse_csr_tensor(self.crow, self.col, self.norm, (rows, rows),
                                                   device=self.device)
+        self.use_dense = bool(dense)
+        self.dense_norm = torch.zeros(rows, rows, dtype=self.dtype, device=self.device)
         self.state = torch.zeros(rows, self.num_k, dtype=self.dtype, device=self.device)
         self.best_states = torch.zeros_like(self.state)
         self.best_energy = torch.zeros(self.num_k, dtype=self.dtype, device=self.device)
         self.improvements = torch.zeros(1, dtype=torch.long, device=self.device)
         self.nodes = 0
-        # Policy temperature: ``_body`` divides the logits by it, so T > 1 makes
-        # the same policy propose flips it would otherwise reject.  A device
-        # scalar, so the value is read at replay time and the captured graph
-        # does not have to be rebuilt when it changes between blocks.
         self.temperature = torch.ones((), dtype=self.dtype, device=self.device)
-        # The generator has to be one stable object: the capture registers it.
+        self.keep = torch.ones(rows, self.num_k, dtype=self.dtype, device=self.device)
+        self.tabu = torch.zeros(rows, self.num_k, dtype=torch.bool, device=self.device)
         self.generator = torch.Generator(device=self.device).manual_seed(0)
         self.decoder = None
         if decode_chunk:
@@ -85,18 +56,14 @@ class PaddedSearch:
             template = torch.zeros(rows, self.num_k, dtype=self.dtype, device=self.device)
             self.decoder = CapturedDecoder(self.problem, self.adjacency, self.bias, template,
                                            chunk=decode_chunk)
-        self._build()
+        if capture:
+            self._build()
+            self.step_block = self.graph_exec.replay
+        else:
+            self.step_block = self._body
 
-    # ---------------------------------------------------------------- loading
     def load(self, graph, edges, seed):
-        """Write one graph into the fixed buffers and reset the archive.
-
-        Runs before the clock starts, exactly like reading a graph file does for
-        the external solvers.  The row order matters: the real neighbours and the
-        self loop are stored in ascending column order with the padding after
-        them, because ``spmm`` accumulates in storage order and a different order
-        would round differently from the unpadded CSR.
-        """
+        """Load one graph and reset the per-particle archive and RNG."""
         started = perf_counter()
         n = int(graph.num_nodes)
         if n > self.n_max:
@@ -106,12 +73,6 @@ class PaddedSearch:
         rows, cap, n_max = self.n_max, self.capacity, self.n_max
         dense = np.zeros((n_max, n_max), dtype=np.uint8)
         dense[src, dst] = 1
-        # Neighbours of a row come first in ``order`` (ascending column, stable).
-        # The self loop is added as column ``r``; the unused slots carry a
-        # sentinel that sorts after every real column, so the row ends up in
-        # ascending column order with the padding at the end -- the same order the
-        # unpadded CSR has, which matters because ``spmm`` accumulates in storage
-        # order and a different order would round differently.
         order = np.argsort(dense == 0, axis=1, kind="stable")[:, : cap - 1]
         count = dense.sum(axis=1)
         valid = np.arange(cap - 1)[None, :] < count[:, None]
@@ -127,12 +88,15 @@ class PaddedSearch:
         self.col.copy_(torch.from_numpy(storage.reshape(-1)))
         self.raw.copy_(torch.from_numpy(edge.astype(np.float32).reshape(-1)))
         self.real.copy_(torch.from_numpy((edge | self_loop).astype(np.float32).reshape(-1)))
-        # Normalised weights with the same expression as ``edge2adj``:
-        # inv[row] * 1 * inv[col], inv = (degree + self loop) ** -0.5, on device in
-        # the model dtype so the rounding matches the unpadded path bit for bit.
         degree = self.raw.reshape(n_max, cap).sum(dim=1)
         inv = (degree + 1).pow(-0.5)
+        self.scale.copy_(inv.reciprocal().unsqueeze(1))
         self.norm.copy_((inv[self.slots] * inv[self.col]).mul_(self.real))
+        if self.use_dense:
+            nonzero = self.norm != 0
+            self.dense_norm.zero_()
+            self.dense_norm.index_put_((self.slots[nonzero], self.col[nonzero]),
+                                       self.norm[nonzero])
         self.bias.zero_()
         self.bias[:n].copy_(graph.b.reshape(-1, 1).to(self.dtype))
         self.nodes = n
@@ -142,9 +106,10 @@ class PaddedSearch:
         self.best_states.copy_(self.state)
         self.best_energy.copy_(self.problem.energy_func(self.adjacency, self.bias, self.state)[0])
         self.improvements.zero_()
+        self.keep.fill_(1.0)
+        self.tabu.zero_()
         return perf_counter() - started
 
-    # ------------------------------------------------------------------ step
     def prime(self, mask, n=None, particle=None):
         """Start particles from ``mask`` (an int bitset over the real nodes).
 
@@ -164,13 +129,43 @@ class PaddedSearch:
             self.best_energy.copy_(self.problem.energy_func(self.adjacency, self.bias, self.state)[0])
             self.improvements.zero_()
 
+    def _logits(self):
+        """Frozen policy logits for the current state.
+
+        The plain GCN ignores the un-normaliser; ``--arch scale`` needs it to turn
+        the normalised aggregation back into raw hop counts.
+        """
+        state = self.state.unsqueeze(-1)
+        weight = self.dense_norm if self.use_dense else self.normalized
+        if self.scale_operator:
+            logits = self.model(state, None, weight, self.scale)
+        else:
+            logits = self.model(state, None, weight)
+        return logits.squeeze(-1).masked_fill(self.tabu, torch.finfo(self.dtype).min)
+
+    def evict(self, rows):
+        """Empty ``rows`` in every particle and forbid them until ``release``."""
+        if not rows:
+            return
+        index = torch.as_tensor(sorted({int(row) for row in rows}),
+                                device=self.device)
+        self.keep[index] = 0.0
+        self.tabu[index] = True
+        self.state[index] = 0.0
+
+    def release(self):
+        """Lift every tabu and let the policy use those rows again."""
+        self.keep.fill_(1.0)
+        self.tabu.zero_()
+
     def _body(self):
         for _ in range(self.chunk):
-            logits = self.model(self.state.unsqueeze(-1), None, self.normalized).squeeze(-1)
+            logits = self._logits()
             probs = torch.div(logits, self.temperature).sigmoid()
             noise = torch.rand(self.state.shape, device=self.device, dtype=self.dtype,
                                generator=self.generator)
             flipped = torch.where(noise < probs, 1 - self.state, self.state)
+            flipped = flipped * self.keep
             self.state.copy_(flipped)
             energy = self.problem.energy_func(self.adjacency, self.bias, self.state)[0]
             improves = energy < self.best_energy
@@ -197,9 +192,9 @@ class PaddedSearch:
             self._body()
         torch.cuda.current_stream(device).wait_stream(stream)
 
-    # ------------------------------------------------------------------- run
     def run(self, deadline, decode, *, max_blocks=None, skip_unchanged=False,
-            decode_every=1, temperature=1.0, anneal=False):
+            decode_every=1, temperature=1.0, anneal=False, sync_each_block=True,
+            on_block=None, decode_reserve=None, midpoint_decode=True):
         steps = blocks = 0
         decode_seconds = 0.0
         block_time = 0.0
@@ -207,46 +202,56 @@ class PaddedSearch:
         decoded_at = -1
         pending = False
         every = max(1, int(decode_every))
-        # A constant T runs the softened policy; ``anneal`` cools it back to the
-        # deployed one along a straight line in *remaining time*, which is the
-        # only clock the deadline loop knows about.
         self.temperature.fill_(float(temperature))
-        window = max(deadline - perf_counter(), 1e-6)
+        started = perf_counter()
+        window = max(deadline - started, 1e-6)
+        midpoint = (started + window / 2
+                    if decode_reserve is not None and midpoint_decode else float("inf"))
         while True:
             if anneal and temperature > 1.0:
                 left = max(deadline - perf_counter(), 0.0)
                 self.temperature.fill_(1.0 + (float(temperature) - 1.0) * left / window)
             if max_blocks is not None and blocks >= max_blocks:
                 break
-            if perf_counter() + block_time >= deadline:
+            if perf_counter() + block_time + (decode_reserve or 0.0) >= deadline:
                 break
             started = perf_counter()
-            self.graph_exec.replay()
+            self.step_block()
+            if sync_each_block:
+                torch.cuda.synchronize(self.device)
             steps += self.chunk
             blocks += 1
+            if on_block is not None:
+                on_block(blocks)
             if skip_unchanged:
                 moved = int(self.improvements.item())
-                if moved == decoded_at:
+                if moved == decoded_at and not (pending and perf_counter() >= midpoint):
                     block_time = perf_counter() - started
                     continue
                 decoded_at = moved
-            if blocks % every:
+            block_finished = perf_counter()
+            if blocks % every and block_finished < midpoint:
                 pending = True
-                block_time = perf_counter() - started
+                block_time = block_finished - started
                 continue
             pending = False
+            midpoint = float("inf")
             decode(self.best_states)
-            decode_seconds += perf_counter() - started
-            block_time = perf_counter() - started
-        if pending:
-            # the archive is monotone, so one final decode is never worse than
-            # decoding every block; it has to happen anyway to return a mask.
+            decode_elapsed = perf_counter() - block_finished
+            decode_seconds += decode_elapsed
+            block_time = block_finished - started
+            if decode_reserve is not None:
+                decode_reserve = max(decode_reserve, 2 * decode_elapsed)
+            else:
+                block_time += decode_elapsed
+        if (pending or (decode_reserve is not None and blocks == 0)) and (
+            decode_reserve is None or perf_counter() < deadline
+        ):
             started = perf_counter()
             decode(self.best_states)
             decode_seconds += perf_counter() - started
         return steps, decode_seconds, blocks
 
-    # ---------------------------------------------------------------- decode
     def decode_best(self, states, *, count_nodes=None):
         """Best particle of the A.3 pass, packed over the real nodes only."""
         solutions = self.decoder.decode(states)

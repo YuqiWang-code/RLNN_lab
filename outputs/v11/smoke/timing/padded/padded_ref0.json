@@ -1,0 +1,38 @@
+{
+  "ref": 0,
+  "seeds": [
+    1017
+  ],
+  "budgets": [
+    1.0,
+    0.2
+  ],
+  "graphs": 4,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "padded"
+  ],
+  "decoders": [
+    "captured",
+    "cached"
+  ],
+  "decode_chunk": 4,
+  "cells": [
+    "padded/captured",
+    "padded/cached"
+  ],
+  "temperatures": [
+    1.0
+  ],
+  "anneal": false,
+  "padded": {
+    "nodes": 220,
+    "capacity": 69,
+    "capture_s": 1.1616,
+    "load_s": 0.0052
+  },
+  "wall_time_s": 9.49
+}

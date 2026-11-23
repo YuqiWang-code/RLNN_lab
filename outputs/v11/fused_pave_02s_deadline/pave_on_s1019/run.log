@@ -1,0 +1,57 @@
+padded shape: nodes 264, capacity 105
+compiled policy: OptimizedModule
+/home/hzeng/project/ZH/RLNN_lab/tmp/fused_pave_02s_deadline_20261118/mis_v8_pad.py:72: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+20/1000 0.2s/padded/captured:19.750@278st
+40/1000 0.2s/padded/captured:19.925@279st
+60/1000 0.2s/padded/captured:19.883@280st
+80/1000 0.2s/padded/captured:19.925@280st
+100/1000 0.2s/padded/captured:19.880@280st
+120/1000 0.2s/padded/captured:19.850@280st
+140/1000 0.2s/padded/captured:19.921@280st
+160/1000 0.2s/padded/captured:19.956@280st
+180/1000 0.2s/padded/captured:19.906@280st
+200/1000 0.2s/padded/captured:19.925@280st
+220/1000 0.2s/padded/captured:19.900@280st
+240/1000 0.2s/padded/captured:19.913@280st
+260/1000 0.2s/padded/captured:19.965@280st
+280/1000 0.2s/padded/captured:19.975@280st
+300/1000 0.2s/padded/captured:20.000@280st
+320/1000 0.2s/padded/captured:20.022@280st
+340/1000 0.2s/padded/captured:20.059@280st
+360/1000 0.2s/padded/captured:20.067@280st
+380/1000 0.2s/padded/captured:20.082@280st
+400/1000 0.2s/padded/captured:20.058@280st
+420/1000 0.2s/padded/captured:20.048@280st
+440/1000 0.2s/padded/captured:20.064@280st
+460/1000 0.2s/padded/captured:20.046@280st
+480/1000 0.2s/padded/captured:20.048@280st
+500/1000 0.2s/padded/captured:20.030@280st
+520/1000 0.2s/padded/captured:20.013@280st
+540/1000 0.2s/padded/captured:20.028@280st
+560/1000 0.2s/padded/captured:20.023@280st
+580/1000 0.2s/padded/captured:20.043@280st
+600/1000 0.2s/padded/captured:20.065@280st
+620/1000 0.2s/padded/captured:20.044@280st
+640/1000 0.2s/padded/captured:20.048@280st
+660/1000 0.2s/padded/captured:20.052@280st
+680/1000 0.2s/padded/captured:20.057@280st
+700/1000 0.2s/padded/captured:20.047@280st
+720/1000 0.2s/padded/captured:20.022@280st
+740/1000 0.2s/padded/captured:20.030@280st
+760/1000 0.2s/padded/captured:20.032@280st
+780/1000 0.2s/padded/captured:20.023@280st
+800/1000 0.2s/padded/captured:20.015@280st
+820/1000 0.2s/padded/captured:20.022@280st
+840/1000 0.2s/padded/captured:20.018@280st
+860/1000 0.2s/padded/captured:20.038@280st
+880/1000 0.2s/padded/captured:20.031@280st
+900/1000 0.2s/padded/captured:20.033@280st
+920/1000 0.2s/padded/captured:20.036@280st
+940/1000 0.2s/padded/captured:20.028@280st
+960/1000 0.2s/padded/captured:20.023@280st
+980/1000 0.2s/padded/captured:20.013@280st
+1000/1000 0.2s/padded/captured:20.016@280st
+ 0.2s padded/captured    size 20.0160 steps 279.6 search 20.0130 ms/step 0.550 load 5.73 ms decode 2.33 ms
+wrote outputs/v11/fused_pave_02s_deadline/pave_on_s1019/padded/padded_ref0.csv
+wrote outputs/v11/fused_pave_02s_deadline/pave_on_s1019/v11_rows.csv

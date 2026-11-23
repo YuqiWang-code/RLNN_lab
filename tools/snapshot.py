@@ -41,7 +41,8 @@ def workbook_text(filename):
                     if cell.attrib.get('t') == 's':
                         value = strings[int(value)]
                     elif cell.attrib.get('t') == 'inlineStr':
-                        value = ''.join(cell.find('s:is', NS).itertext())
+                        node = cell.find('s:is', NS)
+                        value = ''.join(node.itertext()) if node is not None else ''
                     formula = cell.findtext('s:f', namespaces=NS)
                     fields[column - 1] = f'={formula} [value={value}]' if formula is not None else value
                 output = io.StringIO()

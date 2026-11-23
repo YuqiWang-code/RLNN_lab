@@ -1,25 +1,5 @@
-"""The A.3 decode as a replayable CUDA-graph chunk.
+"""A.3 gradient-flip decoding with CUDA Graph replay."""
 
-Once the search was captured (``mis_v8_capture.py``) the decode became the
-bottleneck: ``outputs/v8_macro/positioning/capture_budget/capture_budget_ref0.csv``
-puts it at 71.5 % of search time at 0.5 s and 86.6 % at 1.0 s.  ``probe_decode_cost.py``
-shows why: ``decode_gradient_flip`` is a host-driven loop that ends every
-iteration in a device-to-host read (``if not (gain > 0).any(): break``) and pays
-0.44-1.10 ms for GPU work that a captured chunk replays in 0.055 ms.
-
-This module keeps the loop but moves the work into captured chunks of ``chunk``
-iterations.  Over-running is safe and exact: once a node's gain stops improving
-its update is ``where(gain > 0, 1 - x, x)``, i.e. the state does not move, so
-further iterations are no-ops.  A chunk therefore reports whether *any* particle
-flipped, and the driver replays chunks until one reports none.  The result is
-bit-identical to the eager loop (asserted in ``check_decode_capture.py``).
-
-What is left is one host read per chunk instead of per iteration, and the
-arithmetic runs without launch overhead.
-
-    decoder = CapturedDecoder(problem, adj, bias, template, chunk=8)
-    solutions = decoder.decode(best_states)   # (nodes, particles), same ints as eager
-"""
 import numpy as np
 import torch
 
@@ -49,8 +29,6 @@ class CapturedDecoder:
         self.twobeta = 2 * problem.beta
         self.bias = bias
         self.adjacency = adjacency
-        # The warm-up and the recording both advance ``solutions``; put the caller's
-        # matrix back so the captured object starts from where it was handed over.
         snapshot = self.solutions.clone()
         self._build()
         self.solutions.copy_(snapshot)

@@ -1,0 +1,136 @@
+{
+  "count": 16,
+  "regime": "ER_large",
+  "split": "validation",
+  "generator": "Uniform integer n in [9000,11000]; independent Bernoulli(0.02) edges",
+  "graphs": [
+    {
+      "source": "idx_0.gpickle",
+      "graph_id": "idx_0",
+      "tensor": "graph_000000.pt",
+      "num_nodes": 10551,
+      "undirected_edges": 1113149,
+      "generation_seed": 4230000
+    },
+    {
+      "source": "idx_1.gpickle",
+      "graph_id": "idx_1",
+      "tensor": "graph_000001.pt",
+      "num_nodes": 9292,
+      "undirected_edges": 862556,
+      "generation_seed": 4230001
+    },
+    {
+      "source": "idx_2.gpickle",
+      "graph_id": "idx_2",
+      "tensor": "graph_000002.pt",
+      "num_nodes": 10175,
+      "undirected_edges": 1034611,
+      "generation_seed": 4230002
+    },
+    {
+      "source": "idx_3.gpickle",
+      "graph_id": "idx_3",
+      "tensor": "graph_000003.pt",
+      "num_nodes": 10611,
+      "undirected_edges": 1125342,
+      "generation_seed": 4230003
+    },
+    {
+      "source": "idx_4.gpickle",
+      "graph_id": "idx_4",
+      "tensor": "graph_000004.pt",
+      "num_nodes": 10204,
+      "undirected_edges": 1040594,
+      "generation_seed": 4230004
+    },
+    {
+      "source": "idx_5.gpickle",
+      "graph_id": "idx_5",
+      "tensor": "graph_000005.pt",
+      "num_nodes": 10866,
+      "undirected_edges": 1179789,
+      "generation_seed": 4230005
+    },
+    {
+      "source": "idx_6.gpickle",
+      "graph_id": "idx_6",
+      "tensor": "graph_000006.pt",
+      "num_nodes": 10544,
+      "undirected_edges": 1109283,
+      "generation_seed": 4230006
+    },
+    {
+      "source": "idx_7.gpickle",
+      "graph_id": "idx_7",
+      "tensor": "graph_000007.pt",
+      "num_nodes": 10283,
+      "undirected_edges": 1055955,
+      "generation_seed": 4230007
+    },
+    {
+      "source": "idx_8.gpickle",
+      "graph_id": "idx_8",
+      "tensor": "graph_000008.pt",
+      "num_nodes": 10724,
+      "undirected_edges": 1148994,
+      "generation_seed": 4230008
+    },
+    {
+      "source": "idx_9.gpickle",
+      "graph_id": "idx_9",
+      "tensor": "graph_000009.pt",
+      "num_nodes": 10937,
+      "undirected_edges": 1197305,
+      "generation_seed": 4230009
+    },
+    {
+      "source": "idx_10.gpickle",
+      "graph_id": "idx_10",
+      "tensor": "graph_000010.pt",
+      "num_nodes": 9202,
+      "undirected_edges": 847859,
+      "generation_seed": 4230010
+    },
+    {
+      "source": "idx_11.gpickle",
+      "graph_id": "idx_11",
+      "tensor": "graph_000011.pt",
+      "num_nodes": 10924,
+      "undirected_edges": 1192765,
+      "generation_seed": 4230011
+    },
+    {
+      "source": "idx_12.gpickle",
+      "graph_id": "idx_12",
+      "tensor": "graph_000012.pt",
+      "num_nodes": 9056,
+      "undirected_edges": 819787,
+      "generation_seed": 4230012
+    },
+    {
+      "source": "idx_13.gpickle",
+      "graph_id": "idx_13",
+      "tensor": "graph_000013.pt",
+      "num_nodes": 10746,
+      "undirected_edges": 1153482,
+      "generation_seed": 4230013
+    },
+    {
+      "source": "idx_14.gpickle",
+      "graph_id": "idx_14",
+      "tensor": "graph_000014.pt",
+      "num_nodes": 9023,
+      "undirected_edges": 815935,
+      "generation_seed": 4230014
+    },
+    {
+      "source": "idx_15.gpickle",
+      "graph_id": "idx_15",
+      "tensor": "graph_000015.pt",
+      "num_nodes": 9992,
+      "undirected_edges": 998180,
+      "generation_seed": 4230015
+    }
+  ]
+}

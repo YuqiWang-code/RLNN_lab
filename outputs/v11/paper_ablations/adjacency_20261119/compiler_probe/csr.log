@@ -1,0 +1,821 @@
+padded shape: nodes 242, capacity 82
+compiled policy: OptimizedModule
+/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py:38: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+I1119 11:00:14.626000 1653110 torch/_dynamo/utils.py:1749] [0/0] ChromiumEventLogger initialized with id 2c512017-ea84-40ae-866f-9bb0daa38c2d
+I1119 11:00:14.628000 1653110 torch/_dynamo/symbolic_convert.py:3859] [0/0] Step 1: torchdynamo start tracing forward /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:819
+I1119 11:00:14.629000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [0/0] create_env
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks] Graph break in user code at /home/hzeng/project/ZH/RLNN_lab/models/models.py:125
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks] Graph Break Reason: Attempted to wrap sparse Tensor
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   Explanation: torch.compile does not support sparse Tensors
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks] 
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   Developer debug context: 
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks] 
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks] User code traceback:
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/eval_v8_padded.py", line 523, in <module>
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     main()
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/eval_v8_padded.py", line 355, in main
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     engine = PaddedSearch(solver, n_max=n_max, capacity=capacity, chunk=args.chunk, device=device,
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py", line 60, in __init__
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     self._build()
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py", line 183, in _build
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     self._body()
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py", line 163, in _body
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     logits = self._logits()
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py", line 143, in _logits
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     logits = self.model(state, None, weight)
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     return self._call_impl(*args, **kwargs)
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     return forward_call(*args, **kwargs)
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     return self._call_impl(*args, **kwargs)
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     return forward_call(*args, **kwargs)
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 820, in forward
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     return model_forward(*args, **kwargs)
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 808, in __call__
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     return convert_to_fp32(self.model_forward(*args, **kwargs))
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     return func(*args, **kwargs)
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/models/models.py", line 125, in forward
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks]     if adj is None:
+V1119 11:00:14.844000 1653110 torch/_dynamo/symbolic_convert.py:611] [0/0] [__graph_breaks] 
+I1119 11:00:14.845000 1653110 torch/_dynamo/convert_frame.py:1042] [0/0] Restarting analysis due to _dynamo/symbolic_convert.py:249 in fail_and_restart_analysis
+I1119 11:00:14.845000 1653110 torch/_dynamo/symbolic_convert.py:3859] [0/0_1] Step 1: torchdynamo start tracing forward /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:819
+I1119 11:00:14.846000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [0/0_1] create_env
+I1119 11:00:14.854000 1653110 torch/_dynamo/convert_frame.py:1506] [0/0_1] run_gc_after_compile: running gc
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] Graph break: skip: from user code at:
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 820, in forward
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     return model_forward(*args, **kwargs)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] Traceback (most recent call last):
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     result = self._inner_convert(
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     result = _compile(
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     return function(*args, **kwargs)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     return _compile_inner(code, one_graph, hooks)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     dynamo_output = compile_frame(
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     bytecode, tracer_output = transform_code_object(code, transform)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     tracer_output = transformations(instructions, code_options)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     tracer_output = trace_frame(
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     return fn(*args, **kwargs)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     run_tracer()
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     tracer.run()
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     while self.step():
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     self.dispatch_table[inst.opcode](self, inst)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 902, in wrapper
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     return handle_graph_break(self, inst, speculation.reason)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 964, in handle_graph_break
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     all_stack_locals_metadata = self.output.compile_subgraph(
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1369, in compile_subgraph
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     stack_values, meta = self._get_stack_values_to_restore(
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1242, in _get_stack_values_to_restore
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     variables.LazyVariableTracker.realize_all(value)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     result = cls.realize_all(value.realize(), cache)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 144, in realize_all
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     value_dict[key] = cls.realize_all(value_dict[key], cache)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in realize_all
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     result = [cls.realize_all(v, cache) for v in value]
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in <listcomp>
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     result = [cls.realize_all(v, cache) for v in value]
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     result = cls.realize_all(value.realize(), cache)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     self._cache.realize()
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     vt = self._wrap(value)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     return type_dispatch(self, value)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     unimplemented_v2(
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     raise Unsupported(msg)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   Explanation: torch.compile does not support sparse Tensors
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] 
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]   Developer debug context: 
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] 
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] 
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] from user code:
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]    File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 820, in forward
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks]     return model_forward(*args, **kwargs)
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] 
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+V1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1689] [0/0] [__graph_breaks] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] WON'T CONVERT forward /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py line 819 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] due to: 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] Traceback (most recent call last):
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = self._inner_convert(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = _compile(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return function(*args, **kwargs)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return _compile_inner(code, one_graph, hooks)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     dynamo_output = compile_frame(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     bytecode, tracer_output = transform_code_object(code, transform)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = transformations(instructions, code_options)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = trace_frame(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return fn(*args, **kwargs)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     run_tracer()
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer.run()
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     while self.step():
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     self.dispatch_table[inst.opcode](self, inst)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 902, in wrapper
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return handle_graph_break(self, inst, speculation.reason)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 964, in handle_graph_break
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     all_stack_locals_metadata = self.output.compile_subgraph(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1369, in compile_subgraph
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     stack_values, meta = self._get_stack_values_to_restore(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1242, in _get_stack_values_to_restore
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     variables.LazyVariableTracker.realize_all(value)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = cls.realize_all(value.realize(), cache)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 144, in realize_all
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     value_dict[key] = cls.realize_all(value_dict[key], cache)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in realize_all
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = [cls.realize_all(v, cache) for v in value]
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in <listcomp>
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = [cls.realize_all(v, cache) for v in value]
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = cls.realize_all(value.realize(), cache)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     self._cache.realize()
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     vt = self._wrap(value)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return type_dispatch(self, value)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     unimplemented_v2(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     raise Unsupported(msg)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   Explanation: torch.compile does not support sparse Tensors
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   Developer debug context: 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] from user code:
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]    File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 820, in forward
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return model_forward(*args, **kwargs)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] Traceback (most recent call last):
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = self._inner_convert(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = _compile(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return function(*args, **kwargs)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return _compile_inner(code, one_graph, hooks)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     dynamo_output = compile_frame(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     bytecode, tracer_output = transform_code_object(code, transform)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = transformations(instructions, code_options)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = trace_frame(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return fn(*args, **kwargs)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     run_tracer()
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer.run()
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     while self.step():
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     self.dispatch_table[inst.opcode](self, inst)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 902, in wrapper
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return handle_graph_break(self, inst, speculation.reason)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 964, in handle_graph_break
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     all_stack_locals_metadata = self.output.compile_subgraph(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1369, in compile_subgraph
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     stack_values, meta = self._get_stack_values_to_restore(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1242, in _get_stack_values_to_restore
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     variables.LazyVariableTracker.realize_all(value)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = cls.realize_all(value.realize(), cache)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 144, in realize_all
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     value_dict[key] = cls.realize_all(value_dict[key], cache)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in realize_all
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = [cls.realize_all(v, cache) for v in value]
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in <listcomp>
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = [cls.realize_all(v, cache) for v in value]
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     result = cls.realize_all(value.realize(), cache)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     self._cache.realize()
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     vt = self._wrap(value)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return type_dispatch(self, value)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     unimplemented_v2(
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     raise Unsupported(msg)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   Explanation: torch.compile does not support sparse Tensors
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]   Developer debug context: 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] from user code:
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]    File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 820, in forward
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706]     return model_forward(*args, **kwargs)
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+I1119 11:00:14.858000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.860000 1653110 torch/_dynamo/symbolic_convert.py:3859] [1/0] Step 1: torchdynamo start tracing __call__ /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:807
+I1119 11:00:14.860000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [1/0] create_env
+V1119 11:00:14.865000 1653110 torch/_dynamo/symbolic_convert.py:618] [1/0] [__graph_breaks] Graph break (user stack suppressed due to duplicate graph break) in user code at /home/hzeng/project/ZH/RLNN_lab/models/models.py:125
+V1119 11:00:14.865000 1653110 torch/_dynamo/symbolic_convert.py:618] [1/0] [__graph_breaks] Graph Break Reason: Attempted to wrap sparse Tensor
+V1119 11:00:14.865000 1653110 torch/_dynamo/symbolic_convert.py:618] [1/0] [__graph_breaks]   Explanation: torch.compile does not support sparse Tensors
+V1119 11:00:14.865000 1653110 torch/_dynamo/symbolic_convert.py:618] [1/0] [__graph_breaks]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+V1119 11:00:14.865000 1653110 torch/_dynamo/symbolic_convert.py:618] [1/0] [__graph_breaks] 
+V1119 11:00:14.865000 1653110 torch/_dynamo/symbolic_convert.py:618] [1/0] [__graph_breaks]   Developer debug context: 
+V1119 11:00:14.865000 1653110 torch/_dynamo/symbolic_convert.py:618] [1/0] [__graph_breaks] 
+V1119 11:00:14.865000 1653110 torch/_dynamo/symbolic_convert.py:618] [1/0] [__graph_breaks]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+I1119 11:00:14.865000 1653110 torch/_dynamo/convert_frame.py:1042] [1/0] Restarting analysis due to _dynamo/symbolic_convert.py:249 in fail_and_restart_analysis
+I1119 11:00:14.866000 1653110 torch/_dynamo/symbolic_convert.py:3859] [1/0_1] Step 1: torchdynamo start tracing __call__ /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:807
+I1119 11:00:14.866000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [1/0_1] create_env
+I1119 11:00:14.872000 1653110 torch/_dynamo/convert_frame.py:1506] [1/0_1] run_gc_after_compile: running gc
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] Graph break: skip: from user code at:
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 808, in __call__
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     return convert_to_fp32(self.model_forward(*args, **kwargs))
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] Traceback (most recent call last):
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     result = self._inner_convert(
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     result = _compile(
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     return function(*args, **kwargs)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     return _compile_inner(code, one_graph, hooks)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     dynamo_output = compile_frame(
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     bytecode, tracer_output = transform_code_object(code, transform)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     tracer_output = transformations(instructions, code_options)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     tracer_output = trace_frame(
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     return fn(*args, **kwargs)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     run_tracer()
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     tracer.run()
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     while self.step():
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     self.dispatch_table[inst.opcode](self, inst)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 902, in wrapper
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     return handle_graph_break(self, inst, speculation.reason)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 964, in handle_graph_break
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     all_stack_locals_metadata = self.output.compile_subgraph(
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1369, in compile_subgraph
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     stack_values, meta = self._get_stack_values_to_restore(
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1242, in _get_stack_values_to_restore
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     variables.LazyVariableTracker.realize_all(value)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     result = cls.realize_all(value.realize(), cache)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 144, in realize_all
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     value_dict[key] = cls.realize_all(value_dict[key], cache)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in realize_all
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     result = [cls.realize_all(v, cache) for v in value]
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in <listcomp>
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     result = [cls.realize_all(v, cache) for v in value]
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     result = cls.realize_all(value.realize(), cache)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     self._cache.realize()
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     vt = self._wrap(value)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     return type_dispatch(self, value)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     unimplemented_v2(
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     raise Unsupported(msg)
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   Explanation: torch.compile does not support sparse Tensors
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] 
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]   Developer debug context: 
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] 
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] 
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] from user code:
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]    File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 808, in __call__
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks]     return convert_to_fp32(self.model_forward(*args, **kwargs))
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] 
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+V1119 11:00:14.876000 1653110 torch/_dynamo/convert_frame.py:1689] [1/0] [__graph_breaks] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] WON'T CONVERT __call__ /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py line 807 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] due to: 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] Traceback (most recent call last):
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = self._inner_convert(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = _compile(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return function(*args, **kwargs)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return _compile_inner(code, one_graph, hooks)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     dynamo_output = compile_frame(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     bytecode, tracer_output = transform_code_object(code, transform)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = transformations(instructions, code_options)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = trace_frame(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return fn(*args, **kwargs)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     run_tracer()
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer.run()
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     while self.step():
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     self.dispatch_table[inst.opcode](self, inst)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 902, in wrapper
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return handle_graph_break(self, inst, speculation.reason)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 964, in handle_graph_break
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     all_stack_locals_metadata = self.output.compile_subgraph(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1369, in compile_subgraph
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     stack_values, meta = self._get_stack_values_to_restore(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1242, in _get_stack_values_to_restore
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     variables.LazyVariableTracker.realize_all(value)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = cls.realize_all(value.realize(), cache)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 144, in realize_all
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     value_dict[key] = cls.realize_all(value_dict[key], cache)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in realize_all
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = [cls.realize_all(v, cache) for v in value]
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in <listcomp>
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = [cls.realize_all(v, cache) for v in value]
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = cls.realize_all(value.realize(), cache)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     self._cache.realize()
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     vt = self._wrap(value)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return type_dispatch(self, value)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     unimplemented_v2(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     raise Unsupported(msg)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   Explanation: torch.compile does not support sparse Tensors
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   Developer debug context: 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] from user code:
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]    File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 808, in __call__
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return convert_to_fp32(self.model_forward(*args, **kwargs))
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] Traceback (most recent call last):
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = self._inner_convert(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = _compile(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return function(*args, **kwargs)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return _compile_inner(code, one_graph, hooks)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     dynamo_output = compile_frame(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     bytecode, tracer_output = transform_code_object(code, transform)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = transformations(instructions, code_options)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = trace_frame(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return fn(*args, **kwargs)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     run_tracer()
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer.run()
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     while self.step():
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     self.dispatch_table[inst.opcode](self, inst)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 902, in wrapper
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return handle_graph_break(self, inst, speculation.reason)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 964, in handle_graph_break
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     all_stack_locals_metadata = self.output.compile_subgraph(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1369, in compile_subgraph
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     stack_values, meta = self._get_stack_values_to_restore(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/output_graph.py", line 1242, in _get_stack_values_to_restore
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     variables.LazyVariableTracker.realize_all(value)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = cls.realize_all(value.realize(), cache)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 144, in realize_all
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     value_dict[key] = cls.realize_all(value_dict[key], cache)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in realize_all
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = [cls.realize_all(v, cache) for v in value]
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 146, in <listcomp>
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = [cls.realize_all(v, cache) for v in value]
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 136, in realize_all
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     result = cls.realize_all(value.realize(), cache)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     self._cache.realize()
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     vt = self._wrap(value)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return type_dispatch(self, value)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     unimplemented_v2(
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     raise Unsupported(msg)
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   Explanation: torch.compile does not support sparse Tensors
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]   Developer debug context: 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] from user code:
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]    File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 808, in __call__
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706]     return convert_to_fp32(self.model_forward(*args, **kwargs))
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+I1119 11:00:14.877000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.878000 1653110 torch/_dynamo/symbolic_convert.py:3859] [2/0] Step 1: torchdynamo start tracing forward /home/hzeng/project/ZH/RLNN_lab/models/models.py:124
+I1119 11:00:14.879000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [2/0] create_env
+I1119 11:00:14.881000 1653110 torch/_dynamo/convert_frame.py:1506] [2/0] run_gc_after_compile: running gc
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] Graph break: skip: from user code at:
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/models/models.py", line 125, in forward
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     if adj is None:
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] Traceback (most recent call last):
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     result = self._inner_convert(
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     result = _compile(
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     return function(*args, **kwargs)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     return _compile_inner(code, one_graph, hooks)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     dynamo_output = compile_frame(
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     bytecode, tracer_output = transform_code_object(code, transform)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     tracer_output = transformations(instructions, code_options)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     tracer_output = trace_frame(
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     return fn(*args, **kwargs)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     run_tracer()
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     tracer.run()
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     while self.step():
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     self.dispatch_table[inst.opcode](self, inst)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 3194, in IS_OP
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     self.COMPARE_OP(new_inst)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 2324, in COMPARE_OP
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     self.push(compare_op_handlers[inst.argval](self, self.popn(2), {}))
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 1347, in call_function
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     return handler(tx, args, kwargs)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 967, in <lambda>
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     tx, [v.realize() for v in args], kwargs
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 967, in <listcomp>
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     tx, [v.realize() for v in args], kwargs
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     self._cache.realize()
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     vt = self._wrap(value)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     return type_dispatch(self, value)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     unimplemented_v2(
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     raise Unsupported(msg)
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   Explanation: torch.compile does not support sparse Tensors
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] 
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]   Developer debug context: 
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] 
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] 
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] from user code:
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]    File "/home/hzeng/project/ZH/RLNN_lab/models/models.py", line 125, in forward
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks]     if adj is None:
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] 
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+V1119 11:00:14.884000 1653110 torch/_dynamo/convert_frame.py:1689] [2/0] [__graph_breaks] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] WON'T CONVERT forward /home/hzeng/project/ZH/RLNN_lab/models/models.py line 124 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] due to: 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] Traceback (most recent call last):
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     result = self._inner_convert(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     result = _compile(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return function(*args, **kwargs)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return _compile_inner(code, one_graph, hooks)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     dynamo_output = compile_frame(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     bytecode, tracer_output = transform_code_object(code, transform)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = transformations(instructions, code_options)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = trace_frame(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return fn(*args, **kwargs)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     run_tracer()
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer.run()
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     while self.step():
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self.dispatch_table[inst.opcode](self, inst)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 3194, in IS_OP
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self.COMPARE_OP(new_inst)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 2324, in COMPARE_OP
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self.push(compare_op_handlers[inst.argval](self, self.popn(2), {}))
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 1347, in call_function
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return handler(tx, args, kwargs)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 967, in <lambda>
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tx, [v.realize() for v in args], kwargs
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 967, in <listcomp>
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tx, [v.realize() for v in args], kwargs
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self._cache.realize()
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     vt = self._wrap(value)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return type_dispatch(self, value)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     unimplemented_v2(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     raise Unsupported(msg)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   Explanation: torch.compile does not support sparse Tensors
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   Developer debug context: 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] from user code:
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]    File "/home/hzeng/project/ZH/RLNN_lab/models/models.py", line 125, in forward
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     if adj is None:
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] Traceback (most recent call last):
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1625, in __call__
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     result = self._inner_convert(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 688, in __call__
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     result = _compile(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1434, in _compile
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     guarded_code, tracer_output = compile_inner(code, one_graph, hooks)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_utils_internal.py", line 92, in wrapper_function
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return function(*args, **kwargs)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1117, in compile_inner
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return _compile_inner(code, one_graph, hooks)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1151, in _compile_inner
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     dynamo_output = compile_frame(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1032, in compile_frame
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     bytecode, tracer_output = transform_code_object(code, transform)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/bytecode_transformation.py", line 1592, in transform_code_object
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = transformations(instructions, code_options)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 1004, in transform
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer_output = trace_frame(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 312, in _fn
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return fn(*args, **kwargs)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 815, in trace_frame
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     run_tracer()
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 797, in run_tracer
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tracer.run()
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1500, in run
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     while self.step():
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 1348, in step
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self.dispatch_table[inst.opcode](self, inst)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 3194, in IS_OP
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self.COMPARE_OP(new_inst)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 2324, in COMPARE_OP
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self.push(compare_op_handlers[inst.argval](self, self.popn(2), {}))
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 1347, in call_function
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return handler(tx, args, kwargs)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 967, in <lambda>
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tx, [v.realize() for v in args], kwargs
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builtin.py", line 967, in <listcomp>
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     tx, [v.realize() for v in args], kwargs
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 72, in realize
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self._cache.realize()
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/lazy.py", line 33, in realize
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     self.vt = builder.VariableBuilder(tx, self.source)(self.value)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 446, in __call__
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     vt = self._wrap(value)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 671, in _wrap
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     return type_dispatch(self, value)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/variables/builder.py", line 2088, in wrap_tensor
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     unimplemented_v2(
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 596, in unimplemented_v2
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     raise Unsupported(msg)
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] torch._dynamo.exc.Unsupported: Attempted to wrap sparse Tensor
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   Explanation: torch.compile does not support sparse Tensors
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]   Developer debug context: 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] from user code:
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]    File "/home/hzeng/project/ZH/RLNN_lab/models/models.py", line 125, in forward
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706]     if adj is None:
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+I1119 11:00:14.885000 1653110 torch/_dynamo/convert_frame.py:1706] 
+I1119 11:00:15.191000 1653110 torch/_dynamo/symbolic_convert.py:3859] [3/0] Step 1: torchdynamo start tracing project_hidden /home/hzeng/project/ZH/RLNN_lab/models/models.py:129
+I1119 11:00:15.192000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [3/0] create_env
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks] Graph break in user code at /home/hzeng/project/ZH/RLNN_lab/models/models.py:77
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks] Graph Break Reason: Attempted to wrap sparse Tensor
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   Explanation: torch.compile does not support sparse Tensors
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   Hint: It may be possible to write Dynamo tracing rules for this code. Please report an issue to PyTorch if you encounter this graph break often and it is causing performance issues.
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks] 
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   Developer debug context: 
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks] 
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0015.html
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks] User code traceback:
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/eval_v8_padded.py", line 523, in <module>
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     main()
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/eval_v8_padded.py", line 355, in main
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     engine = PaddedSearch(solver, n_max=n_max, capacity=capacity, chunk=args.chunk, device=device,
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py", line 60, in __init__
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     self._build()
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py", line 183, in _build
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     self._body()
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py", line 163, in _body
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     logits = self._logits()
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/models/mis_v8_pad.py", line 143, in _logits
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     logits = self.model(state, None, weight)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     return self._call_impl(*args, **kwargs)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     return forward_call(*args, **kwargs)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     return self._call_impl(*args, **kwargs)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     return forward_call(*args, **kwargs)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 820, in forward
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     return model_forward(*args, **kwargs)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py", line 808, in __call__
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     return convert_to_fp32(self.model_forward(*args, **kwargs))
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     return func(*args, **kwargs)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/models/models.py", line 127, in forward
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     return self.project_hidden(self.initial_project(x), adj)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/models/models.py", line 131, in project_hidden
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     nei = conv(x, adj)
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]   File "/home/hzeng/project/ZH/RLNN_lab/models/models.py", line 77, in forward
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks]     if adj.layout == torch.strided:
+V1119 11:00:15.264000 1653110 torch/_dynamo/symbolic_convert.py:611] [3/0] [__graph_breaks] 
+I1119 11:00:15.265000 1653110 torch/_dynamo/symbolic_convert.py:939] [3/0] Skipping frame because there is a graph break in a for/while loop
+I1119 11:00:15.265000 1653110 torch/_dynamo/symbolic_convert.py:939] [3/0] <FrameSummary file /home/hzeng/project/ZH/RLNN_lab/models/models.py, line 131 in project_hidden>
+I1119 11:00:15.266000 1653110 torch/_dynamo/pgo.py:893] [3/0] put_code_state: no cache key, skipping
+I1119 11:00:15.266000 1653110 torch/_dynamo/convert_frame.py:1506] [3/0] run_gc_after_compile: running gc
+I1119 11:00:15.272000 1653110 torch/_dynamo/symbolic_convert.py:3859] [4/0] Step 1: torchdynamo start tracing forward /home/hzeng/project/ZH/RLNN_lab/models/models.py:71
+I1119 11:00:15.272000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [4/0] create_env
+I1119 11:00:15.282000 1653110 torch/_dynamo/convert_frame.py:1042] [4/0] Restarting analysis due to _dynamo/symbolic_convert.py:249 in fail_and_restart_analysis
+I1119 11:00:15.283000 1653110 torch/_dynamo/symbolic_convert.py:3859] [4/0_1] Step 1: torchdynamo start tracing forward /home/hzeng/project/ZH/RLNN_lab/models/models.py:71
+I1119 11:00:15.283000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [4/0_1] create_env
+I1119 11:00:15.296000 1653110 torch/_dynamo/output_graph.py:2167] [4/0_1] Step 2: calling compiler function inductor
+I1119 11:00:16.384000 1653110 torch/_dynamo/output_graph.py:2172] [4/0_1] Step 2: done compiler function inductor
+I1119 11:00:16.398000 1653110 torch/fx/experimental/symbolic_shapes.py:5242] [4/0_1] produce_guards
+I1119 11:00:16.483000 1653110 torch/_dynamo/pgo.py:893] [4/0_1] put_code_state: no cache key, skipping
+I1119 11:00:16.484000 1653110 torch/_dynamo/convert_frame.py:1506] [4/0_1] run_gc_after_compile: running gc
+I1119 11:00:16.606000 1653110 torch/_dynamo/symbolic_convert.py:3859] [4/1] Step 1: torchdynamo start tracing forward /home/hzeng/project/ZH/RLNN_lab/models/models.py:71
+I1119 11:00:16.607000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [4/1] create_env
+I1119 11:00:16.625000 1653110 torch/_dynamo/convert_frame.py:1042] [4/1] Restarting analysis due to _dynamo/symbolic_convert.py:249 in fail_and_restart_analysis
+I1119 11:00:16.626000 1653110 torch/_dynamo/symbolic_convert.py:3859] [4/1_1] Step 1: torchdynamo start tracing forward /home/hzeng/project/ZH/RLNN_lab/models/models.py:71
+I1119 11:00:16.627000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [4/1_1] create_env
+I1119 11:00:16.653000 1653110 torch/_dynamo/output_graph.py:2167] [4/1_1] Step 2: calling compiler function inductor
+I1119 11:00:16.715000 1653110 torch/_dynamo/output_graph.py:2172] [4/1_1] Step 2: done compiler function inductor
+I1119 11:00:16.724000 1653110 torch/fx/experimental/symbolic_shapes.py:5242] [4/1_1] produce_guards
+I1119 11:00:16.794000 1653110 torch/_dynamo/pgo.py:893] [4/1_1] put_code_state: no cache key, skipping
+I1119 11:00:16.795000 1653110 torch/_dynamo/convert_frame.py:1506] [4/1_1] run_gc_after_compile: running gc
+I1119 11:00:16.816000 1653110 torch/_dynamo/symbolic_convert.py:3859] [5/0] Step 1: torchdynamo start tracing convert_to_fp32 /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:766
+I1119 11:00:16.817000 1653110 torch/fx/experimental/symbolic_shapes.py:3769] [5/0] create_env
+I1119 11:00:16.842000 1653110 torch/_dynamo/symbolic_convert.py:4076] [5/0] Step 1: torchdynamo done tracing convert_to_fp32 (RETURN_VALUE)
+I1119 11:00:16.846000 1653110 torch/_dynamo/output_graph.py:2167] [5/0] Step 2: calling compiler function inductor
+I1119 11:00:16.868000 1653110 torch/_dynamo/output_graph.py:2172] [5/0] Step 2: done compiler function inductor
+I1119 11:00:16.873000 1653110 torch/fx/experimental/symbolic_shapes.py:5242] [5/0] produce_guards
+I1119 11:00:16.903000 1653110 torch/_dynamo/pgo.py:893] [5/0] put_code_state: no cache key, skipping
+I1119 11:00:16.904000 1653110 torch/_dynamo/convert_frame.py:1506] [5/0] run_gc_after_compile: running gc
+8/8 0.2s/padded/captured:19.500@130st
+ 0.2s padded/captured    size 19.5000 steps 130.0 search 19.5000 ms/step 1.646 load 5.28 ms decode 16.26 ms
+wrote /home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/probe_csr/seed_1017/padded/padded_ref0.csv
+wrote /home/hzeng/project/ZH/RLNN_lab/tmp/adjacency_20261119/probe_csr/seed_1017/v11_rows.csv
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563] TorchDynamo attempted to trace the following frames: [
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563]   * forward /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:819
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563]   * __call__ /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:807
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563]   * forward /home/hzeng/project/ZH/RLNN_lab/models/models.py:124
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563]   * project_hidden /home/hzeng/project/ZH/RLNN_lab/models/models.py:129
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563]   * forward /home/hzeng/project/ZH/RLNN_lab/models/models.py:71
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563]   * forward /home/hzeng/project/ZH/RLNN_lab/models/models.py:71
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563]   * convert_to_fp32 /home/hzeng/envs/rlnn/lib/python3.10/site-packages/accelerate/utils/operations.py:766
+I1119 11:00:21.506000 1653110 torch/_dynamo/eval_frame.py:563] ]
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] TorchDynamo compilation metrics:
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] Function, Runtimes (s)
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] _compile.compile_inner, 1.8246
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] compile_attempt_0, 0.3847
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] bytecode_tracing, 0.3550
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] compile_attempt_1, 1.2190
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] gc, 0.0085
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] OutputGraph.call_user_compiler, 1.1751
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] inductor_codecache_torch_key, 0.2496
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] _recursive_pre_grad_passes, 0.0103
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] AOTAutogradCache.inductor_load, 0.0759
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] TritonBundler.read_and_emit, 0.0026
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] TritonBundler.load_cached_static_autotuners, 0.0012
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] PyCodeCache.load_by_key_path, 0.0252
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] StaticAutotunerFuture.warm_precompile, 0.0067
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] CachingAutotuner.synchronize, 0.0010
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] async_compile.wait, 0.0022
+I1119 11:00:21.507000 1653110 torch/_dynamo/utils.py:845] build_guards, 0.1955

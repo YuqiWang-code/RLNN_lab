@@ -1,0 +1,88 @@
+{
+  "candidate": {
+    "source_rows": 3000,
+    "mean_size": 19.893,
+    "mean_wall_ms": 78.65156666666667,
+    "wall_p50_ms": 78.6,
+    "wall_p95_ms": 81.9,
+    "mean_steps": 130.0,
+    "ready_by_deadline": 2997
+  },
+  "reference": {
+    "source_rows": 3000,
+    "mean_size": 19.903,
+    "mean_wall_ms": 127.48573333333334,
+    "wall_p50_ms": 127.2,
+    "wall_p95_ms": 130.0,
+    "mean_steps": 130.0,
+    "ready_by_deadline": 2997
+  },
+  "deadline_ms": 200,
+  "graph_count": 1000,
+  "pairs": 3000,
+  "mean_paired_delta": -0.01,
+  "ci95": [
+    -0.022666666666666665,
+    0.002333333333333333
+  ],
+  "wins": 157,
+  "ties": 2655,
+  "losses": 188,
+  "same_seed_protocol": true,
+  "sources": {
+    "candidate": "outputs/v11/paper_ablations/precision_20261119/fixed130/fp16",
+    "candidate_glob": "**/v11_rows.csv",
+    "reference": "outputs/v11/paper_ablations/precision_20261119/fixed130/fp32"
+  },
+  "fixed_steps": 130,
+  "compile_model": true,
+  "tf32_override": 0,
+  "run_metadata": {
+    "fp16": [
+      {
+        "seed": 1017,
+        "setup_s": 9.984,
+        "eval_loop_s": 88.03,
+        "wall_overruns": 1,
+        "last_decode_after_200ms": 1
+      },
+      {
+        "seed": 1019,
+        "setup_s": 10.5329,
+        "eval_loop_s": 89.4,
+        "wall_overruns": 1,
+        "last_decode_after_200ms": 1
+      },
+      {
+        "seed": 1021,
+        "setup_s": 9.3552,
+        "eval_loop_s": 89.36,
+        "wall_overruns": 1,
+        "last_decode_after_200ms": 1
+      }
+    ],
+    "fp32": [
+      {
+        "seed": 1017,
+        "setup_s": 13.4582,
+        "eval_loop_s": 138.11,
+        "wall_overruns": 1,
+        "last_decode_after_200ms": 1
+      },
+      {
+        "seed": 1019,
+        "setup_s": 9.6735,
+        "eval_loop_s": 138.03,
+        "wall_overruns": 1,
+        "last_decode_after_200ms": 1
+      },
+      {
+        "seed": 1021,
+        "setup_s": 10.1383,
+        "eval_loop_s": 138.76,
+        "wall_overruns": 1,
+        "last_decode_after_200ms": 1
+      }
+    ]
+  }
+}

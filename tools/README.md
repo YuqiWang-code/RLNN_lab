@@ -6,7 +6,7 @@
 
 `run_rlnn.py train|eval|smoke --run NAME` 复用 `models/main.py` 参数；训练脚本设置工作目录与项目默认参数。每次输出 `run.json`、原始日志、成功运行的 `metrics/metrics.csv`。eval 需 `--checkpoint DIR`。运行名不可重复。只允许 MIS/RLNN 和可行解解码；loss 可显式改为 reinforce，但 run.json 会记录，不能归为论文 erdoes 对照。
 
-`server.py status` 查看硬件。push/pull 需要本地配置 `remotePath` 和 `deploymentConfirmed=true`；当前独立 RLNN 目录已启用按需同步。push 包括 Git 跟踪及未忽略的新文件，排除 `.vscode`、outputs、tmp；不删除服务器文件。pull 仅拉取新版本 `outputs/v000_rlnn_baseline` 的小文本文件，不下载权重与图文件。
+`server.py status` 查看硬件。push/pull 使用本地 `remotePath` 和 `deploymentConfirmed=true`。push 同步 Git 跟踪及未忽略的新文件，范围为源码和文档。pull 默认拉取 `outputs/v000_rlnn_baseline` 的小型文本，`--version v11` 可指定 `outputs/v11`。 [实验输出索引](../outputs/README.md)
 
 ## 结果与快照
 

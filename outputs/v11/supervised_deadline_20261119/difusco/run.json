@@ -1,0 +1,38 @@
+{
+  "method": "difusco",
+  "graphs": 1000,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "1",
+  "solver_config": {
+    "checkpoint": "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/mis_sat_categorical.ckpt",
+    "checkpoint_source": "https://drive.google.com/file/d/1zsKEXOTjBGWn3dJxPSG-9QFPtbrrJ5J7/view",
+    "checkpoint_dataset": "SATLIB MIS",
+    "upstream_revision": "65eb3b7bde76097c0d3438ce743fa6769baf9ce5",
+    "precision": "fp32",
+    "diffusion": "categorical, 1000 training steps, cosine inference schedule",
+    "inference_steps": 4,
+    "calibration_candidates": [
+      50,
+      20,
+      10,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "calibration_target_ms": 180,
+    "sampling": 1,
+    "decoding": "official MIS greedy decoder"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

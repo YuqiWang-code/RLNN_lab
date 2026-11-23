@@ -1,0 +1,11 @@
+\section{Discussion}
+
+The two routes optimize different variables. SPRINT-S spends its budget on proposals and pays a decode whenever it needs a usable answer; it executed 4.2 times as many updates, and the extra proposals became larger sets. Early readout leaves size unchanged because by the midpoint most runs already hold a state that decodes to their eventual score, yet it changes when the caller can use that score. SPRINT-C instead holds a usable set from the first millisecond and only replaces an incumbent with a better one, which is why it reaches 11,000-vertex graphs whose padded buffers the particle pipeline cannot fill in time.
+
+The lesson that should travel is that at a deadline the dominant decision is whether a feasible set is constructed and published before inference, not which order refines it. This is uncomfortable for a literature that optimizes the refinement step, and it is measurable only because the protocol timestamps every publication. Appendix~\ref{app:gain-sources} separates the two contributions and Appendix~\ref{app:rank-mix} shows the same ceiling under a weight sweep; learned ordering remains a genuine lever on the ER families and on no others.
+
+\paragraph{Deployment reading.}
+Rolling dispatch of perishable goods gives one instance: assignments name a shipment, a vehicle and a loading-to-delivery interval, and they conflict when they duplicate a shipment or overlap on a vehicle, so a maximal independent set is a feasible plan (Figure~\ref{fig:dispatch}, Appendix~\ref{app:dispatch}). The operational quantity is time to a feasible plan, which our protocol timestamps; accepted shipments and freshness violations would need field data \citep{zhang2020coldchain,stellingwerf2021quality}.
+
+\paragraph{Scope.}
+Our evidence covers four released synthetic families, 14 register interference graphs and four budgets, with schedules and the checkpoint fixed on independent validation graphs and timing conditional on one warmed server. Optimality is certified on RB-[200--300] and the register graphs; on the larger families we measure feasible cardinality. Unequal-value assignments need weighted independent set, and shared capacities of three or more assignments need extra constraints.

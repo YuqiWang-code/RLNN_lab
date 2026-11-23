@@ -1,0 +1,31 @@
+{
+  "method": "intel",
+  "graphs": 1000,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "1",
+  "solver_config": {
+    "checkpoint": "/home/hzeng/project/ZH/RLNN_lab/tmp/lwd_intel_20261120/intel.npz",
+    "weights": "released INTEL model/model.ckpt",
+    "upstream_revision": "994789899fd05dcc3e3bd3d8a1bc73d7a6994691",
+    "inference": "FP32 dense PyTorch port, compared against released TensorFlow meta graph",
+    "tf_fixture_max_absolute_error": 2.086162567138672e-05,
+    "device": "cuda:0",
+    "maps": 32,
+    "prefix_branch_probability": 0.3,
+    "queue": "uniform random",
+    "workers": 1,
+    "reduction": false,
+    "local_search": false,
+    "delivery": "largest legal completed map prefix on host"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

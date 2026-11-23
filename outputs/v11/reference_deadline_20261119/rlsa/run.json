@@ -1,0 +1,25 @@
+{
+  "method": "rlsa",
+  "graphs": 1000,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "/home/hzeng/project/ZH/RLNN_lab/models/data/MIS_tensors/RB_small_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "1",
+  "solver_config": {
+    "horizon": 300,
+    "particles": 200,
+    "block_steps": 10,
+    "radius": 5,
+    "tau0": 0.01,
+    "precision": "fp16",
+    "decoding": "A.3 midpoint and terminal over all particles"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

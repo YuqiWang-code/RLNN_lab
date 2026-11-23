@@ -1,0 +1,150 @@
+{
+  "fused_protocol_vs_released_at_author_k20": {
+    "candidate": {
+      "source_rows": 3000,
+      "mean_size": 19.977333333333334,
+      "mean_wall_ms": 195.8373,
+      "wall_p50_ms": 195.9,
+      "wall_p95_ms": 197.1,
+      "mean_steps": 1357.8733333333332,
+      "ready_by_deadline": 3000
+    },
+    "reference": {
+      "source_rows": 3000,
+      "mean_size": 19.424666666666667,
+      "mean_wall_ms": 152.25081403910494,
+      "wall_p50_ms": 166.38219892047346,
+      "wall_p95_ms": 198.9518237300217,
+      "mean_steps": 85.68666666666667,
+      "ready_by_deadline": 2999
+    },
+    "deadline_ms": 200,
+    "graph_count": 1000,
+    "pairs": 3000,
+    "mean_paired_delta": 0.5526666666666668,
+    "ci95": [
+      0.5226666666666666,
+      0.5846666666666667
+    ],
+    "wins": 1458,
+    "ties": 1540,
+    "losses": 2,
+    "same_seed_protocol": true,
+    "sources": {
+      "candidate": "outputs/v11/paper_ablations/checkpoint_bridge_20261120/author_k20",
+      "candidate_glob": "**/v11_rows.csv",
+      "reference": "outputs/v11/reference_deadline_20261119_followup/author_rlnn/per_graph.csv"
+    }
+  },
+  "author_k200_vs_author_k20_under_fused_protocol": {
+    "candidate": {
+      "source_rows": 3000,
+      "mean_size": 20.036,
+      "mean_wall_ms": 193.87303333333332,
+      "wall_p50_ms": 193.8,
+      "wall_p95_ms": 196.6,
+      "mean_steps": 346.1533333333333,
+      "ready_by_deadline": 3000
+    },
+    "reference": {
+      "source_rows": 3000,
+      "mean_size": 19.977333333333334,
+      "mean_wall_ms": 195.8373,
+      "wall_p50_ms": 195.9,
+      "wall_p95_ms": 197.1,
+      "mean_steps": 1357.8733333333332,
+      "ready_by_deadline": 3000
+    },
+    "deadline_ms": 200,
+    "graph_count": 1000,
+    "pairs": 3000,
+    "mean_paired_delta": 0.058666666666666666,
+    "ci95": [
+      0.04666666666666666,
+      0.071
+    ],
+    "wins": 229,
+    "ties": 2717,
+    "losses": 54,
+    "same_seed_protocol": true,
+    "sources": {
+      "candidate": "outputs/v11/paper_ablations/checkpoint_bridge_20261120/author_k200",
+      "candidate_glob": "**/v11_rows.csv",
+      "reference": "outputs/v11/paper_ablations/checkpoint_bridge_20261120/author_k20"
+    }
+  },
+  "local_vs_author_checkpoint_at_fused_k200": {
+    "candidate": {
+      "source_rows": 3000,
+      "mean_size": 20.03,
+      "mean_wall_ms": 193.79906666666665,
+      "wall_p50_ms": 193.9,
+      "wall_p95_ms": 196.4,
+      "mean_steps": 350.98333333333335,
+      "ready_by_deadline": 3000
+    },
+    "reference": {
+      "source_rows": 3000,
+      "mean_size": 20.036,
+      "mean_wall_ms": 193.87303333333332,
+      "wall_p50_ms": 193.8,
+      "wall_p95_ms": 196.6,
+      "mean_steps": 346.1533333333333,
+      "ready_by_deadline": 3000
+    },
+    "deadline_ms": 200,
+    "graph_count": 1000,
+    "pairs": 3000,
+    "mean_paired_delta": -0.006,
+    "ci95": [
+      -0.015,
+      0.003333333333333333
+    ],
+    "wins": 88,
+    "ties": 2806,
+    "losses": 106,
+    "same_seed_protocol": true,
+    "sources": {
+      "candidate": "outputs/v11/fused_pave_02s_deadline",
+      "candidate_glob": "pave_off_*/v11_rows.csv",
+      "reference": "outputs/v11/paper_ablations/checkpoint_bridge_20261120/author_k200"
+    }
+  },
+  "complete_configuration_vs_released": {
+    "candidate": {
+      "source_rows": 3000,
+      "mean_size": 20.03,
+      "mean_wall_ms": 193.79906666666665,
+      "wall_p50_ms": 193.9,
+      "wall_p95_ms": 196.4,
+      "mean_steps": 350.98333333333335,
+      "ready_by_deadline": 3000
+    },
+    "reference": {
+      "source_rows": 3000,
+      "mean_size": 19.424666666666667,
+      "mean_wall_ms": 152.25081403910494,
+      "wall_p50_ms": 166.38219892047346,
+      "wall_p95_ms": 198.9518237300217,
+      "mean_steps": 85.68666666666667,
+      "ready_by_deadline": 2999
+    },
+    "deadline_ms": 200,
+    "graph_count": 1000,
+    "pairs": 3000,
+    "mean_paired_delta": 0.6053333333333333,
+    "ci95": [
+      0.573,
+      0.6386666666666666
+    ],
+    "wins": 1574,
+    "ties": 1422,
+    "losses": 4,
+    "same_seed_protocol": true,
+    "sources": {
+      "candidate": "outputs/v11/fused_pave_02s_deadline",
+      "candidate_glob": "pave_off_*/v11_rows.csv",
+      "reference": "outputs/v11/reference_deadline_20261119_followup/author_rlnn/per_graph.csv"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "library": "tmp/v16_anytime_build/online_mis.so",
+  "dataset": "models/data/MIS_tensors/RB_small_author_test",
+  "output": "outputs/v16/anytime_author/RB_small/100/online_mis",
+  "budget_ms": 100.0,
+  "reserve_ms": 3.0,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "limit": null,
+  "method": "KaMIS OnlineMIS (resident)",
+  "revision": "2e4b3861b8063f05e8520434b97ce59e21ca49e7",
+  "graphs": 1000,
+  "host": "user",
+  "cpu_affinity": [
+    28,
+    29,
+    30
+  ],
+  "timing": "Resident host edge_index to copied host witnesses, including CSR and KaMIS graph construction."
+}

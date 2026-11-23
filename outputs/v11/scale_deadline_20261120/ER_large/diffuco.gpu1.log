@@ -1,0 +1,20 @@
+2026-11-20 20:21:39.201094: W external/xla/xla/tsl/framework/bfc_allocator.cc:501] Allocator (GPU_0_bfc) ran out of memory trying to allocate 4.54GiB (rounded to 4877512704)requested by op 
+If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
+Current allocation summary follows.
+Current allocation summary follows.
+2026-11-20 20:21:39.201840: W external/xla/xla/tsl/framework/bfc_allocator.cc:512] *********************************________**********************************________________________*
+2026-11-20 20:21:39.201910: W external/xla/xla/service/gpu/autotuning/gemm_fusion_autotuner.cc:1320] Autotuning candidate failed with out of memory error. Consider disabling correctness checking (i.e. --xla_gpu_autotune_level=3) to reduce autotuning memory usage.
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 274, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 233, in main
+    evaluate(args, graphs, solver)
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 135, in evaluate
+    solver.warmup(solver.prepare(graphs[0]))
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/official_diffuco_deadline.py", line 85, in warmup
+    self.run((graph, energy), np.int32(1017), factor).block_until_ready()
+jaxlib._jax.XlaRuntimeError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 4877512704 bytes.

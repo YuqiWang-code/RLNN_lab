@@ -18,6 +18,7 @@ from torch_scatter import scatter_min, scatter_max, scatter_add
 from torch_geometric.utils import add_remaining_self_loops
 from accelerate import Accelerator
 from torch.distributions.bernoulli import Bernoulli
+from mis_v11_unroll import unroll_graph_loss  # v11 C3: additive, used only when --loss unroll
 from torch.utils.data import DataLoader
 from utils import collate_fn, build_batch
 import torch.nn.functional as F
@@ -190,7 +191,7 @@ class RLSA(MetaSolver):
         self.num_d = args.num_d
         self.tau0 = args.tau0
         
-    def evaluate_single(self, graph, *, return_solution=False, generator=None):
+    def initialize_search(self, graph, generator):
         x = torch.randint(0,2, (graph.num_nodes, self.num_k), device=self.accelerator.device,
                           dtype=graph.edge_weight.dtype, generator=generator)
         A = torch.sparse_coo_tensor(
@@ -200,10 +201,11 @@ class RLSA(MetaSolver):
         ).to_sparse_csr()
         energy, grad = self.problem.energy_func(A, graph.b, x, True)
         
-        best_sol = x.clone()
-        best_energy = energy.clone()
-        
-        for epoch in range(self.num_t):          
+        return A, (x, grad, x.clone(), energy.clone())
+
+    def search_steps(self, graph, A, state, start, stop, generator):
+        x, grad, best_sol, best_energy = state
+        for epoch in range(start, stop):
             tau = self.tau0*(1-epoch/self.num_t)
             delta = grad*(2*x-1)/2
             
@@ -221,10 +223,17 @@ class RLSA(MetaSolver):
             energy, grad = self.problem.energy_func(A, graph.b, x, True if epoch < self.num_t-1 else False)
             best_sol = torch.where((energy<best_energy).unsqueeze(0).repeat(graph.num_nodes,1), x, best_sol)
             best_energy = torch.where(energy<best_energy, energy, best_energy)
-               
+        return x, grad, best_sol, best_energy
+
+    def decode_solution(self, graph, A, best_sol):
+        solutions = self.problem.decode_gradient_flip(best_sol, A, graph.b, return_solutions=True)
+        return solutions[:, solutions.sum(dim=0).argmax()]
+
+    def evaluate_single(self, graph, *, return_solution=False, generator=None):
+        A, state = self.initialize_search(graph, generator)
+        _, _, best_sol, best_energy = self.search_steps(graph, A, state, 0, self.num_t, generator)
         if return_solution:
-            solutions = self.problem.decode_gradient_flip(best_sol, A, graph.b, return_solutions=True)
-            return solutions[:, solutions.sum(dim=0).argmax()]
+            return self.decode_solution(graph, A, best_sol)
         if self.skip_decode:
             return best_energy.min()
         else:
@@ -275,11 +284,19 @@ class RLNN(MetaSolver):
         elif getattr(args, 'arch', 'gcn') == 'global':
             from mis_v8_global import GlobalTokenGCN
             self.model = GlobalTokenGCN(1, args.num_h, args.num_l, 1)
+        elif getattr(args, 'arch', 'gcn') == 'scale':
+            from mis_v9_scale import ScaleSpaceGCN
+            self.model = ScaleSpaceGCN(1, args.num_h, args.num_l, 1,
+                                       hops=getattr(args, 'ss_hops', 3),
+                                       tau=getattr(args, 'ss_tau', 2.0))
+        elif getattr(args, 'arch', 'gcn') == 'norm':
+            self.model = GCN(1, args.num_h, args.num_l, 1, normalize=True)
         else:
             self.model = GCN(1, args.num_h, args.num_l, 1)
         self.model.reset_parameters()
         
         self.global_token = getattr(args, 'arch', 'gcn') == 'global'
+        self.scale_operator = getattr(args, 'arch', 'gcn') == 'scale'
         self.validation_seed = getattr(args, 'validation_seed', None)
         self.freeze_backbone_epochs = getattr(args, 'freeze_backbone_epochs', 0)
         self.finetune_lr = getattr(args, 'finetune_lr', None)
@@ -393,6 +410,8 @@ class RLNN(MetaSolver):
                             energy, _ = self.problem.energy_func(A, graph.b, x, False)
                             reward = original_energy-energy
                             loss = -(log_prob*reward).mean() + self.lambd*((torch.sum(prob,0)-self.num_d)**2).mean()
+                        elif self.loss == 'unroll':
+                            loss = unroll_graph_loss(self, graph, A, normalized, x)
                         else:
                             raise NotImplementedError
                         

@@ -1,0 +1,30 @@
+{
+  "architecture": "Fused RLNN GCN + standardized degree skip + bounded 24-wide residual MLP",
+  "initial_checkpoint": "outputs/v2/none_seed0/checkpoints/best.pt",
+  "graph_data": "models/data/scale_priority_20261121",
+  "epochs": 24,
+  "seed": 8707,
+  "loss": "0.7 balanced BCE + 0.3 teacher-frequency-weighted pairwise logistic loss",
+  "encoder_lr": 8e-05,
+  "head_lr": 0.0015,
+  "weight_decay": 0.001,
+  "gradient_clip": 2.0,
+  "accumulate_graphs": 4,
+  "validation": "deterministic greedy by predicted priority",
+  "selection": "largest mean normalized gain over degree, ties by least validation loss, epoch zero eligible",
+  "device": "NVIDIA GeForce RTX 5090",
+  "regimes": [
+    "RB_small",
+    "RB_large",
+    "ER_small"
+  ],
+  "torch": "2.9.1+cu130",
+  "train_graphs": 384,
+  "validation_graphs": {
+    "RB_small": 16,
+    "RB_large": 16,
+    "ER_small": 16
+  },
+  "pair_selection": "same graph, degree difference <=2, 12 lower-frequency negatives per positive",
+  "residual_amplitude": 0.35
+}

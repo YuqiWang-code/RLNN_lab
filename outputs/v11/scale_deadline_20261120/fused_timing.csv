@@ -1,0 +1,4 @@
+split,graphs,mean_size,mean_wall_ms,on_time,runs,mean_steps,mean_size_when_on_time,mean_load_ms,min_load_ms,mean_decode_ms,loads_over_200_ms,runs_with_completed_decode,misses_with_late_decode,misses_without_search_steps,function_returns_after_200_ms,engine_setup_s
+RB_large,1000,28.984666666666666,164.3772,2613,3000,13.826666666666666,33.27745885954841,56.5195,24.7,48.334833333333336,0,3000,387,361,390,10.4451
+ER_small,128,40.885416666666664,172.8942708333333,384,384,54.635416666666664,40.885416666666664,21.085416666666667,8.5,16.166406249999998,0,384,0,0,9,7.6687
+ER_large,16,0.0,2322.0125000000003,0,48,0.0,,2302.25625,1840.9,0.0,48,0,0,48,48,19.8681

@@ -1,0 +1,91 @@
+{
+  "catalog": "https://mat.tepper.cmu.edu/COLOR/instances.html",
+  "archive": "https://archive.dimacs.rutgers.edu/pub/challenge/graph/benchmarks/color/",
+  "selection": "All catalog entries labeled REG",
+  "graphs": [
+    {
+      "source": "fpsol2.i.1.col",
+      "tensor": "fpsol2.i.1.pt",
+      "num_nodes": 496,
+      "num_edges": 11654
+    },
+    {
+      "source": "fpsol2.i.2.col",
+      "tensor": "fpsol2.i.2.pt",
+      "num_nodes": 451,
+      "num_edges": 8691
+    },
+    {
+      "source": "fpsol2.i.3.col",
+      "tensor": "fpsol2.i.3.pt",
+      "num_nodes": 425,
+      "num_edges": 8688
+    },
+    {
+      "source": "inithx.i.1.col",
+      "tensor": "inithx.i.1.pt",
+      "num_nodes": 864,
+      "num_edges": 18707
+    },
+    {
+      "source": "inithx.i.2.col",
+      "tensor": "inithx.i.2.pt",
+      "num_nodes": 645,
+      "num_edges": 13979
+    },
+    {
+      "source": "inithx.i.3.col",
+      "tensor": "inithx.i.3.pt",
+      "num_nodes": 621,
+      "num_edges": 13969
+    },
+    {
+      "source": "mulsol.i.1.col",
+      "tensor": "mulsol.i.1.pt",
+      "num_nodes": 197,
+      "num_edges": 3925
+    },
+    {
+      "source": "mulsol.i.2.col",
+      "tensor": "mulsol.i.2.pt",
+      "num_nodes": 188,
+      "num_edges": 3885
+    },
+    {
+      "source": "mulsol.i.3.col",
+      "tensor": "mulsol.i.3.pt",
+      "num_nodes": 184,
+      "num_edges": 3916
+    },
+    {
+      "source": "mulsol.i.4.col",
+      "tensor": "mulsol.i.4.pt",
+      "num_nodes": 185,
+      "num_edges": 3946
+    },
+    {
+      "source": "mulsol.i.5.col",
+      "tensor": "mulsol.i.5.pt",
+      "num_nodes": 186,
+      "num_edges": 3973
+    },
+    {
+      "source": "zeroin.i.1.col",
+      "tensor": "zeroin.i.1.pt",
+      "num_nodes": 211,
+      "num_edges": 4100
+    },
+    {
+      "source": "zeroin.i.2.col",
+      "tensor": "zeroin.i.2.pt",
+      "num_nodes": 211,
+      "num_edges": 3541
+    },
+    {
+      "source": "zeroin.i.3.col",
+      "tensor": "zeroin.i.3.pt",
+      "num_nodes": 206,
+      "num_edges": 3540
+    }
+  ]
+}

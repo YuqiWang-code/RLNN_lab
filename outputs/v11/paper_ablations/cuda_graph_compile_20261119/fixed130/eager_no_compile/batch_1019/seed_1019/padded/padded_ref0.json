@@ -1,0 +1,58 @@
+{
+  "ref": 0,
+  "seeds": [
+    1019
+  ],
+  "budgets": [
+    0.2
+  ],
+  "graphs": 1000,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "padded"
+  ],
+  "decoders": [
+    "captured"
+  ],
+  "decode_chunk": 4,
+  "cells": [
+    "padded/captured"
+  ],
+  "temperatures": [
+    1.0
+  ],
+  "anneal": false,
+  "leading_decode": "off",
+  "pave": false,
+  "fixed_steps": 130,
+  "compile_model": false,
+  "setup_s": 0.8982,
+  "test_path": "models/data/MIS_tensors/RB_small_author_test",
+  "checkpoint_dir": "outputs/v2/none_seed0/checkpoints",
+  "budgeted_decode": false,
+  "reserve_ms": 0.0,
+  "padded": {
+    "nodes": 264,
+    "capacity": 105,
+    "capture_s": 0.0785,
+    "load_s": 0.0048
+  },
+  "decode_config": {
+    "captured": {
+      "backend": "eager",
+      "particles": 4
+    }
+  },
+  "wall_time_s": 335.19,
+  "search_backend": "eager",
+  "decode_schedule": "midpoint",
+  "dtype": "fp16",
+  "dense": 1,
+  "num_k": 200,
+  "decode_every": 1000,
+  "decode_top": 4,
+  "reserve_frac": 0.2
+}

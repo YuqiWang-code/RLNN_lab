@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "source_rows": 3000,
+    "mean_size": 20.030333333333335,
+    "mean_wall_ms": 193.5512666666667,
+    "wall_p50_ms": 193.6,
+    "wall_p95_ms": 196.3,
+    "mean_steps": 351.81333333333333,
+    "ready_by_deadline": 3000
+  },
+  "reference": {
+    "source_rows": 3000,
+    "mean_size": 20.030333333333335,
+    "mean_wall_ms": 194.0327333333333,
+    "wall_p50_ms": 194.3,
+    "wall_p95_ms": 196.7,
+    "mean_steps": 353.62,
+    "ready_by_deadline": 3000
+  },
+  "deadline_ms": 200,
+  "graph_count": 1000,
+  "pairs": 3000,
+  "mean_paired_delta": 0.0,
+  "ci95": [
+    -0.0016666666666666666,
+    0.0016666666666666666
+  ],
+  "wins": 4,
+  "ties": 2992,
+  "losses": 4,
+  "same_seed_protocol": true,
+  "sources": {
+    "candidate": "outputs/v11/paper_ablations/decode_schedule_20261119/full",
+    "candidate_glob": "**/v11_rows.csv",
+    "reference": "outputs/v11/paper_ablations/decode_schedule_20261119/terminal"
+  }
+}

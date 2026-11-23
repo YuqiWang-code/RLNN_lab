@@ -1,0 +1,49 @@
+{
+  "graphs": 6,
+  "outer_rounds": 8,
+  "budget": 0.0,
+  "choose": "coverage",
+  "seed": 1017,
+  "wall_s": 2.9,
+  "per_h": {
+    "0": {
+      "graphs": 6,
+      "start_size": 17.166666666666668,
+      "best_size": 19.333333333333332,
+      "gain": 2.1666666666666665,
+      "ar": 1.0,
+      "er": 0.0,
+      "er_rounds": 8,
+      "deadline_hits": 0
+    },
+    "8": {
+      "graphs": 6,
+      "start_size": 17.166666666666668,
+      "best_size": 19.333333333333332,
+      "gain": 2.1666666666666665,
+      "ar": 1.0,
+      "er": 0.0,
+      "er_rounds": 8,
+      "deadline_hits": 0
+    },
+    "16": {
+      "graphs": 6,
+      "start_size": 17.166666666666668,
+      "best_size": 19.333333333333332,
+      "gain": 2.1666666666666665,
+      "ar": 1.0,
+      "er": 0.0,
+      "er_rounds": 8,
+      "deadline_hits": 0
+    }
+  },
+  "verdict": {
+    "best_ar": 1.0,
+    "ar_threshold": 0.125,
+    "er_window": [
+      0.05,
+      0.6
+    ],
+    "passed": true
+  }
+}

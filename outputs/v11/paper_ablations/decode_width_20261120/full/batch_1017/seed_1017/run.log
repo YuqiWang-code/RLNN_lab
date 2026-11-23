@@ -1,0 +1,57 @@
+padded shape: nodes 264, capacity 105
+compiled policy: OptimizedModule
+/home/hzeng/project/ZH/RLNN_lab/tmp/decode_width_20261120/models/mis_v8_pad.py:38: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  self.adjacency = torch.sparse_csr_tensor(self.crow, self.col, self.raw, (rows, rows),
+20/1000 0.2s/padded/captured:19.900@370st
+40/1000 0.2s/padded/captured:20.000@370st
+60/1000 0.2s/padded/captured:19.967@370st
+80/1000 0.2s/padded/captured:20.000@370st
+100/1000 0.2s/padded/captured:19.940@370st
+120/1000 0.2s/padded/captured:19.917@370st
+140/1000 0.2s/padded/captured:19.979@370st
+160/1000 0.2s/padded/captured:20.019@369st
+180/1000 0.2s/padded/captured:19.961@369st
+200/1000 0.2s/padded/captured:19.975@368st
+220/1000 0.2s/padded/captured:19.950@367st
+240/1000 0.2s/padded/captured:19.950@367st
+260/1000 0.2s/padded/captured:20.000@366st
+280/1000 0.2s/padded/captured:20.004@366st
+300/1000 0.2s/padded/captured:20.027@365st
+320/1000 0.2s/padded/captured:20.053@365st
+340/1000 0.2s/padded/captured:20.085@364st
+360/1000 0.2s/padded/captured:20.092@364st
+380/1000 0.2s/padded/captured:20.105@363st
+400/1000 0.2s/padded/captured:20.080@363st
+420/1000 0.2s/padded/captured:20.071@363st
+440/1000 0.2s/padded/captured:20.086@362st
+460/1000 0.2s/padded/captured:20.065@362st
+480/1000 0.2s/padded/captured:20.065@362st
+500/1000 0.2s/padded/captured:20.048@362st
+520/1000 0.2s/padded/captured:20.033@361st
+540/1000 0.2s/padded/captured:20.043@361st
+560/1000 0.2s/padded/captured:20.036@361st
+580/1000 0.2s/padded/captured:20.055@361st
+600/1000 0.2s/padded/captured:20.078@361st
+620/1000 0.2s/padded/captured:20.056@361st
+640/1000 0.2s/padded/captured:20.061@361st
+660/1000 0.2s/padded/captured:20.062@360st
+680/1000 0.2s/padded/captured:20.068@360st
+700/1000 0.2s/padded/captured:20.057@360st
+720/1000 0.2s/padded/captured:20.031@360st
+740/1000 0.2s/padded/captured:20.036@360st
+760/1000 0.2s/padded/captured:20.037@360st
+780/1000 0.2s/padded/captured:20.029@360st
+800/1000 0.2s/padded/captured:20.023@359st
+820/1000 0.2s/padded/captured:20.028@359st
+840/1000 0.2s/padded/captured:20.029@359st
+860/1000 0.2s/padded/captured:20.047@359st
+880/1000 0.2s/padded/captured:20.042@359st
+900/1000 0.2s/padded/captured:20.042@359st
+920/1000 0.2s/padded/captured:20.045@359st
+940/1000 0.2s/padded/captured:20.034@359st
+960/1000 0.2s/padded/captured:20.031@359st
+980/1000 0.2s/padded/captured:20.022@359st
+1000/1000 0.2s/padded/captured:20.026@359st
+ 0.2s padded/captured    size 20.0260 steps 358.5 search 20.0260 ms/step 0.539 load 3.59 ms decode 1.61 ms
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v11/paper_ablations/decode_width_20261120/full/batch_1017/seed_1017/padded/padded_ref0.csv
+wrote /home/hzeng/project/ZH/RLNN_lab/outputs/v11/paper_ablations/decode_width_20261120/full/batch_1017/seed_1017/v11_rows.csv

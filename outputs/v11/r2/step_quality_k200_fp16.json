@@ -1,0 +1,169 @@
+{
+ "config": {
+  "k": 200,
+  "dtype": "fp16",
+  "dense": true,
+  "decode": "end-only (decode_every=1000, top4)",
+  "pave": "off (--reserve_frac 0 => final_size == search_size up to 0 rounding)",
+  "graphs": 1000,
+  "seed": 1017,
+  "dataset": "models/data/MIS_tensors/RB_small_author_test",
+  "wall_clock": "fixed steps, no deadline"
+ },
+ "reference": {
+  "rlsa_0_2s": 19.962,
+  "v11_a0_810_steps": 20.069
+ },
+ "points": [
+  {
+   "step": 130,
+   "graphs": 1000,
+   "mean_search": 19.889,
+   "mean_final": 19.889,
+   "mean_steps": 130.0,
+   "mean_wall_ms": 140.87,
+   "mean_ms_per_step": 1.083,
+   "search_ms_per_step": 1.083,
+   "min_steps": 130.0,
+   "max_steps": 130.0,
+   "dtype": "fp16",
+   "dense": "1",
+   "fp32_csr": "0",
+   "fixed_steps": "130"
+  },
+  {
+   "step": 200,
+   "graphs": 1000,
+   "mean_search": 19.97,
+   "mean_final": 19.97,
+   "mean_steps": 200.0,
+   "mean_wall_ms": 203.71,
+   "mean_ms_per_step": 1.0181,
+   "search_ms_per_step": 1.0181,
+   "min_steps": 200.0,
+   "max_steps": 200.0,
+   "dtype": "fp16",
+   "dense": "1",
+   "fp32_csr": "0",
+   "fixed_steps": "200"
+  },
+  {
+   "step": 280,
+   "graphs": 1000,
+   "mean_search": 20.004,
+   "mean_final": 20.004,
+   "mean_steps": 280.0,
+   "mean_wall_ms": 276.89,
+   "mean_ms_per_step": 0.9885,
+   "search_ms_per_step": 0.9885,
+   "min_steps": 280.0,
+   "max_steps": 280.0,
+   "dtype": "fp16",
+   "dense": "1",
+   "fp32_csr": "0",
+   "fixed_steps": "280"
+  },
+  {
+   "step": 350,
+   "graphs": 1000,
+   "mean_search": 20.027,
+   "mean_final": 20.027,
+   "mean_steps": 350.0,
+   "mean_wall_ms": 334.05,
+   "mean_ms_per_step": 0.9541,
+   "search_ms_per_step": 0.9541,
+   "min_steps": 350.0,
+   "max_steps": 350.0,
+   "dtype": "fp16",
+   "dense": "1",
+   "fp32_csr": "0",
+   "fixed_steps": "350"
+  },
+  {
+   "step": 450,
+   "graphs": 1000,
+   "mean_search": 20.044,
+   "mean_final": 20.044,
+   "mean_steps": 450.0,
+   "mean_wall_ms": 415.85,
+   "mean_ms_per_step": 0.9238,
+   "search_ms_per_step": 0.9238,
+   "min_steps": 450.0,
+   "max_steps": 450.0,
+   "dtype": "fp16",
+   "dense": "1",
+   "fp32_csr": "0",
+   "fixed_steps": "450"
+  }
+ ],
+ "deltas": [
+  {
+   "from": 130,
+   "to": 200,
+   "d_search": 0.081,
+   "per_10_steps": 0.0116
+  },
+  {
+   "from": 200,
+   "to": 280,
+   "d_search": 0.034,
+   "per_10_steps": 0.0043
+  },
+  {
+   "from": 280,
+   "to": 350,
+   "d_search": 0.023,
+   "per_10_steps": 0.0033
+  },
+  {
+   "from": 350,
+   "to": 450,
+   "d_search": 0.017,
+   "per_10_steps": 0.0017
+  }
+ ],
+ "fit_log": {
+  "a": 19.2995,
+  "b": 0.1238,
+  "r2": 0.9616
+ },
+ "per_graph_cost": {
+  "fixed_ms": 31.74,
+  "marginal_ms_per_step": 0.8601,
+  "share_of_0_2s_search_budget": 0.198,
+  "steps_if_fixed_removed": 149.1
+ },
+ "cross_checks": {
+  "p0_deadline_130_steps": 19.886,
+  "curve_130_steps": 19.889,
+  "gap": 0.003,
+  "v11_a0_810_steps": 20.069,
+  "note": "the 130-step fixed-step rung reproduces the 0.2 s deadline arm (P0)"
+ },
+ "predicted_270_290": {
+  "270": 19.9998,
+  "280": 20.004,
+  "290": 20.0073
+ },
+ "rewrite_scenarios": {
+  "0.550": {
+   "steps": 290.9,
+   "quality": 20.0076
+  },
+  "0.575": {
+   "steps": 278.3,
+   "quality": 20.0033
+  },
+  "0.600": {
+   "steps": 266.7,
+   "quality": 19.9983
+  }
+ },
+ "steps_needed_for_rlsa": 193.1,
+ "speedup_needed_if_130_steps": 1.48,
+ "saturated": false,
+ "verdict_rule": {
+  "280_ge_19_98": "worth doing (0.2 s par or slightly better than RLSA)",
+  "280_approx_19_94": "1.9x is not enough; retreat to 'KaMIS cannot deliver inside 1 s'"
+ }
+}

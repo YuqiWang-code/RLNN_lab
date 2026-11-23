@@ -1,0 +1,21 @@
+{
+  "graphs": 36,
+  "budgets": [
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "seed": 1017,
+  "n_max": 264,
+  "capacity": 105,
+  "pave_budget": 0.1,
+  "post_reserve": 0.05,
+  "trace_blocks": {
+    "K200": 140,
+    "K20": 340
+  },
+  "decode_every": 5,
+  "particles": 20
+}

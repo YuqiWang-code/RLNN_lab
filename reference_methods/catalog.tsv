@@ -56,3 +56,8 @@ T2TCO	神经组合优化	Thinklab-SJTU/T2TCO	https://papers.neurips.cc/paper_fil
 Polynormer	结构补偿	cornell-zhang/Polynormer	https://arxiv.org/pdf/2403.01232	Polynormer 的纯特征全局通道，用于非消息传递通道对照
 Sketch-Augmented	结构补偿	ryienh/sketched-random-features	https://arxiv.org/pdf/2511.03824	sketch 特征注入层的实现参考
 DiffQuadratic-MIS	结构补偿	ledenmat/pCQO-mis-benchmark	https://arxiv.org/pdf/2406.19532	MIS 可微二次优化与基准代码
+BALANS	学习型局部搜索	skadio/balans	https://www.ijcai.org/proceedings/2025/0286	IJCAI 2025；ALNS(MIP) 用 online bandit 选 (destroy,repair) 算子对，PAVE 排序器的零训练对照
+DRHG	学习型局部搜索	CIAM-Group/DRHG	https://arxiv.org/pdf/2502.16170	AAAI 2025；破坏后压成超边，修复模型输入只取决于破坏程度
+LRBS	学习型局部搜索		https://arxiv.org/pdf/2412.10163	AAAI 2025；推理期 beam + 限步 rollout，PAVE extend 的宽度化（算子见 LRBS/operators）
+DORA	预算与自适应计算	WangXinglin/DORA	https://arxiv.org/pdf/2506.15707	NeurIPS 2025；方向级 softmax 的最优测试期预算分配，1 s 预算切分参考
+FLD4CO	采样与退火	Thinklab-SJTU/FLD4CO	https://doi.org/10.52202/085713-3542	NeurIPS 2025；截断 alpha-stable 噪声与逃逸理论，算子见 FLD4CO/operators（上游无代码）

@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/WangXinglin/DORA",
+  "revision": "150a0f73fa50ddc484f81cc8a23aebc40f546aa0",
+  "license": "Apache-2.0（仓库根 LICENSE）",
+  "paper": "NeurIPS 2025, arXiv 2506.15707",
+  "note": "Every Rollout Counts 官方实现；上游为 LLM 推理代码，含 AIME/MATH 数据，与本仓库 MIS 无直接依赖。"
+}

@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/skadio/balans",
+  "revision": "9dbf48fb8d14711ce3bc6dc2f60e39b2adbe55af",
+  "license": "Apache-2.0（仓库根 LICENSE）",
+  "paper": "IJCAI 2025, doi 10.24963/ijcai.2025/286",
+  "note": "论文官方实现（ALNS(MIP) 元求解器，MAB 在线选 (destroy,repair) 算子对）。"
+}

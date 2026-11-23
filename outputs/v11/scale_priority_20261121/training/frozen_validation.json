@@ -1,0 +1,12 @@
+{
+  "selected_epoch": 1,
+  "changed_encoder_parameters": 165505,
+  "encoder_parameters": 165505,
+  "relative_encoder_l2_change": 0.017149365758508457,
+  "residual_head_parameters": 134,
+  "sizes": {
+    "RB_small": 16.5625,
+    "RB_large": 32.8125,
+    "ER_small": 33.625
+  }
+}

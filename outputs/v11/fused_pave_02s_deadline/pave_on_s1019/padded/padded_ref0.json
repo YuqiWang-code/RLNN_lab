@@ -1,0 +1,41 @@
+{
+  "ref": 0,
+  "seeds": [
+    1019
+  ],
+  "budgets": [
+    0.2
+  ],
+  "graphs": 1000,
+  "repeats": 1,
+  "horizon": 1,
+  "post_reserve": 0.05,
+  "chunk": 10,
+  "arms": [
+    "padded"
+  ],
+  "decoders": [
+    "captured"
+  ],
+  "decode_chunk": 4,
+  "cells": [
+    "padded/captured"
+  ],
+  "temperatures": [
+    1.0
+  ],
+  "anneal": false,
+  "leading_decode": "off",
+  "pave": true,
+  "fixed_steps": 0,
+  "compile_model": true,
+  "budgeted_decode": true,
+  "reserve_ms": 0.0,
+  "padded": {
+    "nodes": 264,
+    "capacity": 105,
+    "capture_s": 4.1739,
+    "load_s": 0.0057
+  },
+  "wall_time_s": 192.53
+}

@@ -1,0 +1,236 @@
+\section{Solver configurations and statistical details}
+\label{app:protocol}
+
+\paragraph{Training and selection for SPRINT-C.}
+We generate 128 training and 16 validation graphs for each of the two RB size ranges and the smaller ER range, separately from the released test graphs. On each training graph, eight OnlineMIS seeds supply independent sets. The target for a vertex is its frequency among the four largest sets. Starting from a locally trained RLNN encoder, we fine-tune the encoder and readout with class-balanced binary cross-entropy on these soft targets. AdamW uses learning rates $8{\times}10^{-5}$ for the encoder and $1.5{\times}10^{-3}$ for the readout. Of 24 epochs, epoch one maximizes the validation gain of greedily constructing a set in the predicted order relative to degree order, normalized by teacher size. The learned ranking uses this checkpoint throughout.
+
+The 200~ms schedule reserves 3~ms for return. Small RB allocates up to 185~ms first to clique search and returns once optimality is established, using residual time for exchange otherwise. Large RB runs exchange first and reserves 175~ms for clique-based refinement, which can also solve smaller residual neighborhoods when the clique bound is loose. Small ER uses exchanges throughout. Both ranking variants share these validation-selected schedules. Large ER inherits the small ER schedule and checkpoint without additional tuning. Post hoc, a disjoint clique cover certifies the small RB optimum directly on 375 of 1,000 distinct graphs. On the other 625, an independent SAT check rules out an independent set larger than the delivered witness. In the initial 200~ms experiment, the learned solver also closed the bound within the timed call on 2,981 of 3,000 runs.
+
+\paragraph{Frozen policy and hardware.}
+The SPRINT-S checkpoint comes from a three-epoch local RLNN run initialized from a locally trained RB checkpoint, with 1,000 training graphs and 100 validation graphs. The network has five graph convolutional layers with 128 hidden units. Its default configuration uses 200 particles, a unit policy temperature, blocks of ten steps, and no initial decode. Each GPU configuration runs on a single RTX~5090 on the same Intel Xeon Platinum 8455C server. In the scale study, different configurations can use different RTX~5090 cards. Each card runs at most one of our timed jobs at once and shares the server with other workloads. The fused implementation uses PyTorch~2.9.1 with CUDA~13.0. SPRINT-S and its ablations are evaluated in separate batches. Small differences between repeats of the same configuration reflect separate wall-clock runs.
+
+\paragraph{Paired estimand.}
+For a method \(a\), let \(Q_{igs}^{a}\) denote the delivered size for graph \(g\), seed \(s\) and protocol \(i\). For two methods, the reported contrast for that protocol is
+\begin{equation}
+ \widehat{\Delta}_{a,b}=\frac{1}{n}\sum_{g=1}^n
+       \frac{1}{|\mathcal S|}\sum_{s\in\mathcal S}
+               (Q_{igs}^{a}-Q_{igs}^{b}).
+\end{equation}
+We resample the \(n\) graph means within each test set with replacement 5,000 times and report percentile intervals. Runs on the same graph stay together. For a fixed-step reference with a single observation per graph we reuse that observation within the graph. Intervals are pointwise for each comparison.
+
+\subsection{External solver protocols}
+The clock starts with the input in the representation expected by each solver. For example, LTFT receives a device-resident DGL graph and creates its rollout batch on the clock. INTEL receives a prepared adjacency matrix and constructs its graph convolution operator on the clock. SPRINT-S fills its reusable padded buffers on the clock. Priority-guided SPRINT-C starts from a host edge list and includes graph conversion, device transfers, scoring and feasible search in its time. Thus the times in Table~\ref{tab:external-deadline} measure solving from prepared input, including each implementation's per-solve work.
+
+The method descriptions apply across the four columns of Table~\ref{tab:external-deadline}. The paired comparisons below use SPRINT-S on RB-[200--300]. For transfer, the particle methods retain their weights, particle counts and stopping rules. DIFUSCO selects its denoising step count separately on each split using a 180~ms calibration target on the graph with the most edges. DiffUCO and DGL-TreeSearch can skip the first search block when its estimated duration exceeds the budget. A zero score can therefore accompany a short return time. Conversely, an uninterruptible operation can return after the deadline.
+DISCS iSCO uses the official MIS model and path auxiliary sampler \citep{sun2023revisiting,goshvadi2023discs}. Its full-window variant continues the 300-step cooling schedule until the deadline. RLSA retains its small-graph settings and uses midpoint and terminal A.3 decoding. KaMIS OnlineMIS \citep{dahlum2016accelerating} and ReduMIS \citep{lamm2017finding} each use one CPU thread. For the executable-based runs the 200~ms clock includes starting the process, reading its prepared input and collecting its solution on exit. For the tuned OnlineMIS row in Table~\ref{tab:external-deadline}, we run internal limits of 120, 150 and 180~ms on 16 independent validation graphs per regime (seed 517). We choose the largest mean delivered size, breaking ties in favor of the longer limit. Validation selects 180~ms on small RB and large ER, and 120~ms on large RB and small ER. All three limits score zero on the independent large ER validation graphs. The selected CLI then times out on all 48 large ER test pairs. Table~\ref{tab:scale-supplement} uses a fixed 180~ms limit for both executables. We verify all scored sets against the original edges.
+
+\paragraph{Released RLNN and reconstructed FLD-EG.}
+Under the 200~ms deadline, released RLNN uses the authors' RB-small ERDOES checkpoint, 20 particles, and a 100-step cap. FLD-EG is our PyTorch reconstruction of Algorithm~1 and Table~3 of \citet{wang2025fractional}, with 200 particles and a 300-step cap. The deadline harness uses midpoint and terminal decoding for both methods, with A.3 decoding for released RLNN and per-chain greedy decoding for FLD-EG. Both deliver 2,999 on-time solutions. The paired size gains of SPRINT-S are \(0.6053\) over released RLNN (95\% CI \([0.5730,0.6387]\)) and \(1.6973\) over the FLD-EG reconstruction (95\% CI \([1.6457,1.7487]\)). Both baselines return sooner on average than SPRINT-S (193.80~ms).
+
+\paragraph{DiffUCO and LTFT.}
+DiffUCO \citep{sanokowski2024diffusion} uses the RB-small checkpoint released with the SDDS comparison \citep{sanokowski2025sdds} and timed conditional-expectation decoding. It finishes 141.58~ms faster on average, while SPRINT-S returns larger sets by the shared deadline (paired gain \(0.3827\), 95\% CI \([0.3497,0.4163]\)). We retrain LTFT \citep{zhang2023flows} with its official code for 20 epochs on 4,000 independently generated RB-small graphs. At the deadline, 2,448 of its 3,000 scored sets can still be extended by at least one vertex. All runs of both baselines deliver a feasible set on time. The paired gain of SPRINT-S over LTFT is \(5.8383\) (95\% CI \([5.7143,5.9660]\)).
+
+\paragraph{DIFUSCO and DGL-TreeSearch.}
+We transfer the released DIFUSCO categorical MIS checkpoint \citep{sun2023difusco} from SATLIB to RB, using four cosine-scheduled denoising steps and the released greedy decoder. It delivers a set on time in 2,997 runs. We retrain DGL-TreeSearch \citep{boether2022tree} on 4,000 independent RB graphs labeled by OnlineMIS. Its single-worker search processes up to four probability maps per expansion and averages 2.77 expansions, with partial independent sets eligible for scoring. In 483 runs the search returns after 200~ms but has already delivered a feasible set. The paired size gains of SPRINT-S are \(4.6777\) over DIFUSCO (95\% CI \([4.5887,4.7670]\)) and \(14.9450\) over DGL-TreeSearch (\([14.8080,15.0810]\)).
+
+\paragraph{INTEL and PPO-LwD.}
+For INTEL \citep{li2018guided}, we use the released 20-layer GCN weights and check the 32 output probability maps of our FP32 GPU port against the released TensorFlow graph on a fixed input. A single worker samples from the search queue and retains independent prefixes, with the optional reduction and local search disabled. For PPO-LwD \citep{ahn2020defer}, we retrain the released policy for 250 PPO updates over two passes through 4,000 independent RB graphs. We select the checkpoint on 64 held-out graphs, then score the largest accepted independent set across ten parallel trajectories after each action, up to 32 actions per trajectory.
+
+Both methods deliver an independent set within 200~ms in all 3,000 runs. SPRINT-S gains \(2.8407\) vertices over INTEL (95\% CI \([2.7590,2.9243]\)) and \(3.9603\) over PPO-LwD (\([3.8697,4.0533]\)). It matches or exceeds both baselines on every graph--seed pair. INTEL and PPO-LwD return after the cutoff in 1,667 and 235 runs, respectively, for which we score the best set already available at 200~ms.
+
+\subsection{Classical solvers and matched policies across scales}
+\label{app:scale-supplement}
+\input{sections/scale_supplement}
+Table~\ref{tab:scale-supplement} reports the fixed-limit executable runs. On larger RB graphs, OnlineMIS delivers on 503 of 3,000 pairs with a 180~ms internal limit, versus 2,997 with the validation-selected 120~ms limit. The corresponding mean delivered sizes are 6.8280 and 41.6140. For released RLNN, the matched-weight row uses the public RB-large checkpoint on larger RB graphs and the public ER checkpoint on both ER sets, with the original 20-particle, 100-step cap. On small ER graphs, its mean size is 40.5521, compared with 40.5469 using RB-small weights.
+
+On large RB, full-window iSCO delivers on 14 of 3,000 runs. The 14 timely sets average 31.6429 vertices, yielding 0.1477 across all runs. On large ER, LTFT delivers on all 48 runs. Each action can add at most one vertex per trajectory. With three to five actions per run, the delivered sets contain three to five vertices and average 3.7083.
+
+\paragraph{DIMES.} We train the released MIS meta-solver \citep{qiu2022dimes} on 128 independently generated ER-[700--800] training graphs. The local configuration uses one heatmap, 32 sampled trajectories, one inner meta-update and minibatches of eight graphs. We fix the fourth-epoch checkpoint (64 outer updates) before evaluation and transfer it unchanged to all four test sets. Inference starts from the host edge list and charges sparse graph construction, the FP32 network forward pass, transfers and decoding to the deadline. A greedy readout produces the first candidate. Further batches sample feasible sets from the heatmap. Each completed batch can publish its largest set. We timestamp copies of the actual vertices. We keep the parameters fixed at test time. On a 47-vertex reference graph the FP32 port agrees with the upstream TensorFlow scores to within $2.32\times 10^{-5}$ in maximum absolute error and yields the same greedy vertices.
+
+\paragraph{Gurobi.} For Gurobi~\citep{gurobi2026}, introduce one binary variable $x_v$ for each vertex of degree $d_v$ and maximize $\sum_v x_v$ subject to
+\[
+ d_v x_v + \sum_{u\in N(v)} x_u \le d_v \qquad (v\in V).
+\]
+Selecting $v$ forces every neighbor to zero. The model uses one linear row per vertex and has the same feasible binary sets as the edge formulation. A single solver thread starts from the host edge list. The timer covers sparse matrix and model construction, optimization, copying incumbent vertices from solution callbacks, and model disposal. A solved instance may yield an incumbent before the call returns. The available Gurobi~13.0.3 license admits at most 2,000 variables and 2,000 linear rows. The first large ER model has 9,904 of each, so there is no large ER Gurobi timing or score.
+
+\paragraph{The largest ER graphs.} The 16 graphs have 9,004--10,915 vertices and 809,362--1,190,799 undirected edges. We ran the three resident methods in separate batches, pinned to the same CPU core. The two priority arms start from identical vertex sets on each pair, averaging 341.9583 vertices. In the 200~ms run the learned solver publishes its initial set after a median of 18.31~ms. The median time to its final scored size is 130.90~ms. At 200~ms both priority arms return within the deadline on all 48 pairs, as does OnlineMIS on 46.
+
+DiffUCO calibrated its two trajectories at 36.29 and 37.91 seconds using the JAX platform allocator. Its scheduler skipped both trajectories in all 48 timed solves and returned in under 0.01~ms on average. DIFUSCO attempted a trajectory on every run. Even its shortest calibrated trajectory (one denoising step followed by greedy decoding) took 785~ms on the calibration graph. It delivered no feasible set by 200~ms across the 48 runs, with a mean return time of 669.41~ms.
+
+\subsection{OnlineMIS seed replication}
+\label{app:seeds}
+Table~\ref{tab:seeds} uses the same 1,000 test graphs throughout. The original cohort uses seeds 1017, 1019, 1021. The replication uses 1023, 1025, 1027. OnlineMIS is a randomized local-search algorithm. We retain all runs of both solvers, including misses. For the pooled interval, we average all six paired differences within each graph before resampling graphs.
+
+In the primary cohort, OnlineMIS averages 186.86~ms and delivers 2,998 sets on time. SPRINT-S wins 126 pairs, ties 2,679 and loses 195. Across all six seeds, mean wall times are 187.08~ms for OnlineMIS and 193.79~ms for SPRINT-S. SPRINT-S delivers on all 6,000 pairs. OnlineMIS leads by 0.0264 vertices on the 5,995 pairs with two timely deliveries. In the separate three-seed ReduMIS run, mean wall time is 195.64~ms. Its 280 timely sets average 19.7929 vertices, yielding a mean score of 1.8473 over all 3,000 runs.
+
+\begin{table}[t]
+\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Seed replication at 200~ms. Size includes all runs. The interval compares SPRINT-S with OnlineMIS (SPRINT-S minus OnlineMIS).}
+\label{tab:seeds}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\paperHeader
+\paperHead{Seed panel} & \paperHead{SPRINT-S} & \paperHead{OnlineMIS} & \paperHead{Paired gain [95\% CI]} \\
+\midrule
+Original & 20.0300 & 20.0393 & $-.0093$ [$-.0330,.0177$]\\
+Additional & 20.0247 & 20.0337 & $-.0090$ [$-.0357,.0203$]\\
+\rowcolor{TableGold}
+All six & 20.0273 & 20.0365 & $-.0092$ [$-.0300,.0122$]\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Fixed-work reference points}
+\label{app:fixed}
+\begin{table}[t]
+\caption{Observed quality and mean solver latency on RB-[200--300]. The reference methods use their fixed-step configurations.}
+\label{tab:main}
+\centering
+\begin{tabular}{lrr}
+\toprule
+\paperHeader
+\paperHead{Solver} & \paperHead{Mean size\,$\uparrow$} & \paperHead{Mean ms\,$\downarrow$} \\
+\midrule
+Released RLNN & 19.520 & 208.07 \\
+Fixed-step RLSA & 19.973 & 208.39 \\
+SPRINT-S with PAVE & 20.0147 & 185.75 \\
+\midrule
+\rowcolor{TableBlue}
+\textbf{SPRINT-S} & \textbf{20.0300} & 193.80 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Comparison with the released solvers.}
+With PAVE disabled, SPRINT-S returned a feasible solution within 200~ms on all 3,000 graph--seed pairs in the primary cohort. Its paired mean size gain over released RLNN is \(0.510\) (95\% CI \([0.476,0.546]\)). The paired gain over the fixed-step RLSA reference is \(0.057\) (95\% CI \([0.040,0.074]\)). This comparison estimates the difference between the observed operating points in Table~\ref{tab:main}.
+
+
+\subsection{Amortization and deployment boundary}
+\input{figures/solve_clock}
+Figure~\ref{fig:solve-clock} follows the same graph and seed under two decode schedules. The mid-run copy makes the eventual 19-vertex set available 85.3~ms earlier, before the particle call returns.
+
+Across the three 1,000-graph batches in the fixed-130-step experiment, mean recorded engine setup takes 0.79~s for uncompiled eager execution and 5.51~s for compiled replay. Adding measured setup to the full evaluation loop gives 283.45~s and 86.46~s per batch, respectively. The loop includes graph preparation and per-instance solves. Both totals start after loading the weights and scanning dataset shapes. These measurements describe repeated inference on graphs that fit the same buffers. Deployments with occasional single requests would also pay any unamortized loading, warm-up and compilation costs.
+
+
+\subsection{SPRINT-S decoding and refinement}
+\label{app:decode}
+\input{figures/decode_cases}
+\paragraph{An instance at constant cardinality.}
+Figure~\ref{fig:decode-cases} follows the first test graph and the first search seed in a separate diagnostic. We decode the top four archived states at initialization and after every ten steps through step 350. The initial set has 18 vertices. By step ten it has 19, and the size then stays at 19 even as the membership changes. The initial and terminal sets share just two vertices. Their union contains 19 conflict edges, all between vertices exclusive to different sets. This illustrates why an archive can continue changing after its best decoded size has plateaued, and why splicing two feasible candidates would require checking conflicts again. The diagnostic uses step counts so that observing these intermediate states does not enter the latency experiment.
+
+\paragraph{How many states should be decoded?}
+In a separate paired run, increasing the decode width from the four lowest-energy states to all 200 particles raises mean decode time per solve from 2.12 to 4.67~ms. The mean search depth falls from 354.85 to 346.82 steps. The wider decode nevertheless increases size from 20.0300 to 20.0350 (\(+0.0050\), 95\% CI \([0.0013,0.0090]\)). Both widths have 3,000 on-time feasible incumbents. Returning from the solve takes more than 200~ms in 12 all-particle runs and zero four-particle runs. Only 27 of the 3,000 paired scores differ. Searching deeper and examining a wider archive can each improve the answer, but the width benefit here is concentrated in a small fraction of instances.
+
+\paragraph{Using the remaining time.}
+We compare three uses of the final 40~ms. Returning the search incumbent with the reserve unused gives mean size 20.0123 after 274.85 steps (153.54~ms). Using the reserve for a learned local postprocessor (PAVE) gives 20.0147 after 278.39 search steps (185.75~ms), a paired gain of 0.0023 (95\% CI \([-0.0003,0.0053]\)). PAVE improves its own incoming incumbent on 10 runs. Keeping the time for further neural search gives 20.0300 after 350.98 steps (193.80~ms), a gain of 0.0177 over the unused reserve (\([0.0123,0.0233]\)) and 0.0153 over PAVE (\([0.0097,0.0213]\)). All three configurations deliver a feasible set in all 3,000 runs. Nine PAVE runs return after the deadline and receive credit for the earlier incumbent. These contrasts use the same graph--seed pairs in separate batches.
+
+\subsection{Variation within the released test split}
+\label{app:strata}
+We group all 1,000 graphs by their observed number of vertices and retain all three primary seeds per graph. Table~\ref{tab:strata} reports descriptive paired means. SPRINT-S gains vertices over both released RLNN and RLSA in each group. OnlineMIS has a small mean advantage in each. Differences across these groups combine size with any graph structure that varies with size in the RB generator.
+
+\begin{table}[h]
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Mean size and paired size differences by graph order at 200~ms. The final three columns subtract the named comparator from SPRINT-S.}
+\label{tab:strata}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\paperHeader
+\paperHead{Nodes} & \paperHead{Graphs} & \paperHead{SPRINT-S} & \paperHead{RLNN} & \paperHead{RLSA} & \paperHead{OnlineMIS} \\
+\midrule
+200--219 & 340 & 19.8235 & +0.5010 & +0.0637 & $-$0.0049 \\
+220--239 & 363 & 19.4077 & +0.5969 & +0.0707 & $-$0.0138 \\
+240--264 & 297 & 21.0269 & +0.7351 & +0.1077 & $-$0.0090 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Weight of the learned ranking and rank agreement}
+\label{app:rank-mix}
+The learned arm of SPRINT-C in Table~\ref{tab:external-deadline} uses $\lambda=0.25$ in Eq.~\eqref{eq:priority}. We re-ran the same search with $\lambda\in\{0.1,1.0\}$ and with the learned score alone ($\lambda=\infty$, no degree term), from the same checkpoint and schedules as the shipped solver, and added a degree arm to the same batch so that batch drift cancels. Table~\ref{tab:rank-mix} reports delivered size. On RB-[200--300] every arm attains the same 20.1150 vertices. On RB-[800--1200] the learned term is worth 0.019 to 0.074 vertices over degree, and the gain grows with $\lambda$. On ER-[700--800] the shipped $\lambda=0.25$ is best (0.1745 over degree, $[0.0911,0.2552]$), $\lambda=0.1$ loses 0.107 and the learned score alone gains 0.133. On the 16 large ER graphs all arms lie within 1.25 vertices of degree and every interval includes zero.
+
+The blend is nearly a monotone function of degree: the Spearman correlation between the blended priority and $-d$ is 0.990, 0.991 and 0.999 on small RB, large RB and small ER. The learned score alone is less redundant (0.583, 0.645 and 0.956), and its top 5\% overlaps the degree top 5\% by only 0.13, 0.18 and 0.72, so the sweep does test a different order; what that order buys in delivered size stays within the ranges above. The blend therefore reorders vertices whose degree ranks are already close, which bounds what a change of ranking can add to this search.
+
+\begin{table}[h]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Delivered size at 200~ms as the weight $\lambda$ of the learned term in Eq.~\eqref{eq:priority} varies, measured in one batch against a degree arm. RB small is RB-[200--300], RB large RB-[800--1200], ER small ER-[700--800], ER large ER-[9000--11000]. The last row drops the degree term; $\lambda=0.25$ is shipped.}
+\label{tab:rank-mix}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\paperHeader
+\paperHead{Mix} & \paperHead{RB small} & \paperHead{RB large} & \paperHead{ER small} & \paperHead{ER large} \\
+\midrule
+Degree only & 20.1150 & 42.4387 & 44.2500 & 365.6250 \\
+$\lambda=0.1$ & 20.1150 & 42.4573 & 44.1432 & 364.3958 \\
+$\lambda=0.25$ & 20.1150 & 42.4933 & 44.4245 & 365.7083 \\
+$\lambda=1$ & 20.1150 & 42.4950 & 44.2005 & 365.5833 \\
+Learned only & 20.1150 & 42.5130 & 44.3828 & 364.3750 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Representation, precision, and the scale boundary}
+\label{app:representation}
+\input{figures/execution_effects}
+\input{figures/baseline_pairs}
+Switching from CSR to dense adjacency with compilation off reduces 130-step time from 252.02 to 114.15~ms while the fixed-work size difference is 0.0047 ($[-0.0033,0.0127]$); at 200~ms dense search buys 128.84 more steps and 0.1663 vertices ($[0.1497,0.1833]$). With replay and compilation on, FP16 reduces 130-step time from 127.49 to 78.65~ms, and the size difference moves from $-0.0100$ ($[-0.0227,0.0023]$) at fixed work to $+0.0493$ ($[0.0383,0.0610]$) at fixed time. Precision changes both the policy and the sampled states, so part of that gain is accuracy lost in the search itself. All four arms publish on every pair.
+
+The particle route was sized for small graphs and does not transfer upward unchanged. On RB-[800--1200] it averages 28.9847 vertices with 2,613 timely deliveries, below the 30.5393 of the released solver using its large-RB checkpoint; on ER-[9000--11000], filling one graph's padded buffers alone takes at least 1.84~s and all 48 runs miss the cutoff. The multi-scale results in Table~\ref{tab:external-deadline} therefore rest on feasible search, whose cost grows with the search rather than with the instance buffer.
+
+\subsection{What the constructive gain is made of}
+\label{app:gain-sources}
+Both priority arms start from the same greedy set and use the same exchanges and branches, so their difference isolates the ranking. Degree ordering alone delivers 20.1150 and 42.4663 on the two RB families, 44.2578 on small ER and 369.4167 on large ER, so the learned scores differ by 0, $-0.025$, 0.086 and 0.708 vertices. On large ER the sign of that comparison depends on the budget: at 50~ms the learned arm loses 7.5833 vertices to degree ($[-12.1250,-3.4375]$), at 500~ms it gains 1.8125 ($[0.2708,3.3958]$). Learned guidance accounts for a family-dependent share and the construction and publication of a feasible set accounts for the rest.
+
+On the 14 register graphs two adjacent vertices cannot share a register. With the original edges, the frozen checkpoint and the ER exchange schedule, all three resident solvers return on time and reach a mean of 208.3571; a matching clique-cover bound certifies every solution on all 42 graph--seed pairs. The shared greedy initializer is already optimal on every run, before either ranking is computed; OnlineMIS starts at 178.0476 and reaches the optimum after a median of 1.48~ms. These instances separate time-to-optimum from final size and show the ceiling of the ranking.
+
+\section{Initial 200 ms feasible-search comparison}
+\label{app:initial-priority}
+The first evaluation of the frozen checkpoint compared learned and degree rankings with the validated OnlineMIS executable. Learned search averaged 20.1150, 42.4803 and 44.3620 vertices on small RB, large RB and small ER, with mean return times of 9.81, 136.64 and 197.07~ms. It delivered on all 6,384 runs. The paired gain was 0.8663 ($[0.8033,0.9547]$) over the tuned executable on large RB and 1.2083 ($[0.9818,1.5547]$) over RLSA on ER. On small RB, degree search matched every learned score and returned in 5.30~ms on average. On large RB and ER the learned-minus-degree differences were 0.0087 ($[-0.0063,0.0237]$) and 0.0807 ($[-0.0026,0.1641]$). On ER, setting every priority to zero gave a mean of 44.1927 and a learned-minus-flat difference of 0.1693 ($[0.0729,0.2578]$).
+
+For the same three graph sets, Table~\ref{tab:external-deadline} reports a separate common-interface run for learned ranking, degree ranking and resident OnlineMIS on the original graph--seed pairs. The executable and resident OnlineMIS rows thus reflect two different ways of delivering the classical solver's set.
+
+\section{Common-input deadline experiments}
+\label{app:resident}
+\input{sections/resident_table}
+\input{figures/dispatch_example}
+Library loading, compilation and checkpoint initialization precede the instance clock. The timer starts with a host edge list and includes construction of the sparse matrix, every solver-specific graph structure, search and publication. OnlineMIS uses the same search code as the timed executable, with an in-memory entry point and callbacks for its greedy solution and best-solution updates. The executable exposes its current node list on exit, while the resident interface retains published improvements during the call. This change affects both setup cost and the set that the caller can access. Clique refinement in our solver publishes upon returning from the native refinement phase. For all three methods, validation of archived sets against the input edges occurs after timing.
+
+We keep the same checkpoint, exchange rules and 3~ms return reserve throughout. For a budget \(B\) in milliseconds, the small and large RB schedules allocate \(\lfloor185B/200\rfloor\) and \(\lfloor175B/200\rfloor\) milliseconds to their respective clique-search phases. The ER schedule uses exchanges throughout. Resident OnlineMIS uses its native iterations until the search deadline. Each independent run begins from the same graph and search seed as its paired controls. We report the wall time at solver completion separately from the time of each archived set.
+
+\paragraph{Controlling for batch throughput on ER.}
+In the separate batches, degree search averages 47,807 exchange iterations at 50~ms and 28,255 at 100~ms. We repeat all 12 method--budget combinations within each of the 384 graph--seed blocks on one physical core, with one resident process and GPU. The 12-condition order balances position and immediate predecessor across blocks. Degree search now averages 15,195 iterations at 50~ms and 31,484 at 100~ms, gaining 0.2266 vertices ($[0.1745,0.2839]$). This repeat resolves the reversal in the batched curve. At 200~ms, learned search gains 1.6198 vertices over resident OnlineMIS ($[1.5156,1.7214]$), and 0.0521 over degree search ($[-0.0365,0.1406]$). Each contrast uses a pointwise 95\% interval from graph-level resampling.
+
+\begin{table}[ht]
+\centering\small
+\caption{Mean feasible set size in the balanced ER repeat. Learned and degree are the two SPRINT-C rankings. All 4,608 runs publish a feasible set before their assigned deadline.}
+\label{tab:resident-interleaved}
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+\paperHeader
+\paperHead{Budget (ms)} & \paperHead{Learned} & \paperHead{Degree} & \paperHead{OnlineMIS} \\
+\midrule
+50 & 43.8203 & 43.8828 & 42.2188 \\
+100 & 44.1458 & 44.1094 & 42.5443 \\
+\rowcolor{TableGold}
+200 & 44.3281 & 44.2760 & 42.7083 \\
+500 & 44.5521 & 44.5312 & 42.8828 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{Register interference instances}
+\label{app:register}
+We include every entry labeled REG in the \href{https://mat.tepper.cmu.edu/COLOR/instances.html}{COLOR instance catalog}: three \texttt{fpsol2}, three \texttt{inithx}, five \texttt{mulsol}, and three \texttt{zeroin} graphs. The \href{https://archive.dimacs.rutgers.edu/pub/challenge/graph/benchmarks/color/}{DIMACS archive} provides the undirected edge lists. We collapse duplicate edges and retain all vertices. The graphs have 184--864 vertices and 10--345 isolated vertices each. All solvers use the same three seeds and a 200~ms cutoff. Both ranking arms use the frozen ER exchange schedule and return reserve. The learned arm uses the same checkpoint as on the RB and ER graphs. All instances are held out of training and schedule selection.
+
+To certify an optimum after the solve, we partition the original vertices into disjoint cliques and verify all within-clique edges. The number of cliques is an upper bound because an independent set can contain at most one vertex per clique. A verified set attains that bound on each of the 14 graphs. Median times to the ultimately optimal set are 0.54~ms for learning, 0.96~ms for degree ranking, and 1.48~ms for OnlineMIS. The two ranking arms execute identical code up to their first delivery. Their median difference therefore measures timing variation before ranking. Mean return times are 197.03, 197.04 and 169.33~ms, respectively. These return times include continued search after the best set has been published.
+
+\section{A worked cold-chain dispatch example}
+\label{app:dispatch}
+Figure~\ref{fig:dispatch} illustrates the proposed conflict graph on four equal-priority chilled shipments at a single depot. Each candidate is a complete round trip. Its interval includes loading, service, return and vehicle turnaround. Each vehicle can serve one trip at a time. We assume that the listed trips have individually passed temperature, payload and delivery-window checks. The times are illustrative.
+
+
+There are two kinds of edges. The pairs \((a_1,a_2)\) and \((b_1,b_2)\) duplicate a shipment. The pairs \((a_1,b_1)\), \((a_2,b_2)\), and \((b_2,c_2)\) overlap on a vehicle. The set \(\{a_1,b_2,d_1\}\) is feasible and maximal: every remaining candidate conflicts with a selected assignment. Reassigning A and B gives \(\{a_2,b_1,c_2,d_1\}\), which serves all four shipments. Four is also an upper bound because each shipment can be served only once. This example illustrates both the mapping and the distinction between a maximal decoded set and a maximum set.
+
+\input{sections/qualitative_cross_scale}

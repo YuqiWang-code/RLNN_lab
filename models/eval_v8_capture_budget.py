@@ -116,8 +116,6 @@ def main():
     device = solver.accelerator.device
     dataset = dataset_at(args.test_path, solver.dtype, args.test_samples, official=args.split == "test")
     extended = 20000
-    # Warm the frozen kernels, the A.3 decode, PAVE and one capture so the first
-    # measured arm does not spend its whole clock compiling.
     solver.num_t = extended
     warm = dataset[0].to(device)
     warm_adj = adjacency(warm)
@@ -132,7 +130,6 @@ def main():
     sync(device)
 
     rows = []
-    # ``cached`` needs the archive counter that only the captured block keeps.
     cells = [(arm, kind) for arm in args.arms for kind in args.decoders
              if not (arm == "eager" and kind == "cached")]
     started = perf_counter()
@@ -149,7 +146,6 @@ def main():
                 neighbours = topology.neighbors
                 normalized = solver.policy_topology(graph, adj)
                 solver.num_t = extended
-                # Throwaway pass of the same shape so both arms meet a warm allocator.
                 deadline_search(solver, graph, adj, seed, perf_counter() + 0.25, normalized)
                 sync(device)
                 order = cells if (index + seed) % 2 == 0 else cells[::-1]
@@ -164,7 +160,6 @@ def main():
                         masks_of = None
                         skip_unchanged = decoder_kind == "cached"
                         if decoder_kind in ("captured", "cached"):
-                            # Charged inside the clock, exactly like the search capture.
                             template = torch.zeros(graph.num_nodes, solver.num_k,
                                                    device=device, dtype=solver.dtype)
                             masks_of = CapturedDecoder(solver.problem, adj, graph.b, template,
@@ -248,7 +243,6 @@ def main():
                               search_time_s=mean(r["search_time_s"] for r in chosen),
                               decode_time_s=mean(r["decode_time_s"] for r in chosen),
                               overruns=sum(r["deadline_overrun"] for r in chosen))
-        # Every cell is compared against the slow reference, paired per graph.
         pairs = [paired(budget, name, "eager/eager") for name in names if name != "eager/eager"]
         cell["paired"] = pairs
         table[str(budget)] = cell

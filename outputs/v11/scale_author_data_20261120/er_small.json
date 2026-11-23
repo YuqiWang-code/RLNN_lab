@@ -1,0 +1,1036 @@
+{
+  "source_directory": "/home/hzeng/project/ZH/RLNN_lab/models/data/author_rld4co/MIS/ER_small_test",
+  "repository": "shengyuf/RLD4CO",
+  "revision": "f273683b3fe6faa217de35ead96fbe0ee4a44a4a",
+  "split": "MIS/ER_small_test",
+  "count": 128,
+  "checkpoint_repository": "shengyuf/RLNN",
+  "checkpoint_revision": "0b96a439a11ac90dc69512720084d08784f02bf4",
+  "released_checkpoint": "models/data/author_rld4co/checkpoints/erdoes/rlnn_er_mis",
+  "graphs": [
+    {
+      "source": "idx_0.gpickle",
+      "official_filename": "ER_700_800_0.15_0.gpickle",
+      "tensor": "graph_000000.pt",
+      "graph_id": "idx_0",
+      "num_nodes": 770,
+      "undirected_edges": 44427
+    },
+    {
+      "source": "idx_1.gpickle",
+      "official_filename": "ER_700_800_0.15_1.gpickle",
+      "tensor": "graph_000001.pt",
+      "graph_id": "idx_1",
+      "num_nodes": 720,
+      "undirected_edges": 38436
+    },
+    {
+      "source": "idx_2.gpickle",
+      "official_filename": "ER_700_800_0.15_2.gpickle",
+      "tensor": "graph_000002.pt",
+      "graph_id": "idx_2",
+      "num_nodes": 707,
+      "undirected_edges": 37323
+    },
+    {
+      "source": "idx_3.gpickle",
+      "official_filename": "ER_700_800_0.15_3.gpickle",
+      "tensor": "graph_000003.pt",
+      "graph_id": "idx_3",
+      "num_nodes": 764,
+      "undirected_edges": 43871
+    },
+    {
+      "source": "idx_4.gpickle",
+      "official_filename": "ER_700_800_0.15_4.gpickle",
+      "tensor": "graph_000004.pt",
+      "graph_id": "idx_4",
+      "num_nodes": 742,
+      "undirected_edges": 41121
+    },
+    {
+      "source": "idx_5.gpickle",
+      "official_filename": "ER_700_800_0.15_5.gpickle",
+      "tensor": "graph_000005.pt",
+      "graph_id": "idx_5",
+      "num_nodes": 709,
+      "undirected_edges": 37512
+    },
+    {
+      "source": "idx_6.gpickle",
+      "official_filename": "ER_700_800_0.15_6.gpickle",
+      "tensor": "graph_000006.pt",
+      "graph_id": "idx_6",
+      "num_nodes": 797,
+      "undirected_edges": 47608
+    },
+    {
+      "source": "idx_7.gpickle",
+      "official_filename": "ER_700_800_0.15_7.gpickle",
+      "tensor": "graph_000007.pt",
+      "graph_id": "idx_7",
+      "num_nodes": 800,
+      "undirected_edges": 47808
+    },
+    {
+      "source": "idx_8.gpickle",
+      "official_filename": "ER_700_800_0.15_8.gpickle",
+      "tensor": "graph_000008.pt",
+      "graph_id": "idx_8",
+      "num_nodes": 760,
+      "undirected_edges": 43272
+    },
+    {
+      "source": "idx_9.gpickle",
+      "official_filename": "ER_700_800_0.15_9.gpickle",
+      "tensor": "graph_000009.pt",
+      "graph_id": "idx_9",
+      "num_nodes": 718,
+      "undirected_edges": 38513
+    },
+    {
+      "source": "idx_10.gpickle",
+      "official_filename": "ER_700_800_0.15_10.gpickle",
+      "tensor": "graph_000010.pt",
+      "graph_id": "idx_10",
+      "num_nodes": 719,
+      "undirected_edges": 38809
+    },
+    {
+      "source": "idx_11.gpickle",
+      "official_filename": "ER_700_800_0.15_11.gpickle",
+      "tensor": "graph_000011.pt",
+      "graph_id": "idx_11",
+      "num_nodes": 754,
+      "undirected_edges": 42826
+    },
+    {
+      "source": "idx_12.gpickle",
+      "official_filename": "ER_700_800_0.15_12.gpickle",
+      "tensor": "graph_000012.pt",
+      "graph_id": "idx_12",
+      "num_nodes": 705,
+      "undirected_edges": 37218
+    },
+    {
+      "source": "idx_13.gpickle",
+      "official_filename": "ER_700_800_0.15_13.gpickle",
+      "tensor": "graph_000013.pt",
+      "graph_id": "idx_13",
+      "num_nodes": 703,
+      "undirected_edges": 37193
+    },
+    {
+      "source": "idx_14.gpickle",
+      "official_filename": "ER_700_800_0.15_14.gpickle",
+      "tensor": "graph_000014.pt",
+      "graph_id": "idx_14",
+      "num_nodes": 713,
+      "undirected_edges": 37972
+    },
+    {
+      "source": "idx_15.gpickle",
+      "official_filename": "ER_700_800_0.15_15.gpickle",
+      "tensor": "graph_000015.pt",
+      "graph_id": "idx_15",
+      "num_nodes": 798,
+      "undirected_edges": 47656
+    },
+    {
+      "source": "idx_16.gpickle",
+      "official_filename": "ER_700_800_0.15_16.gpickle",
+      "tensor": "graph_000016.pt",
+      "graph_id": "idx_16",
+      "num_nodes": 792,
+      "undirected_edges": 46561
+    },
+    {
+      "source": "idx_17.gpickle",
+      "official_filename": "ER_700_800_0.15_17.gpickle",
+      "tensor": "graph_000017.pt",
+      "graph_id": "idx_17",
+      "num_nodes": 748,
+      "undirected_edges": 42241
+    },
+    {
+      "source": "idx_18.gpickle",
+      "official_filename": "ER_700_800_0.15_18.gpickle",
+      "tensor": "graph_000018.pt",
+      "graph_id": "idx_18",
+      "num_nodes": 785,
+      "undirected_edges": 46252
+    },
+    {
+      "source": "idx_19.gpickle",
+      "official_filename": "ER_700_800_0.15_19.gpickle",
+      "tensor": "graph_000019.pt",
+      "graph_id": "idx_19",
+      "num_nodes": 738,
+      "undirected_edges": 40573
+    },
+    {
+      "source": "idx_20.gpickle",
+      "official_filename": "ER_700_800_0.15_20.gpickle",
+      "tensor": "graph_000020.pt",
+      "graph_id": "idx_20",
+      "num_nodes": 772,
+      "undirected_edges": 44710
+    },
+    {
+      "source": "idx_21.gpickle",
+      "official_filename": "ER_700_800_0.15_21.gpickle",
+      "tensor": "graph_000021.pt",
+      "graph_id": "idx_21",
+      "num_nodes": 711,
+      "undirected_edges": 37843
+    },
+    {
+      "source": "idx_22.gpickle",
+      "official_filename": "ER_700_800_0.15_22.gpickle",
+      "tensor": "graph_000022.pt",
+      "graph_id": "idx_22",
+      "num_nodes": 772,
+      "undirected_edges": 44452
+    },
+    {
+      "source": "idx_23.gpickle",
+      "official_filename": "ER_700_800_0.15_23.gpickle",
+      "tensor": "graph_000023.pt",
+      "graph_id": "idx_23",
+      "num_nodes": 800,
+      "undirected_edges": 47734
+    },
+    {
+      "source": "idx_24.gpickle",
+      "official_filename": "ER_700_800_0.15_24.gpickle",
+      "tensor": "graph_000024.pt",
+      "graph_id": "idx_24",
+      "num_nodes": 704,
+      "undirected_edges": 37019
+    },
+    {
+      "source": "idx_25.gpickle",
+      "official_filename": "ER_700_800_0.15_25.gpickle",
+      "tensor": "graph_000025.pt",
+      "graph_id": "idx_25",
+      "num_nodes": 761,
+      "undirected_edges": 43350
+    },
+    {
+      "source": "idx_26.gpickle",
+      "official_filename": "ER_700_800_0.15_26.gpickle",
+      "tensor": "graph_000026.pt",
+      "graph_id": "idx_26",
+      "num_nodes": 705,
+      "undirected_edges": 37519
+    },
+    {
+      "source": "idx_27.gpickle",
+      "official_filename": "ER_700_800_0.15_27.gpickle",
+      "tensor": "graph_000027.pt",
+      "graph_id": "idx_27",
+      "num_nodes": 747,
+      "undirected_edges": 41732
+    },
+    {
+      "source": "idx_28.gpickle",
+      "official_filename": "ER_700_800_0.15_28.gpickle",
+      "tensor": "graph_000028.pt",
+      "graph_id": "idx_28",
+      "num_nodes": 792,
+      "undirected_edges": 47270
+    },
+    {
+      "source": "idx_29.gpickle",
+      "official_filename": "ER_700_800_0.15_29.gpickle",
+      "tensor": "graph_000029.pt",
+      "graph_id": "idx_29",
+      "num_nodes": 752,
+      "undirected_edges": 42502
+    },
+    {
+      "source": "idx_30.gpickle",
+      "official_filename": "ER_700_800_0.15_30.gpickle",
+      "tensor": "graph_000030.pt",
+      "graph_id": "idx_30",
+      "num_nodes": 786,
+      "undirected_edges": 46485
+    },
+    {
+      "source": "idx_31.gpickle",
+      "official_filename": "ER_700_800_0.15_31.gpickle",
+      "tensor": "graph_000031.pt",
+      "graph_id": "idx_31",
+      "num_nodes": 793,
+      "undirected_edges": 47469
+    },
+    {
+      "source": "idx_32.gpickle",
+      "official_filename": "ER_700_800_0.15_32.gpickle",
+      "tensor": "graph_000032.pt",
+      "graph_id": "idx_32",
+      "num_nodes": 793,
+      "undirected_edges": 47119
+    },
+    {
+      "source": "idx_33.gpickle",
+      "official_filename": "ER_700_800_0.15_33.gpickle",
+      "tensor": "graph_000033.pt",
+      "graph_id": "idx_33",
+      "num_nodes": 774,
+      "undirected_edges": 45141
+    },
+    {
+      "source": "idx_34.gpickle",
+      "official_filename": "ER_700_800_0.15_34.gpickle",
+      "tensor": "graph_000034.pt",
+      "graph_id": "idx_34",
+      "num_nodes": 734,
+      "undirected_edges": 40418
+    },
+    {
+      "source": "idx_35.gpickle",
+      "official_filename": "ER_700_800_0.15_35.gpickle",
+      "tensor": "graph_000035.pt",
+      "graph_id": "idx_35",
+      "num_nodes": 711,
+      "undirected_edges": 37753
+    },
+    {
+      "source": "idx_36.gpickle",
+      "official_filename": "ER_700_800_0.15_36.gpickle",
+      "tensor": "graph_000036.pt",
+      "graph_id": "idx_36",
+      "num_nodes": 796,
+      "undirected_edges": 47441
+    },
+    {
+      "source": "idx_37.gpickle",
+      "official_filename": "ER_700_800_0.15_37.gpickle",
+      "tensor": "graph_000037.pt",
+      "graph_id": "idx_37",
+      "num_nodes": 741,
+      "undirected_edges": 41106
+    },
+    {
+      "source": "idx_38.gpickle",
+      "official_filename": "ER_700_800_0.15_38.gpickle",
+      "tensor": "graph_000038.pt",
+      "graph_id": "idx_38",
+      "num_nodes": 720,
+      "undirected_edges": 38754
+    },
+    {
+      "source": "idx_39.gpickle",
+      "official_filename": "ER_700_800_0.15_39.gpickle",
+      "tensor": "graph_000039.pt",
+      "graph_id": "idx_39",
+      "num_nodes": 757,
+      "undirected_edges": 43163
+    },
+    {
+      "source": "idx_40.gpickle",
+      "official_filename": "ER_700_800_0.15_40.gpickle",
+      "tensor": "graph_000040.pt",
+      "graph_id": "idx_40",
+      "num_nodes": 749,
+      "undirected_edges": 41981
+    },
+    {
+      "source": "idx_41.gpickle",
+      "official_filename": "ER_700_800_0.15_41.gpickle",
+      "tensor": "graph_000041.pt",
+      "graph_id": "idx_41",
+      "num_nodes": 724,
+      "undirected_edges": 39339
+    },
+    {
+      "source": "idx_42.gpickle",
+      "official_filename": "ER_700_800_0.15_42.gpickle",
+      "tensor": "graph_000042.pt",
+      "graph_id": "idx_42",
+      "num_nodes": 784,
+      "undirected_edges": 45826
+    },
+    {
+      "source": "idx_43.gpickle",
+      "official_filename": "ER_700_800_0.15_43.gpickle",
+      "tensor": "graph_000043.pt",
+      "graph_id": "idx_43",
+      "num_nodes": 735,
+      "undirected_edges": 40631
+    },
+    {
+      "source": "idx_44.gpickle",
+      "official_filename": "ER_700_800_0.15_44.gpickle",
+      "tensor": "graph_000044.pt",
+      "graph_id": "idx_44",
+      "num_nodes": 775,
+      "undirected_edges": 44792
+    },
+    {
+      "source": "idx_45.gpickle",
+      "official_filename": "ER_700_800_0.15_45.gpickle",
+      "tensor": "graph_000045.pt",
+      "graph_id": "idx_45",
+      "num_nodes": 710,
+      "undirected_edges": 38061
+    },
+    {
+      "source": "idx_46.gpickle",
+      "official_filename": "ER_700_800_0.15_46.gpickle",
+      "tensor": "graph_000046.pt",
+      "graph_id": "idx_46",
+      "num_nodes": 790,
+      "undirected_edges": 47024
+    },
+    {
+      "source": "idx_47.gpickle",
+      "official_filename": "ER_700_800_0.15_47.gpickle",
+      "tensor": "graph_000047.pt",
+      "graph_id": "idx_47",
+      "num_nodes": 796,
+      "undirected_edges": 47426
+    },
+    {
+      "source": "idx_48.gpickle",
+      "official_filename": "ER_700_800_0.15_48.gpickle",
+      "tensor": "graph_000048.pt",
+      "graph_id": "idx_48",
+      "num_nodes": 714,
+      "undirected_edges": 37956
+    },
+    {
+      "source": "idx_49.gpickle",
+      "official_filename": "ER_700_800_0.15_49.gpickle",
+      "tensor": "graph_000049.pt",
+      "graph_id": "idx_49",
+      "num_nodes": 780,
+      "undirected_edges": 45254
+    },
+    {
+      "source": "idx_50.gpickle",
+      "official_filename": "ER_700_800_0.15_50.gpickle",
+      "tensor": "graph_000050.pt",
+      "graph_id": "idx_50",
+      "num_nodes": 793,
+      "undirected_edges": 47362
+    },
+    {
+      "source": "idx_51.gpickle",
+      "official_filename": "ER_700_800_0.15_51.gpickle",
+      "tensor": "graph_000051.pt",
+      "graph_id": "idx_51",
+      "num_nodes": 769,
+      "undirected_edges": 44075
+    },
+    {
+      "source": "idx_52.gpickle",
+      "official_filename": "ER_700_800_0.15_52.gpickle",
+      "tensor": "graph_000052.pt",
+      "graph_id": "idx_52",
+      "num_nodes": 745,
+      "undirected_edges": 41617
+    },
+    {
+      "source": "idx_53.gpickle",
+      "official_filename": "ER_700_800_0.15_53.gpickle",
+      "tensor": "graph_000053.pt",
+      "graph_id": "idx_53",
+      "num_nodes": 797,
+      "undirected_edges": 47525
+    },
+    {
+      "source": "idx_54.gpickle",
+      "official_filename": "ER_700_800_0.15_54.gpickle",
+      "tensor": "graph_000054.pt",
+      "graph_id": "idx_54",
+      "num_nodes": 760,
+      "undirected_edges": 43560
+    },
+    {
+      "source": "idx_55.gpickle",
+      "official_filename": "ER_700_800_0.15_55.gpickle",
+      "tensor": "graph_000055.pt",
+      "graph_id": "idx_55",
+      "num_nodes": 756,
+      "undirected_edges": 42709
+    },
+    {
+      "source": "idx_56.gpickle",
+      "official_filename": "ER_700_800_0.15_56.gpickle",
+      "tensor": "graph_000056.pt",
+      "graph_id": "idx_56",
+      "num_nodes": 780,
+      "undirected_edges": 45688
+    },
+    {
+      "source": "idx_57.gpickle",
+      "official_filename": "ER_700_800_0.15_57.gpickle",
+      "tensor": "graph_000057.pt",
+      "graph_id": "idx_57",
+      "num_nodes": 756,
+      "undirected_edges": 42678
+    },
+    {
+      "source": "idx_58.gpickle",
+      "official_filename": "ER_700_800_0.15_58.gpickle",
+      "tensor": "graph_000058.pt",
+      "graph_id": "idx_58",
+      "num_nodes": 781,
+      "undirected_edges": 45546
+    },
+    {
+      "source": "idx_59.gpickle",
+      "official_filename": "ER_700_800_0.15_59.gpickle",
+      "tensor": "graph_000059.pt",
+      "graph_id": "idx_59",
+      "num_nodes": 745,
+      "undirected_edges": 41547
+    },
+    {
+      "source": "idx_60.gpickle",
+      "official_filename": "ER_700_800_0.15_60.gpickle",
+      "tensor": "graph_000060.pt",
+      "graph_id": "idx_60",
+      "num_nodes": 767,
+      "undirected_edges": 44205
+    },
+    {
+      "source": "idx_61.gpickle",
+      "official_filename": "ER_700_800_0.15_61.gpickle",
+      "tensor": "graph_000061.pt",
+      "graph_id": "idx_61",
+      "num_nodes": 773,
+      "undirected_edges": 44618
+    },
+    {
+      "source": "idx_62.gpickle",
+      "official_filename": "ER_700_800_0.15_62.gpickle",
+      "tensor": "graph_000062.pt",
+      "graph_id": "idx_62",
+      "num_nodes": 783,
+      "undirected_edges": 45749
+    },
+    {
+      "source": "idx_63.gpickle",
+      "official_filename": "ER_700_800_0.15_63.gpickle",
+      "tensor": "graph_000063.pt",
+      "graph_id": "idx_63",
+      "num_nodes": 754,
+      "undirected_edges": 42458
+    },
+    {
+      "source": "idx_64.gpickle",
+      "official_filename": "ER_700_800_0.15_64.gpickle",
+      "tensor": "graph_000064.pt",
+      "graph_id": "idx_64",
+      "num_nodes": 738,
+      "undirected_edges": 40280
+    },
+    {
+      "source": "idx_65.gpickle",
+      "official_filename": "ER_700_800_0.15_65.gpickle",
+      "tensor": "graph_000065.pt",
+      "graph_id": "idx_65",
+      "num_nodes": 787,
+      "undirected_edges": 46661
+    },
+    {
+      "source": "idx_66.gpickle",
+      "official_filename": "ER_700_800_0.15_66.gpickle",
+      "tensor": "graph_000066.pt",
+      "graph_id": "idx_66",
+      "num_nodes": 770,
+      "undirected_edges": 44749
+    },
+    {
+      "source": "idx_67.gpickle",
+      "official_filename": "ER_700_800_0.15_67.gpickle",
+      "tensor": "graph_000067.pt",
+      "graph_id": "idx_67",
+      "num_nodes": 786,
+      "undirected_edges": 46315
+    },
+    {
+      "source": "idx_68.gpickle",
+      "official_filename": "ER_700_800_0.15_68.gpickle",
+      "tensor": "graph_000068.pt",
+      "graph_id": "idx_68",
+      "num_nodes": 779,
+      "undirected_edges": 45477
+    },
+    {
+      "source": "idx_69.gpickle",
+      "official_filename": "ER_700_800_0.15_69.gpickle",
+      "tensor": "graph_000069.pt",
+      "graph_id": "idx_69",
+      "num_nodes": 728,
+      "undirected_edges": 39667
+    },
+    {
+      "source": "idx_70.gpickle",
+      "official_filename": "ER_700_800_0.15_70.gpickle",
+      "tensor": "graph_000070.pt",
+      "graph_id": "idx_70",
+      "num_nodes": 729,
+      "undirected_edges": 39824
+    },
+    {
+      "source": "idx_71.gpickle",
+      "official_filename": "ER_700_800_0.15_71.gpickle",
+      "tensor": "graph_000071.pt",
+      "graph_id": "idx_71",
+      "num_nodes": 742,
+      "undirected_edges": 41650
+    },
+    {
+      "source": "idx_72.gpickle",
+      "official_filename": "ER_700_800_0.15_72.gpickle",
+      "tensor": "graph_000072.pt",
+      "graph_id": "idx_72",
+      "num_nodes": 751,
+      "undirected_edges": 42225
+    },
+    {
+      "source": "idx_73.gpickle",
+      "official_filename": "ER_700_800_0.15_73.gpickle",
+      "tensor": "graph_000073.pt",
+      "graph_id": "idx_73",
+      "num_nodes": 703,
+      "undirected_edges": 36990
+    },
+    {
+      "source": "idx_74.gpickle",
+      "official_filename": "ER_700_800_0.15_74.gpickle",
+      "tensor": "graph_000074.pt",
+      "graph_id": "idx_74",
+      "num_nodes": 717,
+      "undirected_edges": 38617
+    },
+    {
+      "source": "idx_75.gpickle",
+      "official_filename": "ER_700_800_0.15_75.gpickle",
+      "tensor": "graph_000075.pt",
+      "graph_id": "idx_75",
+      "num_nodes": 741,
+      "undirected_edges": 40974
+    },
+    {
+      "source": "idx_76.gpickle",
+      "official_filename": "ER_700_800_0.15_76.gpickle",
+      "tensor": "graph_000076.pt",
+      "graph_id": "idx_76",
+      "num_nodes": 742,
+      "undirected_edges": 41136
+    },
+    {
+      "source": "idx_77.gpickle",
+      "official_filename": "ER_700_800_0.15_77.gpickle",
+      "tensor": "graph_000077.pt",
+      "graph_id": "idx_77",
+      "num_nodes": 796,
+      "undirected_edges": 47383
+    },
+    {
+      "source": "idx_78.gpickle",
+      "official_filename": "ER_700_800_0.15_78.gpickle",
+      "tensor": "graph_000078.pt",
+      "graph_id": "idx_78",
+      "num_nodes": 756,
+      "undirected_edges": 42929
+    },
+    {
+      "source": "idx_79.gpickle",
+      "official_filename": "ER_700_800_0.15_79.gpickle",
+      "tensor": "graph_000079.pt",
+      "graph_id": "idx_79",
+      "num_nodes": 785,
+      "undirected_edges": 46152
+    },
+    {
+      "source": "idx_80.gpickle",
+      "official_filename": "ER_700_800_0.15_80.gpickle",
+      "tensor": "graph_000080.pt",
+      "graph_id": "idx_80",
+      "num_nodes": 790,
+      "undirected_edges": 46742
+    },
+    {
+      "source": "idx_81.gpickle",
+      "official_filename": "ER_700_800_0.15_81.gpickle",
+      "tensor": "graph_000081.pt",
+      "graph_id": "idx_81",
+      "num_nodes": 749,
+      "undirected_edges": 42384
+    },
+    {
+      "source": "idx_82.gpickle",
+      "official_filename": "ER_700_800_0.15_82.gpickle",
+      "tensor": "graph_000082.pt",
+      "graph_id": "idx_82",
+      "num_nodes": 794,
+      "undirected_edges": 47199
+    },
+    {
+      "source": "idx_83.gpickle",
+      "official_filename": "ER_700_800_0.15_83.gpickle",
+      "tensor": "graph_000083.pt",
+      "graph_id": "idx_83",
+      "num_nodes": 780,
+      "undirected_edges": 45390
+    },
+    {
+      "source": "idx_84.gpickle",
+      "official_filename": "ER_700_800_0.15_84.gpickle",
+      "tensor": "graph_000084.pt",
+      "graph_id": "idx_84",
+      "num_nodes": 744,
+      "undirected_edges": 41338
+    },
+    {
+      "source": "idx_85.gpickle",
+      "official_filename": "ER_700_800_0.15_85.gpickle",
+      "tensor": "graph_000085.pt",
+      "graph_id": "idx_85",
+      "num_nodes": 762,
+      "undirected_edges": 43446
+    },
+    {
+      "source": "idx_86.gpickle",
+      "official_filename": "ER_700_800_0.15_86.gpickle",
+      "tensor": "graph_000086.pt",
+      "graph_id": "idx_86",
+      "num_nodes": 724,
+      "undirected_edges": 39357
+    },
+    {
+      "source": "idx_87.gpickle",
+      "official_filename": "ER_700_800_0.15_87.gpickle",
+      "tensor": "graph_000087.pt",
+      "graph_id": "idx_87",
+      "num_nodes": 761,
+      "undirected_edges": 43407
+    },
+    {
+      "source": "idx_88.gpickle",
+      "official_filename": "ER_700_800_0.15_88.gpickle",
+      "tensor": "graph_000088.pt",
+      "graph_id": "idx_88",
+      "num_nodes": 738,
+      "undirected_edges": 40801
+    },
+    {
+      "source": "idx_89.gpickle",
+      "official_filename": "ER_700_800_0.15_89.gpickle",
+      "tensor": "graph_000089.pt",
+      "graph_id": "idx_89",
+      "num_nodes": 786,
+      "undirected_edges": 46494
+    },
+    {
+      "source": "idx_90.gpickle",
+      "official_filename": "ER_700_800_0.15_90.gpickle",
+      "tensor": "graph_000090.pt",
+      "graph_id": "idx_90",
+      "num_nodes": 730,
+      "undirected_edges": 40102
+    },
+    {
+      "source": "idx_91.gpickle",
+      "official_filename": "ER_700_800_0.15_91.gpickle",
+      "tensor": "graph_000091.pt",
+      "graph_id": "idx_91",
+      "num_nodes": 700,
+      "undirected_edges": 36521
+    },
+    {
+      "source": "idx_92.gpickle",
+      "official_filename": "ER_700_800_0.15_92.gpickle",
+      "tensor": "graph_000092.pt",
+      "graph_id": "idx_92",
+      "num_nodes": 800,
+      "undirected_edges": 47885
+    },
+    {
+      "source": "idx_93.gpickle",
+      "official_filename": "ER_700_800_0.15_93.gpickle",
+      "tensor": "graph_000093.pt",
+      "graph_id": "idx_93",
+      "num_nodes": 713,
+      "undirected_edges": 38138
+    },
+    {
+      "source": "idx_94.gpickle",
+      "official_filename": "ER_700_800_0.15_94.gpickle",
+      "tensor": "graph_000094.pt",
+      "graph_id": "idx_94",
+      "num_nodes": 735,
+      "undirected_edges": 40602
+    },
+    {
+      "source": "idx_95.gpickle",
+      "official_filename": "ER_700_800_0.15_95.gpickle",
+      "tensor": "graph_000095.pt",
+      "graph_id": "idx_95",
+      "num_nodes": 708,
+      "undirected_edges": 37613
+    },
+    {
+      "source": "idx_96.gpickle",
+      "official_filename": "ER_700_800_0.15_96.gpickle",
+      "tensor": "graph_000096.pt",
+      "graph_id": "idx_96",
+      "num_nodes": 717,
+      "undirected_edges": 38645
+    },
+    {
+      "source": "idx_97.gpickle",
+      "official_filename": "ER_700_800_0.15_97.gpickle",
+      "tensor": "graph_000097.pt",
+      "graph_id": "idx_97",
+      "num_nodes": 772,
+      "undirected_edges": 44921
+    },
+    {
+      "source": "idx_98.gpickle",
+      "official_filename": "ER_700_800_0.15_98.gpickle",
+      "tensor": "graph_000098.pt",
+      "graph_id": "idx_98",
+      "num_nodes": 786,
+      "undirected_edges": 45963
+    },
+    {
+      "source": "idx_99.gpickle",
+      "official_filename": "ER_700_800_0.15_99.gpickle",
+      "tensor": "graph_000099.pt",
+      "graph_id": "idx_99",
+      "num_nodes": 792,
+      "undirected_edges": 46741
+    },
+    {
+      "source": "idx_100.gpickle",
+      "official_filename": "ER_700_800_0.15_100.gpickle",
+      "tensor": "graph_000100.pt",
+      "graph_id": "idx_100",
+      "num_nodes": 751,
+      "undirected_edges": 42260
+    },
+    {
+      "source": "idx_101.gpickle",
+      "official_filename": "ER_700_800_0.15_101.gpickle",
+      "tensor": "graph_000101.pt",
+      "graph_id": "idx_101",
+      "num_nodes": 768,
+      "undirected_edges": 44046
+    },
+    {
+      "source": "idx_102.gpickle",
+      "official_filename": "ER_700_800_0.15_102.gpickle",
+      "tensor": "graph_000102.pt",
+      "graph_id": "idx_102",
+      "num_nodes": 729,
+      "undirected_edges": 39681
+    },
+    {
+      "source": "idx_103.gpickle",
+      "official_filename": "ER_700_800_0.15_103.gpickle",
+      "tensor": "graph_000103.pt",
+      "graph_id": "idx_103",
+      "num_nodes": 785,
+      "undirected_edges": 46353
+    },
+    {
+      "source": "idx_104.gpickle",
+      "official_filename": "ER_700_800_0.15_104.gpickle",
+      "tensor": "graph_000104.pt",
+      "graph_id": "idx_104",
+      "num_nodes": 765,
+      "undirected_edges": 43940
+    },
+    {
+      "source": "idx_105.gpickle",
+      "official_filename": "ER_700_800_0.15_105.gpickle",
+      "tensor": "graph_000105.pt",
+      "graph_id": "idx_105",
+      "num_nodes": 712,
+      "undirected_edges": 38054
+    },
+    {
+      "source": "idx_106.gpickle",
+      "official_filename": "ER_700_800_0.15_106.gpickle",
+      "tensor": "graph_000106.pt",
+      "graph_id": "idx_106",
+      "num_nodes": 760,
+      "undirected_edges": 43189
+    },
+    {
+      "source": "idx_107.gpickle",
+      "official_filename": "ER_700_800_0.15_107.gpickle",
+      "tensor": "graph_000107.pt",
+      "graph_id": "idx_107",
+      "num_nodes": 743,
+      "undirected_edges": 41179
+    },
+    {
+      "source": "idx_108.gpickle",
+      "official_filename": "ER_700_800_0.15_108.gpickle",
+      "tensor": "graph_000108.pt",
+      "graph_id": "idx_108",
+      "num_nodes": 720,
+      "undirected_edges": 38800
+    },
+    {
+      "source": "idx_109.gpickle",
+      "official_filename": "ER_700_800_0.15_109.gpickle",
+      "tensor": "graph_000109.pt",
+      "graph_id": "idx_109",
+      "num_nodes": 790,
+      "undirected_edges": 46455
+    },
+    {
+      "source": "idx_110.gpickle",
+      "official_filename": "ER_700_800_0.15_110.gpickle",
+      "tensor": "graph_000110.pt",
+      "graph_id": "idx_110",
+      "num_nodes": 716,
+      "undirected_edges": 38541
+    },
+    {
+      "source": "idx_111.gpickle",
+      "official_filename": "ER_700_800_0.15_111.gpickle",
+      "tensor": "graph_000111.pt",
+      "graph_id": "idx_111",
+      "num_nodes": 798,
+      "undirected_edges": 47778
+    },
+    {
+      "source": "idx_112.gpickle",
+      "official_filename": "ER_700_800_0.15_112.gpickle",
+      "tensor": "graph_000112.pt",
+      "graph_id": "idx_112",
+      "num_nodes": 794,
+      "undirected_edges": 47555
+    },
+    {
+      "source": "idx_113.gpickle",
+      "official_filename": "ER_700_800_0.15_113.gpickle",
+      "tensor": "graph_000113.pt",
+      "graph_id": "idx_113",
+      "num_nodes": 768,
+      "undirected_edges": 44257
+    },
+    {
+      "source": "idx_114.gpickle",
+      "official_filename": "ER_700_800_0.15_114.gpickle",
+      "tensor": "graph_000114.pt",
+      "graph_id": "idx_114",
+      "num_nodes": 763,
+      "undirected_edges": 43658
+    },
+    {
+      "source": "idx_115.gpickle",
+      "official_filename": "ER_700_800_0.15_115.gpickle",
+      "tensor": "graph_000115.pt",
+      "graph_id": "idx_115",
+      "num_nodes": 795,
+      "undirected_edges": 47060
+    },
+    {
+      "source": "idx_116.gpickle",
+      "official_filename": "ER_700_800_0.15_116.gpickle",
+      "tensor": "graph_000116.pt",
+      "graph_id": "idx_116",
+      "num_nodes": 727,
+      "undirected_edges": 39543
+    },
+    {
+      "source": "idx_117.gpickle",
+      "official_filename": "ER_700_800_0.15_117.gpickle",
+      "tensor": "graph_000117.pt",
+      "graph_id": "idx_117",
+      "num_nodes": 780,
+      "undirected_edges": 45528
+    },
+    {
+      "source": "idx_118.gpickle",
+      "official_filename": "ER_700_800_0.15_118.gpickle",
+      "tensor": "graph_000118.pt",
+      "graph_id": "idx_118",
+      "num_nodes": 754,
+      "undirected_edges": 42753
+    },
+    {
+      "source": "idx_119.gpickle",
+      "official_filename": "ER_700_800_0.15_119.gpickle",
+      "tensor": "graph_000119.pt",
+      "graph_id": "idx_119",
+      "num_nodes": 794,
+      "undirected_edges": 47287
+    },
+    {
+      "source": "idx_120.gpickle",
+      "official_filename": "ER_700_800_0.15_120.gpickle",
+      "tensor": "graph_000120.pt",
+      "graph_id": "idx_120",
+      "num_nodes": 755,
+      "undirected_edges": 42712
+    },
+    {
+      "source": "idx_121.gpickle",
+      "official_filename": "ER_700_800_0.15_121.gpickle",
+      "tensor": "graph_000121.pt",
+      "graph_id": "idx_121",
+      "num_nodes": 745,
+      "undirected_edges": 41834
+    },
+    {
+      "source": "idx_122.gpickle",
+      "official_filename": "ER_700_800_0.15_122.gpickle",
+      "tensor": "graph_000122.pt",
+      "graph_id": "idx_122",
+      "num_nodes": 711,
+      "undirected_edges": 38081
+    },
+    {
+      "source": "idx_123.gpickle",
+      "official_filename": "ER_700_800_0.15_123.gpickle",
+      "tensor": "graph_000123.pt",
+      "graph_id": "idx_123",
+      "num_nodes": 708,
+      "undirected_edges": 37262
+    },
+    {
+      "source": "idx_124.gpickle",
+      "official_filename": "ER_700_800_0.15_124.gpickle",
+      "tensor": "graph_000124.pt",
+      "graph_id": "idx_124",
+      "num_nodes": 753,
+      "undirected_edges": 42157
+    },
+    {
+      "source": "idx_125.gpickle",
+      "official_filename": "ER_700_800_0.15_125.gpickle",
+      "tensor": "graph_000125.pt",
+      "graph_id": "idx_125",
+      "num_nodes": 789,
+      "undirected_edges": 46365
+    },
+    {
+      "source": "idx_126.gpickle",
+      "official_filename": "ER_700_800_0.15_126.gpickle",
+      "tensor": "graph_000126.pt",
+      "graph_id": "idx_126",
+      "num_nodes": 749,
+      "undirected_edges": 41497
+    },
+    {
+      "source": "idx_127.gpickle",
+      "official_filename": "ER_700_800_0.15_127.gpickle",
+      "tensor": "graph_000127.pt",
+      "graph_id": "idx_127",
+      "num_nodes": 789,
+      "undirected_edges": 46640
+    }
+  ]
+}

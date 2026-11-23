@@ -1,0 +1,55 @@
+arm,reference,kind,graphs,delta,ci_low,ci_high,win,tie,loss
+A0-1s,hist-20.0685,paired_vector,1000,0.0005,0.0,0.0015,1,999,0
+A0-1s,rlsa_1s=20.084,unpaired_constant,1000,-0.015,-0.119,0.086,438,0,562
+A0-1s,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.037,-0.141,0.064,438,0,562
+A0-1s-s1019,hist-20.0685,paired_vector,1000,-0.0025,-0.0145,0.009,17,964,19
+A0-1s-s1019,rlsa_1s=20.084,unpaired_constant,1000,-0.018,-0.121,0.082,435,0,565
+A0-1s-s1019,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.04,-0.143,0.06,435,0,565
+A0-1s-s1021,hist-20.0685,paired_vector,1000,0.0025,-0.008,0.013,16,971,13
+A0-1s-s1021,rlsa_1s=20.084,unpaired_constant,1000,-0.013,-0.115,0.087,436,0,564
+A0-1s-s1021,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.035,-0.137,0.065,436,0,564
+P0-0.2s-s1017,hist-20.0685,paired_vector,1000,-0.1895,-0.215,-0.1645,0,814,186
+P0-0.2s-s1017,rlsa_1s=20.084,unpaired_constant,1000,-0.205,-0.306,-0.106,390,0,610
+P0-0.2s-s1017,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.227,-0.328,-0.128,390,0,610
+P0-0.2s-s1019,hist-20.0685,paired_vector,1000,-0.1685,-0.194,-0.1435,5,827,168
+P0-0.2s-s1019,rlsa_1s=20.084,unpaired_constant,1000,-0.184,-0.285,-0.084,401,0,599
+P0-0.2s-s1019,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.206,-0.307,-0.106,401,0,599
+P0-0.2s-s1021,hist-20.0685,paired_vector,1000,-0.1905,-0.216,-0.165,4,804,192
+P0-0.2s-s1021,rlsa_1s=20.084,unpaired_constant,1000,-0.206,-0.307,-0.107,393,0,607
+P0-0.2s-s1021,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.228,-0.329,-0.129,393,0,607
+curve-130,hist-20.0685,paired_vector,1000,-0.1795,-0.205,-0.156,0,825,175
+curve-130,rlsa_1s=20.084,unpaired_constant,1000,-0.195,-0.297,-0.098,391,0,609
+curve-130,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.217,-0.319,-0.12,391,0,609
+curve-200,hist-20.0685,paired_vector,1000,-0.0985,-0.118,-0.0805,0,903,97
+curve-200,rlsa_1s=20.084,unpaired_constant,1000,-0.114,-0.215,-0.014,415,0,585
+curve-200,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.136,-0.237,-0.036,415,0,585
+curve-280,hist-20.0685,paired_vector,1000,-0.0645,-0.0805,-0.05,0,936,64
+curve-280,rlsa_1s=20.084,unpaired_constant,1000,-0.08,-0.182,0.02,424,0,576
+curve-280,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.102,-0.204,-0.002,424,0,576
+curve-350,hist-20.0685,paired_vector,1000,-0.0415,-0.055,-0.0295,0,959,41
+curve-350,rlsa_1s=20.084,unpaired_constant,1000,-0.057,-0.159,0.044,431,0,569
+curve-350,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.079,-0.181,0.022,431,0,569
+curve-450,hist-20.0685,paired_vector,1000,-0.0245,-0.0345,-0.0155,0,975,25
+curve-450,rlsa_1s=20.084,unpaired_constant,1000,-0.04,-0.142,0.059,435,0,565
+curve-450,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.062,-0.164,0.037,435,0,565
+ladder-s1017@0.1s,hist-20.0685,paired_vector,1000,-1.5145,-1.5875,-1.4405,0,211,789
+ladder-s1017@0.1s,rlsa_1s=20.084,unpaired_constant,1000,-1.53,-1.633,-1.426,130,0,870
+ladder-s1017@0.1s,kamis_legacy_1s=20.106,unpaired_constant,1000,-1.552,-1.655,-1.448,130,0,870
+ladder-s1017@0.5s,hist-20.0685,paired_vector,1000,-0.0215,-0.031,-0.013,0,978,22
+ladder-s1017@0.5s,rlsa_1s=20.084,unpaired_constant,1000,-0.037,-0.139,0.062,436,0,564
+ladder-s1017@0.5s,kamis_legacy_1s=20.106,unpaired_constant,1000,-0.059,-0.161,0.04,436,0,564
+A0-1s-pooled(3seed),hist-20.0685,paired_vector,1000,0.000167,-0.005833,0.006,25,945,30
+A0-1s-pooled(3seed),rlsa_1s=20.084,unpaired_constant,1000,-0.015333,-0.117667,0.084667,442,0,558
+A0-1s-pooled(3seed),kamis_legacy_1s=20.106,unpaired_constant,1000,-0.037333,-0.139667,0.062667,442,0,558
+P0-0.2s-pooled(3seed),hist-20.0685,paired_vector,1000,-0.182833,-0.203667,-0.1625,8,685,307
+P0-0.2s-pooled(3seed),rlsa_1s=20.084,unpaired_constant,1000,-0.198333,-0.297333,-0.1,420,0,580
+P0-0.2s-pooled(3seed),kamis_legacy_1s=20.106,unpaired_constant,1000,-0.220333,-0.319333,-0.122,420,0,580
+P0-0.2s-s1017,A0-1s (paired arm),paired_arm,1000,-0.19,-0.216,-0.165,0,814,186
+A0-1s-s1019,A0-1s (paired arm),paired_arm,1000,-0.003,-0.015,0.008,16,965,19
+A0-1s-s1021,A0-1s (paired arm),paired_arm,1000,0.002,-0.008,0.012,15,972,13
+curve-130,curve-450 (paired arm),paired_arm,1000,-0.155,-0.178,-0.132,0,849,151
+ladder-0.1s,A0-1s (paired arm),paired_arm,1000,-1.515,-1.588,-1.441,0,211,789
+ladder-0.5s,A0-1s (paired arm),paired_arm,1000,-0.022,-0.031,-0.013,0,978,22
+P0-0.2s-pooled(3seed),A0-1s-pooled(3seed) (paired arm),paired_arm,1000,-0.183,-0.202667,-0.164,0,679,321
+C4-escape-deploy-h8,C4-escape-deploy-h0 (paired arm),paired_arm,200,0.0,0.0,0.0,0,200,0
+C4-escape-greedy-h8,C4-escape-greedy-h0 (paired arm),paired_arm,200,-0.055,-0.1,-0.015,2,187,11

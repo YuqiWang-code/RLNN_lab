@@ -1,0 +1,12 @@
+RB_small validation: 16 graphs ready
+RB_large validation: 16 graphs ready
+ER_small validation: 16 graphs ready
+RB_small train: 128 graphs ready
+RB_large train: 128 graphs ready
+ER_small train: 128 graphs ready
+RB_small validation: 16 labelled graphs, mean best 20.000
+RB_large validation: 16 labelled graphs, mean best 41.750
+ER_small validation: 16 labelled graphs, mean best 44.000
+RB_small train: 128 labelled graphs, mean best 20.039
+RB_large train: 128 labelled graphs, mean best 42.562
+ER_small train: 128 labelled graphs, mean best 43.961

@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "source_rows": 3000,
+    "mean_size": 20.03,
+    "mean_wall_ms": 193.79906666666665,
+    "wall_p50_ms": 193.9,
+    "wall_p95_ms": 196.4,
+    "mean_steps": 350.98333333333335,
+    "ready_by_deadline": 3000
+  },
+  "reference": {
+    "source_rows": 1000,
+    "mean_size": 19.52,
+    "mean_wall_ms": 208.072990383,
+    "wall_p50_ms": 144.50082550000002,
+    "wall_p95_ms": 455.55242719999984,
+    "mean_steps": null,
+    "ready_by_deadline": 685
+  },
+  "deadline_ms": 200,
+  "graph_count": 1000,
+  "pairs": 3000,
+  "mean_paired_delta": 0.51,
+  "ci95": [
+    0.476,
+    0.546
+  ],
+  "wins": 1411,
+  "ties": 1585,
+  "losses": 4,
+  "same_seed_protocol": false,
+  "sources": {
+    "candidate": "outputs/v11/fused_pave_02s_deadline",
+    "candidate_glob": "pave_off_s*/v11_rows.csv",
+    "reference": "outputs/v000_rlnn_baseline/rb_author_test_gpu1_author_erdoes_gradient_flip/per_graph.csv"
+  }
+}

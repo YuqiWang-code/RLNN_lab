@@ -1,0 +1,32 @@
+{
+  "method": "fld_eg",
+  "graphs": 1000,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/MIS_tensors/RB_large_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "0",
+  "solver_config": {
+    "source": "NeurIPS 2025 Algorithm 1 and Table 3 reconstruction",
+    "precision": "fp32",
+    "particles": 200,
+    "horizon": 300,
+    "block_steps": 10,
+    "alpha": 1.2,
+    "tau0": 0.01,
+    "penalty": 1.02,
+    "gradient_rank": 5,
+    "noise_rank": 9,
+    "a_eta": 4.0,
+    "b_eta": 0.6,
+    "terminal_temperature_floor": 3.3333333333333335e-05,
+    "decoding": "midpoint and terminal greedy decoding of per-chain energy archives"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

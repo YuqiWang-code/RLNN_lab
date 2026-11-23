@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering\footnotesize\setlength{\tabcolsep}{3.8pt}
+\caption{Fixed-limit KaMIS executables and distribution-matched RLNN under the 200\,ms deadline. Both KaMIS executables use a 180\,ms internal limit on all four sets. Size averages the delivered cardinality across all $N$ graph--seed pairs, with missed deliveries scored zero. Time is mean wall time in milliseconds. Ready counts pairs with a feasible set by the cutoff. RLNN uses the released checkpoint for each RB range and the shared ER checkpoint for both ER ranges.}
+\label{tab:scale-supplement}
+\resizebox{\textwidth}{!}{\begin{tabular}{lrrrrrrrrrrrr}
+\toprule
+\paperHeader & \multicolumn{3}{c}{\paperHead{RB-[200--300]}} & \multicolumn{3}{c}{\paperHead{RB-[800--1200]}} & \multicolumn{3}{c}{\paperHead{ER-[700--800]}} & \multicolumn{3}{c}{\paperHead{ER-[9000--11000]}} \\
+\paperHeader & \multicolumn{3}{c}{$N=3000$} & \multicolumn{3}{c}{$N=3000$} & \multicolumn{3}{c}{$N=384$} & \multicolumn{3}{c}{$N=48$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}
+\paperHeader \paperHead{Solver} & \paperHead{Size\,$\uparrow$} & \paperHead{Time\,$\downarrow$} & \paperHead{Ready} & \paperHead{Size\,$\uparrow$} & \paperHead{Time\,$\downarrow$} & \paperHead{Ready} & \paperHead{Size\,$\uparrow$} & \paperHead{Time\,$\downarrow$} & \paperHead{Ready} & \paperHead{Size\,$\uparrow$} & \paperHead{Time\,$\downarrow$} & \paperHead{Ready} \\
+\midrule
+KaMIS OnlineMIS & 20.0393 & 186.86 & 2998 & 6.8280 & 200.99 & 503 & 11.6224 & 200.42 & 104 & 0.0000 & 206.12 & 0 \\
+KaMIS ReduMIS & 1.8473 & 195.64 & 280 & 0.3490 & 202.75 & 26 & 0.0000 & 202.90 & 0 & 0.0000 & 206.18 & 0 \\
+Released RLNN (matched) & 19.4247 & 152.25 & 2999 & 30.5393 & 173.85 & 2590 & 40.5521 & 177.93 & 383 & 0.0000 & 1552.01 & 0 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

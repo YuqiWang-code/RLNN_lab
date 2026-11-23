@@ -52,3 +52,26 @@ Mamba 主线参考了 [Mamba](Mamba/upstream.json)（Apache-2.0）、[Graph-Mamb
 ~~~powershell
 python tools/fetch_references.py all --method SLOG --method S2GNN --method Spectral-benchmark --method MORGAN
 ~~~
+
+## v11 文献方法快照（2026-11-17）
+
+五篇与 PAVE / 1 秒搜索循环直接相关的方法。四个有可核实的作者仓库，已 pin 到 commit 并快照源码；LRBS 未见公开仓库，按论文 §3 与 Algorithm 1 重写成 <200 行算子，不声称复现作者实现。
+
+| 方法 | 本地源码 | 论文 | 主要用途 | 许可证 |
+| --- | --- | --- | --- | --- |
+| BALANS | [source](BALANS/source) | [IJCAI 2025](https://www.ijcai.org/proceedings/2025/0286) | ALNS(MIP) 的 online bandit 算子选择 | Apache-2.0 |
+| DRHG | [source](DRHG/source) | [AAAI 2025](https://doi.org/10.1609/aaai.v39i17.34018) | destroy 后压成超边，修复输入与问题规模无关 | 未提供根许可证（仅阅读） |
+| DORA | [source](DORA/source) | [NeurIPS 2025](https://arxiv.org/abs/2506.15707) | 测试期预算的方向级最优分配 | Apache-2.0 |
+| FLD4CO | [source](FLD4CO/source) + [operators](FLD4CO/operators/fld_sas.py) | [NeurIPS 2025](https://doi.org/10.52202/085713-3542) | 截断 alpha-stable 噪声；上游仅 README 与 LICENSE，算子是重写 | MIT |
+| LRBS | [operators](LRBS/operators/lrbs_beam.py) | [AAAI 2025](https://doi.org/10.1609/aaai.v39i25.34921) | 推理期 beam + 限步 rollout，PAVE extend 的宽度化 | 无上游仓库 |
+
+两个算子的自检（纯标准库 / numpy，无 torch）：
+
+~~~bash
+python reference_methods/LRBS/operators/lrbs_beam.py
+python reference_methods/FLD4CO/operators/fld_sas.py
+~~~
+
+`LRBS/operators/lrbs_beam.py` 在 200 点随机图上从贪心解出发，beta=4 / alpha=5 / ns=4 / rounds=2 得到 +2（deg=12 时 37→39，deg=40 时 16→18），而 beta=1 / alpha=1 / ns=0（等价 PAVE 的 horizon=1）只能 +0~+1；`FLD4CO/operators/fld_sas.py` 的三组自检给出 alpha=2 的方差 2.001、alpha=1.2 的 99.9 分位 114.8（高斯同分位 4.66），以及同步长下双井势的中位首次跨井 24 步（高斯 53 步）。这些都是玩具规模的自检，只用于确认算子实现正确，不是 MIS 上的收益证据。
+
+快照过滤：DRHG 的 `*.pt` 权重与 >2MB 的 TSP/CVRP 实例文本未随源码归档（见 `DRHG/upstream.json` 的 `excluded_from_snapshot`），`.git` 目录一律不保留，版本由 `upstream.json` 固定。文献综述见 [RLNN_v11_Literature_2024_2026](../docs/temporary/RLNN_v11_Literature_2024_2026.md)。

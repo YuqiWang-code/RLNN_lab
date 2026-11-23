@@ -1,0 +1,30 @@
+{
+  "epoch": 0,
+  "ranking": [
+    0.0,
+    -0.70834606513381
+  ],
+  "validation": {
+    "RB_small": {
+      "size": 16.4375,
+      "loss": 0.7226644679903984,
+      "teacher": 20.0,
+      "degree": 16.4375,
+      "normalized_gain": 0.0
+    },
+    "RB_large": {
+      "size": 33.625,
+      "loss": 0.735505398362875,
+      "teacher": 41.75,
+      "degree": 33.625,
+      "normalized_gain": 0.0
+    },
+    "ER_small": {
+      "size": 34.375,
+      "loss": 0.6668683290481567,
+      "teacher": 44.0,
+      "degree": 34.375,
+      "normalized_gain": 0.0
+    }
+  }
+}

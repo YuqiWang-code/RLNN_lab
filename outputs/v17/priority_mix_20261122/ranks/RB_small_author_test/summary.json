@@ -1,0 +1,9 @@
+{
+  "spearman_neural_degree": 0.5828568464758271,
+  "top_overlap": 0.12896969696969696,
+  "spearman_blend_degree": 0.9903003723013154,
+  "spearman_blend_neural": 0.6511634491767891,
+  "graphs": 200,
+  "mix": 0.25,
+  "top_k_fraction": 0.05
+}

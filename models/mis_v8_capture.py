@@ -38,15 +38,11 @@ class CapturedSearch:
         self.problem = solver.problem
         self.dtype = solver.dtype
         self.generator = generator
-        # Same initial draw as ``sample_states``: the freeze means the archive and
-        # the flip policy see exactly this state, so the block starts from x_0.
         self.state = torch.randint(0, 2, (self.node_count, solver.num_k),
                                    device=self.device, dtype=self.dtype, generator=generator)
         self.product = (adjacency @ self.state) if solver.structure_gain else None
         self.best_states = self.state.clone()
         self.best_energy = self.problem.energy_func(adjacency, graph.b, self.state)[0]
-        # Counts archive improvements on the device: a block that leaves the archive
-        # untouched makes the next decode a pure repeat, so ``run`` can skip it.
         self.improvements = torch.zeros(1, device=self.device, dtype=torch.long)
         self._adjacency = adjacency
         self._topology = topology
@@ -90,8 +86,6 @@ class CapturedSearch:
         with torch.cuda.stream(stream):
             self._body()
         torch.cuda.current_stream(device).wait_stream(stream)
-        # Restore the exact pre-capture state: the capture has to record the same
-        # draws the eager run would have taken from here.
         self.generator.set_state(rng_state)
         self.state.copy_(state)
         self.best_states.copy_(best)

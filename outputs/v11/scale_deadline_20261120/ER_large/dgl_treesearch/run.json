@@ -1,0 +1,41 @@
+{
+  "method": "dgl_treesearch",
+  "graphs": 16,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/MIS_tensors/ER_large_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "1",
+  "solver_config": {
+    "checkpoint": "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/dgl_dense_training/1795087457_final_model32.torch",
+    "pretrained": "locally supervised RB-small",
+    "upstream_revision": "976f53ed126ea64c56ab0aa4563135abae49338b",
+    "dgl": "2.4.0+cu124",
+    "probability_maps": 32,
+    "max_maps_per_expansion": 1,
+    "calibration_candidates": [
+      32,
+      16,
+      8,
+      4,
+      2,
+      1
+    ],
+    "calibration_target_ms": 65,
+    "self_loops": true,
+    "workers": 1,
+    "reduction": false,
+    "local_search": false,
+    "queue_pruning": false,
+    "weighted_queue_pop": false,
+    "device": "cuda:0",
+    "delivery": "largest legal complete or partial result after each probability map"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

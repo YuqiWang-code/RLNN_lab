@@ -1,0 +1,12 @@
+index, name, memory.total [MiB], memory.free [MiB]
+0, NVIDIA GeForce RTX 5090, 32607 MiB, 26227 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB, 14491 MiB
+/home/hzeng/project/ZH/RLNN_lab/models/mis_v1.py:14: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  ).to_sparse_csr()
+fld_eg: 20/128 graphs
+fld_eg: 40/128 graphs
+fld_eg: 60/128 graphs
+fld_eg: 80/128 graphs
+fld_eg: 100/128 graphs
+fld_eg: 120/128 graphs
+fld_eg: 128/128 graphs

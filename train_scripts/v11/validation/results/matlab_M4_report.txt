@@ -1,0 +1,11 @@
+M4 移动半径 vs 改进概率：36 张图，k=1..6
+k=1 P(1s)=0% P(PAVE)=0% P(greedy)=0% maxG(1s)=0 maxG(PAVE)=0 meanG(1s)=0.00 meanG(PAVE)=0.00 capped=0
+k=2 P(1s)=0% P(PAVE)=0% P(greedy)=0% maxG(1s)=0 maxG(PAVE)=0 meanG(1s)=0.00 meanG(PAVE)=0.00 capped=0
+k=3 P(1s)=0% P(PAVE)=0% P(greedy)=0% maxG(1s)=0 maxG(PAVE)=0 meanG(1s)=0.00 meanG(PAVE)=0.00 capped=0
+k=4 P(1s)=0% P(PAVE)=0% P(greedy)=0% maxG(1s)=0 maxG(PAVE)=0 meanG(1s)=0.00 meanG(PAVE)=0.00 capped=0
+k=5 P(1s)=0% P(PAVE)=0% P(greedy)=0% maxG(1s)=0 maxG(PAVE)=0 meanG(1s)=0.00 meanG(PAVE)=0.00 capped=0
+k=6 P(1s)=0% P(PAVE)=0% P(greedy)=0% maxG(1s)=0 maxG(PAVE)=0 meanG(1s)=0.00 meanG(PAVE)=0.00 capped=0
+[greedy] 1-move 0/36; 2-3 move 0/36; <=6-move 0/36
+[search1s] 1-move 0/36; 2-3 move 0/36; <=6-move 0/36
+[pave] 1-move 0/36; 2-3 move 0/36; <=6-move 0/36
+capped cells 0/648

@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/Thinklab-SJTU/FLD4CO",
+  "revision": "083101d0b6f07c22a4b9d0c8c2f779e7bbb2425c",
+  "license": "MIT（仓库根 LICENSE）",
+  "paper": "NeurIPS 2025, doi 10.52202/085713-3542",
+  "note": "作者仓库当前只有 README.md 与 LICENSE（2 个文件），论文代码未公开；本地 source/ 保留该快照，算子按论文 §4.2 重写在 operators/fld_sas.py。"
+}

@@ -25,3 +25,8 @@ wandb/
 !outputs/**/*.log
 tmp/
 .memsearch/
+.agent-teams/
+.dsh-matlab-runner/
+
+# large data blobs (data and weights live on the server)
+*.tar.gz

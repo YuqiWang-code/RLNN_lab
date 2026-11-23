@@ -1,0 +1,445 @@
+RLNN_LAB — 论文快照（版本 A 口径 + v9/v10 增补）
+================================================
+
+生成日期：2026-11-17（初版 2026-11-14）
+仓库：F:\Code_Repositories_2\RLNN_lab（分支 codex/v7-one-shot-mamba）
+用途：这是一个**冻结的写作口径**。搜索侧的所有杠杆已用尽（v1–v10 全部为负或中性），
+       按这份快照的数字与边界写论文，不需要重新跑实验。
+
+------------------------------------------------------------------
+0. 这份快照是什么
+------------------------------------------------------------------
+把「收口」所需的全部东西压在一个文件里：
+  §1 一句话主张（三段）
+  §2 环境与协议
+  §3 主结果（作者 1000 图）
+  §4 摊薄捕获 + 时钟修正（两个真正赢的工程点）
+  §5 平台 PAVE（诊断性结论）
+  §6 负结果清单（这一版论文的方法论主体，§6.1–§6.10）
+  §7 明确不主张的边界
+  §8 文件清单（代码 / 启动器 / 文档 / 产物）
+  §9 复现命令
+  §10 版本与依赖
+
+论文骨架：this is a **systems + diagnosis** paper，不是 SOTA paper。
+2026-11-17 的增补没有改这个骨架，只是把「冲 SOTA」的完整失败链也写进去（§6.7–§6.10）。
+
+------------------------------------------------------------------
+1. 一句话主张（写论文就用这三段）
+------------------------------------------------------------------
+①  把冻结的神经搜索循环做成 CUDA 图块，并**一次捕获服务整个数据集**（padded 引擎），
+    每图预热从 93.5 ms 降到约 6 ms；再把「每块回读解码」换成「只解码 top-k 档案」、
+    邻接从稀疏 CSR 换成 dense、精度降到 fp16，1 秒内的步数从 244 涨到 808，
+    作者 1000 图 1.0 秒档 **20.0685**（同钟 K=20 基线 19.9830）。
+    在 RLNN 的每图时钟（0.197 s）上，0.2 秒档 **19.8410** 让 SIZE 与 TIME 两轴**同时**超过 RLNN 19.52。
+
+②  后处理平台 PAVE 的增益是**输入解次优程度的函数**，不是常数：
+    贪心起点 +0.710，我们 0.5 s 的弱搜索 +0.222，已收敛的解 +0.000。
+    因此「捕获」与「平台」是替代关系而不是相加关系——这是原计划里写错的一条，
+    本版论文把它作为一个可迁移的诊断结论呈现，而不是作为一个 additive 贡献。
+
+③  十三条方法线（v1–v10）的负结果 + 三个诊断探针，构成方法论部分：
+    同钟对照、图级配对自助 CI、逐位闸门、预注册判读表、时钟 bug 的可复现暴露、
+    以及「负结果也要有机制解释」。核心机制句：
+    **RB[200–300] 上 1 秒内的解已是「1-flip + (2,1)-swap + 破坏-修复」三重邻域的不动点，
+      策略在 50 步内进入吸引子，剩下的步数只是抖动。**
+
+------------------------------------------------------------------
+2. 环境与协议
+------------------------------------------------------------------
+硬件/软件：两张 RTX 5090（GPU0 长期被他人占满，本快照的正式计时全部独占单卡）；
+            torch 2.9.1+cu130；python /home/hzeng/envs/rlnn/bin/python；
+            KaMIS 二进制 tmp/kamis_build/redumis
+            （sha256 edf3c458aebd6b569e558cfcef825b22b80c7060d904d8a0b0045c1fa160e0e1）。
+数据：     作者发布的 RB-[200-300] 测试集 1000 张（models/data/MIS_tensors/RB_small_author_test），
+            n≈231，e≈8474（padded 缓冲 n_max=264、capacity=105，即最大出度 104）。
+骨干：     冻结 v2/none_seed0（outputs/v2/none_seed0/checkpoints/best.pt），
+            GCN(1 → num_h 128 → num_l 5 → 1)，num_k=20 粒子，num_t=100 训练步长。
+           **不做任何微调**（重训已验证为负，见 §6.4；v9 的两种重训也全负，见 §6.7）。
+平台：     冻结 PAVE V3（v7_runs.pave(ref0)），horizon=1，outer_rounds=8，
+            candidate_cap=32，improving_cap=48，repair_rounds=4。
+时钟：     每图墙钟预算。摊薄引擎用 `--reserve_frac 0.2`、`--post_reserve 0.05`；
+           K=200 的加速臂用 `--decode_every 1000 --decode_top 4`（只在最后解一次档）。
+统计：     图级配对自助（5000 次重采样，按图配对），报告 mean / 95% CI / 胜-平-负。
+种子：     搜索种子 1017（主表）；1019/1021 的三种子 CI 仍是待补项。
+
+**时钟实现的前提（必须写进复现命令）**：`PaddedSearch.run()` 的 deadline 只有在
+每块 `torch.cuda.synchronize()` 之后才成立（见 §4.3）。不开同步的「步数」全是假的。
+
+------------------------------------------------------------------
+3. 主结果：作者 1000 图
+------------------------------------------------------------------
+3.1 逐图捕获（per-graph capture，旧引擎；仅作对照）
+
+  时钟     eager/eager   captured/eager   captured/cached  步数(cached)
+  0.5 s    19.3780       19.6630          19.8403           402
+  1.0 s    19.7717       19.8993          19.9333          1058
+
+3.2 摊薄捕获（padded，一次捕获服务整集，见 §4；K=20，fp32+CSR）
+
+  时钟    解        步数    ms/步   load     同钟旧引擎   差额
+  0.05 s  19.4040    67    0.591   6.4 ms   17.6720      +1.732
+  0.10 s  19.6890   178    0.443   6.2 ms   17.9947      +1.694
+  0.20 s  19.8410   414    0.384   5.9 ms   19.3970      +0.444
+  0.50 s  19.9450  1310    0.343   6.3 ms   19.8403      +0.105
+  1.00 s  19.9830  2887    0.329   6.3 ms   19.9333      +0.050
+
+3.3 同卡基线（同一批 1000 图、同一台机器、同一天）
+
+  方法                      SIZE       TIME（每图）        备注
+  KaMIS (ReduMIS)           20.1020    3.046 s（中位 3.13）  --time_limit=0.5；墙钟地板 1.87 s
+    └ wall ≤ 1 s 的子集      19.8384    1.00 s              仅 99/1000 图能在 1 s 内出解
+  KaMIS 长档（100 图）       20.0400    5 s                 5 s 即饱和
+                            20.0500    35 s
+                            20.0500    98 s
+  RLSA num_t=300            19.9730    0.208 s             仓库自带基线（outputs/v1/rlsa）
+  RLSA num_t=1000           20.0730    0.651 s
+  RLSA num_t=2000           20.0930    1.290 s
+  RLSA 1 s 插值             ≈20.084    1.00 s
+  RLNN（论文）              19.52      0.197 s             按「整测试集 1.64 min / 500 图」折算
+  本方法 K=20               19.9830    1.00 s
+  本方法 K=200 dense+fp16   20.0685    1.00 s              808 步
+
+  ※ 「RLSA 0.070 s」是错的：论文表 1 的 35 s 是**整个 500 图测试集**的总时间，
+    折成每图是 0.208 s（仓库复现值），不是 0.070 s。
+
+3.4 判定
+
+  · 对 RLNN：1.0 s 20.0685 vs 19.52（SIZE +0.55），但 TIME 慢 5.1 倍；
+    只有 0.2 s 档（19.8410 vs 19.52@0.197 s）是**两轴同时赢**。
+  · 对 RLSA：**平手略输**。20.0685 vs 1 秒插值 20.084；它 0.65 s 就有 20.0730。
+  · 对 KaMIS：SIZE 差 0.033，但 KaMIS 要 3.05 s 才出解，1 秒内只覆盖 9.9% 的图。
+  · 对「1 秒内 19.9+」：**成立**（20.0685）。
+
+3.5 步数-尺寸饱和曲线（1.0 s，K=200 为主）
+
+  每步成本   1 s 步数    SIZE      配置
+  3.887 ms    244      20.0235   5×128 fp32 CSR，每块 decode
+  2.383 ms    397      20.0420   5×128 fp32 CSR，decode 只在最后
+  1.179 ms    808      20.0685   5×128 dense+fp16          ← 部署配置
+  0.550 ms   1729      20.0610   3×128 dense+fp16（砍两层，掉 0.008）
+   —         1999      20.0675   5×128 dense+fp16，K=100
+
+  → **808 步之后饱和**，天花板 20.068 ± 0.001。步数不是免费杠杆。
+
+------------------------------------------------------------------
+4. 摊薄捕获与时钟修正（这一版论文里唯一真正赢的机制）
+------------------------------------------------------------------
+4.1 问题
+逐图捕获要整块录一次 CUDA graph，约 93.5 ms；0.2 s 时钟里占 47%，
+0.1 s 以下一步都走不了（实测 0 步，解 17.67/17.99）。
+
+4.2 做法（models/mis_v8_pad.py，class PaddedSearch）
+  · 固定 CSR 布局：crow = arange(0, rows*cap+1, cap) 恒定，cap = 数据集最大出度+1；
+    只有 col/raw/norm/bias 这些**缓冲区内容**每图重写（copy_），形状不变 → 图可复用。
+  · 单一持久 torch.Generator（register_generator_state 进图），每图 manual_seed 重置。
+  · 每个图 load 只写缓冲（约 n_max×cap 个元素），实测 6 ms。
+  · 解码用捕获版 A.3（chunk=4），或 `--decode_top k` 只解 top-k 能量列。
+  · 过冲安全：收敛后 where(gain>0, 1-x, x) 不动状态，多跑是 no-op。
+
+  闸门（models/check_padded_capture.py）：
+  · capture replay vs padded eager：**逐位相等**（60 步状态/档案/解码 bitset），硬断言。
+  · padded vs 未 padded：只报 drifted_nodes 与 |Δsize| ≤ 1（实测 drifted 66–178，
+    解大小全部一致；spmm 差 8.94e-08、logits 差 1.72e-05）。
+
+  必须单进程：4 分片并发时 0.05 s 档只走 0–5 步、1.0 s 只到 650–900 步。
+
+4.3 时钟 bug（2026-11-16 定位并修复）
+  症状：K=200 的 `--decode_every 1000` 臂在 1 s 预算下报「3861 步、SIZE 20.450」，
+        而同配置 `decode_every 1` 只有 244 步、20.0235。
+  根因：`run()` 里 `started = perf_counter(); graph_exec.replay(); steps += chunk`
+        —— **replay 只入队不阻塞**，块耗时只有几十微秒，
+        `perf_counter() + block_time >= deadline` 永远不成立 → 循环跑到 CUDA 队列深度上限。
+  修复：`run(..., sync_each_block=True)`，每块 replay 后 `torch.cuda.synchronize()`。
+
+  预算    修复前 实际耗时   修复前 块/步      修复后 实际耗时   修复后 块/步
+  0.05 s  9.670 s          343 / 3430       0.029 s          1 / 10
+  0.20 s  9.694 s          348 / 3480       0.177 s          6 / 60
+  1.00 s  10.513 s         376 / 3760       0.978 s         33 / 330
+
+  → K=200 真实单步 2.96 ms，1 秒只能 330 步；「3861 步」是约 10 秒的产物，全部作废。
+    `decode_every=1` 的旧数据不受影响（每块 decode 会隐式同步）。
+
+4.4 单步成本模型与三个加速杠杆
+  单步 ≈ 2.96 ms（K=200、5×128、fp32）。主项是 5 层 Linear(128,128) 作用在 (264×200) 行上：
+  865 MMAC/层、合计 4.3 GMAC ≈ 8.6 GFLOP；CSR spmm（27k nnz × 200 ≈ 5.4 MMAC）只占 ~0.1 ms。
+  → **成本 ∝ K × hidden²，与层数线性**。
+
+  K=200、1 图、1.0 s 的四种配置：
+    fp32 + CSR    260 步   3708 µs/步
+    fp32 + dense  310 步   3142 µs/步   （GCNConv 对 strided 邻接走 torch.matmul）
+    fp16 + CSR    310 步   3239 µs/步
+    fp16 + dense  470 步   2084 µs/步   ← 最终配置
+  正确性：logit max |diff| = 1.597e-05（fp32 dense vs CSR）；fp16 为 6.3e-02（累加顺序舍入）。
+
+  另一项是「每块解码全部粒子」→ 改成 `--decode_top k` 只解 top-k 能量的列：
+  单图 K=200 实测 captured decode_best 0.011 s、eager decode_top 1/2/4/8 = 0.150/0.009/0.007/0.007 s。
+  注意：`decode_every` 本身**压不掉**开销——`run()` 是「到 deadline 为止尽量多跑块」，
+  跳过解码的块更快，单位时间的解码次数守恒（decode_every=3 实测 20.0030 < 20.0235）。
+
+------------------------------------------------------------------
+5. 平台 PAVE：增益是输入次优程度的函数（诊断性结论）
+------------------------------------------------------------------
+机制：PAVE = repair（size+1 交换）+ extend + 学习排序器（PAVEV3）选择候选，
+      预算内反复 outer_rounds 轮；它只能修「还没到局部最优」的解。
+
+实验（100 图，同一套 PAVE 超参，只换输入）：
+
+  输入                     输入 SIZE   PAVE 后   增益 [95% CI]              胜/平/负
+  最小度贪心               18.3800     19.0900   +0.7100 [+0.5600,+0.8700]  53/47/0
+  我们 0.5 s 捕获搜索      19.8750     19.8750   +0.0000                    0/100/0
+  KaMIS 0.1 s              20.0500     20.0500   +0.0000   [0,0]            0/100/0
+  （KaMIS 六臂：extend/pave/rule/random/long 全部 +0.0000，三个 PAVE 臂
+     exchanges 均值 0.00、100/100 图零次交换，extend_gain 0.0 —— 已是极大集）
+
+排序器本身的价值（只在弱构造器启动时可见）：
+  学习 19.0900 vs 规则 18.9300：+0.1600 [+0.0800,+0.2500] 15/84/1
+  学习 vs 随机 18.9500：        +0.1400 [+0.0700,+0.2200] 14/85/1
+  规则 vs 随机：                −0.0200 [−0.0800,+0.0300] 2/95/3
+
+结论：**PAVE 不是 solver-agnostic**。它是「把未收敛的解修到局部最优」的算子，
+      增益随输入收敛程度单调下降（0.710 → 0.222 → 0.000）。
+      论文里不能写成「接在任何求解器输出上都能 +」。
+
+------------------------------------------------------------------
+6. 负结果清单（这一版论文的方法论主体）
+------------------------------------------------------------------
+6.1 九条方法线（v1–v7 全部归档，最好可复现值 0）
+    static prior / structure / frequency 交换 / v7 context（TCCR）等，
+    详见 models/README.md「已关闭线」与 docs/temporary/RLNN_v7_TCCR_Results.md。
+
+6.2 P0 闸门（v8 宏步 ACMD 线）
+    h=2 的联合似然对最终解大小无信号：−0.017/−0.014/−0.008/−0.031，四格 CI 全跨零；
+    full vs endpoint 档案：能量 +0.0040[+0.0017,+0.0067]、大小 0[0,0]。
+    → 按预注册判读表在训练前停止主线（省下数天 GPU）。见 RLNN_v8_P0_Results.md。
+
+6.3 速度工程的旧结论（v8，未做时钟修正前）
+    0.5 s：eager/eager 19.640 → captured/cached 19.920（+0.280）；
+    1.0 s：19.775 → 20.010（+0.235）。
+    其中解码搬进图块 +0.045/+0.010、跳过重复解码 +0.000/+0.010。
+    「700 步之后每翻倍只值 +0.01」在当时成立；§3.5 的 808 步饱和是这个结论的加强版。
+
+6.4 重训（抬上限）——三条都负
+    冻结骨干步数曲线（120 图）：100 步 19.3917 / 300 步 19.6917 /
+                                1000 步 19.8083 / 3000 步 19.8667。
+    微调 ft_tp50：19.4083 / 19.6500 / 19.8000 / 19.8750（几乎重合）；
+    微调 ft_tp300：19.3583 / 19.6333 / 19.7500 / 19.8417（更差）。
+    valid_obj：基线 19.52–19.53，ft_tp50 19.53→19.56，ft_tp300 19.47→19.40。
+    贪心初始化：30/100/300 步 = 18.7583 / 19.1750 / 19.4417（比随机低 0.45–0.56）。
+    从零训练（num_tp=300、30 epochs、1000 图、2.4 h）：valid_obj 18.92。
+    原因：erdoes 损失只做**一步前瞻**，不奖励逃出局部最优。见 RLNN_v8_Retrain.md。
+
+6.5 重组与调度（v8 逃逸）
+    König 精确重组（打在 0.5/1.0 s 上）：+0.0617 [+0.0483,+0.0753] / +0.0240 [+0.0170,+0.0317]。
+    把 PAVE 交换插进搜索循环（inject/refill）：30 图探针 +0.033 / 0.000 / −0.100。
+    随机踢动（删 5% 再补）：+0.067 / −0.033 / 0.000 / −0.033。
+
+6.6 跨族/跨规模迁移（换 regime）
+    RB_small_val −0.075[−0.175,0.000]；ER_200_300 −0.625[−0.900,−0.325]；
+    BA_200_300 −1.775[−2.200,−1.400]；RB_large −3.625[−4.000,−3.250]。
+    ER-[700-800]（128 图，p=0.15）：1.0 s 42.1771 vs KaMIS 44.00 / RLSA 44.10 / RLNN 43.34。
+    → 冻结策略只在训练分布上成立，退化随距离单调。见 RLNN_v8_Regime_Probe.md。
+
+6.7 v9 DCSS：换算子（否）
+    设计：一跳改为计数（由归一化矩阵反解 A x = √d̃ ⊙ (adj @ (√d̃ ⊙ x)) − x），
+          每跳对真实行 z-score，再乘热核权重 e^{-τ}τ^k/k!（τ、gain 可学），
+          描述子 [w1e1, w2e2, w3e3, x, log scale] → 残差 MLP。
+    两种重训（50 epoch、1000 图、seed 0、其余超参全同）：
+          gcn 对照  最好 −19.53@49   末轮 −19.42
+          scale     最好 −17.78      末轮 −17.78   ← 低 1.64
+          norm      最好 −19.44@47   末轮 −19.40   ← 打平
+    部署（1000 图，摊薄捕获 + 冻结 PAVE，seed 1017）：
+          时钟   frozen    scale     norm     scale−f  norm−f
+          0.05   19.4040   18.6960   18.5175  −0.7080  −0.8865
+          0.10   19.6890   18.9555   19.2435  −0.7335  −0.4455
+          0.20   19.8410   19.1110   19.5980  −0.7300  −0.2430
+          0.50   19.9450   19.1835   19.8200  −0.7615  −0.1250
+          1.00   19.9830   19.2070   19.9115  −0.7760  −0.0715
+    scale 五档恒定 −0.71~−0.78 → 死于表达力；norm 差距收窄但等步数对照
+    （1347 步 19.9115 vs 冻结 1310 步 19.9450）仍低 0.034 → 死于吞吐（每层多一组 kernel，2.1×）。
+    唯一正结果：20 粒子的精确重组余量 +0.05 → +0.75（15×），但质量掉 1.8，补不回。
+    副产物：「20 个粒子必然坍缩到同一盆地」被证伪（三臂 20/20 个不同解、Jaccard 0.085）。
+    见 RLNN_v9_DCSS_Results.md。
+
+6.8 v10 换移动集（否）
+    ① 精确重组：80 个去重档案解两两重组（a∪b 内的全局最优），两图 search 22/19 → 22/19，
+       **增益恰好 0**，而重组只要 17–75 ms（算得起，是算了没用）。
+       独立复现：RLSA 自己的 200 粒子种群 oracle +0.000（best 19.85 / chain 19.90 / oracle 19.85）。
+    ② 受禁破坏-修复（半径 1/2/3 × 周期 2/10/40 × 档案回退，20 图，1.0 s，基线 20.4500）：
+       周期 2 不回退 −0.275（0 胜/29 平/11 负，只是少 121 步的钱）；
+       周期 10 下三档半径与基线**逐位相同**。
+    ③ 缩减重启：RB[200–300] 度 ≤3 顶点占比全 0%，四种规则迭代到不动点还剩 88.1% 顶点。
+    机制：**不动点会被修复回来**（tabu 释放后策略把同一个球里的点又选回去）。
+    结论：移动集不是约束，**修复算子才是**。见 RLNN_v10_Move_Set.md。
+
+6.9 学习式修复的前置门（否）
+    2 万轮 Δsize>0 普查（`models/probe_repair_signal.py`，半径 1/2/3、修复窗 24 步、禁选 12 步）：
+          臂                    现任解        轮数    Δ>0   正样本率   平均 Δ
+          标准（best-of-4）      19.79        20800    50    0.24%     −0.29
+          收敛（best-of-64）     19.97         6720     4    0.06%     −0.43
+    Δ 直方图（标准）：{−3:18, −2:795, −1:4463, 0:15474, +1:50}；**从未出现 +2**；
+    74% 轮次 Δ=0；正样本率与图规模无关（16→0.17%、20→0.48%、23→0%）。
+    门是 1%（需 >200 正样本）→ 不过，关线。措辞：破坏-修复不是严格恒等变换，
+    是「几乎闭合、带 0.2% 漏」的算子。
+
+6.10 冲 SOTA 的其余杠杆（全部为负）
+    · 组合（portfolio）：严格 ≤1 s 的 max(我们, RLSA) 上限 20.0550（0.5+0.33 s），
+      1.79 s 才到 20.0970 → 限时内上限≈20.08，不是杠杆。
+    · 神经引导 RLSA（delta += w·logit，w∈{0,0.05,0.1,0.2}，100 图，num_t=1000）：
+      19.9800 / 19.9200 / 19.8700 / 19.7600 → w=0 最好，加先验单调变差且慢 39%。
+    · 宽种群 K 扫描（固定 700 步）：K=20 19.65 / 50 19.80 / 200 19.90 / 800 19.90 → 饱和。
+      K=200 部署的等钟对照：0.1 s 18.9035 / 0.2 s 19.5225 / 0.5 s 19.9160 / 1.0 s 20.0235。
+    · decode_every=3：20.0030 < 20.0235（每秒解码次数守恒）。
+    · 3 层砍深：步数 ×2.1（1729）、SIZE 20.0610 < 808 步的 20.0685。
+    · 翻转率探针（3 图）：每步只翻 1.70%/2.19%/2.18%（4–5 点），
+      密度第 50 步就到 0.091 然后 200 步不变 → **策略 50 步内进入吸引子**，
+      这就是「步数每翻倍只值 +0.01」的机制，也统一解释温度/交换/重组/PAVE 为什么全无效。
+
+------------------------------------------------------------------
+7. 明确不主张的边界（写论文时必须写进 limitations）
+------------------------------------------------------------------
+· 不主张 SIZE 超过 KaMIS（20.1020）或 RLSA（1 秒插值 ≈20.084）。
+  1.0 s 档我们 20.0685：比 KaMIS 低 0.033，比 RLSA 低 0.016。
+· 不主张 TIME 优势：1 s/图 对 RLNN 的 0.197 s/图 慢 5.1 倍、对 RLSA 的 0.208 s/图 慢 4.8 倍。
+  只有 0.2 s 档（19.8410）在 RLNN 的等钟上成立。
+· 不主张两个组件可相加：捕获与平台是替代关系（§5）。
+· 不主张跨图族/跨规模泛化：ER、BA、n≈1000 全部退化（§6.6）。
+· 主表只有搜索种子 1017（三种子 CI 待补）；单机单卡。
+· KaMIS 的 TIME 含进程启动 + 图写盘约 1.87 s/图，所以「1 秒以下只有我们能交解」
+  是框架地板差异，不能作为卖点。
+· 「时钟修正后步数 ×16」这类数字不能单独引用：它是 bug 的暴露，不是方法的贡献。
+
+------------------------------------------------------------------
+8. 文件清单
+------------------------------------------------------------------
+8.1 采集与训练（v8 宏步线，已停在 P0）
+  models/mis_v8_macro.py          MacroKernel / widen_readout / joint_log_likelihood
+  models/v8_collect.py            采块标签
+  models/v8_train.py              A2/A3/A4/A5/A6 训练臂
+  models/v8_eval.py               fixed_nfe / budget 评测
+  models/check_v8.py              三组 kernel 闸门
+  models/diagnose_v8_prior.py     P0-B（相关性打乱）/ P0-C（端点档案）
+  train_scripts/v8_macro/{common.sh,check.sh,collect.sh,train.sh,train_all.sh,eval.sh,prior.sh}
+
+8.2 定位与速度（论文的主角）
+  models/mis_v8_capture.py        CapturedSearch（逐图捕获）
+  models/mis_v8_decode.py         CapturedDecoder / decode_best（A.3 进图块）
+  models/mis_v8_pad.py            PaddedSearch（一次捕获服务整集；dense/scale/sync 开关）★
+  models/models.py                GCNConv 支持 strided 邻接走 matmul；GCN(normalize=) 变体
+  models/check_capture_budget.py  逐图捕获闸门
+  models/check_decode_capture.py  解码闸门
+  models/check_padded_capture.py  摊薄闸门 ★
+  models/profile_budget_step.py   每步成本分解
+  models/probe_decode_cost.py     解码成本分解
+  models/probe_dense.py           dense/fp16 单步探针
+  models/probe_flip_rate.py       翻转率与收敛步数探针 ★
+  models/eval_v8_padded.py        摊薄评测（--dense / --decode_top / --recombine_top / --lns_*）★
+  models/eval_v8_capture_budget.py  引擎×解码的格子
+  models/eval_v8_steps.py         按步数评测
+  models/eval_v8_interleave.py    交换/踢动调度
+  models/eval_kamis_anytime.py    KaMIS 等钟曲线
+  models/eval_pave_external.py    PAVE 外接任意起点
+  models/eval_regime.py           跨族/跨规模
+  models/eval_rlsa_curve.py       RLSA 尺寸-时钟曲线（num_t 独立 run）★
+  models/summarize_v8_positioning.py / summarize_v8_claim.py / merge_v8_shards.py
+  train_scripts/v8_macro/{check_capture.sh,decode_cost.sh,check_decode.sh,decode_budget.sh,
+                          capture_budget.sh,kamis.sh,padded.sh,author_test.sh,author_short.sh,
+                          author_kamis.sh,er_grid.sh,regime.sh,pave_external.sh,
+                          retrain.sh,recombine.sh,interleave.sh}
+
+8.3 v9 / v10（本快照新增的负结果线）
+  models/mis_v9_scale.py          ScaleSpaceGCN（计数 + 每跳 z-score + 热核 + 残差 MLP）
+  models/check_v9_scale.py        四项算子闸门（计数等价、两极端、两路径一致、padding 惰性）
+  models/probe_logit_scale.py     初始 logit 尺度对比（0.2023 / 0.0380 / 0.0033）
+  models/probe_receptive_field.py 感受野（R² 0.8463/0.8659/0.8775；影响力 28.2/14.8/3.9/0.39/0.012）
+  models/probe_k_scale.py         固定步数下的 best-of-K
+  models/probe_k_speed.py         纯步速 vs K
+  models/probe_rlsa_recombine.py  RLSA 种群上的精确重组
+  models/probe_rlsa_prior.py      神经引导 RLSA
+  models/mis_v10_lns.py           LNSController（evict/release 两拍）★
+  models/probe_repair_signal.py   学习式修复的正样本率普查 ★
+  train_scripts/v9/scale_train.sh DCSS 训练入口（ARCH=gcn|scale|norm，NUM_L/NUM_H/... 参数化）
+
+8.4 文档（docs/temporary/）
+  RLNN_lab_v8_review_and_research.md   预注册与判读表（v8 方案）
+  RLNN_v8_P0_Results.md                P0 闸门负结果
+  RLNN_v8_Positioning_Results.md       定位 / 等钟 / 解码
+  RLNN_v8_PAVE_External_Results.md     PAVE 不是 solver-agnostic
+  RLNN_v8_Regime_Probe.md              跨族迁移
+  RLNN_v8_Paper_Table.md               作者集主表 + 逐条判定
+  RLNN_v8_Amortised_Capture.md         摊薄捕获
+  RLNN_v8_Retrain.md                   重训 + 逃逸（交换/踢动）
+  RLNN_v8_SOTA_Direction.md            SOTA 方向文档（§0.5 是 G0 实测：没有 SOTA）
+  RLNN_v9_DCSS_Results.md              DCSS 两臂训练/部署/多样性普查
+  RLNN_v9_SOTA_Hunt.md                 冲 SOTA 六条杠杆 + 时钟修正 + 成本模型
+  RLNN_v10_Move_Set.md                 换移动集 + 学习式修复前置门
+  v8_paper_snapshot_A.txt              2026-11-14 冻结版（只到 v8）
+  v10_paper_snapshot_A.txt             本文件（v9/v10 增补后的写作口径）
+
+8.5 关键产物（outputs/v8_macro/）
+  padded_short|padded_long/padded/padded_ref0.{csv,json}    0.05–1.0 s 摊薄五档
+  arm_fp32_sparse/、arm_fp16_dense/、arm_l3_fp16_dense/、
+  arm_k100_fp16_dense/                                      1 s 加速四臂（各 2000 行）
+  rlsa_curve_k200/rlsa_curve_shard{0,1}.csv                 RLSA 曲线（num_t × 1000 图）
+  kamis_author/kamis/kamis_ref0.csv                         同卡 KaMIS 0.5/1.0 s
+  kamis_author_long/kamis/kamis_ref0.csv                    同卡 KaMIS 5/35/98 s
+  v9_scale_deploy/、v9_norm_deploy/                         DCSS 部署
+  v9_census_{frozen,scale,norm}/                            DCSS 多样性普查
+  repair_signal/、repair_signal_conv/                       学习式修复正样本普查
+  lns_p0/、recombine_smoke/                                 v10 受禁破坏-修复、精确重组
+  author_test/capture_budget/、steps_baseline/、interleave*/、regime*/、pave_external*/
+
+8.6 冻结协议（不能改）
+  models/{main.py,models.py,solvers.py,mis_v1.py,utils.py,problems/,data/,
+          mis_v3_search.py,mis_v3_value.py,eval_v1.py,eval_v2.py,eval_v3.py,...}
+  训练用 --num_t 100 / --num_k 20 / frequency none；评测必须 horizon=1。
+
+------------------------------------------------------------------
+9. 复现命令（按顺序）
+------------------------------------------------------------------
+# 0) 环境
+cd /home/hzeng/project/ZH/RLNN_lab
+export RLNN_SOURCE_SHA=18cb409        # 服务器无 git 时手工填（diagnose_v7_census 需要）
+export CUDA_VISIBLE_DEVICES=0
+
+# 1) 摊薄闸门（必须先过）
+GRAPHS=4 STEPS=60 bash train_scripts/v8_macro/check_padded.sh
+
+# 2) 摊薄五档表（单进程，约 20 分钟 / 1000 图）
+GRAPHS=1000 BUDGETS="0.05 0.1 0.2" bash train_scripts/v8_macro/padded.sh
+GRAPHS=1000 BUDGETS="0.5 1.0" RESULT_DIR=outputs/v8_macro/padded_long \
+  bash train_scripts/v8_macro/padded.sh
+
+# 3) 1 秒加速臂（K=200，dense+fp16，decode 只在最后）
+CUDA_VISIBLE_DEVICES=0 OUT=outputs/v8_macro/arm_fp16_dense \
+  python models/eval_v8_padded.py --save_dir outputs/v2/none_seed0/checkpoints \
+  --test_path models/data/MIS_tensors/RB_small_author_test --test_samples 1000 \
+  --budgets 1.0 --num_k 200 --decoders captured --decode_every 1000 --decode_top 4 \
+  --dense --mixed_precision fp16 --result_dir outputs/v8_macro/arm_fp16_dense
+
+# 4) RLSA 尺寸-时钟曲线（num_k=200 / num_d=5，两 shard）
+bash tmp/remote_rlsa_k200.sh
+python tmp/merge_rlsa.py
+
+# 5) 同卡 KaMIS
+GRAPHS=1000 bash train_scripts/v8_macro/author_kamis.sh
+
+# 6) v9 DCSS（两条臂各 50 epoch，约 38 分钟/条）
+ARCH=scale RUN_NAME=v9_scale_tp50 EPOCHS=50 GRAPHS=1000 bash train_scripts/v9/scale_train.sh
+ARCH=norm  RUN_NAME=v9_norm_tp50  EPOCHS=50 GRAPHS=1000 bash train_scripts/v9/scale_train.sh
+
+# 7) v10 学习式修复前置门（8 shard × 13 图 × 200 轮，约 50 分钟）
+bash tmp/remote_repair_full.sh
+python tmp/merge_repair.py outputs/v8_macro/repair_signal
+
+# 8) 汇总
+python models/summarize_v8_positioning.py
+
+------------------------------------------------------------------
+10. 版本与依赖
+------------------------------------------------------------------
+日期：2026-11-17（初版 2026-11-14 对应提交 23dff5b；本版对应 v9/v10 全部落盘）
+python：3.x + torch 2.9.1+cu130 + torch_scatter/torch_geometric（服务器）
+       networkx 2.8.8（read_gpickle/write_gpickle 仍可用）
+GPU：单卡正式计时（v9/v10 训练可两卡并行）；摊薄必须单进程
+CSV 行数：author_test 18000、padded 五档 15000、RLSA 曲线 6000/档、加速臂 4×2000、KaMIS 2000/300

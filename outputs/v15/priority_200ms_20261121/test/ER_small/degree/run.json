@@ -1,0 +1,31 @@
+{
+  "dataset": "models/data/MIS_tensors/ER_small_author_test",
+  "checkpoint": null,
+  "output": "outputs/v15/priority_200ms_20261121/test/ER_small/degree",
+  "library": "tmp/priority_official_20261121/priority_search.so",
+  "refiner": "tmp/priority_official_20261121/mis_clique_refine.so",
+  "refine_ms": 0,
+  "refine_first": false,
+  "budget_ms": 200.0,
+  "reserve_ms": 3.0,
+  "weight": 0.7,
+  "degree_prior": true,
+  "learned_mix": 1,
+  "plateau": 50,
+  "perturb": 4,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "limit": null,
+  "graphs": 128,
+  "host": "user",
+  "torch": "2.9.1+cu130",
+  "cpu_affinity": [
+    21
+  ],
+  "accelerator": null,
+  "gpu": null,
+  "timing": "Resident host edge_index to materialized host incumbents. CSR construction, GPU scoring, device transfers and search are timed."
+}

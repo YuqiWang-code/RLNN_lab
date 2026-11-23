@@ -1,0 +1,198 @@
+{
+  "generated_at": "2026-11-17T22:37:21+08:00",
+  "scope": "RB_small (200-300 nodes), 1000 author-test graphs (idx_0..idx_999), single seed 1017, RTX 5090",
+  "ours_0.2s": {
+    "final_size_mean": 19.841,
+    "search_size_mean": 19.834,
+    "pave_gain_mean": 0.007,
+    "steps_mean": 413.67,
+    "solve_time_s_mean": 0.1879522,
+    "ms_per_step_mean": 0.384077,
+    "seeds": [
+      1017
+    ],
+    "source": "outputs/v8_macro/padded_short/padded/padded_ref0.csv (budget==0.20) + padded_ref0.json",
+    "cite": [
+      "README.md:75",
+      "docs/temporary/RLNN_v8_Amortised_Capture.md:67",
+      "docs/temporary/v10_paper_snapshot_A.txt:83"
+    ],
+    "protocol": "amortised capture: CUDA graph captured once for the whole dataset (capture_s=0.817 in padded_ref0.json), prelude 11.4 ms/graph; single seed"
+  },
+  "opponents_at_0.2s": [
+    {
+      "name": "RLSA (num_t=300, num_k=200, num_d=5, fp16)",
+      "size": 19.962,
+      "time_s": 0.201,
+      "time_median_s": 0.2,
+      "status": "measured, same card, same 1000 graphs (num_t sweep)",
+      "cite": [
+        "docs/temporary/RLNN_v8_SOTA_Direction.md:30 (row num_t=300)",
+        "docs/temporary/RLNN_v8_SOTA_Direction.md:40 (equal-clock table: 0.2 s 19.962 vs 19.8410, -0.12)"
+      ]
+    },
+    {
+      "name": "RLSA repo baseline run (num_t=300)",
+      "size": 19.973,
+      "time_s": 0.20839,
+      "time_median_s": 0.2067,
+      "status": "measured, same card, same graph ids (idx_0..idx_999), per-graph CSV on disk",
+      "cite": [
+        "outputs/v1/rlsa/run.json (mean_size=19.973, mean_solve_time_s=0.20839, device RTX 5090)",
+        "outputs/v1/rlsa/per_graph.csv",
+        "README.md:94"
+      ]
+    },
+    {
+      "name": "RLNN (author released, erdoes + A.3 gradient flip)",
+      "size": 19.52,
+      "time_s": 0.20807,
+      "status": "measured, same card, same graphs; paper Table 1 gives 19.52 @ 0.197 s on A6000",
+      "cite": [
+        "outputs/v000_rlnn_baseline/rb_author_test_gpu1_author_erdoes_gradient_flip/per_graph.csv",
+        "README.md:141 (RTX 5090), README.md:96 / :142 (paper, A6000 0.197 s)"
+      ]
+    },
+    {
+      "name": "KaMIS ReduMIS",
+      "size": null,
+      "time_s": null,
+      "status": "UNREACHABLE at 0.2 s: wall-clock floor 1.87 s/graph even with --time_limit=0.1; 0/1000 graphs return within 0.2 s. At --time_limit=1 only 99/1000 return (mean 19.8384 there)",
+      "cite": [
+        "docs/temporary/RLNN_v8_Positioning_Results.md:57 (0.1 s limit -> 1.87 s wall, slowest 4.82 s)",
+        "docs/temporary/RLNN_v8_Positioning_Results.md:65 (floor)",
+        "docs/temporary/RLNN_v8_SOTA_Direction.md:53 (<=1 s: 99/1000, mean 19.8384)",
+        "README.md:95"
+      ]
+    }
+  ],
+  "paired_tests_ours_minus_opponent": {
+    "vs_RLSA_repo_run(final_size)": {
+      "n": 1000,
+      "mean_diff": -0.132,
+      "ci95": [
+        -0.16,
+        -0.105
+      ],
+      "wins": 34,
+      "ties": 804,
+      "losses": 162,
+      "max_loss": -2.0,
+      "max_win": 1.0
+    },
+    "vs_RLSA_repo_run(search_size)": {
+      "n": 1000,
+      "mean_diff": -0.139,
+      "ci95": [
+        -0.166,
+        -0.112
+      ],
+      "wins": 31,
+      "ties": 803,
+      "losses": 166,
+      "max_loss": -2.0,
+      "max_win": 1.0
+    },
+    "vs_RLNN_authors_released(final_size)": {
+      "n": 1000,
+      "mean_diff": 0.321,
+      "ci95": [
+        0.288,
+        0.355
+      ],
+      "wins": 332,
+      "ties": 645,
+      "losses": 23,
+      "max_loss": -2.0,
+      "max_win": 2.0
+    },
+    "vs_RLNN_authors_released(search_size)": {
+      "n": 1000,
+      "mean_diff": 0.314,
+      "ci95": [
+        0.28,
+        0.347
+      ],
+      "wins": 328,
+      "ties": 648,
+      "losses": 24,
+      "max_loss": -2.0,
+      "max_win": 2.0
+    }
+  },
+  "rlsa_interpolation_crosscheck": {
+    "anchors": {
+      "num_t=1000": {
+        "size": 20.073,
+        "time_s": 0.6505
+      },
+      "num_t=2000": {
+        "size": 20.093,
+        "time_s": 1.2898
+      }
+    },
+    "cite": [
+      "docs/temporary/RLNN_v8_SOTA_Direction.md:32-33",
+      "README.md:91-92",
+      "docs/temporary/v10_paper_snapshot_A.txt:95"
+    ],
+    "log_linear_at_0.2s": 20.038539168669743,
+    "verdict": "extrapolation only; the 0.2 s point is NOT interpolated on disk - it is measured (19.9620 @ 0.2010 s), so no extrapolation is needed for the audit"
+  },
+  "our_own_ablation_at_0.2s": {
+    "per_graph_capture_3seeds": {
+      "search_size_mean": 19.0947,
+      "final_size_mean": 19.397,
+      "steps_mean": 49.8,
+      "solve_time_s_mean": 0.186,
+      "seeds": [
+        1017,
+        1019,
+        1021
+      ],
+      "source": "outputs/v8_macro/author_short/capture_budget/capture_budget_ref0.csv (budget==0.20)",
+      "cite": [
+        "docs/temporary/RLNN_v8_Amortised_Capture.md:67 (19.3970, 49.8 steps)"
+      ],
+      "verdict": "without dataset-level capture amortisation our 0.2 s value is 19.3970, i.e. -0.12 vs RLNN's 19.52"
+    },
+    "capture_cost": {
+      "capture_s_whole_dataset": 0.817,
+      "amortised_ms_per_graph": 0.817,
+      "cite": [
+        "outputs/v8_macro/padded_short/padded/padded_ref0.json (padded.capture_s=0.817)"
+      ]
+    }
+  },
+  "clock_provenance_warning": {
+    "retracted_clock": "docs/temporary/RLNN_v8_Amortised_Capture.md:95 lists RLSA as 19.97 @ 0.070 s/graph; that 0.070 s is the paper's total-time/500 convention and was RETRACTED in README.md:40. The same-card re-measurement is 19.9620 @ 0.2010 s.",
+    "cite": [
+      "README.md:40",
+      "docs/temporary/v10_paper_snapshot_A.txt:104"
+    ]
+  },
+  "verdict_choice": {
+    "option_I_highest_in_0.2s": false,
+    "option_II_comparable_to_RLSA": false,
+    "option_III_incomparable_no_same_budget_measurement": "chosen (operational)",
+    "measured_gap": {
+      "vs_RLSA_19.962_at_0.201s": -0.121,
+      "vs_RLSA_19.973_at_0.208s": -0.132
+    },
+    "why": "All three options are factually inaccurate as worded: (I) is refuted by measured RLSA 19.9620 @ 0.2010 s; (II) is refuted by the 0.121-0.132 gap (15x the 0.008 flip resolution); (III)'s stated reason is false (a same-budget measurement DOES exist). III is nevertheless the only defensible position for the paper: we cannot claim comparability, hence cannot claim SOTA at 0.2 s. Dependence: it holds only because the same-budget evidence that exists puts us behind; it would flip to (I) only if RLSA's 0.201 s point were shown non-comparable in protocol.",
+    "paper_wording_recommended": "NEITHER budget tier constitutes SOTA: 1 s is 0.015 behind (20.0690 vs 20.084), 0.2 s is 0.121 behind (19.8410 vs 19.9620 @ 0.2010 s). The only statement that holds at 0.2 s is +0.32 versus the authors' released RLNN (paired +0.321 [+0.288,+0.355], 332 wins / 645 equal / 23 losses) - and beating our own predecessor is not SOTA. Do not describe the 1 s tier as a parity claim either."
+  },
+  "limitations": [
+    "The 0.2 s value 19.8410 INCLUDES dataset-level capture amortisation: capture_s=0.817 is paid once for 1000 graphs (0.8 ms/graph, padded_ref0.json padded.capture_s). With per-graph re-capture at the same 0.2 s the value is only 19.3970 (49.8 steps, 3 seeds 1017/1019/1021, outputs/v8_macro/author_short/capture_budget/capture_budget_ref0.csv) - 0.12 BELOW RLNN's 19.520. This belongs in the limitations section, not a footnote: reviewers will ask whether the 0.2 s includes capture.",
+    "19.8410 is single-seed with no CI (padded_ref0.json seeds=[1017], repeats=1); PAVE accounting does not close (solve_time_s 0.188 vs decode_time_s 0.103 are not additive). Both are written as 'not measured', never estimated. t7 will supply the 3-seed run."
+  ],
+  "missing_for_paper": [
+    "3 seeds for the 19.8410 protocol (padded_short has seed 1017 only, repeats=1) -> no CI, no seed variance",
+    "hard time-limited RLSA at 0.2 s: outputs/v1/rlsa/run.json has config.time_budget_s=null -> RLSA's 0.201 s is a fixed num_t budget, not a deadline; an equal-deadline RLSA run does not exist on disk",
+    "RLSA seed replication: single search_seed 1017, no repeats anywhere",
+    "PAVE inclusion: 19.8410 is final_size (PAVE +0.0070); search_size is 19.8340. The paper must state which one is compared and that decode/PAVE sits inside solve_time_s=0.188 s",
+    "capture amortisation must be stated: 19.8410 relies on one 0.817 s capture for the whole 1000-graph set; per-graph capture gives 19.3970 at the same 0.2 s",
+    "KaMIS absence at 0.2 s needs an explicit sentence (floor 1.87 s, 0/1000 graphs), otherwise reviewers will ask",
+    "scope: RB_small 200-300 nodes only; ER700-800 we lose at 1 s (42.18 vs KaMIS 44.00 / RLNN 43.34) -> no cross-family SOTA claim"
+  ]
+}

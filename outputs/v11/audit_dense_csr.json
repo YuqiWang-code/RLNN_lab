@@ -1,0 +1,297 @@
+{
+ "n_flips": 26,
+ "n_controls": 8,
+ "blocks": 81,
+ "flip": {
+  "baseline": 20.98076923076923,
+  "mine": 21.26923076923077,
+  "dense": 21.26923076923077,
+  "csr": 21.26923076923077,
+  "dense_matches_mine": 26,
+  "dense_matches_baseline": 0,
+  "csr_matches_baseline": 0,
+  "csr_matches_mine": 26
+ },
+ "control": {
+  "baseline": 20.375,
+  "mine": 20.375,
+  "dense": 20.375,
+  "csr": 20.375,
+  "dense_matches_mine": 8,
+  "csr_matches_baseline": 8
+ },
+ "rows": [
+  {
+   "graph": "graph_000063",
+   "baseline": 23.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 895.0
+  },
+  {
+   "graph": "graph_000064",
+   "baseline": 22.0,
+   "mine": 23.0,
+   "dense": 23.0,
+   "csr": 23.0,
+   "baseline_steps": 910.0
+  },
+  {
+   "graph": "graph_000077",
+   "baseline": 20.0,
+   "mine": 21.0,
+   "dense": 21.0,
+   "csr": 21.0,
+   "baseline_steps": 775.0
+  },
+  {
+   "graph": "graph_000175",
+   "baseline": 21.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 780.0
+  },
+  {
+   "graph": "graph_000189",
+   "baseline": 20.0,
+   "mine": 19.0,
+   "dense": 19.0,
+   "csr": 19.0,
+   "baseline_steps": 765.0
+  },
+  {
+   "graph": "graph_000243",
+   "baseline": 19.0,
+   "mine": 20.0,
+   "dense": 20.0,
+   "csr": 20.0,
+   "baseline_steps": 875.0
+  },
+  {
+   "graph": "graph_000269",
+   "baseline": 18.0,
+   "mine": 19.0,
+   "dense": 19.0,
+   "csr": 19.0,
+   "baseline_steps": 795.0
+  },
+  {
+   "graph": "graph_000339",
+   "baseline": 22.0,
+   "mine": 23.0,
+   "dense": 23.0,
+   "csr": 23.0,
+   "baseline_steps": 765.0
+  },
+  {
+   "graph": "graph_000367",
+   "baseline": 23.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 770.0
+  },
+  {
+   "graph": "graph_000385",
+   "baseline": 23.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 770.0
+  },
+  {
+   "graph": "graph_000429",
+   "baseline": 23.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 775.0
+  },
+  {
+   "graph": "graph_000447",
+   "baseline": 20.0,
+   "mine": 19.0,
+   "dense": 19.0,
+   "csr": 19.0,
+   "baseline_steps": 780.0
+  },
+  {
+   "graph": "graph_000466",
+   "baseline": 19.5,
+   "mine": 20.0,
+   "dense": 20.0,
+   "csr": 20.0,
+   "baseline_steps": 775.0
+  },
+  {
+   "graph": "graph_000541",
+   "baseline": 22.0,
+   "mine": 23.0,
+   "dense": 23.0,
+   "csr": 23.0,
+   "baseline_steps": 760.0
+  },
+  {
+   "graph": "graph_000548",
+   "baseline": 21.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 760.0
+  },
+  {
+   "graph": "graph_000562",
+   "baseline": 19.0,
+   "mine": 20.0,
+   "dense": 20.0,
+   "csr": 20.0,
+   "baseline_steps": 760.0
+  },
+  {
+   "graph": "graph_000589",
+   "baseline": 22.0,
+   "mine": 21.0,
+   "dense": 21.0,
+   "csr": 21.0,
+   "baseline_steps": 880.0
+  },
+  {
+   "graph": "graph_000611",
+   "baseline": 22.0,
+   "mine": 23.0,
+   "dense": 23.0,
+   "csr": 23.0,
+   "baseline_steps": 760.0
+  },
+  {
+   "graph": "graph_000625",
+   "baseline": 23.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 755.0
+  },
+  {
+   "graph": "graph_000666",
+   "baseline": 21.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 765.0
+  },
+  {
+   "graph": "graph_000764",
+   "baseline": 19.0,
+   "mine": 20.0,
+   "dense": 20.0,
+   "csr": 20.0,
+   "baseline_steps": 885.0
+  },
+  {
+   "graph": "graph_000857",
+   "baseline": 21.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 885.0
+  },
+  {
+   "graph": "graph_000858",
+   "baseline": 21.0,
+   "mine": 20.0,
+   "dense": 20.0,
+   "csr": 20.0,
+   "baseline_steps": 905.0
+  },
+  {
+   "graph": "graph_000924",
+   "baseline": 21.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 905.0
+  },
+  {
+   "graph": "graph_000927",
+   "baseline": 21.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 885.0
+  },
+  {
+   "graph": "graph_000940",
+   "baseline": 19.0,
+   "mine": 20.0,
+   "dense": 20.0,
+   "csr": 20.0,
+   "baseline_steps": 760.0
+  },
+  {
+   "graph": "graph_000000",
+   "baseline": 22.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 845.0
+  },
+  {
+   "graph": "graph_000124",
+   "baseline": 22.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 775.0
+  },
+  {
+   "graph": "graph_000248",
+   "baseline": 18.0,
+   "mine": 18.0,
+   "dense": 18.0,
+   "csr": 18.0,
+   "baseline_steps": 800.0
+  },
+  {
+   "graph": "graph_000372",
+   "baseline": 22.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 755.0
+  },
+  {
+   "graph": "graph_000497",
+   "baseline": 22.0,
+   "mine": 22.0,
+   "dense": 22.0,
+   "csr": 22.0,
+   "baseline_steps": 860.0
+  },
+  {
+   "graph": "graph_000623",
+   "baseline": 19.0,
+   "mine": 19.0,
+   "dense": 19.0,
+   "csr": 19.0,
+   "baseline_steps": 765.0
+  },
+  {
+   "graph": "graph_000746",
+   "baseline": 20.0,
+   "mine": 20.0,
+   "dense": 20.0,
+   "csr": 20.0,
+   "baseline_steps": 785.0
+  },
+  {
+   "graph": "graph_000870",
+   "baseline": 18.0,
+   "mine": 18.0,
+   "dense": 18.0,
+   "csr": 18.0,
+   "baseline_steps": 910.0
+  }
+ ]
+}

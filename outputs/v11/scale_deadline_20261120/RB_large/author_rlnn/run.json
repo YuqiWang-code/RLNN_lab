@@ -1,0 +1,26 @@
+{
+  "method": "author_rlnn",
+  "graphs": 1000,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/MIS_tensors/RB_large_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "0",
+  "solver_config": {
+    "checkpoint": "models/data/author_rld4co/checkpoints/erdoes/rlnn_rb_small_mis",
+    "checkpoint_source": "https://huggingface.co/shengyuf/RLNN/resolve/0b96a439a11ac90dc69512720084d08784f02bf4/erdoes/rlnn_rb_small_mis/best.pt",
+    "precision": "fp16",
+    "particles": 20,
+    "horizon": 100,
+    "block_steps": 10,
+    "compile": false,
+    "decoding": "A.3 midpoint and terminal over all particles"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

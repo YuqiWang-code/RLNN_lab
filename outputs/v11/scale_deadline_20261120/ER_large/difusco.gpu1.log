@@ -1,0 +1,46 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795177449.646745 1894733 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1795177449.731562 1894733 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795177453.115497 1894733 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Traceback (most recent call last):
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 274, in <module>
+    main()
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 247, in main
+    evaluate(args, graphs, OfficialDIFUSCO(graphs, args.checkpoint))
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/eval_reference_deadline.py", line 135, in evaluate
+    solver.warmup(solver.prepare(graphs[0]))
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/official_difusco_deadline.py", line 61, in warmup
+    self.decode(prepared, 1017, steps)
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/scale_reference_20261120/official_difusco_deadline.py", line 55, in decode
+    state = self.model.categorical_denoise_step(state, t, edges.device, edges, target_t)
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/DIFUSCO/difusco/pl_mis_model.py", line 121, in categorical_denoise_step
+    x0_pred = self.forward(
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/DIFUSCO/difusco/pl_mis_model.py", line 41, in forward
+    return self.model(x, t, edge_index=edge_index)
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/DIFUSCO/difusco/models/gnn_encoder.py", line 455, in forward
+    return self.sparse_forward_node_feature_only(x, timesteps, edge_index)
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/DIFUSCO/difusco/models/gnn_encoder.py", line 411, in sparse_forward_node_feature_only
+    x, e = self.sparse_encoding(x, e, edge_index, time_emb)
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/DIFUSCO/difusco/models/gnn_encoder.py", line 443, in sparse_encoding
+    x, e = layer(x_in, e_in, adj_matrix, mode="direct", edge_index=edge_index, sparse=True)
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/DIFUSCO/difusco/models/gnn_encoder.py", line 115, in forward
+    h = Uh + self.aggregate(Vh, graph, gates, edge_index=edge_index, sparse=sparse)  # B x V x H
+  File "/home/hzeng/project/ZH/RLNN_lab/tmp/supervised_baselines_20261119/DIFUSCO/difusco/models/gnn_encoder.py", line 177, in aggregate
+    sparseVh = SparseTensor(
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch_sparse/tensor.py", line 26, in __init__
+    self.storage = SparseStorage(
+  File "/home/hzeng/envs/rlnn/lib/python3.10/site-packages/torch_sparse/storage.py", line 160, in __init__
+    self._value = value[perm]
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.28 GiB. GPU 0 has a total capacity of 31.36 GiB of which 72.75 MiB is free. Process 2679167 has 10.96 GiB memory in use. Process 3720167 has 964.00 MiB memory in use. Process 3720168 has 964.00 MiB memory in use. Process 3720165 has 964.00 MiB memory in use. Process 3720164 has 964.00 MiB memory in use. Process 3720166 has 964.00 MiB memory in use. Process 3720169 has 964.00 MiB memory in use. Including non-PyTorch memory, this process has 14.62 GiB memory in use. Of the allocated memory 13.96 GiB is allocated by PyTorch, and 65.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

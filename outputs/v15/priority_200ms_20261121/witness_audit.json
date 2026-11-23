@@ -1,0 +1,86 @@
+[
+  {
+    "split": "RB_small",
+    "arm": "learned",
+    "graph_seed_runs": 3000,
+    "archived_incumbents": 5574,
+    "source": "outputs/v15/priority_200ms_20261121/test/RB_small/learned/solutions.jsonl"
+  },
+  {
+    "split": "RB_small",
+    "arm": "degree",
+    "graph_seed_runs": 3000,
+    "archived_incumbents": 5574,
+    "source": "outputs/v15/priority_200ms_20261121/test/RB_small/degree/solutions.jsonl"
+  },
+  {
+    "split": "RB_small",
+    "arm": "neutral",
+    "graph_seed_runs": 3000,
+    "archived_incumbents": 5574,
+    "source": "outputs/v15/priority_200ms_20261121/test/RB_small/neutral/solutions.jsonl"
+  },
+  {
+    "split": "ER_small",
+    "arm": "learned",
+    "graph_seed_runs": 384,
+    "archived_incumbents": 2418,
+    "source": "outputs/v15/priority_200ms_20261121/test/ER_small/learned/solutions.jsonl"
+  },
+  {
+    "split": "ER_small",
+    "arm": "degree",
+    "graph_seed_runs": 384,
+    "archived_incumbents": 2391,
+    "source": "outputs/v15/priority_200ms_20261121/test/ER_small/degree/solutions.jsonl"
+  },
+  {
+    "split": "ER_small",
+    "arm": "neutral",
+    "graph_seed_runs": 384,
+    "archived_incumbents": 2376,
+    "source": "outputs/v15/priority_200ms_20261121/test/ER_small/neutral/solutions.jsonl"
+  },
+  {
+    "split": "ER_small",
+    "arm": "OnlineMIS",
+    "graph_seed_runs": 384,
+    "archived_incumbents": 384,
+    "source": "outputs/v15/priority_mis_20261121/online_mis_tuned/test/ER_small/solutions.jsonl"
+  },
+  {
+    "split": "RB_small",
+    "arm": "OnlineMIS",
+    "graph_seed_runs": 3000,
+    "archived_incumbents": 2994,
+    "source": "outputs/v15/priority_mis_20261121/online_mis_tuned/test/RB_small/solutions.jsonl"
+  },
+  {
+    "split": "RB_large",
+    "arm": "learned",
+    "graph_seed_runs": 3000,
+    "archived_incumbents": 11115,
+    "source": "outputs/v15/priority_200ms_20261121/test/RB_large/learned/solutions.jsonl"
+  },
+  {
+    "split": "RB_large",
+    "arm": "degree",
+    "graph_seed_runs": 3000,
+    "archived_incumbents": 11789,
+    "source": "outputs/v15/priority_200ms_20261121/test/RB_large/degree/solutions.jsonl"
+  },
+  {
+    "split": "RB_large",
+    "arm": "neutral",
+    "graph_seed_runs": 3000,
+    "archived_incumbents": 12950,
+    "source": "outputs/v15/priority_200ms_20261121/test/RB_large/neutral/solutions.jsonl"
+  },
+  {
+    "split": "RB_large",
+    "arm": "OnlineMIS",
+    "graph_seed_runs": 3000,
+    "archived_incumbents": 2997,
+    "source": "outputs/v15/priority_mis_20261121/online_mis_tuned/test/RB_large/solutions.jsonl"
+  }
+]

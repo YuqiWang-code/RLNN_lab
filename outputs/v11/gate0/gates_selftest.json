@@ -1,0 +1,107 @@
+{
+  "mode": "selftest",
+  "reference": "problems.mis.Problem",
+  "nodes": 30,
+  "num_k": 5,
+  "checks": {
+    "finite": true,
+    "nonzero_grad": true,
+    "feasible": true,
+    "decode_matches_reference": true,
+    "decode_from_feasible_stays_feasible": true,
+    "archive_reported": true,
+    "same_seed_bitwise": true,
+    "degrade_recorded": true,
+    "degrade_trace": true,
+    "frozen_equivalence": true
+  },
+  "passed": true,
+  "loss": -8.399999618530273,
+  "grad_norm": 0.6094003319740295,
+  "sizes": [
+    7.400000095367432,
+    8.0,
+    8.399999618530273,
+    8.399999618530273
+  ],
+  "frozen_equivalence": [
+    {
+      "graph": 0,
+      "seed": 1017,
+      "same": true,
+      "frozen": [
+        11,
+        11
+      ],
+      "variant": [
+        11,
+        11
+      ]
+    },
+    {
+      "graph": 0,
+      "seed": 1019,
+      "same": true,
+      "frozen": [
+        11,
+        11
+      ],
+      "variant": [
+        11,
+        11
+      ]
+    },
+    {
+      "graph": 1,
+      "seed": 1017,
+      "same": true,
+      "frozen": [
+        12,
+        12
+      ],
+      "variant": [
+        12,
+        12
+      ]
+    },
+    {
+      "graph": 1,
+      "seed": 1019,
+      "same": true,
+      "frozen": [
+        12,
+        12
+      ],
+      "variant": [
+        12,
+        12
+      ]
+    },
+    {
+      "graph": 2,
+      "seed": 1017,
+      "same": true,
+      "frozen": [
+        11,
+        11
+      ],
+      "variant": [
+        11,
+        11
+      ]
+    },
+    {
+      "graph": 2,
+      "seed": 1019,
+      "same": true,
+      "frozen": [
+        11,
+        11
+      ],
+      "variant": [
+        11,
+        11
+      ]
+    }
+  ]
+}

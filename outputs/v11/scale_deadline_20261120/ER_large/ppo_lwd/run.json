@@ -1,0 +1,26 @@
+{
+  "method": "ppo_lwd",
+  "graphs": 16,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/MIS_tensors/ER_large_author_test",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "0",
+  "solver_config": {
+    "checkpoint": "/home/hzeng/project/ZH/RLNN_lab/outputs/v11/intel_ppo_deadline_20261120/ppo_training/actor.pt",
+    "weights": "RB-small retrained",
+    "upstream_revision": "174ce85e6ab9dda0d1579caa4ebdb98ff60edcc5",
+    "device": "cuda:0",
+    "dgl": "2.4.0+cu124",
+    "samples": 10,
+    "max_steps": 32,
+    "delivery": "largest nonempty accepted independent set after each synchronized action"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

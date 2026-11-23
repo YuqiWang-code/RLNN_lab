@@ -1,0 +1,27 @@
+{
+  "method": "Gurobi (neighborhood MIP)",
+  "formulation": "degree[v]*x[v] + sum(x[u] for u adjacent to v) <= degree[v]",
+  "graph_count": 1000,
+  "dataset": "models/data/MIS_tensors/RB_large_author_test",
+  "budget_ms": 200,
+  "return_reserve_ms": 3,
+  "seeds": [
+    1017,
+    1019,
+    1021
+  ],
+  "threads_per_solve": 1,
+  "cpu_affinity": [
+    34,
+    35,
+    36,
+    37
+  ],
+  "host": "user",
+  "gurobi_version": [
+    13,
+    0,
+    3
+  ],
+  "timing": "Resident host edge list through sparse model construction, MIPSOL host copies, optimize and disposal"
+}

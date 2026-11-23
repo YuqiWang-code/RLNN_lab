@@ -1,0 +1,140 @@
+{
+  "source_directory": "/home/hzeng/project/ZH/RLNN_lab/models/data/author_rld4co/MIS/ER_large_test",
+  "repository": "shengyuf/RLD4CO",
+  "revision": "f273683b3fe6faa217de35ead96fbe0ee4a44a4a",
+  "split": "MIS/ER_large_test",
+  "count": 16,
+  "checkpoint_repository": "shengyuf/RLNN",
+  "checkpoint_revision": "0b96a439a11ac90dc69512720084d08784f02bf4",
+  "released_checkpoint": "models/data/author_rld4co/checkpoints/erdoes/rlnn_er_mis",
+  "graphs": [
+    {
+      "source": "idx_0.gpickle",
+      "official_filename": "ER_9000_11000_0.02_0.gpickle",
+      "tensor": "graph_000000.pt",
+      "graph_id": "idx_0",
+      "num_nodes": 9904,
+      "undirected_edges": 980986
+    },
+    {
+      "source": "idx_1.gpickle",
+      "official_filename": "ER_9000_11000_0.02_1.gpickle",
+      "tensor": "graph_000001.pt",
+      "graph_id": "idx_1",
+      "num_nodes": 10746,
+      "undirected_edges": 1157290
+    },
+    {
+      "source": "idx_2.gpickle",
+      "official_filename": "ER_9000_11000_0.02_2.gpickle",
+      "tensor": "graph_000002.pt",
+      "graph_id": "idx_2",
+      "num_nodes": 9004,
+      "undirected_edges": 809362
+    },
+    {
+      "source": "idx_3.gpickle",
+      "official_filename": "ER_9000_11000_0.02_3.gpickle",
+      "tensor": "graph_000003.pt",
+      "graph_id": "idx_3",
+      "num_nodes": 9367,
+      "undirected_edges": 877342
+    },
+    {
+      "source": "idx_4.gpickle",
+      "official_filename": "ER_9000_11000_0.02_4.gpickle",
+      "tensor": "graph_000004.pt",
+      "graph_id": "idx_4",
+      "num_nodes": 9078,
+      "undirected_edges": 825145
+    },
+    {
+      "source": "idx_5.gpickle",
+      "official_filename": "ER_9000_11000_0.02_5.gpickle",
+      "tensor": "graph_000005.pt",
+      "graph_id": "idx_5",
+      "num_nodes": 9696,
+      "undirected_edges": 939918
+    },
+    {
+      "source": "idx_6.gpickle",
+      "official_filename": "ER_9000_11000_0.02_6.gpickle",
+      "tensor": "graph_000006.pt",
+      "graph_id": "idx_6",
+      "num_nodes": 10915,
+      "undirected_edges": 1190159
+    },
+    {
+      "source": "idx_7.gpickle",
+      "official_filename": "ER_9000_11000_0.02_7.gpickle",
+      "tensor": "graph_000007.pt",
+      "graph_id": "idx_7",
+      "num_nodes": 9948,
+      "undirected_edges": 987391
+    },
+    {
+      "source": "idx_8.gpickle",
+      "official_filename": "ER_9000_11000_0.02_8.gpickle",
+      "tensor": "graph_000008.pt",
+      "graph_id": "idx_8",
+      "num_nodes": 9561,
+      "undirected_edges": 912479
+    },
+    {
+      "source": "idx_9.gpickle",
+      "official_filename": "ER_9000_11000_0.02_9.gpickle",
+      "tensor": "graph_000009.pt",
+      "graph_id": "idx_9",
+      "num_nodes": 9614,
+      "undirected_edges": 926515
+    },
+    {
+      "source": "idx_10.gpickle",
+      "official_filename": "ER_9000_11000_0.02_10.gpickle",
+      "tensor": "graph_000010.pt",
+      "graph_id": "idx_10",
+      "num_nodes": 9129,
+      "undirected_edges": 832606
+    },
+    {
+      "source": "idx_11.gpickle",
+      "official_filename": "ER_9000_11000_0.02_11.gpickle",
+      "tensor": "graph_000011.pt",
+      "graph_id": "idx_11",
+      "num_nodes": 10913,
+      "undirected_edges": 1190799
+    },
+    {
+      "source": "idx_12.gpickle",
+      "official_filename": "ER_9000_11000_0.02_12.gpickle",
+      "tensor": "graph_000012.pt",
+      "graph_id": "idx_12",
+      "num_nodes": 9012,
+      "undirected_edges": 812141
+    },
+    {
+      "source": "idx_13.gpickle",
+      "official_filename": "ER_9000_11000_0.02_13.gpickle",
+      "tensor": "graph_000013.pt",
+      "graph_id": "idx_13",
+      "num_nodes": 10631,
+      "undirected_edges": 1131047
+    },
+    {
+      "source": "idx_14.gpickle",
+      "official_filename": "ER_9000_11000_0.02_14.gpickle",
+      "tensor": "graph_000014.pt",
+      "graph_id": "idx_14",
+      "num_nodes": 9290,
+      "undirected_edges": 862456
+    },
+    {
+      "source": "idx_15.gpickle",
+      "official_filename": "ER_9000_11000_0.02_15.gpickle",
+      "tensor": "graph_000015.pt",
+      "graph_id": "idx_15",
+      "num_nodes": 10137,
+      "undirected_edges": 1027789
+    }
+  ]
+}

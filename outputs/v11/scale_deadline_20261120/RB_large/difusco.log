@@ -1,0 +1,63 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795177473.179024 1894915 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1795177473.235124 1894915 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795177476.213044 1894915 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+DIFUSCO calibration: 50 steps in 3183.83 ms
+DIFUSCO calibration: 20 steps in 1284.18 ms
+DIFUSCO calibration: 10 steps in 622.93 ms
+DIFUSCO calibration: 5 steps in 318.32 ms
+DIFUSCO calibration: 4 steps in 257.89 ms
+DIFUSCO calibration: 3 steps in 204.41 ms
+DIFUSCO calibration: 2 steps in 167.24 ms
+difusco: 20/1000 graphs
+difusco: 40/1000 graphs
+difusco: 60/1000 graphs
+difusco: 80/1000 graphs
+difusco: 100/1000 graphs
+difusco: 120/1000 graphs
+difusco: 140/1000 graphs
+difusco: 160/1000 graphs
+difusco: 180/1000 graphs
+difusco: 200/1000 graphs
+difusco: 220/1000 graphs
+difusco: 240/1000 graphs
+difusco: 260/1000 graphs
+difusco: 280/1000 graphs
+difusco: 300/1000 graphs
+difusco: 320/1000 graphs
+difusco: 340/1000 graphs
+difusco: 360/1000 graphs
+difusco: 380/1000 graphs
+difusco: 400/1000 graphs
+difusco: 420/1000 graphs
+difusco: 440/1000 graphs
+difusco: 460/1000 graphs
+difusco: 480/1000 graphs
+difusco: 500/1000 graphs
+difusco: 520/1000 graphs
+difusco: 540/1000 graphs
+difusco: 560/1000 graphs
+difusco: 580/1000 graphs
+difusco: 600/1000 graphs
+difusco: 620/1000 graphs
+difusco: 640/1000 graphs
+difusco: 660/1000 graphs
+difusco: 680/1000 graphs
+difusco: 700/1000 graphs
+difusco: 720/1000 graphs
+difusco: 740/1000 graphs
+difusco: 760/1000 graphs
+difusco: 780/1000 graphs
+difusco: 800/1000 graphs
+difusco: 820/1000 graphs
+difusco: 840/1000 graphs
+difusco: 860/1000 graphs
+difusco: 880/1000 graphs
+difusco: 900/1000 graphs
+difusco: 920/1000 graphs
+difusco: 940/1000 graphs
+difusco: 960/1000 graphs
+difusco: 980/1000 graphs
+difusco: 1000/1000 graphs

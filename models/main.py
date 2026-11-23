@@ -35,15 +35,22 @@ def build_parser():
     parser.add_argument("--problem", type=str, default='mis', choices=['mis', 'mcl', 'mcut'])
     parser.add_argument("--num_workers", type=int, default=4)
     parser.add_argument("--method", type=str, default='RLSA')
-    parser.add_argument("--loss", type=str, default='erdoes', choices=['erdoes', 'reinforce'])
+    parser.add_argument("--loss", type=str, default='erdoes', choices=['erdoes', 'reinforce', 'unroll'])
+    parser.add_argument("--unroll_steps", type=int, default=200, help='v11 C3: unroll length (only for --loss unroll)')
+    parser.add_argument("--unroll_decode_every", type=int, default=10, help='v11 C3: decode cadence inside the unroll')
+    parser.add_argument("--unroll_archive", action='store_true', help='v11 A2: also credit the best decode')
+    parser.add_argument("--run_json", action='store_true', help='v11: dump run.json next to best.pt')
     parser.add_argument("--save_dir", type=str, default='./')
     parser.add_argument("--log_file", type=str, default='log.txt')
     parser.add_argument("--num_t", type=int, default=1000, help='steps for sampling')
     parser.add_argument("--num_k", type=int, default=100, help='number of particles')
     parser.add_argument("--num_tp", type=int, default=100, help='number of particles')
     parser.add_argument("--num_kp", type=int, default=10, help='number of particles')
-    parser.add_argument("--arch", choices=("gcn", "global"), default="gcn",
-                        help="flip policy backbone; global adds a pooled graph token")
+    parser.add_argument("--arch", choices=("gcn", "global", "scale", "norm"), default="gcn",
+                        help="flip policy backbone; global adds a pooled graph token, "
+                             "scale reads k-hop counts with a learned heat-kernel scale")
+    parser.add_argument("--ss_hops", type=int, default=3, help="hop counts read by --arch scale")
+    parser.add_argument("--ss_tau", type=float, default=2.0, help="initial heat-kernel scale")
     parser.add_argument("--num_l", type=int, default=1000, help='number of layers')
     parser.add_argument("--num_h", type=int, default=100, help='hidden dimension')
     parser.add_argument("--frequency", choices=("none", "stats", "low", "high", "fixed", "local", "dynamic") + SEGF_MODES + V4_MODES + V5_MODES + V6_MODES,
@@ -94,7 +101,13 @@ def main():
 
     if args.do_train:
         os.makedirs(args.save_dir, exist_ok = True)
+        if args.loss == 'unroll' or args.run_json:
+            from mis_v11_unroll import configure as configure_v11
+            configure_v11(solver, args)
         solver.train(args.save_dir)
+        if args.run_json:
+            from mis_v11_unroll import dump_run_json
+            dump_run_json(args, solver, args.save_dir)
     else:
         os.makedirs(Path(args.log_file).parent, exist_ok = True)
         solver.evaluate('test', log_path=args.log_file)

@@ -1,0 +1,32 @@
+{
+  "revision": "95aaa91c74cd47dc441c84eea9d38ead44f61ffd",
+  "training_split": "models/data/scale_priority_20261121/ER_small/train",
+  "graphs": 128,
+  "epochs": 4,
+  "minibatch": 8,
+  "updates": 64,
+  "heatmaps": 1,
+  "rollouts": 32,
+  "meta_steps": 1,
+  "seed": 32871,
+  "selection": "last epoch fixed before test",
+  "command": [
+    "/home/hzeng/envs/nexco/bin/python",
+    "-u",
+    "/home/hzeng/project/ZH/RLNN_lab/tmp/dimes_er_retrain/upstream/train_dimes_batched.py",
+    "/home/hzeng/project/ZH/RLNN_lab/tmp/dimes_er_retrain/mat",
+    "/home/hzeng/project/ZH/RLNN_lab/outputs/v17/dimes_training",
+    "--self_loops",
+    "--normalize_factor",
+    "1.0",
+    "--meta_update",
+    "--meta_steps",
+    "1",
+    "--epochs",
+    "4",
+    "--model_prob_maps",
+    "1",
+    "--batch_size",
+    "8"
+  ]
+}

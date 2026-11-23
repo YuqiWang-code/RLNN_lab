@@ -1,96 +1,65 @@
 # RLNN Lab
 
-RLNN Lab 基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究 RB200–300 图上的最大独立集（MIS）。RLNN 负责搜索初始解，PAVE-Stats H1 在合法解上做平台搜索。[RLD4CO 官方仓库](https://github.com/Shengyu-Feng/RLD4CO)
+RLNN Lab 基于 Shengyu Feng 和 Yiming Yang 的 RLD4CO 实现，研究最大独立集（MIS）求解器在逐图截止前能交付多大的可行解。粒子搜索在 GPU 上探索二值状态，定时解码出独立集；可行解搜索先在 CPU 上构造独立集，再用学习排序或顶点度指导交换和分支。两条路线分别记录合法节点集的到达时间和每次求解的返回时间。论文把这一求解器族命名为 **SPRINT**：构造路线（先发布可行集再排序）记为 **SPRINT-C**，投机路线（GPU 粒子搜索）记为 **SPRINT-S**，对应 ICML 稿 *SPRINT: Feasible-Set-First Neural Search for Maximum Independent Set Under a 200-Millisecond Deadline*。[RLD4CO 官方仓库](https://github.com/Shengyu-Feng/RLD4CO)
 
-## 当前方法与实验结论
+## 共同计时边界下的求解结果
 
-**论文主张（固定，2026-11-13）。** 在 RB200–300 上，把冻结的神经搜索循环做成图捕获块、再挂一个学习型后处理平台，可以在 1 秒内达到 19.9+，在 SIZE 与 TIME 两轴上同时超过 KLSA 的 35 秒 19.97 与 RLNN 的 98 秒 19.52；两个组件的作用可分离：捕获贡献 +0.28（同钟步数 ×10.5），平台贡献 +0.22，学习排序器相对规则/随机再加 +0.16。
+从同一主机边表开始计时，允许三个求解器在搜索中交付可行解。在四档作者图与 50、100、200、500 ms 共 16 个组合上，学习排序版的平均 SIZE 均高于常驻 OnlineMIS。200 ms 时，小 RB、大 RB、小 ER 的学习版和常驻 OnlineMIS 分别为 **20.1150 / 20.0817、42.4417 / 41.7613、44.3438 / 42.7240**，这三档的两臂均按时交付 6,384/6,384 个解。单用顶点度排序在小 RB 也能于 50 ms 内次次最优，在大 RB 四档均取得更高平均 SIZE。小 ER 的同核交错复测中，学习相对度排序的四个图级配对区间均跨零。
 
-这是 2026-11-13 固定的**原始主张原文**（不改写，留作对照）。它测完了：前两句部分成立、后两句不成立，逐条判定见下方「实测」。**对外写作只能用实测口径，不能引用原文的最后两个分句。**
+在 ER-[9000–11000] 的 16 张作者图上沿用小 ER 的冻结权重与交换搜索配置。200 ms 下，学习排序、度排序、常驻 OnlineMIS 的平均 SIZE 分别为 **370.1250、369.4167、363.5833**，三者均 48/48 次按时交解。按图配对后，学习版比常驻 OnlineMIS 多 6.5417 个顶点（95% CI [5.2917, 8.0417]），比度排序多 0.7083 个（[−0.7500, 2.2500]）。[万节点 ER 逐图统计](outputs/v16/er_large_200ms/summary.csv) · [配对差值](outputs/v16/er_large_200ms/paired.csv)
 
-> 命名更正（2026-11-14）：原文的「KLSA」在论文表里是 **RLSA**。RLNN 与 RLSA 是同一篇论文（Feng & Yang, ICML 2025, *Regularized Langevin Dynamics for CO*）在 RLD 框架上的两个求解器——**RLSA** = SA 版（TYPE `H`，纯启发式，无神经网络，RB[200–300] 19.97@35 s 的持有者），**RLNN** = 神经网络版（TYPE `UL`，无监督局部目标训练，19.52@1.64 m）。所以「压过 RLNN」压的是他们的 NN 变体；19.97 那格来自他们的 SA 变体。
+在 14 张未参与训练或调度选择的寄存器分配干涉图上，三个求解器各自 42/42 次按时返回经证实的全局最优解，平均 SIZE 均为 **208.3571**。两个排序臂在计算优先级之前就已得到最优首解。[完整结果与四预算对照](docs/常驻MIS四预算与迁移.md) · [实验入口](train_scripts/v16/README.md) · [论文 PDF](outputs/paper_20261120/paper.pdf)
 
-这条主张的每一格都必须满足三个前提，缺一格就整条撤回：
+主表逐项列出四档作者图的 200 ms 实测 SIZE、实际返回时间和按时交解次数。定性对照固定每档第一张图及全部三个种子，从交付的原始节点集计算各方法与 Fused RLNN 的重合数。 [主表逐项来源](outputs/v16/four_scale_200ms.csv) · [四档定性对照](overleaf/sections/qualitative_cross_scale.tex)
 
-1. 在 `RB_small_author_test` 的 1000 张作者测试图上重测，不能只报 100 张验证图；
-2. 三轴（SIZE、TIME、CI）与 RLSA / RLNN / KaMIS 同卡、同图、同时间网格重测，不能拿别人的 A100 墙钟对自己的 5090 墙钟；
-3. 两个组件各自可消融、且叠加后仍然成立（2×3 六格：`{eager, captured} × {无 PAVE, PAVE-规则, PAVE-学习}`）。
+## 三档 200 ms 的重训结果
 
-**实测（2026-11-13，1000 张作者测试图，同卡、同一 1 秒网格）。** 三档都跑完后的账面：
+同一套微调后的 RLNN 节点优先级权重和单线程可行解搜索，在作者 RB-[200–300]、RB-[800–1200]、ER-[700–800] 上依次取得 **20.1150、42.4803、44.3620**，平均返回 **9.81、136.64、197.07 ms**，全部 6,384 次按时有解。小 RB 的 1,000 张图经独立离线核实，三个种子每次均达到全局最优。大 RB 相对调时后的 OnlineMIS 高 0.8663，小 ER 相对 RLSA 高 1.2083。与纯度排序相比，学习排序在两个 RB 档的优势很小或持平，小 ER 的差值为 +0.0807，95% 区间包含零。[三档结果与设计](docs/三档MIS限时评估.md) · [模型权重](outputs/v11/scale_priority_20261121/training/best.pt) · [复跑入口](train_scripts/v15/priority_200ms.sh)
 
-| 时钟 | 格子 | 裸搜索 | +平台 | 平台增益 | 步数 |
-| --- | --- | --- | --- | --- | --- |
-| 0.5 s | eager/eager | 18.7400 | 19.3780 | +0.6380 | 49 |
-| 0.5 s | captured/cached | 19.8243 | 19.8403 | +0.0160 | 402 |
-| 1.0 s | eager/eager | 19.7317 | 19.7717 | +0.0400 | 213 |
-| 1.0 s | captured/cached | 19.9293 | **19.9333** | +0.0040 | 1058 |
+## 排序权重的补充实验
 
-对照同卡实测：KaMIS 1 s **20.1060**（5 s 起饱和在 20.05）、RLSA 19.97@35 s、RLNN 19.52@1.64 m【论文】。
+200 ms 下在同一批内比较五个排序臂（仅度数、λ=0.1、λ=0.25、λ=1.0、仅学习分数，同一检查点与调度）。大型 RB 的交付规模落在 42.4387–42.5130，小型 ER 落在 44.1432–44.4245，小型 RB 五臂同为 20.1150（全部已证明最优）。相对同批度数臂的差值：大型 RB 为 +0.0187 至 +0.0743，小型 ER 为 −0.1068 至 +0.1745，大型 ER 的区间都含零。实际使用的 λ=0.25 在小型 ER 上最好；大型 RB 上更大的权重还能再多约 0.02 个顶点。混合排序与 −度数 的 Spearman 相关为 0.9903、0.9906、0.9986，学习分数本身为 0.5829、0.6451、0.9562，说明学习项主要在度数排名接近的顶点之间重排。[逐图记录与统计](outputs/v17/priority_mix_20261122/) · [运行说明](outputs/v17/priority_mix_20261122/README.md)
 
-**口径更正（2026-11-14，重要，撤回此前的时间比较）。** 论文 Table 1 的 TIME 是**整个测试集**的总时间、逐图串行（p.8），而 RB-[200–300] 的测试集是 **500 张**（p.6）。所以 RLNN 1.64 m = **0.197 s/图**、RLSA 35 s = **0.070 s/图**、KaMIS 1.40 h = 10.1 s/图。我们的 1 秒是**每图**预算 → 折成同一口径 500 s/500 图，对 RLNN **慢 5.1 倍**、对 RLSA **慢 14 倍**。此前写的「快 98 倍 / 快 35 倍」把每图预算与整集合计混算，已作废。
+## 原融合引擎的实验结论
 
-逐条：
+在 RB-[200–300] 的严格 200 ms 同图同种子对照中，融合 RLNN 平均 SIZE 为 **20.0300**，相对发布版 RLNN 高 **0.6053**，相对 RLSA 高 **0.0793**。另用三个新种子复测融合版和单线程 KaMIS OnlineMIS：合并六种子后，两者为 **20.0273 / 20.0365**，按时有解 **6000/6000 / 5995/6000**。 [论文 PDF](outputs/paper_20261120/paper.pdf) · [Overleaf 源码包](outputs/paper_20261120/overleaf-source.zip) · [实验与配对统计](docs/论文实验.md) · [图表设计参考](docs/论文图表参考.md)
 
-- 「1 秒内 19.9+」**成立**：19.9333。
-- 「超过 RLNN 19.52」**只有 SIZE 轴成立**（+0.41）；TIME 轴按同一口径我们慢 5.1 倍，此前「快 98 倍」作废。0.2 s/图的等钟补测在跑（`author_short.sh`），若那一档 ≥19.52 才能改写回双轴。
-- 「超过 RLSA 19.97」**两轴都不成立**：SIZE −0.037；TIME 按同口径慢 14 倍。原主张这一句只能改成「SIZE 与 RLSA 同水平（−0.037）」。
-- 「两组件可分离相加」**不成立**：1000 图上 capture on search 在 0.5 s 是 **+1.0843** [+1.0300,+1.1387]、1.0 s 是 **+0.1977**；platform on eager 是 +0.6380 / +0.0400，但 platform on captured 只剩 **+0.0160 / +0.0040**。步数一多 PAVE 就无事可做，**捕获与平台是替代关系**；原主张的「+0.28 / +0.22 / +0.16」三分法来自不同协议，不能相加。
-- 「19.5 以内的 0.5 秒档」不成立：0.5 s 最好 19.8403。
+沿用同一组冻结权重与 200 个粒子，融合 RLNN 在 RB-[800–1200] 上取得 **28.9847（2613/3000 按时）**，在 ER-[700–800] 上取得 **40.8854（384/384）**。在 ER-[9000–11000] 上，装载单图最少需要 1.84 秒，48 次都在搜索前用完预算。每档的 SIZE 都包含未按时交解的零分。 [四档定量表](overleaf/sections/scale_table.tex) · [完整数据](outputs/v11/scale_deadline_20261120/comparison.csv) · [装载与解码耗时](outputs/v11/scale_deadline_20261120/fused_timing.csv)
 
-详细表与复现见 [作者集主表](docs/temporary/RLNN_v8_Paper_Table.md)。
+同一批 1000 张 RB-[200–300] 作者测试图、同一台 RTX 5090 上，**融合 RLNN（关闭 PAVE）达到 20.0300 @ 193.80 ms/图**。作者公开 RLNN 的复测为 **19.520 @ 208.07 ms/图**，固定 300 步 RLSA 复测为 **19.973 @ 208.39 ms/图**。相对 RLSA 的逐图配对 SIZE 增益为 **+0.057**，95% CI **[+0.040, +0.074]**。RLSA 比较对应近似等墙钟工作点。 [论文证据与消融计划](docs/论文实验.md) · [RLNN 配对](outputs/v11/fused_pave_02s_deadline/vs_rlnn.json) · [RLSA 配对](outputs/v11/fused_pave_02s_deadline/vs_rlsa.json)
 
-**限时部署采用原骨干持续搜索＋冻结 PAVE-Stats H1。** PAVE 的后处理收益来自 v3 的 1,000 张作者测试图。骨干部署选择来自 v5 的 100 张验证图、三种子预算对照，两组结果各按原协议报告。[v3 结果与口径](docs/已归档的想法和文件/v3/RLNN_v3_Results_Analysis.md) · [v5 部署对照](docs/已归档的想法和文件/RLNN_v5_Frequency_Results.md)
+### 0.2 秒融合引擎（2026-11-18）
 
-| 版本 | 结论 | 结果与入口 |
-| --- | --- | --- |
-| v3 · PAVE-Stats H1 | 同一批合法起点上，固定工作量的 Mean Size 为 19.6633，相比 rule23 提高 0.0603。 | [分析](docs/已归档的想法和文件/v3/RLNN_v3_Results_Analysis.md) · [运行协议](train_scripts/legacy/v3/README.md) |
-| v4 · 双尺度频域适配器 | 短筛未显示频域独立收益。机制追诊把高支路的驻留分量与动作收益分开验证。 | [短筛结果](docs/已归档的想法和文件/RLNN_v4_Frequency_Results_Analysis.md) · [机制追诊](docs/已归档的想法和文件/RLNN_v4_Frequency_Mechanism_Followup_Results.md) · [训练与评测](train_scripts/legacy/v4_frequency/README.md) · [追诊复算](train_scripts/legacy/v4_frequency/followup/README.md) |
-| v5 · DAFR-Lite | 112 参数的输出残差达到高支路零驻留目标。FP32 固定 100 步的 Mean Size 为 19.580，MSG 为 19.583，MLP 为 19.587。两档预算也未通过准入。 | [实验报告](docs/已归档的想法和文件/RLNN_v5_Frequency_Results.md) · [阶段决策](outputs/v5_frequency/analysis/decision.json) · [训练与评测](train_scripts/legacy/v5_frequency/README.md) |
-| v6 · SC-RLNN | 三种子首轮筛选中，固定 100 步＋PAVE 的 Mean Size 为 19.073，配对 B 为 19.657。速度和质量均未通过准入。 | [模型与首轮结果](docs/已归档的想法和文件/RLNN_v6_SC_RLNN.md) · [训练与评测](train_scripts/legacy/v6/README.md) |
-| Mamba v0 · PC-OSM-RLNN | 一次性扫描正确。宽度 16 在 FP32/FP16 下仍为 B 的 1.216×/1.249×，同信息代理对照未显示稳定增量，停在 P0。 | [P0 报告](docs/已归档的想法和文件/mamba/RLNN_Mamba_v0_P0_Results.md) · [运行入口](train_scripts/mamba/v0/README.md) |
-| 静态先验 v1 | 中心化 MLP 的 T100 耗时为 B 的 1.041×，0.5 秒两轮均为 20.12，B 为 20.14。与同权重去节点项的版本在 T1000 和两档预算的 250 个配对上大小相同。 | [v1 结果](docs/已归档的想法和文件/mamba/RLNN_Static_Prior_v1_Results.md) · [运行入口](train_scripts/mamba/v1/README.md) |
-| **Mamba 线（已归档）** | v2 的 P0 证明注入接口有杠杆（oracle T100 +0.45、0.5 秒 +0.19、反向 −0.29），但 P1 的三次方向学习都失败：搜索目标 −0.04、权重主导 +0.05、纯监督 0.088（留出 AUC 0.6375）。**瓶颈在 8 维静态特征的输入信息**，T100 实测 +0.003。 | [归档总结](docs/已归档的想法和文件/mamba/README.md) · [定价曲线](docs/已归档的想法和文件/mamba/RLNN_Mamba_v2_P0_Results.md) |
-| 结构补偿 v1（已归档） | 层内注入度数残差/度数门控/显式增益三个零初始化通道。`degree` 在 T100＋PAVE 得 **+0.090**（CI [−0.020, +0.200]，19/70/11），是首个非零信号；`gate` +0.060、`gain` +0.030、`all` −0.020。速度门失败（1.11×–1.29×，基线是发射受限）。**未过准入**。 | [结果](docs/已归档的想法和文件/structure/RLNN_Structure_v1_Results.md) · [设计](docs/已归档的想法和文件/structure/RLNN_Structure_v1_Design.md) |
-| 结构补偿 v2（已归档） | 把度数通道改到读出端（一次广播加，静态量按图缓存），增益改可学正尺度，每图 3 个搜索种子。`degree_out` 只有 **+0.013**（CI [−0.040, +0.063]，20/64/16），`all_out` 与它逐位相同，速度仍 1.11×。**v1 的 +0.090 未复现，判为单种子波动**。 | [结果](docs/已归档的想法和文件/structure/RLNN_Structure_v2_Results.md) · [归档总结](docs/已归档的想法和文件/structure/README.md) · [汇总](outputs/structure_v2/analysis/summary_ref0.json) |
-| v7 · TCCR（已结束） | 不改翻转概率，改用轨迹信息。固定工作量下，K=20 合法解的**精确重组**在冻结 PAVE 之上 **+0.088**（三种子 69 胜 231 平 0 负）；冲突释放区域 `|U| ≤ 4` 只有 +0.043（8–15/100 图），预注册判决 `stop`。**预算门否掉整条线**：两个参考种子、两档预算共四格全部 CI 跨零（0.5 秒 −0.028／+0.030，1.0 秒 +0.010／+0.003），20 ms 的搜索价值与重组收益同量级、符号随争用翻转。 | [结果与判决](docs/已归档的想法和文件/v7_tccr/RLNN_v7_TCCR_Results.md) · [普查预注册](docs/已归档的想法和文件/v7_tccr/RLNN_v7_TCCR_Prereg.md) · [预算门预注册](docs/已归档的想法和文件/v7_tccr/RLNN_v7_TCCR_Prereg_Budget.md) · [运行入口](train_scripts/v7/README.md) |
-| v8 · 宏步 ACMD（P0 停止） | 把一个 h=2 宏步当成一个联合分布来建模（读出 1→2M、混合分量、末态+记录态双头）。先跑两个只用冻结模型的 P0 诊断：**打乱跨节点相关性**只让中间能量差 1.1–1.4、冲突多 0.5–0.8，最终解大小差 −0.008 到 −0.031（四格 CI 全跨零，方向为 joint 略差）；**只保留端点档案**的最终解差 +0.017（CI [−0.033, +0.083]，仅 3/60 图）。按预注册判读表"两项均无最终质量信号"，**不进入成本门与训练**。| [P0 结果与决定](docs/temporary/RLNN_v8_P0_Results.md) · [方案与判读](docs/temporary/RLNN_lab_v8_review_and_research.md) · [运行入口](train_scripts/v8_macro/README.md) |
-| **v8 · 定位与步数（新）** | 冻结策略每步只花 0.26 ms 算术，其余是发射延迟；把 10 步捕获成 CUDA 图块后，**同样的墙钟多 6.75×/7.88× 步数**，0.5 秒 **19.690 → 19.885**（+0.195 [+0.125,+0.270]，21/79/0），1.0 秒 **19.775 → 20.000**（+0.225 [+0.140,+0.320]，22/78/0），闸门先断言轨迹逐位一致。再把 A.3 解码搬进图块（+0.045/+0.010）并跳过重复解码（+0.000/+0.010），合计 **+0.280 [+0.195,+0.370] / +0.235 [+0.150,+0.330]**、30/70/0 与 22/78/0、步数 ×10.5/×11.8——**700 步之后每翻倍只值 +0.01，速度工程到此为止**。等钟定位：KaMIS 的墙钟地板是 1.87 s/图（即使传 `--time_limit=0.1`），所以 **0.5–1.8 秒只有本方法能交解**；在 ≥1.9 秒的四个等钟格上配对差全跨零、93–96/100 图相同，**两者同一水平**。 | [定位与步数结果](docs/temporary/RLNN_v8_Positioning_Results.md) · [汇总表](outputs/v8_macro/positioning/summary/positioning_ref0.md) · [运行入口](train_scripts/v8_macro/README.md) |
-| **v8 · PAVE 外接（否）** | PAVE 是否 solver-agnostic？把 KaMIS 0.1 秒的解喂进 A.3＋PAVE：100 张图**每一项增益恰好为 0**（0/100/0，±0.0000，CI [0,0]），三个选择器（学习/规则/随机）全部零交换、再给 0.1 秒 KaMIS 也是 0——KaMIS 的解已是该邻域的不动点。正对照（同一套代码、贪心最小度起点）PAVE 拿到 **+0.710 [+0.560,+0.870]**，其中 +0.55 来自「做局部搜索」本身，学习选择器再加 **+0.160 [+0.080,+0.250]**（15/84/1）。结论：PAVE 的增益随输入收敛程度单调下降（+0.710 / +0.22 / +0.000），**不能写成「接在任何求解器上都能提升」**。 | [外接判决结果](docs/temporary/RLNN_v8_PAVE_External_Results.md) · [运行入口](train_scripts/v8_macro/README.md) |
-| **v8 · 跨族迁移（否）** | 冻结策略在没见过的图族/规模上还成立吗？四族各 40 图、1.0 秒等钟、同一冻结骨干＋PAVE：同分布对照 −0.075、ER **−0.625 [−0.900,−0.325]**、BA **−1.775 [−2.200,−1.400]**、n≈1010 的 RB **−3.650 [−4.025,−3.275]**（相对 −0.4 %/−1.4 %/−1.6 %/−8.6 %，随离训练分布的距离单调）。更难看的是等钟下**贪心最小度 + PAVE 直接在 BA（25/40 图）与 RB_large（PAVE 给满 1 秒时 18/40 图）上赢过冻结策略**。反过来 PAVE 的修复与族无关（+0.55/+1.58/+1.58），只要它的时钟随 n 缩放（0.1 秒→1.0 秒）。**迁移不成立，退化是族与规模两条同时出现**。 | [判决结果](docs/temporary/RLNN_v8_Regime_Probe.md) · [汇总表](outputs/v8_macro/regime/regime/summary_ref0.json) · [运行入口](train_scripts/v8_macro/README.md) |
-| **v8 · 作者集主表（现行）** | 论文主张在 1000 张作者测试图上测完。1.0 秒 captured/cached **19.9333**（裸搜索 19.9293，平台只剩 +0.0040 可做），对未编译的 19.7717 是 **+0.1617 [+0.1457,+0.1780]**（345/651/4）；0.5 秒 19.8403。同卡对照：KaMIS 1 秒 **20.1060**（5 秒即饱和在 20.04）、RLSA 19.97@35 s、RLNN 19.52@98 s。判定：**「1 秒内 19.9+」成立、「双轴压过 RLNN」成立、「SIZE 压过 RLSA」不成立（−0.037）**；2×2 分解显示平台只在慢搜索上值钱（eager 臂 +0.6380，捕获臂 +0.0160），**两组件是替代关系而非相加**。ER-[700–800]（p 用 KaMIS 反标定为 0.15，128 图）我们 1 秒 42.18，输 KaMIS 44.00 与 RLNN 43.34，**按 scope 处理**。 | [作者集主表](docs/temporary/RLNN_v8_Paper_Table.md) · [CSV](outputs/v8_macro/author_test/capture_budget/capture_budget_ref0.csv) · [运行入口](train_scripts/v8_macro/README.md) |
-| **v8 · 大移动（否）** | 19.98 的天花板是「移动集闭合」还是「搜索没跑够」？四个算子逐个测：(1) 球内**精确修复**（半径 1/2 的 BFS 球，20 图）**0/20 图有增益**——稠密图里区域边界外的已选点把区域锁死；(2) 连通簇毁灭＋**贪心**重建（4 图 ×10 轮）全 0；(3) **策略重填**（清空半径 2 的球＝132 节点/11.3 个已选点，再用冻结策略跑 60 步重填）100 图 **3 胜/96 平/1 负、+0.02**，机制是重填只回来 10.80/11.29（净 −0.49），每次都收敛回原解；(4) **KaMIS 式图缩减**先测再动手：RB 图里**度为 0/1/2/≤3 的顶点占比全是 0%**，四种规则迭代到不动点 kernel 还剩 **88.1%**，只取走 1.3 个点——所以 KaMIS 在 RB 上的优势不是缩减，而是 C++ 本地搜索的每秒移动数。 | [大移动结果](docs/temporary/RLNN_v8_Large_Moves.md) · [CSV](outputs/v8_macro/rebuild_100/rebuild/rebuild_ref0.csv) · [运行入口](train_scripts/v8_macro/README.md) |
-| **v8 · 捕获摊薄** | 把「每图重捕获搜索块」（93.5 ms）改成**整个数据集只捕获一次**（`models/mis_v8_pad.py`：缓冲按 `(n_max, capacity)` 固定，每图只改写边缓冲，prelude 6 ms）。1000 张作者测试图、单种子：0.05 秒 **19.4040**（67 步）、0.1 秒 **19.6890**（178）、**0.2 秒 19.8410**（414）、0.5 秒 **19.9450**（1310）、1.0 秒 **19.9830**（2887）。同钟对比：**0.2 秒对我们 19.841 vs RLNN 19.52@0.197 秒 → 两轴同时赢 RLNN（+0.32）第一次成立**；但对 RLSA 19.97@0.070 秒仍差 0.42（要到 1.0 秒才越过 19.97，慢 14 倍），对 KaMIS 20.106@1.0 秒仍低 0.12。 | [摊薄实验](docs/temporary/RLNN_v8_Amortised_Capture.md) · [CSV](outputs/v8_macro/padded_short/padded/padded_ref0.csv) · [运行入口](train_scripts/v8_macro/README.md) |
+在同一张 RTX 5090 上，对 1000 张 RB200–300 作者测试图和搜索种子 1017、1019、1021 逐图配对。两臂均使用冻结 RLNN、`K=200`、dense FP16 和 `torch.compile`，关闭前导解码，A.3 解码取最低能量的 4 个粒子。PAVE 臂预留 40 ms，关闭 PAVE 的一臂将该预算留给搜索与解码。
 
-两条已关闭的线留下一个共同结论：**在 RB200–300 上，无论把静态结构信息放在输出端（Mamba 线）还是放进骨干内部（结构补偿：v6 换骨干、v1 层内注入、v2 读出端融合三种形态），对同预算解大小都没有可复现的增量**。因此 v7 不再改翻转概率的编码方式，转向**利用已经算出来的轨迹信息**：K=20 个 A.3 合法解的精确二部图重组，在冻结 PAVE 之上再得 **+0.088**（三种子 69 胜 231 平 0 负），而冲突释放区域没有可用的量。部署方案是 B 持续搜索 ＋ 精确重组 ＋ 冻结 PAVE-Stats H1（重组为待验证的候选，预算档未过）。
+| PAVE | 搜索解均值 | 最终解均值 | 平均搜索步数 | 平均墙钟 | 200 ms 内有解 | 墙钟超时 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 开 | 20.0113 | 20.0147 | 278.4 | 185.75 ms | 3000/3000 | 9/3000 |
+| 关 | 20.0300 | **20.0300** | 351.0 | 193.80 ms | 3000/3000 | 0/3000 |
 
-v5 验证中，原骨干持续搜索＋PAVE 在 0.5 秒和 1.0 秒预算下分别取得 **19.677** 和 **19.830**，DAFR＋PAVE 分别为 19.500 和 19.617。[逐种子与配对汇总](outputs/v5_frequency/analysis/) · [实验结果工作簿](docs/实验结果.xlsx)
+关闭 PAVE 后，最终解平均增加 **0.0153**（图级配对 bootstrap 95% CI [+0.0097, +0.0213]，55 胜 / 2936 平 / 9 负）。PAVE 在 10/3000 次求解中改进了搜索解，平均 +0.0033。这个预算下，把预留时间交给融合搜索得到更大的最终解。
 
-实验使用两张 RTX 5090。各任务独立单卡运行，训练可同卡并行，正式计时每卡运行一个评测进程。
+逐图时钟包含引擎装载、搜索、中段与末次 A.3 解码，以及启用时的 PAVE。求解器为末次解码预留至少 5 ms，并保留搜索窗口中段已完成的合法解。超过截止时刻的更新不计分，原始墙钟超时另行记录。两臂的末次解码均在截止前完成。PAVE 臂的 9 次墙钟超时均沿用截止前的搜索解，墙钟最长 202.0 ms。一次性编译、CUDA Graph 捕获、数据读取和公共图预处理在逐图时钟外。
 
-## 下一步路线（固定，2026-11-14）
+RLSA 的近似等墙钟参照为 **19.9620 @ 201.0 ms/图**，来自同一作者集上的固定步数运行。 [RLSA 时钟扫描](docs/temporary/RLNN_v8_SOTA_Direction.md) · [配对统计](outputs/v11/fused_pave_02s_deadline/summary.json) · [逐图结果](outputs/v11/fused_pave_02s_deadline/) · [复跑脚本](train_scripts/v11/fused_pave_02s.sh)
 
-现在卡在 **19.98 @ 1 秒**（KaMIS 20.106）。四条独立证据说明这不是「还没跑够」，而是**移动集太小**：
+### 同一策略权重下的收益
 
-| 尝试（都把答案打在 19.98 之上） | 1 秒档收益 |
-| --- | --- |
-| 末端 PAVE（修 + 换） | +0.004 |
-| König 精确重组（K=20 个合法解二部图） | +0.024 |
-| 把交换插进搜索循环（每 60 步一次） | ≤ 0（0.2 秒档 −0.100） |
-| 随机踢动（删 5% 再补） | −0.033 |
+固定作者权重和 20 个粒子，切换求解流程后 SIZE 从 19.4247 升至 19.9773；继续使用作者权重，将并行粒子增至 200 个后达到 20.0360。相同融合配置下，本地权重与作者权重的配对差为 −0.0060，95% CI [−0.0150, +0.0033]。首项包含解除 100 步上限和更换搜索、解码实现。 [权重与粒子数配对](outputs/v11/paper_ablations/checkpoint_bridge_20261120/summary.json)
 
-即：20 个粒子的档案并集已经是 **1-flip 与 (2,1)-swap 双邻域都空**的局部最优。所以路线是「**先给网络全局视野，再把动作换成更大的移动**」，按顺序做，每步都有明确的死刑判据：
+### CUDA Graph × 编译正式消融
 
-1. **全局 token（半天，先做）.** `models/mis_v8_global.py`：每层把 `mean/max` 池化的图级向量投影回隐藏宽度，广播加到每个节点上；只改 forward，损失、步数、数据全不变。训练入口 `train_scripts/v8_macro/global_train.sh`（`--arch global`，50 epochs、`num_tp=50`，与冻结基线同配方）。**判据：1.0 秒 ≥ 20.00（冻结捕获 19.9333 + 0.05）才留下**，否则说明瓶颈确实不在感受野，直接进第 2 步。注：池化按真实节点算，所以这一臂用逐图捕获引擎评测（摊薄的 padding 会污染均值）。
+固定 130 步时，两项都开启的平均墙钟为 74.53 ms/图，两项都关闭为 277.70 ms/图。200 ms 截止下，两项都开启完成平均 348.6 步，实现 **20.0287 @ 193.57 ms/图**，3000/3000 次按时交付。相对两项都关闭，配对 SIZE 增加 **0.3320**，95% CI **[0.3093, 0.3563]**。 [四臂结果与协议](docs/论文实验.md#cuda-graph--编译) · [配对统计](outputs/v11/paper_ablations/cuda_graph_compile_20261119/summary.json)
 
-**已完成，结果中性（判据未过）**：热启动微调 6 epoch 后，500 张作者图上 1.0 秒 19.9920 对冻结 19.9900（配对 +0.0020 [−0.0220, +0.0280] 22/457/21）、0.5 秒 −0.0180 [−0.0480, +0.0120] 25/441/34；验证目标与冻结基线持平。详见 `docs/temporary/RLNN_v8_Global_Token.md`。注意冻结骨干当年是**热启动**训练的（`run.json` 里有 `warm_start`），从零训练不可直接比较。
+### 1 秒参照
 
-2. **学习型交换头（2–3 天，主线）.** 把动作从「翻一个点」换成「学出来的交换对」：`add(u)=MLP(h_u)`、`del(v)=MLP(h_v)`，配对得分 `s(u,v)=add(u)+del(v)+φ([h_u,h_v,h_u−h_v])`，用**最大权匹配**（复用 `mis_v7_recombine` 的 König 实现）挑一组互不冲突的对，一次性加 A 删 R（允许 |A|>|R|，即 (2,1)/(3,2) 交换）。每 N 步做一次交换、其余步仍 1-flip，训练信号沿用现成的一步目标（把 flip 换成 pair 的 softmax）。**判据：1000 张作者图、1.0 秒 ≥ 20.05 才算成功**；20.05 以下一律视为失败（写进负结果）。 **已作废（2026-11-15，训练前被判死）**：`models/probe_exchange_headroom.py` 直接测量了「收敛解上还有没有能涨的交换」——1.0 秒解的 1-flip、(1,1)、(1,2)、(2,3) 与 **k≤4 的全部 k→k+1** 移动都是零（20 图；正对照用贪心解能测出 k1 2/6、k2 3/6、k3 3/6 图）。没有增益移动就没有可学的正样本，头只能学到「不要动」。详见 `docs/temporary/RLNN_v8_Exchange_Headroom.md`。
+融合、关闭 PAVE 的 1 秒墙钟实验三种子均值为 **20.0870**，平均 1852.4 步。RLSA 的 1 秒插值约为 20.084，两者相差 +0.003。v11 A0 的 **20.0690** 对应 seed 1017 的固定 810 步复现协议。 [融合消融](docs/temporary/RLNN_v13_Ablation_Results.md) · [A0 三种子结果](outputs/v11/t7/summary.md)
 
-3. **学习式退火（2 天，第 2 步已作废，这条现在是主线）.** 加一个价值头 `V(s)` 预测这条轨迹最终的档案大小（标签来自冻结搜索自己的 rollout，不需要 RL），把接受准则从「能量下降才翻」换成学出来的 Metropolis（`ΔV > −τ(t)·log u`，τ 退火）。依据很硬：**同一篇论文里纯 SA 的 RLSA（19.97@0.07 秒）比他们自己的神经网络版 RLNN（19.52@0.197 秒）强 0.45 且快 2.8 倍** —— 「贪心接受」本身就是短板。**已作废（2026-11-15，训练前被判死）**：先测温度闸门（把 policy logits 除以 `T`，再看整段预算用固定 `T` 或线性退火）——固定温度单调变差（1.0 秒：`T=2` +0.01 CI 跨零、`T=4` −0.37、`T=8` −0.68），退火只能把损失收回一部分（`T=8→1` 仍是 −0.09），**没有一格显著为正**。温度空间的最好点就是基线本身，学习式接受准则没有可学信号。详见 `docs/temporary/RLNN_v8_Learned_Annealing.md`。
+## 实验与交接
 
-三步全失败时，按 `docs/temporary/v8_paper_snapshot_A.txt` 里的「版本 A」口径写论文（三段主张：摊薄捕获赢 RLNN、平台增益是输入次优程度的函数、九条方法线的负结果），不再改网络。
+[项目现状](docs/项目现状.md) 汇总各阶段结论、对外比较口径和未决事项。 [实验输出](outputs/README.md) · [正式结果](docs/实验结果.xlsx) · [冒烟结果](docs/冒烟结果.xlsx) · [v8–v13 文档](docs/temporary/README.md) · [历史归档](docs/已归档的想法和文件/README.md)
 
-**三步已全部测完（2026-11-15）：第 1 步中性（`RLNN_v8_Global_Token.md`）、第 2 步与第 3 步都在训练前被判死（`RLNN_v8_Exchange_Headroom.md`、`RLNN_v8_Learned_Annealing.md`）。** 三次测量的共同结论：19.98@1 秒 不是「搜索没跑够」「网络看不见全局」「接受准则太贪心」中的任何一个，而是**当前移动集（1-flip + 至多 4 点的交换）已经闭合**。要越过去只能换移动集（一次移动 ≥5 个点、缩减重启），或者接受这个天花板并按版本 A 收口。
+根目录 [overleaf](overleaf/README.md) 提供 ICML 2027 匿名论文工程。正文区分粒子解码与可行解搜索，比较二者在截止前交付的节点集。讨论与附录将同一选择问题映射到冷链派车。[双路线模型图](overleaf/figures/search_paths.pdf) · [可编辑模型图（第 5 页）](docs/模型图.pptx) · [常驻求解器曲线](overleaf/figures/resident_deadlines.pdf) · [解码轨迹](overleaf/figures/decode_cases.pdf) · [冷链算例](overleaf/figures/dispatch_example.pdf)
 
 ## RLNN复现基线
 
@@ -107,7 +76,14 @@ v5 验证中，原骨干持续搜索＋PAVE 在 0.5 秒和 1.0 秒预算下分�
 
 ## 在服务器复跑限时对照
 
-从项目根目录执行。已有验证张量缓存、种子 0 的 v2 RLNN 骨干和 v3 PAVE-Stats H1 权重时，可复跑 0.5 秒的持续搜索对照。
+从项目根目录运行 0.2 秒融合引擎的 PAVE 配对实验。命令使用作者测试集张量缓存、冻结 v2 RLNN 和 v3 PAVE-Stats H1 权重。末尾的 `1` 为 GPU 编号。
+
+```bash
+RESULT_DIR="outputs/v11/fused_pave_02s_$(date +%Y%m%d_%H%M%S)" \
+  bash train_scripts/v11/fused_pave_02s.sh 1
+```
+
+历史 v5 的 0.5 秒对照使用验证张量缓存、种子 0 的 v2 RLNN 骨干和 v3 PAVE-Stats H1 权重。
 
 ```bash
 PYTHON="$HOME/envs/rlnn/bin/python" CUDA_VISIBLE_DEVICES=0 SEED=0 \
@@ -142,38 +118,15 @@ PYTHON="$HOME/envs/rlnn/bin/python" bash train_scripts/legacy/v000_rlnn_baseline
 
 ## 目录与结果整理
 
-| 目录 | 用途 |
+| 入口 | 内容 |
 | --- | --- |
-| `models/` | 上游源码与模型迭代 |
-| `train_scripts/legacy/v000_rlnn_baseline/` | 环境、数据、训练、评估和冒烟入口 |
-| `outputs/v000_rlnn_baseline/<run>/` | 日志、配置和数值结果，模型权重保存在服务器 |
-| `train_scripts/legacy/v3/` | PAVE 起点生成、标签、训练和评测 |
-| `train_scripts/legacy/v4_frequency/` | 共享教师状态训练、独占计时验证、频谱与收益诊断 |
-| `train_scripts/legacy/v5_frequency/` | DAFR-Lite 短训、固定步数与限时评测、机制诊断 |
-| `train_scripts/legacy/v6/` | SC-RLNN 训练、速度准入、固定步数评测与逐层诊断 |
-| `train_scripts/mamba/` | 已冻结的 Mamba / 一次性静态先验线（v0 预检、v1 静态先验、v2 接口普查与方向判决） |
-| `train_scripts/structure/` | 已冻结的结构补偿 v1/v2 线：模块自检、训练、固定步数与限时评测、种子池化汇总与准入 |
-| `train_scripts/v7/` | v7 TCCR 普查：算子自检、K=20 捕获、重组/区域普查、端到端重组+PAVE、门槛汇总 |
-| `train_scripts/v8_macro/` | v8：内核自检、P0 诊断、定位与解码、PAVE 外接、跨族迁移、作者集主表（P0–P18 的完整命令链，含分片并行） |
-| `outputs/v3/`、`outputs/v4_frequency/`、`outputs/v5_frequency/`、`outputs/v6/` | 各版本逐图记录、配对汇总与阶段决策 |
-| `outputs/v7_context/`、`outputs/static_prior_v1/`、`outputs/mamba_v2/` | Mamba 线的预检、静态先验与接口普查证据 |
-| `outputs/structure_v1/`、`outputs/structure_v2/` | 结构补偿的逐图记录、配对汇总与准入判决 |
-| `outputs/v7_tccr/` | TCCR 普查与端到端重组的逐图记录、门槛汇总与判决 |
-| `outputs/v8_macro/` | v8 各线产物：块数据、P0 诊断、定位与解码对照、PAVE 外接、跨族迁移、作者集主表 CSV（1000 图 18000 行） |
-| `reference_methods/` | [参考方法代码与来源](reference_methods/README.md) |
-| `docs/` | 服务器、数据集、参考文献与实验结果 |
-| `docs/temporary/` | 研究方案、实验报告和版本快照 |
-| `docs/已归档的想法和文件/` | [历史研究方案](docs/已归档的想法和文件/README.md) · [已归档 Mamba 线](docs/已归档的想法和文件/mamba/README.md) · [已归档结构补偿线](docs/已归档的想法和文件/structure/README.md) |
-| `tools/` | 运行记录、同步、结果整理与快照工具 |
-| `tmp/` | 本地临时材料 |
+| [models/](models/README.md) | 骨干、A.3 解码、PAVE、CUDA Graph 搜索与归档源码 |
+| [train_scripts/v11/](train_scripts/v11/README.md) | 现行限时对照、A0、v11 诊断与融合消融 |
+| [outputs/](outputs/README.md) | 正式运行、逐图记录和统计来源 |
+| [数据集](docs/数据集.md) · [服务器](docs/服务器.md) | 数据划分、部署环境和 checkpoint 位置 |
+| [tools/](tools/README.md) | 运行记录、同步、结果工作簿与快照 |
 
-在 Windows 本地拉回 v5 的小型运行记录后，使用提供 `@oai/artifact-tool` 的 Node 运行时更新 v5 工作表，并生成代码和数值结果的快照。训练图和模型权重保存在服务器。[工具说明](tools/README.md) · [v5 TXT 快照](docs/已归档的想法和文件/v5_frequency_20261109_174609.txt)
-
-```powershell
-python tools/server.py pull --version v5_frequency
-node tools/update_v5_workbook.mjs
-python tools/snapshot.py --version v5_frequency
-```
+权重及完整图数据保存在服务器。正式和冒烟指标分别记录在两本工作簿。
 
 ## 参考文献
 

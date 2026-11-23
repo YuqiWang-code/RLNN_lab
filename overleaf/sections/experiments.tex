@@ -1,0 +1,71 @@
+\section{Experiments}
+\input{figures/qualitative_instance}
+
+\label{sec:experiments}
+
+\paragraph{Instances and protocol.}
+The released MIS benchmarks contain 1,000 graphs each in RB-[200--300] and RB-[800--1200], 128 in ER-[700--800], and 16 in ER-[9000--11000] \citep{feng2025regularized}. Solvers are paired on graph ID and search seed (1017, 1019, 1021), giving 6,432 graph--seed pairs per budget, and at each of four budgets every resident solver runs on all pairs from the same host edge list. Table~\ref{tab:external-deadline} collects every measured method at the common 200~ms cutoff. The transfer study uses all 14 register interference graphs in the DIMACS COLOR catalog \citep{johnson1996dimacs}. We report mean delivered size with missed deliveries scored zero, the number of runs with a set on the host, and the actual return time. Paired contrasts average the three differences on each graph and resample graphs 5,000 times; all intervals are pointwise 95\%. Appendix~\ref{app:protocol} specifies training, validation and timing for every implementation.
+
+\subsection{SPRINT-C delivers the largest set at 200 ms}
+\input{sections/scale_table}
+At 200~ms SPRINT-C delivers the largest mean set of every measured solver on all four families (Table~\ref{tab:external-deadline}): 20.1150 against 20.0817 for resident OnlineMIS on small RB ($+0.0333$, $[0.0253,0.0420]$), 42.4417 against 41.7613 on large RB ($+0.6803$, $[0.6460,0.7153]$), 44.3438 against 42.7240 on small ER ($+1.6198$, $[1.5104,1.7292]$), and 370.1250 against 363.5833 on large ER ($+6.5417$, $[5.2917,8.0417]$). All 6,432 pairs receive a set, and on large RB the larger sets arrive sooner: 139.04 against 197.72~ms of mean return time. The same frozen configuration also beats RLSA on small ER by 1.1901 vertices ($[0.9635,1.5339]$) and the strongest neural baseline (INTEL, 17.1893) by 2.93 vertices on small RB.
+
+Delivery itself separates the field. On small RB, where Gurobi's exact solver averages 16.5967, ReduMIS publishes a set on 280 of 3,000 pairs and DGL-TreeSearch on all 3,000 at 5.0850 vertices; on large ER, DIMES reaches 30 of 48 pairs and Gurobi's licence admits no model at that scale (Appendix~\ref{app:scale-supplement}). A score that mixes missed deadlines with delivered size ranks SPRINT-C first on every family, and the gap to each baseline is largest where coverage collapses.
+
+\subsection{The win holds at every budget, and small RB is optimal}
+\input{figures/resident_deadlines}
+SPRINT-C leads resident OnlineMIS in each of the 16 family--budget combinations (Figure~\ref{fig:resident-curves}); the 50~ms large ER difference ($+1.50$, $[-3.19,6.04]$) is the only paired interval that includes zero. On RB-[200--300] SPRINT-C reaches all 3,000 offline-verified optima at every budget with one checkpoint: 375 graphs by a disjoint clique cover and the remaining 625 by an independent SAT check that no larger set exists (Appendix~\ref{app:protocol}). Both rankings attain those optima within 50~ms, at 2.53~ms average return for the degree arm and 10.37~ms for the learned arm; resident OnlineMIS climbs from 2,735 optimal sets at 50~ms to 2,941 at 500~ms. On the 14 register interference graphs the same checkpoint is optimal on all 42 pairs, and the shared greedy initializer reaches the optimum before either ranking is computed (Appendix~\ref{app:gain-sources}).
+
+Figure~\ref{fig:qualitative-instance} follows one instance from release to delivery. The set published before inference already holds 18 vertices; exchanges then trade a held vertex for the candidates it blocks, and the run finishes at 23, one above resident OnlineMIS on the same graph.
+
+Large RB shows why the archive, not the return value, is the quantity a caller can use. At 50~ms all 3,000 runs have a set on the host, yet only 2,525 calls finish before the deadline; at 200~ms resident OnlineMIS also delivers on large RB and small ER, with 190 and 41 calls still running when the budget expires (Table~\ref{tab:resident-details}). Appendix~\ref{app:gain-sources} separates how much of the delivered size comes from constructing and publishing a feasible set and how much from the learned ranking.
+
+\subsection{Execution buys search depth}
+On small RB SPRINT-S averages 20.0300 vertices in 193.80~ms, with paired gains of 0.6053 over released RLNN ($[0.5730,0.6387]$) and 0.0793 over RLSA ($[0.0613,0.1003]$) at the 200~ms cutoff (per-pair breakdown in Appendix~\ref{app:representation}, Figure~\ref{fig:baseline-pairs}). Holding the policy fixed, the execution protocol moves the operating point (Table~\ref{tab:policy-path}): with the released weights and 20 particles, fused inference gains 0.5527 vertices over released inference ($[0.5227,0.5847]$); raising the population to 200 adds 0.0587 ($[0.0467,0.0710]$) at the same weights; and the local checkpoint differs from the released one by $-0.0060$ ($[-0.0150,0.0033]$). Execution, not policy training, supplies the gain.
+
+\begin{table}[t]
+\caption{Inference protocol, particle count \(K\), and policy weights on the same 3,000 pairs at 200~ms. Steps count parallel updates per trajectory.}
+\label{tab:policy-path}
+\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+\paperHeader
+\paperHead{Protocol} & \paperHead{Weights} & \paperHead{\(K\)} & \paperHead{Size\,\(\uparrow\)} & \paperHead{Steps} & \paperHead{ms\,\(\downarrow\)} \\
+\midrule
+Released & Released & 20 & 19.4247 & 85.7 & 152.25 \\
+SPRINT-S & Released & 20 & 19.9773 & 1357.9 & 195.84 \\
+SPRINT-S & Released & 200 & 20.0360 & 346.2 & 193.87 \\
+SPRINT-S & Local & 200 & 20.0300 & 351.0 & 193.80 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At 130 steps, replay preserves decoded size at either compilation setting while cutting mean wall time from 277.70 to 74.53~ms (Table~\ref{tab:execution-ablation}). Under a 200~ms deadline the same switches raise search depth from 82.9 to 348.6 steps and add 0.3320 vertices ($[0.3093,0.3563]$); replay supplies 140.0 of the extra steps and compilation another 125.7. Because the fixed-work size is unchanged, the gain is more updates at the same per-step quality, not better updates. Dense adjacency and FP16 follow the same mechanism and add 0.1663 and 0.0493 vertices at fixed time (Appendix~\ref{app:representation}, Figure~\ref{fig:execution-effects}).
+
+
+\begin{table}[t]
+\caption{CUDA Graph replay and policy compilation on matched graph--seed pairs. Entries are means over 3,000 solves per configuration in each protocol.}
+\label{tab:execution-ablation}
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrrrr}
+\toprule
+\paperHeader
+ & & \multicolumn{2}{c}{\paperHead{130 steps}} & \multicolumn{3}{c}{\paperHead{200 ms}} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-7}
+\paperHeader
+\paperHead{Replay} & \paperHead{Compile} & \paperHead{Size\,\(\uparrow\)} & \paperHead{ms\,\(\downarrow\)} & \paperHead{Size\,\(\uparrow\)} & \paperHead{Steps} & \paperHead{ms\,\(\downarrow\)} \\
+\midrule
+Off & Off & 19.8980 & 277.70 & 19.6967 & 82.9 & 184.07 \\
+Off & On  & 19.8930 & 276.31 & 19.6907 & 79.6 & 183.91 \\
+On  & Off & 19.8980 & 113.52 & 19.9890 & 222.8 & 192.22 \\
+\rowcolor{TableGold}
+On  & On  & 19.8930 & \textbf{74.53} & \textbf{20.0287} & \textbf{348.6} & 193.57 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Delivering earlier at equal size}
+At 200~ms, midpoint-plus-terminal and terminal-only decoding both average 20.0303 vertices with full coverage, and their paired size difference is 0.0000 ($[-0.0017,0.0017]$). What changes is when the score exists: midpoint decoding moves the median time to the ultimately scored size from 194.24 to 106.63~ms, and by 125~ms it has published that size on 2,786 of 3,000 pairs, including 2,540 verified optima, where terminal-only decoding has published none. Depths are 351.81 and 353.62 steps and return times 193.55 and 194.03~ms, so the early readout buys availability without paying in quality (Figure~\ref{fig:intro-evidence}(a)). Decoding immediately after initialization costs 0.0187 vertices; Appendix~\ref{app:decode} follows one graph's membership and reports the leading, width and reserve variants.

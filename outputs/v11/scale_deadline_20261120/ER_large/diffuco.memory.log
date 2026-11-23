@@ -1,0 +1,9 @@
+index, name, memory.total [MiB], memory.free [MiB]
+0, NVIDIA GeForce RTX 5090, 32607 MiB, 26227 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB, 15047 MiB
+JAX device memory: {'num_allocs': 769, 'bytes_in_use': 831232, 'peak_bytes_in_use': 2446336, 'largest_alloc_size': 65536, 'bytes_limit': 25253511168, 'bytes_reserved': 0, 'peak_bytes_reserved': 0, 'largest_free_block_bytes': 0, 'pool_bytes': 6291456, 'peak_pool_bytes': 6291456}
+XLA compiled memory: CompiledMemoryStats(generated_code_size_in_bytes=1335220, argument_size_in_bytes=57202052, output_size_in_bytes=349312, alias_size_in_bytes=0, temp_size_in_bytes=9876061768, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)
+JAX memory after compilation: {'num_allocs': 994, 'bytes_in_use': 831232, 'peak_bytes_in_use': 14743151616, 'largest_alloc_size': 4970501120, 'bytes_limit': 25253511168, 'bytes_reserved': 0, 'peak_bytes_reserved': 0, 'largest_free_block_bytes': 0, 'pool_bytes': 25253511168, 'peak_pool_bytes': 25253511168}
+index, memory.free [MiB]
+0, 1603 MiB
+1, 15047 MiB

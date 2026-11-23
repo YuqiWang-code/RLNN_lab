@@ -1,0 +1,20 @@
+{
+  "method": "kamis",
+  "graphs": 16,
+  "seeds": [
+    517
+  ],
+  "budget_ms": 200.0,
+  "dataset": "models/data/scale_priority_20261121/ER_large/validation",
+  "host": "user",
+  "platform": "Linux-6.17.0-41-generic-x86_64-with-glibc2.42",
+  "cuda_visible_devices": "",
+  "solver_config": {
+    "binary": "tmp/kamis_build/online_mis",
+    "internal_limit_ms": 120,
+    "outer_limit_ms": 200,
+    "omp_threads": "1"
+  },
+  "torch": "2.9.1+cu130",
+  "timing": "Prepared input outside; initialization, synchronized search, and host solution delivery inside."
+}

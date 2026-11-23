@@ -1,0 +1,7 @@
+{
+  "repository": null,
+  "revision": null,
+  "license": null,
+  "paper": "AAAI 2025, doi 10.1609/aaai.v39i25.34921",
+  "note": "未见公开仓库（arXiv 摘要仅给 anonymous URL）；operators/lrbs_beam.py 按论文 §3 与 Algorithm 1 重写，不声称复现作者实现。"
+}

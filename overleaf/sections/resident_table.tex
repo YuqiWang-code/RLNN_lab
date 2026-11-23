@@ -1,0 +1,36 @@
+\begin{table*}[t]
+\centering\scriptsize\setlength{\tabcolsep}{4.8pt}
+\caption{Resident solvers at four independently run deadlines. Size averages the largest feasible set on the host by the cutoff over all graph--seed pairs. Wall is mean return time in milliseconds. Ready counts runs with a timely host incumbent, and Ret.\ counts solves that finished by the deadline. Each RB set has 3,000 pairs per method and budget. The small and large ER sets have 384 and 48, respectively.}
+\label{tab:resident-details}
+\resizebox{\textwidth}{!}{\begin{tabular}{llrrrrrrrrrrrr}
+\toprule
+\paperHeader & & \multicolumn{4}{c}{\cellcolor{TableBlue}\paperHead{SPRINT-C (learned)}} & \multicolumn{4}{c}{\cellcolor{TableGreen}\paperHead{SPRINT-C (degree)}} & \multicolumn{4}{c}{\cellcolor{TableOrange}\paperHead{Resident OnlineMIS}} \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-10}\cmidrule(lr){11-14}
+\paperHeader \paperHead{Graph set} & \paperHead{Budget (ms)} & \paperHead{Size\,$\uparrow$} & \paperHead{Wall\,$\downarrow$} & \paperHead{Ready} & \paperHead{Ret.} & \paperHead{Size\,$\uparrow$} & \paperHead{Wall\,$\downarrow$} & \paperHead{Ready} & \paperHead{Ret.} & \paperHead{Size\,$\uparrow$} & \paperHead{Wall\,$\downarrow$} & \paperHead{Ready} & \paperHead{Ret.} \\
+\midrule
+RB-[200--300] & 50 & 20.1150 & 9.42 & 3000 & 3000 & 20.1150 & 1.71 & 3000 & 3000 & 20.0250 & 47.10 & 3000 & 2998 \\
+ & 100 & 20.1150 & 9.28 & 3000 & 3000 & 20.1150 & 2.23 & 3000 & 3000 & 20.0617 & 97.11 & 3000 & 2998 \\
+\rowcolor{TableGold}
+ & 200 & 20.1150 & 10.37 & 3000 & 3000 & 20.1150 & 2.53 & 3000 & 3000 & 20.0817 & 197.11 & 3000 & 2999 \\
+ & 500 & 20.1150 & 11.95 & 3000 & 3000 & 20.1150 & 3.58 & 3000 & 3000 & 20.0953 & 497.10 & 3000 & 3000 \\
+\midrule
+RB-[800--1200] & 50 & 41.0043 & 44.46 & 3000 & 2525 & 41.2773 & 42.46 & 2999 & 2673 & 40.8333 & 47.62 & 2994 & 2849 \\
+ & 100 & 42.2383 & 75.60 & 3000 & 2999 & 42.3353 & 72.22 & 3000 & 3000 & 41.4777 & 97.69 & 3000 & 2803 \\
+\rowcolor{TableGold}
+ & 200 & 42.4417 & 139.04 & 3000 & 3000 & 42.4663 & 137.18 & 3000 & 3000 & 41.7613 & 197.72 & 3000 & 2810 \\
+ & 500 & 42.5587 & 324.67 & 3000 & 3000 & 42.5703 & 324.67 & 3000 & 3000 & 42.0060 & 497.67 & 3000 & 2822 \\
+\midrule
+ER-[700--800] & 50 & 43.7396 & 47.08 & 384 & 384 & 44.2266 & 47.02 & 384 & 384 & 42.2109 & 47.99 & 384 & 341 \\
+ & 100 & 44.0781 & 97.07 & 384 & 384 & 44.0885 & 97.07 & 384 & 384 & 42.4609 & 98.74 & 384 & 327 \\
+\rowcolor{TableGold}
+ & 200 & 44.3438 & 197.08 & 384 & 384 & 44.2578 & 197.06 & 384 & 384 & 42.7240 & 198.00 & 384 & 343 \\
+ & 500 & 44.5339 & 497.08 & 384 & 384 & 44.5156 & 497.06 & 384 & 384 & 42.8776 & 498.22 & 384 & 333 \\
+\midrule
+ER-[9000--11000] & 50 & 358.3958 & 47.94 & 48 & 42 & 365.9792 & 47.22 & 48 & 48 & 356.8958 & 47.68 & 48 & 45 \\
+ & 100 & 367.5208 & 97.21 & 48 & 48 & 367.4375 & 97.28 & 48 & 48 & 361.1667 & 97.65 & 48 & 44 \\
+\rowcolor{TableGold}
+ & 200 & 370.1250 & 197.24 & 48 & 48 & 369.4167 & 197.27 & 48 & 48 & 363.5833 & 197.48 & 48 & 46 \\
+ & 500 & 370.2708 & 497.57 & 48 & 48 & 368.4583 & 498.27 & 48 & 44 & 363.2292 & 498.27 & 48 & 45 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

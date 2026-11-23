@@ -1,0 +1,88 @@
+{
+  "candidate": {
+    "source_rows": 3000,
+    "mean_size": 20.027666666666665,
+    "mean_wall_ms": 193.52783333333332,
+    "wall_p50_ms": 193.0,
+    "wall_p95_ms": 196.5,
+    "mean_steps": 342.53,
+    "ready_by_deadline": 3000
+  },
+  "reference": {
+    "source_rows": 3000,
+    "mean_size": 19.97833333333333,
+    "mean_wall_ms": 193.54966666666667,
+    "wall_p50_ms": 194.0,
+    "wall_p95_ms": 195.90499999999997,
+    "mean_steps": 199.15666666666667,
+    "ready_by_deadline": 3000
+  },
+  "deadline_ms": 200,
+  "graph_count": 1000,
+  "pairs": 3000,
+  "mean_paired_delta": 0.049333333333333326,
+  "ci95": [
+    0.03833333333333333,
+    0.061
+  ],
+  "wins": 202,
+  "ties": 2744,
+  "losses": 54,
+  "same_seed_protocol": true,
+  "sources": {
+    "candidate": "outputs/v11/paper_ablations/precision_20261119/deadline200/fp16",
+    "candidate_glob": "**/v11_rows.csv",
+    "reference": "outputs/v11/paper_ablations/precision_20261119/deadline200/fp32"
+  },
+  "fixed_steps": 0,
+  "compile_model": true,
+  "tf32_override": 0,
+  "run_metadata": {
+    "fp16": [
+      {
+        "seed": 1017,
+        "setup_s": 10.9776,
+        "eval_loop_s": 204.26,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      },
+      {
+        "seed": 1019,
+        "setup_s": 10.8328,
+        "eval_loop_s": 204.46,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      },
+      {
+        "seed": 1021,
+        "setup_s": 10.8974,
+        "eval_loop_s": 204.72,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      }
+    ],
+    "fp32": [
+      {
+        "seed": 1017,
+        "setup_s": 10.347,
+        "eval_loop_s": 204.44,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      },
+      {
+        "seed": 1019,
+        "setup_s": 10.3246,
+        "eval_loop_s": 204.62,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      },
+      {
+        "seed": 1021,
+        "setup_s": 10.1144,
+        "eval_loop_s": 204.59,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      }
+    ]
+  }
+}

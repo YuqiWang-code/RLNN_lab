@@ -1,0 +1,87 @@
+{
+  "candidate": {
+    "source_rows": 3000,
+    "mean_size": 19.988333333333333,
+    "mean_wall_ms": 192.3355,
+    "wall_p50_ms": 192.5,
+    "wall_p95_ms": 196.2,
+    "mean_steps": 224.56333333333333,
+    "ready_by_deadline": 3000
+  },
+  "reference": {
+    "source_rows": 3000,
+    "mean_size": 19.822,
+    "mean_wall_ms": 187.27656666666664,
+    "wall_p50_ms": 189.5,
+    "wall_p95_ms": 195.6,
+    "mean_steps": 95.72333333333333,
+    "ready_by_deadline": 3000
+  },
+  "deadline_ms": 200,
+  "graph_count": 1000,
+  "pairs": 3000,
+  "mean_paired_delta": 0.1663333333333333,
+  "ci95": [
+    0.1496666666666667,
+    0.18333333333333335
+  ],
+  "wins": 494,
+  "ties": 2499,
+  "losses": 7,
+  "same_seed_protocol": true,
+  "sources": {
+    "candidate": "outputs/v11/paper_ablations/adjacency_20261119/deadline200/dense",
+    "candidate_glob": "**/v11_rows.csv",
+    "reference": "outputs/v11/paper_ablations/adjacency_20261119/deadline200/csr"
+  },
+  "fixed_steps": 0,
+  "compile_model": false,
+  "run_metadata": {
+    "dense": [
+      {
+        "seed": 1017,
+        "setup_s": 1.8175,
+        "eval_loop_s": 199.87,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      },
+      {
+        "seed": 1019,
+        "setup_s": 1.3884,
+        "eval_loop_s": 198.52,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      },
+      {
+        "seed": 1021,
+        "setup_s": 1.8002,
+        "eval_loop_s": 200.39,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      }
+    ],
+    "csr": [
+      {
+        "seed": 1017,
+        "setup_s": 1.5757,
+        "eval_loop_s": 193.94,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      },
+      {
+        "seed": 1019,
+        "setup_s": 1.6064,
+        "eval_loop_s": 195.45,
+        "wall_overruns": 1,
+        "last_decode_after_200ms": 1
+      },
+      {
+        "seed": 1021,
+        "setup_s": 1.5481,
+        "eval_loop_s": 194.16,
+        "wall_overruns": 0,
+        "last_decode_after_200ms": 0
+      }
+    ]
+  }
+}

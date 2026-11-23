@@ -1,0 +1,17 @@
+graph_id,budget,cell,arm,decoder,seed,repeat,search_size,final_size,steps,wall_ms,ms_per_step,search_ms,load_ms,blocks,pave_gain,deadline_overrun,temperature,anneal,fixed_steps
+graph_000000,1.0,padded/cached,padded,cached,1017,0,22,22,800,974.2,1.185,,,80,0,0,1.0,0,0
+graph_000000,1.0,padded/captured,padded,captured,1017,0,22,22,880,994.6,1.072,,,88,0,0,1.0,0,0
+graph_000000,0.2,padded/cached,padded,cached,1017,0,22,22,120,192.6,1.276,,,12,0,0,1.0,0,0
+graph_000000,0.2,padded/captured,padded,captured,1017,0,22,22,100,188.2,1.612,,,10,0,0,1.0,0,0
+graph_000001,1.0,padded/captured,padded,captured,1017,0,19,19,880,972.4,1.071,,,88,0,0,1.0,0,0
+graph_000001,1.0,padded/cached,padded,cached,1017,0,19,19,900,995.7,1.057,,,90,0,0,1.0,0,0
+graph_000001,0.2,padded/captured,padded,captured,1017,0,19,19,110,189.4,1.438,,,11,0,0,1.0,0,0
+graph_000001,0.2,padded/cached,padded,cached,1017,0,19,19,120,185.6,1.298,,,12,0,0,1.0,0,0
+graph_000002,1.0,padded/cached,padded,cached,1017,0,18,18,870,996.0,1.092,,,87,0,0,1.0,0,0
+graph_000002,1.0,padded/captured,padded,captured,1017,0,18,18,870,984.7,1.09,,,87,0,0,1.0,0,0
+graph_000002,0.2,padded/cached,padded,cached,1017,0,18,18,100,191.2,1.564,,,10,0,0,1.0,0,0
+graph_000002,0.2,padded/captured,padded,captured,1017,0,18,18,120,189.2,1.284,,,12,0,0,1.0,0,0
+graph_000003,1.0,padded/captured,padded,captured,1017,0,18,18,870,984.0,1.093,,,87,0,0,1.0,0,0
+graph_000003,1.0,padded/cached,padded,cached,1017,0,18,18,870,991.8,1.089,,,87,0,0,1.0,0,0
+graph_000003,0.2,padded/captured,padded,captured,1017,0,17,17,90,170.7,1.718,,,9,0,0,1.0,0,0
+graph_000003,0.2,padded/cached,padded,cached,1017,0,17,17,90,183.4,1.703,,,9,0,0,1.0,0,0

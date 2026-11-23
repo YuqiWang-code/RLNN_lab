@@ -1,0 +1,7 @@
+check,value,unit,n_graphs,ids,note,csv_row
+equiv_identical_graphs,194,graphs,200,,compiled vs plain 逐图相同（200 图，固定 130 步）,equivalence_summary.csv:2
+equiv_max_abs_delta,1.0,indep_nodes,200,,compiled vs plain 逐图最大 |Δ|,equivalence_summary.csv:3
+equiv_graphs_abs_ge_2,0,graphs,200,,compiled vs plain |Δ|≥2 图数（门槛 ≤1%）,equivalence_summary.csv:4
+equiv_graphs_abs_ge_3,0,graphs,200,,compiled vs plain |Δ|≥3 图数（任一即失败）,equivalence_summary.csv:5
+equiv_default_path_identical,200,graphs,200,,默认路径回归：plain vs t24 curve130 相同图数,equivalence_summary.csv:6
+equiv_default_path_max_abs,0.0,indep_nodes,200,,默认路径回归最大 |Δ|（默认关应恒 0）,equivalence_summary.csv:7
