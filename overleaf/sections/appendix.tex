@@ -118,7 +118,7 @@ Across the three 1,000-graph batches in the fixed-130-step experiment, mean reco
 \paragraph{An instance at constant cardinality.}
 Figure~\ref{fig:decode-cases} follows the first test graph and the first search seed in a separate diagnostic. We decode the top four archived states at initialization and after every ten steps through step 350. The initial set has 18 vertices. By step ten it has 19, and the size then stays at 19 even as the membership changes. The initial and terminal sets share just two vertices. Their union contains 19 conflict edges, all between vertices exclusive to different sets. This illustrates why an archive can continue changing after its best decoded size has plateaued, and why splicing two feasible candidates would require checking conflicts again. The diagnostic uses step counts so that observing these intermediate states does not enter the latency experiment.
 
-\paragraph{How many states should be decoded?}
+\paragraph{Decode width.}
 In a separate paired run, increasing the decode width from the four lowest-energy states to all 200 particles raises mean decode time per solve from 2.12 to 4.67~ms. The mean search depth falls from 354.85 to 346.82 steps. The wider decode nevertheless increases size from 20.0300 to 20.0350 (\(+0.0050\), 95\% CI \([0.0013,0.0090]\)). Both widths have 3,000 on-time feasible incumbents. Returning from the solve takes more than 200~ms in 12 all-particle runs and zero four-particle runs. Only 27 of the 3,000 paired scores differ. Searching deeper and examining a wider archive can each improve the answer, but the width benefit here is concentrated in a small fraction of instances.
 
 \paragraph{Using the remaining time.}

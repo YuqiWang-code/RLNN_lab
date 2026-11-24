@@ -4,7 +4,7 @@
 
 For a graph \(G=(V,E)\), we seek the largest \(S\subseteq V\) with no edge inside \(S\). Figure~\ref{fig:search-paths} shows the two routes. SPRINT-C constructs an incumbent before running the network and then improves it. SPRINT-S explores conflicting states and pays a decode whenever it publishes an incumbent. In both designs the clock starts with the input in the representation the solver works from, and every published set is copied to a host archive with a timestamp.
 
-\subsection{What can the host use at the cutoff?}
+\subsection{The archive at the cutoff}
 Let \(\tau_j\) be the elapsed time at which the vertices of a feasible set \(S_j\) have been copied to the host archive. At a deadline \(B\) we record
 \begin{align}
  Q_B &= \max\bigl(\{\,|S_j|:\tau_j\leq B\,\}\cup\{0\}\bigr), \label{eq:score}\\
